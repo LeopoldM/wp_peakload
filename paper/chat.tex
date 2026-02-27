@@ -1,0 +1,503 @@
+
+\documentclass{class}
+
+\usepackage{bbm}
+
+\usetikzlibrary{positioning}
+
+
+\begin{document}
+
+
+\begingroup
+\allowdisplaybreaks
+
+%============================
+% Setup and KKT conditions
+%============================
+\paragraph{Setup and notation.}
+For each category $i$ with population weight $\mu_i$, type $\theta\in\Theta_i$, and state $s$, let $q_i(\theta,s)$ and $t_i(\theta,s)$ denote the allocation and transfer. Let $u(q,\theta,s)$ denote the \emph{marginal surplus} (marginal WTP net of marginal cost), with $u_q(q,\theta,s)<0$. The capacity constraint binds in on-peak states with multiplier $\lambda(s)$; the budget constraint has multiplier $\beta\ge 0$. For each $(i,\theta)$, let $\rho_i(\theta)\ge 0$ be the multiplier on IR and $\phi_i(\theta,s)\ge 0$ on the nonnegativity of transfers (if present). Let $N^{nb}$ be the set of categories with \emph{slack} IR (all types), and $N^b$ those with \emph{binding} IR (contributing categories). Integrals over types are w.r.t.\ $G_i$.
+
+\paragraph{FOCs (stated as equalities to $0$).}
+From the KKT conditions:
+\begin{align}
+\label{KKT-q}\tag{KKT-$q$}
+(\mu_i\nu_i+\rho_i(\theta))\,u\!\left(q_i(\theta,s),\theta,s\right)\;-\;\mu_i\lambda(s) \;=\; 0,
+\\
+\label{KKT-t}\tag{KKT-$t$}
+-\mu_i\nu_i + \mu_i\beta - \rho_i(\theta) + \phi_i(\theta,s) \;=\; 0.
+\end{align}
+If IR is slack for $i$, then $\rho_i(\theta)=0$ for all $\theta$.
+If $t_i(\theta,s)>0$ then $\phi_i(\theta,s)=0$.
+
+%============================
+% Comparative statics in k
+%============================
+\paragraph{Comparative statics in $k$.}
+Differentiate \eqref{KKT-q} w.r.t.\ $k$ and set to zero:
+\[
+(\mu_i\nu_i+\rho_i)\,u_q(q_i)\,\partial_k q_i \;+\; (\partial_k\rho_i)\,u(q_i,\theta,s) \;-\; \mu_i\,\partial_k\lambda(s) \;=\; 0,
+\]
+hence
+\begin{equation}\label{dqdk-general}
+\partial_k q_i(\theta,s)
+=
+\frac{\mu_i\,\partial_k\lambda(s)\;-\;(\partial_k\rho_i(\theta))\,u(q_i,\theta,s)}
+{(\mu_i\nu_i+\rho_i(\theta))\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+\emph{Slack IR} ($i\in N^{nb}$): $\rho_i=\partial_k\rho_i=0$, so
+\begin{equation}\label{dqdk-slack}
+\partial_k q_i \;=\; \frac{\partial_k\lambda(s)}{\nu_i\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+\emph{Binding IR} ($i\in N^b$ with $t_i>0$): from \eqref{KKT-t} with $\phi_i=0$,
+$\mu_i\beta=\mu_i\nu_i+\rho_i(\theta)\Rightarrow \rho_i(\theta)=\mu_i(\beta-\nu_i)$, so
+$\partial_k\rho_i(\theta)=\mu_i\,\partial_k\beta$. Plugging into \eqref{dqdk-general}:
+\begin{equation}\label{dqdk-binding}
+\partial_k q_i \;=\; \frac{\partial_k\lambda(s)-\partial_k\beta\,u(q_i,\theta,s)}{\beta\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+If the marginal category $i^\ast$ has slack IR and $t_{i^\ast}>0$, then from \eqref{KKT-t}
+$\beta=\nu_{i^\ast}$; locally in $k$ this implies $\partial_k\beta=0$.
+
+%============================
+% Capacity balance and ∂k λ
+%============================
+\paragraph{Capacity balance and $\partial_k\lambda(s)$.}
+Differentiating the capacity constraint gives
+\[
+1 \;=\; \sum_i \mu_i \int_{\Theta_i}\partial_k q_i(\theta,s)\,dG_i(\theta).
+\]
+Split the sum over $N^{nb}$ (use \eqref{dqdk-slack}) and $N^b$ (use \eqref{dqdk-binding}). Define
+\begin{align}
+\label{A-def}\tag{$\mathcal A$}
+\mathcal A(s) \;&:=\;
+\sum_{i\in N^{nb}}\mu_i\!\int_{\Theta_i}\frac{1}{\nu_i\,u_q(q_i,\theta,s)}\,dG_i
+\;+\;
+\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i}\frac{1}{\beta\,u_q(q_i,\theta,s)}\,dG_i,
+\\
+\label{B-def}\tag{$\mathcal B$}
+\mathcal B(s) \;&:=\;
+\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i}\frac{u(q_i,\theta,s)}{\beta\,u_q(q_i,\theta,s)}\,dG_i,
+\\
+\label{C-def}\tag{$\mathcal C$}
+\mathcal C(s) \;&:=\;
+\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i}\frac{u(q_i,\theta,s)^2}{\beta\,u_q(q_i,\theta,s)}\,dG_i.
+\end{align}
+Then
+\begin{equation}\label{dlambdadk}
+\partial_k\lambda(s) \;=\; \frac{1}{\mathcal A(s)} \;+\; \partial_k\beta\;\frac{\mathcal B(s)}{\mathcal A(s)}.
+\end{equation}
+Since $u_q<0$, we have $\mathcal A(s)<0$. If $\partial_k\beta=0$ (e.g., marginal category slack), then $\partial_k\lambda(s)=1/\mathcal A(s)<0$.
+
+%============================
+% Sign of ∂k q_i and a sufficient condition
+%============================
+\paragraph{Sign of $\partial_k q_i$ for contributing categories.}
+For $i\in N^b$, combining \eqref{dqdk-binding} and \eqref{dlambdadk}:
+\[
+\partial_k q_i
+=
+\frac{1}{\beta u_q}\Bigg(
+\frac{1}{\mathcal A}
+\;+\;
+\partial_k\beta\Big(\tfrac{\mathcal B}{\mathcal A}-u(q_i,\theta,s)\Big)
+\Bigg).
+\]
+A sufficient condition for $\partial_k q_i>0$ is:
+\[
+\partial_k\beta<0
+\quad\text{and}\quad
+\tfrac{\mathcal B(s)}{\mathcal A(s)}-u(q_i,\theta,s)>0.
+\]
+
+%============================
+% Determining ∂k β
+%============================
+\paragraph{Identifying $\partial_k\beta$.}
+Aggregate IR and revenue. Using $t_i=0$ for $i\notin N^b$ and differentiating the revenue requirement,
+\[
+\sum_{i\in N^b}\mu_i\int_s\!\!\int_{\Theta_i} u(q_i,\theta,s)\,\partial_k q_i(\theta,s)\,dG_i\,dF(s) \;=\; I'(k).
+\]
+Substitute \eqref{dqdk-binding} and rearrange using \eqref{dlambdadk} and the definitions \eqref{A-def}–\eqref{C-def} to obtain
+\begin{equation}\label{dbetadk}
+\partial_k\beta
+\;=\;
+\frac{ I'(k)\;-\;\displaystyle\int_s \frac{\mathcal B(s)}{\mathcal A(s)}\,dF(s) }
+{ \displaystyle\int_s \Big( \frac{\mathcal B(s)^2}{\mathcal A(s)} - \mathcal C(s) \Big)\,dF(s) }.
+\end{equation}
+
+\paragraph{Denominator positivity.}
+Write $r(q,\theta,s):=-u_q(q,\theta,s)>0$. Over $N^b$,
+\[
+\mathcal A_b(s)=-\frac{1}{\beta}\sum_{i\in N^b}\mu_i\!\int\!\frac{1}{r}\,,\quad
+\mathcal B(s)=-\frac{1}{\beta}\sum_{i\in N^b}\mu_i\!\int\!\frac{u}{r}\,,\quad
+\mathcal C(s)=-\frac{1}{\beta}\sum_{i\in N^b}\mu_i\!\int\!\frac{u^2}{r}\,.
+\]
+Cauchy–Schwarz yields $\big(\sum\!\int \tfrac{u}{r}\big)^2 \le \big(\sum\!\int \tfrac{1}{r}\big)\big(\sum\!\int \tfrac{u^2}{r}\big)$,
+hence $\mathcal B(s)^2 \le \mathcal A_b(s)\,\mathcal C(s)$.
+Since $\mathcal A(s)\le \mathcal A_b(s)<0$,
+\[
+\frac{\mathcal B(s)^2}{\mathcal A(s)} \;\ge\; \frac{\mathcal B(s)^2}{\mathcal A_b(s)} \;\ge\; \mathcal C(s),
+\]
+so the denominator of \eqref{dbetadk} is strictly positive.
+
+%============================
+% Linear-in-q specialization with normalized averages
+%============================
+\paragraph{Linear-in-$q$ specialization with normalized averages.}
+Assume $u(q,\theta,s)=a(\theta,s)+u_q(s)\,q$ with $u_q(s)<0$ and $u_{q\theta}=u_{qs}=0$. Let
+\[
+M^{nb}:=\sum_{i\in N^{nb}}\mu_i\int_{\Theta_i}\!dG_i(\theta),
+\qquad
+M^{b}:=\sum_{i\in N^{b}}\mu_i\int_{\Theta_i}\!dG_i(\theta),
+\]
+and define
+\[
+w^{nb}:=\sum_{i\in N^{nb}}\frac{\mu_i}{\nu_i}\int_{\Theta_i}\!dG_i(\theta),
+\qquad
+w^{b}:=\frac{M^{b}}{\beta},
+\qquad
+w:=w^{nb}+w^{b}.
+\]
+Introduce the \emph{normalized} average over contributing types:
+\[
+\overline{u}^{\,b}(s)\;:=\;\frac{1}{M^{b}}\sum_{i\in N^{b}}\mu_i\int_{\Theta_i} u(q_i(\theta,s),\theta,s)\,dG_i(\theta),
+\quad
+\overline{u^{2}}{}^{\,b}(s)\;:=\;\frac{1}{M^{b}}\sum_{i\in N^{b}}\mu_i\int_{\Theta_i} u(\cdot)^2\,dG_i.
+\]
+Then the objects in \eqref{A-def}–\eqref{C-def} simplify to
+\begin{equation}\label{ABC-linear}
+\mathcal A(s)=\frac{w}{u_q(s)},\qquad
+\mathcal B(s)=\frac{w^{b}}{u_q(s)}\,\overline{u}^{\,b}(s),\qquad
+\mathcal C(s)=\frac{w^{b}}{u_q(s)}\,\overline{u^{2}}{}^{\,b}(s),
+\end{equation}
+and therefore
+\begin{equation}\label{dlambda-linear}
+\partial_k\lambda(s)=\frac{u_q(s)}{w}\;+\;\frac{w^{b}}{w}\,\partial_k\beta\;\overline{u}^{\,b}(s).
+\end{equation}
+(Notice the use of \emph{normalized} averages: this removes unintended scale factors and makes identities like $\mathcal B/\mathcal A=(w^{b}/w)\,\overline{u}^{\,b}$ exact.)
+
+\paragraph{Clean derivatives of $\mathcal A$ and $\mathcal B$.}
+Since $u_q(s)$ is $k$-independent here,
+\[
+\partial_k \mathcal A(s)=\frac{\partial_\beta w}{u_q(s)}\,\partial_k\beta
+\quad\text{with}\quad
+\partial_\beta w=\partial_\beta w^{b}=-\frac{M^{b}}{\beta^2}<0.
+\]
+For $\mathcal B(s)=(w^{b}/u_q)\,\overline{u}^{\,b}(s)$,
+\[
+\partial_k \mathcal B(s)
+=
+\frac{\partial_\beta w^{b}}{u_q(s)}\,\overline{u}^{\,b}(s)\,\partial_k\beta
+\;+\;
+\frac{w^{b}}{u_q(s)}\,\partial_k \overline{u}^{\,b}(s).
+\]
+Under linear $u$, $\partial_k \overline{u}^{\,b}(s)=u_q(s)\,\overline{\partial_k q}^{\,b}(s)$, where
+\[
+\overline{\partial_k q}^{\,b}(s):=
+\frac{1}{M^{b}}\sum_{i\in N^{b}}\mu_i\int_{\Theta_i}\partial_k q_i(\theta,s)\,dG_i(\theta).
+\]
+Thus
+\begin{equation}\label{dBdk-clean}
+\partial_k \mathcal B(s)
+=
+\frac{\partial_\beta w^{b}}{u_q(s)}\,\overline{u}^{\,b}(s)\,\partial_k\beta
+\;+\;
+w^{b}\,\overline{\partial_k q}^{\,b}(s).
+\end{equation}
+Equations \eqref{dlambda-linear}–\eqref{dBdk-clean} give a compact, scale-free decomposition of the response of $(\lambda,\mathcal A,\mathcal B)$ in terms of $\partial_k\beta$ and the average quantity response among contributors.
+
+\endgroup
+
+% weights
+w_i^{nb}(\theta,s):=\frac{1}{\nu_i\,u_q(q_i(\theta,s),\theta,s)},\quad
+w_i^{b}(\theta,s):=\frac{1}{\beta\,u_q(q_i(\theta,s),\theta,s)}.
+
+% total weights
+\tag{$Z(s)$}\label{Z-def}
+Z(s):=\sum_{i\in N^{nb}}\mu_i\!\int_{\Theta_i} w_i^{nb}(\theta,s)\,dG_i(\theta)
+     +\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i} w_i^{b}(\theta,s)\,dG_i(\theta),
+\]
+\[
+\tag{$Z_b(s)$}\label{Zb-def}
+Z_b(s):=\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i} w_i^{b}(\theta,s)\,dG_i(\theta).
+\]
+
+% expectations over the binding set
+\tag{$\mathbb{E}_{w}[u\,|\,s]$}\label{Ew-def}
+\mathbb{E}_{w}[u\,|\,s]
+:= \frac{1}{Z_b(s)}
+\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i} w_i^{b}(\theta,s)\,
+u\!\big(q_i(\theta,s),\theta,s\big)\,dG_i(\theta),
+\]
+\[
+\tag{$\mathbb{E}_{w}[u^2\,|\,s]$}\label{Ew2-def}
+\mathbb{E}_{w}[u^2\,|\,s]
+:= \frac{1}{Z_b(s)}
+\sum_{i\in N^{b}}\mu_i\!\int_{\Theta_i} w_i^{b}(\theta,s)\,
+u\!\big(q_i(\theta,s),\theta,s\big)^2\,dG_i(\theta).
+
+
+
+
+\section{Proof of Corollary XXXX (on-peak / off-peak version)}
+
+\begin{proof}
+For each \((\theta,i,s)\), the KKT conditions are
+\begin{align}
+\label{KKT-q}\tag{KKT-$q$}
+(\mu_i\nu_i+\rho_i)\,u\!\left(q_i(\theta,s),\theta,s\right)-\mu_i\lambda(s)=0,
+\\
+\label{KKT-t}\tag{KKT-$t$}
+-\mu_i\nu_i+\mu_i\beta-\rho_i+\phi_i(\theta,s)=0,
+\end{align}
+with \(\rho_i(\theta)\ge 0\) (IR), \(\phi_i(\theta,s)\ge 0\) (\(t_i\ge 0\)), and \(\phi_i(\theta,s)=0\) whenever \(t_i(\theta,s)>0\).
+
+Let \(S^\ast\) be the set of \emph{off-peak} states (capacity slack) and \(T^\ast\) the set of \emph{on-peak} states (capacity binding), i.e.
+\[
+s\in S^\ast \iff \lambda(s)=0,
+\qquad
+s\in T^\ast \iff \lambda(s)>0.
+\]
+
+\paragraph{Step 1: Individual derivatives.}
+Differentiating \eqref{KKT-q} w.r.t.\ \(k\) (holding \(s\) fixed) gives
+\[
+(\mu_i\nu_i+\rho_i)\,u_q(q_i)\,\partial_k q_i(\theta,s)
+\;+\;(\partial_k\rho_i)\,u(q_i,\theta,s)
+\;-\;\mu_i\,\partial_k\lambda(s)=0,
+\]
+so
+\begin{equation}\label{dqdk-general}
+\partial_k q_i(\theta,s)
+=
+\frac{\mu_i\,\partial_k\lambda(s)\;-\;(\partial_k\rho_i)\,u(q_i,\theta,s)}
+{(\mu_i\nu_i+\rho_i)\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+If \(i\) has \emph{slack IR} (\(\rho_i=0\) for all \(\theta\)), then \(\partial_k\rho_i=0\) and
+\begin{equation}\label{dqdk-slack}
+\partial_k q_i(\theta,s)=\frac{\partial_k\lambda(s)}{\nu_i\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+If \(i\) has \emph{binding IR} and \(t_i>0\) (so \(\phi_i=0\)), then from \eqref{KKT-t}:
+\(\mu_i\beta=\mu_i\nu_i+\rho_i\), i.e.\ \(\rho_i=\mu_i(\beta-\nu_i)\) and \(\partial_k\rho_i=\mu_i\,\partial_k\beta\).
+Plugging into \eqref{dqdk-general} yields
+\begin{equation}\label{dqdk-binding}
+\partial_k q_i(\theta,s)
+=\frac{\partial_k\lambda(s)\;-\;\partial_k\beta\,u(q_i,\theta,s)}
+{\beta\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+\paragraph{Step 2: State-by-state capacity (on vs off peak).}
+For each \(s\), the capacity constraint is \(\sum_i \mu_i \mathbb{E}_\theta[q_i(\theta,s)]\le k\).
+Hence
+\[
+s\in T^\ast:\quad \sum_i \mu_i \mathbb{E}_\theta[\partial_k q_i(\theta,s)] = 1,
+\qquad
+s\in S^\ast:\quad \sum_i \mu_i \mathbb{E}_\theta[\partial_k q_i(\theta,s)] = 0.
+\]
+
+\paragraph{Step 3: Solving for \(\partial_k\lambda(s)\) when \(s\in T^\ast\).}
+Split categories into \(N^{nb}\) (IR slack) and \(N^{b}\) (IR binding with \(t_i>0\)).
+Define, for each \((\theta,s)\),
+\[
+w^{nb}_i(\theta,s)
+:=\frac{1}{\nu_i\,u_q(q_i(\theta,s),\theta,s)},
+\qquad
+w^{b}_i(\theta,s)
+:=\frac{1}{\beta\,u_q(q_i(\theta,s),\theta,s)}.
+\]
+Aggregate, for each state \(s\),
+\[
+\bar{w}^{nb}(s):=\sum_{i\in N^{nb}}\mu_i\,\mathbb{E}_\theta\!\left[w^{nb}_i(\theta,s)\right],
+\quad
+\bar{w}^{b}(s):=\sum_{i\in N^{b}}\mu_i\,\mathbb{E}_\theta\!\left[w^{b}_i(\theta,s)\right],
+\quad
+\bar{w}(s):=\bar{w}^{nb}(s)+\bar{w}^{b}(s).
+\]
+Over \(N^{b}\), define the weighted moments
+\begin{align}
+\label{Eu-def}\tag{$\mathbb{E}_w[u\,|\,s]$}
+\mathbb{E}_{w}[u\,|\,s]
+&:=\frac{1}{\bar{w}^{b}(s)}
+\sum_{i\in N^{b}}\mu_i\,\mathbb{E}_\theta\!\Big[w^{b}_i(\theta,s)\,u(q_i,\theta,s)\Big],\\
+\label{Eu2-def}\tag{$\mathbb{E}_w[u^2\,|\,s]$}
+\mathbb{E}_{w}[u^2\,|\,s]
+&:=\frac{1}{\bar{w}^{b}(s)}
+\sum_{i\in N^{b}}\mu_i\,\mathbb{E}_\theta\!\Big[w^{b}_i(\theta,s)\,u(q_i,\theta,s)^2\Big].
+\end{align}
+Plugging \eqref{dqdk-slack} and \eqref{dqdk-binding} into
+\(\sum_i \mu_i \mathbb{E}_\theta[\partial_k q_i(\theta,s)] = 1\) for \(s\in T^\ast\) gives
+\begin{equation}\label{dlambdadk}
+\partial_k\lambda(s)
+\;=\;
+\frac{1}{\bar{w}(s)}
+\;+\;
+\partial_k\beta\;\frac{\bar{w}^{b}(s)}{\bar{w}(s)}\,\mathbb{E}_{w}[u\,|\,s],
+\qquad s\in T^\ast,
+\end{equation}
+and since \(u_q<0\), we have \(\bar{w}(s)<0\).
+
+\paragraph{Step 4: Final derivatives on-peak vs off-peak.}
+Combining \eqref{dqdk-binding}–\eqref{dlambdadk} for \(s\in T^\ast\),
+\[
+\partial_k q_i(\theta,s)
+=
+\frac{1}{\beta\,u_q(q_i,\theta,s)}
+\left(
+\frac{1}{\bar{w}(s)}
++
+\partial_k\beta\Big[
+\frac{\bar{w}^{b}(s)}{\bar{w}(s)}\,\mathbb{E}_{w}[u\,|\,s]
+-
+u(q_i,\theta,s)
+\Big]
+\right),
+\qquad s\in T^\ast.
+\]
+For \(s\in S^\ast\) (off-peak), \(\lambda(s)=0\) and \eqref{KKT-q} implies \(u(q_i(\theta,s),\theta,s)=0\).
+Hence
+\[
+\partial_k\lambda(s)=0
+\quad\text{and}\quad
+\partial_k q_i(\theta,s)=0,
+\qquad s\in S^\ast.
+\]
+
+\paragraph{Step 5: Marginal category \(i^\ast\) with slack IR.}
+If the marginal category \(i^\ast\) has slack IR and \(t_{i^\ast}>0\) on an interval of \(k\) where \(i^\ast\) remains marginal, then \eqref{KKT-t} implies \(\beta=\nu_{i^\ast}\), so \(\partial_k\beta=0\) on that interval. For \(s\in T^\ast\),
+\[
+\partial_k q_i(\theta,s)
+=\frac{1}{\beta\,u_q(q_i,\theta,s)}\cdot\frac{1}{\bar{w}(s)},
+\qquad
+\text{and }\ \partial_k q_i(\theta,s)=0 \ \text{for } s\in S^\ast.
+\]
+Because \(u_q<0\) and \(\bar{w}(s)<0\), we have \(\partial_k q_i(\theta,s)>0\) on-peak and zero off-peak.
+
+This completes the on-peak/off-peak adaptation: only peak states \(s\in T^\ast\) respond to \(k\); off-peak states \(s\in S^\ast\) show no marginal response in \(\lambda\) or allocations.
+\end{proof}
+
+
+% --- Up to and including the proof of \partial_k \beta (on-peak / off-peak) ---
+
+\paragraph{FOCs.}
+\begin{align}
+\label{KKT-q}\tag{KKT-$q$}
+(\mu_i\nu_i+\rho_i)\,u\!\left(q_i(\theta,s),\theta,s\right)-\mu_i\lambda(s)=0,
+\\
+\label{KKT-t}\tag{KKT-$t$}
+-\mu_i\nu_i+\mu_i\beta-\rho_i+\phi_i(\theta,s)=0.
+\end{align}
+If IR is slack for $i$, then $\rho_i=0$ for all $\theta$. If $t_i(\theta,s)>0$ then $\phi_i(\theta,s)=0$.
+
+Let $S^\ast$ denote \emph{off-peak} states (capacity slack) and $T^\ast$ \emph{on-peak} states (capacity binding):
+\[
+s\in S^\ast \iff \lambda(s)=0,\qquad s\in T^\ast \iff \lambda(s)>0.
+\]
+
+\paragraph{Step 1: Individual derivatives.}
+Differentiate \eqref{KKT-q} w.r.t.\ $k$:
+\[
+(\mu_i\nu_i+\rho_i)\,u_q(q_i)\,\partial_k q_i(\theta,s)
+\;+\; (\partial_k\rho_i)\,u(q_i,\theta,s)
+\;-\; \mu_i\,\partial_k\lambda(s) \;=\; 0,
+\]
+hence
+\begin{equation}\label{dqdk-general}
+\partial_k q_i(\theta,s)
+=
+\frac{\mu_i\,\partial_k\lambda(s)\;-\;(\partial_k\rho_i)\,u(q_i,\theta,s)}
+{(\mu_i\nu_i+\rho_i)\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+For $i\in N^{nb}$ (IR slack), $\rho_i=\partial_k\rho_i=0$, so
+\begin{equation}\label{dqdk-slack}
+\partial_k q_i(\theta,s)
+\;=\; \frac{\partial_k\lambda(s)}{\nu_i\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+For $i\in N^{b}$ (IR binding) with $t_i>0$, from \eqref{KKT-t} and $\phi_i=0$:
+$\mu_i\beta=\mu_i\nu_i+\rho_i \Rightarrow \rho_i=\mu_i(\beta-\nu_i)$ and thus $\partial_k\rho_i=\mu_i\,\partial_k\beta$.
+Plugging into \eqref{dqdk-general}:
+\begin{equation}\label{dqdk-binding}
+\partial_k q_i(\theta,s)
+\;=\;
+\frac{\partial_k\lambda(s)-\partial_k\beta\,u(q_i,\theta,s)}{\beta\,u_q(q_i,\theta,s)}.
+\end{equation}
+
+\paragraph{Step 2: Capacity by state (on vs off peak).}
+For each state $s$,
+\[
+\sum_i \mu_i \mathbb{E}_\theta[q_i(\theta,s)] \le k.
+\]
+Therefore,
+\[
+s\in T^\ast:\quad \sum_i \mu_i \mathbb{E}_\theta[\partial_k q_i(\theta,s)] = 1,
+\qquad
+s\in S^\ast:\quad \sum_i \mu_i \mathbb{E}_\theta[\partial_k q_i(\theta,s)] = 0.
+\]
+(In off-peak states the constraint is slack, so a marginal change in $k$ does not move the optimum; at the optimum, \eqref{KKT-q} also implies $u(q_i(\theta,s),\theta,s)=0$ and thus $\partial_k q_i(\theta,s)=\partial_k\lambda(s)=0$ for $s\in S^\ast$.)
+
+\paragraph{Step 3: Solving $\partial_k\lambda(s)$ on-peak.}
+Define for every $(\theta,s)$
+\[
+w^{nb}_i(\theta,s) := \frac{1}{\nu_i\,u_q(q_i(\theta,s),\theta,s)},
+\qquad
+w^{b}_i(\theta,s) := \frac{1}{\beta\,u_q(q_i(\theta,s),\theta,s)}.
+\]
+Aggregate by state $s$:
+\[
+\bar{w}^{nb}(s) := \sum_{i\in N^{nb}}\mu_i\,\mathbb{E}_\theta\!\big[w^{nb}_i(\theta,s)\big],
+\qquad
+\bar{w}^{b}(s) := \sum_{i\in N^{b}}\mu_i\,\mathbb{E}_\theta\!\big[w^{b}_i(\theta,s)\big],
+\qquad
+\bar{w}(s)=\bar{w}^{nb}(s)+\bar{w}^{b}(s).
+\]
+Weighted moments (over $N^{b}$) for each on-peak state $s$:
+\begin{align}
+\label{Eu-def}\tag{$\mathbb{E}_w[u\,|\,s]$}
+\mathbb{E}_{w}[u\,|\,s]
+&:=\frac{1}{\bar{w}^{b}(s)}
+\sum_{i\in N^{b}}\mu_i\,\mathbb{E}_\theta\!\Big[w^{b}_i(\theta,s)\,u(q_i,\theta,s)\Big],\\
+\label{Eu2-def}\tag{$\mathbb{E}_w[u^2\,|\,s]$}
+\mathbb{E}_{w}[u^2\,|\,s]
+&:=\frac{1}{\bar{w}^{b}(s)}
+\sum_{i\in N^{b}}\mu_i\,\mathbb{E}_\theta\!\Big[w^{b}_i(\theta,s)\,u(q_i,\theta,s)^2\Big].
+\end{align}
+Plugging \eqref{dqdk-slack} and \eqref{dqdk-binding} into
+$\sum_i \mu_i \mathbb{E}_\theta[\partial_k q_i(\theta,s)] = 1$ for $s\in T^\ast$ gives
+\begin{equation}\label{dlambdadk}
+\partial_k\lambda(s)
+\;=\;
+\frac{1}{\bar{w}(s)} \;+\; \partial_k\beta\;\frac{\bar{w}^{b}(s)}{\bar{w}(s)}\,\mathbb{E}_{w}[u\,|\,s],
+\qquad s\in T^\ast,
+\end{equation}
+with $\bar{w}(s)<0$ since $u_q<0$.
+
+\paragraph{Step 4: Up to the derivative of $\beta$.}
+If the marginal category $i^\ast$ has slack IR and remains marginal as $k$ varies (with $t_{i^\ast}>0$), then from \eqref{KKT-t} we have $\beta=\nu_{i^\ast}$ and hence $\partial_k\beta=0$ on that interval.
+
+To derive $\partial_k\beta$ in general, use that transfers are zero for $i\notin N^{b}$ and differentiate the budget constraint:
+\[
+\sum_{i\in N^{b}} \mu_i\,\mathbb{E}_{s\in T^\ast}\mathbb{E}_\theta\!\left[\,u(q_i,\theta,s)\,\partial_k q_i(\theta,s)\,\right]
+\;=\; I'(k),
+\]
+where off-peak states contribute zero (both $u=0$ and $\partial_k q_i=0$). Substitute
+\eqref{dqdk-binding} and eliminate $\partial_k\lambda(s)$ using \eqref{dlambdadk} and the
+definitions \eqref{Eu-def}–\eqref{Eu2-def}. After rearrangement,
+\begin{equation}\label{dbetadk}
+\partial_k\beta
+\;=\;
+\frac{\, I'(k)\;-\;\displaystyle \mathbb{E}_{s\in T^\ast}\!\left[\frac{\bar{w}^{b}(s)}{\bar{w}(s)}\,\mathbb{E}_{w}[u\,|\,s]\right]\,}
+{\,\displaystyle \mathbb{E}_{s\in T^\ast}\!\left[
+\frac{\big(\bar{w}^{b}(s)\,\mathbb{E}_{w}[u\,|\,s]\big)^{2}}{\bar{w}(s)}
+\;-\;
+\bar{w}^{b}(s)\,\mathbb{E}_{w}[u^{2}\,|\,s]
+\right]\,}.
+\end{equation}
+% (End: up to and including the proof of \partial_k \beta.)
+
+\end{document}

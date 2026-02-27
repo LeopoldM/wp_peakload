@@ -1,0 +1,256 @@
+
+\documentclass{class}
+
+\begin{document}
+
+
+type vector $(i,r,\lambda)$
+
+$i$ finitely many value from the set $I$ 
+$\mu_i$ size of $i$
+$r \in \mathbb{R}_+$ is the wtp
+$G_i$ and $g_i$ on $[\underline{r}_i,\overline{r}_i]$
+$\lambda \in \mathbb{R}_+$
+
+unit mass of object $q \in Q \subseteq[0,1]$. $F(q)$ is the mas of objects of quality equal or less than q
+
+agent utility is $rq-t$ and agent welfare contribution is $\lambda(rq-t)$ 
+
+
+Assignement is $\Gamma$ a collectoion of $|I|$ measurable functions $\Gamma_i:[\underline{r}_i,\overline{r}_i]\rightarrow\Delta(Q)$ with $\Gamma_i(q,r)$ is the probability that an agent from $i$ with wtp $r$ is assign a quality $q$ or less 
+
+Then it is feasible if $\Gamma_i(\cdot|r)$ is a cdf for all $i$ and $r$ and $\sum_{i\in I}\mu_i\int_r\Gamma_i(q|r)dG_i(r)\geq F(q)$ $\forall q \in Q$
+
+$Q_i(r) = Q^{\Gamma_i}(r)=\int_0^1qdF_i(q|r)$
+
+IR : $\underline{U}_i\leq \underline{r}_iQ^{\Gamma_i}(\underline{r}_i)$
+IC:  $rQ^{\Gamma_i}({r})-t_i(r) \geq rQ^{\Gamma_i}({\hat{r}})-t_i(\hat{r}) $
+
+Classic Myerson:
+
+\[U_i(r)\equiv rQ_i(r)-t_i(r) = \underline{U}_i +  \int_{\underline{r}_i}^rQ_i(\tau)d\tau\]
+
+
+$\lambda_i(r)\equiv \mathbb{E}[\lambda|i,r]$ which is continuous on $r$ for each $i$
+
+$\overline{\lambda}_i \equiv \int_r \lambda_i(r)$ the expected group social welfare and $\Lambda_i(r) \equiv \mathbb{E}_{\Bar{r}\Tilde{}G_i}\lambda_i(\Bar{r}|)[\Bar{r}\geq r]$
+
+The objective function is 
+
+\[\alpha \sum_{i \in I}\mu_i\left( \int_r t_i dG_i \right) + \sum_i \mu_i \int_r \lambda_iU_i\]
+
+Define $h_i(r)=\frac{1-G_i(r)}{g_i(r)}$ and $ J_i(r) \equiv r  - \frac{1-G_i(r)}{g_i(r)}$
+
+The objective function is 
+
+\[\sum_i \mu_i \left( \int_r V_i(r) Q_i(r) dG_i  +  (\overline{\lambda}_i-\alpha)\underline{U}_i \right)\]
+
+where $V_i(r)\equiv\alpha J_i(r)+\Lambda_i(r) h_i(r)$
+
+Within problem
+
+Allocate $F_i$ such that $I=\{i\}$, $\mu_i=1$ and $F= F_i$
+
+% Quick contrasts (copy into your LaTeX doc)
+
+\paragraph{Assortative matching.}
+Higher types (e.g., higher WTP \(r\)) are assigned (weakly) higher quality \(q\) in a deterministic, monotone way.
+Equivalently, the expected-quality schedule \(Q_i^{|}(r)\) is nondecreasing:
+\[
+\frac{d}{dr}Q_i^{|}(r)\;\ge 0,
+\]
+and it is not flat over any interval for purely random reasons.
+
+\paragraph{Effectively assortative matching.}
+When some types receive no allocation (free disposal), the allocation is assortative \emph{on the subset that is served}.
+Let \(R_i^+ := \{\, r \,:\, Q_i^{|}(r)>0 \,\}\). Then the matching is effectively assortative if
+\[
+\frac{d}{dr}Q_i^{|}(r)\;\ge 0 \quad \text{for all } r\in R_i^+.
+\]
+Intuitively: monotone sorting among those who actually receive positive allocation.
+
+\paragraph{Random matching.}
+Over an interval of types \([a,b]\), all types face the \emph{same} lottery over qualities, so the expected quality is constant:
+\[
+Q_i^{|}(r) \equiv \bar q \quad \text{for all } r\in[a,b].
+\]
+(Fully random matching applies this constancy over the entire support.)
+% Minimal LaTeX snippet based on your text, with light fixes only.
+
+\paragraph{Initial objective.}
+\[
+  \int_{\underline r}^{\bar r} V_i(r)\, Q_i(r)\, dG_i(r)
+  \;+\; (\overline{\lambda}_i-\alpha)\,\underline{U}_i .
+\]
+
+\noindent
+\(F(q)\) defines the availability of quality \(q\) (quality supply).
+\(Q(r)\) is the quality that type \(r\) receives (quality--type schedule).
+\(F^{-1}(x)\) is the \emph{supply quantile}: the quality at rank \(x\) in the sorted supply. From IC, \(Q(r)\) is nondecreasing. \(G(r)\) defines the rank of consumer types.
+
+\medskip
+\noindent
+Define the rank--to--quality mapping \(\Phi(G(r))=Q(r)\), with \(\Phi\) nondecreasing.
+Under \emph{no free disposal}, \(\Phi\) must be a \textbf{mean-preserving spread of \(F^{-1}\)}
+(the feasibility / convex-order condition).
+
+\medskip
+\noindent
+Depending on societal weights:
+\[
+\underline{U}_i \;=\;
+\begin{cases}
+0, & \text{if } \overline{\lambda}_i \le \alpha,\\[2pt]
+\underline{r}\,\Phi(0^+), & \text{if } \overline{\lambda}_i \ge \alpha,
+\end{cases}
+\]
+where \(0^+\) denotes the lowest rank (the limit from the right at zero).
+
+\paragraph{Change of variables.}
+With \(x=G(r)\), \(G^{-1}(x)=r\), and \(Q=\Phi(x)\),
+\[
+\int_{\underline r}^{\bar r} V(r)\, Q(r)\, dG(r)
+\;=\;
+\int_{0}^{1} V\!\big(G^{-1}(x)\big)\, \Phi(x)\, dx
+\;=\;
+\int_{0}^{1} \Psi(x)\, \Phi(x)\, dx,
+\]
+where \(\Psi(x):=V(G^{-1}(x))\).
+
+\paragraph{Integration by parts (Stieltjes form).}
+\[
+\int_{0}^{1} \Psi(x)\, \Phi(x)\, dx
+\;=\;
+\Big[-\,\Phi(t)\!\!\int_{t}^{1}\!\Psi(u)\,du\Big]_{0}^{1}
+\;+\;
+\int_{0}^{1}\Big(\int_{t}^{1}\!\Psi(u)\,du\Big)\, d\Phi(t).
+\]
+(With the usual normalization, the boundary term is handled via \(\underline U_i\); we work with the last integral.)
+
+\paragraph{No free disposal (Lemma 2 logic).}
+Let \(co(\Psi)\) be the concave closure of \(\Psi\). Then
+\[
+\int co(\Psi)\, d\Phi \;\le\; \int co(\Psi)\, dF^{-1}.
+\]
+Hence:
+\begin{itemize}
+\item If \(co(\Psi)\) is \emph{strictly concave} on an interval, the solution is \emph{assortative} there:
+\(\Phi^{*}(x)=F^{-1}(x)\).
+\item If \(co(\Psi)\) is \emph{affine} on a maximal interval \([a,b]\), then randomize (pool) on that segment:
+\[
+\Phi^{*}(x)\;=\;\frac{1}{b-a}\int_{a}^{b} F^{-1}(y)\,dy
+\quad \text{for } x\in[a,b].
+\]
+\end{itemize}
+Intuition: where \(\Psi\) is concave, set \(\Phi=F^{-1}\); where \(\Psi\) fails concavity, \(co(\Psi)\) is affine and we give the \emph{same} expected quality to every rank in that block. This preserves the MPS nature while mimic the affine nature of the co (reshuffling with the same mean overall and within pooled blocks).
+
+\paragraph{Free disposal (Lemma 3 logic).}
+With free disposal, it may be optimal to leave some ranks unserved. Feasible schedules now satisfy
+\(\Phi \le \Phi^{*}\) (you can only move \emph{down}). For the concave--decreasing closure \(cd(\Psi)\) (nonincreasing),
+\[
+\int co(\Psi)\, d\Phi \;\le\; \int cd(\Psi)\, d\Phi
+\;\le\; \int cd(\Psi)\, d\Phi^{*}.
+\]
+Moreover, there exists \(\Phi^{**}\) (drop an initial block, then follow \(\Phi^{*}\)) such that
+\[
+\int co(\Psi)\, d\Phi^{**} \;=\; \int cd(\Psi)\, d\Phi^{*}.
+\]
+Thus the optimal value (with free disposal) is \(\displaystyle \int cd(\Psi)\, d\Phi^{*}\).
+
+\paragraph{Shape of the optimum with disposal.}
+There exists a unique \(x^{*}\in[0,1]\) such that the allocation is zero on \([0,x^{*}]\) and, on \((x^{*},1]\),
+the schedule coincides with the no–free-disposal solution. Uniqueness follows because \(co(\Psi)\) is concave, so its slope is nonincreasing; once the slope first hits \(0\), it cannot increase again. Therefore \(cd(\Psi)\) can only introduce a \emph{leftmost} flat block \([0,x^{*}]\); beyond \(x^{*}\) the allocation follows the no–free-disposal rule.
+
+
+
+% Theorem 2 (Across-groups allocation): compact proof roadmap and key implications
+
+\paragraph{Problem.}
+Choose group-specific assignment CDFs $(F_i)_{i\in I}$ to maximize
+\[
+\max_{(F_i)}\ \sum_{i\in I}\mu_i \int_0^1 cd(\Psi_i)\big(F_i(q)\big)\,dq
+\quad\text{s.t.}\quad
+\sum_{i\in I}\mu_i F_i(q)=F(q)\ \ \forall q,\qquad 0\le F_i(q)\le 1.
+\]
+
+\paragraph{Pointwise Lagrangian (KKT at each $q$).}
+Introduce a multiplier $L(q)$ for $\sum_i \mu_i F_i(q)=F(q)$. For each $i$ and $q$,
+\[
+\text{maximize}\ \ \mu_i\,cd(\Psi_i)\!\big(F_i(q)\big)\ -\ \mu_i\,L(q)\,F_i(q)
+\ \ \text{over }F_i(q)\in[0,1].
+\]
+KKT (subgradient) condition:
+\[
+-L(q)\ \in\ \partial\,cd(\Psi_i)\!\big(F_i(q)\big)
+\quad\text{with box constraints }F_i(q)\in[0,1].
+\]
+
+\paragraph{Selection sets.}
+Define the (possibly set-valued) optimal responses
+\[
+X_i(q)\ :=\ \{\,x\in[0,1]:\ -L(q)\in\partial\,cd(\Psi_i)(x)\,\}.
+\]
+Thus any $F_i(q)\in X_i(q)$ is pointwise optimal for group $i$ at quality $q$.
+
+\paragraph{Monotonicity.}
+Because $F(q)$ is increasing in $q$, the constraint becomes (weakly) looser as $q$ rises,
+hence $L(q)$ is \emph{nonincreasing} in $q$. Since $cd(\Psi_i)$ is concave, its subgradient
+map is nonincreasing in $x$, and the inverse correspondence $X_i(\cdot)$ is
+\emph{nondecreasing in the strong-set order}:
+if $X_i(q)=[\ell_i(q),u_i(q)]$, then both $\ell_i(\cdot)$ and $u_i(\cdot)$ are nondecreasing.
+
+\paragraph{Feasible pointwise selection.}
+For fixed $q$, define the line segment within $X_i(q)$:
+\[
+C_i(q,a)\ :=\ (1-a)\,\min X_i(q)\ +\ a\,\max X_i(q),\quad a\in[0,1].
+\]
+
+By continuity/monotonicity, there exists $a^*(q)\in[0,1]$ such that
+
+
+\[
+\sum_{i\in I}\mu_i\, C_i\big(q,a^*(q)\big)\ =\ F(q).
+\]
+Set $F_i^*(q):=C_i\big(q,a^*(q)\big)$. Then each $F_i^*(q)$ is nondecreasing in $q$
+(hence can be modified on a null set to a proper CDF), and the mixture constraint holds.
+
+\paragraph{Greedy (ironed-marginal) rule.}
+Where $cd(\Psi_i)$ is differentiable, the KKT reads
+\[
+cd(\Psi_i)'\!\big(F_i^*(q)\big)\ =\ -\,L(q)\ :=\ -\,V^{\min}(q).
+\]
+Thus at each $q$, assign to groups whose \emph{ironed marginal value}
+$\widehat V_i(x):= -\,cd(\Psi_i)'(x)$ is minimal at their current $x=F_i^*(q)$; ties are
+resolved by mixing along $X_i(q)$ (the closed interval).
+
+\paragraph{Corners and interior.}
+For each $i$ and $q$:
+\begin{itemize}
+\item If $-L(q)$ is below the right slope at $x=0$, then $F_i^*(q)=0$ (lower corner).
+\item If $-L(q)$ is above the left slope at $x=1$, then $F_i^*(q)=1$ (upper corner).
+\item Otherwise $-L(q)\in\partial\,cd(\Psi_i)(x)$ for some $x\in(0,1)$; the admissible
+      $x$ form a closed interval (singleton if differentiable), i.e.\ $X_i(q)$.
+\end{itemize}
+
+\paragraph{Conclusion (value and structure).}
+The constructed $\{F_i^*\}$ are feasible and satisfy the KKT pointwise, hence solve the
+across-groups problem:
+
+\[
+\max_{(F_i)}\ \sum_i \mu_i \int_0^1 cd(\Psi_i)\!\big(F_i(q)\big)\,dq
+\quad \text{s.t.}\quad \sum_i \mu_i F_i = F.
+\]
+
+Economically: allocate each quality threshold $q$ to the group(s) with the lowest
+\emph{ironed} marginal value at the current assignment, with assignments evolving
+monotonically in $q$ and respecting the supply mixture constraint.
+
+
+Proposition 1. if $\underline{U}>0$ because $\overline{\lambda}_i>\alpha$ and $\underline{r}_i>0$, then $\Phi^*(0^+)>0$ which induces the $cd$ to be affine (so either the $co$ is increasing or it is also affine). As $co$ is concave it can only happens for a interval on the left $[\underline{r},r]$, then you al,locate randmly to those persons (no alocation is also a random allocation)
+
+Intuition: random at free allows reducing IC constrains on higher type but loose efficiency on the lowest types
+
+
+\end{document}
+
+

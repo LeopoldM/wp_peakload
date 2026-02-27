@@ -1,0 +1,130 @@
+
+\documentclass{class}
+
+\usepackage{bbm}
+
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+
+\noindent \textbf{How do redistributive preferences shape the optimal allocation?}
+
+A change in redistributive preferences affects the optimal allocation through two channels. First, it directly changes the trade-off between revenue and incentive constraints, captured by $\Delta R_\theta(\theta)$ (we formally define below the preference-perturbation operator $\Delta(\cdot)$). Second, it induces a behavioral response in the optimal allocation $q_i^\times(\theta,s)$, which in turn changes $R_q(\theta)=-u/u_q$. Formally,
+\[
+\Delta \E_{\theta_i}\!\left[R_q(\theta)R_\theta(\theta)\right]
+=
+\E_{\theta_i}\!\left[R_q(\theta)\,\Delta R_\theta(\theta)\right]
++
+\E_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right],
+\]
+and since $R_q$ depends on $q_i^\times$, we have $\Delta R_q(\theta)=\frac{\partial R_q(\theta)}{\partial q}\,\Delta q_i^\times(\theta,s)$. Hence the behavioral channel equals
+\[
+\E_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right]
+=
+\E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\,\frac{\partial R_q(\theta)}{\partial q}\,R_\theta(\theta)\right].
+\]
+Corollary~\ref{cor:rho-q-cov-iron1} shows that $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in $\theta$, even when the absolute weight change $\Delta\Gamma_i(\theta)$ is monotone. As a result, without further restrictions on preferences and demand curvature, the behavioral channel cannot be signed in general. We therefore focus on the trade-off channel $\E_{\theta_i}[R_q(\theta)\Delta R_\theta(\theta)]$, for which Corollary~\ref{cor:rho-q-cov-iron2} provides conditions under which $\Delta R_\theta(\theta)$ inherits a monotonicity pattern in $\theta$.
+
+In the Appendix, we show that the sign of $R_q'(\theta)$ depends only on the curvature of $u$. In particular,
+\[
+\sign\!\left(R_q'(\theta)\right)=\sign\!\left((u_q(\cdot))^2-u(\cdot)u_{qq}(\cdot)\right).
+\]
+Therefore, $R_q'(\theta)<0$ for linear and quadratic demand functions, while $R_q'(\theta)>0$ for CES/isoelastic demand functions. The sign of $R_\theta'(\theta)$ depends on how the virtual surplus $J_i(\theta)$ moves relative to $\Lambda_i(\theta)$ (the IC term for higher types). Since we assume positive weights, $\Lambda_i(\theta)\ge 0$, and we have
+\[
+\label{signRt}\tag{$\sign R_\theta$}
+\sign\!\left(R_\theta'(\theta)\right)
+=
+\sign\!\left(J_i(\theta)\right)\,
+\sign\!\left(
+\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue}}
+-
+\underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC}}
+\right).
+\]
+This expression reflects two effects of an increase in $\theta$ on marginal virtual surplus $u(q_i^\times(\theta,s),s)J_i(\theta)$: the allocation effect through $q_i^\times(\theta,s)$ and the direct effect through $J_i(\theta)$. The first term indicates whether a type generates revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second term compares how the ability to raise revenue, $J_i(\theta)$, changes proportionally faster or slower than the social-weighted IC term, $\Lambda_i(\theta)$. For instance, suppose the virtual surplus is increasing in $\theta$ (i.e., $J_i(\theta)\ge 0$ and the type can contribute to the budget) and $g_i(\theta)$ is regular (so $J_i'(\theta)\ge 0$). Then $R_\theta'(\theta)>0$ if and only if $\frac{J_i'(\theta)}{J_i(\theta)}$ increases proportionally faster than $\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}$. In particular, $\Lambda_i'(\theta)<0$ is a sufficient condition for $R_\theta'(\theta)>0$.\footnote{The sign of $\Lambda_i'(\theta)$ depends on the shape of $g_i(\theta)$ and on $\lambda_i(\theta)$. In particular,
+\[
+\Lambda_i'(\theta)
+=
+-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta),
+\]
+so $\Lambda_i'(\theta)<0$ for a uniform distribution, while its sign may be ambiguous for other distributions.}
+
+The inequality \eqref{COV1}, and therefore the severity of adverse sorting (and the welfare effect of changing $k$), depends crucially on preferences. We first ask under which conditions a change in preferences affects the IC term in \eqref{signRt}. Note that in \eqref{signRt} only the IC term depends on preferences; the revenue term is determined solely by the type distribution. Consider two weight functions $\lambda_i^1(\theta)$ and $\lambda_i^2(\theta)$, and denote by $\Lambda_i^1(\theta)$ and $\Lambda_i^2(\theta)$ the corresponding IC terms. Suppose $\lambda_i^1$ shifts preferences toward higher types proportionally more than $\lambda_i^2$, in the sense that $\frac{\lambda_i^1(\theta)}{\lambda_i^2(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$. In the Appendix we show that for every $\theta$,
+\[
+\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}
+\;\ge\;
+\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)},
+\]
+and the inequality reverses when $\lambda_i^1$ shifts preferences toward lower types proportionally more than $\lambda_i^2$. To interpret the implications, assume that $\Lambda_i^{1\,\prime}(\theta)<0$ and $\Lambda_i^{2\,\prime}(\theta)<0$, and that marginal revenue is increasing in $\theta$ ($J_i'(\theta)>0$). Then $R_\theta'(\theta)$ is more likely to be positive when higher types are preferred. Indeed, for types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), $R_\theta'(\theta)>0$ requires $\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}$ to be less negative; since $\frac{\Lambda_i^{1\,\prime}}{\Lambda_i^1}$ is less negative than $\frac{\Lambda_i^{2\,\prime}}{\Lambda_i^2}$, this condition is easier to satisfy under $\lambda_i^1$.
+
+\begin{remarks}
+A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply the absence of adverse sorting, since it places implicit weight on higher types: in that case $\Gamma_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.
+\end{remarks}
+
+The previous comparison applies to any two weight functions. We now characterize conditions under which a marginal perturbation of preferences, denoted $\Delta\lambda_i(\theta)$, affects the sorting effect. The induced change in the welfare weight is
+\[
+\Delta\Gamma_i(\theta)=J_i(\theta)\,\Delta\tilde\lambda_i+\Delta\Lambda_i(\theta),
+\qquad
+\Delta\Lambda_i(\theta)=\gamma_i(\theta)\E\!\left[\Delta\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right].
+\]
+We further impose a mean-preserving preference change, $\Delta\tilde\lambda_i=0$, so that $\Delta\Gamma_i(\theta)=\Delta\Lambda_i(\theta)$. In that case, $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$ indicates that the preference shift tilts toward higher types relative to lower types.\footnote{A monotone change in $\lambda_i(\theta)$ is sufficient to determine the sign of $\Delta\Gamma_i(\theta)$: if $\Delta \lambda_i'(\theta)\ge 0$ for all $\theta$, then $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, while if $\Delta \lambda_i'(\theta)\le 0$ for all $\theta$, then $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$. Under mean preservation, this implies a unique cutoff such that $\Delta \lambda_i(\theta)=0$.} Similarly, $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$ indicates that the preference shift tilts toward lower types. The ratio
+\[
+R_\Gamma(\theta):=\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)}
+\]
+captures the proportional change in preferences. The corollary below formalizes how a preference shift affects the sorting effect through $\Delta R_\theta(\theta)$ (i.e., whether $\operatorname{COV}_{q\theta}$ increases or decreases).
+
+\begin{corollary}\label{cor:rho-q-cov-iron2}
+\noindent{\bf Preferences and sorting effect.} Assume that $R_\theta(\theta)$ is increasing and $R_q(\theta)$ is decreasing.
+
+\noindent (i) If $\Delta \Gamma_i(\theta) \ge 0$ for all $\theta$, then $\Cov_{\theta_i}\!\left(R_q(\theta),\Delta R_\theta(\theta)\right)\ge 0$ if
+\[
+\forall\,\theta:\quad R_\theta(\theta)\,R_\Gamma'(\theta)\le 0
+\quad \text{and} \quad
+\left| \frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)} \right|
+\le
+\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+\noindent (ii) If $\Delta \Gamma_i(\theta) \le 0$ for all $\theta$, then $\Cov_{\theta_i}\!\left(R_q(\theta),\Delta R_\theta(\theta)\right)\ge 0$ only if
+\[
+\exists\,\theta:\quad R_\theta(\theta)\,R_\Gamma'(\theta)\ge 0
+\quad \text{and} \quad
+\left| \frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)} \right|
+\ge
+\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+\end{corollary}
+
+The sorting effect is adverse when types receiving a larger share of capacity are also those with low or negative marginal virtual surplus (i.e., increasing $R_\theta(\theta)$ and decreasing $R_q(\theta)$).\footnote{The inequalities reverse if $R_\theta'(\theta)$ and $R_q'(\theta)$ have the opposite signs.} Corollary~\ref{cor:rho-q-cov-iron2} provides conditions (sufficient when $\Delta\Gamma_i\ge 0$ and necessary otherwise) under which a preference shift does not exacerbate this adverse sorting. The conditions compare two elasticities: (i) $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. They follow from differentiating $R_\theta(\theta)$:
+\[
+\Delta\!\left(R_\theta'(\theta)\right)
+=
+-R_\theta(\theta)\,R_\Gamma'(\theta)-R_\Gamma(\theta)\,R_\theta'(\theta).
+\]
+For example, suppose the market designer shifts weight toward higher types (so $\Delta \Gamma_i\ge 0$ and $R_\Gamma(\theta)\ge 0$). The sufficient condition in (i) restricts two regions: (a) types contributing negatively to revenue ($R_\theta(\theta)<0$) but receiving increasing proportional weights ($R_\Gamma'(\theta)\ge 0$), or (b) types contributing positively to revenue ($R_\theta(\theta)>0$) but receiving decreasing proportional weights ($R_\Gamma'(\theta)\le 0$). In both regions, preference changes that are too concentrated exacerbate adverse sorting; the bound requires changes to be sufficiently gradual. When preferences shift toward lower types ($\Delta\Gamma_i\le 0$), the necessary condition in (ii) is harder to satisfy: such shifts tend to worsen adverse sorting since lower types already receive a disproportionate share of capacity.
+
+We conclude with the effect of preferences on the behavioral response, i.e., how a change in social weights affects the optimal allocation $q_i^\times(\theta,s)$.
+
+\begin{corollary}\label{cor:rho-q-cov-iron1}
+\noindent{\bf Preferences and reallocation.}
+(A) Fix a peak state $s\in T_i^\times$. Consider a first-order perturbation $\Delta(\cdot)$ of preferences. If $R_\Gamma$ is not (a.e.) constant, then $\Delta q_i^\times(\cdot,s)$ is not monotone on $\Theta_i$.
+(B) Moreover, assume that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda(\theta)$ is mean-preserving. Then there exist unique cutoffs $\theta_-<\theta_+$ solving $u(q_i^\times(\theta,s),s)\,\Delta\Gamma_i(\theta)=\Delta\varepsilon_i(s)$ such that:
+(i) if $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, then $\Delta q_i^\times(\theta)\le 0$ for $\theta\in[\underline\theta,\theta_-)\cup(\theta_+,\overline\theta]$ and $\Delta q_i^\times(\theta)\ge 0$ for $\theta\in[\theta_-,\theta_+]$;
+(ii) if $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
+\end{corollary}
+
+Corollary~\ref{cor:rho-q-cov-iron1} has strong consequences for the welfare analysis of preference shifts. Since the aggregate effect combines an average component and a sorting component, and since the behavioral response $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in types, it is not possible, without further structure, to sign the overall expression \eqref{deltaGeneral}.
+
+The corollary relies on three observations. First, even if the absolute preference shift $\Delta\Gamma_i(\theta)$ is monotone, the proportional shift $R_\Gamma(\theta)=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$ is generally not monotone. Second, the designer reallocates toward types with the largest marginal welfare gain, measured by $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$. We show in the proof that if $R_\Gamma(\theta)$ is unimodal, then so is $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$; hence ranking types by marginal welfare gain is equivalent to ranking them by $R_\Gamma(\theta)$. Third, the location of the maximizers of $R_\Gamma(\theta)$ depends on the sign of $\Delta\Gamma_i$: when $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, $R_\Gamma(\theta)$ is quasi-concave with a unique interior maximum, so reallocation concentrates on an interior interval; when $\Delta\Gamma_i(\theta)\le 0$, $R_\Gamma(\theta)$ is quasi-convex and its maximizers occur at the endpoints, so reallocation concentrates near $\underline\theta$ and $\overline\theta$. The capacity constraint yields existence and uniqueness of the interval because $\E_{\theta_i}[\Delta q_i^\times]=0$. Taken together, these observations imply that monotonicity of the absolute weight change is not sufficient to predict reallocation in $q_i^\times$ following a change in preferences.
+
+
+
+
+
+
+
+
+
+\end{document}
+
+

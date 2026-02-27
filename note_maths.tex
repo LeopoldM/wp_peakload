@@ -1,0 +1,214 @@
+
+\documentclass{class}
+
+\usepackage{bbm}
+
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+% =====================================================================
+% Glossary / Note: Mathematical objects in "Optimal allocation with private information"
+% =====================================================================
+
+\subsection*{Notation and definitions (private information section)}
+
+\paragraph{Indices, sets, primitives.}
+\begin{itemize}
+\item Categories: $i\in N$.
+\item Population weights: $\mu_i\ge 0$ (often $\sum_{i\in N}\mu_i=1$ if normalized).
+\item Type (private information): $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$; misreport $\hat{\theta}$.
+\item State: $s\in[\underline{s},\overline{s}]$; expectation over states $\E_s[\cdot]$.
+\item Type distribution in category $i$: CDF $G_i(\theta)$, density $g_i(\theta)$.
+\item Expectations: $\E_{\theta_i}[\cdot]$ over $\theta\sim G_i$, and $\E_{(s,\theta_i)}[\cdot]$ over the joint draw $(s,\theta)$.
+\item Aggregate capacity: $k$; investment cost $I(k)$.
+\item Category decomposition objects: $k_i$ (capacity assigned to category $i$), $I_i$ (revenue requirement assigned to category $i$),
+with aggregate constraints $\sum_i \mu_i k_i=k$ and $\sum_i \mu_i I_i=I(k)$.
+\end{itemize}
+
+\paragraph{Preferences and mechanism objects.}
+\begin{itemize}
+\item Gross utility: $U(q,s)$.
+\item Marginal utility notation: $u(q,s):=\partial_q U(q,s)$ and $u_q(q,s):=\partial_{qq}U(q,s)$.
+\item Direct mechanism: quantity schedule $q_i^\times(\theta,s)$ and transfer $t_i^\times(\theta,s)$.
+\end{itemize}
+
+\paragraph{Feasibility constraints and surplus.}
+\begin{itemize}
+\item (Interim) incentive compatibility in expectation over $s$:
+\[
+\E_s\!\left[\theta U\!\left(q_i^\times(\theta,s),s\right)-t_i^\times(\theta,s)\right]
+\ge
+\E_s\!\left[\theta U\!\left(q_i^\times(\hat{\theta},s),s\right)-t_i^\times(\hat{\theta},s)\right],
+\qquad \forall i,\theta,\hat{\theta}.
+\]
+\item Interim expected consumer surplus:
+\[
+\E CS_i^\times(\theta)
+:=
+\E_s\!\left[\theta U\!\left(q_i^\times(\theta,s),s\right)-t_i^\times(\theta,s)\right].
+\]
+\item Boundary term (lowest-type surplus) chosen by the designer:
+\[
+\E \underline{CS}_i^\times \in
+\left[\,0,\ \E_s\!\left[\underline{\theta}_i U\!\left(q_i^\times(\underline{\theta}_i,s),s\right)\right]\right].
+\]
+\item Envelope representation (under IC):
+\[
+\E CS_i^\times(\theta)
+=
+\E\underline{CS}_i^\times
++
+\int_{\underline{\theta}_i}^{\theta}
+\E_s\!\left[U\!\left(q_i^\times(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}.
+\]
+\item Revenue requirement within category $i$ (binding in the text):
+\[
+\E_{(s,\theta_i)}\!\left[t_i^\times(\theta,s)\right]=I_i.
+\]
+\end{itemize}
+
+\paragraph{Hazard-rate and virtual objects.}
+\begin{itemize}
+\item Inverse hazard rate of $G_i$:
+\[
+\gamma_i(\theta):=\frac{1-G_i(\theta)}{g_i(\theta)}.
+\]
+\item Type-dependent welfare weights: $\lambda_i(\theta)$; average weight
+\[
+\tilde{\lambda}_i:=\int_{\underline{\theta}_i}^{\overline{\theta}_i}\lambda_i(\theta)\,dG_i(\theta).
+\]
+\item Cumulative weighted mass below $\theta$:
+\[
+\Lambda_i(\theta):=\int_{\underline{\theta}_i}^{\theta}\lambda_i(\tilde{\theta})\,dG_i(\tilde{\theta}).
+\]
+\item Density-normalized $\lambda$-weighted mass above $\theta$:
+\[
+h_i(\theta):=\frac{\tilde{\lambda}_i-\Lambda_i(\theta)}{g_i(\theta)}.
+\]
+\item Virtual utility / virtual surplus term:
+\[
+J_i(\theta,s):=U\!\left(q_i^\times(\theta,s),s\right)\left(\theta-\gamma_i(\theta)\right).
+\]
+\end{itemize}
+
+\paragraph{Key transformed weight $\Gamma_i$.}
+\begin{itemize}
+\item Main tradeoff weight:
+\[
+\Gamma_i(\theta):=\tilde{\lambda}_i\left(\theta-\gamma_i(\theta)\right)+h_i(\theta).
+\]
+Interpretation: $\tilde{\lambda}_i(\theta-\gamma_i(\theta))$ captures the revenue (virtual surplus) side,
+and $h_i(\theta)$ captures IC-induced effects through higher types.
+\end{itemize}
+
+\paragraph{Within-category problem and multipliers.}
+\begin{itemize}
+\item Within-category objective (constant term in $q$ omitted if desired):
+\[
+\max_{q_i^\times(\theta,s)}\ \E_{(s,\theta_i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i^\times(\theta,s),s\right)-\tilde{\lambda}_i I_i\right]
+\]
+subject to
+\[
+\E_{(s,\theta_i)}\!\left[J_i(\theta,s)\right]-I_i\ge 0,
+\qquad
+\E_{\theta_i}\!\left[q_i^\times(\theta,s)\right]\le k_i\ \ \forall s.
+\]
+\item Multipliers: $\varepsilon_i^\times(s)\ge 0$ for the capacity constraint (state-by-state), and $\beta_i^\times\ge 0$ for the IR/budget constraint.
+\item Stationarity condition (FOC in $q$):
+\[
+u\!\left(q^\times,s\right)\left(\Gamma_i(\theta)+\left(\theta-\gamma_i(\theta)\right)\beta_i^\times\right)-\varepsilon_i^\times(s)=0.
+\]
+\item Interior condition used in the text:
+\[
+\Gamma_i(\theta)+\left(\theta-\gamma_i(\theta)\right)\beta_i^\times>0
+\qquad \forall \theta\in[\underline{\theta}_i,\overline{\theta}_i].
+\]
+\end{itemize}
+
+\paragraph{Myerson ironing objects.}
+\begin{itemize}
+\item Quantile-domain primitive:
+\[
+\Phi_i(x):=\int_0^x \Gamma_i\!\left(G_i^{-1}(t)\right)\,dt,\qquad x\in[0,1].
+\]
+\item Convex envelope $\co\Phi_i$: pointwise largest convex function on $[0,1]$ such that $\Phi_i(x)\ge \co\Phi_i(x)$ for all $x$.
+\item Ironed weight:
+\[
+\overline{\Gamma}_i(\theta):=\left(\co\Phi_i\right)'\!\left(G_i(\theta)\right).
+\]
+\end{itemize}
+
+\paragraph{Off-peak / on-peak partition.}
+\begin{itemize}
+\item Off-peak states: $S_i^\times=[\underline{s},s_i^\times)$.
+\item On-peak states: $T_i^\times=[s_i^\times,\overline{s}]$.
+\item Threshold state $s_i^\times$ defined by
+\[
+\E_{\theta_i}\!\left[q^\times(\theta,s_i^\times)\right]=k_i.
+\]
+\end{itemize}
+
+\paragraph{Allocation characterization (in the proposition).}
+\begin{itemize}
+\item Off-peak FOC:
+\[
+u\!\left(q_i^\times(\theta,s),s\right)=0,\qquad s\in S_i^\times.
+\]
+\item On-peak FOC (with ironing):
+\[
+u\!\left(q_i^\times(\theta,s),s\right)\,\overline{\Gamma}_i(\theta)=\varepsilon_i^\times(s),
+\qquad s\in T_i^\times.
+\]
+\end{itemize}
+
+\paragraph{Ratios and sorting / covariance objects.}
+\begin{itemize}
+\item Curvature ratio:
+\[
+R_q(\theta):=-\frac{u\!\left(q^\times,s\right)}{u_q\!\left(q^\times,s\right)}\ge 0 \quad \text{when } u_q<0.
+\]
+\item Rent/virtual-surplus ratio:
+\[
+R_\theta(\theta):=\frac{\theta-\gamma_i(\theta)}{\overline{\Gamma}_i(\theta)}.
+\]
+\item Product of means:
+\[
+\E R_{q\theta}:=\E_{\theta_i}\!\left[R_q(\theta)\right]\ \E_{\theta_i}\!\left[R_\theta(\theta)\right].
+\]
+\item Covariance (sorting effect):
+\[
+\text{COV}_{q\theta}:=\Cov_{\theta}\!\left(R_q(\theta),R_\theta(\theta)\right).
+\]
+\item Indicator: $\mathbf 1_{\{s\ge s_i^\times\}}$ equals $1$ on peak states and $0$ otherwise.
+\end{itemize}
+
+\paragraph{Preference-change objects (comparative statics).}
+\begin{itemize}
+\item Preference shift in weights: $\Delta\Gamma(\theta)$ (change in $\Gamma(\theta)$), and $\Delta\lambda(\theta)$ (change in $\lambda(\theta)$).
+\item Mean-preserving shift (as stated): $\Delta\tilde{\lambda}_i=0$.
+\item Proportional preference-change ratio:
+\[
+R_\Gamma(\theta):=\frac{\Delta\Gamma(\theta)}{\Gamma(\theta)}.
+\]
+\item Peak-state cutoffs $\theta_-<\theta_+$ defined (for fixed $s\in T_i^\times$) by
+\[
+u\!\left(q^\times(\theta,s),s\right)\Delta\Gamma(\theta)=\Delta\varepsilon_i(s),
+\]
+where $\Delta\varepsilon_i(s)$ is the induced change in the capacity multiplier.
+\item Change in $R_\theta$: $\Delta R_\theta(\theta)$ denotes the variation of $R_\theta(\theta)$ after the preference shift.
+\item Auxiliary bound function (when $R_\theta(\theta)\neq 0$):
+\[
+\rho_1(\theta):=-R_\Gamma(\theta)\frac{R_\theta(\theta)'}{R_\theta(\theta)}.
+\]
+\item Ironing cutoff $\theta^\ast$: a cutoff at which $\Gamma'(\theta^\ast)=0$ if interior, used to describe intervals where $\Gamma'\le 0$.
+\item Regularity condition ``$g(\theta)$ bounded away from $0$'': $\exists\,\underline{g}>0$ such that $g(\theta)\ge \underline{g}$ on the support.
+\end{itemize}
+
+
+
+
+
+\end{document}
+
+

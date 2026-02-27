@@ -1,0 +1,550 @@
+\documentclass{class}
+
+
+\begin{document}
+
+Model de base 
+
+\begin{equation*}
+\theta^r(A,p) :   CS_i(\theta^r(A,p)) =  U(q(p,\theta),\theta^r(A,p)) - A - pq(p,\theta^r(A,p)) = 0
+\end{equation*}
+
+\begin{equation*}
+    \pdv{\theta^r(A,p)}{p} = - \frac{\pdv{CS_i(\theta^r(A,p))}{p}}{\pdv{CS_i(\theta^r(A,p))}{\theta}} = \frac{1}{\pdv{CS_i(\theta^r(A,p))}{\theta}}
+\end{equation*}
+
+
+\begin{equation*}
+    \pdv{\theta^r(A,p)}{A} = -  \frac{\pdv{CS_i(\theta^r(A,p))}{A}}{\pdv{CS_i(\theta^r(A,p))}{\theta}} = \frac{q(p,\theta^r(A,p))}{\pdv{CS_i(\theta^r(A,p))}{\theta}} = q(p,\theta^r(A,p))  \pdv{\theta^r(A,p)}{p}
+\end{equation*}
+
+\begin{equation*}
+    CS = \int_{\theta^r(A,p)}^{\Bar{\theta}} (U(q(p,\theta),\theta) - A - pq(p,\theta) )dG(\theta)
+\end{equation*}
+
+\begin{equation*}
+    R = \int_{\theta^r(A,p)}^{\Bar{\theta}} (A + q(p,\theta)(p - c) )dG(\theta)
+\end{equation*}
+
+\begin{equation*}
+    \pdv{CS}{p^r} = - \pdv{\theta^r}{p} (U(q(p,\theta),\theta) - A - pq(p,\theta) )g(\theta) |_{\theta = \theta^r} -\int_{\theta(A,p)}^{\Bar{\theta}}   q(p,\theta) dG(\theta) = -\int_{\theta(A,p)}^{\Bar{\theta}}   q(p,\theta) dG(\theta) 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{CS}{A} = - \pdv{\theta^r}{A} (U(q(p,\theta),\theta) - A - pq(p,\theta) )g(\theta) |_{\theta = \theta^r} -\int_{\theta(A,p)}^{\Bar{\theta}}   1 dG(\theta) = -\int_{\theta(A,p)}^{\Bar{\theta}}  1 dG(\theta) 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{R}{p^r} = - \pdv{\theta^r}{p} ( A + (p - c) q(p,\theta) )g(\theta) |_{\theta = \theta^r} + \int_{\theta(A,p)}^{\Bar{\theta}}   (q_p(p,\theta)(p-c) + q(p,\theta)) dG(\theta) 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{R}{A} = - \pdv{\theta^r}{A} ( A + (p - c) q(p,\theta) )g(\theta) |_{\theta = \theta^r} + \int_{\theta(A,p)}^{\Bar{\theta}}  1 dG(\theta) 
+\end{equation*}
+
+
+\begin{equation*}
+    \pdv{L}{p^r} = -\int_{\theta(A,p)}^{\Bar{\theta}}   q(p,\theta) dG(\theta) + ( 1 + \lambda) (- \pdv{\theta^r}{p} ( A + (p - c) q(p,\theta) )g(\theta) |_{\theta = \theta^r} + \int_{\theta(A,p)}^{\Bar{\theta}}   (q_p(p,\theta)(p-c) + q(p,\theta)) dG(\theta) )
+\end{equation*}
+
+\begin{align*}
+    \pdv{L}{A} = & -\int_{\theta(A,p)}^{\Bar{\theta}}  1 dG(\theta)  + ( 1 + \lambda) (- \pdv{\theta^r}{A} ( A + (p - c) q(p,\theta) )g(\theta) |_{\theta = \theta^r} + \int_{\theta(A,p)}^{\Bar{\theta}}  1 dG(\theta) ) \\
+    = &  \frac{1}{q(p,\theta^r(A,p))} \lambda \int_{\theta(A,p)}^{\Bar{\theta}}  1 dG(\theta)  - ( 1 + \lambda) (\pdv{\theta^r(A,p)}{p} ( A + (p - c) q(p,\theta) )g(\theta) |_{\theta = \theta^r} +  ) 
+\end{align*}
+
+\begin{align*}
+    \pdv{L}{p^r} = & \lambda\int_{\theta(A,p)}^{\Bar{\theta}}   q(p,\theta) dG(\theta) +  ( 1 + \lambda) 
+ \int_{\theta(A,p)}^{\Bar{\theta}}   q_p(p,\theta)(p-c) dG(\theta)  - ( 1 + \lambda) \pdv{\theta^r}{p} ( A + (p - c) q(p,\theta) )g(\theta) |_{\theta = \theta^r} \\
+  =  & \lambda\int_{\theta(A,p)}^{\Bar{\theta}}   q(p,\theta) dG(\theta) +  ( 1 + \lambda) 
+ \int_{\theta(A,p)}^{\Bar{\theta}}   q_p(p,\theta)(p-c) dG(\theta)  + \frac{1}{q(p,\theta^r(A,p))} \lambda \int_{\theta(A,p)}^{\Bar{\theta}}  1 dG(\theta)\\
+  =  & \lambda EQ+  ( 1 + \lambda) 
+  dQ(p-c)  - \frac{1}{q} \lambda EG \\
+  =  &   ( 1 + \lambda) 
+  dQ/EQ (p-c) + \lambda (1 - \frac{1}{q} EG/EQ) = 0
+\end{align*}
+
+donc
+
+\begin{align*}
+    -( 1 + \lambda) dQ/EQ p (p-c)/p  =  \lambda (1 - \frac{1}{q} EG/EQ) \\
+     ( 1 + \lambda) \varepsilon_{qp} (p-c)/p  =  \lambda (1 - \frac{1}{q} EG/EQ) \\
+     (p-c)/p  =  \frac{1}{ \varepsilon_{qp}} \frac{\lambda }{ ( 1 + \lambda)}(1 - \frac{1}{q} EG/EQ)
+\end{align*}
+
+
+
+Ensemble de 4 equations
+
+\begin{align*}
+   & \theta_1^* : CS_1^0(\theta_1^*) =0  \\
+   & \theta_2^* : CS_2^0(\theta_2^*) =0 \\
+   & s_1 : \mathbb{E} d_s(s_1) = k \\
+   & \alpha : \mathbb{E} Q_\alpha(\alpha) = k 
+\end{align*}
+
+
+$\alpha_1 = \alpha$ and $\alpha_2 = 1 - \alpha$
+
+\begin{equation*}
+    CS_i^0(\theta_i^*,s_1,\alpha)  = \int_0^{s_1} (U(d(p,\theta_i^*,s),\theta_i^*) - p d(p,\theta_i^*,s) - A)dF(s) + \int_{s_1}^{\Bar{s}}  (U(\alpha_i \frac{k}{\mu_i},\theta_i^*,s) - p \alpha_i \frac{k}{\mu_i} - A) dF(s)
+\end{equation*}
+
+\begin{equation*}
+    \mathbb{E} Q_\alpha (\theta_i^*,\alpha) = \sum \mu_i \int_{\theta_i^*}^{\Bar{\theta}_i} \alpha_i \frac{k}{\mu_i} g_i(\theta) d\theta 
+\end{equation*}
+
+\begin{equation*}
+    \mathbb{E} d_s (s_1,\theta_i^*,\alpha) = \sum \mu_i \int_{\theta_i^*}^{\Bar{\theta}_i} d(p,\theta_i^*,s_1) g_i(\theta) d\theta 
+\end{equation*}
+
+
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+% q2fp_A = int(int(f1,v1,vb1,pr)*f2,v2,A_cs2,vh2) + int(int(f1,v1,pr,vh1)*f2,v2,pr,vh2) - int(int(f2,v2,pr,A_cs)*f1,v1,pr,A_cs2);
+% q1fp_A = int(int(f1,v1,A_cs2,vh1)*f2,v2,vb2,pr) + int(int(f1,v1,pr,vh1)*f2,v2,pr,vh2) - int(int(f2,v2,pr,A_cs)*f1,v1,pr,A_cs2);
+
+
+\begin{equation*}
+    v^{\Delta}(v_1) : v_1 + v_2 - 2 p_r - A = 0 
+\end{equation*}
+
+\begin{equation*}
+    v^{\Delta}_2:  v_t - p_r - A = 0 
+\end{equation*}
+
+\begin{equation*} 
+q^r_1 = \int_{\ubar{v}_2}^{p_r} \int_{v^{\Delta}_2}^{\Bar{v}_1}  f_1 f_2  d\textbf{v} + \int_{p_r}^{\Bar{v}_2} \int_{p_r}^{\Bar{v}_1}  f_1 f_2  d\textbf{v}- \int_{p_r}^{v^{\Delta}_2} 
+ \int_{p_r}^{v^{\Delta}(v_1)} f_1 f_2  d\textbf{v} 
+\end{equation*}
+
+\begin{equation*} 
+q^r_2 =\int_{v^{\Delta}_2}^{\Bar{v}_2} \int_{\ubar{v}_1}^{p_r}  f_1 f_2  d\textbf{v}+  \int_{p_r}^{\Bar{v}_2} \int_{p_r}^{\Bar{v}_1} f_1 f_2  d\textbf{v} - \int_{p_r}^{v^{\Delta}_2}  
+ \int_{p_r}^{v^{\Delta}(v_1)} f_1 f_2  d\textbf{v} 
+\end{equation*}
+
+
+
+\begin{equation*} 
+CS^r_1 = \int_{\ubar{v}_2}^{p_r} \int_{v^{\Delta}_2}^{\Bar{v}_1} (v_1 - p_r - A) f_1 f_2  d\textbf{v} + \int_{p_r}^{\Bar{v}_2} \int_{p_r}^{\Bar{v}_1} (v_1 - p_r - A) f_1 f_2  d\textbf{v} - \int_{p_r}^{v^{\Delta}_2} 
+ \int_{p_r}^{v^{\Delta}(v_1)}  (v_1 - p_r - A) f_1 f_2  d\textbf{v}
+\end{equation*}
+
+\begin{equation*} 
+CS^r_2 =\int_{v^{\Delta}_2}^{\Bar{v}_2} \int_{\ubar{v}_1}^{p_r} (v_2 - p_r - A) f_1 f_2  d\textbf{v} +  \int_{p_r}^{\Bar{v}_2} \int_{p_r}^{\Bar{v}_1} (v_2 - p_r - A)f_1 f_2  d\textbf{v} - \int_{p_r}^{v^{\Delta}_2}  
+ \int_{p_r}^{v^{\Delta}(v_1)} (v_2 - p_r - A)f_1 f_2  d\textbf{v} 
+\end{equation*}
+
+\begin{equation*} 
+R^r_1 = q^r_1 ( p_r - p_1  + A)
+\end{equation*}
+
+\begin{equation*} 
+R^r_2 = q^r_2 ( p_r - p_2  + A)
+\end{equation*}
+
+
+\begin{equation*}
+    \pdv{CS^r}{A} = - q^r + \Delta CS^A
+\end{equation*}
+
+\begin{equation*}
+    \Delta CS^A = \pdv{v^{\Delta} (v_1)}{A} A \int_{p_r}^{v^{\Delta}_2} f_1 f_2 dv_1
+\end{equation*}
+
+\begin{equation*}
+    \pdv{R^r}{A} =  q^r + \sum_{i = 1,2} \pdv{q_t^r}{A} (p_r - p_t - A)
+\end{equation*}
+
+
+\begin{equation*}
+    \pdv{CS^r}{p_r} = - q^r + \Delta CS^r
+\end{equation*}
+
+\begin{equation*}
+    \Delta CS^r = \left( \int_{v^{\Delta}_2}^{\Bar{v}_1} f_1 f_2 dv_1 + \int_{v^{\Delta}_2}^{\Bar{v}_2} f_1 f_2 dv_2 +  \pdv{v^{\Delta} (v_1)}{p_r} \int_{p_r}^{v^{\Delta}_2} f_1 f_2 dv_1 \right)  A
+\end{equation*}
+
+\begin{equation*}
+    \pdv{R^r}{p} =  q^r + \sum_{i = 1,2} \pdv{q_t^r}{p} (p_r - p_t - A)
+\end{equation*}
+
+
+\begin{align*}
+    \pdv{L}{p_r} & = - q^r + \Delta CS^r + \lambda (q^r + \sum_{i = 1,2} \pdv{q_t^r}{p_r} (p_r - p_t - A)) \\
+   &  = (\lambda -1) q^r + \Delta CS^r + \lambda \sum_{i = 1,2} \pdv{q_t^r}{p_r} (p_r - p_t - A)
+\end{align*}
+
+
+\begin{align*}
+    \pdv{L}{A} & = - q^r + \Delta CS^A + \lambda (q^r + \sum_{i = 1,2} \pdv{q_t^r}{A} (p_r - p_t - A))\\
+    & = (\lambda -1) q^r + \Delta CS^A + \lambda \sum_{i = 1,2} \pdv{q_t^r}{A} (p_r - p_t - A)
+\end{align*}
+
+
+\begin{align*}
+    \pdv{q_t^r}{A} =  - \pdv{v^{\Delta}_2}{A} \int_{\ubar{v}_{-t}}^{p_r} f_1 f_2  dv_{-t}
+     - \pdv{v^{\Delta}(v_1)}{A} \int_{p_r}^{v^{\Delta}_2} f_1 f_2 dv_{-t}
+\end{align*}
+
+\begin{align*}
+    \pdv{q_t^r}{p_r} =  - \pdv{v^{\Delta}_2}{p_r} \int_{\ubar{v}_{-t}}^{p_r} f_1 f_2  dv_{-t}
+     - \pdv{v^{\Delta}(v_1)}{p_r} \int_{p_r}^{v^{\Delta}_2} f_1 f_2 dv_{-t} - \int_{v^{\Delta}_2}^{\bar{v}_{-t}} f_1 f_2  dv_{-t}
+\end{align*}
+
+\begin{align*}
+    \Delta \varepsilon_t = &  \pdv{q_t^r}{p_r} -   \pdv{q_t^r}{A} = \Delta v^{\Delta}\int_{p_r}^{v^{\Delta}_2} f_1 f_2 dv_{-t} + \int_{v^{\Delta}_2}^{\bar{v}_{-t}} f_1 f_2  dv_{-t}
+\end{align*}
+
+\begin{equation*}
+    \Delta v^{\Delta}  = \pdv{v^{\Delta}(v_1)}{p_r} - \pdv{v^{\Delta}(v_1)}{A} = 1
+\end{equation*}
+
+
+
+\begin{align*}
+    \pdv{L}{A} & = - q^r + \Delta CS^A + \lambda (q^r + \sum_{i = 1,2} \pdv{q_t^r}{A} (p_r - p_t - A))\\
+    & = (\lambda -1) q^r + \Delta CS^A + \lambda \sum_{i = 1,2} (\pdv{q_t^r}{p_r} + \Delta \varepsilon_t) (p_r - p_t - A)\\
+    & = (\lambda -1) q^r + \Delta CS^A + \lambda \sum_{i = 1,2} \Delta \varepsilon_t (p_r - p_t - A) + \lambda \sum_{i = 1,2} \pdv{q_t^r}{p_r} (p_r - p_t - A)
+\end{align*}
+
+\begin{align*}
+    \pdv{L}{p_r} & = - q^r + \Delta CS^r + \lambda (q^r + \sum_{i = 1,2} \pdv{q_t^r}{p_r} (p_r - p_t - A)) \\
+   &  = (\lambda -1) q^r + \Delta CS^r + \lambda \sum_{i = 1,2} \pdv{q_t^r}{p_r} (p_r - p_t - A) \\
+   &  = (\lambda -1) q^r + \Delta CS^r - ((\lambda -1) q^r + \Delta CS^A + \lambda \sum_{i = 1,2} \Delta \varepsilon_t (p_r - p_t - A)))\\
+   &  = \Delta CS^r - \Delta CS^A - \lambda \sum_{i = 1,2} \Delta \varepsilon_t (p_r - p_t - A))
+\end{align*}
+
+
+
+
+\begin{equation*}
+   \sum_{i = 1,2} \Delta \varepsilon_t (p_r - p_t - A) = \frac{1}{1+\lambda}(\Delta CS^r - \Delta CS^A) 
+\end{equation*}
+
+\begin{equation*}
+   \sum_{i = 1,2} \left(\pdv{q_t^r}{A} - \pdv{q_t^r}{p_r}\right) (p_r - p_t - A) = \frac{1}{1+\lambda}(\Delta CS^r - \Delta CS^A) 
+\end{equation*}
+
+
+\begin{equation*}
+    (p_r - \tilde{p} - A) \sum_{i = 1,2} \Delta \varepsilon_t = \frac{1}{1+\lambda}(\Delta CS^r - \Delta CS^A) - d  (\Delta \varepsilon_2 - \Delta \varepsilon_1)  
+\end{equation*}
+
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+
+
+
+
+\begin{equation*}
+CS = \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}} U(d(p,\theta,s)) - p d(p,\theta,s) - A  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} U(\alpha_i \frac{k}{\mu_i}) - p \alpha_i \frac{k}{\mu_i} - A \right)     
+\end{equation*}
+
+\begin{equation*}
+R = \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}}  p d(p,\theta,s) + A  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} p \alpha_i \frac{k}{\mu_i} + A \right)     
+\end{equation*}
+
+
+\begin{align*}
+\pdv{CS}{p} & =  \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}} (u(d(p,\theta,s)) - p) \pdv{d}{p}(p,\theta,s) - d(p,\theta,s)  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} (u(\alpha_i \frac{k}{\mu_i}) - p ) \pdv{\alpha_i}{p} \frac{k}{\mu_i} - \alpha_i \frac{k}{\mu_i} \right) \\ 
+ & + \pdv{s_1}{p} f(s_1) (CS^- - CS ^+) \\\\
+& = - \mathbb{E}Q +   \mathbb{E}\pdv{Q}{p}(u - p)   + \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}
+\end{align*}
+
+With 
+
+\begin{equation*}
+    \mathbb{E}Q = \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}} d(p,\theta,s)  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}}  + \alpha_i \frac{k}{\mu_i} \right) = \sum \mu_i \int_0^{s_1} \int_{t^*}^{\Bar{t}} d(p,\theta,s) + k
+\end{equation*}
+
+\begin{align*}
+ \mathbb{E}\pdv{Q}{p}(u - p)  & =  \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}} (u(d(p,\theta,s)) - p) \pdv{d}{p}(p,\theta,s)  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} (u(\alpha_i \frac{k}{\mu_i}) - p ) \pdv{\alpha_i}{p} \frac{k}{\mu_i} \right)
+\end{align*}
+
+Then
+
+\begin{align*}
+\pdv{CS}{A} & =  \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}} - 1  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} (u(\alpha_i \frac{k}{\mu_i}) - p ) \pdv{\alpha_i}{A} \frac{k}{\mu_i} - 1 \right) 
++ \pdv{s_1}{A} f(s_1) (CS^- - CS ^+) \\\\
+& = -\mathbb{E}G +   \mathbb{E}\pdv{Q}{A}(u - p)   + \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}
+\end{align*}
+
+
+
+With 
+
+\begin{equation*}
+    \mathbb{E}G = \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}} 1  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}}   1 \right) = \sum \mu_i  \int_{t^*}^{\Bar{t}} 1
+\end{equation*}
+
+\begin{align*}
+ \mathbb{E}\pdv{Q}{A}(u - p)  & =  \sum \mu_i  \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} (u(\alpha_i \frac{k}{\mu_i}) - p ) \pdv{\alpha_i}{A} \frac{k}{\mu_i}
+\end{align*}
+
+
+
+\begin{align*}
+\pdv{R}{p} & = \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}}   d(p,\theta,s) + p \pdv{d(p,\theta,s)}{p}  + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} \alpha_i \frac{k}{\mu_i} +  p \pdv{\alpha_i}{p}\frac{k}{\mu_i}\right) \\
+& -  \sum \mu_i \pdv{t^*}{p}  g_i(t^*) \left(\int_0^{s_1}   p d(p,\theta,s) + A  + \int_s^{\Bar{s_1}} p \alpha_i \frac{k}{\mu_i} +  A \right) |_{t = t^*} \\\\
+& = \mathbb{E} Q + \mathbb{E} \pdv{Q}{p} - \sum \mu_i \pdv{t^*}{p} \mathbb{E}(p q + A)
+\end{align*}
+
+\begin{align*}
+\pdv{R}{A} & = \sum \mu_i \left(\int_0^{s_1} \int_{t^*}^{\Bar{t}}   1   + \int_s^{\Bar{s_1}} \int_{t^*}^{\Bar{t}} 1 +  p \pdv{\alpha_i}{A}\frac{k}{\mu_i}\right) -  \sum \mu_i \pdv{t^*}{A}  g_i(t^*)  \left(\int_0^{s_1}   p d(p,\theta,s) + A  + \int_s^{\Bar{s_1}} p \alpha_i \frac{k}{\mu_i} +  A \right) |_{t = t^*}\\\\
+& = \mathbb{E} G + \mathbb{E} \pdv{Q}{A} - \sum \mu_i \pdv{t^*}{A} \mathbb{E}(p q + A)
+\end{align*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{equation*}
+    \mathbb{L} = CS + (1+ \lambda) R
+\end{equation*}
+
+\begin{align*}
+    \pdv{\mathbb{L}}{p} & = \pdv{CS}{p} + (1+ \lambda) \pdv{R}{p} \\\\
+     = &- \mathbb{E}Q +   \mathbb{E}\pdv{Q}{p}(u - p)   + \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}  + (1 + \lambda) (\mathbb{E} Q + \mathbb{E} \pdv{Q}{p} - \sum \mu_i \pdv{t^*}{p} \mathbb{E}(p q + A))\\\\
+     = &  \lambda \mathbb{E}Q +   \mathbb{E}\pdv{Q}{p}(u - p)  + (1 + \lambda) \mathbb{E} \pdv{Q}{p} + \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS} - (1 + \lambda) \sum \mu_i \pdv{t^*}{p} \mathbb{E}(p q + A))
+\end{align*}
+
+\begin{align*}
+    \pdv{\mathbb{L}}{A} & = \pdv{CS}{A} + (1+ \lambda) \pdv{R}{A} \\\\
+     &- \mathbb{E}G +   \mathbb{E}\pdv{Q}{A}(u - p)   + \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}  + (1 + \lambda) (\mathbb{E} G + \mathbb{E} \pdv{Q}{A} - \sum \mu_i \pdv{t^*}{A} \mathbb{E}(p q + A))\\\\
+     &  \lambda \mathbb{E}G +   \mathbb{E}\pdv{Q}{A}(u - p)  + (1 + \lambda) \mathbb{E} \pdv{Q}{A} + \pdv{s_1}{Ap} f(s_1) \Delta \Tilde{CS} - (1 + \lambda) \sum \mu_i \pdv{t^*}{A} \mathbb{E}(p q + A))
+\end{align*}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+
+\begin{equation*}
+    CS_i^0(\theta_i^*,s_1,\alpha)  = \int_0^{s_1} U(d(p,\theta_i^*,s),\theta_i^*) - p d(p,\theta_i^*,s) - A  + \int_{s_1}^{\Bar{s}}  U(\alpha_i \frac{k}{\mu_i},\theta_i^*,s) - p \alpha_i \frac{k}{\mu_i} - A
+\end{equation*}
+
+
+\begin{equation*}
+      t^*_i :  CS_i^0(t^*_i) = 0 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{t^*_i}{p} = - \frac{\pdv{CS_i^0}{p}}{\pdv{CS_i^0}{t^*}}
+\end{equation*}
+
+
+\begin{equation*}
+    \pdv{t^*_i}{A} = - \frac{\pdv{CS_i^0}{A}}{\pdv{CS_i^0}{t^*}}
+\end{equation*}
+
+\begin{align*}
+    \pdv{CS_i^0}{p} & = \int_0^{s_1} (u(d(p,t_i^*,s)) - p) \pdv{d}{p}(p,t_i^*,s) + d(p,t_i^*,s)  + \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i},t_i^*) - p) \pdv{\alpha_i}{p} + \alpha_i \frac{k}{\mu_i} + 
+    \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 \\\\
+    & = - \mathbb{E}q_i^0 + \mathbb{E}\pdv{q_i^0}{p} (u - p)  + 
+    \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0    
+\end{align*}
+
+\begin{equation*}
+ \mathbb{E}\pdv{q_i^0}{p} (u - p) =  \int_0^{s_1} (u(d(p,t_i^*,s)) - p) \pdv{d}{p}(p,t_i^*,s) +\int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i},t_i^*) - p) \pdv{\alpha_i}{p} 
+\end{equation*}
+
+
+\begin{align*}
+    \pdv{CS_i^0}{A} & = - \int_0^{s_1} 1  + \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i},t_i^*) - p) \pdv{\alpha_i}{A} - 1 + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0 \\\\
+    & = - 1 + \mathbb{E}\pdv{q_i^0}{A} (u - p)  + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    
+\end{align*}
+
+
+\begin{equation*}
+ \mathbb{E}\pdv{q_i^0}{A} (u - p) =  \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i},t_i^*) - p) \pdv{\alpha_i}{A} 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{CS_i^0}{t^*} = \mathbb{E}q_i^0
+\end{equation*}
+
+\begin{equation*}
+    \pdv{t^*}{p} = - \frac{- \mathbb{E}q_i^0 + \mathbb{E}\pdv{q_i^0}{p} (u - p)  + 
+    \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}= \left(- \mathbb{E}q_i^0 + \mathbb{E}\pdv{q_i^0}{p} (u - p)  + 
+    \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 \right) \frac{1}{\pdv{CS_0}{\theta_i^*}}
+\end{equation*}
+
+
+\begin{equation*}
+    \pdv{t^*}{A} = - \frac{- 1 + \mathbb{E}\pdv{q_i^0}{A} (u - p)  + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{\mathbb{E}q_i^0}= \left(- 1 + \mathbb{E}\pdv{q_i^0}{A} (u - p)  + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0\right) \frac{1}{\pdv{CS_0}{\theta_i^*}}
+\end{equation*}
+
+Note that
+
+\begin{equation*}
+    \pdv{\alpha_1}{x} = - \pdv{\alpha_2}{x}
+\end{equation*}
+
+The derivative is found by: $ \alpha_i : \mathbb{E} Q_\alpha(\alpha_i) = k$
+
+\begin{equation*}
+    \mathbb{E} Q_\alpha = \sum \mu_i \int_{t^*(\alpha,p)}^{\Bar{t}} \alpha_i \frac{k}{\mu_i} 
+\end{equation*}
+
+
+
+\begin{equation*}
+    \pdv{\alpha_i}{p}  = \frac{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{p}}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{\alpha_i}{A}  = \frac{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{A}}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{p} = - \sum_i \mu_i \pdv{t^*_i}{p} |_{\Bar{\alpha}_i} g_i(t^*_i) \alpha_i \frac{k}{\mu_i}
+\end{equation*}
+
+\begin{equation*}
+    \pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{A} = - \sum_i \mu_i \pdv{t^*_i}{A} |_{\Bar{\alpha}_i} g_i(t^*_i) \alpha_i \frac{k}{\mu_i}
+\end{equation*}
+
+\begin{equation*}
+    \pdv{\alpha_i}{p}  = - \sum_i \mu_i \pdv{t^*_i}{p}  g_i(t^*_i) \alpha_i \frac{k}{\mu_i} \frac{1}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{\alpha_i}{Q}  = - \sum_i \mu_i \pdv{t^*_i}{A}  g_i(t^*_i) \alpha_i \frac{k}{\mu_i} \frac{1}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} 
+\end{equation*}
+
+
+
+
+\begin{equation*}
+   \pdv{t^*_i}{p} |_{\Bar{\alpha}_i}  =  - \frac{- \mathbb{E}q_i^0  + 
+    \pdv{s_1}{p} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}
+\end{equation*}
+
+\begin{align*}
+    \pdv{t^*_i}{A} |_{\Bar{\alpha}_i}  = &   - \frac{- 1 + 
+    \pdv{s_1}{A} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0    }{\mathbb{E}q_i^0} \\\\
+    =& - \frac{- 1 +  \pdv{s_1}{p} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0  -   \pdv{s_1}{p} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0  + \pdv{s_1}{A} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}  \\\\
+    =& - \frac{- 1 +  \pdv{s_1}{p} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0  }{\mathbb{E}q_i^0} + \frac{     \pdv{s_1}{p} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0 - \pdv{s_1}{A} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}  \\\\
+     =&  \frac{1}{{\mathbb{E}q_i^0}}  \pdv{t^*_i}{p}  + \frac{     (\pdv{s_1}{p} |_{\Bar{\alpha}_i}  - \pdv{s_1}{A} |_{\Bar{\alpha}_i}) f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}  \\\\
+     =&  \frac{1}{{\mathbb{E}q_i^0}}  \pdv{t^*_i}{p} + F_1
+\end{align*}
+
+\begin{equation*}
+    \pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{A} = - \sum_i \mu_i (\frac{1}{{\mathbb{E}q_i^0}}  \pdv{t^*_i}{p} + F_1) |_{\Bar{\alpha}_i} g_i(t^*_i) \alpha_i \frac{k}{\mu_i} = \frac{1}{{\mathbb{E}q_i^0}}\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{p}  - \sum_i \mu_i F_1 |_{\Bar{\alpha}_i} g_i(t^*_i) \alpha_i \frac{k}{\mu_i} = \frac{1}{{\mathbb{E}q_i^0}}\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{p}  + F_2
+\end{equation*}
+
+
+\begin{equation*}
+    F_2 = - \sum_i \mu_i \frac{     (\pdv{s_1}{p} |_{\Bar{\alpha}_i}  - \pdv{s_1}{A} |_{\Bar{\alpha}_i}) f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}  g_i(t^*_i) \alpha_i \frac{k}{\mu_i}
+\end{equation*}
+
+\begin{equation*}
+    \pdv{\alpha_i}{A} = \frac{\frac{1}{{\mathbb{E}q_i^0}}\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{p}  + F_2}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} =  \frac{1}{{\mathbb{E}q_i^0}} \frac{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{p}  }{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} + \frac{1}{{\mathbb{E}q_i^0}} \frac{ F_2}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}}=   \frac{1}{{\mathbb{E}q_i^0}}  \pdv{\alpha_i}{p} + F_3
+\end{equation*}
+
+\begin{equation*}
+    F3 = -  \sum_i \mu_i \frac{     (\pdv{s_1}{p} |_{\Bar{\alpha}_i}  - \pdv{s_1}{A} |_{\Bar{\alpha}_i}) f(s_1) \Delta \Tilde{CS}_i^0 }{{\mathbb{E}q_i^0}^2}  g_i(t^*_i) \alpha_i \frac{k}{\mu_i} \frac{1}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} 
+\end{equation*}
+
+
+
+\begin{equation*}
+ \mathbb{E}\pdv{q_i^0}{p} (u - p) =  \int_0^{s_1} (u(d(p,t,s)) - p) \pdv{d}{p}(p,t,s) +\int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p) \pdv{\alpha_i}{p} 
+\end{equation*}
+
+
+\begin{equation*}
+    \mathbb{E} d = \sum \mu_i \int_{t^*}^{\Bar{t}} d(p,t,s) 
+\end{equation*}
+
+\begin{equation*}
+    s_1 : \mathbb{E} d (s_1) = k
+\end{equation*}
+
+\begin{equation*}
+    \pdv{s_1}{p} = - \frac{\pdv{\mathbb{E} d (s_1)}{p}}{\pdv{\mathbb{E}d}{s}}  = \frac{ - \sum \mu_i \pdv{t^*_i}{p} g(t^*_i) d(p,t^*_i,s)  + \sum \mu_i \int_{t^*}^{\Bar{t}} d(p,t,s) }{}
+\end{equation*}
+
+\begin{equation*}
+    \pdv{s_1}{A} = - \frac{\pdv{\mathbb{E} d (s_1)}{A}}{\pdv{\mathbb{E}d}{s}} 
+\end{equation*}
+
+\begin{equation*}
+ \mathbb{E}\pdv{q_i^0}{A} (u - p) =  \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p) (\frac{1}{{\mathbb{E}q_i^0}}  \pdv{\alpha_i}{p} + F_3) = \frac{1}{{\mathbb{E}q_i^0}}   \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p)  \pdv{\alpha_i}{p} +  \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p)F_3
+\end{equation*}
+
+
+
+
+\begin{equation*}
+    \pdv{t^*}{p} = - \frac{- \mathbb{E}q_i^0 + \mathbb{E}\pdv{q_i^0}{p} (u - p)  + 
+    \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 }{\mathbb{E}q_i^0}
+\end{equation*}
+
+
+\begin{align*}
+    \pdv{t^*}{A} &= - \frac{- 1 + \mathbb{E}\pdv{q_i^0}{A} (u - p)  + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{\mathbb{E}q_i^0} \\\\
+    &= - \frac{- 1 + \frac{1}{{\mathbb{E}q_i^0}}   \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p)  \pdv{\alpha_i}{p} +  \int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p)F_3 + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{\mathbb{E}q_i^0}\\\\
+    &= - \frac{  \frac{1}{{\mathbb{E}q_i^0}}( - \mathbb{E}q_i^0 +  \mathbb{E}\pdv{q_i^0}{p} (u - p)  + 
+    \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 )- 
+     \frac{1}{{\mathbb{E}q_i^0}}\pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 - \frac{1}{{\mathbb{E}q_i^0}} \int_0^{s_1} (u - p) \pdv{d}{p}+  \int_{s_1}^{\Bar{s}}  (u - p)F_3 + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{\mathbb{E}q_i^0}\\\\
+    &= - \frac{  \frac{1}{{\mathbb{E}q_i^0}}\pdv{t^*}{p} - 
+     \frac{1}{{\mathbb{E}q_i^0}}\pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 - \frac{1}{{\mathbb{E}q_i^0}} \int_0^{s_1} (u - p) \pdv{d}{p}+  \int_{s_1}^{\Bar{s}}  (u - p)F_3 + 
+    \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{\mathbb{E}q_i^0}\\\\
+    &= - \pdv{t^*}{p} \frac{1}{{\mathbb{E}q_i^0}^2} - \frac{  -  \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 -  \int_0^{s_1} (u - p) \pdv{d}{p}+  \mathbb{E}q_i^0\int_{s_1}^{\Bar{s}}  (u - p)F_3 + 
+   \mathbb{E}q_i^0 \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{{\mathbb{E}q_i^0}^2} \\\\
+   &= - \pdv{t^*}{p} \frac{1}{{\mathbb{E}q_i^0}^2} + F4
+\end{align*}
+
+\begin{align*}
+    F4 & = - \frac{  -  \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 -  \int_0^{s_1} (u - p) \pdv{d}{p}+  \mathbb{E}q_i^0\int_{s_1}^{\Bar{s}}  (u - p)F_3 + 
+   \mathbb{E}q_i^0 \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{{\mathbb{E}q_i^0}^2} \\\\
+   & - \frac{  -  \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 -  \int_0^{s_1} (u - p) \pdv{d}{p}+  \mathbb{E}q_i^0\int_{s_1}^{\Bar{s}}  (u - p)\frac{1}{{\mathbb{E}q_i^0}} \frac{ F_2}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} + 
+   \mathbb{E}q_i^0 \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{{\mathbb{E}q_i^0}^2} \\\\
+   & - \frac{  -  \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 -  \int_0^{s_1} (u - p) \pdv{d}{p}+  \int_{s_1}^{\Bar{s}}  (u - p) \frac{ F_2}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} + 
+   \mathbb{E}q_i^0 \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{{\mathbb{E}q_i^0}^2} \\\\
+   & - \frac{  -  \pdv{s_1}{p} f(s_1) \Delta \Tilde{CS}_i^0 -  \int_0^{s_1} (u - p) \pdv{d}{p}+  \int_{s_1}^{\Bar{s}}  (u - p) \frac{  - \sum_i \mu_i  (\frac{ \pdv{s_1}{p} |_{\Bar{\alpha}_i} f(s_1) \Delta \Tilde{CS}_i^0  -  \mathbb{E}q_i^0 \pdv{s_1}{A} |_{\Bar{\alpha}_i} f(s_1) \Tilde{CS}_i^0  }{{\mathbb{E}q_i^0}^2} |_{\Bar{\alpha}_i} g_i(t^*_i) \alpha_i \frac{k}{\mu_i})}{\pdv{ \mathbb{E} Q_\alpha(\alpha_i)}{\alpha_i}} + 
+   \mathbb{E}q_i^0 \pdv{s_1}{A} f(s_1) \Delta \Tilde{CS}_i^0    }{{\mathbb{E}q_i^0}^2} 
+\end{align*}
+
+
+
+
+
+
+
+
+\begin{equation*}
+ \mathbb{E}\pdv{q_i^0}{p} (u - p) =  \int_0^{s_1} (u(d(p,t,s)) - p) \pdv{d}{p}(p,t,s) +\int_{s_1}^{\Bar{s}}  (u(\alpha_i \frac{k}{\mu_i}) - p) \pdv{\alpha_i}{p} 
+\end{equation*}
+
+
+\begin{equation*}
+    \mathbb{E} d = \sum \mu_i \int_{t^*}^{\Bar{t}} d(p,t,s) 
+\end{equation*}
+
+\begin{equation*}
+    s_1 : \mathbb{E} d (s_1) = k
+\end{equation*}
+
+\begin{equation*}
+    \pdv{s_1}{p} = - \frac{\pdv{\mathbb{E} d (s_1)}{p}}{\pdv{\mathbb{E}d}{s}} 
+\end{equation*}
+
+\begin{equation*}
+    \pdv{s_1}{A} = - \frac{\pdv{\mathbb{E} d (s_1)}{A}}{\pdv{\mathbb{E}d}{s}} 
+\end{equation*}
+
+
+
+\end{document}

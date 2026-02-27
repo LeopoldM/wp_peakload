@@ -1,0 +1,43 @@
+\documentclass{class}
+
+
+\begin{document}
+
+
+\noindent \textbf{consumer}. state of the world $s \in S \subset \mathcal{R}_+^m$ with $S$ compact convex set. Distribution $G$ and density $g$. Consumer preference $\theta$ with utility function $U(q,\theta,s)+\zeta$ with $q$ is the product and $\zeta$ is the numeraire. Assume that $U(q,\theta,s) = \int_0^qu(\Tilde{q},\theta,s)d\Tilde{q}$ where $u$ is the marginal willigness to pay for $q$ and $U(0,\theta,s) = 0$. Let $p$ be the market price then demand function is such that $q(p,\theta,s) = \max_{q}[U(q,\theta,s)+\zeta-pq]$ subject to $\zeta - pq \geq0$, thus $u(q,\theta,s)=p$. Assume the population type is defined by F on $\Theta=[\ubar{\theta},\Bar{\theta}]$. So demand is $D(p,s) = \int_\Theta q(p,\theta,s)dF$
+
+\noindent Producer. Cost function $C(Q,s)$ and capacity constraint $K(s)$ with marginal cost $c(Q,s)$. Supply is given by $S(p,s) = \max_Q(pQ-C(Q,s))$ subject to $Q\leq K(s)$
+
+\noindent Spot market pricing is defined such that $(p^*(s),Q^*(s))$ such that $D(p^*(s),s) = S(p^*(s),s)$ and define individual allocation  $q^*(\theta,s)\equiv q(p^*(s),\theta,s)$. Note that $p^*(s) = \max(\Bar{{p}(s),\Tilde{p}(s)})$, with $\Bar{p} =c(D(\Bar{p},s),s)$ and $\Tilde{p}$ such that $D(\Tilde{p},s) = K(s)$. The spot market is Pareto Optimal because it leads to the same optimal allocation as
+
+\begin{equation*}
+    \max_{q(\theta,s)}\left[ \int_\Theta U(q(\theta,s),\theta,s)dF - C\left(\int_\Theta q(\theta,s) dF,s\right)\right] st. \int_\Theta q(\theta,s)dF(s) \leq K(s)
+\end{equation*}
+
+Define the expected spot price $\hat{p}=\int_S p^*(s)dG(s)$
+
+Expected utility for a consumer: 
+
+\[V(\theta,\hat{\theta}) = \int_SU(q(\theta,s),\theta,s)dG-P(\hat{\theta})\]
+
+IC if $V(\theta) = V(\theta,\theta)\geq V(\theta,\hat{\theta})$ and IR if  $V(\theta)\geq 0$
+
+\noindent \textbf{Proposition }If $P^*(\theta) = \int_S p^*(s)q^*(\theta,s)dG$ and $P(\ubar{\theta})=\int_S p^*(s)q^*(\ubar{\theta},s)dG$ then it implements the optimal allocation.
+
+\noindent \textbf{Proof}
+Step 1 : recal the the FOC implies that $\partial_\theta V(\theta) = \int_S \partial_\theta U(q^*(\theta,s),\theta,s)dG$, so utility is such that (envelop theorem) :$V(\theta) = V(\ubar{\theta}) + \int_S \int_{\ubar{\theta}}^{\theta} \partial_\theta U(q^*(\Tilde{\theta},s),\Tilde{\theta},s)d\Tilde{\theta}dG$
+
+Step 2: $V = U - P$ so $\ubar{V} = \ubar{U} - \ubar{P}$. So $U - P =  \ubar{U} - \ubar{P} + E_{s\theta} \partial_\theta U$ hence: $P = U - \Bar{U} -  E_{s\theta} \partial_\theta U + \ubar{P}$
+
+Step 3: Note that $E_S U = E_s \ubar{S} + E_s [\int_{\Bar{\theta}}^{\theta} \partial_q U \partial_\theta q + \partial_\theta U]$
+
+Step 4: $P =  E_s [\int_{\Bar{\theta}}^{\theta} u \partial_\theta q] + \ubar{P}$ so same form as the payment in the proposition. 
+
+Step 5: check that if consumer max with P then it is also IC and IR.
+
+Define consumer expcted demand as $\Gamma(\theta) = \int_S q(\theta,s)$, then we can write $P(\theta) = \hat{p}\Gamma(\theta)+cov(p^*(s),q^*(\theta,s))$
+
+Assume that there exists a fixed price contract with price $z$ then quantity as rationing when $p^s(s)>z$ and price as rationing when $p^s(s)<z$. Then defined $P(\theta,z) = \int_{p^*(s)>z} (p^s(s)-z)q(\theta,s)$ and $P(\ubar{\theta},z) = \int_{p^*(s)>z} (p^s(s)-z)q(\ubar{\theta},s)$ implement the optimal mechanism.
+
+
+\end{document}
