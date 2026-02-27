@@ -54,6 +54,7 @@
 \usepackage{bbm}
 \usepackage{amsthm}
 \usepackage{enumitem}
+
 \usepackage{bbm}
 \usepackage{amsmath}% http://ctan.org/pkg/amsmath
 \usepackage [ short,nocomma ]{ optidef }
@@ -144,9 +145,9 @@
 \newtheorem{claim}{Claim}
 \newtheorem{definition}{Definition}
 \newtheorem{assumption}{Assumption}
-\newtheorem{remarks}{Remarks}
+\newtheorem{remark}{Remark}
 \newtheorem{theorem}{Theorem}
-
+\usepackage{enumitem}
 
 \newcommand{\Cov}{\mathrm{Cov}}
 \newcommand{\E}{\mathbb{E}}
