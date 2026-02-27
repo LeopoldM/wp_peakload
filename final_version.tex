@@ -349,11 +349,7 @@ This section proceeds in four steps. First, we characterize the optimal allocati
 \subsubsection{Characterization}
 %------------------------------------------------------------
 
-Following Lemma~\ref{CSmd-def}, the within-category problem selects an allocation rule $q_i^\times(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign and the revenue requirement only imposes a lower bound on expected transfers, the planner sets expected transfers at their minimum feasible level. Hence, the revenue requirement binds:
-\[
-\E_{(s,\theta_i)}\!\left[t_i^\times(\theta,s)\right]=I_i.
-\]
-Using \eqref{ICmd-def}, taking expectations over $\theta$ within the category, and integrating by parts (noting that $\E \underline{CS}_i^\times$ is independent of $\theta$ by definition) yields
+Following Lemma~\ref{CSmd-def}, the within-category problem selects an allocation rule $q_i^\times(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement $(R_i^\times)$ could be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\mathbb{E}_{(s,\theta_i)}[t_i^\times(\theta,s)] = I_i$. Substituting the envelope representation $(IC^\times)$ into this equality and integrating by parts with respect to $\theta$ — using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{CSmd-def} to separate the lump-sum transfer $\underline{CS}_i^\times$ from the allocation-dependent rent — yields the single combined constraint
 \[
 \E \underline{CS}_i^\times
 =
@@ -373,7 +369,13 @@ Where
 \[
 \Gamma_i(\theta)=\tilde\lambda_i J_i(\theta)+\Lambda_i(\theta)
 \]
-captures the trade-off created by incentive constraints: reallocating $q$ toward type $\theta$ affects (i) revenue, proxied by the ``virtual surplus'' term $\tilde\lambda_i J_i(\theta)$, and (ii) surplus for types above $\theta$ through $\Lambda_i(\theta)$. Let $\varepsilon_i^\times(s)\ge 0$ and $\beta_i^\times\ge 0$ denote the multipliers on the capacity constraint \eqref{Kmdi-def} and the IR/budget constraint \eqref{Rmdi-def}. The first-order condition is
+captures the trade-off created by incentive constraints: reallocating $q$ toward type $\theta$ affects (i) revenue, proxied by the ``virtual surplus'' term $\tilde\lambda_i J_i(\theta)$, and (ii) surplus for types above $\theta$ through $\Lambda_i(\theta)$. Let $\varepsilon_i^\times(s)\ge 0$ and $\beta_i^\times\ge 0$ denote the multipliers on the capacity constraint \eqref{Kmdi-def} and the IR/budget constraint \eqref{Rmdi-def}. 
+
+
+
+
+
+The first-order condition is
 \[
 \label{KKT-qMD}\tag{FOC$_q^\times$}
 u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal G_i(\theta)-\varepsilon_i^\times(s)=0,
@@ -484,12 +486,12 @@ Two observations about \eqref{partialkCS-boundary} are immediate. First, its sig
   Whenever it exists, define a cutoff $\tilde\theta_i^1\in [\underline\theta_i,\overline\theta_i]$ by $\partial\mathbb{E} CS_i^\times(\tilde\theta_i^1)/\partial k_i=0$.
 
   \medskip
-  \noindent\textbf{IR-unconstrained allocation.} (i)~If \eqref{COV1} holds, then an increase in $k_i$ increases surplus for every type $\theta$. (ii)~If \eqref{COV1} is reversed, then $\tilde\theta_i^1$ is unique; individual surplus decreases for all $\theta<\tilde\theta_i^1$ and increases for all $\theta>\tilde\theta_i^1$.
+  \noindent\textbf{IR-unconstrained allocation.} (i)~If \eqref{COV1} holds for every $s$, then an increase in $k_i$ increases surplus for every type $\theta$. (ii)~If \eqref{COV1} is reversed, then $\tilde\theta_i^1$ is unique; individual surplus decreases for all $\theta<\tilde\theta_i^1$ and increases for all $\theta>\tilde\theta_i^1$.
 
   \medskip
   \noindent\textbf{IR-constrained allocation} (characterised in Proposition~\ref{prop:implementation} below). Assume $R_\theta(\theta)$ is monotone. If $R_\theta(\theta)$ is increasing, then $\tilde\theta_i^1$ is unique and:
   \begin{enumerate}[label=(\roman*), leftmargin=1cm]
-    \item if \eqref{COV1} holds, individual surplus decreases for all $\theta>\tilde\theta_i^1$ and increases for all $\theta<\tilde\theta_i^1$;
+    \item if \eqref{COV1} holds for every $s$, individual surplus decreases for all $\theta>\tilde\theta_i^1$ and increases for all $\theta<\tilde\theta_i^1$;
     \item if \eqref{COV1} is reversed, individual surplus decreases for all $\theta<\tilde\theta_i^1$ and increases for all $\theta>\tilde\theta_i^1$.
   \end{enumerate}
   If $R_\theta(\theta)$ is decreasing, the inequalities are reversed.
@@ -513,13 +515,13 @@ The single-crossing result in Lemma~\ref{lem:SC-dir} has an immediate implicatio
 
 \begin{proposition}[Implementation region]\label{prop:implementation}
 Fix category \(i\) and a budget requirement \(I_i>0\). Let \(k_i^+\) be the capacity level at which the capacity constraint never binds. 
-Assume that \eqref{Eujmd} is \emph{single-crossing in \(k_i\) from \(+\) to \(-\)} on \([0,k_i^+]\). Then \(\mathbb E\underline{CS}_i^\times(k_i)\) is single-peaked on \([0,k_i^+]\) and the set of capacities for which the IR-unconstrained allocation is feasible (equivalently, \(\mathbb E\underline{CS}_i^\times(k_i)\ge 0\)) has the following form:
+Assume that \eqref{Eujmd} is \emph{single-crossing in \(k_i\) from \(+\) to \(-\)} on \([0,k_i^+]\) for every $s$. Then \(\mathbb E\underline{CS}_i^\times(k_i)\) is single-peaked on \([0,k_i^+]\) and the set of capacities for which the IR-unconstrained allocation is feasible (equivalently, \(\mathbb E\underline{CS}_i^\times(k_i)\ge 0\)) has the following form:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
     \item If \(\mathbb E\underline{CS}_i^\times(k_i^+)\ge 0\), there exists a unique cutoff \(\tilde k_i\in(0,k_i^+]\) such that the IR-unconstrained allocation is optimal for all \(k_i\in[\tilde k_i,k_i^+]\). In particular, this holds whenever \(J_i(\theta)\ge 0\) for all \(\theta\).
     \item If \(\mathbb E\underline{CS}_i^\times(k_i^+)<0\), the IR-unconstrained allocation is either never optimal on \([0,k_i^+]\) or optimal only on an intermediate interval \([\tilde k_i^-,\tilde k_i^+]\subset(0,k_i^+)\).
 \end{enumerate}
 
-If instead \eqref{Eujmd} crosses from \(-\) to \(+\): then \(\mathbb E\underline{CS}_i^\times(k_i)\) is single-dipped on \([0,k_i^+]\) and either \(\mathbb E\underline{CS}_i^\times(k_i)<0\) for all \(k_i\in[0,k_i^+]\), or there exists a unique \(\tilde k_i\in(0,k_i^+]\) such that \(\mathbb E\underline{CS}_i^\times(k_i)\ge 0\) for all \(k_i\in[\tilde k_i,k_i^+]\).
+If instead \eqref{Eujmd} crosses from \(-\) to \(+\) for every $s$: then \(\mathbb E\underline{CS}_i^\times(k_i)\) is single-dipped on \([0,k_i^+]\) and either \(\mathbb E\underline{CS}_i^\times(k_i)<0\) for all \(k_i\in[0,k_i^+]\), or there exists a unique \(\tilde k_i\in(0,k_i^+]\) such that \(\mathbb E\underline{CS}_i^\times(k_i)\ge 0\) for all \(k_i\in[\tilde k_i,k_i^+]\).
 
 \end{proposition}
 
