@@ -705,6 +705,8 @@ Finally, we link $R_\theta'(\theta)$ with the model primitives
 We assumed that $\Lambda_i(\theta)\ge0$ while $J_i(\theta)$ can be negative, hence 
 
 \[\sign{(R_\theta'(\theta))}=\sign (J_i(\theta)) \sign \left( \frac{J_i'(\theta)}{J_i(\theta)}   -  \frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)} \right)\]
+
+
 \end{proof}
 
 
@@ -841,6 +843,56 @@ $\tilde\lambda_i^2/\tilde\lambda_i^1\le 1$, so
 $\Delta\Gamma_i(\theta)\le 0$ throughout. The log-derivative inequality
 reverses by the same token.
 \end{proof}
+
+
+\section{Proof Lemma XXX}
+
+\begin{lemma}[Boundary invariance of the preference ratio under $\beta_i^\times=0$]\label{lem:boundary}
+Suppose $\beta_i^\times=0$, so that $\mathcal{G}_i(\theta)=\Gamma_i(\theta)=\tilde\lambda_i J_i(\theta)+\Lambda_i(\theta)$. For any admissible perturbation $\Delta(\cdot)$ of $\lambda_i(\cdot)$, define $R_\Gamma(\theta):=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$. Then
+\[R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)=\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}.\]
+\end{lemma}
+
+\begin{proof}
+Since $J_i$ depends only on $G_i$ and $g_i$, which are fixed primitives, any perturbation of $\lambda_i(\cdot)$ yields
+\[\Delta\Gamma_i(\theta)=\Delta\tilde\lambda_i\,J_i(\theta)+\Delta\Lambda_i(\theta),\]
+where, from the explicit form of $\Lambda_i$,
+\[\Delta\Lambda_i(\theta)=\frac{\Delta\tilde\lambda_i-\int_{\underline\theta_i}^{\theta}\Delta\lambda_i(t)\,\mathrm{d}t}{g_i(\theta)}.\]
+\textbf{Lower boundary.} Since $\int_{\underline\theta_i}^{\underline\theta_i}\Delta\lambda_i=0$, we have $\Delta\Lambda_i(\underline\theta_i)=\Delta\tilde\lambda_i/g_i(\underline\theta_i)$. Using $J_i(\underline\theta_i)=\underline\theta_i-1/g_i(\underline\theta_i)$ and $\Gamma_i(\underline\theta_i)=\tilde\lambda_i\underline\theta_i$,
+\[\Delta\Gamma_i(\underline\theta_i)=\Delta\tilde\lambda_i\!\left(\underline\theta_i-\frac{1}{g_i(\underline\theta_i)}\right)+\frac{\Delta\tilde\lambda_i}{g_i(\underline\theta_i)}=\Delta\tilde\lambda_i\,\underline\theta_i,\]
+hence $R_\Gamma(\underline\theta_i)=\Delta\tilde\lambda_i\underline\theta_i\,/\,\tilde\lambda_i\underline\theta_i=\Delta\tilde\lambda_i/\tilde\lambda_i$.
+\textbf{Upper boundary.} Since $\int_{\underline\theta_i}^{\overline\theta_i}\Delta\lambda_i=\Delta\tilde\lambda_i$, we have $\Delta\Lambda_i(\overline\theta_i)=0$. Using $J_i(\overline\theta_i)=\overline\theta_i$ and $\Gamma_i(\overline\theta_i)=\tilde\lambda_i\overline\theta_i$,
+\[\Delta\Gamma_i(\overline\theta_i)=\Delta\tilde\lambda_i\,\overline\theta_i,\]
+hence $R_\Gamma(\overline\theta_i)=\Delta\tilde\lambda_i/\tilde\lambda_i$.\end{proof}
+
+
+
+% ============================================================
+% Preference perturbation analysis (Delta) -- fixed k_i, general beta_i^times
+% ============================================================
+
+Recall the (pointwise) FOC for each $(\theta,s)$:
+\begin{equation}\label{KKT-qtimes}\tag{KKT-$q^\times$}
+u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal{G}_i(\theta)-\varepsilon_i^\times(s)=0,
+\end{equation}
+where $\mathcal{G}_i(\theta)=\Gamma_i(\theta)+\beta_i^\times J_i(\theta)=(\tilde\lambda_i+\beta_i^\times)J_i(\theta)+\Lambda_i(\theta)$, with
+\[J_i(\theta)=\theta-\frac{1-G_i(\theta)}{g_i(\theta)},\qquad \Lambda_i(\theta)=\frac{\tilde\lambda_i-\int_{\underline\theta_i}^{\theta}\lambda_i(t)\,\mathrm{d}t}{g_i(\theta)},\qquad \tilde\lambda_i=\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i(t)\,\mathrm{d}t.\]
+Since $J_i$ is invariant to perturbations of $\lambda_i(\cdot)$, a preference perturbation $\Delta(\cdot)$ acting on $\lambda_i$ produces
+\begin{equation}\label{DeltaG}\tag{$\Delta\mathcal{G}$}
+\Delta\mathcal{G}_i(\theta)=\Delta\Gamma_i(\theta)+J_i(\theta)\,\Delta\beta_i^\times=(\Delta\tilde\lambda_i+\Delta\beta_i^\times)J_i(\theta)+\Delta\Lambda_i(\theta),
+\end{equation}
+where $\Delta\Lambda_i(\theta)=\bigl(\Delta\tilde\lambda_i-\int_{\underline\theta_i}^{\theta}\Delta\lambda_i(t)\,\mathrm{d}t\bigr)/g_i(\theta)$ and $\Delta\tilde\lambda_i=\int_{\underline\theta_i}^{\overline\theta_i}\Delta\lambda_i(t)\,\mathrm{d}t$. Note that when $\beta_i^\times=0$ and $\Delta\beta_i^\times=0$, \eqref{DeltaG} reduces to $\Delta\mathcal{G}_i=\Delta\Gamma_i$.
+
+\textbf{Upper boundary.} Since $J_i(\overline\theta_i)=\overline\theta_i$ and $\Lambda_i(\overline\theta_i)=0$, the boundary values are
+\[\mathcal{G}_i(\overline\theta_i)=(\tilde\lambda_i+\beta_i^\times)\overline\theta_i,\qquad \Delta\mathcal{G}_i(\overline\theta_i)=(\Delta\tilde\lambda_i+\Delta\beta_i^\times)\overline\theta_i,\]
+so $R_{\mathcal{G}}(\overline\theta_i):=\Delta\mathcal{G}_i(\overline\theta_i)/\mathcal{G}_i(\overline\theta_i)=(\Delta\tilde\lambda_i+\Delta\beta_i^\times)/(\tilde\lambda_i+\beta_i^\times)=:\Delta\mu_i/\mu_i$, where $\mu_i:=\tilde\lambda_i+\beta_i^\times$.
+
+\textbf{Lower boundary.} Since $J_i(\underline\theta_i)=\underline\theta_i-1/g_i(\underline\theta_i)$, $\Lambda_i(\underline\theta_i)=\tilde\lambda_i/g_i(\underline\theta_i)$, and $\Delta\Lambda_i(\underline\theta_i)=\Delta\tilde\lambda_i/g_i(\underline\theta_i)$,
+\[\mathcal{G}_i(\underline\theta_i)=\mu_i\underline\theta_i-\frac{\beta_i^\times}{g_i(\underline\theta_i)},\qquad \Delta\mathcal{G}_i(\underline\theta_i)=\Delta\mu_i\,\underline\theta_i-\frac{\Delta\beta_i^\times}{g_i(\underline\theta_i)}.\]
+Boundary invariance $R_{\mathcal{G}}(\underline\theta_i)=\Delta\mu_i/\mu_i$ then requires $\Delta\beta_i^\times/\beta_i^\times=\Delta\tilde\lambda_i/\tilde\lambda_i$, which holds if $\beta_i^\times=0$ (so that the lower boundary reduces to $\mathcal{G}_i(\underline\theta_i)=\tilde\lambda_i\underline\theta_i$ as in Lemma~\ref{lem:boundary}) but is not guaranteed in general.
+
+
+\[R_{\mathcal{G}}(\underline\theta_i) = \frac{\Delta\tilde\lambda_i\cdot\underline\theta_i+\Delta\beta_i^\times\cdot J_i(\underline\theta_i)}{\tilde\lambda_i\cdot\underline\theta_i+\beta_i^\times\cdot J_i(\underline\theta_i)},\qquad R_{\mathcal{G}}(\overline\theta_i) = \frac{\Delta\tilde\lambda_i\cdot\overline\theta_i+\Delta\beta_i^\times\cdot\overline\theta_i}{\tilde\lambda_i\cdot\overline\theta_i+\beta_i^\times\cdot\overline\theta_i} = \frac{\Delta\mu_i}{\mu_i}.\]
+
 \section{Proof of Corollary XXXX}
 \begin{proof}
     
@@ -1608,6 +1660,571 @@ Taking suprema over feasible mechanisms yields
 \alpha\,\widetilde V_i(k_i^0,I_i^0)+(1-\alpha)\,\widetilde V_i(k_i^1,I_i^1),
 \]
 so $\widetilde V_i$ is concave. Finally, $V_i=\widetilde V_i-\tilde\lambda_i I_i$ is concave because subtracting a linear function preserves concavity.
+\end{proof}
+
+\section{Pertubartion IR constrained}
+
+% ============================================================
+% Preference perturbation analysis (Delta) -- fixed k_i
+% Key difference: \Delta \mathcal G_i(\theta)=\Delta \Gamma_i(\theta)+J_i(\theta)\Delta\beta_i^\times
+% ============================================================
+
+Recall the (pointwise) FOC for each $(\theta,s)$:
+\begin{equation}
+\label{KKT-qtimes}\tag{KKT-$q^\times$}
+u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal G_i(\theta)-\varepsilon_i^\times(s)=0,
+\end{equation}
+where $\mathcal G_i(\theta)=\Gamma_i(\theta)+\beta_i^\times J_i(\theta)$.
+
+Consider a preference perturbation $\Delta(\cdot)$ acting on $\Gamma_i$, so that
+\begin{equation}
+\label{DeltaG}\tag{$\Delta \mathcal G$}
+\Delta \mathcal G_i(\theta)=\Delta\Gamma_i(\theta)+J_i(\theta)\,\Delta\beta_i^\times.
+\end{equation}
+Linearizing \eqref{KKT-qtimes} yields, for each $(\theta,s)$,
+\begin{equation}
+\label{DeltaKKT}\tag{$\Delta$KKT}
+u_q\!\left(q_i^\times(\theta,s),s\right)\,\Delta q_i^\times(\theta,s)\,\mathcal G_i(\theta)
++u\!\left(q_i^\times(\theta,s),s\right)\,\Delta \mathcal G_i(\theta)
+-\Delta\varepsilon_i^\times(s)=0,
+\end{equation}
+hence
+\begin{equation}
+\label{Deltaq-general}\tag{$\Delta q^\times$}
+\Delta q_i^\times(\theta,s)=
+\frac{\Delta\varepsilon_i^\times(s)-u\!\left(q_i^\times(\theta,s),s\right)\,\Delta \mathcal G_i(\theta)}
+{\mathcal G_i(\theta)\,u_q\!\left(q_i^\times(\theta,s),s\right)}.
+\end{equation}
+
+Fix a state $s\in S^\times$ such that the capacity constraint is slack. Then $\varepsilon_i^\times(s)=0$, and \eqref{KKT-qtimes} implies
+\begin{equation}
+\label{offpeak-u0}\tag{$u=0$ off-peak}
+u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal G_i(\theta)=0.
+\end{equation}
+Under the maintained condition $\mathcal G_i(\theta)>0$, \eqref{offpeak-u0} gives $u\!\left(q_i^\times(\theta,s),s\right)=0$ for all $\theta$, so that
+\begin{equation}
+\label{Deltaq-offpeak}\tag{$\Delta q=0$ off-peak}
+\Delta q_i^\times(\theta,s)=0
+\qquad \forall \theta,\ \forall s\in S^\times,
+\end{equation}
+locally (i.e.\ as long as $s$ remains slack under the perturbation).
+
+Fix $s\in T^\times$. Since $k_i$ is held fixed, the (within-$i$) capacity constraint implies
+\begin{equation}
+\label{Cap-Delta}\tag{$\Delta$Cap}
+0=\E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\right].
+\end{equation}
+Define, for each $(\theta,s)$,
+\begin{equation}
+\label{w-def}\tag{$w^\times$}
+w_i^\times(\theta,s):=-\frac{1}{\mathcal G_i(\theta)\,u_q\!\left(q_i^\times(\theta,s),s\right)} \;>\;0,
+\qquad
+\overline w_i^\times(s):=\E_{\theta_i}\!\left[w_i^\times(\theta,s)\right],
+\end{equation}
+and for any integrable $X(\theta,s)$ define
+\begin{equation}
+\label{Ew-def}\tag{$\E_w$}
+\E_w\!\left[X\mid s\right]:=\frac{1}{\overline w_i^\times(s)}\E_{\theta_i}\!\left[w_i^\times(\theta,s)\,X(\theta,s)\right].
+\end{equation}
+Using \eqref{Deltaq-general} and $w_i^\times=-1/(\mathcal G_i u_q)$, for $s\in T^\times$ we can write
+\begin{equation}
+\label{Deltaq-peak}\tag{$\Delta q^\times$ peak}
+\Delta q_i^\times(\theta,s)
+=-w_i^\times(\theta,s)\,\Delta\varepsilon_i^\times(s)
++w_i^\times(\theta,s)\,u\!\left(q_i^\times(\theta,s),s\right)\,\Delta \mathcal G_i(\theta).
+\end{equation}
+Taking $\E_{\theta_i}[\cdot]$ in \eqref{Deltaq-peak} and imposing \eqref{Cap-Delta} yields, for each $s\in T^\times$,
+\begin{equation}
+\label{Deltaeps}\tag{$\Delta\varepsilon^\times$}
+\Delta\varepsilon_i^\times(s)
+=\E_w\!\left[u\,\Delta \mathcal G\mid s\right]
+=\E_w\!\left[u\,\Delta\Gamma\mid s\right]
++\Delta\beta_i^\times\,\E_w\!\left[uJ\mid s\right],
+\end{equation}
+where $uJ$ is shorthand for $u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)$.
+
+Assume the within-category budget/IR constraint binds:
+\begin{equation}
+\label{budget-bind}\tag{B}
+\E_{s,\theta_i}\!\left[U\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right]=I_i.
+\end{equation}
+Taking $\Delta$ in \eqref{budget-bind} gives
+\begin{equation}
+\label{B-Delta}\tag{$\Delta$B}
+0=\E_{s,\theta_i}\!\left[u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\,\Delta q_i^\times(\theta,s)\right].
+\end{equation}
+Since $\Delta q_i^\times(\theta,s)=0$ for $s\in S^\times$, \eqref{B-Delta} reduces to
+\begin{equation}
+\label{B-Delta-peak}\tag{$\Delta$B, peak}
+0=\E_s\!\left[\E_{\theta_i}\!\left[uJ\,\Delta q_i^\times(\theta,s)\right]\mathbf 1_{\{s\in T^\times\}}\right].
+\end{equation}
+Fix $s\in T^\times$. Substitute \eqref{Deltaq-peak} into $\E_{\theta_i}[uJ\,\Delta q]$:
+\begin{align}
+\label{ujDq1}\tag{$uJ\cdot \Delta q$}
+\E_{\theta_i}\!\left[uJ\,\Delta q_i^\times(\theta,s)\right]
+&=
+-\Delta\varepsilon_i^\times(s)\,\E_{\theta_i}\!\left[w_i^\times(\theta,s)\,uJ\right]
++\E_{\theta_i}\!\left[w_i^\times(\theta,s)\,(uJ)\,u\,\Delta \mathcal G_i(\theta)\right].
+\end{align}
+Using \eqref{Ew-def}, $\E_{\theta_i}[w\,uJ]=\overline w\,\E_w[uJ\mid s]$ and
+$\E_{\theta_i}[w\,(uJ)\,u\Delta\mathcal G]=\overline w\,\E_w[(uJ)\,u\Delta\mathcal G\mid s]$, so
+\begin{equation}
+\label{ujDq2}\tag{$uJ\cdot \Delta q$ (weighted)}
+\E_{\theta_i}\!\left[uJ\,\Delta q_i^\times(\theta,s)\right]
+=
+\overline w_i^\times(s)\left(
+\E_w\!\left[(uJ)\,u\,\Delta \mathcal G\mid s\right]
+-\E_w\!\left[uJ\mid s\right]\E_w\!\left[u\,\Delta \mathcal G\mid s\right]
+\right).
+\end{equation}
+That is,
+\begin{equation}
+\label{ujDq-cov}\tag{$uJ\cdot \Delta q$ (covariance)}
+\E_{\theta_i}\!\left[uJ\,\Delta q_i^\times(\theta,s)\right]
+=
+\overline w_i^\times(s)\,\Cov_w\!\left(uJ,\;u\,\Delta \mathcal G\mid s\right),
+\end{equation}
+where $\Cov_w(X,Y\mid s):=\E_w[XY\mid s]-\E_w[X\mid s]\E_w[Y\mid s]$.
+
+Since $\Delta \mathcal G=\Delta\Gamma+J\,\Delta\beta^\times$, we have
+\begin{equation}
+\label{cov-split}\tag{cov split}
+\Cov_w\!\left(uJ,\;u\,\Delta \mathcal G\mid s\right)
+=
+\Cov_w\!\left(uJ,\;u\,\Delta\Gamma\mid s\right)
++\Delta\beta_i^\times\,Var_w\!\left(uJ\mid s\right),
+\end{equation}
+with $Var_w(uJ\mid s):=\Cov_w(uJ,uJ\mid s)$. Plugging \eqref{ujDq-cov}--\eqref{cov-split} into \eqref{B-Delta-peak} yields
+\begin{equation}
+\label{DeltaBeta-eq}\tag{$\Delta\beta$ equation}
+0=
+\E_s\!\left[\overline w_i^\times(s)\left(
+\Cov_w\!\left(uJ,\;u\,\Delta\Gamma\mid s\right)
++\Delta\beta_i^\times\,Var_w\!\left(uJ\mid s\right)
+\right)\mathbf 1_{\{s\in T^\times\}}\right].
+\end{equation}
+Solving gives
+\begin{equation}
+\label{DeltaBeta-sol}\tag{$\Delta\beta^\times$}
+\Delta\beta_i^\times
+=
+-\frac{\E_s\!\left[\overline w_i^\times(s)\,\Cov_w\!\left(uJ,\;u\,\Delta\Gamma\mid s\right)\mathbf 1_{\{s\in T^\times\}}\right]}
+{\E_s\!\left[\overline w_i^\times(s)\,Var_w\!\left(uJ\mid s\right)\mathbf 1_{\{s\in T^\times\}}\right]}.
+\end{equation}
+
+Finally, combining \eqref{Deltaq-peak} and \eqref{Deltaeps}, for each $s\in T^\times$,
+\begin{equation}
+\label{Deltaq-final}\tag{$\Delta q^\times$ closed form}
+\Delta q_i^\times(\theta,s)
+=
+w_i^\times(\theta,s)\left(
+u\!\left(q_i^\times(\theta,s),s\right)\left(\Delta\Gamma_i(\theta)+J_i(\theta)\Delta\beta_i^\times\right)
+-\E_w\!\left[u\left(\Delta\Gamma+J\Delta\beta^\times\right)\mid s\right]
+\right),
+\end{equation}
+and $\Delta q_i^\times(\theta,s)=0$ for all $s\in S^\times$.
+
+
+% ============================================================
+% Simplified preference-perturbation analysis WITH beta:
+% \mathcal G(\theta)=\Gamma(\theta)+\beta^\times J(\theta),
+% \Delta \mathcal G(\theta)=\Delta\Gamma(\theta)+J(\theta)\Delta\beta^\times
+% ============================================================
+
+Fix a peak state $s\in T^\times$. The pointwise FOC is
+\begin{equation}
+\label{peakFOC-beta}\tag{FOC}
+u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal G_i(\theta)=\varepsilon_i^\times(s),
+\qquad 
+\mathcal G_i(\theta)=\Gamma_i(\theta)+\beta_i^\times J_i(\theta).
+\end{equation}
+
+\paragraph{Monotonicity.}
+Differentiating \eqref{peakFOC-beta} w.r.t.\ $\theta$ gives
+\[
+u_q\!\left(q_i^\times(\theta,s),s\right)\,q_{\theta,i}^\times(\theta,s)\,\mathcal G_i(\theta)
++u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal G_i'(\theta)=0,
+\]
+hence
+\[
+q_{\theta,i}^\times(\theta,s)
+=
+-\frac{u(q_i^\times,s)}{u_q(q_i^\times,s)}\,\frac{\mathcal G_i'(\theta)}{\mathcal G_i(\theta)}
+=
+R_q(\theta,s)\,\frac{\mathcal G_i'(\theta)}{\mathcal G_i(\theta)},
+\qquad
+R_q(\theta,s):=-\frac{u(q_i^\times,s)}{u_q(q_i^\times,s)}>0.
+\]
+Thus $q_{\theta,i}^\times(\theta,s)\ge 0$ if and only if $\mathcal G_i'(\theta)\ge 0$.
+
+\paragraph{First-order perturbation and ratio form.}
+Consider a preference perturbation $\Delta(\cdot)$ acting on $\Gamma_i$, with induced $\Delta\beta_i^\times$.
+Then
+\begin{equation}
+\label{DeltaG-beta}\tag{$\Delta\mathcal G$}
+\Delta\mathcal G_i(\theta)=\Delta\Gamma_i(\theta)+J_i(\theta)\,\Delta\beta_i^\times,
+\qquad
+R_{\mathcal G}(\theta):=\frac{\Delta\mathcal G_i(\theta)}{\mathcal G_i(\theta)}.
+\end{equation}
+Linearizing \eqref{peakFOC-beta} yields
+\[
+u_q(q_i^\times,s)\,\mathcal G_i(\theta)\,\Delta q_i^\times(\theta,s)
++u(q_i^\times,s)\,\Delta\mathcal G_i(\theta)
+=\Delta\varepsilon_i^\times(s).
+\]
+Using \eqref{peakFOC-beta} to substitute $\varepsilon_i^\times(s)=u(q_i^\times,s)\mathcal G_i(\theta)$ gives
+\begin{equation}
+\label{Deltaq-ratio-beta}\tag{$\Delta q^\times$ ratio}
+\Delta q_i^\times(\theta,s)
+=
+R_q(\theta,s)\left(
+R_{\mathcal G}(\theta)-\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
+\right).
+\end{equation}
+
+\paragraph{Feasibility pins down $\Delta\varepsilon/\varepsilon$.}
+Since $k_i$ is fixed, feasibility in state $s$ implies $\E_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$.
+Define the positive weight
+\[
+w_i^\times(\theta,s):=-\frac{1}{u_q(q_i^\times,s)\,\mathcal G_i(\theta)}\;>\;0,
+\qquad
+\overline w_i^\times(s):=\E_{\theta_i}[w_i^\times(\theta,s)],
+\qquad
+\omega_i^\times(\theta,s):=\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)},
+\]
+and the associated weighted expectation $\E_w[X\mid s]:=\E_{\theta_i}[\omega_i^\times(\theta,s)\,X(\theta,s)]$.
+Then feasibility yields
+\begin{equation}
+\label{Deltaeps-ratio-beta}\tag{$\Delta\varepsilon/\varepsilon$}
+\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
+=
+\E_w\!\left[R_{\mathcal G}\mid s\right].
+\end{equation}
+Substituting \eqref{Deltaeps-ratio-beta} into \eqref{Deltaq-ratio-beta} gives the centered reallocation:
+\begin{equation}
+\label{Deltaq-centered-beta}\tag{$\Delta q^\times$ centered}
+\Delta q_i^\times(\theta,s)
+=
+R_q(\theta,s)\left(
+R_{\mathcal G}(\theta)-\E_w\!\left[R_{\mathcal G}\mid s\right]
+\right),
+\qquad s\in T^\times.
+\end{equation}
+
+
+\[\partial_\theta \Delta q_i^\times(\theta,s) = \partial_\theta R_q(\theta,s)\cdot\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right) + R_q(\theta,s)\cdot R_{\mathcal{G}}'(\theta).\]
+
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\mu_i}{\mu_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i).\]
+
+
+:
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(R_{\mathcal{G}}(\underline\theta_i)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
+
+
+\textbf{Differentiating with respect to $\theta$.}
+
+Since $\mathbb{E}_w[R_{\mathcal{G}}|s]$ is constant in $\theta$, the product rule gives:
+\[\partial_\theta \Delta q_i^\times(\theta,s) = \partial_\theta R_q(\theta,s)\cdot\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right) + R_q(\theta,s)\cdot R_{\mathcal{G}}'(\theta).\]
+
+\textbf{At the upper boundary.} Since $R_{\mathcal{G}}(\overline\theta_i)=\Delta\mu_i/\mu_i$:
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\mu_i}{\mu_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i).\]
+
+\textbf{At the lower boundary.} Since $R_{\mathcal{G}}(\underline\theta_i)=(\Delta\tilde\lambda_i\cdot\underline\theta_i+\Delta\beta_i^\times\cdot J_i(\underline\theta_i))/(\tilde\lambda_i\cdot\underline\theta_i+\beta_i^\times\cdot J_i(\underline\theta_i))$:
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(R_{\mathcal{G}}(\underline\theta_i)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
+
+\textbf{When $\beta_i^\times=0$.} Lemma~\ref{lem:boundary} gives $R_{\mathcal{G}}(\underline\theta_i)=R_{\mathcal{G}}(\overline\theta_i)=\Delta\tilde\lambda_i/\tilde\lambda_i$, so the two endpoint derivatives become:
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i),\]
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
+
+Since $\partial_\theta R_q(\theta,s)>0$ and $R_q(\theta,s)>0$ for all $\theta$, the sign of each endpoint derivative is determined entirely by the signs of $\Delta\tilde\lambda_i/\tilde\lambda_i - \mathbb{E}_w[R_{\mathcal{G}}|s]$ and $R_{\mathcal{G}}'$ respectively. The first terms are strictly positive multiples of the same scalar $\Delta\tilde\lambda_i/\tilde\lambda_i - \mathbb{E}_w[R_{\mathcal{G}}|s]$, hence share the same sign at both endpoints. Any difference in sign between the two endpoint derivatives can therefore only arise from the second terms $R_q\cdot R_{\mathcal{G}}'$, whose signs are determined by $R_{\mathcal{G}}'(\overline\theta_i)$ and $R_{\mathcal{G}}'(\underline\theta_i)$ respectively. Since these remain unrestricted, the derivative approach alone is insufficient to establish non-monotonicity, and the argument is better made directly on $\Delta q_i^\times$.
+
+\textbf{Deriving $R_{\mathcal{G}}'(\theta)$.}
+
+By the quotient rule applied to $R_{\mathcal{G}}(\theta)=\Delta\mathcal{G}_i(\theta)/\mathcal{G}_i(\theta)$:
+\[R_{\mathcal{G}}'(\theta) = \frac{\Delta\mathcal{G}_i'(\theta)}{\mathcal{G}_i(\theta)} - R_{\mathcal{G}}(\theta)\cdot\frac{\mathcal{G}_i'(\theta)}{\mathcal{G}_i(\theta)}.\]
+
+Since $\mathcal{G}_i(\theta)=\mu_i J_i(\theta)+\Lambda_i(\theta)$ and $\Delta\mathcal{G}_i(\theta)=\Delta\mu_i J_i(\theta)+\Delta\Lambda_i(\theta)$, the derivatives are:
+\[\mathcal{G}_i'(\theta)=\mu_i J_i'(\theta)+\Lambda_i'(\theta), \qquad \Delta\mathcal{G}_i'(\theta)=\Delta\mu_i J_i'(\theta)+\Delta\Lambda_i'(\theta),\]
+where $\Lambda_i'(\theta)=-\lambda_i(\theta)/g_i(\theta)-\Lambda_i(\theta)\cdot g_i'(\theta)/g_i(\theta)$ and $\Delta\Lambda_i'(\theta)=-\Delta\lambda_i(\theta)/g_i(\theta)-\Delta\Lambda_i(\theta)\cdot g_i'(\theta)/g_i(\theta)$.
+
+\textbf{At the upper boundary.} Since $G_i(\overline\theta_i)=1$, we have $J_i'(\overline\theta_i)=2$ and $\Lambda_i(\overline\theta_i)=0$, so $\Lambda_i'(\overline\theta_i)=-\lambda_i(\overline\theta_i)/g_i(\overline\theta_i)$ and $\Delta\Lambda_i'(\overline\theta_i)=-\Delta\lambda_i(\overline\theta_i)/g_i(\overline\theta_i)$. Using $\mathcal{G}_i(\overline\theta_i)=\mu_i\overline\theta_i$ and $R_{\mathcal{G}}(\overline\theta_i)=\Delta\mu_i/\mu_i$:
+\[R_{\mathcal{G}}'(\overline\theta_i) = \frac{2\Delta\mu_i - \Delta\lambda_i(\overline\theta_i)/g_i(\overline\theta_i)}{\mu_i\overline\theta_i} - \frac{\Delta\mu_i}{\mu_i}\cdot\frac{2\mu_i - \lambda_i(\overline\theta_i)/g_i(\overline\theta_i)}{\mu_i\overline\theta_i}.\]
+Expanding and cancelling the $2\Delta\mu_i$ terms:
+\[R_{\mathcal{G}}'(\overline\theta_i) = \frac{\lambda_i(\overline\theta_i)}{\mu_i g_i(\overline\theta_i)\overline\theta_i}\left(\frac{\Delta\mu_i}{\mu_i} - \frac{\Delta\lambda_i(\overline\theta_i)}{\lambda_i(\overline\theta_i)}\right).\]
+
+\textbf{At the lower boundary ($\beta_i^\times=0$).} Since $G_i(\underline\theta_i)=0$, we have $\Lambda_i(\underline\theta_i)=\tilde\lambda_i/g_i(\underline\theta_i)$ and $\Delta\Lambda_i(\underline\theta_i)=\Delta\tilde\lambda_i/g_i(\underline\theta_i)$, and $\mathcal{G}_i(\underline\theta_i)=\tilde\lambda_i\underline\theta_i$. An analogous computation gives:
+\[R_{\mathcal{G}}'(\underline\theta_i) = \frac{\lambda_i(\underline\theta_i)}{\tilde\lambda_i g_i(\underline\theta_i)\underline\theta_i}\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i} - \frac{\Delta\lambda_i(\underline\theta_i)}{\lambda_i(\underline\theta_i)}\right).\]
+
+\textbf{Interpretation.} Both endpoint expressions for $R_{\mathcal{G}}'$ share the same structure: a strictly positive prefactor times the gap between the aggregate perturbation ratio $\Delta\mu_i/\mu_i$ (or $\Delta\tilde\lambda_i/\tilde\lambda_i$ when $\beta_i^\times=0$) and the local perturbation ratio $\Delta\lambda_i/\lambda_i$ evaluated at the boundary. The sign therefore depends on whether the perturbation is relatively stronger at the boundary point than on average. Since $\partial_\theta R_q>0$ and $R_q>0$, plugging back into the endpoint derivatives gives:
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot\frac{\lambda_i(\overline\theta_i)}{\mu_i g_i(\overline\theta_i)\overline\theta_i}\left(\frac{\Delta\mu_i}{\mu_i} - \frac{\Delta\lambda_i(\overline\theta_i)}{\lambda_i(\overline\theta_i)}\right),\]
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot\frac{\lambda_i(\underline\theta_i)}{\tilde\lambda_i g_i(\underline\theta_i)\underline\theta_i}\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i} - \frac{\Delta\lambda_i(\underline\theta_i)}{\lambda_i(\underline\theta_i)}\right).\]
+The second terms are both unrestricted in sign, confirming that the derivative approach cannot deliver non-monotonicity without additional restrictions on the perturbation class.
+
+\textbf{Upper boundary.} Since $J_i(\overline\theta_i)=\overline\theta_i$ and $\Lambda_i(\overline\theta_i)=0$, the boundary values are
+\[\mathcal{G}_i(\overline\theta_i)=(\tilde\lambda_i+\beta_i^\times)\overline\theta_i,\qquad \Delta\mathcal{G}_i(\overline\theta_i)=(\Delta\tilde\lambda_i+\Delta\beta_i^\times)\overline\theta_i,\]
+so $R_{\mathcal{G}}(\overline\theta_i):=\Delta\mathcal{G}_i(\overline\theta_i)/\mathcal{G}_i(\overline\theta_i)=(\Delta\tilde\lambda_i+\Delta\beta_i^\times)/(\tilde\lambda_i+\beta_i^\times)=:\Delta\mu_i/\mu_i$, where $\mu_i:=\tilde\lambda_i+\beta_i^\times$.
+
+\textbf{Lower boundary.} Since $J_i(\underline\theta_i)=\underline\theta_i-1/g_i(\underline\theta_i)$, $\Lambda_i(\underline\theta_i)=\tilde\lambda_i/g_i(\underline\theta_i)$, and $\Delta\Lambda_i(\underline\theta_i)=\Delta\tilde\lambda_i/g_i(\underline\theta_i)$,
+\[\mathcal{G}_i(\underline\theta_i)=\mu_i\underline\theta_i-\frac{\beta_i^\times}{g_i(\underline\theta_i)},\qquad \Delta\mathcal{G}_i(\underline\theta_i)=\Delta\mu_i\,\underline\theta_i-\frac{\Delta\beta_i^\times}{g_i(\underline\theta_i)}.\]
+Boundary invariance $R_{\mathcal{G}}(\underline\theta_i)=\Delta\mu_i/\mu_i$ then requires $\Delta\beta_i^\times/\beta_i^\times=\Delta\tilde\lambda_i/\tilde\lambda_i$, which holds if $\beta_i^\times=0$ (so that the lower boundary reduces to $\mathcal{G}_i(\underline\theta_i)=\tilde\lambda_i\underline\theta_i$ as in Lemma~\ref{lem:boundary}) but is not guaranteed in general.
+
+
+\[R_{\mathcal{G}}(\underline\theta_i) = \frac{\Delta\tilde\lambda_i\cdot\underline\theta_i+\Delta\beta_i^\times\cdot J_i(\underline\theta_i)}{\tilde\lambda_i\cdot\underline\theta_i+\beta_i^\times\cdot J_i(\underline\theta_i)},\qquad R_{\mathcal{G}}(\overline\theta_i) = \frac{\Delta\tilde\lambda_i\cdot\overline\theta_i+\Delta\beta_i^\times\cdot\overline\theta_i}{\tilde\lambda_i\cdot\overline\theta_i+\beta_i^\times\cdot\overline\theta_i} = \frac{\Delta\mu_i}{\mu_i}.\]
+
+
+
+\section{CARA corollary}
+
+\begin{proof}
+Assume $\beta_i^\times=0$. In any on-peak state $s$ where the capacity constraint binds
+with multiplier $\varepsilon_i^\times(s)>0$, the interior FOC can be written as
+\begin{equation}\label{eq:FOC-CARA}
+u\!\left(q_i^\times(\theta,s),s\right)\,\Gamma_i(\theta)=\varepsilon_i^\times(s),
+\end{equation}
+where $\Gamma_i(\theta)$ is the effective weight and $u$ denotes marginal utility
+($u=U_q$, $u_q=U_{qq}$). Define
+\[
+J_i(\theta):=\theta-\gamma_i(\theta),\qquad
+R_\theta(\theta):=\frac{J_i(\theta)}{\Gamma_i(\theta)}.
+\]
+
+\paragraph{Step 1 (CARA implies $R_q$ is constant and the behavioral channel vanishes).}
+Under CARA, $u_q=-\alpha u$ for some $\alpha>0$, hence
+\[
+R_q(\theta):=-\frac{u}{u_q}=\frac{1}{\alpha}
+\]
+is constant. Therefore
+\[
+\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+=\frac{1}{\alpha}\,\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)\right],
+\qquad
+\Delta\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+=\frac{1}{\alpha}\,\mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\right].
+\]
+Since $R_q$ is constant, any covariance term involving $R_q$ is equal to zero.
+
+Now consider a preference perturbation $\Delta\lambda_i(\theta)$ that shifts $\Gamma_i(\theta)$
+(and holds $J_i(\theta)$ fixed). Define
+\[
+R_\Gamma(\theta):=\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)}.
+\]
+Because $R_\theta(\theta)=J_i(\theta)/\Gamma_i(\theta)$, we have
+\begin{equation}\label{eq:DeltaRtheta}
+\Delta R_\theta(\theta)=\Delta\!\left(\frac{J_i(\theta)}{\Gamma_i(\theta)}\right)
+=-\,R_\Gamma(\theta)\,R_\theta(\theta),
+\end{equation}
+and hence
+\[
+\Delta\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+=\frac{1}{\alpha}\,\mathbb{E}_{\theta_i}\!\left[-R_\Gamma(\theta)R_\theta(\theta)\right]
+=\mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\,R_q(\theta)\right].
+\]
+
+\paragraph{Step 2 (effect on $\mathbb{E}[U(q)J]$ under CARA, $\beta=0$).}
+Fix an on-peak state $s$ and differentiate \eqref{eq:FOC-CARA}. Using $u_q=-\alpha u$,
+\[
+\frac{\partial q_i^\times(\theta,s)}{\partial \varepsilon}
+=\frac{1}{u_q(\cdot)\Gamma_i(\theta)}
+=-\frac{1}{\alpha\,\varepsilon_i^\times(s)},
+\qquad
+\frac{\partial q_i^\times(\theta,s)}{\partial \Gamma}
+=-\frac{u(\cdot)}{u_q(\cdot)\Gamma_i(\theta)}
+=\frac{1}{\alpha\,\Gamma_i(\theta)}.
+\]
+Thus, for a perturbation $\Delta\Gamma_i(\theta)$ and $\Delta\varepsilon_i^\times(s)$,
+\[
+\Delta q_i^\times(\theta,s)
+=-\frac{1}{\alpha\,\varepsilon_i^\times(s)}\,\Delta\varepsilon_i^\times(s)
++\frac{1}{\alpha\,\Gamma_i(\theta)}\,\Delta\Gamma_i(\theta).
+\]
+Holding $k_i$ fixed, the capacity identity $\mathbb{E}_{\theta_i}\!\left[q_i^\times(\theta,s)\right]=k_i$
+implies $\mathbb{E}_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\right]=0$, hence
+\begin{equation}\label{eq:DeltaEps}
+\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
+=\mathbb{E}_{\theta_i}\!\left[\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)}\right]
+=\mathbb{E}_{\theta_i}\!\left[R_\Gamma(\theta)\right].
+\end{equation}
+Moreover, $\Delta U\!\left(q_i^\times(\theta,s),s\right)=u(\cdot)\,\Delta q_i^\times(\theta,s)$, so
+\[
+\Delta \mathbb{E}_{\theta_i}\!\left[U\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right]
+=\mathbb{E}_{\theta_i}\!\left[u(\cdot)\,J_i(\theta)\,\Delta q_i^\times(\theta,s)\right].
+\]
+Using $u(\cdot)=\varepsilon_i^\times(s)/\Gamma_i(\theta)$ from \eqref{eq:FOC-CARA},
+the expression for $\Delta q_i^\times$, and \eqref{eq:DeltaEps}, we obtain
+\[
+\Delta \mathbb{E}_{\theta_i}\!\left[U\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right]
+=\frac{\varepsilon_i^\times(s)}{\alpha}\left(
+\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_\Gamma(\theta)\right]
+-\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)\right]\mathbb{E}_{\theta_i}\!\left[R_\Gamma(\theta)\right]
+\right)
+=\frac{\varepsilon_i^\times(s)}{\alpha}\,\Cov_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right).
+\]
+Averaging over $s$ yields
+\[
+\Delta \mathbb{E}_{s,\theta_i}\!\left[U\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right]
+=\frac{\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\right]}{\alpha}\,
+\Cov_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right),
+\]
+since off-peak states satisfy $\varepsilon_i^\times(s)=0$.
+
+\paragraph{Step 3 (comparative statics of $k^\ast$).}
+Let $F(k):=\partial_k \underline{ECS}_i^\times(k)$. Single-peakedness and an interior maximizer
+imply $F(k^\ast)=0$ and $F'(k^\ast)=\partial_{kk}\underline{ECS}_i^\times(k^\ast)<0$, so
+\[
+\Delta k^\ast=-\frac{\Delta F(k^\ast)}{F'(k^\ast)}
+\qquad\Rightarrow\qquad
+\sign\!\left(\Delta k^\ast\right)=\sign\!\left(\Delta F(k^\ast)\right).
+\]
+Under CARA and $\beta_i^\times=0$, the envelope expression in the appendix implies
+\[
+F(k)=\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\right]\,
+\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)\right].
+\]
+Combining \eqref{eq:DeltaRtheta} and \eqref{eq:DeltaEps} then gives
+\[
+\Delta F(k)
+=\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\right]\left(
+\mathbb{E}_{\theta_i}\!\left[R_\Gamma(\theta)\right]\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)\right]
+-\mathbb{E}_{\theta_i}\!\left[R_\Gamma(\theta)R_\theta(\theta)\right]
+\right)
+=-\,\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\right]\,
+\Cov_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right).
+\]
+Whenever $\max_k \underline{ECS}_i^\times(k)>0$, peak capacity binds with positive probability,
+so $\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\right]>0$ on the relevant region. Therefore
+\[
+\sign\!\left(\Delta k^\ast\right)
+=-\sign\!\left(\Cov_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right)\right),
+\]
+which is the desired conclusion.
+\end{proof}
+
+
+\section*{Preference shifts and the log-derivative of $\Lambda_i$ (general weight $G_i$)}
+\begin{proof}
+Write $\lambda_i^1(\theta):=\lambda_i(\theta)$,
+$\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
+\[
+\tilde\lambda_i^k
+  :=\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta),
+\qquad
+\Lambda_i^k(\theta)
+  :=\gamma_i(\theta)\,\E\!\left[\lambda_i^k(\tilde\theta)\mid\tilde\theta\ge\theta\right]
+  =\frac{1}{g_i(\theta)}\int_{\theta}^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t),
+\qquad k\in\{1,2\}.
+\]
+Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing under (i).
+
+In the general approach, define the (endogenous) intercept
+\[
+\bar\lambda_i^k \;:=\; \tilde\lambda_i^k+\beta_i^{\times,k},
+\]
+and the effective weight
+\[
+G_i^k(\theta)\;:=\;J_i(\theta)\,\bar\lambda_i^k+\Lambda_i^k(\theta).
+\]
+Then $\Delta G_i(\theta)=G_i^2(\theta)-G_i^1(\theta)$ coincides with
+\[
+\Delta G_i(\theta)
+=J_i(\theta)\,\left(\Delta\tilde\lambda_i+\Delta\beta_i^\times\right)
++\Delta\Lambda_i(\theta).
+\]
+
+\medskip
+\noindent\textit{Step 1: Monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
+
+For $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure on
+$[\theta,\overline\theta_i]$ with density proportional to $\lambda_i^1(t)\,dG_i(t)$:
+\[
+dQ_\theta(t)
+  :=\frac{\lambda_i^1(t)\,dG_i(t)}
+         {\displaystyle\int_{\theta}^{\overline\theta_i}
+           \lambda_i^1(x)\,dG_i(x)}\,
+    \mathbf{1}\left\{t\ge\theta\right\}.
+\]
+Using $\lambda_i^2(t)=m(t)\lambda_i^1(t)$,
+\[
+\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}
+  =\frac{\displaystyle\int_{\theta}^{\overline\theta_i}
+           m(t)\,\lambda_i^1(t)\,dG_i(t)}
+         {\displaystyle\int_{\theta}^{\overline\theta_i}
+           \lambda_i^1(t)\,dG_i(t)}
+  =\E_{Q_\theta}\!\left[m(\tilde\theta)\right].
+\]
+Take $\theta'<\theta$. Then $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$.
+Since $m$ is increasing, this conditioning shifts probability mass toward larger values of $m$,
+so by first-order stochastic dominance,
+\[
+\E_{Q_\theta}\!\left[m(\tilde\theta)\right]\;\ge\;\E_{Q_{\theta'}}\!\left[m(\tilde\theta)\right].
+\]
+Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on
+$[\underline\theta_i,\overline\theta_i)$.
+
+\medskip
+\noindent\textit{Step 2: Log-derivative inequality.}
+
+Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing, its logarithm is increasing.
+Therefore, for all $\theta$ at which both functions are differentiable (a.e.\ on
+$(\underline\theta_i,\overline\theta_i)$),
+\[
+0\;\le\;\frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right)
+=\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)}
+-\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},
+\]
+which yields
+\[
+\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)}
+\;\ge\;
+\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}.
+\]
+
+\medskip
+\noindent\textit{Step 3: Pointwise sign of $\Delta G_i$.}
+
+Evaluating the ratio at $\theta=\underline\theta_i$ gives
+\[
+\frac{\Lambda_i^2(\underline\theta_i)}{\Lambda_i^1(\underline\theta_i)}
+=\frac{\displaystyle\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^2(t)\,dG_i(t)}
+       {\displaystyle\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^1(t)\,dG_i(t)}
+=\frac{\tilde\lambda_i^2}{\tilde\lambda_i^1}.
+\]
+Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing, for all
+$\theta\in[\underline\theta_i,\overline\theta_i]$,
+\[
+\Lambda_i^2(\theta)\;\ge\;\frac{\tilde\lambda_i^2}{\tilde\lambda_i^1}\,\Lambda_i^1(\theta).
+\]
+
+Define the constant
+\[
+c\;:=\;\frac{\bar\lambda_i^2}{\bar\lambda_i^1}
+=\frac{\tilde\lambda_i^2+\beta_i^{\times,2}}{\tilde\lambda_i^1+\beta_i^{\times,1}}.
+\]
+If, in addition, $c\le \tilde\lambda_i^2/\tilde\lambda_i^1$, then the previous inequality implies
+$\Lambda_i^2(\theta)\ge c\,\Lambda_i^1(\theta)$ for all $\theta$. Hence
+\[
+G_i^2(\theta)
+=J_i(\theta)\,\bar\lambda_i^2+\Lambda_i^2(\theta)
+\;\ge\;
+J_i(\theta)\,\bar\lambda_i^2 + c\,\Lambda_i^1(\theta)
+=
+c\left(J_i(\theta)\,\bar\lambda_i^1+\Lambda_i^1(\theta)\right)
+=
+c\,G_i^1(\theta).
+\]
+If moreover $c\ge 1$ and $G_i^1(\theta)>0$ for all $\theta$, then
+\[
+\Delta G_i(\theta)=G_i^2(\theta)-G_i^1(\theta)\;\ge\;(c-1)\,G_i^1(\theta)\;\ge\;0
+\qquad\forall\theta\in[\underline\theta_i,\overline\theta_i].
+\]
+
+\medskip
+\noindent\textit{Downward shift.}
+If $m(\theta)$ is decreasing, then $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is decreasing,
+so the log-derivative inequality reverses. Moreover
+$\Lambda_i^2(\theta)\le (\tilde\lambda_i^2/\tilde\lambda_i^1)\Lambda_i^1(\theta)$ for all $\theta$.
+Defining $c=\bar\lambda_i^2/\bar\lambda_i^1$, if $c\ge \tilde\lambda_i^2/\tilde\lambda_i^1$ and $c\le 1$,
+then $\Lambda_i^2(\theta)\le c\,\Lambda_i^1(\theta)$ and therefore $G_i^2(\theta)\le c\,G_i^1(\theta)$.
+With $G_i^1(\theta)>0$, this implies $\Delta G_i(\theta)\le 0$ throughout.
 \end{proof}
 
 \end{document}

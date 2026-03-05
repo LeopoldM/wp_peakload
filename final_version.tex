@@ -383,7 +383,7 @@ u\!\left(q_i^\times(\theta,s),s\right)\,\mathcal G_i(\theta)-\varepsilon_i^\time
 where $\mathcal G_i(\theta):=\Gamma_i(\theta)+J_i(\theta)\,\beta_i^\times$. We focus on interior solutions (i.e., all types receive a strictly positive allocation at the optimum):
 
 \begin{assumption}\label{ass:interior}
-For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\mathcal G_i(\theta)>0$ and $\Gamma_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q^\times_i(\theta,s)$ is satisfied at the optimum.\footnote{If this condition fails, standard Myerson-style ironing restores monotonicity without affecting the subsequent comparative statics, since the ironed weight $\overline{G}_i(\theta)$ enters the FOC in place of $\Gamma_i(\theta)$ but does not alter the structure of \eqref{Eujmd}. This stands in contrast with settings where the supply side imposes additional structure on the allocation: either indivisibility, as in \cite{CONDORELLI2013582}, or a fixed-quality schedule, as in \cite{akbarpour2023redistributive}, which restricts the set of implementable mechanisms.}
+For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\mathcal G_i(\theta)>0$ and $\G_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q^\times_i(\theta,s)$ is satisfied at the optimum.\footnote{If this condition fails, standard Myerson-style ironing restores monotonicity without affecting the subsequent comparative statics, since the ironed weight $\overline{G}_i(\theta)$ enters the FOC in place of $\G_i(\theta)$ but does not alter the structure of \eqref{Eujmd}. This stands in contrast with settings where the supply side imposes additional structure on the allocation: either indivisibility, as in \cite{CONDORELLI2013582}, or a fixed-quality schedule, as in \cite{akbarpour2023redistributive}, which restricts the set of implementable mechanisms.}
 \end{assumption}
 
 Define $S_i^\times=[\underline s,s_i^\times)$ and $T_i^\times=[s_i^\times,\overline s]$ as the off-peak and on-peak sets under the optimal allocation, where $s_i^\times$ satisfies $\E_{\theta_i}\!\left[q_i^\times(\theta,s_i^\times)\right]=k_i$.
@@ -406,17 +406,17 @@ ii) If \eqref{Rmdi-def} is slack at $(k_i,I_i)$, then $\beta_i^\times=0$ and $\G
 
 The optimal allocation depends crucially on whether the capacity and participation constraints are binding. Before analysing the welfare effects and the implementation region, we identify a sufficient statistic that governs both. For notational simplicity, we suppress the dependence on $s$ and define
 \[
-  R_q(\theta) := -\frac{u\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}, \qquad R_\theta(\theta) := \frac{J_i(\theta)}{\mathcal{G}_i(\theta)}. 
+  R_q(\theta) := -\frac{u\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}, \qquad R_\theta(\theta) := \frac{J_i(\theta)}{\G_i(\theta)}. 
 \]
 Note that $R_q(\theta)\geq0$ since $u_q<0$. The term $R_q(\theta)$ governs how a marginal increase in $k_i$ is distributed across types at the optimal allocation: if $R_q(\theta)$ is decreasing in $\theta$, then, as capacity expands, a lower $\theta$ receives a higher share of the capacity than a higher $\theta$. $R_\theta(\theta)$ governs how marginal virtual surplus varies across types at the optimum: if $R_\theta(\theta)$ is increasing in $\theta$, then the marginal virtual surplus $u(q_i^\times,s)J_i(\theta)$ tends to be lower for lower types. Define the weights
 \[
-  w_i^\times(\theta,s):=-\frac{1}{u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal{G}_i(\theta)}, \qquad \bar w_i^\times(s):=\mathbb{E}_{\theta_i}\!\left[w_i^\times(\theta,s)\right],
+  w_i^\times(\theta,s):=-\frac{1}{u_q\!\left(q_i^\times(\theta,s),s\right)\G_i(\theta)}, \qquad \bar w_i^\times(s):=\mathbb{E}_{\theta_i}\!\left[w_i^\times(\theta,s)\right],
 \]
 and the $w_i^\times$-weighted average of the marginal virtual surplus
 \begin{equation}
   \mathbb{E}_{w_i}[uJ\mid s] :=\frac{1}{\bar w_i^\times(s)} \mathbb{E}_{\theta_i}\!\left[w_i^\times(\theta,s)\, u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right] =\frac{1}{\bar w_i^\times(s)} \mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]. \tag{EuJ}\label{Eujmd}
 \end{equation}
-Therefore the signs of both expressions coincide. The following lemma establishes that this weighted average marginal virtual surplus is the sufficient statistic that simultaneously governs the revenue effect of capacity expansion, the sign of the budget multiplier, and the marginal change in the optimal allocation.
+Therefore, the signs of both expressions coincide. The following lemma establishes that this weighted average marginal virtual surplus is the sufficient statistic that simultaneously governs the revenue effect of capacity expansion, the sign of the budget multiplier, and the marginal change in the optimal allocation.
 
 \begin{lemma}\label{lem:suffstat}
   The sign of\, \eqref{Eujmd} simultaneously determines:
@@ -427,7 +427,7 @@ Therefore the signs of both expressions coincide. The following lemma establishe
   \end{enumerate}
   \end{lemma}
 
-In particular, those objects governs the marginal welfare and redistributive aspect of a capacity extension (in Theorem~\ref{thm:welfare}) the feasibility of the optimal allocation (Proposition~\ref{prop:implementation}).
+In particular, those objects govern the marginal welfare and redistributive aspect of a capacity extension (in Theorem~\ref{thm:welfare}), the feasibility of the optimal allocation (Proposition~\ref{prop:implementation}).
 
 \eqref{Eujmd} depends on two dimensions: (i)~how the additional capacity is shared between types, captured by $R_q(\theta)$, and (ii)~how the marginal virtual surplus changes across types, captured by $R_\theta(\theta)$. The interaction between these two dimensions is formalised by the following condition:
 \begin{equation}
@@ -475,7 +475,7 @@ so $R_q'(\theta)<0$ for linear and quadratic demand, while $R_q'(\theta)>0$ for 
 \label{signRt}\tag{$\sign R_\theta$}
 \sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue term}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC term}}\Bigg).
 \]
-The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not. The second compares the proportional growth rates of the two: when $\Lambda_i'(\theta)<0$, the IC term is shrinking, and the revenue term automatically dominates, giving $R_\theta'(\theta)>0$.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\Gamma_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
+The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not. The second compares the proportional growth rates of the two: when $\Lambda_i'(\theta)<0$, the IC term is shrinking, and the revenue term automatically dominates, giving $R_\theta'(\theta)>0$.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\G_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
 
 \subsubsection{Welfare effects of $k_i$}\label{sec:welfare}
 %------------------------------------------------------------
@@ -521,7 +521,7 @@ which is nonnegative in the IR-unconstrained allocation: the boundary term does 
 
 Under the IR-constrained allocation (i.e., when \eqref{Rmdi-def} binds), the allocation must be distorted so that expected revenue equals the budget. This distortion is captured by the second term in parentheses in \eqref{partialkq1}. We show in the proof that $\beta_i^\times$ is differentiable in $k_i$ on the IR-constrained region, and that the sign of $\partial\beta_i^\times/\partial k_i$ is governed by the sign of \eqref{Eujmd}, which is equivalently determined by \eqref{COV1}. The bracketed term in \eqref{partialkq1} is the deviation of a type's marginal virtual surplus $u(q_i^\times(\theta,s),s)J_i(\theta)$ from its $w_i^\times$-weighted average; its sign is therefore determined by the relative ranking of types according to marginal virtual surplus, which is captured by $R_\theta(\theta)$. If $R_\theta(\theta)$ is monotone, this deviation changes sign at most once, yielding a unique cutoff and the type-ranking described in Theorem~\ref{thm:welfare}. To interpret the condition, suppose expanding $k_i$ makes the budget less tight, so that $\beta_i^\times$ decreases in $k_i$. The need for revenue extraction then falls, and the designer lowers the marginal weight on types that generate higher marginal virtual surplus. The sign of $R_\theta(\theta)$ pins down which types those are.
 
-The single-crossing result in Lemma~\ref{lem:SC-dir} has an immediate implication for the implementation regions of the optimal allocations: the capacity levels for which the IR-unconstrained allocation, and conversely the IR-constrained, is feasible and characterized by at most two thresholds.
+The single-crossing result in Lemma~\ref{lem:SC-dir} has an immediate implication for the implementation regions of the optimal allocations: the capacity levels for which the IR-unconstrained allocation, and conversely the IR-constrained, is feasible and characterized by at most two thresholds. Note that in the following proposition, both \eqref{Eujmd} and $\mathbb E\underline{CS}_i^\times(k_i)$ are evaluated at the IR-unconstrained allocation.
 
 \begin{proposition}[Implementation region]\label{prop:implementation}
 Fix category \(i\) and a budget requirement \(I_i>0\). Let \(k_i^+\) be the capacity level at which the capacity constraint never binds. 
@@ -597,19 +597,19 @@ Figure~\ref{fig:impl_welfare} synthesizes the joint implications of Lemma~\ref{l
 \label{fig:impl_welfare}
 \end{figure}
 
-The following corollary provides functional-form conditions under which the sign of \eqref{COV1} is independent of $(s,k_i)$. It isolates the distribution of virtual surplus $J_i(\theta)$ relative to social weights $\Gamma_i(\theta)$ as the sole determinant of the implementation region, confirming that the key primitive is how revenue generation is distributed across types rather than the level or state of the capacity allocation.
+The following corollary provides functional-form conditions under which the sign of \eqref{COV1} is independent of $(s,k_i)$. It isolates the distribution of virtual surplus $J_i(\theta)$ relative to social weights $\G_i(\theta)$ as the sole determinant of the implementation region, confirming that the key primitive is how revenue generation is distributed across types rather than the level or state of the capacity allocation.
 
 \begin{corollary}\label{cor:sep}
   Assume $u(q,s)$ is additively separable in $(q,s)$ and linear in $q$ and $s$. Then the sign of $\mathbb{E}_{\theta_i}[R_\theta(\theta)R_q(\theta)]$ equals the sign of
   \[
-    \mathbb{E}_{\theta_i}\!\left[\frac{J_i(\theta)}{\mathcal{G}_i(\theta)^2}\right],
+    \mathbb{E}_{\theta_i}\!\left[\frac{J_i(\theta)}{\Gamma_i(\theta)^2}\right],
   \]
   which is independent of $s$ and $k_i$.
 \end{corollary}
 
 We illustrate in Figure~\ref{fig:redistribution_marg_k_uniform} the results from Theorem~\ref{thm:welfare} and Proposition~\ref{prop:implementation} as well as the the sensitivity of the implementation regions with respect to the model primitives. The first panel shows the value of the boundary term \eqref{ECSi} with respect to $k_i$ for two different types support. It represents both the implementation region of the optimal allocation as well as the regions of the sign of \eqref{COV1}. As a key element of this analysis is the existence of types with negative marginal virtual surplus, we show how an increase of the mass of such consumer affects the outcome of the model. To do so, the second support has a lower $\underline{\theta}_i$ which mechanically increase the mass of consumers having $J_i<0$. As expected this reduces the occurrence of capacity level for which the condition \eqref{COV1} is satisfied.\footnote{Intuitively, this reduces $k^\ast$ which reduces the progressivity of an increase of $k_i$ for lower types ($k^\ast$ on Figure~\ref{fig:impl_welfare} moves to the left).} The second panel with the set of plots illustrate how the progressivity/regressivity of the a capacity extension depends on the level of investment. The left panel shows 2 initial investment level ($k_1$ and $k_3$) and their respective deviation ($k_2$ and $k_4$). For initially low value ($k_1$) all consumers benefits from an increase in $k_i$ (when \eqref{COV1} is satisfied under the IR unconstrained), while for higher values of $k_i$ ($k_3$, when  \eqref{COV1} is not satisfied), lower types below the threshold $\tilde\theta_i$ experienced a loss of surplus while all type above increases their surplus.
 
-We illustrate in Figure~\ref{fig:redistribution_marg_k_uniform} the results from Theorem~\ref{thm:welfare} and Proposition~\ref{prop:implementation} as well as the sensitivity of the implementation regions with respect to the model primitives. The first panel shows the value of the boundary term \eqref{ECSi} with respect to $k_i$ for two different type supports. It represents both the implementation region of the optimal allocation and the regions of the sign of \eqref{COV1}. Since a key element of this analysis is the existence of types with negative marginal virtual surplus, we show how an increase in the mass of such consumers affects the outcome of the model. To do so, the second support has a lower $\underline{\theta}_i$, which mechanically increases the mass of consumers having $J_i<0$. As expected, this reduces the range of capacity levels for which condition \eqref{COV1} is satisfied.\footnote{Intuitively, this reduces $k^\ast$, which reduces the progressivity of an increase of $k_i$ for lower types ($k^\ast$ on Figure~\ref{fig:impl_welfare} moves to the left).} The left panel also marks two initial investment levels ($k_1$ and $k_3$) and their respective deviations ($k_2$ and $k_4$), whose individual surplus effects are illustrated in the right panel. For an initially low value ($k_1$), all consumers benefit from an increase in $k_i$ when \eqref{COV1} is satisfied under the IR-unconstrained allocation, while for a higher value of $k_i$ ($k_3$), when \eqref{COV1} is reversed, lower types below the threshold $\tilde\theta_i$ experience a loss of surplus while all types above benefit. The figure focuses on the IR-unconstrained region of Theorem~\ref{thm:welfare}; the IR-constrained predictions and the single-threshold case of Proposition~\ref{prop:implementation} are qualitatively consistent with the same numerical example but are omitted for brevity.
+We illustrate in Figure~\ref{fig:redistribution_marg_k_uniform} the results from Theorem~\ref{thm:welfare} and Proposition~\ref{prop:implementation} as well as the sensitivity of the implementation regions with respect to the model primitives. The first panel shows the value of the boundary term \eqref{ECSi} with respect to $k_i$ at the IR-unconstrained for two different type supports. It represents both the implementation region of the optimal allocation and the regions of the sign of \eqref{COV1}. Since a key element of this analysis is the existence of types with negative marginal virtual surplus, we show how an increase in the mass of such consumers affects the outcome of the model. To do so, the second support has a lower $\underline{\theta}_i$, which mechanically increases the mass of consumers having $J_i<0$. As expected, this reduces the range of capacity levels for which condition \eqref{COV1} is satisfied.\footnote{Intuitively, this reduces $k^\ast$, which reduces the progressivity of an increase of $k_i$ for lower types ($k^\ast$ on Figure~\ref{fig:impl_welfare} moves to the left).} The left panel also marks two initial investment levels ($k_1$ and $k_3$) and their respective deviations ($k_2$ and $k_4$), whose individual surplus effects are illustrated in the right panel. For an initially low value ($k_1$), all consumers benefit from an increase in $k_i$ when \eqref{COV1} is satisfied under the IR-unconstrained allocation, while for a higher value of $k_i$ ($k_3$), when \eqref{COV1} is reversed, lower types below the threshold $\tilde\theta_i$ experience a loss of surplus while all types above benefit. The figure focuses on the IR-unconstrained region of Theorem~\ref{thm:welfare}; the IR-constrained predictions and the single-threshold case of Proposition~\ref{prop:implementation} are qualitatively consistent with the same numerical example but are omitted for brevity.
 
 \begin{figure}
 \centering
@@ -619,10 +619,8 @@ We illustrate in Figure~\ref{fig:redistribution_marg_k_uniform} the results from
 \end{figure}
 
 \subsubsection{Redistributive preferences and the optimal allocation}\label{sec:redist}
-We now examine how changes in redistributive preferences affect the optimal allocation and the previous results. This comes through two channels. First, it directly changes the trade-off between revenue and incentive constraints, captured by $\Delta R_\theta(\theta)$ (we formally define below the preference-perturbation operator $\Delta(\cdot)$). Second, it induces a behavioral response in the optimal allocation $q_i^\times(\theta,s)$, which in turn changes $R_q$. We conclude the section with Corollary~\ref{cor:CARA}, which provides a specification of the utility function under which a change of preferences unambiguously impacts $\mathbb{E}_{\theta_i}[R_\theta(\theta)R_q(\theta)]$ and therefore \eqref{Eujmd}, since $\bar w_i^\times(s)>0$ for all $s$.
 
-
-Formally, the total effect of a preference change on \eqref{COV1} decomposes as
+The comparative statics in this section examine how changes in redistributive preferences affect the sufficient statistic identified in Lemma~\ref{lem:suffstat}, through two channels defined below (we formally define below the preference-perturbation operator $\Delta(\cdot)$):
 \[
 \Delta \E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
 =
@@ -630,45 +628,49 @@ Formally, the total effect of a preference change on \eqref{COV1} decomposes as
 +
 \underbrace{\E_{\theta_i}\!\left[R_\theta(\theta) \; \Delta R_q(\theta) \right]}_{\text{behavioral effect}},
 \]
-and since $R_q$ depends on the preferences only through $q_i^\times$, we have $\Delta R_q(\theta)=\frac{\partial R_q(\theta)}{\partial q}\,\Delta q_i^\times(\theta,s)$. Proposition~\ref{prop:rho-q-cov-iron2} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. Proposition~\ref{prop:rprefreallocation} shows that $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in $\theta$, even when the absolute weight change $\Delta\Gamma_i(\theta)$ is monotone. As a result, without further restrictions on preferences and demand curvature, the behavioral channel cannot be signed in general.
+and since $R_q$ depends on the preferences only through $q_i^\times$, we have $\Delta R_q(\theta)=\frac{\partial R_q(\theta)}{\partial q}\,\Delta q_i^\times(\theta,s)$. Proposition~\ref{prop:rho-q-cov-iron2} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. The behavioral channel cannot be signed in general: in the IR-unconstrained region, Proposition~\ref{prop:rprefreallocation} formally establishes that $\Delta q_i^\times(\cdot,s) $is non-monotone; in the IR-constrained region, no analogous characterization is available without conditions on the equilibrium objects. The analysis in this section, therefore, focuses on the trade-off channel, for which sharp results are available. Corollary~\ref{cor:CARA} provides a clean bypass of the behavioral channel under CARA, where $R_q(\theta)$ is constant, and the total effect reduces to the trade-off channel alone.
 
 We now characterize the consequences of a (marginal) perturbation of preferences, denoted $\Delta\lambda_i(\theta)$. The induced change in the welfare weight is
 \[
-\Delta\Gamma_i(\theta)=J_i(\theta)\,\Delta\tilde\lambda_i+\Delta\Lambda_i(\theta),
-\qquad \text{with} \qquad
+\Delta\G_i(\theta)=\Delta\Gamma_i(\theta) + J_i(\theta) \Delta\beta^\times_i,
+\]
+\[
+\Delta\Gamma_i(\theta) = J_i(\theta) \Delta\tilde\lambda_i+\Delta\Lambda_i(\theta) \qquad \text{with} \qquad
 \Delta\Lambda_i(\theta)=\gamma_i(\theta)\E\!\left[\Delta\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right].
 \]
 
-The following Lemma establishes the link between a particular change of redistributive preferences and the $\Delta\Gamma_i(\theta)$.
+
+
+The following Lemma establishes the link between a particular change of redistributive preferences and the $\Delta\G_i(\theta)$.
 
 \begin{lemma}\label{lem:preferenceorder}
 Consider a weight function $\lambda_i(\theta)$ and its perturbation
 $\lambda_i^\Delta(\theta)$, with $\Delta\lambda_i(\theta)
 :=\lambda_i^\Delta(\theta)-\lambda_i(\theta)$ and
-$\Delta\Gamma_i(\theta):=\Gamma_i^\Delta(\theta)-\Gamma_i(\theta)$.
-Suppose $\Gamma_i(\theta),\Gamma_i^\Delta(\theta)>0$ for all
-$\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. Then:
+$\Delta\G_i(\theta):=\G_i^\Delta(\theta)-\G_i(\theta)$.
+Suppose $\G_i(\theta),\G_i^\Delta(\theta)>0$ for all
+$\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. If $\lambda_i^\Delta(\theta)$ shifts preferences toward higher (resp. lower) types proportionally more than $\lambda_i(\theta)$, in the sense that $\frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$
 
-\noindent i) If $\lambda_i^\Delta(\theta)$ shifts preferences toward higher types proportionally more than $\lambda_i(\theta)$, in the sense that $\frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$; and $\tilde{\lambda}_i^\Delta\ge \tilde{\lambda}_i$,
-        then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
+\noindent i) Then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
         \[
           \frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}
-          \;\ge\;
+          \;\ge\; (\text{resp.} \le) \; 
           \frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)},
-          \qquad\text{and}\qquad
-          \Delta\Gamma_i(\theta)\;\ge\;0.
         \]
-\noindent ii) If $\lambda_i^\Delta(\theta)$ shifts preferences toward lower types proportionally more than $\lambda_i(\theta)$, in the sense that $\frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}$ is decreasing on $[\underline{\theta}_i,\overline{\theta}_i]$; and $\tilde{\lambda}_i^\Delta\le \tilde{\lambda}_i$,
-        then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, the inequalities reverse.
+\noindent ii) Assume $\beta^\times = 0$, then if $\tilde{\lambda}_i^\Delta\ge  (\text{resp.} \le) \tilde{\lambda}_i$   then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\;\ge\; (\text{resp.} \le)  \; 0$.
 \end{lemma}
 
-Lemma~\ref{lem:preferenceorder} thus connects the direction of a preference shift --- toward higher or lower types --- to the sign of $\Delta\Gamma_i(\theta)$: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises social weights pointwise, and conversely.
+
+Lemma~\ref{lem:preferenceorder} thus connects the direction of a preference shift --- toward higher or lower types --- to the sign of $\Delta\G_i(\theta)$: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises social weights pointwise, and conversely. Note that assuming a monotonic mean preserving perturbation ($\Delta \tilde \lambda_i =0$) is equivalent to the interpretation of the Lemma.
+
+Note that under a mean-preserving rotation of the social weight, $\Delta G_i(\theta)$ has a constant sign for all $\theta$: positive when the rotation favors higher types, negative when it favors lower types.
+
 
 It also has a direct implication for the sign of $R'_\theta(\theta)$. From expression \eqref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. For instance, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), $R_\theta'(\theta)>0$ requires $\Lambda_i'(\theta)/\Lambda_i(\theta)$ to be sufficiently close to zero; since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}, this condition is easier to satisfy under a preference shift toward higher types.
 
 Define the ratio
 \[
-R_\Gamma(\theta):=\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)}
+R_\Gamma(\theta):=\frac{\Delta\G_i(\theta)}{\G_i(\theta)}
 \]
 that captures the proportional change in preferences. The proposition below formalizes how a preference shift affects the trade-off effect. Write the trade-off effect as
 \[
@@ -679,7 +681,7 @@ that captures the proportional change in preferences. The proposition below form
 \underbrace{\Cov_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)}_\text{trade-off sorting effect},
 \]
 \begin{proposition}\label{prop:rho-q-cov-iron2}
-Assume that both $R_\theta(\theta)$ and $R_q(\theta)$ are monotone and that $\Delta \Gamma_i(\theta)$ has a constant sign for all $\theta$. Suppose that the following two conditions hold:
+Assume that both $R_\theta(\theta)$ and $R_q(\theta)$ are monotone and that $\Delta \G_i(\theta)$ has a constant sign for all $\theta$. Suppose that the following two conditions hold:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
 \item \emph{(Average effect condition)} $\mathrm{sign}\!\left(\mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\right]\right) = \mathrm{sign}\!\left(\mathrm{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta), R_q(\theta)\right)\right)$.
 \item \emph{(Elasticity condition)} for all $\theta$:
@@ -688,7 +690,7 @@ Assume that both $R_\theta(\theta)$ and $R_q(\theta)$ are monotone and that $\De
 Then, for any sign configuration of $(R_\Gamma(\theta), R_\theta'(\theta), R_q'(\theta))$ such that $\mathrm{sign}(-R_\Gamma(\theta)R_\theta'(\theta))$ aligns with the sign of $\Delta R_\theta'(\theta)$, \[\mathrm{sign}\!\left(\mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\, R_q(\theta)\right]\right) = \mathrm{sign}\!\left(-R_\Gamma(\theta) R_\theta'(\theta)\right) \cdot \mathrm{sign}\!\left(R_q'(\theta)\right).\] In sign configurations where $\mathrm{sign}(-R_\Gamma(\theta)R_\theta'(\theta))$ does not align with the sign of $\Delta R_\theta'(\theta)$, condition~(ii) is necessary but not sufficient to sign $\mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\, R_q(\theta)\right]$.
 \end{proposition}
 
-The proposition provides sufficient conditions under which a change in redistributive preferences unambiguously affects the trade-off covariance term. Condition~(i) ensures that the average effect has the correct sign and it cannot in general be derived from primitives since $R_\Gamma$ need not be monotone in $\theta$ and must therefore be imposed directly. Condition~(ii) is a uniform sufficient condition across all achievable sign configurations. It compares two elasticities: (i) $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. The condition requires that the preference change be smoother in proportional terms than the existing sorting pattern. The sorting condition follows from differentiating $R_\theta(\theta)$: 
+The proposition provides sufficient conditions under which a change in redistributive preferences unambiguously affects the trade-off covariance term. Condition~(i) cannot be derived from primitives because $\Delta R_\theta(\theta)$ takes both positive and negative values across types --- reflecting the mix of types that contribute positively and negatively to revenue --- so the sign of its average depends on the relative mass of each group and must be imposed directly. Condition~(ii) is a uniform sufficient condition across all achievable sign configurations. It compares two elasticities: (i) $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. The condition requires that the preference change be smoother in proportional terms than the existing sorting pattern. The sorting condition follows from differentiating $R_\theta(\theta)$: 
 \[\Delta\!\left(R_\theta'(\theta)\right) = -R_\theta(\theta)\,R_\Gamma'(\theta)-R_\Gamma(\theta)\,R_\theta'(\theta).\] 
 The proposition considers all possible case given any sign configuration of $(R_\Gamma(\theta), R_\theta'(\theta), R_q'(\theta))$.
 To interpret its economic meaning, consider the case where lower types are allocated more capacity ($R_q'(\theta)\le 0$), higher types gets higher rents ($R'_\theta(\theta)\ge 0$), the change of preferences is towards higher types ($\Delta R_\Gamma\ge 0$), and we are looking to reduce the adverse sorting effect such that the covariance term is positive ($\Delta R_\theta'(\theta) \le 0 $). Then a change of preference ---even in the correct direction---can exacerbate adverse sorting by creating local distortions. More specifically, the sufficient elasticity condition binds in two regions: (a) types contributing negatively to the trade-off ($R_\theta(\theta)<0$) but receiving increasing proportional weights ($R_\Gamma'(\theta)\ge 0$), and (b) types contributing positively to the trade-off ($R_\theta(\theta)>0$) but receiving decreasing proportional weights ($R_\Gamma'(\theta)\le 0$). In both regions, preference changes that are too concentrated reverse the sign of $\Delta(R_\theta'(\theta))$; the elasticity bound ensures changes remain sufficiently gradual. 
@@ -704,41 +706,107 @@ We illustrate the implications of the proposition in Figure \ref{fig:variation_u
 
 We conclude with the effect of preferences on the behavioral response, i.e., how a change in social weights affects the optimal allocation $q_i^\times(\theta,s)$.
 
+\begin{lemma}\label{lem:realloc}
+For any perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
+\[
+\Delta q_i^\times(\theta,s) = R_q(\theta,s)\!\left(R_{\G}(\theta) - \mathbb{E}_w\!\left[R_{\G}\mid s\right]\right), \qquad s\in T_i^\times.
+\]
+\end{lemma}
+
+The designer reallocates toward types whose proportional change in effective weight $R_{\G}(\theta)$ exceeds the capacity-weighted average $\mathbb{E}_w[R_{\G}\mid s]$. The mean-correction is imposed by the capacity constraint: since $\mathbb{E}_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$, the reallocation must be budget-neutral across types.\footnote{There therefore always exist types that lose from a preference change in terms of allocated quantity.} The weights $w_i^\times(\theta,s)$ capture the heterogeneity in unweighted marginal utilities induced by redistributive preferences, the relevant threshold is therefore capacity-weighted rather than uniform. Under the IR-constrained allocation, $R_{\G}(\theta)$ involves the endogenous adjustment $\Delta\beta_i^\times$ and cannot be characterized further without solving for the equilibrium multiplier. Under the IR-unconstrained allocation, $\beta_i^\times=0$ and $R_{\G}(\theta)$ is determined solely by the preference perturbation.
+
 \begin{proposition}\label{prop:rprefreallocation}
-\noindent{\bf Preferences and reallocation.}
-Fix a peak state $s\in T_i^\times$.
-
-\noindent (A) If $R_\Gamma$ is not (a.e.) constant, then $\Delta q_i^\times(\cdot,s)$ is not monotone on $\Theta_i$.
-
-\noindent  (B) Moreover, assume that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda(\theta)$ is mean-preserving. Then there exist unique cutoffs $\theta_-<\theta_+$ solving $u(q_i^\times(\theta,s),s)\,\Delta\Gamma_i(\theta)=\Delta\varepsilon_i(s)$ such that:
-(i) if $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, then $\Delta q_i^\times(\theta)\le 0$ for $\theta\in[\underline\theta,\theta_-)\cup(\theta_+,\overline\theta]$ and $\Delta q_i^\times(\theta)\ge 0$ for $\theta\in[\theta_-,\theta_+]$;
-(ii) if $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
+Under the IR-unconstrained allocation, if $R_\G(\theta)$ is not (a.e.) constant, then $\Delta q_i^\times(\cdot,s)$ is not monotone on $\Theta_i$. Moreover, assume that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda_i(\theta)$ is mean-preserving. Then there exist unique cutoffs $\theta_-<\theta_+$ solving $u(q_i^\times(\theta,s),s)\,\Delta\G_i(\theta)=\Delta\varepsilon_i(s)$ such that: (i) if $\Delta\G_i(\theta)\ge 0$ for all $\theta$, then $\Delta q_i^\times(\theta)\le 0$ for $\theta\in[\underline\theta,\theta_-)\cup(\theta_+,\overline\theta]$ and $\Delta q_i^\times(\theta)\ge 0$ for $\theta\in[\theta_-,\theta_+]$; (ii) if $\Delta\G_i(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
 \end{proposition}
+Proposition~\ref{prop:rprefreallocation} has strong consequences for the welfare analysis of preference shifts. Since the aggregate effect combines an average component and a sorting component, and since the behavioral response $\Delta q_i^\times(\cdot,s)$ is non-monotone in types, it is not possible, without further restrictions on preferences and demand curvature, to sign the overall expression $\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right]$. The unimodality and mean-preserving assumptions yield a stronger result: when the preference shift raises social weights of higher types ($\Delta\G_i(\theta)\ge 0$), the designer reallocates toward an interior interval $[\theta_-,\theta_+]$ and reduces allocations for the highest type; conversely, the reallocation concentrates at the endpoints instead.\footnote{The market designer reallocates toward types with the highest marginal welfare gain, measured by $u(q_i^\times(\theta,s),s)\Delta\G_i(\theta)$. Under unimodality of $R_\Gamma(\theta)$, ranking types by marginal welfare gain is equivalent to ranking them by $R_\Gamma(\theta)$.}
 
-The first part of Proposition~\ref{prop:rprefreallocation} has strong consequences for the welfare analysis of preference shifts. Since the aggregate effect combines an average component and a sorting component, and since the behavioral response $\Delta q_i^\times(\cdot,s)$ is non-monotone in types, it is not possible, without further structure, to sign the overall expression $\E_{\theta_i}\!\left[R_\theta(\theta) \; \Delta R_q(\theta) \right]$. We formalize the exception to this in Corollary~\ref{cor:CARA} below.
-
-The second part of Proposition provide conditions to identify which types observe an increase or a decrease in their optimal allocation when the preferences change. The results rely on three observations. First, even if the absolute preference shift $\Delta\Gamma_i(\theta)$ is monotone, the proportional shift $R_\Gamma(\theta)=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$ is generally not monotone. Second, the designer reallocates toward types with the largest marginal welfare gain, measured by $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$. We show in the proof that if $R_\Gamma(\theta)$ is unimodal, then so is $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$; hence ranking types by marginal welfare gain is equivalent to ranking them by $R_\Gamma(\theta)$. Third, the location of the maximizers of $R_\Gamma(\theta)$ depends on the sign of $\Delta\Gamma_i$: when $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, $R_\Gamma(\theta)$ is quasi-concave with a unique interior maximum, so reallocation concentrates on an interior interval; when $\Delta\Gamma_i(\theta)\le 0$, $R_\Gamma(\theta)$ is quasi-convex and its maximizers occur at the endpoints, so reallocation concentrates near $\underline\theta$ and $\overline\theta$. The capacity constraint yields existence and uniqueness of the interval because $\E_{\theta_i}[\Delta q_i^\times]=0$. Taken together, these observations imply that monotonicity of the absolute weight change is not sufficient to predict reallocation in $q_i^\times$ following a change in preferences.
-
+The CARA specification provides the cleanest case: since $R_q(\theta)$ is constant, the behavioral channel vanishes by construction and the total effect reduces to the trade-off channel alone, making the sign of a preference perturbation directly readable without any auxiliary condition on demand curvature. Moreover, under CARA the full chain from preferences to implementation region collapses to a single covariance condition.
 
 \begin{corollary}\label{cor:CARA}
-Suppose $u$ exhibits constant absolute risk aversion. Then $R_q(\theta)$ is constant in $q$, the behavioral channel vanishes, and the total effect of a preference perturbation $\Delta\lambda_i(\theta)$ on $\mathbb{E}_{\theta_i}[R_\theta(\theta)R_q(\theta)]$ reduces to the trade-off channel alone:
-\[
-\Delta\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right] = \mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\,R_q(\theta)\right].
-\]
+Suppose $u$ exhibits constant absolute risk aversion with coefficient $\alpha>0$ and $\max_{k}\mathbb{E}\underline{CS}_i^\times(k_i)>0$. Then $R_q(\theta)=1/\alpha$ is constant, the behavioral channel vanishes, and the entire implementation region $[\tilde{k}_i^-,\tilde{k}_i^+]$ and its peak $k^\ast$ are governed by a single covariance condition:
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item If $\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)>0$, the region expands ($\tilde{k}_i^-$ decreases, $\tilde{k}_i^+$ increases) and $k^\ast$ shifts left;
+\item  if $\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)<0$, the region contracts ($\tilde{k}_i^-$ increases, $\tilde{k}_i^+$ decreases) and $k^\ast$ shifts right.
+\end{enumerate}
 \end{corollary}
- 
-Therefore, under the conditions of Proposition~\ref{prop:rho-q-cov-iron2}, a preference shift toward higher types raises $\mathbb{E}_{\theta_i}[R_\theta(\theta)R_q(\theta)]$ and hence \eqref{Eujmd}, tightening the implementation region and shifting the welfare gains of capacity expansion toward lower types.
 
 
+Both Proposition~\ref{prop:rho-q-cov-iron2} and Corollary~\ref{cor:CARA} share the same spirit: they characterize when a preference shift exacerbates or relaxes the fundamental negative sorting in the revenue structure. The covariance $\operatorname{Cov}(R_\Gamma, R_\theta)$ directly captures this: when the preference shift allocates proportionally more weight to types with low $R_\theta(\theta)$ --- that is, types contributing little to virtual surplus --- the budget constraint tightens and the implementation region contracts. A simple thought experiment makes this concrete: if $R_\theta(\theta)$ is increasing in $\theta$ but $R_\Gamma(\theta)$ is decreasing, then higher weights are being placed on low-$\theta$ types who contribute least to revenue, the covariance is negative, and the region contracts. 
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[x=1.4cm, y=1cm]
+\fill[green!70!black]   (0,   -0.2) rectangle (2.5,  0.2);
+\fill[orange!90!black]  (2.5, -0.2) rectangle (5.0,  0.2);
+\fill[orange!90!black]  (5.0, -0.2) rectangle (7.5,  0.2);
+\fill[magenta!80!black] (7.5, -0.2) rectangle (10.0, 0.2);
+\draw[white, dashed, line width=1pt] (5.0,-0.2) -- (5.0,0.2);
+\draw[thick] (0,-0.9)   -- (0,-1.0)   -- (2.5,-1.0) -- (2.5,-0.9);
+\draw[thick] (2.5,-0.9) -- (2.5,-1.0) -- (7.5,-1.0) -- (7.5,-0.9);
+\draw[thick] (7.5,-0.9) -- (7.5,-1.0) -- (10,-1.0)  -- (10,-0.9);
+\node[font=\small] at (1.25, -1.5)  {IR-constrained};
+\node[font=\small] at (5.0,  -1.5)  {IR-unconstrained};
+\node[font=\small] at (8.75, -1.5)  {IR-constrained};
+\node[font=\small\bfseries, green!60!black]   at (1.25, 0.7)  {lower $\theta$ gain};
+\node[font=\small\bfseries, orange!80!black]  at (3.75, 0.7)  {all $\theta$ gain};
+\node[font=\small\bfseries, orange!60!black]  at (6.25, 0.7)  {higher $\theta$ gain};
+\node[font=\small\bfseries, magenta!80!black] at (8.75, 0.7)  {higher $\theta$ gain};
+\node[font=\footnotesize, blue!70!black] at (5.0, 1.7) {$\operatorname{Cov}(R_\Gamma,R_\theta)>0$: region expands (Cor.~\ref{cor:CARA})};
+% arrows next to each threshold
+\draw[->, thick, blue!70!black] (2.2, -0.55) -- (1.7, -0.55);
+\draw[->, thick, blue!70!black] (4.7, -0.55) -- (4.2, -0.55);
+\draw[->, thick, blue!70!black] (7.8, -0.55) -- (8.3, -0.55);
+\draw[->, thick] (-0.2, 0) -- (10.5, 0);
+\node[right] at (10.5, 0) {$k_i$};
+\foreach \x/\lbl in {0/$0$, 2.5/$\tilde k_i^-$, 5/$k^\ast$, 7.5/$\tilde k_i^+$, 10/$k_i^+$}{
+  \draw[thick] (\x, 0.2) -- (\x, -0.2);
+  \node[below, font=\small] at (\x, -0.2) {\lbl};
+}
+\node[left, font=\small] at (-0.2, 0) {(a)};
+\end{tikzpicture}
+
+\vspace{1.2cm}
+
+\begin{tikzpicture}[x=1.4cm, y=1cm]
+\fill[green!70!black]   (0,   -0.2) rectangle (2.5,  0.2);
+\fill[orange!90!black]  (2.5, -0.2) rectangle (5.0,  0.2);
+\fill[orange!90!black]  (5.0, -0.2) rectangle (7.5,  0.2);
+\fill[magenta!80!black] (7.5, -0.2) rectangle (10.0, 0.2);
+\draw[white, dashed, line width=1pt] (5.0,-0.2) -- (5.0,0.2);
+\draw[thick] (0,-0.9)   -- (0,-1.0)   -- (2.5,-1.0) -- (2.5,-0.9);
+\draw[thick] (2.5,-0.9) -- (2.5,-1.0) -- (7.5,-1.0) -- (7.5,-0.9);
+\draw[thick] (7.5,-0.9) -- (7.5,-1.0) -- (10,-1.0)  -- (10,-0.9);
+\node[font=\small] at (1.25, -1.5)  {IR-constrained};
+\node[font=\small] at (5.0,  -1.5)  {IR-unconstrained};
+\node[font=\small] at (8.75, -1.5)  {IR-constrained};
+\node[font=\small\bfseries, green!60!black]   at (1.25, 0.7)  {lower $\theta$ gain};
+\node[font=\small\bfseries, orange!80!black]  at (3.75, 0.7)  {all $\theta$ gain};
+\node[font=\small\bfseries, orange!60!black]  at (6.25, 0.7)  {higher $\theta$ gain};
+\node[font=\small\bfseries, magenta!80!black] at (8.75, 0.7)  {higher $\theta$ gain};
+\node[font=\footnotesize, red!70!black] at (5.0, 1.7) {$\operatorname{Cov}(R_\Gamma,R_\theta)<0$: region contracts (Cor.~\ref{cor:CARA})};
+% arrows next to each threshold
+\draw[->, thick, red!70!black] (2.8, -0.55) -- (3.3, -0.55);
+\draw[->, thick, red!70!black] (5.3, -0.55) -- (5.8, -0.55);
+\draw[->, thick, red!70!black] (7.2, -0.55) -- (6.7, -0.55);
+\draw[->, thick] (-0.2, 0) -- (10.5, 0);
+\node[right] at (10.5, 0) {$k_i$};
+\foreach \x/\lbl in {0/$0$, 2.5/$\tilde k_i^-$, 5/$k^\ast$, 7.5/$\tilde k_i^+$, 10/$k_i^+$}{
+  \draw[thick] (\x, 0.2) -- (\x, -0.2);
+  \node[below, font=\small] at (\x, -0.2) {\lbl};
+}
+\node[left, font=\small] at (-0.2, 0) {(b)};
+\end{tikzpicture}
+\caption{Under CARA (Corollary~\ref{cor:CARA}), the sign of $\operatorname{Cov}(R_\Gamma(\theta),R_\theta(\theta))$ governs all three thresholds simultaneously. Panel~(a): positive covariance expands the IR-unconstrained region ($\tilde k_i^-$ decreases, $\tilde k_i^+$ increases) and shifts $k^\ast$ left. Panel~(b): negative covariance contracts the region and shifts $k^\ast$ right.}
+\label{fig:impl_welfare}
+\end{figure}
 
 
 % \begin{corollary}\label{cor:rho-q-cov-iron3}
 % \noindent{\bf Preferences and Ironing.} Assume that $g_i(\theta)$ 
-% is bounded away from $0$. i) if $\Delta \Gamma_i \ge 0$, then there is a  cutoff $\theta^\ast$ such that $\Gamma_i'\le0$ for all  $\theta \in [\theta^\ast,\overline{\theta}]$ if and only if $\lambda_i(\overline{\theta})> 2 \tilde{\lambda}_i$.  ii) if $\Delta \Gamma_i \le 0$, then there is a cutoff $\theta^\ast$ such that $\Gamma_i'\le0$ on $[\underline{\theta},\theta^\ast]$ if and only if $\lambda_i(\underline{\theta})> 2 \tilde{\lambda}_i$. The cutoff solve $ \Gamma_i'(\theta^\ast) = 0$ if $\theta^\ast\in(\underline{\theta},\overline{\theta})$.
+% is bounded away from $0$. i) if $\Delta \G_i \ge 0$, then there is a  cutoff $\theta^\ast$ such that $\G_i'\le0$ for all  $\theta \in [\theta^\ast,\overline{\theta}]$ if and only if $\lambda_i(\overline{\theta})> 2 \tilde{\lambda}_i$.  ii) if $\Delta \G_i \le 0$, then there is a cutoff $\theta^\ast$ such that $\G_i'\le0$ on $[\underline{\theta},\theta^\ast]$ if and only if $\lambda_i(\underline{\theta})> 2 \tilde{\lambda}_i$. The cutoff solve $ \G_i'(\theta^\ast) = 0$ if $\theta^\ast\in(\underline{\theta},\overline{\theta})$.
 % \end{corollary}
 
-% The corollary states a sufficient condition for ironing: if the market designer assigns a sufficiently high weight to the highest type, then the market designer will iron out those high types. The reverse occurs when the market designer assigns higher weights to the lower types.\footnote{To extend the results to other intervals or to have a uniqueness of the cutoff requires strong assumptions, notably on $g_i(\theta)$ and its derivative. For instance if $g_i(\theta)$ is uniform and $\Delta \Gamma_i \ge 0$ then $g'(\theta)=0$ and the market designer irons any types such that $\lambda_i(\theta) > 2\tilde{\lambda}_i$} To interpret the result, assume that $g_i(\theta)$ follows a uniform distribution. Moving along $\theta$ yields a comparison between the marginal gain in terms of revenue captured by the term $2\tilde{\lambda}_i$ (uniform distribution is regular so higher types gets higher virtual surplus, which is used to cover the budget) and the redistributive loss with the term $\Lambda'_i(\theta)=-\lambda_i(\theta) $ (recall that $\Lambda_i(\theta)$ is the weighted mass of types above $\theta$, hence as $\theta$ increases the marginal loss correspond to the marginal consumer weight). When the loss is higher than the gain for a type $\theta$ (i.e.m $\lambda_i(\theta)>2\tilde{\lambda}_i$), then the market designer decreases the allocation of this type. This violates the IC constraint and therefore requires ironing. Whatever the shape of $g_i(\theta)$, the same logic always applies at the endpoints.
+% The corollary states a sufficient condition for ironing: if the market designer assigns a sufficiently high weight to the highest type, then the market designer will iron out those high types. The reverse occurs when the market designer assigns higher weights to the lower types.\footnote{To extend the results to other intervals or to have a uniqueness of the cutoff requires strong assumptions, notably on $g_i(\theta)$ and its derivative. For instance if $g_i(\theta)$ is uniform and $\Delta \G_i \ge 0$ then $g'(\theta)=0$ and the market designer irons any types such that $\lambda_i(\theta) > 2\tilde{\lambda}_i$} To interpret the result, assume that $g_i(\theta)$ follows a uniform distribution. Moving along $\theta$ yields a comparison between the marginal gain in terms of revenue captured by the term $2\tilde{\lambda}_i$ (uniform distribution is regular so higher types gets higher virtual surplus, which is used to cover the budget) and the redistributive loss with the term $\Lambda'_i(\theta)=-\lambda_i(\theta) $ (recall that $\Lambda_i(\theta)$ is the weighted mass of types above $\theta$, hence as $\theta$ increases the marginal loss correspond to the marginal consumer weight). When the loss is higher than the gain for a type $\theta$ (i.e.m $\lambda_i(\theta)>2\tilde{\lambda}_i$), then the market designer decreases the allocation of this type. This violates the IC constraint and therefore requires ironing. Whatever the shape of $g_i(\theta)$, the same logic always applies at the endpoints.
 
 
 \bibliographystyle{apalike}
@@ -760,7 +828,7 @@ We next analyze the threshold between the two sets of quantities. That is, we de
 See Appendix \ref{ch3app:Ap8}
 \end{proof}
 
-Proposition \ref{propch3:prop5} shows that it is possible to cover both fixed costs and participation constraints without distorting the allocation only when the level of investment is low. The intuition for this result can be understood as follows. First, we denote the marginal virtual utility: $J_i(q,\theta,s) = u(q^m_{i,k}(\theta,s),\theta,s) - \Gamma_i(\theta)$, which is the marginal utility derived from the optimal allocation net of the information rent. Under the framework, it can be interpreted as the feasible gain in utility from the allocation after having remunerated the consumers to behave truthfully. Then, we can express the derivative of the $R-IR$ constraint for the first set of optimal quantities.
+Proposition \ref{propch3:prop5} shows that it is possible to cover both fixed costs and participation constraints without distorting the allocation only when the level of investment is low. The intuition for this result can be understood as follows. First, we denote the marginal virtual utility: $J_i(q,\theta,s) = u(q^m_{i,k}(\theta,s),\theta,s) - \G_i(\theta)$, which is the marginal utility derived from the optimal allocation net of the information rent. Under the framework, it can be interpreted as the feasible gain in utility from the allocation after having remunerated the consumers to behave truthfully. Then, we can express the derivative of the $R-IR$ constraint for the first set of optimal quantities.
 
 \begin{equation*}
    \overbrace{ \sum_{j} \mu_i \int_{s_1^r}^{\overline{s}} \int_{\Theta_i} \quad J_i(q^m_{i,2},\theta,s)  \pdv{q^m_{i,2}}{k} \quad dG_i(\theta) dF(s)}^{\text{aggregate expected marginal virtual revenue}} \quad - \quad  r
@@ -845,7 +913,7 @@ Being the aggregate marginal virtual utility over every consumer and across all 
 % That is, smaller consumers imply smaller marginal utility at the optimal allocation. We turn now to the difference in terms of information rent: 
 
 % \begin{equation*}
-%     \Gamma_i(\theta^1) - \Gamma_i(\theta^2)  = \theta^2 - \theta^1
+%     \G_i(\theta^1) - \G_i(\theta^2)  = \theta^2 - \theta^1
 % \end{equation*}
 
 % The information rent is higher with smaller consumers. The two combines leads to :
@@ -2003,18 +2071,18 @@ The Lagrangian of the problem can be expressed as follows:
 With $\varepsilon$ being the Lagrange multiplier associated with the capacity constraint and $\zeta$ the multiplier associated with the new participation/revenue constraint. Now, note that as the market designer seeks to maximize consumer surplus, having a positive net revenue is not optimal. In other terms, at the maximum we have $\sum_{i} \mu_i \int_{\mathcal S}\int_{\Theta_i}q_i(\theta,s)t_i(\theta,s)dG_i(\theta) =I(k)$. From the expression of $R-IR$ in Equation \ref{eq:RIR}, the derivative with respect to $q_i$ gives:
 
 \begin{align*}
-    \pdv{\mathcal{L}^m}{q_i} & = \int_{\mathcal S} \theta \; U(q_i(\theta,s),s) dF(s) - \varepsilon     +  \zeta \int_{\mathcal S}  (\theta \; U(q_i(\theta,s),s)  -\Gamma_i(\theta)) dF(s)  
+    \pdv{\mathcal{L}^m}{q_i} & = \int_{\mathcal S} \theta \; U(q_i(\theta,s),s) dF(s) - \varepsilon     +  \zeta \int_{\mathcal S}  (\theta \; U(q_i(\theta,s),s)  -\G_i(\theta)) dF(s)  
 \end{align*}
 
 Which gives the first-order condition:
 
 \begin{equation}\label{eq:FOCIC}
-    \theta \; U(q_i(\theta,s),s)  - \varepsilon     +  \zeta (\theta \; U(q_i(\theta,s),s)  -\Gamma_i(\theta) )=0
+    \theta \; U(q_i(\theta,s),s)  - \varepsilon     +  \zeta (\theta \; U(q_i(\theta,s),s)  -\G_i(\theta) )=0
 \end{equation}
 
 Note that due to the consumer unit mass assumption, having different categories of consumers does not change the solution to the problem. Namely, the maximization of the expected aggregate consumer surplus can be understood as the individual sum of the maximization of the consumer surplus at the category level. 
 
-Finally, we show that the incentive compatibility condition is satisfied with the first-order condition. We derive the condition \ref{eq:FOCIC} with respect to the type $\theta $: $ \pdv{u}{q} \pdv{q_i}{\theta} + \pdv{u}{\theta}  + \varepsilon     +  \zeta (\pdv{u}{q} \pdv{q_i}{\theta} + \pdv{u}{\theta} -\pdv{\Gamma_i}{\theta} )=0$. With the linear framework and uniform distribution  we have: $\pdv{u}{q} = -1$, $\pdv{u}{\theta} = 1$ and $\pdv{\Gamma_i}{\theta} = -1 $. It implies that $ - \pdv{q_i}{\theta} + 1  + \varepsilon     +  \zeta (-\pdv{q_i}{\theta} + 2)=0$. That is:
+Finally, we show that the incentive compatibility condition is satisfied with the first-order condition. We derive the condition \ref{eq:FOCIC} with respect to the type $\theta $: $ \pdv{u}{q} \pdv{q_i}{\theta} + \pdv{u}{\theta}  + \varepsilon     +  \zeta (\pdv{u}{q} \pdv{q_i}{\theta} + \pdv{u}{\theta} -\pdv{\G_i}{\theta} )=0$. With the linear framework and uniform distribution  we have: $\pdv{u}{q} = -1$, $\pdv{u}{\theta} = 1$ and $\pdv{\G_i}{\theta} = -1 $. It implies that $ - \pdv{q_i}{\theta} + 1  + \varepsilon     +  \zeta (-\pdv{q_i}{\theta} + 2)=0$. That is:
 \begin{equation*}
     \pdv{q_i}{\theta} = \frac{1 + 2 \zeta}{1+\zeta} > 0
 \end{equation*}
@@ -2030,8 +2098,8 @@ The merged participation and revenue constraint, when it is not binding, is give
 
 
 \begin{align}\label{eq:RIR}
-        R^{IR}(k) = \sum_{i} \mu_i \int_{\Theta_i} \left[ \int_{0}^{s_1}  (U(q^m_{i,1}(\theta,s),\theta,s)  -\Gamma_i(\theta)q^m_{i,1}(\theta,s) ) dF(s) + \right. \\
-        \nonumber \left. \int_{s_1}^{\overline{s}}  (U(q^m_{i,2}(\theta,s),\theta,s)  -\Gamma_i(\theta)q^m_{i,2}(\theta,s) ) dF(s) \right]dG_i(\theta) - I(k) 
+        R^{IR}(k) = \sum_{i} \mu_i \int_{\Theta_i} \left[ \int_{0}^{s_1}  (U(q^m_{i,1}(\theta,s),\theta,s)  -\G_i(\theta)q^m_{i,1}(\theta,s) ) dF(s) + \right. \\
+        \nonumber \left. \int_{s_1}^{\overline{s}}  (U(q^m_{i,2}(\theta,s),\theta,s)  -\G_i(\theta)q^m_{i,2}(\theta,s) ) dF(s) \right]dG_i(\theta) - I(k) 
 \end{align}
 
 With $q^m_{i,1}$ and $q^m_{i,2}$ being respectively the allocation when the capacity is not binding and the capacity is binding. As it is the same allocation as the first-best, the first state of the world such that the capacity binds is the same as under the first-best: $s_1$. Similar to other proves, we start by stating that depending on the value of $k_i$, the expression of $R^{IR}$ can take three forms: (1) when the capacity never binds $s_1 \geq \overline{s}$, (2) when it always binds $s_1 \leq 0$, (3) when it both binds and not binds as given by equation \ref{eq:RIR}. We have: 
@@ -2045,10 +2113,10 @@ In this case, situation (1) is realized whenever the investment level $k_i$ is a
 We start with the lowercase: $k \geq k^-$ such that $s_1 = 0$. Equation \ref{eq:RIR} becomes:
 
 \begin{align*}
-        R^{IR}(k) = \sum_{i} \mu_i \int_{\Theta_i}  \int_{\mathcal S}  (U(q^m_{i,2}(\theta,s),\theta,s)  -\Gamma_i(\theta)q^m_{i,2}(\theta,s) ) dF(s) dG_i(\theta) - I(k) 
+        R^{IR}(k) = \sum_{i} \mu_i \int_{\Theta_i}  \int_{\mathcal S}  (U(q^m_{i,2}(\theta,s),\theta,s)  -\G_i(\theta)q^m_{i,2}(\theta,s) ) dF(s) dG_i(\theta) - I(k) 
 \end{align*}
 
-With the linear and uniform assumption, we have $q^m_{i,2}(\theta,s)= k + s + \theta - \sum_{i} \mu_i(s + \theta_i^{av})$ and $\Gamma_i(\theta) = \overline{\theta}_i - \theta$. In that case: 
+With the linear and uniform assumption, we have $q^m_{i,2}(\theta,s)= k + s + \theta - \sum_{i} \mu_i(s + \theta_i^{av})$ and $\G_i(\theta) = \overline{\theta}_i - \theta$. In that case: 
 
 \begin{equation*}
 R^{IR}(0) =  \frac{1}{8} ( (\sum_{i} \mu_i (\overline{\theta}_i-\ubar{\theta}_i))^2+4\mu_i\mu_j(\overline{\theta}_i - \overline{\theta}_j)^2)  
@@ -2057,8 +2125,8 @@ R^{IR}(0) =  \frac{1}{8} ( (\sum_{i} \mu_i (\overline{\theta}_i-\ubar{\theta}_i)
 Which is always positive. Next, we compute the first derivative with respect to $k_i$, which gives:
 
 \begin{align*}
-        \pdv{R^{IR}}{k} = & \sum_{i} \mu_i \int_{\Theta_i}  \int_{\mathcal S}  (u(q^m_{i,2}(\theta,s),\theta,s)\pdv{q^m_{i,2}}{k}  -\Gamma_i(\theta)\pdv{q^m_{i,2}}{k}(\theta,s) )dF(s) dG_i(\theta)- r \\
-        & \sum_{i} \mu_i \int_{\Theta_i}  \int_{\mathcal S}  (u(q^m_{i,2}(\theta,s),\theta,s) -\Gamma_i(\theta)(\theta,s) )dF(s) dG_i(\theta)- r 
+        \pdv{R^{IR}}{k} = & \sum_{i} \mu_i \int_{\Theta_i}  \int_{\mathcal S}  (u(q^m_{i,2}(\theta,s),\theta,s)\pdv{q^m_{i,2}}{k}  -\G_i(\theta)\pdv{q^m_{i,2}}{k}(\theta,s) )dF(s) dG_i(\theta)- r \\
+        & \sum_{i} \mu_i \int_{\Theta_i}  \int_{\mathcal S}  (u(q^m_{i,2}(\theta,s),\theta,s) -\G_i(\theta)(\theta,s) )dF(s) dG_i(\theta)- r 
 \end{align*}
 
 As $\pdv{q^m_{i,2}}{k} = 1$. And the second order derivative with respect to $k_i$
@@ -2073,16 +2141,16 @@ As $\pdv{u}{q} = - 1$. This shows that the expression $R^{IR}$ is concave in $k_
 We now study the middle case (3). From the first-order condition, we have $q^m_{i,1}(\theta,s) = \theta + s $ which does not depends on $k_i$. As the function in the interval is continuous is $s$, the marginal effect at $s_1$ cancels out. Hence, the first derivative with respect to $k_i$ gives:
 
 \begin{align*}
-        \pdv{R^{IR}}{k} = \sum_{i} \mu_i \int_{\Theta_i} \int_{s_1}^{\overline{s}}  (u(q^m_{i,2}(\theta,s),\theta,s)  -\Gamma_i(\theta) )dF(s) dG_i(\theta) - r 
+        \pdv{R^{IR}}{k} = \sum_{i} \mu_i \int_{\Theta_i} \int_{s_1}^{\overline{s}}  (u(q^m_{i,2}(\theta,s),\theta,s)  -\G_i(\theta) )dF(s) dG_i(\theta) - r 
 \end{align*}
 
 Deriving again by $k_i$: 
 
 \begin{align*}
-        \pdv[2]{R^{IR}}{k} =  \sum_{i} \mu_i  \int_{\Theta_i}\left[- \pdv{s_1}{k} \/ (u(q^m_{i,2}(\theta,s_1),\theta,s_1) -\Gamma_i(\theta) ) f(s) -   \int_{s_1}^{\overline{s}} 1 dF(s)   \right]dG_i(\theta) 
+        \pdv[2]{R^{IR}}{k} =  \sum_{i} \mu_i  \int_{\Theta_i}\left[- \pdv{s_1}{k} \/ (u(q^m_{i,2}(\theta,s_1),\theta,s_1) -\G_i(\theta) ) f(s) -   \int_{s_1}^{\overline{s}} 1 dF(s)   \right]dG_i(\theta) 
 \end{align*}
 
-Using the value of $u(q^m_{i,2}(\theta,s_1),\theta,s_1)$ and $\Gamma_i(\theta)$, we have $\int_{\Theta_i} \sum_{i} \mu_i (u(q^m_{i,2}(\theta,s_1),\theta,s_1) -\Gamma_i(\theta) ) = - \sum_{i} \mu_i \frac{\overline{\theta}_i - \ubar{\theta}_i}{2} < 0$. As $\pdv{s_1}{k} = 1$, the first term is positive. Hence, the sign of the second derivative is ambiguous. This is clear as at $k^+_i$, we have $s_1(k^r) = \overline{s}$. Hence, the second term in the second derivative is null, and the expression $R^{IR}(k^+_i)$ is convex in $k_i$. However, the first derivative with respect to $k_i$ is also negative at $k^+_i$, as it is equal to $-r$. Finally, the third derivative is positive and equal to a constant, ensuring that there are no multiple combinations of concave/convexity from $R^{IR}$. In other words, in the case (3), $R^{IR}$ is first concave and then convex. Continuity with case (1) and the negative derivative at the threshold with case (2) ensures that there is at most one solution to $R^{IR}(k) = 0$. 
+Using the value of $u(q^m_{i,2}(\theta,s_1),\theta,s_1)$ and $\G_i(\theta)$, we have $\int_{\Theta_i} \sum_{i} \mu_i (u(q^m_{i,2}(\theta,s_1),\theta,s_1) -\G_i(\theta) ) = - \sum_{i} \mu_i \frac{\overline{\theta}_i - \ubar{\theta}_i}{2} < 0$. As $\pdv{s_1}{k} = 1$, the first term is positive. Hence, the sign of the second derivative is ambiguous. This is clear as at $k^+_i$, we have $s_1(k^r) = \overline{s}$. Hence, the second term in the second derivative is null, and the expression $R^{IR}(k^+_i)$ is convex in $k_i$. However, the first derivative with respect to $k_i$ is also negative at $k^+_i$, as it is equal to $-r$. Finally, the third derivative is positive and equal to a constant, ensuring that there are no multiple combinations of concave/convexity from $R^{IR}$. In other words, in the case (3), $R^{IR}$ is first concave and then convex. Continuity with case (1) and the negative derivative at the threshold with case (2) ensures that there is at most one solution to $R^{IR}(k) = 0$. 
 
 The existence of a solution comes from the observation that $R^{IR}(0) > 0$ and that the derivative of $R^{IR}(k)$ with respect to $k_i$ whenever $k \geq k^r$ is negative and equal to $-r$.
 
@@ -2096,7 +2164,7 @@ The existence of a solution comes from the observation that $R^{IR}(0) > 0$ and 
 We start with the first derivative with respect to $k_i$. The first-order condition of the Lagrangian is equal to:
 
 \begin{equation*}
-    u(q^m_{i,l},\theta,s)(1+\zeta) - \zeta \Gamma_i(\theta) - \varepsilon =0
+    u(q^m_{i,l},\theta,s)(1+\zeta) - \zeta \G_i(\theta) - \varepsilon =0
 \end{equation*}
 
 We rewrite the equation such that:
@@ -2105,7 +2173,7 @@ We rewrite the equation such that:
     u(q^m_{i,l},\theta,s)+ \zeta J_i(q^m_{i,l},\theta,s)  - \varepsilon =0
 \end{equation*}
 
-With $J_i(q^m_{i,l},\theta,s) = u(q^m_{i,l},\theta,s) - \Gamma_i(\theta)$. It corresponds to the marginal virtual utility of a consumer. We start with the optimal off-peak allocation: $q_{i,3}$. In that case, given a realization of $s$, the capacity does not bind, and $\varepsilon = 0$. Hence
+With $J_i(q^m_{i,l},\theta,s) = u(q^m_{i,l},\theta,s) - \G_i(\theta)$. It corresponds to the marginal virtual utility of a consumer. We start with the optimal off-peak allocation: $q_{i,3}$. In that case, given a realization of $s$, the capacity does not bind, and $\varepsilon = 0$. Hence
 
 \begin{equation*}
     u(q^m_{i,3},\theta,s)+ \zeta J_i(q^m_{i,3},\theta,s)  =0
@@ -2173,8 +2241,8 @@ With $\E_\theta J_i(q^m_{i,4},\theta,s) = \sum_{i} \mu_i \int_{\Theta_i}  J_i(q^
 
 
 \begin{align*}
-    & \sum_{i} \mu_i \int_{\Theta_i} \left[ \int_{0}^{s^m_1(k)}  (U(q^m_{i,3}(\zeta),\theta,s)  -\Gamma_i(\theta)q^m_{i,3}(\zeta) ) dF(s)  \right. \\
-      & +   \nonumber \left. \int_{s^m_1(k)}^{\overline{s}}  (U(q^m_{i,4}(\zeta,\varepsilon),\theta,s)  -\Gamma_i(\theta)q^m_{i,4}(\zeta,\varepsilon) ) dF(s) \right]dG_i(\theta) - I(k) = 0
+    & \sum_{i} \mu_i \int_{\Theta_i} \left[ \int_{0}^{s^m_1(k)}  (U(q^m_{i,3}(\zeta),\theta,s)  -\G_i(\theta)q^m_{i,3}(\zeta) ) dF(s)  \right. \\
+      & +   \nonumber \left. \int_{s^m_1(k)}^{\overline{s}}  (U(q^m_{i,4}(\zeta,\varepsilon),\theta,s)  -\G_i(\theta)q^m_{i,4}(\zeta,\varepsilon) ) dF(s) \right]dG_i(\theta) - I(k) = 0
 \end{align*}
 
 The derivative is equal to
@@ -2217,21 +2285,21 @@ Therefore, from \ref{eq:pdvq4k2}, we isolate the derivative of the multiplier wh
 
 We show now that $ \mathbb{A} > 0$. 
 
-First note that : $\sum_{i} \mu_i \int_{\Theta_i} J(q^m_{i,4},\theta,s)  dG_i(\theta) = s - k + \sum_{i} \mu_i {\ubar{\theta}_i} $, this can seen from the fact that by definition $\sum_{i} \mu_i q^m_{i,4} = k$ and $\Gamma_i(\theta) = \hat{\theta}_i - \theta$ under uniform distribution. Then, we show that $\mathbb{K} > 0$ for every $k_i$ in the case that the capacity always binds (i.e., $s_1^m(k) = 0)$. Using the expression of the aggregate virtual marginal utility, we have $\mathbb{K} = k + r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Next, we use Proposition \ref{propch3:prop5} to show that it is always positive. Indeed, the maximum of the non-binding constraint $R^{IR}$ described in equation \ref{eq:RIR} and noted $k^{IR}$ is equal to $k^{IR} r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Hence we can rewrite the $\mathbb{K} = k - k^{IR}$. As $R^{IR}(k)$ is concave in $k_i$ and $R^{IR}(0)>0$, therefore the solution of $R^{IR}(k) = 0$ is always grater than the maximum $k^{IR}$. Because we study the case when $R-IR$ is binding, the level of investment of interest is such that $k_i$ is above the solution of $R^{IR}(k) = 0$. Hence, the $k_i$ of interest is also greater than $k^{IR}$. Therefore, $\mathbb{K}\geq 0$. 
-First note that : $\sum_{i} \mu_i \int_{\Theta_i} J(q^m_{i,4},\theta,s)  dG_i(\theta) = s - k + \sum_{i} \mu_i {\ubar{\theta}_i} $, this can seen from the fact that by definition $\sum_{i} \mu_i q^m_{i,4} = k$ and $\Gamma_i(\theta) = \hat{\theta}_i - \theta$ under uniform distribution. Then, we show that $\mathbb{K} > 0$ for every $k_i$ in the case that the capacity always binds (i.e., $s_1^m(k) = 0)$. Using the expression of the aggregate virtual marginal utility, we have $\mathbb{K} = k + r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Next, we use Proposition \ref{propch3:prop5} to show that it is always positive. Indeed, the maximum of the non-binding constraint $R^{IR}$ described in equation \ref{eq:RIR} and noted $k^{IR}$ is equal to $k^{IR} r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Hence we can rewrite the $\mathbb{K} = k - k^{IR}$. As $R^{IR}(k)$ is concave in $k_i$ and $R^{IR}(0)>0$, therefore the solution of $R^{IR}(k) = 0$ is always grater than the maximum $k^{IR}$. Because we study the case when $R-IR$ is binding, the level of investment of interest is such that $k_i$ is above the solution of $R^{IR}(k) = 0$. Hence, the $k_i$ of interest is also greater than $k^{IR}$. Therefore, $\mathbb{K}\geq 0$. 
-First note that : $\sum_{i} \mu_i \int_{\Theta_i} J(q^m_{i,4},\theta,s)  dG_i(\theta) = s - k + \sum_{i} \mu_i {\ubar{\theta}_i} $, this can seen from the fact that by definition $\sum_{i} \mu_i q^m_{i,4} = k$ and $\Gamma_i(\theta) = \hat{\theta}_i - \theta$ under uniform distribution. Then, we show that $\mathbb{K} > 0$ for every $k_i$ in the case that the capacity always binds (i.e., $s_1^m(k) = 0)$. Using the expression of the aggregate virtual marginal utility, we have $\mathbb{K} = k + r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Next, we use Proposition \ref{propch3:prop5} to show that it is always positive. Indeed, the maximum of the non-binding constraint $R^{IR}$ described in equation \ref{eq:RIR} and noted $k^{IR}$ is equal to $k^{IR} r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Hence we can rewrite the $\mathbb{K} = k - k^{IR}$. As $R^{IR}(k)$ is concave in $k_i$ and $R^{IR}(0)>0$, therefore the solution of $R^{IR}(k) = 0$ is always grater than the maximum $k^{IR}$. Because we study the case when $R-IR$ is binding, the level of investment of interest is such that $k_i$ is above the solution of $R^{IR}(k) = 0$. Hence, the $k_i$ of interest is also greater than $k^{IR}$. Therefore, $\mathbb{K}\geq 0$. 
+First note that : $\sum_{i} \mu_i \int_{\Theta_i} J(q^m_{i,4},\theta,s)  dG_i(\theta) = s - k + \sum_{i} \mu_i {\ubar{\theta}_i} $, this can seen from the fact that by definition $\sum_{i} \mu_i q^m_{i,4} = k$ and $\G_i(\theta) = \hat{\theta}_i - \theta$ under uniform distribution. Then, we show that $\mathbb{K} > 0$ for every $k_i$ in the case that the capacity always binds (i.e., $s_1^m(k) = 0)$. Using the expression of the aggregate virtual marginal utility, we have $\mathbb{K} = k + r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Next, we use Proposition \ref{propch3:prop5} to show that it is always positive. Indeed, the maximum of the non-binding constraint $R^{IR}$ described in equation \ref{eq:RIR} and noted $k^{IR}$ is equal to $k^{IR} r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Hence we can rewrite the $\mathbb{K} = k - k^{IR}$. As $R^{IR}(k)$ is concave in $k_i$ and $R^{IR}(0)>0$, therefore the solution of $R^{IR}(k) = 0$ is always grater than the maximum $k^{IR}$. Because we study the case when $R-IR$ is binding, the level of investment of interest is such that $k_i$ is above the solution of $R^{IR}(k) = 0$. Hence, the $k_i$ of interest is also greater than $k^{IR}$. Therefore, $\mathbb{K}\geq 0$. 
+First note that : $\sum_{i} \mu_i \int_{\Theta_i} J(q^m_{i,4},\theta,s)  dG_i(\theta) = s - k + \sum_{i} \mu_i {\ubar{\theta}_i} $, this can seen from the fact that by definition $\sum_{i} \mu_i q^m_{i,4} = k$ and $\G_i(\theta) = \hat{\theta}_i - \theta$ under uniform distribution. Then, we show that $\mathbb{K} > 0$ for every $k_i$ in the case that the capacity always binds (i.e., $s_1^m(k) = 0)$. Using the expression of the aggregate virtual marginal utility, we have $\mathbb{K} = k + r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Next, we use Proposition \ref{propch3:prop5} to show that it is always positive. Indeed, the maximum of the non-binding constraint $R^{IR}$ described in equation \ref{eq:RIR} and noted $k^{IR}$ is equal to $k^{IR} r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Hence we can rewrite the $\mathbb{K} = k - k^{IR}$. As $R^{IR}(k)$ is concave in $k_i$ and $R^{IR}(0)>0$, therefore the solution of $R^{IR}(k) = 0$ is always grater than the maximum $k^{IR}$. Because we study the case when $R-IR$ is binding, the level of investment of interest is such that $k_i$ is above the solution of $R^{IR}(k) = 0$. Hence, the $k_i$ of interest is also greater than $k^{IR}$. Therefore, $\mathbb{K}\geq 0$. 
+First note that : $\sum_{i} \mu_i \int_{\Theta_i} J(q^m_{i,4},\theta,s)  dG_i(\theta) = s - k + \sum_{i} \mu_i {\ubar{\theta}_i} $, this can seen from the fact that by definition $\sum_{i} \mu_i q^m_{i,4} = k$ and $\G_i(\theta) = \hat{\theta}_i - \theta$ under uniform distribution. Then, we show that $\mathbb{K} > 0$ for every $k_i$ in the case that the capacity always binds (i.e., $s_1^m(k) = 0)$. Using the expression of the aggregate virtual marginal utility, we have $\mathbb{K} = k + r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Next, we use Proposition \ref{propch3:prop5} to show that it is always positive. Indeed, the maximum of the non-binding constraint $R^{IR}$ described in equation \ref{eq:RIR} and noted $k^{IR}$ is equal to $k^{IR} r - \frac{\overline{s}}{2} - \sum_{i} \mu_i {\ubar{\theta}_i}$. Hence we can rewrite the $\mathbb{K} = k - k^{IR}$. As $R^{IR}(k)$ is concave in $k_i$ and $R^{IR}(0)>0$, therefore the solution of $R^{IR}(k) = 0$ is always grater than the maximum $k^{IR}$. Because we study the case when $R-IR$ is binding, the level of investment of interest is such that $k_i$ is above the solution of $R^{IR}(k) = 0$. Hence, the $k_i$ of interest is also greater than $k^{IR}$. Therefore, $\mathbb{K}\geq 0$. 
 
 It remains to show that the level of investment that solves $R^{IR}(k) = 0$ for the middle case (3) is always higher than the one of the case when the capacity always binds. If this is the case, it would imply that $\mathbb{K}$ under the middle case is greater than the $\mathbb{K}$ of the lower case. As we proved that the latter is always positive, then the former will also be positive. We prove it by studying the difference between the two expressions of $R^{IR}$ for a given $k_i$, that is, when the capacity always binds as in case (1) and sometimes binds as in case (3). Note that the difference is null at the level of investment $k^-$ that satisfies $s_1 =0$ due to the continuity between the two expressions. Therefore, we are only interested in the sign of the difference at any level of investment greater than $k^-$. The difference is given by 
 
 
 \begin{align*}
-        \sum_{i} \mu_i \int_{\Theta_i}  \int_0^{s_1}  (U(q^m_{i,1},\theta,s) - U(q^m_{i,2},\theta,s)  -\Gamma_i(\theta)(q^m_{i,1} - q^m_{i,2}) ) dF(s) dG_i(\theta)
+        \sum_{i} \mu_i \int_{\Theta_i}  \int_0^{s_1}  (U(q^m_{i,1},\theta,s) - U(q^m_{i,2},\theta,s)  -\G_i(\theta)(q^m_{i,1} - q^m_{i,2}) ) dF(s) dG_i(\theta)
 \end{align*}
 
 As only the on-peak allocation $q^m_{i,2}$ depends on $k_i$, the first derivative with respect to $k_i$ gives:
 
 \begin{align*}
-        \sum_{i} \mu_i \int_{\Theta_i}  \int_0^{s_1}  (- u(q^m_{i,2},\theta,s)  + \Gamma_i(\theta)) dF(s) dG_i(\theta)
+        \sum_{i} \mu_i \int_{\Theta_i}  \int_0^{s_1}  (- u(q^m_{i,2},\theta,s)  + \G_i(\theta)) dF(s) dG_i(\theta)
 \end{align*}
 
 Note that at $k^-$, the derivative is null. Finally, the second derivative with respect to $k_i$ gives:
