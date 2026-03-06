@@ -48,167 +48,105 @@ since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Lemma 1}
+
+\section{Proof of Proposition 2}
+
+\subsection{Part i)}
+\begin{proof}
+We maintain throughout that $B(k)+M(k)\neq 0$, where $B(k)+M(k)$ is the derivative of the binding residual equation with respect to $\beta$ after substituting the optimal allocation; this is the local regularity condition needed to apply the implicit function theorem, while $B(k)+M(k)>0$ delivers the monotone comparative statics used below.
+
+\medskip\noindent\textbf{Corner case: $\beta(k)=0$.} If $\beta(k)=0$ there are no contributing types. On $T^*$, the first-order condition is $\theta\,u(q_i^*(\theta,s),s) = \varepsilon(s)/\lambda_i(\theta)$. Differentiating and substituting into the capacity constraint gives $\frac{\partial\varepsilon(s)}{\partial k} = -1/\overline w^{nc}(s) < 0$ and $\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^{nc}(\theta,s)/\overline w^{nc}(s) > 0$ on $T^*$. Since non-contributing types pay no transfer:
+%##########################################
+\[
+\frac{\partial CS_i(\theta;k)}{\partial k} = \mathbb{E}_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
+\]
+%##########################################
+
+\medskip\noindent\textbf{Interior case: $\beta(k)>0$ with coexistence.} Assume contributing and non-contributing types coexist on a set of peak states of positive probability. On $T^*$, the first-order conditions are
+%##########################################
+\[
+\theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta(k)}, \quad \lambda_i(\theta)\leq\beta(k), \qquad \theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\lambda_i(\theta)}, \quad \lambda_i(\theta)>\beta(k).
+\]
+%##########################################
+The weights $w_i^c$, $w_i^{nc}$, $\overline w^c(s)$, $\overline w^{nc}(s)$, $\overline w(s)$ and the inframarginal component
+%##########################################
+\[
+m^c(s) := \frac{1}{\overline w(s)}\sum_i\mu_i\,\mathbb{E}_{\theta_i}\!\left[w_i^c(\theta,s)\,\theta\,u(q_i^*(\theta,s),s)\,\mathbf{1}_{\lambda_i(\theta)\leq\beta(k)}\right]
+\]
+%##########################################
+are as defined above. Differentiating the first-order conditions with respect to $k$:
+%##########################################
+\[
+\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^c(\theta,s)\!\left(-\frac{\partial\varepsilon(s)}{\partial k} + \theta\,u(q_i^*,s)\,\frac{d\beta}{dk}\right), \quad \lambda_i(\theta)\leq\beta(k), \tag{$\partial_k q^c$}\label{dqc}
+\]
+%##########################################
+%##########################################
+\[
+\frac{\partial q_i^*(\theta,s)}{\partial k} = -\,w_i^{nc}(\theta,s)\,\frac{\partial\varepsilon(s)}{\partial k}, \quad \lambda_i(\theta)>\beta(k). \tag{$\partial_k q^{nc}$}\label{dqnc}
+\]
+%##########################################
+Differentiating the capacity constraint and using continuity of the allocation at each cutoff $\theta_i^*(k)$ — so that boundary terms cancel — yields
+%##########################################
+\[
+\frac{\partial\varepsilon(s)}{\partial k} = m^c(s)\,\frac{d\beta}{dk} - \frac{1}{\overline w(s)}. \tag{$\partial_k\varepsilon$}\label{depsk}
+\]
+%##########################################
+
+\medskip\noindent\textbf{Step 1: sign of $\frac{d\beta}{dk}$.} Since the IR constraint of marginal types binds, $R^M(k)\equiv 0$. Differentiating this identity with respect to $k$, substituting \eqref{dqc} and \eqref{depsk}, and collecting all terms in $\frac{d\beta}{dk}$ on one side yields
+%##########################################
+\[
+\mathbb{E}_s\!\left[\sum_i\mu_i\,\mathbb{E}^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right] - I'(k) + \frac{d\beta}{dk}\,B(k) = 0,
+\]
+%##########################################
+where, for convenience of exposition, we write $\mathbb{E}^w_i[u^c|s]$ for the full per-category object defined above — combining the inframarginal weighted marginal utility and the boundary term from the movement of $\theta_i^*(k)$ — and
+%##########################################
+\[
+B(k) := \mathbb{E}_s\!\left[\frac{\varepsilon(s)^2}{\beta(k)^2}\frac{\overline w^c(s)\,\overline w^{nc}(s)}{\overline w(s)}\,\mathbf{1}_{s\in T^*}\right] > 0.
+\]
+%##########################################
+Solving for $\frac{d\beta}{dk}$:
+%##########################################
+\[
+\frac{d\beta}{dk} = \frac{I'(k) - \mathbb{E}_s\!\left[\sum_i\mu_i\,\mathbb{E}^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right]}{B(k)}.
+\]
+%##########################################
+Since $B(k)>0$, condition \eqref{Ui*} implies $\frac{d\beta}{dk}\leq 0$.
+
+\medskip\noindent\textbf{Step 2: surplus of non-contributing types.} Since $\frac{d\beta}{dk}\leq 0$ and $m^c(s)>0$, equation \eqref{depsk} gives $\frac{\partial\varepsilon(s)}{\partial k}<0$ for all $s\in T^*$. From \eqref{dqnc}: $\frac{\partial q_i^*(\theta,s)}{\partial k} = -w_i^{nc}(\theta,s)\frac{\partial\varepsilon(s)}{\partial k} > 0$ for every non-contributing type. Since $t_i^*(\theta,s)=0$:
+%##########################################
+\[
+\frac{\partial CS_i(\theta;k)}{\partial k} = \mathbb{E}_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
+\]
+%##########################################
+
+\medskip\noindent\textbf{Corner case: all types strictly contributing.} If all types satisfy $\lambda_i(\theta)<\beta(k)$, there are no non-contributing types and the statement is vacuous.
+\end{proof}
+
+\subsection{Part ii)}
 
 \begin{proof}
-
-
-Recall the FOCs.
-
-\begin{align}
-\label{KKT-q}\tag{KKT-$q$}
-(\mu_i\nu_i+\rho_i)\,u\left(q_i(\theta,s),\theta,s\right)\;-\;\mu_i\varepsilon(s) \;=\; 0,
-\\
-\label{KKT-t}\tag{KKT-$t$}
--\mu_i\nu_i + \mu_i\beta - \rho_i + \phi_i(\theta,s) \;=\; 0.
-\end{align}
-
-If IR is slack for $i$, then $\rho_i=0$ for all $\theta$. If $t_i(\theta,s)>0$ then $\phi_i(\theta,s)=0$.
-
-Differentiate \eqref{KKT-q} w.r.t.\ $k$ and set to zero:
+From the Lagrangian \eqref{P-CI}, the FOC with respect to $k$ is
 \[
-(\mu_i\nu_i+\rho_i)\,u_q(q_i)\,\frac{\partial q_i(\theta,s)}{\partial k} \;+\; (\partial_k\rho_i)\,\theta u(q_i,s) \;-\; \mu_i\,\frac{\partial \varepsilon_i}{\partial k} \;=\; 0,
+-\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,
 \]
-hence
-\begin{equation}\label{dqdk-general}
-\frac{\partial q_i(\theta,s)}{\partial k}
-=
-\frac{\mu_i\,\frac{\partial \varepsilon_i}{\partial k}\;-\;(\partial_k\rho_i)\,\theta u(q_i,s)}
-{(\mu_i\nu_i+\rho_i)\,\theta u_q(q_i,s)}.
+where we used $\varepsilon(s)=0$ for all $s\in S^*$, so that
+\begin{equation}\label{eq:FOC-k}
+\beta\, I'(k) = \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)].
 \end{equation}
 
-Let's $N^{nb}$ be the set of categories with \emph{Slack IR}, then for $i\in N^{nb}$: $\rho_i=\partial_k\rho_i=0$, so
-\begin{equation}\label{dqdk-slack}
-\partial_k q_i \;=\; \frac{\frac{\partial \varepsilon_i}{\partial k}}{\nu_i\,\theta u_q(q_i,s)}.
-\end{equation}
-
-Let's $N^{b}$ be the set of categories with \emph{Binding IR}, then for $i\in N^b$ with $t_i>0$: from \eqref{KKT-t} with $\phi_i=0$,
-$\mu_i\beta=\mu_i\nu_i+\rho_i\Rightarrow \rho_i=\mu_i(\beta-\nu_i)$, so
-$\partial_k\rho_i=\mu_i\,\partial_k\beta$. Plugging into \eqref{dqdk-general}:
-
-\begin{equation}\label{dqdk-binding}
-\partial_k q_i \;=\; \frac{\frac{\partial \varepsilon_i}{\partial k}-\partial_k\beta\,\theta u(q_i,s)}{\beta\,\theta u_q(q_i,s)}.
-\end{equation}
-
-If the marginal category $i^\ast$ has slack IR and $t_{i^\ast}>0$ for a given $k$, then from \eqref{KKT-t}
-$\beta=\nu_{i^\ast}$; this implies $\partial_k\beta=0$. Next, we find the derivative of $\varepsilon(s)$ wrt $k$. The capacity constraint yields
-
-\begin{equation} \label{CapacConst} 
-1 = \sum_i \mu_i \mathbb{E}_{\theta_i}[ \partial_kq_i]
-\end{equation}
-
-Split the sum over $N^{nb}$ (use \eqref{dqdk-slack}) and $N^b$ (use \eqref{dqdk-binding}). 
-Define for every $(\theta,s)$
-
-\[w^{nb}_i(\theta,s) := -\frac{1}{\nu_i u_q(q_i(\theta,s),\theta,s)} \quad \text{,} \quad w^{b}_i(\theta,s) := -\frac{1}{\beta\,u_q(q_i(\theta,s),\theta,s)} \] 
-
-and across categories
-
-\[\overline{w}^{nb}(s) := \sum_{i\in N^{nb}}\mu_i\mathbb{E}_{\theta_i}[w^{nb}_i(\theta,s)] \quad \text{and} \quad \overline{w}^{b}(s) := \sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)]\] 
-
-with $\overline{w}(s)=\overline{w}^{b}(s)+\overline{w}^{nb}(s)$. Notice that those weights are positive as $u_q<0$ Then define
-
-\begin{align}
-\label{Eu-def}\tag{$\mathbb{E}u$}
-\mathbb{E}_{w}[u|s]\;&:=\;
-\frac{1}{\overline{w}^b(s)}\sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)\theta u(q_i,s)\,],
-\\
-\label{Eu2-def}\tag{$\mathbb{E}u^2$}
-\mathbb{E}_{w}[u^2|s]  \;&:=\;
-\frac{1}{\overline{w}^b(s)}\sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)(\theta u(q_i,s))^2\,].
-\end{align}
-
-Using Equations \eqref{dqdk-slack}-\eqref{dqdk-binding} and Equation \eqref{CapacConst}, we have 
-
-
-\begin{equation}\label{dlambdadk}
-\frac{\partial \varepsilon_i}{\partial k} \;=\;- \frac{1}{\overline{w}(s)} \;+\; \partial_k\beta\;\frac{\overline{w}^b(s)}{\overline{w}(s)}\mathbb{E}_{w}[u|s].
-\end{equation}
-
-\noindent \textbf{Result i).} Assume that the identity of the marginal consumer remains the same for a change in $k$. If $i^*$ has a slack IR, then $\partial_k\beta =0$ as $\nu_{i^*}=\beta$. Then from Equation \eqref{dlambdadk} yields
-
-\[\frac{\partial \varepsilon_i}{\partial k}=-\frac{1}{\overline{w}(s)}<0 \]
-
-And we get from Equations \eqref{dqdk-slack}-\eqref{dqdk-binding} that $\frac{\partial q_i(\theta,s)}{\partial k}>0$ for all $(i,\theta,s)$. Therefore, the surplus of non-contributing categories is weakly increasing for all $i\in N^{nb}$ $t_i^* = 0$ and $u(.)>0$. The marginal category's surplus when the IR is not binding is
-
-\[\label{Ui*}
-   \mu_{i^*}\mathbb{E}_{(s,\theta_{i^*})} [U(q_{i^*}(\theta,s),\theta,s) ] - (I(k) - \sum_{i< i^*}\mu_i\mathbb{E}_{(s,\theta_{i})}[U(q_{i}(\theta,s),\theta,s))]) = \sum_{i\in N^{b}}\mu_i\mathbb{E}_{(s,\theta_{i})}[U(q_{i}(\theta,s),\theta,s) ] - I(k) 
-\]
-
-Note that $\frac{\partial q_i(\theta,s)}{\partial k} =0$ for all $s\in S^*$ and that the function $q_i(\theta,s)$ is continuous in $s$ with $\varepsilon(s^*) = 0$, then variation of the surplus wrt. $k$ yields
-
-\[\sum_{i\in N^{b}}\mu_i\mathbb{E}_{(s,\theta_{i})} [u(q_{i}(\theta,s),\theta,s)\frac{\partial q_i(\theta,s)}{\partial k}\mathbf 1_{T^*}(s)] - I'(k) \]
-
-From Equation \eqref{dqdk-binding} and \eqref{dlambdadk} when $\partial_k \beta = 0$, we can simplify the derivative of the surplus to
-
-\[\label{Ui*}
-\overbrace{ \sum_{i\in N^{b}} \mu_i \mathbb{E}_{(s,\theta_{i^*})}\left[\frac{w_i^b}{\overline{w}} u(q_i^*(\theta,s),\theta,s)) \mathbf{1}_{s\in T^*}\right]}^{\mathbb{E}_w[u]}-I'(k)
-\]
-
-If this expression is positive, then the surplus of the marginal category is increasing in $k$.
-
-
-\noindent \textbf{Result ii).} We now turn to the case where the identity of the marginal category changes. Using $t_i=0$ for $i\notin N^b$, $\frac{\partial q_i(\theta,s)}{\partial k} = 0$ for $s\in S^*$, and differentiating the budget constraint,
+\textit{Step 1: contributing types.} From \eqref{eq:FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
 \[
-\sum_{i\in N^b}\mu_i\mathbb{E}_{(s,\theta_i)}[ \theta u(q_i,s)\,\frac{\partial q_i(\theta,s)}{\partial k}\,\mathbf 1_{T^*}(s)]\, \;=\; I'(k).
+\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta}.
 \]
-
-
-Substitute in \eqref{dqdk-binding} and rearrange using \eqref{dlambdadk} and the definitions \eqref{Eu-def}–\eqref{Eu2-def} to obtain
-\begin{equation}\label{dbetadk}
-\partial_k\beta
-\;=\;
-\frac{ I'(k)\;- \overbrace{\;\displaystyle\mathbb{E}_s \left[\frac{\overline{w}^b(s)}{\overline{w}(s)}\mathbb{E}_{w}[u|s]\,\mathbf 1_{T^*}(s) \right]}^{\mathbb{E}_w[u]} }
-{ \displaystyle\mathbb{E}_s \Big[ \{-\frac{(\overline{w}^b(s))^2}{\overline{w}(s)}(\mathbb{E}_{w}[u|s])^2 + \overline{w}^b(s)\mathbb{E}_{w}[u^2|s] \}\mathbf 1_{T^*}(s) \Big]\, }.
+Multiplying by $\mu_i$, integrating over contributing types, and taking the expectation over $s\in T^*$:
+\begin{equation}\label{eq:step1}
+\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \frac{\E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]}{\beta}\,\mu^c = I'(k)\,\mu^c,
 \end{equation}
-
-Next, we determine that the sign of the denominator is always positive. The denominator is positive if for every $s$ the following equation holds:
-
-\[ (\overline{w}^b(s)\mathbb{E}_{w}[u|s])^2-  (\overline{w}^{b}(s)+\overline{w}^{nb}(s))\overline{w}^b(s)\mathbb{E}_{w}[u^2|s] \leq 0  \]
-
-As $\overline{w}^{nb}(s)>0$ and $\overline{w}^b(s)\mathbb{E}_{w}[u^2|s]>0$, then the inequality holds if the following inequality holds
-
-\[ \mathbb{E}_{w}[u^2|s] - (\mathbb{E}_{w}[u|s])^2\geq 0\]
-
-Recall that the operators $\mathbb{E}_{w}[.|s]$ are expectations under positive weights. Then by Cauchy–Schwarz, the inequality holds. Therefore the sign of $\partial_k \beta$ is determined by the sign of  $ I'(k)- \mathbb{E}_w[u]$. From \eqref{dlambdadk}, a sufficient condition such that $\frac{\partial \varepsilon_i}{\partial k}$ is negative is that $\partial_k \beta$ is also negative. This condition is met only if
-
-\[ I'(k)- \mathbb{E}_w[u]<0 \]
-
-
-
-\textbf{Polar cases}
-
-Assuming constant investment costs leads directly to the condition being satisfied. For the linear case and when all categories are contributing, define the average utility over types:
-
-\[
-\overline{u}(s)\;:=\sum_{i}\mu_i\mathbb{E}_{\theta_i}[ u(q_i(\theta,s),\theta,s)\,],\]
-
-Then the weights simplify to
-
-\begin{equation*}
-\overline{w}(s)=-\frac{1}{\beta u_q},\qquad
-\overline{w}^b(s)\mathbb{E}_{w}[u|s]=-\frac{1}{\beta u_q}\,\overline{u}(s),\qquad
-\end{equation*}
-
-and therefore
-
-\begin{equation}\label{dlambda-linear}
-\mathbb{E}_s \left[\frac{\overline{w}^b(s)}{\overline{w}(s)}\mathbb{E}_{w}[u|s]\,\mathbf 1_{T^*}(s) \right] =\mathbb{E}_s \left[\overline{u}(s)\,\mathbf 1_{T^*}(s) \right] 
-\end{equation}
-
-Since $u_q$ is independent of $k$ and using the assumption that every categories are contributing which yields $\sum_i \mu_i\mathbb{E}_{\theta_i}[\frac{\partial q_i(\theta,s)}{\partial k}]=1$,
-
-\[
-\mathbb{E}_s \left[\partial_k \overline{u}(s)\,\mathbf 1_{T^*}(s) \right]  = \sum_{i}\mu_i\mathbb{E}_{(s,\theta_i)}[ \frac{\partial q_i(\theta,s)}{\partial k} u_q\,\mathbf 1_{T^*}(s)]=\mathbb{E}_{s}[ u_q\,\mathbf 1_{T^*}(s)]<0
-\]
-
-The derivative of the numerator in \eqref{dbetadk} wrt. $k$ yields
-
-\[I''(k) - \mathbb{E}_{s}[ u_q\,\mathbf 1_{T^*}(s)] \]
-
-Therefore, the numerator increases wrt. $k$. As $I'(0)=0$ and $\overline{w}^b(s)/\overline{w}(s)\mathbb{E}_{w}[u|s]>0$, $\partial_k\beta<0$ or there exist a threshold of $k$ such that below  this investment level $\partial_k\beta<0$
+where the last equality uses \eqref{eq:FOC-k}. Dividing by $\mu^c$ gives \eqref{eq:FB-k1}.
 
 \end{proof}
+
+
 
 \section{Proof of Corollary XXXX}
 
@@ -260,58 +198,8 @@ Therefore $d\varepsilon(s)>0$, which yields $dq_i(\theta,s)<0$ for all $i<i^*$. 
 
 \end{proof}
 
-\begin{lemma}[First-best investment condition]\label{prop:FB-k}
-Suppose the optimal investment $k^*>0$ is interior. Let $\mu^c := \sum_i \mu_i \Pr_i(\lambda_i(\theta)\leq\lambda^*)$ denote the total mass of contributing types and $\tilde\mu := \mu^c + \beta\sum_i \mu_i\,\E_{\theta_i}\!\left[\mathbf{1}_{\lambda_i(\theta)>\lambda^*}/\lambda_i(\theta)\right]$. Then
-\begin{equation}\label{eq:FB-k1}
-I'(k^*) = \frac{1}{\mu^c}\,\E_s\!\left[\sum_i \mu_i\, \E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right],
-\end{equation}
-or equivalently, with $\tilde\mu < 1$,
-\begin{equation}\label{eq:FB-k2}
-I'(k^*) = \frac{1}{\tilde\mu}\,\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\right]\mathbf{1}_{T^*}(s)\right].
-\end{equation}
-In the utilitarian case $\lambda_i(\theta)=\lambda$ for all $(i,\theta)$, all types contribute: $\tilde\mu=1$.
-\end{lemma}
 
 
-
-\begin{proof}
-From the Lagrangian \eqref{P-CI}, the FOC with respect to $k$ is
-\[
--\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,
-\]
-where we used $\varepsilon(s)=0$ for all $s\in S^*$, so that
-\begin{equation}\label{eq:FOC-k}
-\beta\, I'(k) = \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)].
-\end{equation}
-
-\textit{Step 1: contributing types.} From \eqref{eq:FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
-\[
-\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta}.
-\]
-Multiplying by $\mu_i$, integrating over contributing types, and taking the expectation over $s\in T^*$:
-\begin{equation}\label{eq:step1}
-\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \frac{\E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]}{\beta}\,\mu^c = I'(k)\,\mu^c,
-\end{equation}
-where the last equality uses \eqref{eq:FOC-k}. Dividing by $\mu^c$ gives \eqref{eq:FB-k1}.
-
-\textit{Step 2: non-contributing types.} From \eqref{eq:FB-T}, for every type with $\lambda_i(\theta)>\lambda^*$ and every $s\in T^*$:
-\[
-\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\lambda_i(\theta)}.
-\]
-Multiplying by $\mu_i$, integrating over non-contributing types, and taking the expectation over $s\in T^*$:
-\begin{equation}\label{eq:step2}
-\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)>\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]\sum_i \mu_i\,\E_{\theta_i}\!\left[\frac{\mathbf{1}_{\lambda_i(\theta)>\lambda^*}}{\lambda_i(\theta)}\right] = \beta\, I'(k)\sum_i \mu_i\,\E_{\theta_i}\!\left[\frac{\mathbf{1}_{\lambda_i(\theta)>\lambda^*}}{\lambda_i(\theta)}\right].
-\end{equation}
-
-\textit{Step 3: combine.} Adding \eqref{eq:step1} and \eqref{eq:step2}:
-\[
-\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\right]\mathbf{1}_{T^*}(s)\right] = I'(k)\,\tilde\mu.
-\]
-Dividing by $\tilde\mu$ gives \eqref{eq:FB-k2}. Finally, since $\lambda_i(\theta)>\lambda^*=\beta$ for every non-contributing type, $\beta/\lambda_i(\theta)<1$, so
-\[
-\tilde\mu < \mu^c + \sum_i \mu_i\,\Pr_i(\lambda_i(\theta)>\lambda^*) = 1. \qedhere
-\]
-\end{proof}
 \section{Proof of Lemma XXXX}
 
 \begin{proof}
@@ -1087,7 +975,7 @@ Define
 \[
 w_i(\theta,s):=\frac{1}{u_q\!\left(q_i^\times(\theta,s),s\right)\Gamma_i(\theta)},
 \]
-and $\overline w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right]$, $\omega_i(\theta,s):=w_i(\theta,s)/\overline w_i(s)$.
+and $\overline w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right]$, $w_i(\theta,s):=w_i(\theta,s)/\overline w_i(s)$.
 
 \begin{proposition}[Non-monotonic first-order response to a preference perturbation]
 Fix a category $i$ and a peak state $s$. Consider a first-order perturbation $\Delta(\cdot)$ of preferences. Suppose $R_\Gamma$ is not (a.e.) constant. Then $\Delta q_i^\times(\cdot,s)$ is not monotone on $\Theta_i$.
@@ -1158,14 +1046,14 @@ hence
 \[
 \frac{\Delta\varepsilon(s)}{\varepsilon(s)}
 =
-\E_{\theta_i}\!\left[\omega_i(\theta,s)\,R_\Gamma(\theta)\right].
+\E_{\theta_i}\!\left[w_i(\theta,s)\,R_\Gamma(\theta)\right].
 \]
-Note that $u_q<0$ and $\Gamma_i>0$ imply $w_i(\theta,s)<0$ and $\overline w_i(s)<0$, so $\omega_i(\theta,s)>0$ and $\E_{\theta_i}[\omega_i(\theta,s)]=1$. Substituting into previous expression :
+Note that $u_q<0$ and $\Gamma_i>0$ imply $w_i(\theta,s)<0$ and $\overline w_i(s)<0$, so $w_i(\theta,s)>0$ and $\E_{\theta_i}[w_i(\theta,s)]=1$. Substituting into previous expression :
 \[
 \Delta q_i^\times(\theta,s)
 =
 R_q(\theta,s)\left(
-R_\Gamma(\theta)-\E_{\theta_i}\!\left[\omega_i(\theta,s)\,R_\Gamma(\theta)\right]
+R_\Gamma(\theta)-\E_{\theta_i}\!\left[w_i(\theta,s)\,R_\Gamma(\theta)\right]
 \right),
 \]
 and differentiation gives
@@ -1176,15 +1064,15 @@ and differentiation gives
 =
 \frac{\partial}{\partial\theta}\left[
 R_q(\theta,s)\left(
-R_\Gamma(\theta)-\E_{\theta_i}\!\left[\omega_i(\theta,s)\,R_\Gamma(\theta)\right]
+R_\Gamma(\theta)-\E_{\theta_i}\!\left[w_i(\theta,s)\,R_\Gamma(\theta)\right]
 \right)
 \right],
 \]
 since the expectation term is $\theta$-constant.
 
-Because $\omega_i(\theta,s)>0$ and $\E_{\theta_i}[\omega_i(\theta,s)]=1$, the scalar
+Because $w_i(\theta,s)>0$ and $\E_{\theta_i}[w_i(\theta,s)]=1$, the scalar
 \[
-\E_w[R_\Gamma]\;:=\;\E_{\theta_i}\!\left[\omega_i(\theta,s)\,R_\Gamma(\theta)\right]
+\E_w[R_\Gamma]\;:=\;\E_{\theta_i}\!\left[w_i(\theta,s)\,R_\Gamma(\theta)\right]
 \]
 is a weighted average of $R_\Gamma$. If $R_\Gamma$ is not (a.e.) constant, then the centered term
 $R_\Gamma(\theta)-\E_w[R_\Gamma]$ must take both positive and negative values on $\Theta_i$; otherwise it would be nonnegative (or nonpositive) a.e., implying $\E_w[R_\Gamma]\le R_\Gamma(\theta)$ a.e.\ (or $\E_w[R_\Gamma]\ge R_\Gamma(\theta)$ a.e.), with equality only if $R_\Gamma$ is constant a.e. Hence $\Delta q_i^\times(\theta,s)=R_q(\theta,s)\bigl(R_\Gamma(\theta)-\E_w[R_\Gamma]\bigr)$ also takes both signs since $R_q(\theta,s)>0$.
@@ -1417,7 +1305,7 @@ F'(s)
 \end{equation}
 Under $u(q,s)=v(q)+\zeta(s)$ with $v''=0$ and $\zeta_{ss}=0$, both $u_q$ and $u_s$ are constants, hence \eqref{epss} implies $\partial_s\varepsilon_i^\times(s)$ is constant in $s$, so \eqref{Fprime-final} shows that $F'(s)$ is constant in $s$. Therefore $F(s)$ is monotone in $s$ (linear), with sign determined by $\E_{\theta_i}[J_i(\theta)/\mathcal G_i(\theta)^2]$ (and the sign of $u_s$ through $\partial_s\varepsilon_i^\times$).
 
-Finally, at the cutoff $s^\times$ such that the slack allocation just exhausts capacity, we have $\varepsilon_i^\timI es(s^\times)=0$ and thus $u(q_i^\times(\theta,s^\times),s^\times)=0$ for all $\theta$, implying $F(s^\times)=0$. Since $F(s)$ is monotone in $s$, it follows that for every $s>s^\times$, either $F(s)>0$ for all $s$ or $F(s)<0$ for all $s$, depending on the sign of $F'(s)$.
+Finally, at the cutoff $s^\times$ such that the slack allocation just exhausts capacity, we have $\varepsilon_i^\times es(s^\times)=0$ and thus $u(q_i^\times(\theta,s^\times),s^\times)=0$ for all $\theta$, implying $F(s^\times)=0$. Since $F(s)$ is monotone in $s$, it follows that for every $s>s^\times$, either $F(s)>0$ for all $s$ or $F(s)<0$ for all $s$, depending on the sign of $F'(s)$.
 
 
 
@@ -1919,9 +1807,9 @@ w_i^\times(\theta,s):=-\frac{1}{u_q(q_i^\times,s)\,\mathcal G_i(\theta)}\;>\;0,
 \qquad
 \overline w_i^\times(s):=\E_{\theta_i}[w_i^\times(\theta,s)],
 \qquad
-\omega_i^\times(\theta,s):=\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)},
+w_i^\times(\theta,s):=\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)},
 \]
-and the associated weighted expectation $\E_w[X\mid s]:=\E_{\theta_i}[\omega_i^\times(\theta,s)\,X(\theta,s)]$.
+and the associated weighted expectation $\E_w[X\mid s]:=\E_{\theta_i}[w_i^\times(\theta,s)\,X(\theta,s)]$.
 Then feasibility yields
 \begin{equation}
 \label{Deltaeps-ratio-beta}\tag{$\Delta\varepsilon/\varepsilon$}
@@ -1941,31 +1829,31 @@ R_{\mathcal G}(\theta)-\E_w\!\left[R_{\mathcal G}\mid s\right]
 \end{equation}
 
 
-\[\partial_\theta \Delta q_i^\times(\theta,s) = \partial_\theta R_q(\theta,s)\cdot\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right) + R_q(\theta,s)\cdot R_{\mathcal{G}}'(\theta).\]
+\[\partial_\theta \Delta q_i^\times(\theta,s) = \partial_\theta R_q(\theta,s)\cdot\left(R_{\mathcal{G}}(\theta)-\mathbb{E}^w[R_{\mathcal{G}}|s]\right) + R_q(\theta,s)\cdot R_{\mathcal{G}}'(\theta).\]
 
-\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\mu_i}{\mu_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i).\]
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\mu_i}{\mu_i}-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i).\]
 
 
 :
-\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(R_{\mathcal{G}}(\underline\theta_i)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(R_{\mathcal{G}}(\underline\theta_i)-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
 
 
 \textbf{Differentiating with respect to $\theta$.}
 
-Since $\mathbb{E}_w[R_{\mathcal{G}}|s]$ is constant in $\theta$, the product rule gives:
-\[\partial_\theta \Delta q_i^\times(\theta,s) = \partial_\theta R_q(\theta,s)\cdot\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right) + R_q(\theta,s)\cdot R_{\mathcal{G}}'(\theta).\]
+Since $\mathbb{E}^w[R_{\mathcal{G}}|s]$ is constant in $\theta$, the product rule gives:
+\[\partial_\theta \Delta q_i^\times(\theta,s) = \partial_\theta R_q(\theta,s)\cdot\left(R_{\mathcal{G}}(\theta)-\mathbb{E}^w[R_{\mathcal{G}}|s]\right) + R_q(\theta,s)\cdot R_{\mathcal{G}}'(\theta).\]
 
 \textbf{At the upper boundary.} Since $R_{\mathcal{G}}(\overline\theta_i)=\Delta\mu_i/\mu_i$:
-\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\mu_i}{\mu_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i).\]
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\mu_i}{\mu_i}-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i).\]
 
 \textbf{At the lower boundary.} Since $R_{\mathcal{G}}(\underline\theta_i)=(\Delta\tilde\lambda_i\cdot\underline\theta_i+\Delta\beta_i^\times\cdot J_i(\underline\theta_i))/(\tilde\lambda_i\cdot\underline\theta_i+\beta_i^\times\cdot J_i(\underline\theta_i))$:
-\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(R_{\mathcal{G}}(\underline\theta_i)-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(R_{\mathcal{G}}(\underline\theta_i)-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
 
 \textbf{When $\beta_i^\times=0$.} Lemma~\ref{lem:boundary} gives $R_{\mathcal{G}}(\underline\theta_i)=R_{\mathcal{G}}(\overline\theta_i)=\Delta\tilde\lambda_i/\tilde\lambda_i$, so the two endpoint derivatives become:
-\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i),\]
-\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot R_{\mathcal{G}}'(\overline\theta_i),\]
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot R_{\mathcal{G}}'(\underline\theta_i).\]
 
-Since $\partial_\theta R_q(\theta,s)>0$ and $R_q(\theta,s)>0$ for all $\theta$, the sign of each endpoint derivative is determined entirely by the signs of $\Delta\tilde\lambda_i/\tilde\lambda_i - \mathbb{E}_w[R_{\mathcal{G}}|s]$ and $R_{\mathcal{G}}'$ respectively. The first terms are strictly positive multiples of the same scalar $\Delta\tilde\lambda_i/\tilde\lambda_i - \mathbb{E}_w[R_{\mathcal{G}}|s]$, hence share the same sign at both endpoints. Any difference in sign between the two endpoint derivatives can therefore only arise from the second terms $R_q\cdot R_{\mathcal{G}}'$, whose signs are determined by $R_{\mathcal{G}}'(\overline\theta_i)$ and $R_{\mathcal{G}}'(\underline\theta_i)$ respectively. Since these remain unrestricted, the derivative approach alone is insufficient to establish non-monotonicity, and the argument is better made directly on $\Delta q_i^\times$.
+Since $\partial_\theta R_q(\theta,s)>0$ and $R_q(\theta,s)>0$ for all $\theta$, the sign of each endpoint derivative is determined entirely by the signs of $\Delta\tilde\lambda_i/\tilde\lambda_i - \mathbb{E}^w[R_{\mathcal{G}}|s]$ and $R_{\mathcal{G}}'$ respectively. The first terms are strictly positive multiples of the same scalar $\Delta\tilde\lambda_i/\tilde\lambda_i - \mathbb{E}^w[R_{\mathcal{G}}|s]$, hence share the same sign at both endpoints. Any difference in sign between the two endpoint derivatives can therefore only arise from the second terms $R_q\cdot R_{\mathcal{G}}'$, whose signs are determined by $R_{\mathcal{G}}'(\overline\theta_i)$ and $R_{\mathcal{G}}'(\underline\theta_i)$ respectively. Since these remain unrestricted, the derivative approach alone is insufficient to establish non-monotonicity, and the argument is better made directly on $\Delta q_i^\times$.
 
 \textbf{Deriving $R_{\mathcal{G}}'(\theta)$.}
 
@@ -1985,8 +1873,8 @@ Expanding and cancelling the $2\Delta\mu_i$ terms:
 \[R_{\mathcal{G}}'(\underline\theta_i) = \frac{\lambda_i(\underline\theta_i)}{\tilde\lambda_i g_i(\underline\theta_i)\underline\theta_i}\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i} - \frac{\Delta\lambda_i(\underline\theta_i)}{\lambda_i(\underline\theta_i)}\right).\]
 
 \textbf{Interpretation.} Both endpoint expressions for $R_{\mathcal{G}}'$ share the same structure: a strictly positive prefactor times the gap between the aggregate perturbation ratio $\Delta\mu_i/\mu_i$ (or $\Delta\tilde\lambda_i/\tilde\lambda_i$ when $\beta_i^\times=0$) and the local perturbation ratio $\Delta\lambda_i/\lambda_i$ evaluated at the boundary. The sign therefore depends on whether the perturbation is relatively stronger at the boundary point than on average. Since $\partial_\theta R_q>0$ and $R_q>0$, plugging back into the endpoint derivatives gives:
-\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot\frac{\lambda_i(\overline\theta_i)}{\mu_i g_i(\overline\theta_i)\overline\theta_i}\left(\frac{\Delta\mu_i}{\mu_i} - \frac{\Delta\lambda_i(\overline\theta_i)}{\lambda_i(\overline\theta_i)}\right),\]
-\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}_w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot\frac{\lambda_i(\underline\theta_i)}{\tilde\lambda_i g_i(\underline\theta_i)\underline\theta_i}\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i} - \frac{\Delta\lambda_i(\underline\theta_i)}{\lambda_i(\underline\theta_i)}\right).\]
+\[\partial_\theta \Delta q_i^\times(\overline\theta_i,s) = \partial_\theta R_q(\overline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\overline\theta_i,s)\cdot\frac{\lambda_i(\overline\theta_i)}{\mu_i g_i(\overline\theta_i)\overline\theta_i}\left(\frac{\Delta\mu_i}{\mu_i} - \frac{\Delta\lambda_i(\overline\theta_i)}{\lambda_i(\overline\theta_i)}\right),\]
+\[\partial_\theta \Delta q_i^\times(\underline\theta_i,s) = \partial_\theta R_q(\underline\theta_i,s)\cdot\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}-\mathbb{E}^w[R_{\mathcal{G}}|s]\right)+R_q(\underline\theta_i,s)\cdot\frac{\lambda_i(\underline\theta_i)}{\tilde\lambda_i g_i(\underline\theta_i)\underline\theta_i}\left(\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i} - \frac{\Delta\lambda_i(\underline\theta_i)}{\lambda_i(\underline\theta_i)}\right).\]
 The second terms are both unrestricted in sign, confirming that the derivative approach cannot deliver non-monotonicity without additional restrictions on the perturbation class.
 
 \textbf{Upper boundary.} Since $J_i(\overline\theta_i)=\overline\theta_i$ and $\Lambda_i(\overline\theta_i)=0$, the boundary values are
