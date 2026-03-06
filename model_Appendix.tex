@@ -10,63 +10,40 @@
 \textcolor{red}{Assume Inada then q > 0}
 
 \section{Proof of Proposition 1}
-
 \begin{proof}
-
-Let $\beta$, $\varepsilon$, $\phi_i$, and $\rho_i$ be the Lagrange multipliers on the budget, the capacity, the transfer positivity and the participation constraints, respectively. The Lagrangian is
-
+Let $\beta$, $\varepsilon(s)$, $\phi_i(\theta,s)$, and $\rho_i(\theta)$ be the Lagrange multipliers on the budget, the capacity, the transfer positivity, and the participation constraints, respectively. The Lagrangian is
 \[\label{KKT}\tag{L$^*$}
 \begin{aligned}
-\mathcal{L}
-&= \sum_i \mu_i \nu_i\, \mathbb{E}_{(s,\theta_i)}\left[ U(q_i,\theta,s) - t_i(\theta,s) \right]
-+ \beta\left( \sum_i \mu_i \mathbb{E}_{(s,\theta_i)}[ t_i(\theta,s) ] - I(k) \right) \\
-&\quad + \mathbb{E}_s\left[ \varepsilon(s) \left( k - \sum_i \mu_i \mathbb{E}_{\theta_i}[ q_i(\theta,s) ] \right) \right]
-+ \sum_i  \rho_i\, \mathbb{E}_{(s,\theta_i)}\left[ U(q_i,\theta,s) - t_i(\theta,s) \right] \\
-&\quad + \sum_i \mu_i \mathbb{E}_{(s,\theta_i)}\left[ \phi_i(\theta,s)\, t_i(\theta,s) \right],
+\mathcal{L} &= \sum_i \mu_i\, \mathbb{E}_{(s,\theta_i)}\!\left[\lambda_i(\theta)\,\theta\, U(q_i,s) - t_i(\theta,s)\right] + \beta\!\left(\sum_i \mu_i \mathbb{E}_{(s,\theta_i)}[t_i(\theta,s)] - I(k)\right) \\
+&\quad + \mathbb{E}_s\!\left[\varepsilon(s)\!\left(k - \sum_i \mu_i \mathbb{E}_{\theta_i}[q_i(\theta,s)]\right)\right] + \sum_i  \mathbb{E}_{(s,\theta_i)}\left[ \rho_i(\theta)(\theta U(q_i,s) - t_i(\theta,s))\right] dG_i(\theta) \\
+&\quad + \sum_i \mu_i\, \mathbb{E}_{(s,\theta_i)}\!\left[\phi_i(\theta,s)\,t_i(\theta,s)\right],
 \end{aligned}
 \]
-
-with $\beta,\varepsilon(s),\rho_i(\theta),\phi_i(\theta,s)\ge 0$. The FOCs for each $(i,\theta,s)$, are
-
+with $\beta, \varepsilon(s), \rho_i(\theta), \phi_i(\theta,s) \geq 0$. The FOCs for each $(i,\theta,s)$ are
 \begin{align*}
-    \frac{\partial\mathcal{L}}{\partial q_i} = \mu_i \nu_i u(q_i,\theta,s) -\mu_i\varepsilon(s) + \rho_i u(q_i,\theta,s)  \quad \Rightarrow \quad   u(q_i,\theta,s) = \frac{\varepsilon(s) }{\nu_i+\rho_i/\mu_i}, 
+\frac{\partial \mathcal{L}}{\partial q_i} = 0 \quad &\Rightarrow \quad \left(\mu_i\lambda_i(\theta) + \rho_i(\theta)\right)\theta\, u(q_i,s) = \mu_i\varepsilon(s), \\
+\frac{\partial \mathcal{L}}{\partial t_i} = 0 \quad &\Rightarrow \quad \mu_i\beta - \mu_i\lambda_i(\theta) - \rho_i(\theta) + \phi_i(\theta,s) = 0.
 \end{align*}
-
-\begin{align*}
-    \frac{\partial\mathcal{L}}{\partial t_i} = - \mu_i \nu_i  + \mu_i \beta - \rho_i + \phi_i(\theta,s) \quad \Rightarrow \quad   \nu_i = \beta + \phi_i(\theta,s)/\mu_i - \rho_i/\mu_i, 
-\end{align*}
-
-Complementary slackness:
+Complementary slackness conditions are
 \[
-\varepsilon(s)\left(k-\sum_i \mu_i \E_\theta[q_i(\theta,s)]\right)=0,\quad
-\beta\left(\sum_i \mu_i \E_{s,\theta}[t_i]-I(k)\right)=0,
+\varepsilon(s)\!\left(k - \sum_i \mu_i \mathbb{E}_{\theta_i}[q_i(\theta,s)]\right) = 0, \quad \beta\!\left(\sum_i \mu_i \mathbb{E}_{s,\theta}[t_i] - I(k)\right) = 0,
 \]
 \[
-\rho_i(\theta)\, \E_s[U(q_i,\theta,s)-t_i(\theta,s)] = 0,\quad
-\phi_i(\theta,s)\, t_i(\theta,s)=0.
+\rho_i(\theta)\,\mathbb{E}_s\!\left[\theta U(q_i,s) - t_i(\theta,s)\right] = 0, \quad \phi_i(\theta,s)\,t_i(\theta,s) = 0.
 \]
 
-We start with the transfers. Assume an interior solution for both transfers: $ U(q_i,\theta,s)> t_i(\theta,s) > 0$ for all categories, then the FOC with respect to transfers yields $\nu_i = \beta$ for every $i$, which implies that this solution exists only if the weights are uniform: $\nu_i = \nu_j$. Therefore, the transfers either bind at the lower or upper bound when weights are different. We first show that if there exists two categories with $\nu_i < \nu_j$ then we cannot have $t_j(\theta,s) > t_i(\theta_,s) =0$. Assume first that the participation constraints of $i$ and $j$ are slack, then $\phi_i(\theta) = 0$ for $i$ and $j$ and $t_j(\theta,s)$ is an interior solution with $\nu_j = \beta$, but if $t_i(\theta,s) = 0$, then from the FOC we must have $\nu_i = \beta + \phi_i(\theta)/\mu_i$, which implies $\nu_i> \nu_j$, a contradiction. If we assume that the participation constraint is slack for category $j$, then we have from the FOC: $\nu_j = \beta - \phi_j(\theta,s)$, which would also lead to the same contradiction. 
+\textit{Step 1: $s$-independence of transfers (WLOG).} The objective, the budget constraint, and the IR constraint all depend on $t_i(\theta,s)$ only through its expectation $\mathbb{E}_s[t_i(\theta,s)]$. Therefore any feasible state-contingent transfer schedule $t_i(\theta,s)$ can be replaced by $\bar{t}_i(\theta) := \mathbb{E}_s[t_i(\theta,s)]$ without altering the objective value or any constraint. Transfer positivity is preserved since $t_i(\theta,s) \geq 0$ for all $s$ implies $\bar{t}_i(\theta) \geq 0$. Hence without loss of generality $t_i^*(\theta,s) = t_i^*(\theta)$, and $\rho_i(\theta)$ and $\phi_i(\theta)$ are also $s$-independent.
 
-The precise form of the transfer depends on the investment cost and the aggregate expected surplus of each category. Assume again that $\nu_i<\nu_j$. When $I(k) < \mu_i \mathbb{E}_{(s,\theta_i)}[u(q_i,\theta,s)]$, then the market designer can always generate revenue from all consumers such that no participation constraint is binding\footnote{The market designer is neutral with respect to the transfer of consumers from the same category.} and the transfer $t_j(\theta,s) = 0$ and $t_i(\theta,s)>0$ such that $\mu_i\mathbb{E}_{(s,\theta_i)}[ t_i(\theta,s)] = I(k)$. If the investment cost is greater than the aggregate expected utility from category $i$, then the market designer design the transfers such that: the participation constraint is binding for all consumers from category $i$: $\mu_i \mathbb{E}_{(s,\theta_i)}[t_i(\theta,s)] = \mu_i \mathbb{E}_{(s,\theta_i)}[u(q_i,\theta,s)]$, and the transfer is positive for consumer from category $j$, but the participation is not binding for all consumer from category $j$, such that $\mu_j \mathbb{E}_s\int_{\theta_j}t_j(\theta,s)dG_j = I(k) - \mu_i \mathbb{E}_{(s,\theta_i)}[u(q_i,\theta,s)]$. 
+\textit{Step 2: structure of optimal transfers.} Suppose two types $(\theta,i)$ and $(\theta',i')$ satisfy $\lambda_i(\theta) < \lambda_{i'}(\theta')$. Assume for contradiction that $t_{i'}(\theta') > 0$ and $t_i(\theta) = 0$. If both participation constraints are slack, then $\rho_i(\theta) = \rho_{i'}(\theta') = 0$ and $\phi_{i'}(\theta') = 0$, so the FOC on $t$ gives $\lambda_{i'}(\theta') = \beta$. But $t_i(\theta) = 0$ with slack participation requires $\phi_i(\theta) > 0$, giving $\lambda_i(\theta) = \beta + \phi_i(\theta)/\mu_i > \beta = \lambda_{i'}(\theta')$, contradicting $\lambda_i(\theta) < \lambda_{i'}(\theta')$. The case where the participation constraint of $(\theta', i')$ binds leads to the same contradiction. Therefore at the optimum, any type with $\lambda_i(\theta) < \lambda^*$ has $t_i^*(\theta) > 0$ and any type with $\lambda_i(\theta) > \lambda^*$ has $t_i^*(\theta) = 0$, where $\lambda^* = \beta$ is the marginal welfare weight pinned by the budget constraint.
 
-We turn now to the optimal allocation $q_i^*(\theta,s)$. When the capacity is slack: $\varepsilon(s) = 0$. Therefore, the optimal allocation $q_i^*(\theta,s)$ is similar for each category and is given by: $u(q_i,\theta,s) = 0$. When the capacity is binding and weights are uniform and equal to $\nu$, then the optimal allocation $q_i^*(\theta,s)$ is $u(q_i^*,\theta,s) = \varepsilon/\nu$. When the capacity is binding and weights differ, the optimal allocation depends on the investment cost level relative to the consumer surplus of the lower-weight category. In the first case from above, when all participation constraints are slack, i.e., $\rho_i(\theta,s) = 0$ for all $i$, then the optimal allocation $q_i^*(\theta,i)$ is given by
-\[u(q_i,\theta,s) = \frac{\varepsilon(s)}{\nu_i}.\]
+\textit{Step 3: optimal quantities.} When capacity is slack, $\varepsilon(s) = 0$ and the FOC on $q$ gives $\theta\, u(q_i^*,s) = 0$, which is \eqref{eq:FB-S}. When capacity binds, the FOC on $q$ gives $\theta\, u(q_i^*,s) = \varepsilon(s)/(\lambda_i(\theta) + \rho_i(\theta)/\mu_i)$. For types with $\lambda_i(\theta) > \lambda^*$: $\rho_i(\theta) = 0$ and $\theta\, u(q_i^*,s) = \varepsilon(s)/\lambda_i(\theta)$. For types with $\lambda_i(\theta) \leq \lambda^*$: from the FOC on $t$, $\lambda_i(\theta) + \rho_i(\theta)/\mu_i = \beta$, so $\theta\, u(q_i^*,s) = \varepsilon(s)/\beta$. This establishes \eqref{eq:FB-T}.
 
-When the participation constraints are binding for the category $i$, then we have $\beta = \nu_i + \rho_i(\theta,s)/\mu_i$ and the optimal allocation $q_i^*(\theta,s)$ for this group is : $\varepsilon(s)/\beta$. For the category of higher weight, the participation constraint is not binding but transfers are positive,i.e. $\rho_j(\theta,s)= \phi_i(\theta,s) =0$, which yields $\nu_j = \beta$ and the optimal allocation $q_j(\theta,s)$ is
-\[u(q_i,\theta,s) = \frac{\varepsilon(s)}{\beta}.\]
-
-Next, we show that the optimal quantity increases with $s$ and there is a unique threshold $s^*$. When capacity is slack, the FOC is $u(q_i^*(\theta,s),\theta,s)=0$. Totally differentiating gives
+\textit{Step 4: monotonicity of $q_i^*$ in $s$ and uniqueness of $s^*$.} When capacity is slack, totally differentiating $\theta\, u(q_i^*,s) = 0$ gives
 \[
-u_q(q_i^*,\theta,s)\,\frac{\partial q_i^*(\theta,s)}{\partial s} + u_s(q_i^*,\theta,s) = 0
-\quad\Rightarrow\quad
-\frac{\partial q_i^*(\theta,s)}{\partial s} = -\frac{u_s}{u_q} > 0,
+\frac{\partial q_i^*(\theta,s)}{\partial s} = -\frac{u_s(q_i^*,s)}{u_q(q_i^*,s)} > 0,
 \]
-since $u_q<0$ and $u_s>0$ by assumption. Hence $q_i^*$ increases with $s$ off-peak. Because aggregate demand $\sum_i \mu_i \E_\theta[q_i^*(\theta,s)]$ is increasing in $s$, there exists a (unique) threshold $s^*$ such that capacity is slack for $s<s^*$ and binds for $s\geq s^*$.
-
+since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_i \mathbb{E}_{\theta_i}[q_i^*(\theta,s)]$ is strictly increasing in $s$, which guarantees existence of a unique threshold $s^*$ separating $S^*$ and $T^*$.
 \end{proof}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,13 +67,13 @@ If IR is slack for $i$, then $\rho_i=0$ for all $\theta$. If $t_i(\theta,s)>0$ t
 
 Differentiate \eqref{KKT-q} w.r.t.\ $k$ and set to zero:
 \[
-(\mu_i\nu_i+\rho_i)\,u_q(q_i)\,\frac{\partial q_i(\theta,s)}{\partial k} \;+\; (\partial_k\rho_i)\,u(q_i,\theta,s) \;-\; \mu_i\,\frac{\partial \varepsilon_i}{\partial k} \;=\; 0,
+(\mu_i\nu_i+\rho_i)\,u_q(q_i)\,\frac{\partial q_i(\theta,s)}{\partial k} \;+\; (\partial_k\rho_i)\,\theta u(q_i,s) \;-\; \mu_i\,\frac{\partial \varepsilon_i}{\partial k} \;=\; 0,
 \]
 hence
 \begin{equation}\label{dqdk-general}
 \frac{\partial q_i(\theta,s)}{\partial k}
 =
-\frac{\mu_i\,\frac{\partial \varepsilon_i}{\partial k}\;-\;(\partial_k\rho_i)\,u(q_i,\theta,s)}
+\frac{\mu_i\,\frac{\partial \varepsilon_i}{\partial k}\;-\;(\partial_k\rho_i)\,\theta u(q_i,s)}
 {(\mu_i\nu_i+\rho_i)\,\theta u_q(q_i,s)}.
 \end{equation}
 
@@ -110,7 +87,7 @@ $\mu_i\beta=\mu_i\nu_i+\rho_i\Rightarrow \rho_i=\mu_i(\beta-\nu_i)$, so
 $\partial_k\rho_i=\mu_i\,\partial_k\beta$. Plugging into \eqref{dqdk-general}:
 
 \begin{equation}\label{dqdk-binding}
-\partial_k q_i \;=\; \frac{\frac{\partial \varepsilon_i}{\partial k}-\partial_k\beta\,u(q_i,\theta,s)}{\beta\,\theta u_q(q_i,s)}.
+\partial_k q_i \;=\; \frac{\frac{\partial \varepsilon_i}{\partial k}-\partial_k\beta\,\theta u(q_i,s)}{\beta\,\theta u_q(q_i,s)}.
 \end{equation}
 
 If the marginal category $i^\ast$ has slack IR and $t_{i^\ast}>0$ for a given $k$, then from \eqref{KKT-t}
@@ -134,11 +111,11 @@ with $\overline{w}(s)=\overline{w}^{b}(s)+\overline{w}^{nb}(s)$. Notice that tho
 \begin{align}
 \label{Eu-def}\tag{$\mathbb{E}u$}
 \mathbb{E}_{w}[u|s]\;&:=\;
-\frac{1}{\overline{w}^b(s)}\sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)u(q_i,\theta,s)\,],
+\frac{1}{\overline{w}^b(s)}\sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)\theta u(q_i,s)\,],
 \\
 \label{Eu2-def}\tag{$\mathbb{E}u^2$}
 \mathbb{E}_{w}[u^2|s]  \;&:=\;
-\frac{1}{\overline{w}^b(s)}\sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)(u(q_i,\theta,s))^2\,].
+\frac{1}{\overline{w}^b(s)}\sum_{i\in N^{b}}\mu_i\mathbb{E}_{\theta_i}[w^{b}_i(\theta,s)(\theta u(q_i,s))^2\,].
 \end{align}
 
 Using Equations \eqref{dqdk-slack}-\eqref{dqdk-binding} and Equation \eqref{CapacConst}, we have 
@@ -173,7 +150,7 @@ If this expression is positive, then the surplus of the marginal category is inc
 
 \noindent \textbf{Result ii).} We now turn to the case where the identity of the marginal category changes. Using $t_i=0$ for $i\notin N^b$, $\frac{\partial q_i(\theta,s)}{\partial k} = 0$ for $s\in S^*$, and differentiating the budget constraint,
 \[
-\sum_{i\in N^b}\mu_i\mathbb{E}_{(s,\theta_i)}[ u(q_i,\theta,s)\,\frac{\partial q_i(\theta,s)}{\partial k}\,\mathbf 1_{T^*}(s)]\, \;=\; I'(k).
+\sum_{i\in N^b}\mu_i\mathbb{E}_{(s,\theta_i)}[ \theta u(q_i,s)\,\frac{\partial q_i(\theta,s)}{\partial k}\,\mathbf 1_{T^*}(s)]\, \;=\; I'(k).
 \]
 
 
@@ -283,6 +260,58 @@ Therefore $d\varepsilon(s)>0$, which yields $dq_i(\theta,s)<0$ for all $i<i^*$. 
 
 \end{proof}
 
+\begin{lemma}[First-best investment condition]\label{prop:FB-k}
+Suppose the optimal investment $k^*>0$ is interior. Let $\mu^c := \sum_i \mu_i \Pr_i(\lambda_i(\theta)\leq\lambda^*)$ denote the total mass of contributing types and $\tilde\mu := \mu^c + \beta\sum_i \mu_i\,\E_{\theta_i}\!\left[\mathbf{1}_{\lambda_i(\theta)>\lambda^*}/\lambda_i(\theta)\right]$. Then
+\begin{equation}\label{eq:FB-k1}
+I'(k^*) = \frac{1}{\mu^c}\,\E_s\!\left[\sum_i \mu_i\, \E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right],
+\end{equation}
+or equivalently, with $\tilde\mu < 1$,
+\begin{equation}\label{eq:FB-k2}
+I'(k^*) = \frac{1}{\tilde\mu}\,\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\right]\mathbf{1}_{T^*}(s)\right].
+\end{equation}
+In the utilitarian case $\lambda_i(\theta)=\lambda$ for all $(i,\theta)$, all types contribute: $\tilde\mu=1$.
+\end{lemma}
+
+
+
+\begin{proof}
+From the Lagrangian \eqref{P-CI}, the FOC with respect to $k$ is
+\[
+-\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,
+\]
+where we used $\varepsilon(s)=0$ for all $s\in S^*$, so that
+\begin{equation}\label{eq:FOC-k}
+\beta\, I'(k) = \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)].
+\end{equation}
+
+\textit{Step 1: contributing types.} From \eqref{eq:FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
+\[
+\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta}.
+\]
+Multiplying by $\mu_i$, integrating over contributing types, and taking the expectation over $s\in T^*$:
+\begin{equation}\label{eq:step1}
+\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \frac{\E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]}{\beta}\,\mu^c = I'(k)\,\mu^c,
+\end{equation}
+where the last equality uses \eqref{eq:FOC-k}. Dividing by $\mu^c$ gives \eqref{eq:FB-k1}.
+
+\textit{Step 2: non-contributing types.} From \eqref{eq:FB-T}, for every type with $\lambda_i(\theta)>\lambda^*$ and every $s\in T^*$:
+\[
+\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\lambda_i(\theta)}.
+\]
+Multiplying by $\mu_i$, integrating over non-contributing types, and taking the expectation over $s\in T^*$:
+\begin{equation}\label{eq:step2}
+\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)>\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]\sum_i \mu_i\,\E_{\theta_i}\!\left[\frac{\mathbf{1}_{\lambda_i(\theta)>\lambda^*}}{\lambda_i(\theta)}\right] = \beta\, I'(k)\sum_i \mu_i\,\E_{\theta_i}\!\left[\frac{\mathbf{1}_{\lambda_i(\theta)>\lambda^*}}{\lambda_i(\theta)}\right].
+\end{equation}
+
+\textit{Step 3: combine.} Adding \eqref{eq:step1} and \eqref{eq:step2}:
+\[
+\E_s\!\left[\sum_i \mu_i\,\E_{\theta_i}\!\left[\theta\, u(q_i^*,s)\right]\mathbf{1}_{T^*}(s)\right] = I'(k)\,\tilde\mu.
+\]
+Dividing by $\tilde\mu$ gives \eqref{eq:FB-k2}. Finally, since $\lambda_i(\theta)>\lambda^*=\beta$ for every non-contributing type, $\beta/\lambda_i(\theta)<1$, so
+\[
+\tilde\mu < \mu^c + \sum_i \mu_i\,\Pr_i(\lambda_i(\theta)>\lambda^*) = 1. \qedhere
+\]
+\end{proof}
 \section{Proof of Lemma XXXX}
 
 \begin{proof}
