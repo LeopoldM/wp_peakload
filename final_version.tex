@@ -283,16 +283,16 @@ This formulation of the objective function has several limitations as described 
 % The results relies on decreasing the social weights of contributing categories towards non-contributing categories while holding the identity of the marginal category fix. It states that the condition, such that an increase in $k_i$ leads to a higher surplus for categories with slack IR, is less stringent when the non-contributing categories have higher social weight. The change of social weight decreases the quantity allocated to contributing categories, which raises their marginal utility: the marginal welfare gain from an increase in $k_i$ is therefore higher \textit{ceteris paribus}. It also lowers the aggregate weight $\overline{w}$ as contributing categories become more socially valuable.  
 
 
-The first regime we study is the complete information case: the market designer observes each consumer's category $i$ and type $\theta$, so the individual welfare weight $\lambda_i(\theta)$ is known and allocation rules can condition on true types without incentive issues. The category label $i$ remains relevant as it indexes the population mass $\mu_i$ and the type distribution $G_i(\theta)$, but the average weight $\tilde{\lambda}_i$ plays no allocative role: what matters for redistribution is the pointwise value $\lambda_i(\theta)$. The market designer solves
+The first regime we study is the complete information case: the market designer observes each consumer's category $i$ and type $\theta$, so the individual welfare weight $\lambda_i(\theta)$ is known, and allocation rules can condition on true types without incentive issues. The category label $i$ remains relevant as it indexes the population mass $\mu_i$ and the type distribution $G_i(\theta)$, but the average weight $\tilde{\lambda}_i$ plays no allocative role: what matters for redistribution is the pointwise value $\lambda_i(\theta)$. The market designer solves
 \[
 \tag{P$^*$}\label{P-CI}
-\max_{\substack{ t_i(\theta,s) \geq 0, \\ q_i(\theta,s) \geq 0}} \quad \sum_{i} \mu_i \; \E_{(s,\theta_i)} \left[\lambda_i(\theta)\;\theta \; U(q_i(\theta,s),s) - t_i(\theta,s)\right]
+\max_{\substack{ t_i(\theta,s) \geq 0, \\ q_i(\theta,s) \geq 0}} \quad \sum_{i} \mu_i \; \E_{(s,\theta_i)} \left[\lambda_i(\theta)\;(\theta \; U(q_i(\theta,s),s) - t_i(\theta,s))\right]
 \]
 subject to the budget constraint \eqref{R-def}, the capacity constraint \eqref{K-def}, and the participation constraint \eqref{IR-def}. With multipliers $\varepsilon(s) \geq 0$, $\beta\geq0$, $\rho_i(\theta)\geq0$, and $\phi_i(\theta,s)\geq 0$ on the capacity, budget, participation, and transfer-positivity constraints respectively. 
 
-We define $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ as the off-peak and on-peak sets, where $s^*$ is the unique threshold at which $\sum_{i} \mu_i \E_{\theta_i} [q_i^*(\theta,s^*)] = k$. The marginal welfare weight $\lambda^*=\beta$ is pinned down by the budget constraint:
+Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ be the off-peak and on-peak sets, where $s^*$ is the unique threshold at which $\sum_{i} \mu_i \E_{\theta_i} [q_i^*(\theta,s^*)] = k$. Define the marginal welfare weight such that the utility from the optimal allocation for all types with lower social weights cover the investment cost:
 \[
-\sum_i \mu_i \E_{\{s,\theta_i\}}\left[\theta\, U(q_i^*(\theta,s),s) \textbf{1}_{\lambda_i(\theta) \leq \lambda^*}\right] = I(k).
+\sum_i \mu_i \E_{\{s,\theta_i\}}\left[\theta\, U(q_i^*(\theta,s),s) \textbf{1}_{\lambda_i(\theta) < \lambda^*}\right] < I(k) \le \sum_i \mu_i \E_{\{s,\theta_i\}}\left[\theta\, U(q_i^*(\theta,s),s) \textbf{1}_{\lambda_i(\theta) \leq \lambda^*}\right].
 \]
 \begin{proposition}\label{prop:FBalloc}
 The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$:
