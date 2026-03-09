@@ -1,5 +1,10 @@
+\documentclass[master.tex]{subfiles}
+
+\begin{document}
 
 \begin{titlepage}
+\externaldocument{final_version}
+
 \title{Peak Load Pricing Theory with Incomplete Information}
 
 \author{Leopold Monjoie}
@@ -299,7 +304,7 @@ This representation follows from standard envelope arguments; see \cite{milgrom2
 %##########################################
 Then define $\Lambda_i(\theta)$ is the $\lambda$-weighted mass of types above $\theta$ such that  $\Lambda_i(\theta)= \gamma_i(\theta) \E[ \ \lambda_i(\tilde \theta) \ | \ \tilde \theta \ \ge \ \theta \ ]$. The following lemma shows how the objective function can be represented
 
-\begin{lemma}
+\begin{lemma}\label{lem:Transfer}
 The program of the market designer can be expressed as: 
 %##########################################
 \begin{align*}
@@ -632,7 +637,7 @@ The comparative statics in this section examine how changes in redistributive pr
 \]
 %##########################################
 
-Proposition~\ref{prop:rho-q-cov-iron2} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. Since $R_q$ depends on the preferences only through $q_i^\times$, and as $R_q(\theta)>0$, the effect of the behavioral change is equivalent to the effect on the optimal allocation of a change in preferences. However, the behavioral channel is not monotonic in $\theta$  so the aggregate effect of a change of preference on the equilibrium cannot be signed in general: in the IR-unconstrained region, Proposition~\ref{prop:rprefreallocation} formally establishes that $\Delta q_i^\times(\cdot,s) $is non-monotone; in the IR-constrained region, no analogous characterization is available without conditions on the equilibrium objects. Corollary~\ref{cor:CARA} provides a clean bypass of the behavioral channel under CARA, where $R_q(\theta)$ is constant, and the total effect reduces to the trade-off channel alone.
+Proposition~\ref{prop:PrefTradeoff} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. Since $R_q$ depends on the preferences only through $q_i^\times$, and as $R_q(\theta)>0$, the effect of the behavioral change is equivalent to the effect on the optimal allocation of a change in preferences. However, the behavioral channel is not monotonic in $\theta$  so the aggregate effect of a change of preference on the equilibrium cannot be signed in general: in the IR-unconstrained region, Proposition~\ref{prop:rprefreallocation} formally establishes that $\Delta q_i^\times(\cdot,s) $is non-monotone; in the IR-constrained region, no analogous characterization is available without conditions on the equilibrium objects. Corollary~\ref{cor:CARA} provides a clean bypass of the behavioral channel under CARA, where $R_q(\theta)$ is constant, and the total effect reduces to the trade-off channel alone.
 
 We now formally characterize the consequences of a (marginal) perturbation of preferences, denoted $\Delta\lambda_i(\theta)$. The induced change in the welfare weight is
 %##########################################
@@ -674,7 +679,7 @@ R_\Gamma(\theta):=\frac{\Delta\G_i(\theta)}{\G_i(\theta)}
 \]
 %##########################################
 
-\begin{proposition}[Elasticity condition]\label{prop:rho-q-cov-iron2}
+\begin{proposition}[Elasticity condition]\label{prop:PrefTradeoff}
 Assume that both $R_\theta(\theta)$ and $R_q(\theta)$ are monotone and that $\Delta \G_i(\theta)$ has a constant sign for all $\theta$. Suppose that the following condition hold or all $\theta$:
 %##########################################
 \[\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right| \le  \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.\]
@@ -697,7 +702,7 @@ We illustrate the implications of the proposition in Figure \ref{fig:variation_u
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{figure/variation_uniform_preference_tradeoff.png}
-    \caption{Effects of change in redistributive preferences on the trade-off effect. The first plot shows the new $\lambda_i(\theta)$. The second plot indicates the effect of the perturbation on the term $\Delta R_\theta(\theta)$. The last plot links the condition in Proposition \ref{prop:rho-q-cov-iron2} to the sign of $\Delta R'_\theta(\theta)$. $R_q(\theta)$ is assumed to be decreasing in $\theta$, $R_\theta(\theta)$ and $J_i(\theta)$ are increasing in $\theta$. In this example, $R'_\Gamma(\theta)<0$ and $J_i(\theta)>0$ for all $\theta$, so the worsening effect comes from types generating revenues while receiving proportionally decreasing weights.}
+    \caption{Effects of change in redistributive preferences on the trade-off effect. The first plot shows the new $\lambda_i(\theta)$. The second plot indicates the effect of the perturbation on the term $\Delta R_\theta(\theta)$. The last plot links the condition in Proposition \ref{prop:PrefTradeoff} to the sign of $\Delta R'_\theta(\theta)$. $R_q(\theta)$ is assumed to be decreasing in $\theta$, $R_\theta(\theta)$ and $J_i(\theta)$ are increasing in $\theta$. In this example, $R'_\Gamma(\theta)<0$ and $J_i(\theta)>0$ for all $\theta$, so the worsening effect comes from types generating revenues while receiving proportionally decreasing weights.}
     \label{fig:variation_uniform_preference_tradeoff}
 \end{figure}
 
@@ -730,7 +735,9 @@ Suppose $u$ exhibits constant absolute risk aversion with coefficient $\alpha>0$
 \end{enumerate}
 \end{corollary}
 
-Both Proposition~\ref{prop:rho-q-cov-iron2} and Corollary~\ref{cor:CARA} share the same spirit: they characterize when a preference shift exacerbates or relaxes the fundamental negative sorting in the revenue structure. The covariance $\operatorname{Cov}(R_\Gamma, R_\theta)$ directly captures this: when the preference shift allocates proportionally more weight to types with low $R_\theta(\theta)$ --- that is, types contributing little to virtual surplus --- the budget constraint tightens and the implementation region contracts. To illustrate: if $R_\theta(\theta)$ is increasing in $\theta$ but $R_\Gamma(\theta)$ is decreasing, then higher weights are being placed on low-$\theta$ types who contribute least to revenue, the covariance is negative, and the region contracts. 
+Both Proposition~\ref{prop:PrefTradeoff} and Corollary~\ref{cor:CARA} share the same spirit: they characterize when a preference shift exacerbates or relaxes the fundamental negative sorting in the revenue structure. The covariance $\operatorname{Cov}(R_\Gamma, R_\theta)$ directly captures this: when the preference shift allocates proportionally more weight to types with low $R_\theta(\theta)$ --- that is, types contributing little to virtual surplus --- the budget constraint tightens and the implementation region contracts. To illustrate: if $R_\theta(\theta)$ is increasing in $\theta$ but $R_\Gamma(\theta)$ is decreasing, then higher weights are being placed on low-$\theta$ types who contribute least to revenue, the covariance is negative, and the region contracts. 
 
 \bibliographystyle{apalike}
 \bibliography{lib}
+
+\end{document}
