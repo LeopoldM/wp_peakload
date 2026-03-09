@@ -151,6 +151,8 @@
 \usepackage{subfiles}
 
 \newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Var}{\mathrm{Var}}
+
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\sign}{\textnormal{sign}}
 \newcommand{\G}{\mathcal{G}}
