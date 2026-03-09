@@ -6,7 +6,7 @@
 \linespread{1.05}       % optional but usually matches the spacing in papers like this
 \usepackage{microtype}  % better kerning/spacing (recommended)
 
-
+\usepackage{xr-hyper}
 \NeedsTeXFormat{LaTeX2e}
 \usepackage{amsmath}
 \usepackage{derivative}
@@ -148,6 +148,7 @@
 \newtheorem{remark}{Remark}
 \newtheorem{theorem}{Theorem}
 \usepackage{enumitem}
+\usepackage{subfiles}
 
 \newcommand{\Cov}{\mathrm{Cov}}
 \newcommand{\E}{\mathbb{E}}
@@ -159,6 +160,7 @@
 
 
 
+\renewcommand{\baselinestretch}{1.5}
 
 %%%%%%%%%%%
 

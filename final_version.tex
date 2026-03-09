@@ -1,13 +1,3 @@
-\documentclass{class}
-
-\usepackage{bbm}
-
-\usetikzlibrary{positioning}
-
-\begin{document}
-
-\renewcommand{\baselinestretch}{1.5} 
-
 
 \begin{titlepage}
 \title{Peak Load Pricing Theory with Incomplete Information}
@@ -250,12 +240,36 @@ This expression combines an inframarginal term — the weighted expected on-peak
 \[ \E_s\left[\sum_i \mu_i \mathbb{E}^w_i[u^c|s]\mathbf{1}_{s\in T^*}\right] \geq I'(k). \]
 ii) Suppose the optimal investment $k^*>0$ is interior. Then 
 \[\label{eq:FB-k1}
-\frac{1}{\mu^c}\,\E_s\!\left[\sum_i \mu_i\, \E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = I'(k^*),
+\frac{1}{\mu^c}\,\E_s\!\left[\sum_i \mu_i\, \E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{s\in T^*}\right] = I'(k^*),
 \]
 where $\mu^c := \sum_i \mu_i \Pr_i(\lambda_i(\theta)\leq\lambda^*)$ denote the total mass of contributing types. 
 \end{proposition}
 
 A key feature of Proposition~\ref{prop:CI-welfare} is that welfare effects are uniform within each group: all non-contributing types move in the same direction simultaneously. There is no within-group cutoff $\tilde\theta_i$ separating winners from losers. This uniformity reflects the absence of IC rents: the market designer observes $\theta$ directly, extracts full surplus from contributing types, and the only margin that matters for investment is the aggregate budget condition in $i)$. This condition requires that the weighted marginal benefit of capacity expansion across contributing types exceeds the marginal investment cost; when it holds, the market designer self-finances the increase in $k$ without tightening non-contributing types' allocations.
+
+The condition in ii) equates the marginal investment cost to the average on-peak marginal utility across contributing types, with no social weights appearing directly. Redistribution enters only indirectly, through the determination of $\lambda^\ast$ and hence of who belongs to the contributing set $\{\lambda_i(\theta)\leq\lambda^*\}$: the market designer chooses how large the contributing set must be to finance the investment, but conditional on that partition, the investment rule is purely utilitarian over contributors. In the uniform-weight case, all types contribute and $\mu^c=1$
+so the condition collapses to the canonical conditions
+\[
+ \mathbb{E}_s\!\left[\sum_i\mu_i\,\mathbb{E}_{\theta_i}\!\left[\theta\,u(q_i^*(\theta,s),s)\right]\mathbf{1}_{s\in T^*}\right] = I'(k^*) ,
+\]
+which is the standard peak-load pricing result: invest until the expected on-peak marginal utility across all types equals the marginal cost. Figure~\ref{fig:CI} illustrates the optimal allocation and rent structure under complete information for two consumer categories, contrasting the standard peak-load pricing benchmark with the redistributive mechanism.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/example_demand_supply_CI.png}
+    \caption{Left panel: standard peak-load pricing with a uniform price $p^*(s)$ at capacity $k$, generating a rent (grey area) covering the marginal investment cost. Right panel: the redistributive two-part tariff sets type-specific unit prices $\tilde p_1(s)>\tilde p^*(s)>\tilde p_2(s)$ such that $\tilde q_1=\tilde q_2$ (for illustration), extracting full surplus from the contributing type $\lambda_1\leq\lambda^*$ via the grey area, and setting the fixed fee of the non-contributing type $\lambda_2>\lambda^*$ to exactly offset their variable payment $\tilde p_2(s)\cdot\tilde q_2$ (blue area), so that $t_2^*=0$. The inverse demand curves $d_1(q)$ and $d_2(q)$ are derived from the marginal utility $\theta_i u(q,s)$ for each category.}
+    \label{fig:CI}
+\end{figure}
+
+
+\begin{remark}[Implementation with a two-part tariff]
+The first-best allocation can be implemented by a tariff $T_i(x,s\mid\theta)=A_i(\theta)+p_i(\theta,s)\,x$, where the unit price replicates the planner's marginal condition: contributing types across all categories faces a unique unit price, while non-contributing categories faces a type dependent unit price:
+\[
+p(s) = \begin{cases} 0, & s\in S^*, \\ \varepsilon(s)/\beta, & s\in T^*,\ \lambda_i(\theta)\leq\lambda^*, \end{cases} \qquad \text{and} \qquad p_i(\theta,s) = \begin{cases} 0, & s\in S^*, \\  \varepsilon(s)/\lambda_i(\theta), & s\in T^*,\ \lambda_i(\theta)>\lambda^*, \end{cases}
+\]
+Moreover, $p(s)>p_i(\theta,s)$ for all $(\theta,s)$. The fixed fee $A_i(\theta)$ is set to extract the full expected surplus of contributing types, and to exactly offset the expected variable payment of non-contributing types so that $t_i^*(\theta)=0$.
+\end{remark}
+
 
 This benchmark will be modified along two precise dimensions under incomplete information. First, the market designer can no longer extract full surplus from contributing types: IC constraints force him to leave information rents, replacing full surplus with \textit{virtual surplus} in condition \eqref{Ui*}. Second, and more fundamentally, within-group heterogeneity reappears: the distribution of information rents across types creates a cutoff $\tilde\theta_i$ such that low types may lose from capacity expansion even when high types gain. The covariance condition governing this cutoff is the central object of Section~\ref{chap3sec:sec5}.
 
@@ -2293,4 +2307,3 @@ Therefore, the threshold for every category behaves the same, and only the level
     
 \end{proof}
 
-\end{document}
