@@ -671,204 +671,578 @@ This proves the lemma.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Single Crossing}
+
+\begin{lemma}[Single-crossing]\label{lem:SC-dir}
+Assume $R_\theta(\theta)$ is monotone in $\theta$ and $R_q(\theta,k_i)$ has log-monotone differences in $(\theta,k_i)$ (i.e., it is either log-submodular or log-supermodular). Then the map
+\[
+k_i \longmapsto \mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}\,
+\mathbb E_{w_i}[uJ\mid s]\right]
+\]
+is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
+\end{lemma}
 \begin{proof}
-Fix a binding state \(s\in T_i^\times\). Throughout the proof, treat
-\(\mathcal G_i(\theta)\) as fixed with respect to \(k_i\); in particular,
-this covers the IR-unconstrained region where \(\beta_i^\times=0\) and
-\(\mathcal G_i(\theta)\equiv \Gamma_i(\theta)\).
 
-To lighten notation, write
+For each \(k_i\), let
 \[
-q(\theta,k_i):=q_i^\times(\theta,s),\qquad
-\varepsilon(k_i):=\varepsilon_i^\times(s),
+T_i^\times(k_i)=\{s\ge s_i^\times(k_i)\},
 \]
-and recall
+and define
 \[
-R_q(\theta,k_i):=
--\frac{u(q(\theta,k_i),s)}{u_q(q(\theta,k_i),s)},
+\overline H_i(k_i)
+:=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}\,
+\mathbb E_{w_i}[uJ\mid s]\right].
+\]
+Equivalently,
+\[
+\overline H_i(k_i)
+=
+\int_{s_i^\times(k_i)}^{\overline s}
+H_i(k_i,s)\,f(s)\,ds,
 \qquad
-R_\theta(\theta):=\frac{J_i(\theta)}{\mathcal G_i(\theta)}.
+H_i(k_i,s):=\mathbb E_{w_i}[uJ\mid s].
 \]
 
-The pointwise first-order condition is
+
+For each binding state \(s\), write
 \[
-u(q(\theta,k_i),s)\,\mathcal G_i(\theta)=\varepsilon(k_i).
+H_i(k_i,s)
+=
+\frac{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\,R_\theta(\theta,k_i)\right]}
+{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\right]}
+=
+\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{k_i,s}(\theta),
+\]
+where
+\[
+dP_{k_i,s}(\theta)
+:=
+\frac{R_q(\theta,k_i,s)\,g_i(\theta)}
+{\mathbb E_{\theta_i}[R_q(\theta,k_i,s)]}\,d\theta.
+\]
+
+Differentiate \(H_i(k_i,s)\) with respect to \(k_i\). This yields the decomposition
+\[
+\frac{\partial H_i(k_i,s)}{\partial k_i}
+=
+M_i(k_i,s)+D_i(k_i,s),
+\]
+where
+\[
+M_i(k_i,s)
+:=
+\left.\frac{\partial}{\partial t}
+\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
+\right|_{t=k_i}
+\]
+is the pure measure-shift term, and
+\[
+D_i(k_i,s)
+:=
+\int_{\Theta_i}
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}\,
+dP_{k_i,s}(\theta)
+\]
+is the direct effect through the \(k_i\)-dependence of \(R_\theta\).
+
+We first sign the measure-shift term. By assumption (ii), the family
+\(\{P_{k_i,s}\}_{k_i}\) is ordered by monotone likelihood ratio for each binding
+state \(s\). Hence, by assumption (i),
+\[
+M_i(k_i,s)\ge 0
+\]
+in the two cases
+\[
+R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
+\qquad
+R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
+\]
+while
+\[
+M_i(k_i,s)\le 0
+\]
+in the two opposite cases.
+
+We next compute the direct term. Since
+\[
+R_\theta(\theta,k_i)
+=
+\frac{J_i(\theta)}{\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i)}
+=
+\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+\]
+we have
+\[
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
+=
+-\beta_i^{\times\prime}(k_i)\,
+\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}.
+\]
+Therefore
+\[
+D_i(k_i,s)
+=
+-\beta_i^{\times\prime}(k_i)\,
+Q_i(k_i,s),
+\qquad
+Q_i(k_i,s):=
+\int_{\Theta_i}
+\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}\,
+dP_{k_i,s}(\theta)>0.
 \]
 Hence
 \[
-w_i^\times(\theta,s)
+\frac{\partial H_i(k_i,s)}{\partial k_i}
 =
--\frac{1}{u_q(q(\theta,k_i),s)\,\mathcal G_i(\theta)}
-=
-\frac{R_q(\theta,k_i)}{\varepsilon(k_i)} >0,
+M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,Q_i(k_i,s).
 \]
-where the last equality uses \(u(q(\theta,k_i),s)\mathcal G_i(\theta)=\varepsilon(k_i)\).
-Therefore,
+
+Now differentiate the aggregated object
 \[
-w_i^\times(\theta,s)\,u(q(\theta,k_i),s)\,J_i(\theta)
+\overline H_i(k_i)
 =
-R_q(\theta,k_i)\,R_\theta(\theta).
+\int_{s_i^\times(k_i)}^{\overline s}
+H_i(k_i,s)\,f(s)\,ds.
 \]
-It follows that
+By Leibniz' rule,
 \[
-\mathbb E_{w_i}[uJ\mid s]
+\overline H_i'(k_i)
 =
-\frac{\mathbb E_{\theta_i}\!\left[w_i^\times(\theta,s)\,u(q_i^\times(\theta,s),s)\,J_i(\theta)\right]}
-{\mathbb E_{\theta_i}\!\left[w_i^\times(\theta,s)\right]}
-=
-\frac{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i)\,R_\theta(\theta)\right]}
-{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i)\right]}.
+-\,s_i^{\times\prime}(k_i)\,
+H_i\!\left(k_i,s_i^\times(k_i)\right)\,
+f\!\left(s_i^\times(k_i)\right)
++
+\int_{s_i^\times(k_i)}^{\overline s}
+\frac{\partial H_i(k_i,s)}{\partial k_i}\,f(s)\,ds.
 \]
-Define the probability measure \(P_{k_i}\) on \(\Theta_i\) by
+At the threshold state \(s_i^\times(k_i)\), we have
 \[
-dP_{k_i}(\theta)
+u\!\left(q_i^\times(\theta,s_i^\times(k_i)),s_i^\times(k_i)\right)=0
+\qquad\text{for every }\theta,
+\]
+hence
+\[
+H_i\!\left(k_i,s_i^\times(k_i)\right)=0.
+\]
+So the boundary term vanishes, and therefore
+\[
+\overline H_i'(k_i)
+=
+\int_{s_i^\times(k_i)}^{\overline s}
+\left(M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,Q_i(k_i,s)\right)f(s)\,ds.
+\]
+Define
+\[
+\overline M_i(k_i)
 :=
-\frac{R_q(\theta,k_i)\,g_i(\theta)}
-{\mathbb E_{\theta_i}[R_q(\theta,k_i)]}\,d\theta.
+\int_{s_i^\times(k_i)}^{\overline s}M_i(k_i,s)\,f(s)\,ds,
+\qquad
+\overline Q_i(k_i)
+:=
+\int_{s_i^\times(k_i)}^{\overline s}Q_i(k_i,s)\,f(s)\,ds>0.
 \]
 Then
 \[
-\mathbb E_{w_i}[uJ\mid s]
+\overline H_i'(k_i)
 =
-\int_{\Theta_i} R_\theta(\theta)\,dP_{k_i}(\theta).
+\overline M_i(k_i)-\beta_i^{\times\prime}(k_i)\,\overline Q_i(k_i).
 \]
 
-Now suppose first that \(R_q(\theta,k_i)\) is log-supermodular in
-\((\theta,k_i)\), equivalently that the family \(\{P_{k_i}\}_{k_i}\) is
-ordered by monotone likelihood ratio. Then for \(k_i'>k_i\), the measure
-\(P_{k_i'}\) first-order stochastically dominates \(P_{k_i}\). Hence, for
-every increasing function \(\varphi\),
+By the state-by-state sign result for \(M_i(k_i,s)\), the aggregated term
+\(\overline M_i(k_i)\) has the same sign in each of the four cases listed in
+the statement.
+
+We first show that the condition
 \[
-\int_{\Theta_i}\varphi(\theta)\,dP_{k_i'}(\theta)
-\ge
-\int_{\Theta_i}\varphi(\theta)\,dP_{k_i}(\theta).
-\]
-Applying this with \(\varphi=R_\theta\), we obtain:
-\[
-R_\theta \text{ increasing }
-\quad\Longrightarrow\quad
-k_i\mapsto \mathbb E_{w_i}[uJ\mid s]
-\text{ is increasing,}
-\]
-and
-\[
-R_\theta \text{ decreasing }
-\quad\Longrightarrow\quad
-k_i\mapsto \mathbb E_{w_i}[uJ\mid s]
-\text{ is decreasing.}
+\beta_i^{\times\prime}(k_i)=0
+\qquad\Longleftrightarrow\qquad
+\overline H_i(k_i)=0
 \]
 
-If instead \(R_q(\theta,k_i)\) is log-submodular, the stochastic order is
-reversed, so the monotonicity of \(k_i\mapsto \mathbb E_{w_i}[uJ\mid s]\)
-is reversed as well:
+Define
 \[
-R_\theta \text{ increasing }
-\quad\Longrightarrow\quad
-k_i\mapsto \mathbb E_{w_i}[uJ\mid s]
-\text{ is decreasing,}
+\Phi_i(k_i,\beta)
+:=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\mathbb E_{\theta_i}\!\left[U\!\left(q_i^\times(\theta,s;k_i,\beta),s\right)J_i(\theta)\right]\right]-I_i.
 \]
-and
+On the IR-constrained region,
 \[
-R_\theta \text{ decreasing }
-\quad\Longrightarrow\quad
-k_i\mapsto \mathbb E_{w_i}[uJ\mid s]
-\text{ is increasing.}
+\Phi_i\!\left(k_i,\beta_i^\times(k_i)\right)=0.
 \]
 
-Thus \(k_i\mapsto \mathbb E_{w_i}[uJ\mid s]\) is monotone, hence it can cross
-zero at most once. The direction of the crossing is therefore:
+We first compute the partial derivative with respect to \(k_i\), holding \(\beta\) fixed. For every binding state \(s\in T_i^\times(k_i)\), the comparative-statics identity with fixed \(\mathcal G_i\) gives
 \[
-+\to-
-\quad\text{if}\quad
-\bigl(R_\theta \text{ increasing and } R_q \text{ log-submodular}\bigr)
-\ \text{or}\
-\bigl(R_\theta \text{ decreasing and } R_q \text{ log-supermodular}\bigr),
+\frac{\partial q_i^\times(\theta,s;k_i,\beta)}{\partial k_i}
+=
+\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)},
 \]
-and
+where
 \[
--\to+
-\quad\text{in the two remaining cases}.
+w_i^\times(\theta,s):=
+-\frac{1}{u_q(q_i^\times(\theta,s),s)\,\mathcal G_i(\theta)},
+\qquad
+\overline w_i^\times(s):=
+\mathbb E_{\theta_i}\!\left[w_i^\times(\theta_i,s)\right].
 \]
-This proves the single-crossing property.
+For off-peak states \(s\notin T_i^\times(k_i)\), the allocation is unconstrained and does not vary with \(k_i\), so the derivative is zero. Moreover, the moving-threshold term vanishes because
+\[
+u\!\left(q_i^\times(\theta,s_i^\times(k_i)),s_i^\times(k_i)\right)=0
+\qquad\text{for every }\theta.
+\]
+Hence
+\[
+\partial_{k_i}\Phi_i(k_i,\beta)
+=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\mathbb E_{\theta_i}\!\left[
+u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
+\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)}
+\right]\right]
+=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\mathbb E_{w_i}[uJ\mid s]\right].
+\]
+Therefore
+\[
+\partial_{k_i}\Phi_i(k_i,\beta)=\overline H_i(k_i).
+\]
+
+We next compute the partial derivative with respect to \(\beta\), holding \(k_i\) fixed. For a binding state \(s\in T_i^\times(k_i)\), differentiate the first-order condition
+\[
+u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)=\varepsilon_i^\times(s)
+\]
+with respect to \(\beta\). Since \(\partial_\beta \mathcal G_i(\theta)=J_i(\theta)\), we obtain
+\[
+u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)
+\frac{\partial q_i^\times(\theta,s)}{\partial \beta}
++
+u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
+=
+\frac{\partial \varepsilon_i^\times(s)}{\partial \beta}.
+\]
+Using
+\[
+w_i^\times(\theta,s)=
+-\frac{1}{u_q(q_i^\times(\theta,s),s)\mathcal G_i(\theta)},
+\]
+this becomes
+\[
+\frac{\partial q_i^\times(\theta,s)}{\partial \beta}
+=
+w_i^\times(\theta,s)\left(
+u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
+-
+\frac{\partial \varepsilon_i^\times(s)}{\partial \beta}
+\right).
+\]
+Because the capacity constraint binds state by state,
+\[
+\mathbb E_{\theta_i}\!\left[\frac{\partial q_i^\times(\theta,s)}{\partial \beta}\right]=0,
+\]
+so
+\[
+\frac{\partial \varepsilon_i^\times(s)}{\partial \beta}
+=
+\frac{\mathbb E_{\theta_i}\!\left[w_i^\times(\theta,s)\,
+u(q_i^\times(\theta,s),s)J_i(\theta)\right]}
+{\mathbb E_{\theta_i}\!\left[w_i^\times(\theta,s)\right]}
+=
+\mathbb E_{w_i}[uJ\mid s].
+\]
+Substituting back yields
+\[
+\frac{\partial q_i^\times(\theta,s)}{\partial \beta}
+=
+w_i^\times(\theta,s)\left(
+u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
+-
+\mathbb E_{w_i}[uJ\mid s]
+\right).
+\]
+Therefore
+\[
+\partial_\beta \Phi_i(k_i,\beta)
+=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\mathbb E_{\theta_i}\!\left[
+u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
+\frac{\partial q_i^\times(\theta,s)}{\partial \beta}
+\right]\right].
+\]
+Using the previous display,
+\[
+\partial_\beta \Phi_i(k_i,\beta)
+=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\left(
+\mathbb E_{\theta_i}\!\left[w_i^\times(\theta,s)\,(uJ)^2\right]
+-
+\overline w_i^\times(s)\,\mathbb E_{w_i}[uJ\mid s]^2
+\right)\right].
+\]
+Equivalently,
+\[
+\partial_\beta \Phi_i(k_i,\beta)
+=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\overline w_i^\times(s)\,
+\mathrm{Var}_{w_i}\!\left(uJ\mid s\right)\right].
+\]
+Hence, writing
+\[
+\overline Q_i(k_i):=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\overline w_i^\times(s)\,
+\mathrm{Var}_{w_i}\!\left(uJ\mid s\right)\right],
+\]
+we obtain
+\[
+\partial_\beta \Phi_i(k_i,\beta)=\overline Q_i(k_i).
+\]
+Under the nondegeneracy condition established earlier, \(\overline Q_i(k_i)>0\).
+
+Finally, differentiate the identity
+\[
+\Phi_i\!\left(k_i,\beta_i^\times(k_i)\right)=0
+\]
+with respect to \(k_i\):
+\[
+0
+=
+\partial_{k_i}\Phi_i(k_i,\beta_i^\times(k_i))
++
+\partial_\beta\Phi_i(k_i,\beta_i^\times(k_i))\,\beta_i^{\times\prime}(k_i)
+=
+\overline H_i(k_i)+\overline Q_i(k_i)\,\beta_i^{\times\prime}(k_i).
+\]
+Therefore
+\[
+\beta_i^{\times\prime}(k_i)
+=
+-\frac{\overline H_i(k_i)}{\overline Q_i(k_i)}.
+\]
+Since \(\overline Q_i(k_i)>0\), it follows that
+\[
+\beta_i^{\times\prime}(k_i)=0
+\qquad\Longleftrightarrow\qquad
+\overline H_i(k_i)=0.
+\]
+
+
+
+
+Now let \(k_i^0\) be such that
+\[
+\overline H_i(k_i^0)=0.
+\]
+Hence,
+\[
+\beta_i^{\times\prime}(k_i^0)=0.
+\]
+Hence
+\[
+\overline H_i'(k_i^0)=\overline M_i(k_i^0).
+\]
+Therefore every zero of \(\overline H_i\) is crossed in the same direction:
+from \(-\) to \(+\) when \(\overline M_i>0\), and from \(+\) to \(-\) when
+\(\overline M_i<0\).
+
+A continuous function cannot cross the level \(0\) twice in the same direction.
+Hence \(k_i\mapsto \overline H_i(k_i)\) has at most one zero.
 \end{proof}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{A FAIRE: Theorem Individual}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{A FAIRE: Proposition Region}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Proof of Corollary Linear}
+\begin{lemma}[From the aggregated zero to the statewise zero under multiplicative separability]\label{lem:statewise-zero-mult}
+Assume \eqref{eq:mult_u}, namely
+\[
+u(q,s)=\kappa(s)\zeta(q),
+\qquad \kappa(s)>0.
+\]
+Fix \(k_i\), and define
+\[
+\mathcal G_i(\theta,k_i):=\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i).
+\]
+For each binding state \(s\in T_i^\times(k_i)\), let
+\[
+H_i(k_i,s):=\mathbb E_{\theta_i}\!\left[R_\theta(\theta,k_i)\,R_q^\times(\theta,s)\right],
+\]
+where
+\[
+R_\theta(\theta,k_i):=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+\qquad
+R_q^\times(\theta,s):=
+-\frac{u(q_i^\times(\theta,s),s)}{u_q(q_i^\times(\theta,s),s)}.
+\]
+Define the aggregated object
+\[
+\overline H_i(k_i)
+:=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}\,H_i(k_i,s)\right].
+\]
+Then \(H_i(k_i,s)\) is constant across all binding states \(s\in T_i^\times(k_i)\). In particular, on the IR-constrained region,
+\[
+\overline H_i(k_i)=0
+\qquad\Longleftrightarrow\qquad
+H_i(k_i,s)=0
+\quad\text{for every } s\in T_i^\times(k_i).
+\]
+Consequently,
+\[
+\beta_i^{\times\prime}(k_i)=0
+\qquad\Longleftrightarrow\qquad
+H_i(k_i,s)=0
+\quad\text{for every } s\in T_i^\times(k_i).
+\]
+\end{lemma}
 
 \begin{proof}
-    
-We start from the identity
-\begin{equation}
-\label{F-def}
-F(s):=\E_{\theta_i}\!\left[w_i^\times(\theta,s)\,uJ\right]
-=\E_{\theta_i}\!\left[-\frac{u\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}\frac{J_i(\theta)}{\mathcal G_i(\theta)}\right]
-=\E_{\theta_i}\!\left[R_q^\times(\theta,s)\,R_\theta(\theta)\right],
-\end{equation}
-where $R_q^\times(\theta,s):=-u(q_i^\times(\theta,s),s)/u_q(q_i^\times(\theta,s),s)$ and $R_\theta(\theta):=J_i(\theta)/\mathcal G_i(\theta)$.
-
-Differentiating \eqref{F-def} with respect to $s$ gives
-\begin{equation}
-\label{F-deriv}
-F'(s)=\E_{\theta_i}\!\left[\left(\partial_q R_q\!\left(q_i^\times(\theta,s),s\right)\,\partial_s q_i^\times(\theta,s)+\partial_s R_q\!\left(q_i^\times(\theta,s),s\right)\right)R_\theta(\theta)\right],
-\end{equation}
-since $R_\theta(\theta)$ does not depend on $s$.
-
-Next, differentiate the FOC $u(q_i^\times(\theta,s),s)\mathcal G_i(\theta)-\varepsilon_i^\times(s)=0$ with respect to $s$:
-\begin{equation}
-\label{dqds}
-\partial_s q_i^\times(\theta,s)=\frac{\partial_s\varepsilon_i^\times(s)/\mathcal G_i(\theta)-u_s\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}.
-\end{equation}
-On-peak feasibility implies $\E_{\theta_i}[\partial_s q_i^\times(\theta,s)]=0$, hence
-\begin{equation}
-\label{epss}
-\partial_s\varepsilon_i^\times(s)=
-\frac{\E_{\theta_i}\!\left[u_s\!\left(q_i^\times(\theta,s),s\right)/u_q\!\left(q_i^\times(\theta,s),s\right)\right]}
-{\E_{\theta_i}\!\left[1/\left(u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)\right)\right]}
-=-\frac{1}{\overline w_i^\times(s)}\E_{\theta_i}\!\left[\frac{u_s\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}\right],
-\end{equation}
-where $\overline w_i^\times(s):=\E_{\theta_i}[w_i^\times(\theta,s)]$ and $w_i^\times(\theta,s):=-1/(\mathcal G_i(\theta)u_q(q_i^\times(\theta,s),s))$.
-
-Now impose the parametric assumptions $u(q,s)=v(q)+\zeta(s)$ with $\zeta_{ss}=0$ and $v''(q)=0$ (so $u_{qs}=0$ and $u_q$ is constant). Then
-\begin{equation}
-\label{Rq-partials}
-\partial_q R_q(q,s)=-1
-\qquad\text{and}\qquad
-\partial_s R_q(q,s)=-\frac{u_s(q,s)}{u_q(q,s)}.
-\end{equation}
-Moreover, from \eqref{dqds} we have $\partial_s q_i^\times(\theta,s)=\partial_s\varepsilon_i^\times(s)/(u_q\mathcal G_i(\theta))-\;u_s/u_q$, so the bracket in \eqref{F-deriv} simplifies to
+Fix \(k_i\). For every binding state \(s\in T_i^\times(k_i)\), the first-order condition is
 \[
-\partial_q R_q\,\partial_s q_i^\times+\partial_s R_q
-=-\partial_s q_i^\times-\frac{u_s}{u_q}
-=-\frac{\partial_s\varepsilon_i^\times(s)}{u_q\,\mathcal G_i(\theta)}.
+u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta,k_i)=\varepsilon_i^\times(s).
 \]
-Substituting into \eqref{F-deriv} yields
-\begin{equation}
-\label{Fprime-final}
-F'(s)
-=
--\frac{\partial_s\varepsilon_i^\times(s)}{u_q}\,
-\E_{\theta_i}\!\left[\frac{R_\theta(\theta)}{\mathcal G_i(\theta)}\right]
-=
--\frac{\partial_s\varepsilon_i^\times(s)}{u_q}\,
-\E_{\theta_i}\!\left[\frac{J_i(\theta)}{\mathcal G_i(\theta)^2}\right].
-\end{equation}
-Under $u(q,s)=v(q)+\zeta(s)$ with $v''=0$ and $\zeta_{ss}=0$, both $u_q$ and $u_s$ are constants, hence \eqref{epss} implies $\partial_s\varepsilon_i^\times(s)$ is constant in $s$, so \eqref{Fprime-final} shows that $F'(s)$ is constant in $s$. Therefore $F(s)$ is monotone in $s$ (linear), with sign determined by $\E_{\theta_i}[J_i(\theta)/\mathcal G_i(\theta)^2]$ (and the sign of $u_s$ through $\partial_s\varepsilon_i^\times$).
+Under \eqref{eq:mult_u}, this becomes
+\[
+\kappa(s)\zeta\!\left(q_i^\times(\theta,s)\right)\mathcal G_i(\theta,k_i)=\varepsilon_i^\times(s).
+\]
+Define
+\[
+z_i(s):=\frac{\varepsilon_i^\times(s)}{\kappa(s)}.
+\]
+Then
+\[
+\zeta\!\left(q_i^\times(\theta,s)\right)=\frac{z_i(s)}{\mathcal G_i(\theta,k_i)},
+\]
+hence
+\[
+q_i^\times(\theta,s)=\zeta^{-1}\!\left(\frac{z_i(s)}{\mathcal G_i(\theta,k_i)}\right).
+\]
 
+Since \(s\in T_i^\times(k_i)\), the capacity constraint binds:
+\[
+\mathbb E_{\theta_i}\!\left[q_i^\times(\theta,s)\right]=k_i.
+\]
+Differentiating with respect to \(s\) yields
+\[
+0
+=
+\frac{d}{ds}\mathbb E_{\theta_i}\!\left[q_i^\times(\theta,s)\right]
+=
+z_i'(s)\,
+\mathbb E_{\theta_i}\!\left[
+\frac{1}{\mathcal G_i(\theta,k_i)\,
+\zeta_q\!\left(q_i^\times(\theta,s)\right)}
+\right].
+\]
+Because \(\mathcal G_i(\theta,k_i)>0\) and \(\zeta_q<0\), the expectation is nonzero. Therefore
+\[
+z_i'(s)=0
+\qquad\text{for all } s\in T_i^\times(k_i).
+\]
+Hence \(z_i(s)\) is constant on the binding region. Let \(\overline z_i(k_i)\) denote this constant. Then
+\[
+q_i^\times(\theta,s)
+=
+\zeta^{-1}\!\left(\frac{\overline z_i(k_i)}{\mathcal G_i(\theta,k_i)}\right)
+\qquad\text{for every } s\in T_i^\times(k_i).
+\]
+Thus the allocation is independent of \(s\) on the binding region.
+
+Now compute
+\[
+R_q^\times(\theta,s)
+=
+-\frac{u(q_i^\times(\theta,s),s)}{u_q(q_i^\times(\theta,s),s)}
+=
+-\frac{\kappa(s)\zeta(q_i^\times(\theta,s))}
+{\kappa(s)\zeta_q(q_i^\times(\theta,s))}
+=
+-\frac{\zeta(q_i^\times(\theta,s))}{\zeta_q(q_i^\times(\theta,s))}.
+\]
+Since \(q_i^\times(\theta,s)\) is independent of \(s\) for all binding states, \(R_q^\times(\theta,s)\) is also independent of \(s\) on \(T_i^\times(k_i)\). Because \(R_\theta(\theta,k_i)\) does not depend on \(s\), it follows that
+\[
+H_i(k_i,s)
+=
+\mathbb E_{\theta_i}\!\left[R_\theta(\theta,k_i)\,R_q^\times(\theta,s)\right]
+\]
+is constant across \(s\in T_i^\times(k_i)\). Denote this common value by \(H_i(k_i)\).
+
+Therefore
+\[
+\overline H_i(k_i)
+=
+\mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}\,H_i(k_i,s)\right]
+=
+\Pr\!\left(s\in T_i^\times(k_i)\right)\,H_i(k_i).
+\]
+On the IR-constrained region, \(\Pr(s\in T_i^\times(k_i))>0\). Hence
+\[
+\overline H_i(k_i)=0
+\qquad\Longleftrightarrow\qquad
+H_i(k_i)=0
+\qquad\Longleftrightarrow\qquad
+H_i(k_i,s)=0
+\quad\text{for every } s\in T_i^\times(k_i).
+\]
+
+Finally, from the differentiated binding IR condition,
+\[
+\beta_i^{\times\prime}(k_i)
+=
+-\frac{\overline H_i(k_i)}{\overline Q_i(k_i)},
+\qquad
+\overline Q_i(k_i)>0.
+\]
+Therefore
+\[
+\beta_i^{\times\prime}(k_i)=0
+\qquad\Longleftrightarrow\qquad
+\overline H_i(k_i)=0.
+\]
+Combining the two equivalences yields
+\[
+\beta_i^{\times\prime}(k_i)=0
+\qquad\Longleftrightarrow\qquad
+H_i(k_i,s)=0
+\quad\text{for every } s\in T_i^\times(k_i).
+\]
+This completes the proof.
 \end{proof}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Prof of Theorem Individual}
+
+\begin{proof}
+Define $H_i(\theta):=\partial\mathbb{E}CS_i^\times(\theta)/\partial k_i$. From the envelope representation \eqref{ICmd-def}, \[H_i(\theta)=H_i(\underline\theta_i)+\int_{\underline\theta_i}^\theta H_i'(\tilde\theta)\,d\tilde\theta, \qquad H_i'(\theta)=\mathbb{E}_s\!\left[u\!\left(q_i^\times(\theta,s),s\right)\frac{\partial q_i^\times(\theta,s)}{\partial k_i}\,\mathbf{1}_{s\in T_i^\times}\right].\] Under Definition~\ref{ass:multiplicative}, $u(q,s)=\kappa(q)\zeta(s)$ so $u_q=\kappa'(q)\zeta(s)$, and the ratio $R_q(\theta):=-\kappa(q_i^\times(\theta,s))/\kappa'(q_i^\times(\theta,s))$ is $s$-independent at the optimum by Lemma~\ref{lem:statewise-zero-mult}. Using this and the first-order condition $u(q_i^\times,s)\mathcal{G}_i(\theta)=\varepsilon_i^\times(s)$, one verifies $u(q_i^\times,s)w_i^\times(\theta,s)=R_q(\theta)/\mathcal{G}_i(\theta)$ and $u(q_i^\times,s)J_i(\theta)=\varepsilon_i^\times(s)R_\theta(\theta)$. Substituting \eqref{partialkq1} into $H_i'(\theta)$ and applying these identities yields \[H_i'(\theta)=\frac{R_q(\theta)}{\mathcal{G}_i(\theta)}\!\left(A_i-\beta_i' B_i+\beta_i' C_i R_\theta(\theta)\right),\] where \[A_i:=\mathbb{E}_s\!\left[\frac{\mathbf{1}_{s\in T_i^\times}}{\bar w_i^\times(s)}\right]>0, \qquad B_i:=\mathbb{E}_s\!\left[\mathbb{E}_{w_i}[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}\right], \qquad C_i:=\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\,\mathbf{1}_{s\in T_i^\times}\right]>0,\] and $\beta_i':=\partial\beta_i^\times/\partial k_i$. Dy Definition~\ref{ass:multiplicative} of multiplicative separability $\mathbb{E}_{w_i}[uJ\mid s]$ is constant across all $s\in T_i^\times$, so $B_i = \Pr(s\in T_i^\times)\cdot\mathbb{E}_{w_i}[uJ\mid s]$ and $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$.
+
+\medskip\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i^\times=0$, we have $\beta_i'=0$ and $\mathcal{G}_i(\theta)\equiv\Gamma_i(\theta)$, so $H_i'(\theta)=R_q(\theta)A_i/\Gamma_i(\theta)>0$ for all $\theta$. Hence $H_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By Lemma~\ref{lem:suffstat}(i), $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i$ carries the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive then $H_i(\underline\theta_i)>0$, and since $H_i$ is strictly increasing, $H_i(\theta)>0$ for all $\theta$: every type gains. If \eqref{Eujmd} is negative then $H_i(\underline\theta_i)<0$, and strict monotonicity implies $H_i$ crosses zero at most once; whenever the crossing $\tilde\theta_i$ exists, $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$.
+
+\medskip\noindent\textbf{IR-constrained allocation.}
+
+\noindent\textit{Step 1: initial condition.} Since \eqref{Rmdi-def} binds, differentiating the identity $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]-I_i=0$ with respect to $k_i$ yields $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=0$.
+
+\noindent\textit{Step 2: monotonicity of $H_i'$ and shape of $H_i$.} Since $R_q(\theta)/\mathcal{G}_i(\theta)>0$, the sign of $H_i'(\theta)$ equals the sign of the affine function $A_i-\beta_i'B_i+\beta_i'C_iR_\theta(\theta)$. If $R_\theta(\theta)$ is monotone this affine function is monotone in $\theta$, hence $H_i'(\theta)$ is monotone in $\theta$ and $H_i$ is either concave or convex. By Lemma~\ref{lem:suffstat}(ii), $\mathrm{sign}(\beta_i')=-\mathrm{sign}(\eqref{Eujmd})$, and by the observation above $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$, so $\mathrm{sign}(-\beta_i'B_i)=\mathrm{sign}(\eqref{Eujmd})^2\ge 0$: the term $-\beta_i'B_i$ is always non-negative and does not affect the monotonicity direction. The direction is determined by $\beta_i'C_iR_\theta(\theta)$: if $R_\theta(\theta)$ is increasing and \eqref{Eujmd} is positive then $\beta_i'<0$, so $H_i'$ is decreasing and $H_i$ is concave; if \eqref{Eujmd} is negative then $\beta_i'>0$ and $H_i$ is convex. If $R_\theta(\theta)$ is decreasing these conclusions are reversed.
+
+\noindent\textit{Step 3: uniqueness and welfare direction.} Since $H_i(\underline\theta_i)=0$, a concave $H_i$ can depart from zero in only one direction and cross zero at most once, and symmetrically for the convex case. In case~(i) with $R_\theta$ increasing: $H_i$ is concave, rises above zero and then crosses back down, so $H_i>0$ for $\theta\in(\underline\theta_i,\tilde\theta_i)$ and $H_i<0$ for $\theta>\tilde\theta_i$: lower types gain and higher types lose. In case~(ii): $H_i$ is convex, dips below zero and crosses back up, so $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$, reversing the welfare ordering. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Proof of Proposition Region}
+
+\begin{proof}
+Let $F_i(k_i):=\mathbb{E}\underline{CS}_i^\times(k_i)$. By Lemma~\ref{lem:suffstat}(i), $F_i'(k_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=\mathbb{E}_s[\mathbb{E}_{w_i}[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}]$. Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto\mathbb{E}_{w_i}[uJ\mid s]$ is monotone in $k_i$ for each fixed $s\in T_i^\times$: decreasing when \eqref{Eujmd} crosses from $+$ to $-$, increasing in the opposite case. Since monotonicity is preserved under expectation over $s$, the map $k_i\mapsto F_i'(k_i)$ is itself monotone. When \eqref{Eujmd} crosses from $+$ to $-$, $F_i'$ is decreasing and crosses zero at most once from above, so $F_i$ is single-peaked on $[0,k_i^+]$. The case crossing from $-$ to $+$ gives a single-dipped $F_i$ by the same argument.
+
+It remains to determine the sign of $F_i$ at the endpoints. At $k_i=0$ the capacity constraint binds at zero, so $q_i^\times(\theta,s)=0$ for all $(\theta,s)$, giving $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]=0$ and hence $F_i(0)=-I_i<0$ for any $I_i>0$.
+
+\noindent\textit{Case: \eqref{Eujmd} crosses from $+$ to $-$.} $F_i$ is single-peaked with $F_i(0)<0$.
+
+Suppose first that $F_i(k_i^+)\ge 0$. Since $F_i(0)<0$ and $F_i(k_i^+)\ge 0$, continuity gives at least one zero in $(0,k_i^+]$. Single-peakedness implies $F_i$ can cross zero at most once from below on the ascending part and at most once from above on the descending part; but since $F_i(0)<0$ the ascending part must cross zero before the peak, after which $F_i$ is decreasing and cannot cross zero from below again. Hence the zero crossing from below is unique, defining $\tilde k_i$, and $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i,k_i^+]$. When $J_i(\theta)\ge 0$ for all $\theta$, the revenue identity $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]\ge 0$ holds at $k_i^+$ regardless of the allocation, so $F_i(k_i^+)\ge -I_i$ is automatically non-negative only if additionally the allocation generates sufficient virtual surplus; a sufficient condition is $J_i(\theta)\ge 0$ uniformly, which ensures the revenue integral is non-negative. This proves part~(i).
+
+Suppose instead that $F_i(k_i^+)<0$. Then $F_i$ is negative at both endpoints. If the peak value is negative, $F_i<0$ throughout. If the peak value is non-negative, continuity and single-peakedness yield exactly two zeros $\tilde k_i^-<\tilde k_i^+$ in $(0,k_i^+)$ with $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i^-,\tilde k_i^+]$. This proves part~(ii).
+
+\noindent\textit{Case: \eqref{Eujmd} crosses from $-$ to $+$.} $F_i$ is single-dipped with $F_i(0)<0$. Either the trough value is negative and $F_i<0$ throughout, or $F_i$ climbs above zero after the trough, crossing zero exactly once from below at a unique $\tilde k_i\in(0,k_i^+]$, and $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i,k_i^+]$.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Proof of Proposition PrefTradeoff}
 \begin{proof}
@@ -2632,5 +3006,73 @@ Everything else equal, it implies that when the correlation becomes negative: th
     \Gamma_i''(\theta) & = -\tilde{\lambda}_i\Gamma_i''(\theta)+h''(\theta) \\
     & = -\tilde{\lambda}_i\Gamma_i'(\theta) - \lambda'(\theta) - \Lambda_i'(\theta) \frac{g_i'(\theta)}{g_i(\theta)} - \Lambda_i(\theta) \frac{g''(\theta)g_i(\theta)-(g_i'(\theta))^2}{(g_i(\theta))^2}
 \end{align}
+
+
+\section{Proof of Corollary Linear}
+
+\begin{proof}
+    
+We start from the identity
+\begin{equation}
+\label{F-def}
+F(s):=\E_{\theta_i}\!\left[w_i^\times(\theta,s)\,uJ\right]
+=\E_{\theta_i}\!\left[-\frac{u\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}\frac{J_i(\theta)}{\mathcal G_i(\theta)}\right]
+=\E_{\theta_i}\!\left[R_q^\times(\theta,s)\,R_\theta(\theta)\right],
+\end{equation}
+where $R_q^\times(\theta,s):=-u(q_i^\times(\theta,s),s)/u_q(q_i^\times(\theta,s),s)$ and $R_\theta(\theta):=J_i(\theta)/\mathcal G_i(\theta)$.
+
+Differentiating \eqref{F-def} with respect to $s$ gives
+\begin{equation}
+\label{F-deriv}
+F'(s)=\E_{\theta_i}\!\left[\left(\partial_q R_q\!\left(q_i^\times(\theta,s),s\right)\,\partial_s q_i^\times(\theta,s)+\partial_s R_q\!\left(q_i^\times(\theta,s),s\right)\right)R_\theta(\theta)\right],
+\end{equation}
+since $R_\theta(\theta)$ does not depend on $s$.
+
+Next, differentiate the FOC $u(q_i^\times(\theta,s),s)\mathcal G_i(\theta)-\varepsilon_i^\times(s)=0$ with respect to $s$:
+\begin{equation}
+\label{dqds}
+\partial_s q_i^\times(\theta,s)=\frac{\partial_s\varepsilon_i^\times(s)/\mathcal G_i(\theta)-u_s\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}.
+\end{equation}
+On-peak feasibility implies $\E_{\theta_i}[\partial_s q_i^\times(\theta,s)]=0$, hence
+\begin{equation}
+\label{epss}
+\partial_s\varepsilon_i^\times(s)=
+\frac{\E_{\theta_i}\!\left[u_s\!\left(q_i^\times(\theta,s),s\right)/u_q\!\left(q_i^\times(\theta,s),s\right)\right]}
+{\E_{\theta_i}\!\left[1/\left(u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)\right)\right]}
+=-\frac{1}{\overline w_i^\times(s)}\E_{\theta_i}\!\left[\frac{u_s\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)}\right],
+\end{equation}
+where $\overline w_i^\times(s):=\E_{\theta_i}[w_i^\times(\theta,s)]$ and $w_i^\times(\theta,s):=-1/(\mathcal G_i(\theta)u_q(q_i^\times(\theta,s),s))$.
+
+Now impose the parametric assumptions $u(q,s)=v(q)+\zeta(s)$ with $\zeta_{ss}=0$ and $v''(q)=0$ (so $u_{qs}=0$ and $u_q$ is constant). Then
+\begin{equation}
+\label{Rq-partials}
+\partial_q R_q(q,s)=-1
+\qquad\text{and}\qquad
+\partial_s R_q(q,s)=-\frac{u_s(q,s)}{u_q(q,s)}.
+\end{equation}
+Moreover, from \eqref{dqds} we have $\partial_s q_i^\times(\theta,s)=\partial_s\varepsilon_i^\times(s)/(u_q\mathcal G_i(\theta))-\;u_s/u_q$, so the bracket in \eqref{F-deriv} simplifies to
+\[
+\partial_q R_q\,\partial_s q_i^\times+\partial_s R_q
+=-\partial_s q_i^\times-\frac{u_s}{u_q}
+=-\frac{\partial_s\varepsilon_i^\times(s)}{u_q\,\mathcal G_i(\theta)}.
+\]
+Substituting into \eqref{F-deriv} yields
+\begin{equation}
+\label{Fprime-final}
+F'(s)
+=
+-\frac{\partial_s\varepsilon_i^\times(s)}{u_q}\,
+\E_{\theta_i}\!\left[\frac{R_\theta(\theta)}{\mathcal G_i(\theta)}\right]
+=
+-\frac{\partial_s\varepsilon_i^\times(s)}{u_q}\,
+\E_{\theta_i}\!\left[\frac{J_i(\theta)}{\mathcal G_i(\theta)^2}\right].
+\end{equation}
+Under $u(q,s)=v(q)+\zeta(s)$ with $v''=0$ and $\zeta_{ss}=0$, both $u_q$ and $u_s$ are constants, hence \eqref{epss} implies $\partial_s\varepsilon_i^\times(s)$ is constant in $s$, so \eqref{Fprime-final} shows that $F'(s)$ is constant in $s$. Therefore $F(s)$ is monotone in $s$ (linear), with sign determined by $\E_{\theta_i}[J_i(\theta)/\mathcal G_i(\theta)^2]$ (and the sign of $u_s$ through $\partial_s\varepsilon_i^\times$).
+
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
