@@ -663,7 +663,8 @@ Consider a weight function $\lambda_i(\theta)$ and its perturbation $\lambda_i^\
 \noindent ii) Assume $\beta^\times = 0$, then if $\tilde{\lambda}_i^\Delta\ge  (\text{resp.} \le) \tilde{\lambda}_i$   then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\;\ge\; (\text{resp.} \le)  \; 0$.
 \end{lemma}
 
-Lemma~\ref{lem:preferenceorder} thus connects the direction of a preference shift, toward higher or lower types, to the sign of $\Delta\G_i(\theta)$: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises social weights pointwise, and conversely. Note that assuming a monotonic mean preserving perturbation ($\Delta \tilde \lambda_i =0$ and $\Delta \lambda_i'(\theta$) has a constant sign) is a constitutes a special case of the Lemma: if the rotation of $\lambda_i(\theta)$ is towards higher (resp. lower) weights then $\Delta\G_i(\theta)\;\ge\; (\text{resp.} \le)  \; 0$ for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$.
+Lemma~\ref{lem:preferenceorder} connects the direction of a preference shift to the sign of $\Delta\mathcal{G}_i(\theta)$: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises the effective social weight pointwise; and conversely, shifting proportionally toward lower types while not increasing the average weight lowers it. A standard perturbation in the redistribution literature is a mean-preserving rotation of $\lambda_i(\theta)$: $\Delta\tilde \lambda_i=0$. Under such a rotation, $\Delta\mathcal{G}_i(\theta)$ has a constant sign throughout the type space - positive when the rotation favors higher types, negative when it favors lower types. 
+
 
 It also has a direct implication for the sign of $R'_\theta(\theta)$. From expression \eqref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. For instance, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), $R_\theta'(\theta)>0$ requires $\Lambda_i'(\theta)/\Lambda_i(\theta)$ to be sufficiently close to zero; since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}, this condition is easier to satisfy under a preference shift toward higher types.
 
@@ -674,17 +675,7 @@ R_\Gamma(\theta):=\frac{\Delta\G_i(\theta)}{\G_i(\theta)}
 \]
 %##########################################
 
-\begin{proposition}[Elasticity condition]\label{prop:PrefTradeoff}
-Assume that both $R_\theta(\theta)$ and $R_q(\theta)$ are monotone and that $\Delta \G_i(\theta)$ has a constant sign for all $\theta$. Suppose that the following condition hold or all $\theta$:
-%##########################################
-\[\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right| \le  \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.\]
-%##########################################
-Then, for any sign configuration of $(R_\Gamma(\theta), R_\theta'(\theta), R_q'(\theta))$ such that $\mathrm{sign}(-R_\Gamma(\theta)R_\theta'(\theta))$ aligns with the sign of $\Delta R_\theta'(\theta)$,
-%##########################################
-\[\mathrm{sign}\underbrace{\left(\Cov_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)\right)}_\text{trade-off sorting effect} = \mathrm{sign}\!\left(-R_\Gamma(\theta) R_\theta'(\theta)\right) \cdot \mathrm{sign}\!\left(R_q'(\theta)\right).\]
-%##########################################
-In sign configurations where $\mathrm{sign}(-R_\Gamma(\theta)R_\theta'(\theta))$ does not align with the sign of $\Delta R_\theta'(\theta)$, the elasticity condition is necessary but not sufficient to sign the covariance term.
-\end{proposition}
+\begin{proposition}[Elasticity condition]\label{prop:PrefTradeoff} Assume that $R_\theta(\theta)$ and $R_q(\theta)$ are monotone, that $R_\Gamma(\theta)$ has a constant sign, and that, for all $\theta$ such that $R_\Gamma(\theta)R_\theta(\theta)\neq 0$,\footnote{At isolated zeros of $R_\theta(\theta)$, the cross-term $-R_\theta(\theta)R_\Gamma'(\theta)$ vanishes and the sign of $\Delta R_\theta'(\theta)$ is determined by $-R_\Gamma(\theta)R_\theta'(\theta)$ directly. At isolated zeros of $R_\Gamma(\theta)$, the constant-sign hypothesis forces $R_\Gamma'(\theta)=0$ by differentiability, so the cross-term vanishes there as well. Monotonicity of $\Delta R_\theta(\theta)$ is preserved in both cases.} \[ \left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right| \le \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|. \] Then $\Delta R_\theta(\theta)$ is monotone and \[ \mathrm{sign}\!\left(\Cov_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)\right) = \mathrm{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)\cdot \mathrm{sign}\!\left(R_q'(\theta)\right). \] If the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone. \end{proposition}
 
 The proposition provides sufficient conditions under which a change in redistributive preferences unambiguously affects the trade-off covariance term, and conversely that a same direction of a change of preference can have opposite effect on the equilibrium. The elasticity condition is a uniform sufficient condition across all achievable sign configurations. It compares two elasticities: (i) $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. The condition requires that the preference change be smoother in proportional terms than the existing sorting pattern. The sorting condition follows from differentiating $R_\theta(\theta)$:
 %##########################################
@@ -703,14 +694,8 @@ We illustrate the implications of the proposition in Figure \ref{fig:variation_u
 
 We conclude with the effect of preferences on the behavioral response, i.e., how a change in social weights affects the optimal allocation $q_i^\times(\theta,s)$.
 
-\begin{lemma}\label{lem:realloc}
-For any perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
-%##########################################
-\[
-\Delta q_i^\times(\theta,s) = R_q(\theta,s)\!\left(R_{\G}(\theta) - \mathbb{E}^w_i\!\left[R_{\G}\mid s\right]\right), \qquad s\in T_i^\times.
-\]
-%##########################################
-\end{lemma}
+\begin{lemma}\label{lem:realloc} For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime, \[ \Delta q_i^\times(\theta,s) = R_q(\theta,s)\!\left(R_{\mathcal{G}}(\theta) - \mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i^\times. \] \end{lemma}
+
 
 The designer reallocates toward types whose proportional change in effective weight $R_{\G}(\theta)$ exceeds the capacity-weighted average $\mathbb{E}^w_i[R_{\G}\mid s]$. The mean-correction is imposed by the capacity constraint: since $\mathbb{E}_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$, the reallocation must be budget-neutral across types.\footnote{There therefore always exist types that lose from a preference change in terms of allocated quantity.} The weights $w_i^\times(\theta,s)$ capture the heterogeneity in unweighted marginal utilities induced by redistributive preferences, the relevant threshold is therefore capacity-weighted rather than uniform. Under the IR-constrained allocation, $R_{\G}(\theta)$ involves the endogenous adjustment $\Delta\beta_i^\times$ and cannot be characterized further without solving for the equilibrium multiplier. Under the IR-unconstrained allocation, $\beta_i^\times=0$ and $R_{\G}(\theta)$ is determined solely by the preference perturbation.
 

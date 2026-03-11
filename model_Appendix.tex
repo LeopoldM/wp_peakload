@@ -1241,199 +1241,87 @@ Suppose instead that $F_i(k_i^+)<0$. Then $F_i$ is negative at both endpoints. I
 
 \noindent\textit{Case: \eqref{Eujmd} crosses from $-$ to $+$.} $F_i$ is single-dipped with $F_i(0)<0$. Either the trough value is negative and $F_i<0$ throughout, or $F_i$ climbs above zero after the trough, crossing zero exactly once from below at a unique $\tilde k_i\in(0,k_i^+]$, and $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i,k_i^+]$.
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Proof of Proposition PrefTradeoff}
-\begin{proof}
-The proof relies on the  following identity %%%%%%%
-\[\Delta\Cov{(R_q,R_\theta)}=\Cov{(\Delta R_q,R_\theta)} + \Cov{(R_q,\Delta R_\theta)}\]
-
-The condition focuses on the second term. Throughout the analysis, we assume that $R_\theta'>0$ and $R_q'<0$. Therefore, we have an adverse sorting effect: $\Cov{(R_q,R_\theta)}<0$. Then if $ \Cov{(R_q,\Delta R_\theta)}>0$, the sorting affect is reduced. As $R_q'<0$, a necessary condition is that $\Delta R_\theta$ is not non-decreasing everywhere. We focus on interior solutions ($\Gamma_i(\theta)>0$)\footnote{We simplify exposition by dropping the overline, indicating that $\Gamma_i(\theta)$ takes into account ironing} and  IC allocation ($\Gamma_i'(\theta)\ge0$). From the definition of $R_\theta$ we get the derivative with respect to $\theta$ as
-
-\[R_\theta'=\frac{ J_i'(\theta)}{\Gamma_i(\theta)} - J_i(\theta)\frac{\Gamma_i'(\theta)}{(\Gamma_i(\theta))^2}\]
-
-Hence, assuming a (marginal) change in preference leading to a change of $\Gamma_i(\theta)$ yields the marginal change
-
-\[\Delta(R_\theta')= -R_\theta R'_\Gamma - R_\Gamma R_\theta'\]
-
-The sign of $\Delta(R_\theta')$ depends on the sign of  $R_\theta$ and $R'_\Gamma$. Then for $\Delta(R_\theta')<0$, we must have 
-
-\[ R'_\Gamma  \le  -R'_\Gamma\frac{R_\theta'}{R_\theta} \quad \text{if} \quad R_\theta<0 \qquad R'_\Gamma  \ge  -R'_\Gamma\frac{R_\theta'}{R_\theta} \quad \text{if} \quad R_\theta \ge 0\]
-
-We start with an increase in weights for higher types such that $R'_\Gamma>0$ for all $\theta$. The right term is positive when $R_\theta<0$: \textbf{i)} If $R'_\Gamma>0$ the right term is an upper bound on $R'_\Gamma$, \textbf{ii)} If $R'_\Gamma<0$ the condition is always satisfied. The right term is negative when $R_\theta>0$: \textbf{iii)} If $R'_\Gamma>0$ the condition is  always satisfied, \textbf{iv)} If $R'_\Gamma<0$ the right term is an upper bound in absolute value on $R'_\Gamma$. So the upper bounds on the corresponding interval are sufficient conditions.
-
-Now assume an increase in weights for lower types such that $R'_\Gamma<0$ for all $\theta$. The right term becomes negative when $R_\theta<0$: \textbf{i)} If $R'_\Gamma>0$ the condition is never satisfied, \textbf{ii)} If $R'_\Gamma<0$  the right term is an lower bound in absolute value on $R'_\Gamma$. The right term is positive when $R_\theta>0$: \textbf{iii)} If $R'_\Gamma>0$ the right term is a lower bound on $R'_\Gamma$, \textbf{iv)} If $R'_\Gamma<0$ the condition is never satisfied. Therefore, the lower bounds on the corresponding interval are necessary conditions.
-\end{proof}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Proof of Preferences}
 
-
-
-\section*{Preference shifts and the log-derivative of $\Lambda_i$ (general weight $G_i$)}
 \begin{proof}
-Write $\lambda_i^1(\theta):=\lambda_i(\theta)$,
-$\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
-\[
-\tilde\lambda_i^k
-  :=\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta),
-\qquad
-\Lambda_i^k(\theta)
-  :=\gamma_i(\theta)\,\E\!\left[\lambda_i^k(\tilde\theta)\mid\tilde\theta\ge\theta\right]
-  =\frac{1}{g_i(\theta)}\int_{\theta}^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t),
-\qquad k\in\{1,2\}.
-\]
-Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing under (i).
+Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define \[\tilde\lambda_i^k := \int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta), \qquad \Lambda_i^k(\theta) := \frac{1}{g_i(\theta)}\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t), \qquad k\in\{1,2\}.\] Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
 
-In the general approach, define the (endogenous) intercept
-\[
-\bar\lambda_i^k \;:=\; \tilde\lambda_i^k+\beta_i^{\times,k},
-\]
-and the effective weight
-\[
-G_i^k(\theta)\;:=\;J_i(\theta)\,\bar\lambda_i^k+\Lambda_i^k(\theta).
-\]
-Then $\Delta G_i(\theta)=G_i^2(\theta)-G_i^1(\theta)$ coincides with
-\[
-\Delta G_i(\theta)
-=J_i(\theta)\,\left(\Delta\tilde\lambda_i+\Delta\beta_i^\times\right)
-+\Delta\Lambda_i(\theta).
-\]
+\medskip\noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.} For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by \[dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}\,\mathbf{1}\{t\ge\theta\}.\] Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, \[\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)} = \frac{\displaystyle\int_\theta^{\overline\theta_i}m(t)\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(t)\,dG_i(t)} = \mathbb{E}_{Q_\theta}[m(\tilde\theta)].\] For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance, $\mathbb{E}_{Q_\theta}[m(\tilde\theta)]\ge\mathbb{E}_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the stochastic-dominance inequality reverses and the ratio is decreasing.
 
-\medskip
-\noindent\textit{Step 1: Monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
+\medskip\noindent\textit{Proof of (i).} Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing, its logarithm is increasing. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,\footnote{The derivative exists a.e.\ on $(\underline\theta_i,\overline\theta_i)$ under the maintained assumptions that $g_i$ is continuous and strictly positive and $\lambda_i^k$ is continuous; pointwise existence is not guaranteed without additional regularity on the weight functions.} \[0 \;\le\; \frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right) = \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)} - \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},\] which yields $\frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}\ge\frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)}$ for almost every $\theta$. The reverse inequality holds when $m$ is decreasing.
 
-For $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure on
-$[\theta,\overline\theta_i]$ with density proportional to $\lambda_i^1(t)\,dG_i(t)$:
-\[
-dQ_\theta(t)
-  :=\frac{\lambda_i^1(t)\,dG_i(t)}
-         {\displaystyle\int_{\theta}^{\overline\theta_i}
-           \lambda_i^1(x)\,dG_i(x)}\,
-    \mathbf{1}\left\{t\ge\theta\right\}.
-\]
-Using $\lambda_i^2(t)=m(t)\lambda_i^1(t)$,
-\[
-\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}
-  =\frac{\displaystyle\int_{\theta}^{\overline\theta_i}
-           m(t)\,\lambda_i^1(t)\,dG_i(t)}
-         {\displaystyle\int_{\theta}^{\overline\theta_i}
-           \lambda_i^1(t)\,dG_i(t)}
-  =\E_{Q_\theta}\!\left[m(\tilde\theta)\right].
-\]
-Take $\theta'<\theta$. Then $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$.
-Since $m$ is increasing, this conditioning shifts probability mass toward larger values of $m$,
-so by first-order stochastic dominance,
-\[
-\E_{Q_\theta}\!\left[m(\tilde\theta)\right]\;\ge\;\E_{Q_{\theta'}}\!\left[m(\tilde\theta)\right].
-\]
-Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on
-$[\underline\theta_i,\overline\theta_i)$.
+\medskip\noindent\textit{Proof of (ii) under $\beta_i^\times=0$.\footnote{When $\beta_i^\times\neq 0$, the effective weight is $\mathcal{G}_i(\theta)=J_i(\theta)(\tilde\lambda_i+\beta_i^\times)+\Lambda_i(\theta)$. An analogous argument applies with $c=(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta})/(\tilde\lambda_i+\beta_i^\times)$, but propagating the $\Lambda$ bound to the full $\mathcal{G}$ bound additionally requires $c\le\tilde\lambda_i^\Delta/\tilde\lambda_i$. Since this condition involves the endogenous multiplier $\beta_i^\times$ and cannot in general be verified from primitives alone, the main text restricts to the IR-unconstrained region.}} When $\beta_i^\times=0$, the effective weight reduces to $\Gamma_i(\theta)=J_i(\theta)\tilde\lambda_i+\Lambda_i(\theta)$ and $\Gamma_i^\Delta(\theta)=J_i(\theta)\tilde\lambda_i^\Delta+\Lambda_i^\Delta(\theta)$.
 
-\medskip
-\noindent\textit{Step 2: Log-derivative inequality.}
+\medskip\noindent\textbf{Upward case.} Assume $m$ is increasing and $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$. Set $c:=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$. We first display the boundary evaluation: \[\frac{\Lambda_i^2(\underline\theta_i)}{\Lambda_i^1(\underline\theta_i)} = \frac{\displaystyle\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^2(t)\,dG_i(t)}{\displaystyle\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^1(t)\,dG_i(t)} = \frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i} = c.\] Since the ratio $\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing by the core step and starts at $c$ at $\underline\theta_i$, it satisfies $\Lambda_i^2(\theta)/\Lambda_i^1(\theta)\ge c$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$, equivalently, \[\Lambda_i^\Delta(\theta)\ge c\,\Lambda_i(\theta)\qquad\forall\,\theta.\] We now bound $\Gamma_i^\Delta(\theta)$ from below. For any $\theta$, write \[\Gamma_i^\Delta(\theta) = J_i(\theta)\tilde\lambda_i^\Delta + \Lambda_i^\Delta(\theta) = c\,J_i(\theta)\tilde\lambda_i + \Lambda_i^\Delta(\theta),\] where the second equality holds with equality regardless of the sign of $J_i(\theta)$, since $\tilde\lambda_i^\Delta=c\tilde\lambda_i$ exactly by definition of $c$. Applying the $\Lambda$ bound: \[\Gamma_i^\Delta(\theta) \;\ge\; c\,J_i(\theta)\tilde\lambda_i + c\,\Lambda_i(\theta) = c\,\Gamma_i(\theta).\] Since $c\ge 1$ and $\Gamma_i(\theta)>0$ by assumption: \[\Delta\mathcal{G}_i(\theta)=\Gamma_i^\Delta(\theta)-\Gamma_i(\theta)\ge(c-1)\Gamma_i(\theta)\ge 0\qquad\forall\,\theta\in[\underline\theta_i,\overline\theta_i].\]
 
-Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing, its logarithm is increasing.
-Therefore, for all $\theta$ at which both functions are differentiable (a.e.\ on
-$(\underline\theta_i,\overline\theta_i)$),
-\[
-0\;\le\;\frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right)
-=\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)}
--\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},
-\]
-which yields
-\[
-\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)}
-\;\ge\;
-\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}.
-\]
-
-\medskip
-\noindent\textit{Step 3: Pointwise sign of $\Delta G_i$.}
-
-Evaluating the ratio at $\theta=\underline\theta_i$ gives
-\[
-\frac{\Lambda_i^2(\underline\theta_i)}{\Lambda_i^1(\underline\theta_i)}
-=\frac{\displaystyle\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^2(t)\,dG_i(t)}
-       {\displaystyle\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^1(t)\,dG_i(t)}
-=\frac{\tilde\lambda_i^2}{\tilde\lambda_i^1}.
-\]
-Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing, for all
-$\theta\in[\underline\theta_i,\overline\theta_i]$,
-\[
-\Lambda_i^2(\theta)\;\ge\;\frac{\tilde\lambda_i^2}{\tilde\lambda_i^1}\,\Lambda_i^1(\theta).
-\]
-
-Define the constant
-\[
-c\;:=\;\frac{\bar\lambda_i^2}{\bar\lambda_i^1}
-=\frac{\tilde\lambda_i^2+\beta_i^{\times,2}}{\tilde\lambda_i^1+\beta_i^{\times,1}}.
-\]
-If, in addition, $c\le \tilde\lambda_i^2/\tilde\lambda_i^1$, then the previous inequality implies
-$\Lambda_i^2(\theta)\ge c\,\Lambda_i^1(\theta)$ for all $\theta$. Hence
-\[
-G_i^2(\theta)
-=J_i(\theta)\,\bar\lambda_i^2+\Lambda_i^2(\theta)
-\;\ge\;
-J_i(\theta)\,\bar\lambda_i^2 + c\,\Lambda_i^1(\theta)
-=
-c\left(J_i(\theta)\,\bar\lambda_i^1+\Lambda_i^1(\theta)\right)
-=
-c\,G_i^1(\theta).
-\]
-If moreover $c\ge 1$ and $G_i^1(\theta)>0$ for all $\theta$, then
-\[
-\Delta G_i(\theta)=G_i^2(\theta)-G_i^1(\theta)\;\ge\;(c-1)\,G_i^1(\theta)\;\ge\;0
-\qquad\forall\theta\in[\underline\theta_i,\overline\theta_i].
-\]
-
-\medskip
-\noindent\textit{Downward shift.}
-If $m(\theta)$ is decreasing, then $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is decreasing,
-so the log-derivative inequality reverses. Moreover
-$\Lambda_i^2(\theta)\le (\tilde\lambda_i^2/\tilde\lambda_i^1)\Lambda_i^1(\theta)$ for all $\theta$.
-Defining $c=\bar\lambda_i^2/\bar\lambda_i^1$, if $c\ge \tilde\lambda_i^2/\tilde\lambda_i^1$ and $c\le 1$,
-then $\Lambda_i^2(\theta)\le c\,\Lambda_i^1(\theta)$ and therefore $G_i^2(\theta)\le c\,G_i^1(\theta)$.
-With $G_i^1(\theta)>0$, this implies $\Delta G_i(\theta)\le 0$ throughout.
+\medskip\noindent\textbf{Downward case.} Assume $m$ is decreasing and $\tilde\lambda_i^\Delta\le\tilde\lambda_i$. Set $c:=\tilde\lambda_i^\Delta/\tilde\lambda_i\le 1$. By the core step, $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is now decreasing. The same boundary evaluation gives a starting value of $c$ at $\underline\theta_i$; since the ratio decreases from $c$, \[\Lambda_i^\Delta(\theta)\le c\,\Lambda_i(\theta)\qquad\forall\,\theta\in[\underline\theta_i,\overline\theta_i].\] As in the upward case, $\tilde\lambda_i^\Delta=c\tilde\lambda_i$ by definition of $c$, so the $J_i$ term contributes an exact equality: \[\Gamma_i^\Delta(\theta) = c\,J_i(\theta)\tilde\lambda_i + \Lambda_i^\Delta(\theta) \;\le\; c\,J_i(\theta)\tilde\lambda_i + c\,\Lambda_i(\theta) = c\,\Gamma_i(\theta).\] Since $c\le 1$ and $\Gamma_i(\theta)>0$: \[\Delta\mathcal{G}_i(\theta)=\Gamma_i^\Delta(\theta)-\Gamma_i(\theta)\le(c-1)\Gamma_i(\theta)\le 0\qquad\forall\,\theta\in[\underline\theta_i,\overline\theta_i].\qedhere\]
 \end{proof}
 
 
 
-\section{A FAIRE: Mean deviation of RGamma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Proof of Proposition PrefTradeoff}
+\begin{proof} The proof proceeds in three steps.
+
+\medskip\noindent\textit{Step 1: The elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.} Differentiating $\Delta R_\theta(\theta) = -R_\Gamma(\theta)\,R_\theta(\theta)$ gives \[ \Delta R_\theta'(\theta) = -R_\Gamma(\theta)\,R_\theta'(\theta) - R_\theta(\theta)\,R_\Gamma'(\theta). \] The two terms on the right-hand side may have opposite signs. If they share the same sign, $\Delta R_\theta'(\theta)$ inherits that sign directly. If they have opposite signs, $\text{sign}(\Delta R_\theta'(\theta)) = \text{sign}(-R_\Gamma(\theta)\,R_\theta'(\theta))$ if and only if the first term dominates in absolute value, i.e., $|R_\Gamma(\theta)\,R_\theta'(\theta)| \geq |R_\theta(\theta)\,R_\Gamma'(\theta)|$, which is equivalent to \[ \left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right| \leq \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|. \] Thus, in both cases, the elasticity condition implies $\text{sign}(\Delta R_\theta'(\theta)) = \text{sign}(-R_\Gamma(\theta)\,R_\theta'(\theta))$ for all $\theta$. Since $\Delta\mathcal{G}_i(\theta)$ has a constant sign, $R_\Gamma(\theta)$ has a constant sign; since $R_\theta(\theta)$ is monotone, $R_\theta'(\theta)$ has a constant sign. Therefore $\text{sign}(-R_\Gamma(\theta)\,R_\theta'(\theta))$ is constant, and $\Delta R_\theta(\theta)$ is globally monotone.
+
+\medskip\noindent\textit{Step 2: Monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.} By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The standard covariance-monotonicity lemma states that two monotone functions on a probability space have non-negative covariance if they are co-monotone and non-positive covariance if they are counter-monotone. Therefore \[ \mathrm{sign}\!\left(\mathrm{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),\,R_q(\theta)\right)\right) = \mathrm{sign}\!\left(\Delta R_\theta'(\theta)\right) \cdot \mathrm{sign}\!\left(R_q'(\theta)\right) = \mathrm{sign}\!\left(-R_\Gamma(\theta)\,R_\theta'(\theta)\right) \cdot \mathrm{sign}\!\left(R_q'(\theta)\right). \]
+
+\medskip\noindent\textit{Step 3: Necessity of the elasticity condition.} If the elasticity condition is violated at some $\theta_0$, i.e., $|R_\theta(\theta_0)\,R_\Gamma'(\theta_0)| > |R_\Gamma(\theta_0)\,R_\theta'(\theta_0)|$, then $\Delta R_\theta'(\theta_0)$ has the opposite sign to $-R_\Gamma(\theta_0)\,R_\theta'(\theta_0)$. This creates a local reversal in the monotonicity of $\Delta R_\theta(\theta)$, so the covariance-monotonicity lemma no longer applies. The sign of $\mathrm{Cov}_{\theta_i}(\Delta R_\theta(\theta),\,R_q(\theta))$ then depends on the specific distribution $F_i$ and the magnitude of the reversal, and no distribution-free sign result obtains. \end{proof}
+
+
+\section{Proof of Mean deviation of RGamma}
 
 \begin{proof}
-Fix $s\in T_i^\times$. Linearizing the pointwise FOC
+Fix \(s\in T_i^\times\), and consider a local perturbation \(\Delta\lambda_i(\theta)\) holding \(k_i\) fixed. We use the identity
 \[
-u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)=\varepsilon_i^\times(s)
+R_q(\theta,s)=\varepsilon_i^\times(s)\,w_i^\times(\theta,s),
+\]
+which follows directly from the definitions
+\[
+R_q(\theta,s)=\frac{-u(q_i^\times(\theta,s),s)}{u_q(q_i^\times(\theta,s),s)}
+\]
+and
+\[
+\varepsilon_i^\times(s)=u(q_i^\times(\theta,s),s)\,\mathcal G_i(\theta).
+\]
+Indeed, since
+\[
+w_i^\times(\theta,s)=\frac{-1}{\mathcal G_i(\theta)\,u_q(q_i^\times(\theta,s),s)},
+\]
+we have
+\[
+\varepsilon_i^\times(s)\,w_i^\times(\theta,s)
+=
+\frac{-u(q_i^\times(\theta,s),s)}{u_q(q_i^\times(\theta,s),s)}
+=
+R_q(\theta,s).
+\]
+
+Linearizing the pointwise first-order condition
+\[
+u(q_i^\times(\theta,s),s)\,\mathcal G_i(\theta)=\varepsilon_i^\times(s)
 \]
 gives
 \[
-u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)\,\Delta q_i^\times(\theta,s)
+u_q(q_i^\times(\theta,s),s)\,\mathcal G_i(\theta)\,\Delta q_i^\times(\theta,s)
 +
-u\!\left(q_i^\times(\theta,s),s\right)\Delta\mathcal G_i(\theta)
+u(q_i^\times(\theta,s),s)\,\Delta\mathcal G_i(\theta)
 -
-\Delta\varepsilon_i^\times(s)=0.
-\]
-Hence
-\[
-\Delta q_i^\times(\theta,s)
+\Delta\varepsilon_i^\times(s)
 =
-\frac{\Delta\varepsilon_i^\times(s)-u\!\left(q_i^\times(\theta,s),s\right)\Delta\mathcal G_i(\theta)}
-{\mathcal G_i(\theta)\,u_q\!\left(q_i^\times(\theta,s),s\right)}.
+0.
 \]
-Using
-\[
-R_q(\theta,s)=-\frac{u\!\left(q_i^\times(\theta,s),s\right)}{u_q\!\left(q_i^\times(\theta,s),s\right)},
-\qquad
-R_{\mathcal G}(\theta)=\frac{\Delta\mathcal G_i(\theta)}{\mathcal G_i(\theta)},
-\qquad
-\varepsilon_i^\times(s)=u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta),
-\]
-we can rewrite this as
+Solving for \(\Delta q_i^\times(\theta,s)\) and substituting the definitions of \(R_q\),
+\(R_{\mathcal G}(\theta)=\Delta\mathcal G_i(\theta)/\mathcal G_i(\theta)\), and
+\(\varepsilon_i^\times(s)\) yields
 \[
 \Delta q_i^\times(\theta,s)
 =
@@ -1441,38 +1329,44 @@ R_q(\theta,s)\left(
 R_{\mathcal G}(\theta)-\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
 \right).
 \]
-Since $k_i$ is fixed, feasibility in state $s$ implies
+
+Since the capacity constraint binds state-by-state and \(k_i\) is held fixed,
 \[
-\E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\right]=0.
+\mathbb E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\right]=0
+\qquad\text{for each }s\in T_i^\times.
 \]
 Substituting the previous expression and using
-\[
-R_q(\theta,s)=\varepsilon_i^\times(s)\,w_i^\times(\theta,s),
-\]
-yields
+\(R_q(\theta,s)=\varepsilon_i^\times(s)\,w_i^\times(\theta,s)\), we obtain
 \[
 0
 =
 \varepsilon_i^\times(s)\,
-\E_{\theta_i}\!\left[
-w_i^\times(\theta,s)\left(
+\mathbb E_{\theta_i}\!\left[
+w_i^\times(\theta,s)
+\left(
 R_{\mathcal G}(\theta)-\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
 \right)
 \right].
 \]
-Dividing by $\varepsilon_i^\times(s)\,\overline w_i^\times(s)$ gives
+Because \(s\in T_i^\times\), we have \(\varepsilon_i^\times(s)>0\), and since
+\(u_q<0\) and \(\mathcal G_i(\theta)>0\), also \(w_i^\times(\theta,s)>0\), hence
+\(\bar w_i^\times(s)>0\). Dividing by \(\varepsilon_i^\times(s)\bar w_i^\times(s)\) and rearranging gives
 \[
 \frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
 =
-\E_i^w\!\left[R_{\mathcal G}\mid s\right].
+\mathbb E_i^w\!\left[R_{\mathcal G}\mid s\right].
 \]
-Substituting back proves
+Substituting back yields
 \[
 \Delta q_i^\times(\theta,s)
 =
-R_q(\theta,s)\left(R_{\mathcal G}(\theta)-\E_i^w\!\left[R_{\mathcal G}\mid s\right]\right).
+R_q(\theta,s)\left(
+R_{\mathcal G}(\theta)-\mathbb E_i^w\!\left[R_{\mathcal G}\mid s\right]
+\right),
 \]
+as claimed.
 \end{proof}
+
 
 \section{Proof of Proposition rprefreallocation}
 \subsection{Mean Preserving}
