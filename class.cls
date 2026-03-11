@@ -6,7 +6,6 @@
 \linespread{1.05}       % optional but usually matches the spacing in papers like this
 \usepackage{microtype}  % better kerning/spacing (recommended)
 
-\usepackage{xr-hyper}
 \NeedsTeXFormat{LaTeX2e}
 \usepackage{amsmath}
 \usepackage{derivative}

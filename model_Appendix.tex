@@ -470,218 +470,20 @@ This proves part (ii).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Sufficient statistic}
-
-\begin{proof}
-For each binding state \(s\in T_i^\times\), define
-\[
-w_i^\times(\theta,s):=-\frac{1}{u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)}>0,
-\qquad
-\overline w_i^\times(s):=\E_{\theta_i}\!\left[w_i^\times(\theta,s)\right],
-\]
-and
-\[
-\E_{w_i}\!\left[X\mid s\right]
-:=
-\frac{1}{\overline w_i^\times(s)}
-\E_{\theta_i}\!\left[w_i^\times(\theta,s)X(\theta,s)\right].
-\]
-
-We first note that if \(s\in S_i^\times\), the capacity constraint is slack, so
-\(\varepsilon_i^\times(s)=0\). Since \(\mathcal G_i(\theta)>0\), the first-order condition
-implies
-\[
-u\!\left(q_i^\times(\theta,s),s\right)=0
-\qquad \forall \theta,
-\]
-hence \(q_i^\times(\theta,s)\) is locally independent of \(k_i\), and therefore
-\[
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}=0
-\qquad \forall s\in S_i^\times.
-\]
-
-Now fix \(s\in T_i^\times\). Differentiating the pointwise first-order condition
-\[
-u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)-\varepsilon_i^\times(s)=0
-\]
-with respect to \(k_i\) gives
-\[
-u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-+
-u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\frac{\partial \beta_i^\times}{\partial k_i}
--
-\frac{\partial \varepsilon_i^\times(s)}{\partial k_i}
-=0.
-\]
-Equivalently,
-\[
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-=
--w_i^\times(\theta,s)\frac{\partial \varepsilon_i^\times(s)}{\partial k_i}
-+
-w_i^\times(\theta,s)\,u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\,
-\frac{\partial \beta_i^\times}{\partial k_i}.
-\]
-
-Using the binding state-by-state capacity constraint
-\[
-\E_{\theta_i}\!\left[q_i^\times(\theta,s)\right]=k_i
-\]
-and differentiating with respect to \(k_i\), we obtain
-\[
-1=\E_{\theta_i}\!\left[\frac{\partial q_i^\times(\theta,s)}{\partial k_i}\right].
-\]
-Substituting the previous expression yields
-\[
-\frac{\partial \varepsilon_i^\times(s)}{\partial k_i}
-=
--\frac{1}{\overline w_i^\times(s)}
-+
-\frac{\partial \beta_i^\times}{\partial k_i}
-\E_{w_i}\!\left[uJ\mid s\right],
-\]
-where \(uJ\) is shorthand for
-\(u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\). Plugging this back gives
-\begin{equation}
-\label{eq:dqdk-decomp}
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-=
-\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)}
-+
-w_i^\times(\theta,s)\frac{\partial \beta_i^\times}{\partial k_i}
-\left(
-u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
--
-\E_{w_i}\!\left[uJ\mid s\right]
-\right).
-\end{equation}
-
-We now prove the three claims.
-
-For part (i), consider the IR-unconstrained region. Then \(\beta_i^\times=0\) locally, so
-\(\partial \beta_i^\times/\partial k_i=0\). Hence \eqref{eq:dqdk-decomp} reduces to
-\[
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-=
-\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)}
-\qquad \forall s\in T_i^\times.
-\]
-Since \(\partial_{k_i}q_i^\times(\theta,s)=0\) on \(S_i^\times\), differentiating
-\[
-\mathbb E\underline{CS}_i^\times
-=
-\E_{s,\theta_i}\!\left[U\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right]-I_i
-\]
-gives
-\[
-\frac{\partial \mathbb E\underline{CS}_i^\times}{\partial k_i}
-=
-\E_s\!\left[
-\E_{\theta_i}\!\left[
-u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-\right]
-\mathbf 1_{\{s\in T_i^\times\}}
-\right].
-\]
-Substituting \(\partial_{k_i}q_i^\times=w_i^\times/\overline w_i^\times\) yields
-\[
-\frac{\partial \mathbb E\underline{CS}_i^\times}{\partial k_i}
-=
-\E_s\!\left[
-\E_{w_i}\!\left[uJ\mid s\right]
-\mathbf 1_{\{s\in T_i^\times\}}
-\right]
-=:\mathcal S_i(k_i).
-\]
-Therefore the sign of \(\partial \mathbb E\underline{CS}_i^\times/\partial k_i\) is the sign of
-\(\mathcal S_i(k_i)\).
-
-For part (ii), consider the IR-constrained region, so
-\[
-\E_{s,\theta_i}\!\left[U\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\right]=I_i.
-\]
-Differentiating with respect to \(k_i\) and using again that \(\partial_{k_i}q_i^\times=0\) on
-\(S_i^\times\), we obtain
-\[
-0=
-\E_s\!\left[
-\E_{\theta_i}\!\left[
-u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-\right]
-\mathbf 1_{\{s\in T_i^\times\}}
-\right].
-\]
-Substituting \eqref{eq:dqdk-decomp} gives
-\[
-0=
-\mathcal S_i(k_i)
-+
-\frac{\partial \beta_i^\times}{\partial k_i}
-\E_s\!\left[
-\overline w_i^\times(s)\,
-\Var_{w_i}\!\left(uJ\mid s\right)
-\mathbf 1_{\{s\in T_i^\times\}}
-\right].
-\]
-Hence
-\[
-\frac{\partial \beta_i^\times}{\partial k_i}
-=
--
-\frac{\mathcal S_i(k_i)}
-{\E_s\!\left[
-\overline w_i^\times(s)\,
-\Var_{w_i}\!\left(uJ\mid s\right)
-\mathbf 1_{\{s\in T_i^\times\}}
-\right]}.
-\]
-The denominator is weakly positive, and strictly positive away from knife-edge cases. Therefore
-\[
-\sign\!\left(\frac{\partial \beta_i^\times}{\partial k_i}\right)
-=
--\sign\!\left(\mathcal S_i(k_i)\right).
-\]
-
-For part (iii), \eqref{eq:dqdk-decomp} shows that
-\[
-\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
-=
-\underbrace{\frac{w_i^\times(\theta,s)}{\overline w_i^\times(s)}}_{\text{pure expansion}}
-+
-\underbrace{
-w_i^\times(\theta,s)\frac{\partial \beta_i^\times}{\partial k_i}
-\left(
-u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
--
-\E_{w_i}\!\left[uJ\mid s\right]
-\right)}_{\text{reallocation}}.
-\]
-The first term is strictly positive and common in sign. The second term has weighted mean zero across
-types and determines how the marginal capacity increment is tilted across types. Since
-\(w_i^\times(\theta,s)>0\), the direction of this reallocation term is pinned down by the sign of
-\(\partial \beta_i^\times/\partial k_i\), and thus by the sign of \(\mathcal S_i(k_i)\).
-
-This proves the lemma.
-\end{proof}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Single Crossing}
 
-\begin{lemma}[Single-crossing]\label{lem:SC-dir}
-Assume $R_\theta(\theta)$ is monotone in $\theta$ and $R_q(\theta,k_i)$ has log-monotone differences in $(\theta,k_i)$ (i.e., it is either log-submodular or log-supermodular). Then the map
-\[
-k_i \longmapsto \mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times(k_i)\}}\,
-\mathbb E_{w_i}[uJ\mid s]\right]
-\]
-is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
-\end{lemma}
+
 \begin{proof}
 
+\medskip\noindent\textbf{Preliminary step.} For each binding state $s\in T_i^\times$, define $w_i^\times(\theta,s):=-1/(u_q(q_i^\times(\theta,s),s)\,\mathcal{G}_i(\theta))>0$ and $\bar{w}_i^\times(s):=\mathbb{E}_{\theta_i}[w_i^\times(\theta,s)]$. Differentiating the pointwise FOC $u(q_i^\times(\theta,s),s)\mathcal{G}_i(\theta)=\varepsilon_i^\times(s)$ with respect to $k_i$ and using the binding state-by-state capacity constraint $\mathbb{E}_{\theta_i}[q_i^\times(\theta,s)]=k_i$ yields
+\begin{equation}\label{eq:dqdk-decomp}\tag{$\partial_k q^\times$}
+\frac{\partial q_i^\times(\theta,s)}{\partial k_i} = \frac{w_i^\times(\theta,s)}{\bar{w}_i^\times(s)} + w_i^\times(\theta,s)\frac{\partial\beta_i^\times}{\partial k_i}\!\left(u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta) - \mathbb{E}_{w_i}[uJ\mid s]\right),
+\end{equation}
+with $\partial q_i^\times(\theta,s)/\partial k_i=0$ for $s\in S_i^\times$. On the IR-unconstrained region ($\beta_i^\times=0$), the second term vanishes and differentiating $\mathbb{E}\underline{CS}_i^\times = \mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]-I_i$ gives $\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i = \mathcal{S}_i(k_i) := \mathbb{E}_s[\mathbb{E}_{w_i}[uJ\mid s]\,\mathbf{1}_{\{s\in T_i^\times\}}]$. On the IR-constrained region, differentiating the binding identity $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]=I_i$ and substituting \eqref{eq:dqdk-decomp} yields
+\[
+\frac{\partial\beta_i^\times}{\partial k_i} = -\frac{\mathcal{S}_i(k_i)}{\mathbb{E}_s\!\left[\bar{w}_i^\times(s)\,\mathrm{Var}_{w_i}(uJ\mid s)\,\mathbf{1}_{\{s\in T_i^\times\}}\right]},
+\]
+so $\mathrm{sign}(\partial\beta_i^\times/\partial k_i)=-\mathrm{sign}(\mathcal{S}_i(k_i))$. The denominator is strictly positive away from knife-edge cases.
 For each \(k_i\), let
 \[
 T_i^\times(k_i)=\{s\ge s_i^\times(k_i)\},
@@ -1214,13 +1016,13 @@ This completes the proof.
 \begin{proof}
 Define $H_i(\theta):=\partial\mathbb{E}CS_i^\times(\theta)/\partial k_i$. From the envelope representation \eqref{ICmd-def}, \[H_i(\theta)=H_i(\underline\theta_i)+\int_{\underline\theta_i}^\theta H_i'(\tilde\theta)\,d\tilde\theta, \qquad H_i'(\theta)=\mathbb{E}_s\!\left[u\!\left(q_i^\times(\theta,s),s\right)\frac{\partial q_i^\times(\theta,s)}{\partial k_i}\,\mathbf{1}_{s\in T_i^\times}\right].\] Under Definition~\ref{ass:multiplicative}, $u(q,s)=\kappa(q)\zeta(s)$ so $u_q=\kappa'(q)\zeta(s)$, and the ratio $R_q(\theta):=-\kappa(q_i^\times(\theta,s))/\kappa'(q_i^\times(\theta,s))$ is $s$-independent at the optimum by Lemma~\ref{lem:statewise-zero-mult}. Using this and the first-order condition $u(q_i^\times,s)\mathcal{G}_i(\theta)=\varepsilon_i^\times(s)$, one verifies $u(q_i^\times,s)w_i^\times(\theta,s)=R_q(\theta)/\mathcal{G}_i(\theta)$ and $u(q_i^\times,s)J_i(\theta)=\varepsilon_i^\times(s)R_\theta(\theta)$. Substituting \eqref{partialkq1} into $H_i'(\theta)$ and applying these identities yields \[H_i'(\theta)=\frac{R_q(\theta)}{\mathcal{G}_i(\theta)}\!\left(A_i-\beta_i' B_i+\beta_i' C_i R_\theta(\theta)\right),\] where \[A_i:=\mathbb{E}_s\!\left[\frac{\mathbf{1}_{s\in T_i^\times}}{\bar w_i^\times(s)}\right]>0, \qquad B_i:=\mathbb{E}_s\!\left[\mathbb{E}_{w_i}[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}\right], \qquad C_i:=\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\,\mathbf{1}_{s\in T_i^\times}\right]>0,\] and $\beta_i':=\partial\beta_i^\times/\partial k_i$. Dy Definition~\ref{ass:multiplicative} of multiplicative separability $\mathbb{E}_{w_i}[uJ\mid s]$ is constant across all $s\in T_i^\times$, so $B_i = \Pr(s\in T_i^\times)\cdot\mathbb{E}_{w_i}[uJ\mid s]$ and $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$.
 
-\medskip\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i^\times=0$, we have $\beta_i'=0$ and $\mathcal{G}_i(\theta)\equiv\Gamma_i(\theta)$, so $H_i'(\theta)=R_q(\theta)A_i/\Gamma_i(\theta)>0$ for all $\theta$. Hence $H_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By Lemma~\ref{lem:suffstat}(i), $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i$ carries the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive then $H_i(\underline\theta_i)>0$, and since $H_i$ is strictly increasing, $H_i(\theta)>0$ for all $\theta$: every type gains. If \eqref{Eujmd} is negative then $H_i(\underline\theta_i)<0$, and strict monotonicity implies $H_i$ crosses zero at most once; whenever the crossing $\tilde\theta_i$ exists, $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$.
+\medskip\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i^\times=0$, we have $\beta_i'=0$ and $\mathcal{G}_i(\theta)\equiv\Gamma_i(\theta)$, so $H_i'(\theta)=R_q(\theta)A_i/\Gamma_i(\theta)>0$ for all $\theta$. Hence $H_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i$ carries the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive then $H_i(\underline\theta_i)>0$, and since $H_i$ is strictly increasing, $H_i(\theta)>0$ for all $\theta$: every type gains. If \eqref{Eujmd} is negative then $H_i(\underline\theta_i)<0$, and strict monotonicity implies $H_i$ crosses zero at most once; whenever the crossing $\tilde\theta_i$ exists, $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$.
 
 \medskip\noindent\textbf{IR-constrained allocation.}
 
 \noindent\textit{Step 1: initial condition.} Since \eqref{Rmdi-def} binds, differentiating the identity $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]-I_i=0$ with respect to $k_i$ yields $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=0$.
 
-\noindent\textit{Step 2: monotonicity of $H_i'$ and shape of $H_i$.} Since $R_q(\theta)/\mathcal{G}_i(\theta)>0$, the sign of $H_i'(\theta)$ equals the sign of the affine function $A_i-\beta_i'B_i+\beta_i'C_iR_\theta(\theta)$. If $R_\theta(\theta)$ is monotone this affine function is monotone in $\theta$, hence $H_i'(\theta)$ is monotone in $\theta$ and $H_i$ is either concave or convex. By Lemma~\ref{lem:suffstat}(ii), $\mathrm{sign}(\beta_i')=-\mathrm{sign}(\eqref{Eujmd})$, and by the observation above $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$, so $\mathrm{sign}(-\beta_i'B_i)=\mathrm{sign}(\eqref{Eujmd})^2\ge 0$: the term $-\beta_i'B_i$ is always non-negative and does not affect the monotonicity direction. The direction is determined by $\beta_i'C_iR_\theta(\theta)$: if $R_\theta(\theta)$ is increasing and \eqref{Eujmd} is positive then $\beta_i'<0$, so $H_i'$ is decreasing and $H_i$ is concave; if \eqref{Eujmd} is negative then $\beta_i'>0$ and $H_i$ is convex. If $R_\theta(\theta)$ is decreasing these conclusions are reversed.
+\noindent\textit{Step 2: monotonicity of $H_i'$ and shape of $H_i$.} Since $R_q(\theta)/\mathcal{G}_i(\theta)>0$, the sign of $H_i'(\theta)$ equals the sign of the affine function $A_i-\beta_i'B_i+\beta_i'C_iR_\theta(\theta)$. If $R_\theta(\theta)$ is monotone this affine function is monotone in $\theta$, hence $H_i'(\theta)$ is monotone in $\theta$ and $H_i$ is either concave or convex. By the preliminary step of Lemma~\ref{lem:SC-dir}, $\mathrm{sign}(\beta_i')=-\mathrm{sign}(\eqref{Eujmd})$, and by the observation above $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$, so $\mathrm{sign}(-\beta_i'B_i)=\mathrm{sign}(\eqref{Eujmd})^2\ge 0$: the term $-\beta_i'B_i$ is always non-negative and does not affect the monotonicity direction. The direction is determined by $\beta_i'C_iR_\theta(\theta)$: if $R_\theta(\theta)$ is increasing and \eqref{Eujmd} is positive then $\beta_i'<0$, so $H_i'$ is decreasing and $H_i$ is concave; if \eqref{Eujmd} is negative then $\beta_i'>0$ and $H_i$ is convex. If $R_\theta(\theta)$ is decreasing these conclusions are reversed.
 
 \noindent\textit{Step 3: uniqueness and welfare direction.} Since $H_i(\underline\theta_i)=0$, a concave $H_i$ can depart from zero in only one direction and cross zero at most once, and symmetrically for the convex case. In case~(i) with $R_\theta$ increasing: $H_i$ is concave, rises above zero and then crosses back down, so $H_i>0$ for $\theta\in(\underline\theta_i,\tilde\theta_i)$ and $H_i<0$ for $\theta>\tilde\theta_i$: lower types gain and higher types lose. In case~(ii): $H_i$ is convex, dips below zero and crosses back up, so $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$, reversing the welfare ordering. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse.
 \end{proof}
@@ -1229,7 +1031,7 @@ Define $H_i(\theta):=\partial\mathbb{E}CS_i^\times(\theta)/\partial k_i$. From t
 \section{Proof of Proposition Region}
 
 \begin{proof}
-Let $F_i(k_i):=\mathbb{E}\underline{CS}_i^\times(k_i)$. By Lemma~\ref{lem:suffstat}(i), $F_i'(k_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=\mathbb{E}_s[\mathbb{E}_{w_i}[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}]$. Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto\mathbb{E}_{w_i}[uJ\mid s]$ is monotone in $k_i$ for each fixed $s\in T_i^\times$: decreasing when \eqref{Eujmd} crosses from $+$ to $-$, increasing in the opposite case. Since monotonicity is preserved under expectation over $s$, the map $k_i\mapsto F_i'(k_i)$ is itself monotone. When \eqref{Eujmd} crosses from $+$ to $-$, $F_i'$ is decreasing and crosses zero at most once from above, so $F_i$ is single-peaked on $[0,k_i^+]$. The case crossing from $-$ to $+$ gives a single-dipped $F_i$ by the same argument.
+Let $F_i(k_i):=\mathbb{E}\underline{CS}_i^\times(k_i)$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $F_i'(k_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=\mathbb{E}_s[\mathbb{E}_{w_i}[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}]$. Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto\mathbb{E}_{w_i}[uJ\mid s]$ is monotone in $k_i$ for each fixed $s\in T_i^\times$: decreasing when \eqref{Eujmd} crosses from $+$ to $-$, increasing in the opposite case. Since monotonicity is preserved under expectation over $s$, the map $k_i\mapsto F_i'(k_i)$ is itself monotone. When \eqref{Eujmd} crosses from $+$ to $-$, $F_i'$ is decreasing and crosses zero at most once from above, so $F_i$ is single-peaked on $[0,k_i^+]$. The case crossing from $-$ to $+$ gives a single-dipped $F_i$ by the same argument.
 
 It remains to determine the sign of $F_i$ at the endpoints. At $k_i=0$ the capacity constraint binds at zero, so $q_i^\times(\theta,s)=0$ for all $(\theta,s)$, giving $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]=0$ and hence $F_i(0)=-I_i<0$ for any $I_i>0$.
 
