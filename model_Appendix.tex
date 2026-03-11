@@ -396,41 +396,27 @@ For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slac
 \end{proof}
 
 \section{Single crossing}
-
-
 \begin{proof}
-For each binding state $s\in T_i^\times(k_i)$ and $k_i$, defined
+For each binding state $s\in T_i^\times(k_i)$ and each $k_i$, define
 \[
-H_i(k_i,s)
-:=
-\mathbb E_i^w[uJ\mid s].
-\]
-and
-\[
-\mathcal S_i(k_i)
-:=
-\int_{s_i^\times(k_i)}^{\overline s}
-H_i(k_i,s)\,f(s)\,ds.
+\mathsf H_i(k_i,s):=\mathbb E_i^w[uJ\mid s],
+\qquad
+\mathcal S_i(k_i):=\int_{s_i^\times(k_i)}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds.
 \]
 
-\medskip
-\noindent
-For every binding state $s\in T_i^\times(k_i)$, define
+For every binding state $s\in T_i^\times(k_i)$, define the probability measure
 \[
-dP_{k_i,s}(\theta)
-:=
+dP_{k_i,s}(\theta):=
 \frac{R_q(\theta,k_i,s)\,g_i(\theta)}
 {\mathbb E_{\theta_i}[R_q(\theta,k_i,s)]}\,d\theta.
 \]
 Since
 \[
-R_\theta(\theta,k_i)
-=
-\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
 \]
 we can write
 \[
-H_i(k_i,s)
+\mathsf H_i(k_i,s)
 =
 \frac{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\,R_\theta(\theta,k_i)\right]}
 {\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\right]}
@@ -438,9 +424,9 @@ H_i(k_i,s)
 \int_{\Theta_i} R_\theta(\theta,k_i)\,dP_{k_i,s}(\theta).
 \]
 
-Differentiate $H_i(k_i,s)$ with respect to $k_i$. This gives
+Differentiating $\mathsf H_i(k_i,s)$ with respect to $k_i$ gives
 \[
-\frac{\partial H_i(k_i,s)}{\partial k_i}
+\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
 =
 M_i(k_i,s)+D_i(k_i,s),
 \]
@@ -450,7 +436,7 @@ M_i(k_i,s)
 :=
 \left.
 \frac{\partial}{\partial t}
-\int_{\Theta_i} R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
+\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
 \right|_{t=k_i}
 \]
 is the pure measure-shift term, and
@@ -458,8 +444,7 @@ is the pure measure-shift term, and
 D_i(k_i,s)
 :=
 \int_{\Theta_i}
-\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
-\,dP_{k_i,s}(\theta)
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}\,dP_{k_i,s}(\theta)
 \]
 is the direct effect through the $k_i$-dependence of $R_\theta$.
 
@@ -481,13 +466,9 @@ in the two opposite cases.
 
 Next, since
 \[
-R_\theta(\theta,k_i)
-=
-\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
 \qquad
-\mathcal G_i(\theta,k_i)
-=
-\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i),
+\mathcal G_i(\theta,k_i)=\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i),
 \]
 we have
 \[
@@ -500,26 +481,23 @@ Therefore
 \[
 D_i(k_i,s)
 =
--\beta_i^{\times\prime}(k_i)\,A_i(k_i,s),
+-\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s),
 \]
 where
 \[
-A_i(k_i,s)
+\mathcal Q_i(k_i,s)
 :=
 \int_{\Theta_i}
-\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}
-\,dP_{k_i,s}(\theta)
+\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}\,dP_{k_i,s}(\theta)
 >0.
 \]
 Thus
 \[
-\frac{\partial H_i(k_i,s)}{\partial k_i}
+\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
 =
-M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,A_i(k_i,s).
+M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s).
 \]
 
-\medskip
-\noindent
 We now relate $\beta_i^{\times\prime}(k_i)$ to $\mathcal S_i(k_i)$. On the IR-constrained region, define
 \[
 \Phi_i(k_i,\beta)
@@ -538,7 +516,7 @@ By construction,
 \Phi_i\!\left(k_i,\beta_i^\times(k_i)\right)=0.
 \]
 
-Holding $\beta$ fixed, the comparative-statics identity gives, for every binding state $s$,
+Holding $\beta$ fixed, the standard comparative-statics identity gives, for every binding state $s$,
 \[
 \frac{\partial q_i^\times(\theta,s;k_i,\beta)}{\partial k_i}
 =
@@ -550,7 +528,8 @@ Hence
 =
 \mathbb E_s\!\left[
 \mathbf 1_{\{s\in T_i^\times(k_i)\}}
-\,\mathbb E_i^w[uJ\mid s]
+\,
+\mathbb E_i^w[uJ\mid s]
 \right]
 =
 \mathcal S_i(k_i),
@@ -568,7 +547,7 @@ u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta,k_i)
 =
 \varepsilon_i^\times(s)
 \]
-with respect to $\beta$, using $\partial_\beta \mathcal G_i(\theta,k_i)=J_i(\theta)$ and imposing
+with respect to $\beta$, using $\partial_\beta\mathcal G_i(\theta,k_i)=J_i(\theta)$ and imposing
 \[
 \mathbb E_{\theta_i}\!\left[\partial_\beta q_i^\times(\theta,s)\right]=0,
 \]
@@ -577,6 +556,8 @@ yields
 \frac{\partial \varepsilon_i^\times(s)}{\partial \beta}
 =
 \mathbb E_i^w[uJ\mid s]
+=
+\mathsf H_i(k_i,s)
 \]
 and
 \[
@@ -586,7 +567,7 @@ w_i^\times(\theta,s)
 \left(
 u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
 -
-\mathbb E_i^w[uJ\mid s]
+\mathsf H_i(k_i,s)
 \right).
 \]
 Therefore
@@ -595,14 +576,14 @@ Therefore
 =
 \mathbb E_s\!\left[
 \mathbf 1_{\{s\in T_i^\times(k_i)\}}
-\,\bar w_i^\times(s)\,\mathrm{Var}_i^w(uJ\mid s)
+\,
+\bar w_i^\times(s)\,
+\mathrm{Var}_i^w(uJ\mid s)
 \right]
 =:
 \mathcal V_i(k_i),
 \]
-with $\mathcal V_i(k_i)>0$ away from knife-edge cases.
-
-Differentiating
+with $\mathcal V_i(k_i)>0$ away from knife-edge cases. Differentiating
 \[
 \Phi_i\!\left(k_i,\beta_i^\times(k_i)\right)=0
 \]
@@ -618,66 +599,58 @@ hence
 =
 -\frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
 \]
-In particular, at every $k_i^0$ such that $\mathcal S_i(k_i^0)=0$, one has
-\[
-\beta_i^{\times\prime}(k_i^0)=0.
-\]
-The same conclusion is immediate on the IR-unconstrained region, where $\beta_i^\times(k_i)\equiv 0$ locally.
 
-\medskip
-\noindent
-Now differentiate
+Finally, differentiate
 \[
 \mathcal S_i(k_i)
 =
-\int_{s_i^\times(k_i)}^{\overline s}
-H_i(k_i,s)\,f(s)\,ds.
+\int_{s_i^\times(k_i)}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds.
 \]
-By Leibniz' rule,
+Using Leibniz' rule,
 \[
 \mathcal S_i'(k_i)
 =
--\,s_i^{\times\prime}(k_i)\,
-H_i\!\left(k_i,s_i^\times(k_i)\right)\,
+-
+\mathsf H_i\!\left(k_i,s_i^\times(k_i)\right)
 f\!\left(s_i^\times(k_i)\right)
+s_i^{\times\prime}(k_i)
 +
 \int_{s_i^\times(k_i)}^{\overline s}
-\frac{\partial H_i(k_i,s)}{\partial k_i}\,f(s)\,ds.
+\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}\,f(s)\,ds.
 \]
-At the threshold state $s_i^\times(k_i)$,
+At the threshold state $s_i^\times(k_i)$ we have
 \[
 u\!\left(q_i^\times(\theta,s_i^\times(k_i)),s_i^\times(k_i)\right)=0
 \qquad
 \text{for every }\theta,
 \]
-so
-\[
-H_i\!\left(k_i,s_i^\times(k_i)\right)=0.
-\]
-Hence the boundary term vanishes and
+so $\mathsf H_i\!\left(k_i,s_i^\times(k_i)\right)=0$. Hence the boundary term vanishes and
 \[
 \mathcal S_i'(k_i)
 =
-\overline M_i(k_i)-\beta_i^{\times\prime}(k_i)\,\overline A_i(k_i),
+\overline M_i(k_i)-\beta_i^{\times\prime}(k_i)\,\overline{\mathcal Q}_i(k_i),
 \]
 where
 \[
 \overline M_i(k_i)
 :=
-\int_{s_i^\times(k_i)}^{\overline s} M_i(k_i,s)\,f(s)\,ds,
+\int_{s_i^\times(k_i)}^{\overline s}M_i(k_i,s)\,f(s)\,ds,
 \qquad
-\overline A_i(k_i)
+\overline{\mathcal Q}_i(k_i)
 :=
-\int_{s_i^\times(k_i)}^{\overline s} A_i(k_i,s)\,f(s)\,ds
+\int_{s_i^\times(k_i)}^{\overline s}\mathcal Q_i(k_i,s)\,f(s)\,ds
 >0.
 \]
 
-Now let $k_i^0$ satisfy $\mathcal S_i(k_i^0)=0$. Then $\beta_i^{\times\prime}(k_i^0)=0$, so
+Now let $k_i^0$ satisfy $\mathcal S_i(k_i^0)=0$. Then
+\[
+\beta_i^{\times\prime}(k_i^0)=0,
+\]
+so
 \[
 \mathcal S_i'(k_i^0)=\overline M_i(k_i^0).
 \]
 Since each $M_i(k_i^0,s)$ has the same sign across binding states, $\overline M_i(k_i^0)$ has that same sign. Therefore every sign-changing zero of $\mathcal S_i$ is crossed in the same direction:
-
 \[
 \mathcal S_i'(k_i^0)>0
 \]
@@ -698,228 +671,880 @@ Thus the map
 k_i\longmapsto \mathcal S_i(k_i)
 =
 \mathbb E_s\!\left[
-\mathbb E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\mathbb E_i^w[uJ\mid s]\,
+\mathbf 1_{\{s\in T_i^\times(k_i)\}}
 \right]
 \]
 is single-crossing in $k_i$, with crossing direction pinned down by the combination of monotonicities stated in the lemma.
 \end{proof}
-\begin{lemma}[From the aggregated zero to the statewise zero under multiplicative separability]\label{lem:statewise-zero-mult}
-Assume \eqref{eq:mult_u}, namely $u(q,s)=\kappa(s)\zeta(q)$, $\kappa(s)>0$. Fix \(k_i\), and let $\mathcal{G}_i(\theta,k_i):=\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i)$, $R_\theta(\theta,k_i):=J_i(\theta)/\mathcal{G}_i(\theta,k_i)$, and $R_q^\times(\theta,s):=-u(q_i^\times(\theta,s),s)/u_q(q_i^\times(\theta,s),s)$, so that $H_i(k_i,s)=\mathbb{E}_{\theta_i}[R_\theta(\theta,k_i)\,R_q^\times(\theta,s)]$ as in the preliminary step. Then \(H_i(k_i,s)\) is constant across all binding states \(s\in T_i^\times(k_i)\). In particular, on the IR-constrained region, $\overline H_i(k_i)=0 \Longleftrightarrow H_i(k_i,s)=0$ for every $s\in T_i^\times(k_i)$, and consequently $\beta_i^{\times\prime}(k_i)=0 \Longleftrightarrow H_i(k_i,s)=0$ for every $s\in T_i^\times(k_i)$.
-\end{lemma}
 
-\begin{proof}
-Fix \(k_i\). For every binding state \(s\in T_i^\times(k_i)\), the first-order condition under \eqref{eq:mult_u} gives $\kappa(s)\zeta\!\left(q_i^\times(\theta,s)\right)\mathcal{G}_i(\theta,k_i)=\varepsilon_i^\times(s)$. Define $z_i(s):=\varepsilon_i^\times(s)/\kappa(s)$, so $q_i^\times(\theta,s)=\zeta^{-1}(z_i(s)/\mathcal{G}_i(\theta,k_i))$. Differentiating the binding capacity constraint $\mathbb{E}_{\theta_i}[q_i^\times(\theta,s)]=k_i$ with respect to $s$ yields $z_i'(s)=0$ for all $s\in T_i^\times(k_i)$, since $\mathcal{G}_i(\theta,k_i)>0$ and $\zeta_q<0$ make the expectation nonzero. Hence $z_i(s)$ is constant on the binding region, $q_i^\times(\theta,s)$ is $s$-independent there, and therefore $R_q^\times(\theta,s)=-\zeta(q_i^\times(\theta,s))/\zeta_q(q_i^\times(\theta,s))$ is also $s$-independent. Since $R_\theta(\theta,k_i)$ does not depend on $s$, $H_i(k_i,s)$ is constant across $s\in T_i^\times(k_i)$. Denoting this common value $H_i(k_i)$, we get $\overline H_i(k_i)=\Pr(s\in T_i^\times(k_i))\,H_i(k_i)$, so the two equivalences follow immediately from $\Pr(s\in T_i^\times(k_i))>0$ on the IR-constrained region and $\beta_i^{\times\prime}(k_i)=-\overline H_i(k_i)/\overline Q_i(k_i)$ with $\overline Q_i(k_i)>0$.
-\end{proof}
 
 \section{Proof of Theorem Individual}
-
 \begin{proof}
-Define $H_i(\theta):=\partial\mathbb{E}CS_i^\times(\theta)/\partial k_i$. From the envelope representation \eqref{ICmd-def},
-\[H_i(\theta)=H_i(\underline\theta_i)+\int_{\underline\theta_i}^\theta H_i'(\tilde\theta)\,d\tilde\theta, \qquad H_i'(\theta)=\mathbb{E}_s\!\left[u\!\left(q_i^\times(\theta,s),s\right)\frac{\partial q_i^\times(\theta,s)}{\partial k_i}\,\mathbf{1}_{s\in T_i^\times}\right].\]
-Under Definition~\ref{ass:multiplicative}, $u(q,s)=\kappa(q)\zeta(s)$ so $u_q=\kappa'(q)\zeta(s)$, and the ratio $R_q(\theta):=-\kappa(q_i^\times(\theta,s))/\kappa'(q_i^\times(\theta,s))$ is $s$-independent at the optimum by Lemma~\ref{lem:statewise-zero-mult}. Using this and the first-order condition $u(q_i^\times,s)\mathcal{G}_i(\theta)=\varepsilon_i^\times(s)$, one verifies $u(q_i^\times,s)w_i^\times(\theta,s)=R_q(\theta)/\mathcal{G}_i(\theta)$ and $u(q_i^\times,s)J_i(\theta)=\varepsilon_i^\times(s)R_\theta(\theta)$. Substituting \eqref{partialkq1} into $H_i'(\theta)$ and applying these identities yields
-\[H_i'(\theta)=\frac{R_q(\theta)}{\mathcal{G}_i(\theta)}\!\left(A_i-\beta_i' B_i+\beta_i' C_i R_\theta(\theta)\right),\]
+Define
+\[
+\mathcal W_i(\theta)
+:=
+\frac{\partial \mathbb E CS_i^\times(\theta)}{\partial k_i}.
+\]
+From the envelope representation \eqref{ICmd-def},
+\[
+\mathcal W_i(\theta)
+=
+\mathcal W_i(\underline\theta_i)
++
+\int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta,
+\qquad
+\mathcal W_i'(\theta)
+=
+\mathbb E_s\!\left[
+u\!\left(q_i^\times(\theta,s),s\right)
+\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
+\mathbf 1_{\{s\in T_i^\times\}}
+\right].
+\]
+
+For each binding state $s\in T_i^\times$, differentiating the pointwise FOC with respect to $k_i$ and imposing the binding capacity constraint gives
+\[
+\frac{\partial q_i^\times(\theta,s)}{\partial k_i}
+=
+\frac{w_i^\times(\theta,s)}{\bar w_i^\times(s)}
+-
+w_i^\times(\theta,s)\,\mathsf H_i(k_i,s)\,\beta_i^{\times\prime}(k_i)
++
+w_i^\times(\theta,s)\,u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\,\beta_i^{\times\prime}(k_i).
+\]
+
+Under \eqref{eq:mult_u},
+\[
+u(q,s)=\kappa(s)\zeta(q),
+\qquad
+u_q(q,s)=\kappa(s)\zeta_q(q),
+\]
+so the ratio
+\[
+R_q(\theta)
+:=
+-\frac{\zeta(q_i^\times(\theta,s))}{\zeta_q(q_i^\times(\theta,s))}
+\]
+is $s$-independent on the binding region by Lemma~\ref{lem:statewise-zero-mult}. Using the first-order condition
+\[
+u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)=\varepsilon_i^\times(s),
+\]
+we also have
+\[
+u\!\left(q_i^\times(\theta,s),s\right)w_i^\times(\theta,s)
+=
+\frac{R_q(\theta)}{\mathcal G_i(\theta)},
+\qquad
+u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)
+=
+\varepsilon_i^\times(s)\,R_\theta(\theta).
+\]
+Substituting into $\mathcal W_i'(\theta)$ yields
+\[
+\mathcal W_i'(\theta)
+=
+\frac{R_q(\theta)}{\mathcal G_i(\theta)}
+\left(
+\mathcal A_i
+-
+\beta_i^{\times\prime}(k_i)\mathcal B_i
++
+\beta_i^{\times\prime}(k_i)\mathcal C_i R_\theta(\theta)
+\right),
+\]
 where
-\[A_i:=\mathbb{E}_s\!\left[\frac{\mathbf{1}_{s\in T_i^\times}}{\bar w_i^\times(s)}\right]>0, \qquad B_i:=\mathbb{E}_s\!\left[\mathbb{E}^w_i[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}\right], \qquad C_i:=\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\,\mathbf{1}_{s\in T_i^\times}\right]>0,\]
-and $\beta_i':=\partial\beta_i^\times/\partial k_i$. By Definition~\ref{ass:multiplicative} of multiplicative separability $\mathbb{E}^w_i[uJ\mid s]$ is constant across all $s\in T_i^\times$, so $B_i = \Pr(s\in T_i^\times)\cdot\mathbb{E}^w_i[uJ\mid s]$ and $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$.
+\[
+\mathcal A_i
+:=
+\mathbb E_s\!\left[
+\frac{\mathbf 1_{\{s\in T_i^\times\}}}{\bar w_i^\times(s)}
+\right]
+>0,
+\]
+\[
+\mathcal B_i
+:=
+\mathbb E_s\!\left[
+\mathsf H_i(k_i,s)\,\mathbf 1_{\{s\in T_i^\times\}}
+\right]
+=
+\mathcal S_i(k_i),
+\]
+and
+\[
+\mathcal C_i
+:=
+\mathbb E_s\!\left[
+\varepsilon_i^\times(s)\,\mathbf 1_{\{s\in T_i^\times\}}
+\right]
+>0.
+\]
 
-\medskip\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i^\times=0$, we have $\beta_i'=0$ and $\mathcal{G}_i(\theta)\equiv\Gamma_i(\theta)$, so $H_i'(\theta)=R_q(\theta)A_i/\Gamma_i(\theta)>0$ for all $\theta$. Hence $H_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i$ carries the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive then $H_i(\underline\theta_i)>0$, and since $H_i$ is strictly increasing, $H_i(\theta)>0$ for all $\theta$: every type gains. If \eqref{Eujmd} is negative then $H_i(\underline\theta_i)<0$, and strict monotonicity implies $H_i$ crosses zero at most once; whenever the crossing $\tilde\theta_i$ exists, $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$.
+\medskip
+\noindent\textbf{IR-unconstrained allocation.}
+Since $\beta_i^\times=0$, we have $\beta_i^{\times\prime}(k_i)=0$ and $\mathcal G_i(\theta)\equiv\Gamma_i(\theta)$. Hence
+\[
+\mathcal W_i'(\theta)
+=
+\frac{R_q(\theta)\mathcal A_i}{\Gamma_i(\theta)}
+>0
+\qquad
+\text{for all }\theta.
+\]
+So $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By the preliminary step of Lemma~\ref{lem:SC-dir},
+\[
+\mathcal W_i(\underline\theta_i)
+=
+\frac{\partial \mathbb E\underline{CS}_i^\times}{\partial k_i}
+\]
+has the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive then every type gains. If \eqref{Eujmd} is negative then, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; whenever the crossing $\tilde\theta_i$ exists,
+\[
+\mathcal W_i(\theta)<0
+\quad\text{for }\theta<\tilde\theta_i,
+\qquad
+\mathcal W_i(\theta)>0
+\quad\text{for }\theta>\tilde\theta_i.
+\]
 
-\medskip\noindent\textbf{IR-constrained allocation.}
+\medskip
+\noindent\textbf{IR-constrained allocation.}
+\noindent\textit{Step 1: initial condition.}
+Since \eqref{Rmdi-def} binds, differentiating
+\[
+\mathbb E_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]-I_i=0
+\]
+with respect to $k_i$ yields
+\[
+\mathcal W_i(\underline\theta_i)
+=
+\frac{\partial \mathbb E\underline{CS}_i^\times}{\partial k_i}
+=
+0.
+\]
 
-\noindent\textit{Step 1: initial condition.} Since \eqref{Rmdi-def} binds, differentiating the identity $\mathbb{E}_{(s,\theta_i)}[U(q_i^\times,s)J_i(\theta)]-I_i=0$ with respect to $k_i$ yields $H_i(\underline\theta_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=0$.
+\noindent\textit{Step 2: shape of $\mathcal W_i$.}
+Since $R_q(\theta)/\mathcal G_i(\theta)>0$, the sign of $\mathcal W_i'(\theta)$ is the sign of the affine function
+\[
+\mathcal A_i-\beta_i^{\times\prime}(k_i)\mathcal B_i+\beta_i^{\times\prime}(k_i)\mathcal C_iR_\theta(\theta).
+\]
+Moreover,
+\[
+-\beta_i^{\times\prime}(k_i)\mathcal B_i
+=
+\frac{\mathcal B_i^2}{\mathcal V_i(k_i)}
+\ge 0,
+\]
+so the constant part is strictly positive. Hence the monotonicity of $\mathcal W_i'(\theta)$ is determined by the term
+\[
+\beta_i^{\times\prime}(k_i)\mathcal C_iR_\theta(\theta).
+\]
+If $R_\theta(\theta)$ is monotone, then $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. Since
+\[
+\beta_i^{\times\prime}(k_i)
+=
+-\frac{\mathcal B_i}{\mathcal V_i(k_i)},
+\]
+its sign is the opposite of the sign of \eqref{Eujmd}. Therefore, if $R_\theta(\theta)$ is increasing, then $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
 
-\noindent\textit{Step 2: monotonicity of $H_i'$ and shape of $H_i$.} Since $R_q(\theta)/\mathcal{G}_i(\theta)>0$, the sign of $H_i'(\theta)$ equals the sign of the affine function $A_i-\beta_i'B_i+\beta_i'C_iR_\theta(\theta)$. If $R_\theta(\theta)$ is monotone this affine function is monotone in $\theta$, hence $H_i'(\theta)$ is monotone in $\theta$ and $H_i$ is either concave or convex. By the preliminary step of Lemma~\ref{lem:SC-dir}, $\mathrm{sign}(\beta_i')=-\mathrm{sign}(\eqref{Eujmd})$, and by the observation above $\mathrm{sign}(B_i)=\mathrm{sign}(\eqref{Eujmd})$, so $\mathrm{sign}(-\beta_i'B_i)=\mathrm{sign}(\eqref{Eujmd})^2\ge 0$: the term $-\beta_i'B_i$ is always non-negative and does not affect the monotonicity direction. The direction is determined by $\beta_i'C_iR_\theta(\theta)$: if $R_\theta(\theta)$ is increasing and \eqref{Eujmd} is positive then $\beta_i'<0$, so $H_i'$ is decreasing and $H_i$ is concave; if \eqref{Eujmd} is negative then $\beta_i'>0$ and $H_i$ is convex. If $R_\theta(\theta)$ is decreasing these conclusions are reversed.
-
-\noindent\textit{Step 3: uniqueness and welfare direction.} Since $H_i(\underline\theta_i)=0$, a concave $H_i$ can depart from zero in only one direction and cross zero at most once, and symmetrically for the convex case. In case~(i) with $R_\theta$ increasing: $H_i$ is concave, rises above zero and then crosses back down, so $H_i>0$ for $\theta\in(\underline\theta_i,\tilde\theta_i)$ and $H_i<0$ for $\theta>\tilde\theta_i$: lower types gain and higher types lose. In case~(ii): $H_i$ is convex, dips below zero and crosses back up, so $H_i<0$ for $\theta<\tilde\theta_i$ and $H_i>0$ for $\theta>\tilde\theta_i$, reversing the welfare ordering. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse.
+\noindent\textit{Step 3: uniqueness and welfare direction.}
+Since $\mathcal W_i(\underline\theta_i)=0$, a concave $\mathcal W_i$ can depart from zero in only one direction and cross zero at most once, and symmetrically for the convex case. Thus, in case~(i) with $R_\theta$ increasing, $\mathcal W_i$ is concave, so lower types gain and higher types lose; in case~(ii), $\mathcal W_i$ is convex, so the welfare ordering is reversed. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse.
 \end{proof}
 
 \section{Proof of Proposition Region}
-
 \begin{proof}
-Let $F_i(k_i):=\mathbb{E}\underline{CS}_i^\times(k_i)$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $F_i'(k_i)=\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i=\mathbb{E}_s[\mathbb{E}^w_i[uJ\mid s]\,\mathbf{1}_{s\in T_i^\times}]$. Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto\mathbb{E}^w_i[uJ\mid s]$ is monotone in $k_i$ for each fixed $s\in T_i^\times$: decreasing when \eqref{Eujmd} crosses from $+$ to $-$, increasing in the opposite case. Since monotonicity is preserved under expectation over $s$, the map $k_i\mapsto F_i'(k_i)$ is itself monotone. When \eqref{Eujmd} crosses from $+$ to $-$, $F_i'$ is decreasing and crosses zero at most once from above, so $F_i$ is single-peaked on $[0,k_i^+]$. The case crossing from $-$ to $+$ gives a single-dipped $F_i$ by the same argument.
+Let
+\[
+Y_i(k_i):=\mathbb E\underline{CS}_i^\times(k_i).
+\]
+By the preliminary step of Lemma~\ref{lem:SC-dir},
+\[
+Y_i'(k_i)
+=
+\frac{\partial \mathbb E\underline{CS}_i^\times}{\partial k_i}
+=
+\mathcal S_i(k_i).
+\]
+Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto \mathcal S_i(k_i)$ is single-crossing. Hence $Y_i'$ is monotone and crosses zero at most once in a given direction.
 
-At $k_i=0$ the capacity constraint binds at zero, so $q_i^\times(\theta,s)=0$ for all $(\theta,s)$, giving $F_i(0)=-I_i<0$ for any $I_i>0$.
+When \eqref{Eujmd} crosses from $+$ to $-$, $Y_i'$ is decreasing and crosses zero at most once from above, so $Y_i$ is single-peaked on $[0,k_i^+]$. When \eqref{Eujmd} crosses from $-$ to $+$, $Y_i'$ is increasing and $Y_i$ is single-dipped. At $k_i=0$ the capacity constraint binds at zero, so $q_i^\times(\theta,s)=0$ for all $(\theta,s)$, giving
+\[
+Y_i(0)=-I_i<0
+\qquad
+\text{for any }I_i>0.
+\]
 
-\noindent\textit{Case: \eqref{Eujmd} crosses from $+$ to $-$.} $F_i$ is single-peaked with $F_i(0)<0$. Suppose first that $F_i(k_i^+)\ge 0$. Since $F_i(0)<0$ and $F_i(k_i^+)\ge 0$, continuity gives at least one zero in $(0,k_i^+]$. Single-peakedness implies $F_i$ can cross zero at most once from below on the ascending part and at most once from above on the descending part; but since $F_i(0)<0$ the ascending part must cross zero before the peak, after which $F_i$ is decreasing and cannot cross zero from below again. Hence the zero crossing from below is unique, defining $\tilde k_i$, and $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i,k_i^+]$. When $J_i(\theta)\ge 0$ for all $\theta$, the revenue integral is non-negative at $k_i^+$, ensuring $F_i(k_i^+)\ge 0$. This proves part~(i). Suppose instead that $F_i(k_i^+)<0$. Then $F_i$ is negative at both endpoints. If the peak value is negative, $F_i<0$ throughout. If the peak value is non-negative, continuity and single-peakedness yield exactly two zeros $\tilde k_i^-<\tilde k_i^+$ in $(0,k_i^+)$ with $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i^-,\tilde k_i^+]$. This proves part~(ii).
+\noindent\textit{Case: \eqref{Eujmd} crosses from $+$ to $-$.}
+Suppose first that $Y_i(k_i^+)\ge 0$. Since $Y_i(0)<0$ and $Y_i(k_i^+)\ge 0$, continuity gives at least one zero in $(0,k_i^+]$. Single-peakedness implies that this zero is unique, defining $\tilde k_i$, and
+\[
+Y_i(k_i)\ge 0
+\Longleftrightarrow
+k_i\in[\tilde k_i,k_i^+].
+\]
+When $J_i(\theta)\ge 0$ for all $\theta$, the revenue integral is nonnegative at $k_i^+$, ensuring $Y_i(k_i^+)\ge 0$. This proves part~(i).
 
-\noindent\textit{Case: \eqref{Eujmd} crosses from $-$ to $+$.} $F_i$ is single-dipped with $F_i(0)<0$. Either the trough value is negative and $F_i<0$ throughout, or $F_i$ climbs above zero after the trough, crossing zero exactly once from below at a unique $\tilde k_i\in(0,k_i^+]$, and $F_i(k_i)\ge 0$ if and only if $k_i\in[\tilde k_i,k_i^+]$.
+Suppose instead that $Y_i(k_i^+)<0$. Then $Y_i$ is negative at both endpoints. If the peak value is negative, then $Y_i<0$ throughout. If the peak value is nonnegative, continuity and single-peakedness yield exactly two zeros
+\[
+\tilde k_i^-<\tilde k_i^+
+\]
+in $(0,k_i^+)$ such that
+\[
+Y_i(k_i)\ge 0
+\Longleftrightarrow
+k_i\in[\tilde k_i^-,\tilde k_i^+].
+\]
+This proves part~(ii).
+
+\noindent\textit{Case: \eqref{Eujmd} crosses from $-$ to $+$.}
+Then $Y_i$ is single-dipped with $Y_i(0)<0$. Either the trough value is negative and $Y_i<0$ throughout, or $Y_i$ rises above zero after the trough, crossing zero exactly once from below at a unique $\tilde k_i\in(0,k_i^+]$, and
+\[
+Y_i(k_i)\ge 0
+\Longleftrightarrow
+k_i\in[\tilde k_i,k_i^+].
+\]
 \end{proof}
 
 \section{Proof of Preferences}
-
 \begin{proof}
-Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define \[\tilde\lambda_i^k := \int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta), \qquad \Lambda_i^k(\theta) := \frac{1}{g_i(\theta)}\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t), \qquad k\in\{1,2\}.\] Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
-
-\medskip\noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.} For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by \[dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}\,\mathbf{1}\{t\ge\theta\}.\] Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, \[\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)} = \mathbb{E}_{Q_\theta}[m(\tilde\theta)].\] For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance, $\mathbb{E}_{Q_\theta}[m(\tilde\theta)]\ge\mathbb{E}_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the stochastic-dominance inequality reverses and the ratio is decreasing.
-
-\medskip\noindent\textit{Proof of (i).} Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing, its logarithm is increasing. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,\footnote{The derivative exists a.e.\ on $(\underline\theta_i,\overline\theta_i)$ under the maintained assumptions that $g_i$ is continuous and strictly positive and $\lambda_i^k$ is continuous; pointwise existence is not guaranteed without additional regularity on the weight functions.}
-\[0 \;\le\; \frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right) = \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)} - \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},\]
-which yields $\frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}\ge\frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)}$ for almost every $\theta$. The reverse inequality holds when $m$ is decreasing.
-
-\medskip\noindent\textit{Proof of (ii) under $\beta_i^\times=0$.\footnote{When $\beta_i^\times\neq 0$, the effective weight is $\mathcal{G}_i(\theta)=J_i(\theta)(\tilde\lambda_i+\beta_i^\times)+\Lambda_i(\theta)$. An analogous argument applies with $c=(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta})/(\tilde\lambda_i+\beta_i^\times)$, but propagating the $\Lambda$ bound to the full $\mathcal{G}$ bound additionally requires $c\le\tilde\lambda_i^\Delta/\tilde\lambda_i$. Since this condition involves the endogenous multiplier $\beta_i^\times$ and cannot in general be verified from primitives alone, the main text restricts to the IR-unconstrained region.}} When $\beta_i^\times=0$, the effective weight reduces to $\Gamma_i(\theta)=J_i(\theta)\tilde\lambda_i+\Lambda_i(\theta)$ and $\Gamma_i^\Delta(\theta)=J_i(\theta)\tilde\lambda_i^\Delta+\Lambda_i^\Delta(\theta)$.
-
-\medskip\noindent\textbf{Upward case.} Assume $m$ is increasing and $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$. Set $c:=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$. The boundary evaluation gives $\Lambda_i^2(\underline\theta_i)/\Lambda_i^1(\underline\theta_i)=\tilde\lambda_i^\Delta/\tilde\lambda_i=c$. Since the ratio is increasing by the core step and starts at $c$, $\Lambda_i^\Delta(\theta)\ge c\,\Lambda_i(\theta)$ for all $\theta$. Writing $\Gamma_i^\Delta(\theta)=c\,J_i(\theta)\tilde\lambda_i+\Lambda_i^\Delta(\theta)\ge c\,\Gamma_i(\theta)$, and since $c\ge 1$ and $\Gamma_i(\theta)>0$: $\Delta\mathcal{G}_i(\theta)\ge(c-1)\Gamma_i(\theta)\ge 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
-
-\medskip\noindent\textbf{Downward case.} Assume $m$ is decreasing and $\tilde\lambda_i^\Delta\le\tilde\lambda_i$. Set $c:=\tilde\lambda_i^\Delta/\tilde\lambda_i\le 1$. By the core step, $\Lambda_i^\Delta(\theta)\le c\,\Lambda_i(\theta)$ for all $\theta$. Then $\Gamma_i^\Delta(\theta)\le c\,\Gamma_i(\theta)$, and since $c\le 1$ and $\Gamma_i(\theta)>0$: $\Delta\mathcal{G}_i(\theta)\le(c-1)\Gamma_i(\theta)\le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.\qedhere
-\end{proof}
-
-\section{Proof of Proposition PrefTradeoff}
-\begin{proof} The proof proceeds in three steps.
-
-\medskip\noindent\textit{Step 1: The elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.} Differentiating $\Delta R_\theta(\theta) = -R_\Gamma(\theta)\,R_\theta(\theta)$ gives \[\Delta R_\theta'(\theta) = -R_\Gamma(\theta)\,R_\theta'(\theta) - R_\theta(\theta)\,R_\Gamma'(\theta).\] The two terms on the right-hand side may have opposite signs. If they share the same sign, $\Delta R_\theta'(\theta)$ inherits that sign directly. If they have opposite signs, $\text{sign}(\Delta R_\theta'(\theta)) = \text{sign}(-R_\Gamma(\theta)\,R_\theta'(\theta))$ if and only if the first term dominates in absolute value, i.e., $|R_\Gamma(\theta)\,R_\theta'(\theta)| \geq |R_\theta(\theta)\,R_\Gamma'(\theta)|$, which is equivalent to $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right| \leq \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$. Thus, in both cases, the elasticity condition implies $\text{sign}(\Delta R_\theta'(\theta)) = \text{sign}(-R_\Gamma(\theta)\,R_\theta'(\theta))$ for all $\theta$. Since $\Delta\mathcal{G}_i(\theta)$ has a constant sign, $R_\Gamma(\theta)$ has a constant sign; since $R_\theta(\theta)$ is monotone, $R_\theta'(\theta)$ has a constant sign. Therefore $\text{sign}(-R_\Gamma(\theta)\,R_\theta'(\theta))$ is constant, and $\Delta R_\theta(\theta)$ is globally monotone.
-
-\medskip\noindent\textit{Step 2: Monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.} By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The standard covariance-monotonicity lemma states that two monotone functions on a probability space have non-negative covariance if they are co-monotone and non-positive covariance if they are counter-monotone. Therefore \[\mathrm{sign}\!\left(\mathrm{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),\,R_q(\theta)\right)\right) = \mathrm{sign}\!\left(\Delta R_\theta'(\theta)\right) \cdot \mathrm{sign}\!\left(R_q'(\theta)\right) = \mathrm{sign}\!\left(-R_\Gamma(\theta)\,R_\theta'(\theta)\right) \cdot \mathrm{sign}\!\left(R_q'(\theta)\right).\]
-
-\medskip\noindent\textit{Step 3: Necessity of the elasticity condition.} If the elasticity condition is violated at some $\theta_0$, i.e., $|R_\theta(\theta_0)\,R_\Gamma'(\theta_0)| > |R_\Gamma(\theta_0)\,R_\theta'(\theta_0)|$, then $\Delta R_\theta'(\theta_0)$ has the opposite sign to $-R_\Gamma(\theta_0)\,R_\theta'(\theta_0)$. This creates a local reversal in the monotonicity of $\Delta R_\theta(\theta)$, so the covariance-monotonicity lemma no longer applies. The sign of $\mathrm{Cov}_{\theta_i}(\Delta R_\theta(\theta),\,R_q(\theta))$ then depends on the specific distribution $F_i$ and the magnitude of the reversal, and no distribution-free sign result obtains.
-\end{proof}
-
-\section{Proof of Mean deviation of $R_{\mathcal{G}}$}
-
-\begin{proof}
-When $\beta_i^\times=0$, one has $\mathcal{G}_i(\theta)=\Gamma_i(\theta)$ and therefore $R_{\mathcal{G}}(\theta)=R_\Gamma(\theta)$; the result in the main text is stated in terms of $R_\Gamma$ for that case. Fix \(s\in T_i^\times\) and a local perturbation \(\Delta\lambda_i(\theta)\) holding \(k_i\) fixed. Using the weights $w_i^\times(\theta,s)$ and $\mathbb{E}^w_i[\cdot\mid s]$ from the preliminary step of Lemma~\ref{lem:SC-dir}, note that $R_q(\theta,s)=\varepsilon_i^\times(s)\,w_i^\times(\theta,s)$, which follows from $R_q(\theta,s)=-u(q_i^\times,s)/u_q(q_i^\times,s)$ and $\varepsilon_i^\times(s)=u(q_i^\times,s)\mathcal{G}_i(\theta)$.
-
-Linearizing the pointwise first-order condition $u(q_i^\times(\theta,s),s)\,\mathcal{G}_i(\theta)=\varepsilon_i^\times(s)$ gives
+Write
 \[
-u_q\!\left(q_i^\times(\theta,s),s\right)\,\mathcal{G}_i(\theta)\,\Delta q_i^\times(\theta,s)
+\lambda_i^1(\theta):=\lambda_i(\theta),
+\qquad
+\lambda_i^2(\theta):=\lambda_i^\Delta(\theta),
+\]
+and define
+\[
+\tilde\lambda_i^k
+:=
+\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta),
+\qquad
+\Lambda_i^k(\theta)
+:=
+\frac{1}{g_i(\theta)}
+\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t),
+\qquad
+k\in\{1,2\}.
+\]
+Let
+\[
+m(\theta):=\frac{\lambda_i^2(\theta)}{\lambda_i^1(\theta)},
+\]
+which is increasing in the upward-shift case and decreasing in the downward-shift case.
+
+\medskip
+\noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
+For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by
+\[
+dQ_\theta(t)
+:=
+\frac{\lambda_i^1(t)\,dG_i(t)}
+{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}
+\,\mathbf 1\{t\ge\theta\}.
+\]
+Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$,
+\[
+\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}
+=
+\mathbb E_{Q_\theta}[m(\tilde\theta)].
+\]
+For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance,
+\[
+\mathbb E_{Q_\theta}[m(\tilde\theta)]
+\ge
+\mathbb E_{Q_{\theta'}}[m(\tilde\theta)].
+\]
+Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
+
+\medskip
+\noindent\textit{Proof of (i).}
+Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its logarithm is monotone too. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,
+\[
+0
+\le
+\frac{d}{d\theta}
+\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right)
+=
+\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)}
+-
+\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}
+\]
+in the upward case, which yields
+\[
+\frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}
+\ge
+\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}
+\]
+for almost every $\theta$. The reverse inequality holds in the downward case.
+
+\medskip
+\noindent\textit{Proof of (ii) under $\beta_i^\times=0$.}\footnote{When $\beta_i^\times\neq 0$, the effective weight is $\mathcal G_i(\theta)=J_i(\theta)(\tilde\lambda_i+\beta_i^\times)+\Lambda_i(\theta)$. An analogous argument applies with $c=(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta})/(\tilde\lambda_i+\beta_i^\times)$, but propagating the $\Lambda$ bound to the full $\mathcal G$ bound additionally requires $c\le\tilde\lambda_i^\Delta/\tilde\lambda_i$. Since this condition involves the endogenous multiplier $\beta_i^\times$ and cannot in general be verified from primitives alone, the main text restricts to the IR-unconstrained region.}
+When $\beta_i^\times=0$, the effective weight reduces to
+\[
+\Gamma_i(\theta)=J_i(\theta)\tilde\lambda_i+\Lambda_i(\theta),
+\qquad
+\Gamma_i^\Delta(\theta)=J_i(\theta)\tilde\lambda_i^\Delta+\Lambda_i^\Delta(\theta).
+\]
+
+\medskip
+\noindent\textbf{Upward case.}
+Assume $m$ is increasing and $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$. Set
+\[
+c:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}\ge 1.
+\]
+The boundary evaluation gives
+\[
+\frac{\Lambda_i^2(\underline\theta_i)}{\Lambda_i^1(\underline\theta_i)}
+=
+\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}
+=
+c.
+\]
+Since the ratio is increasing by the core step and starts at $c$,
+\[
+\Lambda_i^\Delta(\theta)\ge c\,\Lambda_i(\theta)
+\qquad
+\text{for all }\theta.
+\]
+Writing
+\[
+\Gamma_i^\Delta(\theta)
+=
+c\,J_i(\theta)\tilde\lambda_i+\Lambda_i^\Delta(\theta)
+\ge
+c\,\Gamma_i(\theta),
+\]
+and using $c\ge 1$ and $\Gamma_i(\theta)>0$, we obtain
+\[
+\Delta\mathcal G_i(\theta)\ge (c-1)\Gamma_i(\theta)\ge 0
+\qquad
+\text{for all }\theta\in[\underline\theta_i,\overline\theta_i].
+\]
+
+\medskip\noindent\textbf{Downward case.}
+Assume $m$ is decreasing and $\tilde\lambda_i^\Delta\le\tilde\lambda_i$. Set
+\[
+c:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}\le 1.
+\]
+The boundary evaluation gives
+\[
+\frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)}
+=
+\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}
+=
+c.
+\]
+Since the ratio is decreasing by the core step and starts at $c$,
+\[
+\Lambda_i^\Delta(\theta)\le c\,\Lambda_i(\theta)
+\qquad
+\text{for all }\theta.
+\]
+Therefore
+\[
+\Gamma_i^\Delta(\theta)
+=
+c\,J_i(\theta)\tilde\lambda_i+\Lambda_i^\Delta(\theta)
+\le
+c\,J_i(\theta)\tilde\lambda_i+c\,\Lambda_i(\theta)
+=
+c\,\Gamma_i(\theta).
+\]
+Since $c\le 1$ and $\Gamma_i(\theta)>0$, it follows that
+\[
+\Delta \mathcal G_i(\theta)
+=
+\Gamma_i^\Delta(\theta)-\Gamma_i(\theta)
+\le
+(c-1)\Gamma_i(\theta)
+\le 0
+\qquad
+\text{for all }\theta\in[\underline\theta_i,\overline\theta_i].
+\]
+\qedhere
+\end{proof}
+
+\section{Proof of Proposition~\ref{prop:Elasticity}}
+\begin{proof}
+The proof proceeds in three steps.
+
+\medskip
+\noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
+Differentiating
+\[
+\Delta R_\theta(\theta)=-R_\Gamma(\theta)R_\theta(\theta)
+\]
+gives
+\[
+\Delta R_\theta'(\theta)
+=
+-R_\Gamma(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\Gamma'(\theta).
+\]
+If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ inherits that sign directly. If they have opposite signs, then
+\[
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+=
+\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\]
+if and only if
+\[
+|R_\Gamma(\theta)R_\theta'(\theta)|
+\ge
+|R_\theta(\theta)R_\Gamma'(\theta)|,
+\]
+which is equivalent to
+\[
+\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|
+\le
+\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+Thus the elasticity condition implies
+\[
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+=
+\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\]
+for all $\theta$. Since $R_\Gamma(\theta)$ has a constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign, so $\Delta R_\theta(\theta)$ is globally monotone.
+
+\medskip
+\noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
+By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The standard covariance-monotonicity lemma then implies
+\[
+\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right),
+\]
+hence
+\[
+\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right).
+\]
+
+\medskip
+\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
+If the elasticity condition is violated at some $\theta_0$, namely if
+\[
+|R_\theta(\theta_0)R_\Gamma'(\theta_0)|
+>
+|R_\Gamma(\theta_0)R_\theta'(\theta_0)|,
+\]
+then $\Delta R_\theta'(\theta_0)$ has the opposite sign to $-R_\Gamma(\theta_0)R_\theta'(\theta_0)$. This creates a local reversal in the monotonicity of $\Delta R_\theta(\theta)$, so the covariance-monotonicity lemma no longer applies. The sign of
+\[
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\]
+then depends on the distribution of types and on the magnitude of the reversal, and no distribution-free sign result obtains.
+\end{proof}
+
+\section{Proof of Lemma~\ref{lem:realloc}}
+\begin{proof}
+When $\beta_i^\times=0$, one has $\mathcal G_i(\theta)=\Gamma_i(\theta)$ and therefore $R_{\mathcal G}(\theta)=R_\Gamma(\theta)$; the result in the main text is stated in terms of $R_\Gamma$ for that case. Fix $s\in T_i^\times$ and a local perturbation $\Delta\lambda_i(\theta)$ holding $k_i$ fixed.
+
+Using the weights $w_i^\times(\theta,s)$ and $\mathbb E_i^w[\cdot\mid s]$ from the preliminary step of Lemma~\ref{lem:SC-dir}, note that
+\[
+R_q(\theta,s)=\varepsilon_i^\times(s)\,w_i^\times(\theta,s),
+\]
+which follows from
+\[
+R_q(\theta,s)=
+-\frac{u(q_i^\times,s)}{u_q(q_i^\times,s)}
+\qquad\text{and}\qquad
+\varepsilon_i^\times(s)=u(q_i^\times,s)\mathcal G_i(\theta).
+\]
+
+Linearizing the pointwise first-order condition
+\[
+u(q_i^\times(\theta,s),s)\mathcal G_i(\theta)=\varepsilon_i^\times(s)
+\]
+gives
+\[
+u_q\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)\Delta q_i^\times(\theta,s)
 +
-u\!\left(q_i^\times(\theta,s),s\right)\,\Delta\mathcal{G}_i(\theta)
+u\!\left(q_i^\times(\theta,s),s\right)\Delta\mathcal G_i(\theta)
 -
 \Delta\varepsilon_i^\times(s)
 =
 0.
 \]
-Solving for \(\Delta q_i^\times(\theta,s)\) and substituting the definitions of \(R_q\), $R_{\mathcal{G}}(\theta)=\Delta\mathcal{G}_i(\theta)/\mathcal{G}_i(\theta)$, and $\varepsilon_i^\times(s)$ yields
+Solving for $\Delta q_i^\times(\theta,s)$ and substituting the definitions of $R_q$, $R_{\mathcal G}(\theta)=\Delta\mathcal G_i(\theta)/\mathcal G_i(\theta)$, and $\varepsilon_i^\times(s)$ yields
 \[
 \Delta q_i^\times(\theta,s)
 =
-R_q(\theta,s)\left(
-R_{\mathcal{G}}(\theta)-\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
+R_q(\theta,s)
+\left(
+R_{\mathcal G}(\theta)
+-
+\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
 \right).
 \]
-
-Since the capacity constraint binds state-by-state and \(k_i\) is held fixed, $\mathbb{E}_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\right]=0$ for each $s\in T_i^\times$. Substituting the previous expression and using $R_q(\theta,s)=\varepsilon_i^\times(s)\,w_i^\times(\theta,s)$, dividing by $\varepsilon_i^\times(s)\bar{w}_i^\times(s)>0$ and rearranging gives
+Since the capacity constraint binds state-by-state and $k_i$ is held fixed,
+\[
+\mathbb E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\right]=0
+\qquad
+\text{for each }s\in T_i^\times.
+\]
+Substituting the previous expression and using $R_q(\theta,s)=\varepsilon_i^\times(s)w_i^\times(\theta,s)$, dividing by $\varepsilon_i^\times(s)\bar w_i^\times(s)>0$, and rearranging gives
 \[
 \frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
 =
-\mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right].
+\mathbb E_i^w\!\left[R_{\mathcal G}\mid s\right].
 \]
-Substituting back yields
+Substituting back,
 \[
 \Delta q_i^\times(\theta,s)
 =
-R_q(\theta,s)\left(
-R_{\mathcal{G}}(\theta)-\mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]
+R_q(\theta,s)
+\left(
+R_{\mathcal G}(\theta)-\mathbb E_i^w\!\left[R_{\mathcal G}\mid s\right]
 \right),
 \]
-as claimed.
+which is the desired identity.
 \end{proof}
 
-\section{Proof of Proposition rprefreallocation}
-\subsection{Mean Preserving}
-
+\section{Proof of Proposition~\ref{prop:rprefreallocation}}
 \begin{proof}
-From the first-order condition \eqref{KKT-qMD}, we derive the change in the optimal allocation as
-
-\[\Delta q (\theta,s) = \frac{\Delta \varepsilon(s)-u(q^\times_i,s) \Delta\Gamma_i(\theta)}{u_q(q^\times_i,s)\Gamma_i(\theta)}\]
-
-From the capacity constraint we have:
-
-\[ \E_{\theta_i}[\Delta q (\theta,s)] = 0 \leftrightarrow  \E_{\theta_i}\left[\frac{\Delta \varepsilon(s)-u(q^\times_i,s) \Delta\Gamma_i(\theta)}{u_q(q^\times_i,s)\Gamma_i(\theta)}\right] = 0\]
-
-This yields
-
-\[\Delta \varepsilon(s)=\E_{\theta_i}\left[\frac{u(q^\times_i,s) \Delta\Gamma_i(\theta)}{u_q(q^\times_i,s)\Gamma_i(\theta)}\right]/ \E_{\theta_i}\left[\frac{1}{u_q(q^\times_i,s)\Gamma_i(\theta)} \right]\]
-
-Hence if $\Delta \Gamma_i > 0$ for all $\theta$, then $\Delta \varepsilon(s)>0$, and $\Delta \varepsilon(s)<0$ if $\Delta \Gamma_i < 0$ for all $\theta$. We start by noting that if $\Delta\Gamma_i$ is mean preserving then $\Delta\Gamma_i(\underline{\theta}_i) = \Delta\Gamma_i(\overline{\theta})=0$. Indeed note that $\Gamma_i(\underline{\theta}_i) = \tilde{\lambda}_i(\underline{\theta}_i-1/g(\underline{\theta}_i)) + \tilde{\lambda}_i/g(\underline{\theta}_i)= \tilde{\lambda}_i\underline{\theta}_i$ and $\Gamma_i(\overline{\theta}) = \tilde{\lambda}_i\overline{\theta}$ as $\Lambda_i(\overline{\theta}) = 0$ and $\gamma_i(\overline{\theta})=0$.
-
-Therefore if $\Delta\Gamma_i>0$ for all $\theta$ and $\Delta\lambda_i(\theta)$ is mean preserving, then $\Delta q (\theta,s)<0$ at both $\underline{\theta}_i$ and $\overline{\theta}$ (recall that $u_q(q^\times_i,s)\Gamma_i(\theta) \le 0$). Next we show that if $R'_\Gamma$ is single peaked then the term $\Delta \varepsilon(s)-u(q^\times_i,s) \Delta\Gamma_i(\theta)$ is quasi-convex. The derivative of this term with respect to $\theta$ yields
-
-\[-\frac{\partial q^\times_i}{\partial \theta} \; u_q(q^\times_i,s) \;  \Delta\Gamma_i(\theta)-u(q^\times_i,s) \; \Delta\Gamma_i'(\theta)\]
-
-Using $\partial_\theta q_i^\times = -u(q_i^\times,s)\mathcal{G}_i'(\theta)/(u_q(q_i^\times,s)\mathcal{G}_i(\theta))$, obtained by differentiating \eqref{KKT-qMD} with respect to $\theta$, yields
-
-\[\frac{u(q^\times_i,s)}{u_q(q^\times_i,s)} \frac{\Gamma_i'(\theta)}{\Gamma_i(\theta)} \; u_q(q^\times_i,s) \;  \Delta\Gamma_i(\theta)-u(q^\times_i,s) \; \Delta\Gamma_i'(\theta)\]
-
-Simplifying and noting that $u(\cdot)\ge 0$ gives that the sign of the term is provided by the sign of
-
-\[ \Gamma_i'(\theta) \;  \Delta\Gamma_i(\theta)- \; \Gamma_i(\theta) \Delta\Gamma_i'(\theta)\]
-
-Note that $R'_\Gamma(\theta) = \frac{\partial}{\partial \theta}\left(\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)} \right)= \frac{ \Delta\Gamma_i'(\theta)\Gamma_i(\theta)-\Gamma_i'(\theta)\Delta\Gamma_i(\theta)}{ (\Gamma_i(\theta))^2}$, so the sign of the term is given by the sign of $-R'_\Gamma(\theta)$. If $R'_\Gamma(\theta)$ is single peaked, then $R'_\Gamma$ changes sign at most once from $+$ to $-$. To see this we have $R'_\Gamma(\underline{\theta}_i)=-\Delta \lambda_i(\theta)$ and $R'_\Gamma(\overline{\theta})=-\Delta \lambda_i(\theta)$ with a mean preserving perturbation. Under the same assumption such that $\Delta\Gamma_i>0$, then $\lambda_i(\theta)$ decreases for lower types ($R'_\Gamma(\underline{\theta}_i)>0$) and increases for higher types ($R'_\Gamma(\overline{\theta})<0$). It yields that the term $\Delta \varepsilon(s)-u(q^\times_i,s) \Delta\Gamma_i(\theta)$ changes sign at most once from $-$ to $+$. Hence, $\Delta\Gamma_i(\theta)$ is quasi-convex. Since $u_q<0$, $\Delta q^\times_i$ is quasi-concave. We conclude by showing that this yields the two cutoffs $\theta_-$ and $\theta_+$ such that $\Delta\Gamma_i(\theta)>0$ for all $\theta$, $\Delta q^\times_i(\theta)<0$ for $\theta \in [\underline{\theta}_i,\theta_-)\cup(\theta_+,\overline{\theta}]$ and $\Delta q^\times_i(\theta)>0$ for $\theta \in [\theta_-,\theta_+]$.
-
-Indeed, for a given $k$, we must have $\mathbb{E}_{\theta_i}[q^\times_i(\theta,s)] = k$, therefore $\mathbb{E}_{\theta_i}[\Delta q (\theta,s)] = 0$. Therefore, if the sign of $\Delta q^\times_i(\theta,s)$ is negative at the boundaries and we must have some positive values in an interior interval. As the sign of $\Delta q^\times_i(\theta,s)$ is quasi-concave, then the interval is unique which gives the cutoffs $\theta_-$ and $\theta_+$. The same analysis yields the desired result when $\Delta \Gamma_i <0$ for all $\theta$.
-\end{proof}
-
-\subsection{Non-monotonic first-order response to a preference perturbation}
-
-\begin{proof}
-By Lemma~\ref{lem:realloc}, under $\beta_i^\times=0$ (so that $R_{\mathcal{G}}=R_\Gamma$), for each $s\in T_i^\times$:
+Under the IR-unconstrained allocation, $\beta_i^\times=0$, so Lemma~\ref{lem:realloc} gives, for each $s\in T_i^\times$,
 \[
-\Delta q_i^\times(\theta,s)=R_q(\theta,s)\!\left(R_\Gamma(\theta)-\mathbb{E}^w_i\!\left[R_\Gamma\mid s\right]\right).
-\]
-Since $\mathbb{E}^w_i[R_\Gamma\mid s]$ is a weighted average of $R_\Gamma$ with positive weights, if $R_\Gamma$ is not (a.e.) constant then the centered term $R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s]$ must take both positive and negative values on $\Theta_i$; otherwise it would be nonnegative (or nonpositive) a.e., with equality only if $R_\Gamma$ is constant a.e. Hence $\Delta q_i^\times(\theta,s)$ also takes both signs since $R_q(\theta,s)>0$.
-
-Next, recall that $\Gamma_i(\underline\theta_i)=\tilde\lambda_i\,\underline\theta_i$ and $\Gamma_i(\overline\theta_i)=\tilde\lambda_i\,\overline\theta_i$ (because $G_i(\underline\theta_i)=0$ implies $\Lambda_i(\underline\theta_i)=0$, while $\gamma_i(\overline\theta_i)=0$ and $\Lambda_i(\overline\theta_i)=\tilde\lambda_i$ imply $h_i(\overline\theta_i)=0$). Therefore $R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)$ for any perturbation, and hence
-\[
-\bigl(R_\Gamma-\mathbb{E}^w_i[R_\Gamma\mid s]\bigr)(\underline\theta_i)
+\Delta q_i^\times(\theta,s)
 =
-\bigl(R_\Gamma-\mathbb{E}^w_i[R_\Gamma\mid s]\bigr)(\overline\theta_i).
+R_q(\theta,s)
+\left(
+R_\Gamma(\theta)-\mathbb E_i^w\!\left[R_\Gamma\mid s\right]
+\right).
 \]
-Since $\Delta q_i^\times(\theta,s)=R_q(\theta,s)(R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s])$ takes both signs while its endpoint values have the same sign (or are both zero), it cannot be monotone on $\Theta_i$. Finally, because $\Delta q_i^\times(\cdot,s)$ is differentiable, $\partial_\theta\Delta q_i^\times(\cdot,s)$ cannot have a fixed sign; using $\Delta(\partial_\theta q_i^\times)=\partial_\theta\Delta q_i^\times$, it follows that $\Delta(\partial_\theta q_i^\times)$ takes both positive and negative values on $\Theta_i$.
 
-For the unimodal mean-preserving case, Lemma~\ref{lem:realloc} gives $\Delta q_i^\times(\theta,s)=R_q(\theta,s)(R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s])$. The boundary values satisfy $\Delta q_i^\times(\underline\theta_i,s)=\Delta q_i^\times(\overline\theta_i,s)\le 0$ whenever $\Delta\mathcal{G}_i\ge 0$ (since the mean-preserving condition forces $R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)=\Delta\tilde\lambda_i/\tilde\lambda_i$ which under $\Delta\tilde\lambda_i=0$ equals zero, so the boundary values equal zero). The feasibility condition $\mathbb{E}_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$ and the quasi-concavity of $\Delta q_i^\times$ established in the preceding subsection then yield the unique cutoffs $\theta_-<\theta_+$ with the stated allocation properties.
+\medskip
+\noindent\textit{First part: $\Delta q_i^\times(\cdot,s)$ is not monotone when $R_\Gamma$ is not constant.}
+Since $\mathbb E_i^w[R_\Gamma\mid s]$ is a weighted average of $R_\Gamma$ with positive weights, if $R_\Gamma$ is not almost everywhere constant then
+\[
+R_\Gamma(\theta)-\mathbb E_i^w\!\left[R_\Gamma\mid s\right]
+\]
+must take both positive and negative values on $\Theta_i$. Because $R_q(\theta,s)>0$, the same is true of $\Delta q_i^\times(\theta,s)$.
+
+Next, recall that
+\[
+\Gamma_i(\underline\theta_i)=\tilde\lambda_i\,\underline\theta_i,
+\qquad
+\Gamma_i(\overline\theta_i)=\tilde\lambda_i\,\overline\theta_i.
+\]
+Hence, for any perturbation,
+\[
+R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)
+=
+\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}.
+\]
+Therefore
+\[
+\left(
+R_\Gamma-\mathbb E_i^w[R_\Gamma\mid s]
+\right)(\underline\theta_i)
+=
+\left(
+R_\Gamma-\mathbb E_i^w[R_\Gamma\mid s]
+\right)(\overline\theta_i),
+\]
+so the endpoint values of $\Delta q_i^\times(\theta,s)$ have the same sign (or are both zero). Since $\Delta q_i^\times(\theta,s)$ takes both signs while its endpoint values coincide in sign, it cannot be monotone on $\Theta_i$.
+
+\medskip
+\noindent\textit{Second part: unimodality and mean-preserving perturbations.}
+Assume now that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0$. Then
+\[
+R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)=0.
+\]
+
+Consider first the case $\Delta\mathcal G_i(\theta)\ge 0$ for all $\theta$. Since $\Gamma_i(\theta)>0$, this is equivalent to $R_\Gamma(\theta)\ge 0$ for all $\theta$. Set
+\[
+c_s:=\mathbb E_i^w[R_\Gamma\mid s]
+=
+\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}.
+\]
+Because $R_\Gamma$ is nonnegative, not constant, and vanishes at both endpoints, one has
+\[
+0<c_s<\max_{\theta\in\Theta_i}R_\Gamma(\theta).
+\]
+By unimodality, the equation
+\[
+R_\Gamma(\theta)=c_s
+\]
+has exactly two solutions, denoted $\theta_-<\theta_+$. Since
+\[
+\Delta q_i^\times(\theta,s)
+=
+R_q(\theta,s)\bigl(R_\Gamma(\theta)-c_s\bigr)
+\qquad\text{and}\qquad
+R_q(\theta,s)>0,
+\]
+it follows that
+\[
+\Delta q_i^\times(\theta,s)\le 0
+\quad\text{for }\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i],
+\]
+and
+\[
+\Delta q_i^\times(\theta,s)\ge 0
+\quad\text{for }\theta\in[\theta_-,\theta_+].
+\]
+
+Finally, using the binding first-order condition
+\[
+u(q_i^\times(\theta,s),s)\Gamma_i(\theta)=\varepsilon_i^\times(s),
+\]
+the equation $R_\Gamma(\theta)=c_s$ is equivalent to
+\[
+u(q_i^\times(\theta,s),s)\,\Delta\mathcal G_i(\theta)=\Delta\varepsilon_i^\times(s).
+\]
+This is exactly the characterization stated in the proposition.
+
+If instead $\Delta\mathcal G_i(\theta)\le 0$ for all $\theta$, apply the same argument to $-\Delta\mathcal G_i(\theta)$. This reverses all inequalities and proves part~(ii).
 \end{proof}
 
 \section{Proof of Corollary CARA}
-
 \begin{proof}
 Assume $\beta_i^\times=0$. In any on-peak state $s\in T_i^\times$ where the capacity constraint binds with multiplier $\varepsilon_i^\times(s)>0$, the interior FOC is
 \begin{equation}\label{eq:FOC-CARA}
-u\!\left(q_i^\times(\theta,s),s\right)\,\Gamma_i(\theta)=\varepsilon_i^\times(s).
+u\!\left(q_i^\times(\theta,s),s\right)\Gamma_i(\theta)=\varepsilon_i^\times(s).
 \end{equation}
 
-\paragraph{Step 1 (CARA implies $R_q$ is constant and the behavioral channel vanishes).}
-Under CARA, $u_q=-\alpha u$ for some $\alpha>0$, hence $R_q(\theta):=-u/u_q=1/\alpha$ is constant. Therefore
+\paragraph{Step 1: CARA implies $R_q$ is constant and the behavioral channel vanishes.}
+Under CARA, $u_q=-\alpha u$ for some $\alpha>0$, hence
 \[
-\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
-=\frac{1}{\alpha}\,\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)\right],
-\qquad
-\Delta\mathbb{E}_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
-=\frac{1}{\alpha}\,\mathbb{E}_{\theta_i}\!\left[\Delta R_\theta(\theta)\right].
+R_q(\theta):=-\frac{u}{u_q}=\frac{1}{\alpha}
 \]
-Since $R_q$ is constant, any covariance term involving $R_q$ equals zero. For a preference perturbation $\Delta\lambda_i(\theta)$ with $R_\Gamma(\theta):=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$, we have $\Delta R_\theta(\theta)=\Delta(J_i(\theta)/\Gamma_i(\theta))=-R_\Gamma(\theta)\,R_\theta(\theta)$.
-
-\paragraph{Step 2 (CARA simplification and covariance computation).}
-By Lemma~\ref{lem:realloc} with $\beta_i^\times=0$: $\Delta q_i^\times(\theta,s)=R_q(\theta,s)(R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s])$. Under CARA, the weights $w_i^\times(\theta,s)$ from the preliminary step of Lemma~\ref{lem:SC-dir} simplify: since $u_q=-\alpha u$, from \eqref{eq:FOC-CARA} one has $w_i^\times(\theta,s)=1/(\alpha u\Gamma_i(\theta))=1/(\alpha\varepsilon_i^\times(s))$, which is constant in $\theta$. Therefore $\mathbb{E}^w_i[R_\Gamma\mid s]=\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ (the weighted average reduces to an unweighted average) and $\Delta q_i^\times(\theta,s)=(1/\alpha)(R_\Gamma(\theta)-\mathbb{E}_{\theta_i}[R_\Gamma(\theta)])$.
-
-Now compute $\Delta\mathbb{E}_{\theta_i}[U(q_i^\times(\theta,s),s)J_i(\theta)]=\mathbb{E}_{\theta_i}[u(q_i^\times,s)J_i(\theta)\Delta q_i^\times(\theta,s)]$. Using $u(q_i^\times,s)=\varepsilon_i^\times(s)/\Gamma_i(\theta)$ from \eqref{eq:FOC-CARA}:
+is constant. Therefore
 \[
-\Delta\mathbb{E}_{\theta_i}\!\left[U\!\left(q_i^\times,s\right)J_i(\theta)\right]
-=\frac{\varepsilon_i^\times(s)}{\alpha}\mathbb{E}_{\theta_i}\!\left[\frac{J_i(\theta)}{\Gamma_i(\theta)}\left(R_\Gamma(\theta)-\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]\right)\right]
-=\frac{\varepsilon_i^\times(s)}{\alpha}\,\mathrm{Cov}_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right).
+\mathbb E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+=
+\frac{1}{\alpha}\,
+\mathbb E_{\theta_i}\!\left[R_\theta(\theta)\right],
+\qquad
+\Delta\mathbb E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+=
+\frac{1}{\alpha}\,
+\mathbb E_{\theta_i}\!\left[\Delta R_\theta(\theta)\right].
+\]
+Since $R_q$ is constant, any covariance term involving $R_q$ equals zero.
+
+For a preference perturbation $\Delta\lambda_i(\theta)$ with
+\[
+R_\Gamma(\theta):=\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)},
+\]
+we have
+\[
+\Delta R_\theta(\theta)
+=
+\Delta\!\left(\frac{J_i(\theta)}{\Gamma_i(\theta)}\right)
+=
+-R_\Gamma(\theta)R_\theta(\theta).
+\]
+
+\paragraph{Step 2: covariance formula under CARA.}
+By Lemma~\ref{lem:realloc} with $\beta_i^\times=0$,
+\[
+\Delta q_i^\times(\theta,s)
+=
+R_q(\theta,s)
+\left(
+R_\Gamma(\theta)-\mathbb E_i^w[R_\Gamma\mid s]
+\right).
+\]
+Under CARA, the weights simplify: since $u_q=-\alpha u$, \eqref{eq:FOC-CARA} implies
+\[
+w_i^\times(\theta,s)
+=
+\frac{1}{\alpha u(q_i^\times,s)\Gamma_i(\theta)}
+=
+\frac{1}{\alpha\varepsilon_i^\times(s)},
+\]
+which is constant in $\theta$. Therefore
+\[
+\mathbb E_i^w[R_\Gamma\mid s]
+=
+\mathbb E_{\theta_i}[R_\Gamma(\theta)],
+\]
+and
+\[
+\Delta q_i^\times(\theta,s)
+=
+\frac{1}{\alpha}
+\left(
+R_\Gamma(\theta)-\mathbb E_{\theta_i}[R_\Gamma(\theta)]
+\right).
+\]
+Now compute
+\[
+\Delta\mathbb E_{\theta_i}\!\left[U(q_i^\times(\theta,s),s)J_i(\theta)\right]
+=
+\mathbb E_{\theta_i}\!\left[u(q_i^\times,s)J_i(\theta)\Delta q_i^\times(\theta,s)\right].
+\]
+Using
+\[
+u(q_i^\times,s)=\frac{\varepsilon_i^\times(s)}{\Gamma_i(\theta)}
+\]
+from \eqref{eq:FOC-CARA},
+\[
+\Delta\mathbb E_{\theta_i}\!\left[U(q_i^\times,s)J_i(\theta)\right]
+=
+\frac{\varepsilon_i^\times(s)}{\alpha}
+\mathbb E_{\theta_i}\!\left[
+\frac{J_i(\theta)}{\Gamma_i(\theta)}
+\left(
+R_\Gamma(\theta)-\mathbb E_{\theta_i}[R_\Gamma(\theta)]
+\right)
+\right]
+=
+\frac{\varepsilon_i^\times(s)}{\alpha}\,
+\operatorname{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta)).
 \]
 Averaging over $s$ yields
 \[
-\Delta\mathbb{E}_{s,\theta_i}\!\left[U\!\left(q_i^\times,s\right)J_i(\theta)\right]
-=\frac{\mathbb{E}_s[\varepsilon_i^\times(s)]}{\alpha}\,\mathrm{Cov}_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right),
+\Delta\mathbb E_{s,\theta_i}\!\left[U(q_i^\times,s)J_i(\theta)\right]
+=
+\frac{\mathbb E_s[\varepsilon_i^\times(s)]}{\alpha}\,
+\operatorname{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta)),
 \]
 since off-peak states satisfy $\varepsilon_i^\times(s)=0$.
 
-\paragraph{Step 3 (comparative statics of $k^\ast$).}
-Let $F(k):=\partial_k\mathbb{E}\underline{CS}_i^\times(k)$. Single-peakedness and an interior maximizer imply $F(k^\ast)=0$ and $F'(k^\ast)<0$, so $\mathrm{sign}(\Delta k^\ast)=\mathrm{sign}(\Delta F(k^\ast))$. Under CARA and $\beta_i^\times=0$, the envelope expression implies $F(k)=\mathbb{E}_s[\varepsilon_i^\times(s)]\,\mathbb{E}_{\theta_i}[R_\theta(\theta)]$. Using Step~1 and Step~2:
+\paragraph{Step 3: comparative statics of $k^\ast$.}
+Let
+\[
+F(k):=\partial_k\mathbb E\underline{CS}_i^\times(k).
+\]
+Single-peakedness and an interior maximizer imply
+\[
+F(k^\ast)=0,
+\qquad
+F'(k^\ast)<0,
+\]
+so
+\[
+\operatorname{sign}(\Delta k^\ast)=\operatorname{sign}(\Delta F(k^\ast)).
+\]
+Under CARA and $\beta_i^\times=0$, the envelope expression implies
+\[
+F(k)=\mathbb E_s[\varepsilon_i^\times(s)]\,\mathbb E_{\theta_i}[R_\theta(\theta)].
+\]
+Using Step~1 and Step~2,
 \[
 \Delta F(k)
-=-\,\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\right]\,
-\mathrm{Cov}_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right).
+=
+-\mathbb E_s\!\left[\varepsilon_i^\times(s)\right]
+\operatorname{Cov}_{\theta_i}\!\left(R_\Gamma(\theta),R_\theta(\theta)\right).
 \]
-Whenever $\max_k\mathbb{E}\underline{CS}_i^\times(k)>0$, peak capacity binds with positive probability, so $\mathbb{E}_s[\varepsilon_i^\times(s)]>0$ on the relevant region. Therefore $\mathrm{sign}(\Delta k^\ast)=-\mathrm{sign}(\mathrm{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta)))$, which is the desired conclusion.
+Whenever $\max_k\mathbb E\underline{CS}_i^\times(k_i)>0$, peak capacity binds with positive probability, so $\mathbb E_s[\varepsilon_i^\times(s)]>0$ on the relevant region. Therefore
+\[
+\operatorname{sign}(\Delta k^\ast)
+=
+-\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta))
+\right),
+\]
+which is the desired conclusion.
 \end{proof}
-
 
 \end{document}
 \section{Not part of proofs but can be still useful}
 
 
+\begin{lemma}[From the aggregated zero to the statewise zero under multiplicative separability]\label{lem:statewise-zero-mult}
+Assume \eqref{eq:mult_u}, namely
+\[
+u(q,s)=\kappa(s)\zeta(q),
+\qquad
+\kappa(s)>0.
+\]
+Fix $k_i$, and let
+\[
+\mathcal G_i(\theta,k_i):=\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i),
+\qquad
+R_\theta(\theta,k_i):=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+\]
+and
+\[
+R_q^\times(\theta,s):=
+-\frac{u(q_i^\times(\theta,s),s)}{u_q(q_i^\times(\theta,s),s)}.
+\]
+Then $\mathsf H_i(k_i,s)=\mathbb E_{\theta_i}[R_\theta(\theta,k_i)R_q^\times(\theta,s)]$ is constant across all binding states $s\in T_i^\times(k_i)$.
 
+In particular, on the IR-constrained region,
+\[
+\mathcal S_i(k_i)=0
+\Longleftrightarrow
+\mathsf H_i(k_i,s)=0
+\quad
+\text{for every }s\in T_i^\times(k_i),
+\]
+and consequently
+\[
+\beta_i^{\times\prime}(k_i)=0
+\Longleftrightarrow
+\mathsf H_i(k_i,s)=0
+\quad
+\text{for every }s\in T_i^\times(k_i).
+\]
+\end{lemma}
+
+\begin{proof}
+Fix $k_i$. For every binding state $s\in T_i^\times(k_i)$, the first-order condition under \eqref{eq:mult_u} gives
+\[
+\kappa(s)\zeta\!\left(q_i^\times(\theta,s)\right)\mathcal G_i(\theta,k_i)
+=
+\varepsilon_i^\times(s).
+\]
+Define
+\[
+z_i(s):=\frac{\varepsilon_i^\times(s)}{\kappa(s)},
+\]
+so that
+\[
+q_i^\times(\theta,s)
+=
+\zeta^{-1}\!\left(\frac{z_i(s)}{\mathcal G_i(\theta,k_i)}\right).
+\]
+Differentiating the binding capacity constraint
+\[
+\mathbb E_{\theta_i}[q_i^\times(\theta,s)]=k_i
+\]
+with respect to $s$ yields $z_i'(s)=0$ for all $s\in T_i^\times(k_i)$, since $\mathcal G_i(\theta,k_i)>0$ and $\zeta_q<0$ imply that the derivative of the expectation with respect to $z_i(s)$ is nonzero.
+
+Hence $z_i(s)$ is constant on the binding region, so $q_i^\times(\theta,s)$ is $s$-independent there. Therefore
+\[
+R_q^\times(\theta,s)
+=
+-\frac{\zeta(q_i^\times(\theta,s))}{\zeta_q(q_i^\times(\theta,s))}
+\]
+is also $s$-independent on $T_i^\times(k_i)$. Since $R_\theta(\theta,k_i)$ does not depend on $s$, $\mathsf H_i(k_i,s)$ is constant across $s\in T_i^\times(k_i)$.
+
+Denoting this common value by $\mathsf H_i(k_i)$, we obtain
+\[
+\mathcal S_i(k_i)
+=
+\Pr\!\left(s\in T_i^\times(k_i)\right)\mathsf H_i(k_i).
+\]
+On the IR-constrained region, $\Pr(s\in T_i^\times(k_i))>0$, so
+\[
+\mathcal S_i(k_i)=0
+\Longleftrightarrow
+\mathsf H_i(k_i,s)=0
+\quad
+\text{for every }s\in T_i^\times(k_i).
+\]
+The second equivalence then follows from
+\[
+\beta_i^{\times\prime}(k_i)
+=
+-\frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)},
+\qquad
+\mathcal V_i(k_i)>0.
+\]
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Online appendix: additional proofs and auxiliary identities}

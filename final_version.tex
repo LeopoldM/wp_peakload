@@ -440,14 +440,14 @@ $R_q(\theta)$ and $R_\theta(\theta)$ are both monotone on $[\underline{\theta}_i
 
 The sign of \eqref{Eujmd} simultaneously governs three comparative-statics objects: $\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i$, the sign of $\partial\beta_i^\times/\partial k_i$ on the IR-constrained region, and the reallocation component of $\partial q_i^\times(\theta,s)/\partial k_i$; the derivation is shown in the preliminary step of the proof of Lemma~\ref{lem:SC-dir}. These objects in turn govern the marginal welfare and redistributive aspect of a capacity extension (Theorem~\ref{thm:welfare}) and the feasibility of the optimal allocation (Proposition~\ref{prop:implementation}).
 
-Lemma~\ref{lem:SC-dir} then provides mild conditions under which this expression is single-crossing in \(k_i\), so its sign---and therefore the qualitative predictions of the theorem and the implementation region---can be characterized sharply. The key primitive is whether the capacity sorting is \textit{submodular}: capacity expansion disproportionately benefits lower types.
+Lemma~\ref{lem:SC-dir} provides sufficient regularity conditions under which this expression is single-crossing in \(k_i\), so its sign---and therefore the qualitative predictions of the theorem and the implementation region---can be characterized sharply. The key condition is an equilibrium sorting property: capacity expansion must reallocate the endogenous risk-tolerance index \(R_q(\theta,k_i)\) across types in a monotone way.
 
 \begin{definition}
 $R_q$ is \emph{log-submodular in $(\theta,k_i)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq 0$.
 \end{definition}
 
 \begin{lemma}[Single-crossing]\label{lem:SC-dir}
-Assume $R_\theta(\theta)$ is monotone in $\theta$ and $R_q(\theta,k_i)$ has log-monotone differences in $(\theta,k_i)$ (i.e., it is either log-submodular or log-supermodular). Then the map
+Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta,k_i)\) is monotone, and that \(R_q(\theta,k_i)\) has log-monotone differences in \((\theta,k_i)\). Then the map
 \[
 k_i \longmapsto \mathbb E_s\!\left[
 \mathbb E_{w_i}[uJ\mid s]\mathbf 1_{\{s\in T_i^\times\}}\right]
@@ -455,14 +455,12 @@ k_i \longmapsto \mathbb E_s\!\left[
 is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
 \end{lemma}
 
-The economic interpretation of log-monotone differences in $(\theta,k_i)$ is intuitive. Assume that $R_\theta(\theta)$ is increasing so higher types get higher virtual surplus, and $R_q(\theta,k_i)$ is log-submodular. When capacity is scarce, the designer allocates relatively uniformly across types; as $k_i$ expands, the incentive-compatible allocation goes disproportionately to lower types, in the sense that the ratio $R_q(\theta,k_i')/R_q(\theta,k_i)$ is decreasing in $\theta$ for $k_i'>k_i$. Combined with $R_\theta(\theta)$ increasing, the covariance term in \eqref{signEuJ} becomes increasingly negative as $k_i$ grows. At low capacity, the average effect $\mathbb{E}_{\theta_i}[R_\theta(\theta)]\,\mathbb{E}_{\theta_i}[R_q(\theta)]$ dominates and the sign of \eqref{Eujmd} is positive; at high capacity, the adverse sorting effect dominates and it becomes negative. Lemma~\ref{lem:SC-dir} formalises this single-crossing intuition.
+The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta,k_i)\) is increasing, so higher types receive higher effective virtual surplus, and that \(R_q(\theta,k_i)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta,k_i)\) is decreasing in \(\theta\). Combined with \(R_\theta(\theta,k_i)\) increasing, this makes the covariance term in \eqref{signEuJ} more negative as \(k_i\) grows. Thus, as capacity expands, the weighted average \eqref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates. Lemma~\ref{lem:SC-dir} formalizes this single-crossing intuition.
 
-\begin{remark}[Primitives for log-submodularity]\label{rem:prim}
-Since $R_q$ depends on $(\theta,k_i)$ only through $q(\theta,k_i)$, the log-submodularity of $R_q$ in $(\theta,k_i)$ is equivalent to $R_q$ being concave as a function of $q$:
-\[
-\frac{\partial^2 \log R_q(\theta)}{\partial \theta\,\partial k_i} \leq 0 \quad\Longleftrightarrow\quad \frac{\partial^2 R_q}{\partial q^2} \leq 0.
-\]
-It is satisfied by standard utility specifications, including linear utility, exponential (CARA), power/isoelastic (CRRA), and, more generally, the HARA family.
+\begin{remark}[Primitive foundation in special cases]\label{rem:prim}
+The log-monotone-differences condition in Lemma~\ref{lem:SC-dir} is, in general, a restriction on the endogenous equilibrium object \(R_q(\theta,k_i)\), not solely on primitives of \(U\). On the IR-unconstrained region, where \(\beta_i^\times=0\), the comparative statics simplify and the sign of \(\partial_{\theta k_i}\log R_q\) can be related to the curvature of the primitive map \(q\mapsto R_q(q,s)\). By contrast, on the IR-constrained region, the response of the shadow cost \(\beta_i^\times(k_i)\) enters the derivative and the condition is no longer implied by curvature of \(U\) alone.
+
+A useful benchmark is CARA utility. In that case, \(R_q(q,s)\) is constant in \(q\), so \(\partial_{\theta k_i}\log R_q(\theta,k_i,s)=0\). Hence, the log-monotone-differences condition is trivially satisfied.
 \end{remark}
 
 The monotonicity of $R_q(\theta)$ is used to interpret the sorting effect,\footnote{Note that due to the IC constraint, the monotocity of  $R_q(\theta)$ with respect to $\theta$ or $q$ is equivalent, as $\theta$ enter $R_q(\theta)$ only through $q$.} while the monotonicity of $R_\theta(\theta)$ is the key primitive for the welfare and implementation results that follow. Their signs depend on the model primitives as follows. For $R_q'(\theta)$, only the curvature of $u$ matters:
