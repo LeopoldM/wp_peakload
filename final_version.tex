@@ -81,6 +81,24 @@ With $q$ the quantity of electricity allocated to the consumer. If a consumer do
 \]
 %##########################################
 
+One key element in the model is the quantity responsiveness of a consumer of type $\theta$ at allocation $q$ in state $s$; defined as $R_q(q) := -u(q,s)/u_q(q,s) > 0$. It measures how much a marginal increase in $q$ raises willingness to pay relative to its rate of decline. Two special cases simplify the analysis by restricting which arguments $R_q$ depends on.
+
+\renewcommand{\theassumption}{CARA}
+\begin{assumption}\label{ass:CARA}
+$u(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Under Assumption~\ref{ass:CARA}, $R_q = 1/\alpha$ is constant: a consumer's responsiveness is identical regardless of the quantity allocated to her. Additional capacity is therefore distributed across types in proportions determined solely by social weights, and the behavioral channel through which a preference shift distorts the allocation across types vanishes.
+
+\renewcommand{\theassumption}{Multi}
+\begin{assumption}\label{ass:mult}
+$u(q,s) = \kappa(q)\zeta(s)$ for some functions $\kappa$ and $\zeta$ with $\kappa' < 0$ and $\zeta > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Under Assumption~\ref{ass:mult}, $R_q = -\kappa(q)/\kappa'(q)$ depends only on $q$ and not on $s$: a consumer's responsiveness is identical regardless of the realization of the common shock. Note that Assumption~\ref{ass:CARA} implies Assumption~\ref{ass:mult}, with $\kappa(q) = \exp(-\alpha q)$ and $\zeta(s) = v(s)$, so CARA is the leading example of both simultaneously.
+
 \noindent \textbf{Allocation Design} 
 
 \noindent We derive different mechanisms to allocate electricity. We distinguish between a \textit{general mechanism} and some \textit{market mechanisms}. In the former, the market designer independently selects the quantity and the monetary transfer, which serves as our benchmark allocation. In the latter, the market designer offers a transfer schedule, and consumers choose their preferred quantity. We now define these formally.
@@ -440,7 +458,7 @@ $R_q(\theta)$ and $R_\theta(\theta)$ are both monotone on $[\underline{\theta}_i
 
 The sign of \eqref{Eujmd} simultaneously governs three comparative-statics objects: $\partial\mathbb{E}\underline{CS}_i^\times/\partial k_i$, the sign of $\partial\beta_i^\times/\partial k_i$ on the IR-constrained region, and the reallocation component of $\partial q_i^\times(\theta,s)/\partial k_i$; the derivation is shown in the preliminary step of the proof of Lemma~\ref{lem:SC-dir}. These objects in turn govern the marginal welfare and redistributive aspect of a capacity extension (Theorem~\ref{thm:welfare}) and the feasibility of the optimal allocation (Proposition~\ref{prop:implementation}).
 
-Lemma~\ref{lem:SC-dir} provides sufficient regularity conditions under which this expression is single-crossing in \(k_i\), so its sign---and therefore the qualitative predictions of the theorem and the implementation region---can be characterized sharply. The key condition is an equilibrium sorting property: capacity expansion must reallocate the endogenous risk-tolerance index \(R_q(\theta,k_i)\) across types in a monotone way.
+Lemma~\ref{lem:SC-dir} provides sufficient regularity conditions under which this expression is single-crossing in \(k_i\), so its sign---and therefore the qualitative predictions of the theorem and the implementation region---can be characterized sharply. The key condition is an equilibrium sorting property: capacity expansion must reallocate the endogenous responsiveness \(R_q(\theta,k_i)\) across types in a monotone way.
 
 \begin{definition}
 $R_q$ is \emph{log-submodular in $(\theta,k_i)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq 0$.
@@ -457,10 +475,8 @@ is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is
 
 The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta,k_i)\) is increasing, so higher types receive higher effective virtual surplus, and that \(R_q(\theta,k_i)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta,k_i)\) is decreasing in \(\theta\). Combined with \(R_\theta(\theta,k_i)\) increasing, this makes the covariance term in \eqref{signEuJ} more negative as \(k_i\) grows. Thus, as capacity expands, the weighted average \eqref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates. Lemma~\ref{lem:SC-dir} formalizes this single-crossing intuition.
 
-\begin{remark}[Primitive foundation in special cases]\label{rem:prim}
-The log-monotone-differences condition in Lemma~\ref{lem:SC-dir} is, in general, a restriction on the endogenous equilibrium object \(R_q(\theta,k_i)\), not solely on primitives of \(U\). On the IR-unconstrained region, where \(\beta_i^\times=0\), the comparative statics simplify and the sign of \(\partial_{\theta k_i}\log R_q\) can be related to the curvature of the primitive map \(q\mapsto R_q(q,s)\). By contrast, on the IR-constrained region, the response of the shadow cost \(\beta_i^\times(k_i)\) enters the derivative and the condition is no longer implied by curvature of \(U\) alone.
-
-A useful benchmark is CARA utility. In that case, \(R_q(q,s)\) is constant in \(q\), so \(\partial_{\theta k_i}\log R_q(\theta,k_i,s)=0\). Hence, the log-monotone-differences condition is trivially satisfied.
+\begin{remark}[Primitive foundation]\label{rem:prim}
+On the IR-unconstrained region, where $\beta_i^\times=0$, the log-monotone-differences condition becomes a condition on primitives alone: since $\partial q_i^\times/\partial k_i = w_i^\times/\bar{w}_i^\times$ is proportional across types, the sign of $\partial^2\log R_q/\partial\theta\,\partial k_i$ reduces to the sign of $R_q''(q)$, so $R_q$ is log-submodular whenever $R_q''(\cdot)\le 0$ and log-supermodular whenever $R_q''(\cdot)\ge 0$. On the IR-constrained region, the response of the shadow cost $\beta_i^\times(k_i)$ enters the derivative of $\partial q_i^\times/\partial k_i$ and the condition is no longer implied by the curvature of $U$ alone. Under Assumption~\ref{ass:CARA}, however, $R_q = 1/\alpha$ is constant, so all cross-derivatives of $\log R_q$ vanish identically; the log-monotone-differences condition is therefore satisfied with equality regardless of the regime considered.
 \end{remark}
 
 The monotonicity of $R_q(\theta)$ is used to interpret the sorting effect,\footnote{Note that due to the IC constraint, the monotocity of  $R_q(\theta)$ with respect to $\theta$ or $q$ is equivalent, as $\theta$ enter $R_q(\theta)$ only through $q$.} while the monotonicity of $R_\theta(\theta)$ is the key primitive for the welfare and implementation results that follow. Their signs depend on the model primitives as follows. For $R_q'(\theta)$, only the curvature of $u$ matters:
@@ -496,15 +512,12 @@ To interpret both terms, we first record how the optimal allocation responds to 
 Two observations: when \eqref{Rmdi-def} binds (the IR-constrained allocation), the boundary term equals zero: the entire welfare change is then carried by the IC rent in \eqref{partialkCS1}. On the other hand,  when \eqref{Rmdi-def} is slack (the IR-unconstrained allocation), then the second term in \eqref{partialkq1} is null as $\beta_i^\times = 0$.
 
 
-\begin{definition}\label{ass:multiplicative}
-$u(\cdot)$ is multiplicative in $(q,s)$ if there exists two functions $\kappa(q)$ and $\zeta(s)$ such that $u(q,s) = \kappa(q) \zeta(s)$. Add conditions on $\kappa$ and $\zeta$.
-\end{definition}
 \begin{theorem}\label{thm:welfare}
 Define the set of cutoffs \(\tilde\Theta_i := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \partial\mathbb{E}CS_i^\times(\tilde\theta_i)/\partial k_i=0\right\}\).
 
 \noindent\textbf{IR-unconstrained allocation.} If \eqref{Eujmd} is positive, then an increase in \(k_i\) increases expected surplus for every type \(\theta\). If \eqref{Eujmd} is negative, \(\tilde\Theta_i\) contains a unique cutoff; expected surplus decreases for all \(\theta<\tilde\theta_i\) and increases for all \(\theta>\tilde\theta_i\).
 
-\noindent\textbf{IR-constrained allocation.} Assume \(R_\theta(\theta)\) is monotone and \(u(\cdot)\) is multiplicative in \((q,s)\). The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:
+\noindent\textbf{IR-constrained allocation.} Assume \(R_\theta(\theta)\) is monotone and Assumption~\ref{ass:mult} holds. The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
     \item if \eqref{Eujmd} is positive, expected surplus increases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and decreases for all \(\theta\ge\tilde\theta_i\);
     \item if \eqref{Eujmd} is negative, expected surplus decreases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and increases for all \(\theta\ge\tilde\theta_i\).
@@ -620,7 +633,7 @@ The comparative statics in this section examine how changes in redistributive pr
 \]
 %##########################################
 
-Proposition~\ref{prop:Elasticity} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. Since $R_q$ depends on the preferences only through $q_i^\times$, and as $R_q(\theta)>0$, the effect of the behavioral change is equivalent to the effect on the optimal allocation of a change in preferences. However, the behavioral channel is not monotonic in $\theta$  so the aggregate effect of a change of preference on the equilibrium cannot be signed in general: in the IR-unconstrained region, Proposition~\ref{prop:rprefreallocation} formally establishes that $\Delta q_i^\times(\cdot,s) $is non-monotone; in the IR-constrained region, no analogous characterization is available without conditions on the equilibrium. Corollary~\ref{cor:CARA} provides a clean bypass of this limitation under the assumption of a CARA utility function, where $R_q(\theta)$ is constant, and the total effect reduces to the trade-off channel alone.
+Proposition~\ref{prop:Elasticity} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. Since $R_q$ depends on the preferences only through $q_i^\times$, and as $R_q(\theta)>0$, the effect of the behavioral change is equivalent to the effect on the optimal allocation of a change in preferences. However, the behavioral channel is not monotonic in $\theta$  so the aggregate effect of a change of preference on the equilibrium cannot be signed in general: in the IR-unconstrained region, Proposition~\ref{prop:rprefreallocation} formally establishes that $\Delta q_i^\times(\cdot,s) $is non-monotone; in the IR-constrained region, no analogous characterization is available without conditions on the equilibrium. Corollary~\ref{cor:CARA} provides a clean bypass of this limitation under the Assumption~\ref{ass:CARA}, where $R_q(\theta)$ is constant, and the total effect reduces to the trade-off channel alone.
 
 We now formally characterize the consequences of a (marginal) perturbation of preferences, denoted $\Delta\lambda_i(\theta)$. The induced change in the welfare weight is
 %##########################################
@@ -696,7 +709,7 @@ Proposition~\ref{prop:rprefreallocation} has strong consequences for the welfare
 However, the CARA specification provides a clean case: since $R_q(\theta)$ is constant, the behavioral channel vanishes by construction and the total effect reduces to the trade-off channel alone, making the sign of a preference perturbation directly readable without any auxiliary condition on demand curvature. Moreover, under CARA the full chain from preferences to implementation region collapses to a single covariance condition.
 
 \begin{corollary}\label{cor:CARA}
-Suppose $u$ exhibits constant absolute risk aversion with coefficient $\alpha>0$ and $\max_{k}\mathbb{E}\underline{CS}_i^\times(k_i)>0$. Then $R_q(\theta)=1/\alpha$ is constant, the behavioral channel vanishes, and the entire implementation region $[\tilde{k}_i^-,\tilde{k}_i^+]$ and its peak $k^\ast$ are governed by a single covariance condition:
+Under Assumption~\ref{ass:CARA}, the behavioral channel vanishes, and the entire implementation region $[\tilde{k}_i^-,\tilde{k}_i^+]$ and its peak $k^\ast$ are governed by a single covariance condition:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
 \item If $\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)>0$, the region expands ($\tilde{k}_i^-$ decreases, $\tilde{k}_i^+$ increases) and $k^\ast$ shifts left;
 \item  if $\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)<0$, the region contracts ($\tilde{k}_i^-$ increases, $\tilde{k}_i^+$ decreases) and $k^\ast$ shifts right.
