@@ -438,7 +438,7 @@ And in particular, its average over the on-peak period
 %##########################################
 \begin{equation}
  \mathbb E_s\!\left[\mathbf 1_{\{s\in T_i^\times\}}\,
-\mathbb E_{w_i}[uJ\mid s]\right]. \tag{EuJ}\label{Eujmd}
+\E_i^w[uJ\mid s]\right]. \tag{EuJ}\label{Eujmd}
 \end{equation}
 %##########################################
 
@@ -468,7 +468,7 @@ $R_q$ is \emph{log-submodular in $(\theta,k_i)$} if $\partial^2 \log R_q/\partia
 Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta,k_i)\) is monotone, and that \(R_q(\theta,k_i)\) has log-monotone differences in \((\theta,k_i)\). Then the map
 \[
 k_i \longmapsto \mathbb E_s\!\left[
-\mathbb E_{w_i}[uJ\mid s]\mathbf 1_{\{s\in T_i^\times\}}\right]
+\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i^\times\}}\right]
 \]
 is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
 \end{lemma}
@@ -515,9 +515,9 @@ Two observations: when \eqref{Rmdi-def} binds (the IR-constrained allocation), t
 \begin{theorem}\label{thm:welfare}
 Define the set of cutoffs \(\tilde\Theta_i := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \partial\mathbb{E}CS_i^\times(\tilde\theta_i)/\partial k_i=0\right\}\).
 
-\noindent\textbf{IR-unconstrained allocation.} If \eqref{Eujmd} is positive, then an increase in \(k_i\) increases expected surplus for every type \(\theta\). If \eqref{Eujmd} is negative, \(\tilde\Theta_i\) contains a unique cutoff; expected surplus decreases for all \(\theta<\tilde\theta_i\) and increases for all \(\theta>\tilde\theta_i\).
+\noindent\textbf{IR-unconstrained allocation.} If \eqref{Eujmd} is positive, then an increase in \(k_i\) increases expected surplus for every type \(\theta\). If \eqref{Eujmd} is negative, \(\tilde\Theta_i\) contains at most a unique cutoff; and if it exists expected surplus decreases for all \(\theta<\tilde\theta_i\) and increases for all \(\theta>\tilde\theta_i\).
 
-\noindent\textbf{IR-constrained allocation.} Assume \(R_\theta(\theta)\) is monotone and Assumption~\ref{ass:mult} holds. The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:
+\noindent\textbf{IR-constrained allocation.} Assume \(R_\theta(\theta)\) is monotone and Assumption~\ref{ass:mult} holds. The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:\footnote{When no interior cutoff exists, either all types lose from a capacity expansion or all types gain.}
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
     \item if \eqref{Eujmd} is positive, expected surplus increases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and decreases for all \(\theta\ge\tilde\theta_i\);
     \item if \eqref{Eujmd} is negative, expected surplus decreases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and increases for all \(\theta\ge\tilde\theta_i\).
@@ -542,14 +542,14 @@ The single-crossing result in Lemma~\ref{lem:SC-dir} has an immediate implicatio
 \begin{proposition}[Implementation region]\label{prop:implementation}
 Fix category \(i\) and a budget requirement \(I_i>0\). Let \(k_i^+\) be the capacity level at which the capacity constraint never binds. Assume that \eqref{Eujmd} is \emph{single-crossing in \(k_i\) from \(+\) to \(-\)} on \([0,k_i^+]\). Then \(\mathbb E\underline{CS}_i^\times(k_i)\) is single-peaked on \([0,k_i^+]\) and the set of capacities for which the IR-unconstrained allocation is feasible (equivalently, \(\mathbb E\underline{CS}_i^\times(k_i)\ge 0\)) has the following form:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
-    \item If \(\mathbb E\underline{CS}_i^\times(k_i^+)\ge 0\), there exists a unique cutoff \(\tilde k_i\in(0,k_i^+]\) such that the IR-unconstrained allocation is optimal for all \(k_i\in[\tilde k_i,k_i^+]\). In particular, this holds whenever \(J_i(\theta)\ge 0\) for all \(\theta\).
+    \item If \(\mathbb E\underline{CS}_i^\times(k_i^+)\ge 0\), there exists a unique cutoff \(\tilde k_i\in(0,k_i^+]\) such that the IR-unconstrained allocation is optimal for all \(k_i\in[\tilde k_i,k_i^+]\).
     \item If \(\mathbb E\underline{CS}_i^\times(k_i^+)<0\), the IR-unconstrained allocation is either never optimal on \([0,k_i^+]\) or optimal only on an intermediate interval \([\tilde k_i^-,\tilde k_i^+]\subset(0,k_i^+)\).
 \end{enumerate}
 
 If instead \eqref{Eujmd} crosses from \(-\) to \(+\): then \(\mathbb E\underline{CS}_i^\times(k_i)\) is single-dipped on \([0,k_i^+]\) and either \(\mathbb E\underline{CS}_i^\times(k_i)<0\) for all \(k_i\in[0,k_i^+]\), or there exists a unique \(\tilde k_i\in(0,k_i^+]\) such that \(\mathbb E\underline{CS}_i^\times(k_i)\ge 0\) for all \(k_i\in[\tilde k_i,k_i^+]\).
 \end{proposition}
 
-The threshold $\tilde k_i$ defines when the market designer can finance the investment $I_i$ without distorting the allocation via the IR constraint. The condition follows directly from the single-crossing of $\mathbb{E}[uJ]$ in $k_i$ established in Lemma~\ref{lem:SC-dir}: as capacity expands and adverse sorting worsens, the expected revenue that the mechanism can sustain first increases and then falls. The intersection of this revenue curve with $I_i$ pins down the implementation threshold. 
+The threshold $\tilde k_i$ defines when the market designer can finance the investment $I_i$ without distorting the allocation via the IR constraint. The condition follows directly from the single-crossing of $\mathbb{E}[uJ]$ in $k_i$ established in Lemma~\ref{lem:SC-dir}: as capacity expands and adverse sorting worsens, the expected revenue that the mechanism can sustain first increases and then falls. The intersection of this revenue curve with $I_i$ pins down the implementation threshold. Note the special case where $J_i(\theta)> 0$ for all $\theta$. In that case the cutoff is always unique whenever it exists and the IR unconstrained region is optimal only for higher capacity levels. The results become non trivial whenever the redistributive objective forces the market designer to allocate the good to consumers that reduce the ability to raise revenue (i.e. $J_i(\theta)<0)$ .
 
 
 Figure~\ref{fig:impl_welfare} synthesizes the joint implications of Lemma~\ref{lem:SC-dir}, Proposition~\ref{prop:implementation}, and Theorem~\ref{thm:welfare} under submodular $R_q$ and increasing $R_\theta(\theta)$. The capacity axis is partitioned into four regions by three thresholds: the two IR-regime boundaries $\tilde k_i^-$ and $\tilde k_i^+$ from Proposition~\ref{prop:implementation}, and the zero-crossing $k^\ast$ of \eqref{Eujmd} from Lemma~\ref{lem:SC-dir}. For low capacity levels $k_i \in [0, \tilde k_i^-)$, the IR constraint binds and \eqref{Eujmd} is positive: only lower types benefit from capacity expansion, so the welfare effect is progressive. As capacity crosses $\tilde k_i^-$, the mechanism becomes IR-unconstrained and \eqref{Eujmd} is still positive, so all types gain --- this is the universal region. The covariance reverses at $k^\ast$, still within the IR-unconstrained region: higher types now gain and lower types lose, so the welfare effect turns regressive. Finally, beyond $\tilde k_i^+$, the IR constraint binds again and the adverse sorting is sufficiently severe that only higher types continue to benefit. Two features of this picture are worth emphasizing. First, the welfare effect, who gains from $\uparrow k_i$, is governed entirely by the sign of \eqref{Eujmd}, which switches at $k^\ast$ and by IR-regime boundaries. Second, under case (ii) of Proposition~\ref{prop:implementation}, the single-peakedness of \eqref{Eujmd} and its negative value at $k_i = 0$ jointly guarantee the ordering $\tilde k_i^- < k^\ast < \tilde k_i^+$, so all four regions are generically non-empty, with degenerate cases arising only when extreme segments collapse.
@@ -653,7 +653,7 @@ The following Lemma establishes the link between a particular change of redistri
 \begin{lemma}\label{lem:preferenceorder}
 Consider a weight function $\lambda_i(\theta)$ and its perturbation $\lambda_i^\Delta(\theta)$, with $\Delta\lambda_i(\theta):=\lambda_i^\Delta(\theta)-\lambda_i(\theta)$ and $\Delta\G_i(\theta):=\G_i^\Delta(\theta)-\G_i(\theta)$. Suppose $\G_i(\theta),\G_i^\Delta(\theta)>0$ for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. If $\lambda_i^\Delta(\theta)$ shifts preferences toward higher (resp. lower) types proportionally more than $\lambda_i(\theta)$, in the sense that $\frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$
 
-\noindent i) Then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
+\noindent i) Then for a.e. $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
 %##########################################
         \[
           \frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}
