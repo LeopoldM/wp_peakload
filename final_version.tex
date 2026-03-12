@@ -718,6 +718,23 @@ Under Assumption~\ref{ass:CARA}, the behavioral channel vanishes, and the entire
 
 Both Proposition~\ref{prop:Elasticity} and Corollary~\ref{cor:CARA} share the same spirit: they characterize when a preference shift exacerbates or relaxes the fundamental negative sorting in the revenue structure. The covariance $\operatorname{Cov}(R_\Gamma, R_\theta)$ directly captures this: when the preference shift allocates proportionally more weight to types with low $R_\theta(\theta)$ --- that is, types contributing little to virtual surplus --- the budget constraint tightens and the implementation region contracts. To illustrate: if $R_\theta(\theta)$ is increasing in $\theta$ but $R_\Gamma(\theta)$ is decreasing, then higher weights are being placed on low-$\theta$ types who contribute least to revenue, the covariance is negative, and the region contracts. 
 
+
+
+\subsection{Accross category allocation}
+
+
+\begin{proposition}[Across-category allocation]\label{prop:outer}
+Consider
+\[
+\max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N} V_i(k_i,I_i)
+\]
+subject to
+\[
+\sum_{i\in N} k_i = k, \qquad \sum_{i\in N} I_i = I, \qquad k_i\ge 0, \qquad I_i\ge 0 \quad \forall i.
+\]
+The across-category problem admits at least one solution and the set of optimal allocations is convex. If every category lies in the IR-constrained, capacity-binding region at the optimum, the optimal allocation is unique.
+\end{proposition}
+
 \bibliographystyle{apalike}
 \bibliography{lib}
 
