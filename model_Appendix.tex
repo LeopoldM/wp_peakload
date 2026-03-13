@@ -3,8 +3,8 @@
 \begin{document}
 
 \textcolor{red}{Assume Inada then q > 0}
-\textcolor{red}{Remember the online appendix: non-monotonicity of q}
-
+\textcolor{red}{Remember the online appendix: non-monotonicity of q} 
+\textcolor{red}{Deal with t>=0} 
 \section{Proof of Proposition FB-alloc}
 
 \begin{proof}
@@ -1213,16 +1213,14 @@ The $\mathbb{E}[R_\Gamma]\mathbb{E}[R_\theta]$ terms cancel exactly. Since $\max
 \]
 When $\operatorname{Cov}(R_\Gamma,R_\theta)>0$, both $k^\ast$ shifts left and the implementation region expands, since the same argument applied to the boundary conditions of Proposition~\ref{prop:implementation} shows that $\Delta Y_i(k)>0$ for all $k$ in the implementation region, pushing $\tilde{k}_i^-$ down and $\tilde{k}_i^+$ up. The reverse holds when the covariance is negative.
 \end{proof}
-
-\section{Proof of Solution for the Across-category allocation}
-
+\section{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
 
 \begin{proof}
 The feasible set
 \[
 \mathcal F := \left\{ \{(k_i,I_i)\}_{i\in N} : \sum_{i\in N} k_i = k,\ \sum_{i\in N} I_i = I,\ k_i\ge 0,\ I_i\ge 0\ \forall i \right\}
 \]
-is compact. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is continuous and concave, so the outer objective $W:=\sum_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
+is compact and convex. Continuity of each $V_i$ follows from Berge's maximum theorem: the objective $\mathbb{E}_{(s,\theta_i)}[\Gamma_i(\theta)U(q,s)]$ and the constraints of the within-category problem are continuous in $(k_i,I_i)$, and the feasible correspondence is continuous and compact-valued under the maintained assumptions. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is concave. Hence the outer objective $W:=\sum_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
 
 \begin{lemma}[Concavity of the within-category value function]\label{lem:Vi-concave}
 For each category $i$, the value function $V_i(k_i,I_i)$ is concave on its feasible domain. More precisely:
@@ -1294,7 +1292,7 @@ It remains to verify that $\nabla V_i$ is continuous across the two regime bound
 
 \textit{Capacity-binding to capacity-slack.} As $s_i^\times(k_i)\to\overline s$, the integral $\partial_{k_i}V_i=\int_{s_i^\times}^{\overline s}\varepsilon_i^\times(s)\,f(s)\,ds\to 0$ continuously, matching the slack-side value of zero.
 
-With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^0,x^1$ and let $g_i(t):=V_i((1-t)x^0+tx^1)$. Then $g_i$ is piecewise $C^2$ with $g_i'$ continuous at every switching point. On each regime piece $g_i''(t)\le 0$, so $g_i'$ is nonincreasing on each piece. Continuity at switching points prevents upward jumps, so $g_i'$ is globally nonincreasing and $g_i$ is concave. Hence $V_i$ is globally concave.
+With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^0,x^1$ and let $g_i(t):=V_i((1-t)x^0+tx^1)$. Then $g_i$ is piecewise $C^2$ with $g_i'$ continuous at every switching point. On each regime piece $g_i''(t)\le 0$, so $g_i'$ is nonincreasing on each piece. Continuity at switching points prevents upward jumps in $g_i'$, so $g_i'$ is globally nonincreasing and $g_i$ is concave. Hence $V_i$ is globally concave.
 \end{proof}
 \end{proof}
 

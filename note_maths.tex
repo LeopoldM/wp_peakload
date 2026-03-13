@@ -1,214 +1,343 @@
-
-\documentclass{class}
-
-\usepackage{bbm}
-
-\usetikzlibrary{positioning}
+\documentclass[master.tex]{subfiles}
+\title{Mathematical Synthesis of \emph{Peak Load Pricing Theory with Incomplete Information}}
+\author{Leopold Monjoie}
+\date{}
 
 \begin{document}
 
-% =====================================================================
-% Glossary / Note: Mathematical objects in "Optimal allocation with private information"
-% =====================================================================
+\maketitle
 
-\subsection*{Notation and definitions (private information section)}
+\section{Purpose of this note}
 
-\paragraph{Indices, sets, primitives.}
-\begin{itemize}
-\item Categories: $i\in N$.
-\item Population weights: $\mu_i\ge 0$ (often $\sum_{i\in N}\mu_i=1$ if normalized).
-\item Type (private information): $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$; misreport $\hat{\theta}$.
-\item State: $s\in[\underline{s},\overline{s}]$; expectation over states $\E_s[\cdot]$.
-\item Type distribution in category $i$: CDF $G_i(\theta)$, density $g_i(\theta)$.
-\item Expectations: $\E_{\theta_i}[\cdot]$ over $\theta\sim G_i$, and $\E_{(s,\theta_i)}[\cdot]$ over the joint draw $(s,\theta)$.
-\item Aggregate capacity: $k$; investment cost $I(k)$.
-\item Category decomposition objects: $k_i$ (capacity assigned to category $i$), $I_i$ (revenue requirement assigned to category $i$),
-with aggregate constraints $\sum_i \mu_i k_i=k$ and $\sum_i \mu_i I_i=I(k)$.
+This document collects, in one place, the mathematical objects used throughout the paper. The goal is not to reproduce every proof, but to provide a compact and self-contained synthesis of the primitives, constraints, key transformations, and core equilibrium objects. We begin with the primitives of the environment.
+
+\section{Primitives}
+
+\subsection{Agents, categories, and states}
+
+There is a finite set of observable consumer categories
+\[
+N = \{1,\dots,n\}.
+\]
+Category $i \in N$ has mass $\mu_i>0$, and we normalize aggregate mass to one whenever convenient.
+
+Each consumer is characterized by:
+\begin{itemize}[leftmargin=2em]
+    \item a publicly observed category $i \in N$,
+    \item a privately observed type $\theta \in \Theta_i := [\underline \theta_i,\overline \theta_i]$,
+    \item a common state $s \in S := [\underline s,\overline s]$,
+    \item a social welfare weight $\lambda_i(\theta)$ when distributional preferences are present.
 \end{itemize}
 
-\paragraph{Preferences and mechanism objects.}
-\begin{itemize}
-\item Gross utility: $U(q,s)$.
-\item Marginal utility notation: $u(q,s):=\partial_q U(q,s)$ and $u_q(q,s):=\partial_{qq}U(q,s)$.
-\item Direct mechanism: quantity schedule $q_i^\times(\theta,s)$ and transfer $t_i^\times(\theta,s)$.
-\end{itemize}
+Conditional on category $i$, the type $\theta$ is drawn from cdf $G_i$ with density $g_i>0$ on $\Theta_i$. The state $s$ is drawn from density $f$ on $S$. Expectations with respect to types and states are denoted by
+\[
+\mathbb E_{\theta_i}[\cdot], \qquad \mathbb E_s[\cdot], \qquad \mathbb E_{\theta_i,s}[\cdot].
+\]
 
-\paragraph{Feasibility constraints and surplus.}
-\begin{itemize}
-\item (Interim) incentive compatibility in expectation over $s$:
-\[
-\E_s\!\left[\theta U\!\left(q_i^\times(\theta,s),s\right)-t_i^\times(\theta,s)\right]
-\ge
-\E_s\!\left[\theta U\!\left(q_i^\times(\hat{\theta},s),s\right)-t_i^\times(\hat{\theta},s)\right],
-\qquad \forall i,\theta,\hat{\theta}.
-\]
-\item Interim expected consumer surplus:
-\[
-\E CS_i^\times(\theta)
-:=
-\E_s\!\left[\theta U\!\left(q_i^\times(\theta,s),s\right)-t_i^\times(\theta,s)\right].
-\]
-\item Boundary term (lowest-type surplus) chosen by the designer:
-\[
-\E \underline{CS}_i^\times \in
-\left[\,0,\ \E_s\!\left[\underline{\theta}_i U\!\left(q_i^\times(\underline{\theta}_i,s),s\right)\right]\right].
-\]
-\item Envelope representation (under IC):
-\[
-\E CS_i^\times(\theta)
-=
-\E\underline{CS}_i^\times
-+
-\int_{\underline{\theta}_i}^{\theta}
-\E_s\!\left[U\!\left(q_i^\times(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}.
-\]
-\item Revenue requirement within category $i$ (binding in the text):
-\[
-\E_{(s,\theta_i)}\!\left[t_i^\times(\theta,s)\right]=I_i.
-\]
-\end{itemize}
+\subsection{Preferences and consumption}
 
-\paragraph{Hazard-rate and virtual objects.}
-\begin{itemize}
-\item Inverse hazard rate of $G_i$:
+For a consumer of category $i$ and type $\theta$, consumption of quantity $q \ge 0$ in state $s$ yields gross utility
 \[
-\gamma_i(\theta):=\frac{1-G_i(\theta)}{g_i(\theta)}.
+\theta \, U(q,s).
 \]
-\item Type-dependent welfare weights: $\lambda_i(\theta)$; average weight
+The function $U(q,s)$ is $C^1$ in $(q,s)$, strictly concave in $q$, and normalized so that the marginal utility is
 \[
-\tilde{\lambda}_i:=\int_{\underline{\theta}_i}^{\overline{\theta}_i}\lambda_i(\theta)\,dG_i(\theta).
+u(q,s) := \frac{\partial U(q,s)}{\partial q}.
 \]
-\item Cumulative weighted mass below $\theta$:
+Following the notation used in the paper, we write
 \[
-\Lambda_i(\theta):=\int_{\underline{\theta}_i}^{\theta}\lambda_i(\tilde{\theta})\,dG_i(\tilde{\theta}).
+u(q,s) \equiv u(q,s), \qquad \frac{\partial u(q,s)}{\partial q} \equiv u_q(q,s).
 \]
-\item Density-normalized $\lambda$-weighted mass above $\theta$:
-\[
-h_i(\theta):=\frac{\tilde{\lambda}_i-\Lambda_i(\theta)}{g_i(\theta)}.
-\]
-\item Virtual utility / virtual surplus term:
-\[
-J_i(\theta,s):=U\!\left(q_i^\times(\theta,s),s\right)\left(\theta-\gamma_i(\theta)\right).
-\]
-\end{itemize}
+We assume that $u_q(q,s)<0$ on the relevant domain and that $u_s(q,s)>0$. We further assume $\lim_{q\downarrow 0}u(q,s)>0$ for all $s\in S$, so that optimal allocations are interior whenever capacity is positive.
 
-\paragraph{Key transformed weight $\Gamma_i$.}
-\begin{itemize}
-\item Main tradeoff weight:
+Consumer surplus from allocation $q$ is denoted by
 \[
-\Gamma_i(\theta):=\tilde{\lambda}_i\left(\theta-\gamma_i(\theta)\right)+h_i(\theta).
+CS(q) := \theta \, U(q,s) - t,
 \]
-Interpretation: $\tilde{\lambda}_i(\theta-\gamma_i(\theta))$ captures the revenue (virtual surplus) side,
-and $h_i(\theta)$ captures IC-induced effects through higher types.
-\end{itemize}
+where $t$ is the transfer paid by the consumer. When transfers are suppressed from the reduced-form within-category problem, $CS(q)$ should be read as the surplus objective induced by the mechanism after substituting out transfers using the envelope representation.
 
-\paragraph{Within-category problem and multipliers.}
-\begin{itemize}
-\item Within-category objective (constant term in $q$ omitted if desired):
+\begin{assumption}[Satiation and bounded allocations]\label{ass:satiation}
+For each state $s\in S$, there exists a finite satiation level $\bar q(s)\in \mathbb R_+$ such that
 \[
-\max_{q_i^\times(\theta,s)}\ \E_{(s,\theta_i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i^\times(\theta,s),s\right)-\tilde{\lambda}_i I_i\right]
+u\bigl(\bar q(s),s\bigr)=0, \qquad u(q,s)\le 0 \quad \text{for all } q\ge \bar q(s).
+\]
+Hence, without loss of generality, the planner restricts attention to allocations satisfying
+\[
+0\le q_i(\theta,s)\le \bar q(s) \qquad \text{for all } (\theta,s).
+\]
+\end{assumption}
+
+\subsection{Demand-side virtual objects}
+
+For each category $i$, define the inverse hazard rate
+\[
+\gamma_i(\theta) := \frac{1-G_i(\theta)}{g_i(\theta)}.
+\]
+The associated virtual surplus (or virtual type) is
+\[
+J_i(\theta) := \theta - \gamma_i(\theta).
+\]
+When the planner uses social welfare weights $\lambda_i(\theta)$, define the category-average weight
+\[
+\tilde \lambda_i := \mathbb E_{\theta_i}[\lambda_i(\theta)].
+\]
+The incentive-compatibility term is summarized by
+\[
+\Lambda_i(\theta) := \gamma_i(\theta)\, \mathbb E\!\left[\lambda_i(\tilde \theta) \mid \tilde \theta \ge \theta \right].
+\]
+Equivalently, using the truncated upper tail,
+\[
+\Lambda_i(\theta) = \frac{1-G_i(\theta)}{g_i(\theta)} \cdot \frac{1}{1-G_i(\theta)} \int_\theta^{\overline \theta_i} \lambda_i(t) g_i(t) \, dt = \frac{1}{g_i(\theta)} \int_\theta^{\overline \theta_i} \lambda_i(t) g_i(t) \, dt.
+\]
+The basic virtual welfare weight in the private-information problem is then
+\[
+\Gamma_i(\theta) := \tilde \lambda_i J_i(\theta) + \Lambda_i(\theta).
+\]
+
+\subsection{Technology, capacity, and investment}
+
+The good is subject to an aggregate capacity constraint. Let $k \ge 0$ denote installed capacity, and let $I(k)$ denote the cost of reaching capacity level $k$ in the complete model. In the across-category decomposition, one works instead with category-specific capacity and investment targets
+\[
+\{k_i,I_i\}_{i\in N},
+\]
+subject to the aggregate feasibility conditions
+\[
+\sum_{i\in N} k_i = k, \qquad \sum_{i\in N} I_i = I.
+\]
+Within category $i$, the allocation must satisfy the state-by-state capacity constraint
+\[
+\mathbb E_{\theta_i}[q_i(\theta,s)] \le k_i \qquad \text{for all } s.
+\]
+
+\subsection{Planner objective and redistribution}
+
+The planner maximizes a weighted sum of consumer surplus subject to financing and capacity constraints. The reduced-form within-category problem takes the form
+\[
+V_i(k_i,I_i) := \max_{q_i(\theta,s)} \mathbb E_{\theta_i,s}[\lambda_i(\theta)CS(q_i)]
 \]
 subject to
 \[
-\E_{(s,\theta_i)}\!\left[J_i(\theta,s)\right]-I_i\ge 0,
-\qquad
-\E_{\theta_i}\!\left[q_i^\times(\theta,s)\right]\le k_i\ \ \forall s.
+\mathbb E_{\theta_i,s}\!\left[J_i(\theta)U(q_i(\theta,s),s)\right] \ge I_i, \qquad \mathbb E_{\theta_i}[q_i(\theta,s)] \le k_i \quad \forall s.
 \]
-\item Multipliers: $\varepsilon_i^\times(s)\ge 0$ for the capacity constraint (state-by-state), and $\beta_i^\times\ge 0$ for the IR/budget constraint.
-\item Stationarity condition (FOC in $q$):
+This formulation is the reduced-form version of the mechanism-design problem after transfers have been substituted out using incentive compatibility and participation.
+
+Notably $\mathbb E_{\theta_i,s}[\lambda_i(\theta)CS(q_i)]=  \mathbb E_{\theta_i,s}\!\left[\Gamma_i(\theta) U\bigl(q_i^{\times}(\theta,s),s\bigr)\right] - \tilde \lambda_i I_i$.
+
+
+\subsection{Mechanisms under private information}
+
+Under private information, a direct mechanism assigns to a consumer in category $i$ who reports type $\theta$:
 \[
-u\!\left(q^\times,s\right)\left(\Gamma_i(\theta)+\left(\theta-\gamma_i(\theta)\right)\beta_i^\times\right)-\varepsilon_i^\times(s)=0.
+q_i^{\times}(\theta,s), \qquad t_i^{\times}(\theta,s).
 \]
-\item Interior condition used in the text:
+The interim incentive-compatibility constraint is
 \[
-\Gamma_i(\theta)+\left(\theta-\gamma_i(\theta)\right)\beta_i^\times>0
-\qquad \forall \theta\in[\underline{\theta}_i,\overline{\theta}_i].
+\mathbb E_s\!\left[\theta U\bigl(q_i^{\times}(\theta,s),s\bigr)-t_i^{\times}(\theta,s)\right] \ge \mathbb E_s\!\left[\theta U\bigl(q_i^{\times}(\hat \theta,s),s\bigr)-t_i^{\times}(\hat \theta,s)\right] \qquad \forall \theta,\hat \theta \in \Theta_i.
 \]
+The within-category reduced-form problem implied by IC and IR is
+\[
+\max_{q_i^{\times}} \mathbb E_{\theta_i,s}\!\left[\Gamma_i(\theta) U\bigl(q_i^{\times}(\theta,s),s\bigr)\right] - \tilde \lambda_i I_i
+\]
+subject to
+\[
+\mathbb E_{\theta_i,s}\!\left[J_i(\theta)U\bigl(q_i^{\times}(\theta,s),s\bigr)\right] \ge I_i, \qquad \mathbb E_{\theta_i}\!\left[q_i^{\times}(\theta,s)\right] \le k_i \quad \forall s.
+\]
+Let
+\[
+\beta_i^{\times} \ge 0
+\]
+be the multiplier on the IR/budget constraint, and let
+\[
+\varepsilon_i^{\times}(s) \ge 0
+\]
+be the multiplier on the state-$s$ capacity constraint. Then define the effective weight
+\[
+\mathcal G_i(\theta) := \Gamma_i(\theta) + J_i(\theta)\beta_i^{\times}.
+\]
+The pointwise first-order condition is
+\[
+u\bigl(q_i^{\times}(\theta,s),s\bigr)\, \mathcal G_i(\theta) - \varepsilon_i^{\times}(s)=0,
+\]
+or equivalently,
+\[
+u\bigl(q_i^{\times}(\theta,s),s\bigr) = \frac{\varepsilon_i^{\times}(s)}{\mathcal G_i(\theta)}.
+\]
+
+\subsection{Binding and slack states}
+
+Let
+\[
+T_i^{\times}(k_i) \subseteq S
+\]
+denote the set of binding states for category $i$, and let $S_i^{\times}(k_i)=S\setminus T_i^{\times}(k_i)$ denote the slack states. In the current version of the paper, binding states are characterized by a threshold state
+\[
+s_i^{\times}(k_i) \in [\underline s,\overline s]
+\]
+such that capacity binds for $s \ge s_i^{\times}(k_i)$ and is slack below that threshold. In slack states,
+\[
+u\bigl(q_i^{\times}(\theta,s),s\bigr)=0.
+\]
+In binding states,
+\[
+\varepsilon_i^{\times}(s)>0, \qquad \mathbb E_{\theta_i}[q_i^{\times}(\theta,s)] = k_i.
+\]
+
+\subsection{Sufficient-statistic objects}
+
+The analysis of comparative statics uses two key ratios:
+\[
+R_q(\theta,s) := -\frac{u\bigl(q_i^{\times}(\theta,s),s\bigr)}{u_q\bigl(q_i^{\times}(\theta,s),s\bigr)}, \qquad R_\theta(\theta) := \frac{J_i(\theta)}{\mathcal G_i(\theta)}.
+\]
+It is also convenient to define the weight
+\[
+w_i^{\times}(\theta,s) := -\frac{1}{u_q\bigl(q_i^{\times}(\theta,s),s\bigr)\mathcal G_i(\theta)} >0,
+\]
+and its state average
+\[
+\bar w_i^{\times}(s) := \mathbb E_{\theta_i}\bigl[w_i^{\times}(\theta,s)\bigr].
+\]
+For any integrable object $X(\theta,s)$, define the weighted expectation
+\[
+\mathbb E_i^w[X\mid s] := \frac{1}{\bar w_i^{\times}(s)} \mathbb E_{\theta_i}\bigl[w_i^{\times}(\theta,s)X(\theta,s)\bigr].
+\]
+A recurring sufficient statistic is
+\[
+\mathbb E_i^w[uJ\mid s] := \frac{1}{\bar w_i^{\times}(s)} \mathbb E_{\theta_i}\bigl[w_i^{\times}(\theta,s) \,u\bigl(q_i^{\times}(\theta,s),s\bigr) \,J_i(\theta) \bigr].
+\]
+Its average across binding states governs both the sign of the within-category welfare effect of a marginal increase in $k_i$ and the sign of the comparative static of the shadow cost $\beta_i^{\times}$.
+
+\subsection{Across-category problem}
+
+Given the reduced-form value functions $V_i(k_i,I_i)$, the outer problem is
+\[
+\max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N} V_i(k_i,I_i)
+\]
+subject to
+\[
+\sum_{i\in N} k_i = k, \qquad \sum_{i\in N} I_i = I, \qquad k_i\ge 0, \qquad I_i\ge 0 \quad \forall i\in N.
+\]
+
+\section{Technical results used in the note}
+
+This section collects the technical results used later in the paper.
+For each result, we state only the additional assumptions that are not
+already part of the environment section. When a supporting identity has
+already been proved in the paper, we invoke it without reproving it here.
+
+\subsection{Uniqueness of the within-category solution}
+
+\begin{assumption}[Convex budget-feasibility set]
+For every category $i$ and every $I_i\ge 0$, the set
+\[
+\mathcal B_i(I_i)
+:=
+\left\{
+q_i(\theta,s):
+\mathbb E_{\theta_i,s}\!\left[J_i(\theta)\,U(q_i(\theta,s),s)\right]\ge I_i
+\right\}
+\]
+is convex.
+\end{assumption}
+
+\begin{assumption}\label{ass:interior}
+For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\Gamma_i(\theta)>0$, $\mathcal G_i(\theta)>0$, and $\mathcal G_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q_i^\times(\theta,s)$ is satisfied at the optimum. This holds for every category $i$ and every pair $(k_i,I_i)$. Since $\mathcal G_i(\theta)$ depends on the equilibrium multiplier $\beta_i^\times$, this is an assumption on an equilibrium object rather than a primitive.
+\end{assumption}
+
+\begin{assumption}[Feasibility]\label{ass:feasible}
+For every category $i$ and every pair $(k_i,I_i)$ under consideration, the within-category feasible set is nonempty.
+\end{assumption}
+
+Under Assumptions~\ref{ass:satiation}, \ref{ass:interior}, and \ref{ass:feasible}, together with the convex budget-feasibility assumption, the feasible set is nonempty, convex, and compact (boundedness follows from Assumption~\ref{ass:satiation}). Existence follows from the extreme value theorem and uniqueness from strict concavity of the objective.
+
+\subsection{Uniqueness of the multipliers}
+
+From the pointwise FOC, $u\bigl(q_i^\times(\theta,s),s\bigr)J_i(\theta) = \varepsilon_i^\times(s)\,R_\theta(\theta)$, so the weighted variance
+\[
+\mathcal V_i(k_i)
+:=
+\mathbb E_s\!\left[
+\mathbf 1_{\{s\in T_i^\times(k_i)\}}
+\,\bar w_i^\times(s)\,
+\mathrm{Var}_i^w(uJ\mid s)
+\right]
+\]
+is strictly positive if and only if $R_\theta(\theta)$ is not identically constant on $\Theta_i$. This is the maintained condition throughout the comparative statics analysis of Section~4.2 of the paper, which studies $R_\theta'(\theta)$ as a non-trivial object. No additional assumption is required. The residual equation $\Phi_i(k_i,\beta)=0$ is therefore strictly monotone in $\beta$, so $\beta_i^\times$ is uniquely determined whenever the budget constraint binds.
+
+Likewise, for each state $s$, if capacity is slack then
+$\varepsilon_i^\times(s)=0$ by complementary slackness, while if it
+binds then $\varepsilon_i^\times(s)$ is uniquely pinned down by
+\[
+\mathbb E_{\theta_i}\!\left[q_i^\times(\theta,s)\right]=k_i,
+\]
+since the left-hand side is strictly decreasing in
+$\varepsilon_i^\times(s)$ by the pointwise first-order condition
+together with $u_q<0$ and $\mathcal G_i(\theta)>0$.
+
+\subsection{Well-defined threshold state}
+
+The ingredients used for this result are the following:
+\begin{itemize}[leftmargin=2em]
+    \item the state space is the compact interval $S=[\underline s,\overline s]$;
+    \item $u(q,s)$ is $C^1$ in $(q,s)$ (stated in the primitives section);
+    \item $u_q(q,s)<0$ on the relevant domain;
+    \item $u_s(q,s)>0$;
+    \item Assumption~\ref{ass:satiation} (satiation) and $\lim_{q\downarrow 0}u(q,s)>0$ (stated in the primitives section) together guarantee existence of an interior solution to $u(q_i^0(s),s)=0$; uniqueness then follows from $u_q<0$ (item 3 above);
+    \item \textit{(ad hoc)} the boundary condition $Q_i^0(\underline s) \le k_i \le Q_i^0(\overline s)$, where $Q_i^0(s):=\mathbb E_{\theta_i}[q_i^0(s)]$, so that the intermediate value theorem applies. This is a maintained restriction on the range of $k_i$ considered.
 \end{itemize}
 
-\paragraph{Myerson ironing objects.}
-\begin{itemize}
-\item Quantile-domain primitive:
-\[
-\Phi_i(x):=\int_0^x \Gamma_i\!\left(G_i^{-1}(t)\right)\,dt,\qquad x\in[0,1].
-\]
-\item Convex envelope $\co\Phi_i$: pointwise largest convex function on $[0,1]$ such that $\Phi_i(x)\ge \co\Phi_i(x)$ for all $x$.
-\item Ironed weight:
-\[
-\overline{\Gamma}_i(\theta):=\left(\co\Phi_i\right)'\!\left(G_i(\theta)\right).
-\]
-\end{itemize}
+Under these conditions, $Q_i^0(s)$ is strictly increasing in $s$ (by the implicit function theorem applied to $u(q_i^0(s),s)=0$, using $u_s>0$ and $u_q<0$), and the threshold $s_i^\times(k_i)$ is well defined and unique. The binding set is of threshold form $T_i^\times(k_i)=[s_i^\times(k_i),\overline s]$.
 
-\paragraph{Off-peak / on-peak partition.}
-\begin{itemize}
-\item Off-peak states: $S_i^\times=[\underline{s},s_i^\times)$.
-\item On-peak states: $T_i^\times=[s_i^\times,\overline{s}]$.
-\item Threshold state $s_i^\times$ defined by
-\[
-\E_{\theta_i}\!\left[q^\times(\theta,s_i^\times)\right]=k_i.
-\]
-\end{itemize}
+\subsection{Verified checklist for the across-category allocation result}
 
-\paragraph{Allocation characterization (in the proposition).}
-\begin{itemize}
-\item Off-peak FOC:
-\[
-u\!\left(q_i^\times(\theta,s),s\right)=0,\qquad s\in S_i^\times.
-\]
-\item On-peak FOC (with ironing):
-\[
-u\!\left(q_i^\times(\theta,s),s\right)\,\overline{\Gamma}_i(\theta)=\varepsilon_i^\times(s),
-\qquad s\in T_i^\times.
-\]
-\end{itemize}
+The across-category allocation result relies on the following items.
 
-\paragraph{Ratios and sorting / covariance objects.}
-\begin{itemize}
-\item Curvature ratio:
-\[
-R_q(\theta):=-\frac{u\!\left(q^\times,s\right)}{u_q\!\left(q^\times,s\right)}\ge 0 \quad \text{when } u_q<0.
-\]
-\item Rent/virtual-surplus ratio:
-\[
-R_\theta(\theta):=\frac{\theta-\gamma_i(\theta)}{\overline{\Gamma}_i(\theta)}.
-\]
-\item Product of means:
-\[
-\E R_{q\theta}:=\E_{\theta_i}\!\left[R_q(\theta)\right]\ \E_{\theta_i}\!\left[R_\theta(\theta)\right].
-\]
-\item Covariance (sorting effect):
-\[
-\text{COV}_{q\theta}:=\Cov_{\theta}\!\left(R_q(\theta),R_\theta(\theta)\right).
-\]
-\item Indicator: $\mathbf 1_{\{s\ge s_i^\times\}}$ equals $1$ on peak states and $0$ otherwise.
-\end{itemize}
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{The outer feasible set $\mathcal{F}$ is nonempty, compact, and convex.}
+    The constraints $\sum_{i\in N} k_i = k$, $\sum_{i\in N} I_i = I$, $k_i\ge 0$, $I_i\ge 0$ define a simplex. A simplex is nonempty (since $k\ge 0$, $I\ge 0$, and $N\neq\varnothing$), bounded, closed, and convex.
 
-\paragraph{Preference-change objects (comparative statics).}
-\begin{itemize}
-\item Preference shift in weights: $\Delta\Gamma(\theta)$ (change in $\Gamma(\theta)$), and $\Delta\lambda(\theta)$ (change in $\lambda(\theta)$).
-\item Mean-preserving shift (as stated): $\Delta\tilde{\lambda}_i=0$.
-\item Proportional preference-change ratio:
+    \item \textbf{For each category $i$, $V_i(k_i,I_i)$ is well defined and continuous on $\mathcal{F}$.}
+    Well-definedness follows from Assumptions~\ref{ass:satiation}, \ref{ass:interior}, and \ref{ass:feasible} together with the convex budget-feasibility assumption, as established in the uniqueness subsection. Continuity follows from the envelope theorem applied at the optimum of the within-category problem: $\partial_{k_i}V_i = \int_{s_i^\times}^{\overline s}\varepsilon_i^\times(s)\,f(s)\,ds$ and $\partial_{I_i}V_i = -\tilde\lambda_i - \beta_i^\times$, both of which are continuous in $(k_i,I_i)$ by the implicit function theorem applied to the binding constraints. Continuity of $V_i$ then follows.
+
+    \item \textbf{Each $V_i$ is globally concave on $\mathcal{F}$.}
+    This is established in Lemma~\ref{lem:Vi-concave} of the paper. On the IR-constrained, capacity-binding region, the Hessian of $V_i$ is negative definite (Step~3 of the lemma). On the remaining regimes ($\beta_i^\times=0$ or $T_i^\times=\varnothing$) the Hessian is negative semidefinite (Steps~4 and~5). Global concavity follows from the fact that $\nabla V_i$ is continuous across regime boundaries (Step~5 of the lemma), so the piecewise negative-semidefinite argument applies globally.
+
+    \item \textbf{Existence and convexity of the solution set.}
+    Since $W := \sum_{i\in N} V_i$ is continuous (by item~2) and $\mathcal{F}$ is compact (by item~1), the extreme value theorem gives existence of at least one maximizer. Since each $V_i$ is concave (by item~3), $W$ is concave. The set of maximizers of a concave function over a convex set is convex, so the solution set is convex.
+
+    \item \textbf{Uniqueness under the IR-constrained, capacity-binding condition.}
+    When every category lies in the IR-constrained, capacity-binding region at the optimum, each $V_i$ is strictly concave there (Lemma~\ref{lem:Vi-concave}(i)), so $W$ is strictly concave at the optimum. A strictly concave function has at most one maximizer, so the optimal allocation is unique.
+\end{enumerate}
+
+\subsection{Aggregate constraints with weak inequalities}
+
+Since
 \[
-R_\Gamma(\theta):=\frac{\Delta\Gamma(\theta)}{\Gamma(\theta)}.
+\partial_{k_i}V_i(k_i,I_i)
+=
+\int_{s_i^\times(k_i,I_i)}^{\overline s}
+\varepsilon_i^\times(s;k_i,I_i)\,f(s)\,ds
+\ge 0,
 \]
-\item Peak-state cutoffs $\theta_-<\theta_+$ defined (for fixed $s\in T_i^\times$) by
+the objective is weakly increasing in $k_i$. Therefore, under
 \[
-u\!\left(q^\times(\theta,s),s\right)\Delta\Gamma(\theta)=\Delta\varepsilon_i(s),
+\sum_{i\in N} k_i \le k,
 \]
-where $\Delta\varepsilon_i(s)$ is the induced change in the capacity multiplier.
-\item Change in $R_\theta$: $\Delta R_\theta(\theta)$ denotes the variation of $R_\theta(\theta)$ after the preference shift.
-\item Auxiliary bound function (when $R_\theta(\theta)\neq 0$):
+there exists an optimum with
 \[
-\rho_1(\theta):=-R_\Gamma(\theta)\frac{R_\theta(\theta)'}{R_\theta(\theta)}.
+\sum_{i\in N} k_i = k.
 \]
-\item Ironing cutoff $\theta^\ast$: a cutoff at which $\Gamma'(\theta^\ast)=0$ if interior, used to describe intervals where $\Gamma'\le 0$.
-\item Regularity condition ``$g(\theta)$ bounded away from $0$'': $\exists\,\underline{g}>0$ such that $g(\theta)\ge \underline{g}$ on the support.
-\end{itemize}
 
-
-
-
+Since
+\[
+V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i^\times(k_i,I_i)<0,
+\]
+the objective is strictly decreasing in $I_i$. Therefore, under
+\[
+\sum_{i\in N} I_i \ge I,
+\]
+every optimum satisfies
+\[
+\sum_{i\in N} I_i = I.
+\]
 
 \end{document}
-
-
