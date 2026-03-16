@@ -1232,7 +1232,7 @@ For each category $i$, the value function $V_i(k_i,I_i)$ is concave on its feasi
 \end{lemma}
 
 \begin{proof}[Proof of Lemma~\ref{lem:Vi-concave}]
-Fix a category $i$. On binding states $s\in T_i^\times(k_i):=[s_i^\times(k_i),\overline s]$, the pointwise first-order condition is
+Fix a category $i$. On binding states $s\in T_i^\times(k_i)$, the pointwise first-order condition is
 \[
 u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)=\varepsilon_i^\times(s), \qquad \mathcal G_i(\theta)=\Gamma_i(\theta)+\beta_i^\times J_i(\theta).
 \]
@@ -1242,11 +1242,11 @@ u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)=\varepsilon_i^\times(
 
 By the envelope theorem,
 \[
-\partial_{k_i}V_i(k_i,I_i) = \int_{s_i^\times(k_i,I_i)}^{\overline s}\varepsilon_i^\times(s;k_i,I_i)\,f(s)\,ds.
+\partial_{k_i}V_i(k_i,I_i) = \mathbb{E}_s\!\left[\varepsilon_i^\times(s;k_i,I_i)\,\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right].
 \]
-Differentiating with respect to $k_i$ and applying Leibniz' rule gives a boundary term proportional to $\varepsilon_i^\times(s_i^\times)$. At the threshold state, the off-peak condition $u(q_i^\times(\theta,s_i^\times),s_i^\times)=0$ holds for every $\theta$, and combined with the first-order condition this gives $\varepsilon_i^\times(s_i^\times)=0$. Hence the boundary term vanishes and
+Differentiating with respect to $k_i$ gives a boundary term proportional to $\varepsilon_i^\times(s_i^\times)$. At the threshold state, the off-peak condition $u(q_i^\times(\theta,s_i^\times),s_i^\times)=0$ holds for every $\theta$, and combined with the first-order condition this gives $\varepsilon_i^\times(s_i^\times)=0$. Hence the boundary term vanishes and
 \[
-V_{i,k_ik_i}(k_i,I_i) = \int_{s_i^\times(k_i,I_i)}^{\overline s} \partial_{k_i}\varepsilon_i^\times(s;k_i,I_i)\,f(s)\,ds.
+V_{i,k_ik_i}(k_i,I_i) = \mathbb{E}_s\!\left[\partial_{k_i}\varepsilon_i^\times(s;k_i,I_i)\,\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right].
 \]
 
 \medskip
@@ -1256,7 +1256,7 @@ Fix $k_i$ and $s\in T_i^\times$. Differentiating the first-order condition with 
 \[
 \partial_{I_i}\varepsilon_i^\times(s) = \partial_{I_i}\beta_i^\times\,\mathsf H_i(k_i,s), \qquad \mathsf H_i(k_i,s):=\mathbb E_i^w[uJ\mid s],
 \]
-where $w_i^\times(\theta,s):=-1/(u_q(q_i^\times,s)\mathcal G_i(\theta))>0$ and the weighted expectation is as defined in Lemma~\ref{lem:SC-dir}. Differentiating $\Phi_i(k_i,\beta_i^\times(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\Phi_i=\mathcal V_i(k_i)>0$, gives $\partial_{I_i}\beta_i^\times=1/\mathcal V_i(k_i)$ and hence $\partial_{I_i}\varepsilon_i^\times(s)=\mathsf H_i(k_i,s)/\mathcal V_i(k_i)$. The boundary term vanishes again since $\varepsilon_i^\times(s_i^\times)=0$, so defining $\mathcal S_i(k_i):=\int_{s_i^\times}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds$,
+where $w_i^\times(\theta,s):=-1/(u_q(q_i^\times,s)\mathcal G_i(\theta))>0$ and the weighted expectation is as defined in Lemma~\ref{lem:SC-dir}. Differentiating $\Phi_i(k_i,\beta_i^\times(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\Phi_i=\mathcal V_i(k_i)>0$, gives $\partial_{I_i}\beta_i^\times=1/\mathcal V_i(k_i)$ and hence $\partial_{I_i}\varepsilon_i^\times(s)=\mathsf H_i(k_i,s)/\mathcal V_i(k_i)$. The boundary term vanishes again since $\varepsilon_i^\times(s_i^\times)=0$, so defining $\mathcal S_i(k_i):=\mathbb{E}_s\!\left[\mathsf H_i(k_i,s)\,\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right]$,
 \[
 V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i^\times(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I_i)= -\frac{1}{\mathcal V_i(k_i)}<0, \qquad V_{i,k_iI_i}(k_i,I_i) = \frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
 \]
@@ -1268,7 +1268,7 @@ Holding $\beta$ fixed gives $\partial_{k_i}\varepsilon_i^\times(s)|_\beta = -1/\
 \[
 \partial_{k_i}\varepsilon_i^\times(s) = -\frac{1}{\overline w_i^\times(s)} - \mathsf H_i(k_i,s)\frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
 \]
-Integrating over binding states and defining $\mathcal A_i(k_i):=\int_{s_i^\times}^{\overline s}f(s)/\overline w_i^\times(s)\,ds>0$,
+Integrating over binding states and defining $\mathcal A_i(k_i):=\mathbb{E}_s\!\left[\bar w_i^\times(s)^{-1}\,\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right]>0$,
 \[
 V_{i,k_ik_i}(k_i,I_i) = -\mathcal A_i(k_i)-\frac{\mathcal S_i(k_i)^2}{\mathcal V_i(k_i)}<0.
 \]
@@ -1290,10 +1290,153 @@ It remains to verify that $\nabla V_i$ is continuous across the two regime bound
 
 \textit{IR-constrained to IR-unconstrained.} From Step~2, $V_{i,I_i}=-\tilde\lambda_i-\beta_i^\times$. As $(k_i,I_i)$ approaches the boundary from the constrained side, $\beta_i^\times\to 0^+$ by definition, so $V_{i,I_i}\to -\tilde\lambda_i$, matching the unconstrained value. As $\beta_i^\times\to 0^+$, the allocation and hence $\varepsilon_i^\times(s)$ converge to their unconstrained counterparts, so $\partial_{k_i}V_i$ is continuous across this boundary.
 
-\textit{Capacity-binding to capacity-slack.} As $s_i^\times(k_i)\to\overline s$, the integral $\partial_{k_i}V_i=\int_{s_i^\times}^{\overline s}\varepsilon_i^\times(s)\,f(s)\,ds\to 0$ continuously, matching the slack-side value of zero.
+\textit{Capacity-binding to capacity-slack.} As $s_i^\times(k_i)\to\overline s$, $\mathbb{E}_s\!\left[\varepsilon_i^\times(s)\,\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right]\to 0$ continuously, matching the slack-side value of zero.
 
 With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^0,x^1$ and let $g_i(t):=V_i((1-t)x^0+tx^1)$. Then $g_i$ is piecewise $C^2$ with $g_i'$ continuous at every switching point. On each regime piece $g_i''(t)\le 0$, so $g_i'$ is nonincreasing on each piece. Continuity at switching points prevents upward jumps in $g_i'$, so $g_i'$ is globally nonincreasing and $g_i$ is concave. Hence $V_i$ is globally concave.
 \end{proof}
+\end{proof}
+
+\section{Lagrangia }
+\paragraph{Across-category problem.}
+The outer problem is
+\[
+\max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N} V_i(k_i,I_i)
+\]
+subject to
+\[
+\sum_{i\in N} k_i = k,
+\qquad
+\sum_{i\in N} I_i = I,
+\qquad
+k_i \ge 0,
+\qquad
+I_i \ge 0
+\qquad
+\forall i\in N.
+\]
+Let
+\[
+\mathcal K
+:=
+\left\{
+(k_i,I_i)_{i\in N}
+:\,
+\sum_{i\in N} k_i = k,\ 
+\sum_{i\in N} I_i = I,\ 
+k_i \ge 0,\ 
+I_i \ge 0
+\right\}.
+\]
+Since the objective is concave and the feasible set $\mathcal K$ is convex, the KKT conditions are necessary and sufficient.
+
+\paragraph{Lagrangian.}
+Let $\mu_k,\mu_I\in\mathbb R$ denote the multipliers on the two aggregate equality constraints, and let $\eta_i\ge 0$ and $\xi_i\ge 0$ denote the multipliers on the nonnegativity constraints $k_i\ge 0$ and $I_i\ge 0$. The Lagrangian is
+\[
+\mathcal L
+=
+\sum_{i\in N} V_i(k_i,I_i)
+-\mu_k\left(\sum_{i\in N} k_i-k\right)
+-\mu_I\left(\sum_{i\in N} I_i-I\right)
++\sum_{i\in N} \eta_i k_i
++\sum_{i\in N} \xi_i I_i .
+\]
+
+\paragraph{KKT conditions.}
+For each $i\in N$, the stationarity conditions are
+\[
+\partial_{k_i}V_i(k_i,I_i)-\mu_k+\eta_i=0,
+\qquad
+\partial_{I_i}V_i(k_i,I_i)-\mu_I+\xi_i=0.
+\]
+They are supplemented by primal feasibility,
+\[
+\sum_{i\in N} k_i = k,
+\qquad
+\sum_{i\in N} I_i = I,
+\qquad
+k_i \ge 0,
+\qquad
+I_i \ge 0,
+\]
+dual feasibility,
+\[
+\eta_i\ge 0,
+\qquad
+\xi_i\ge 0,
+\]
+and complementary slackness,
+\[
+\eta_i k_i = 0,
+\qquad
+\xi_i I_i = 0
+\qquad
+\forall i\in N.
+\]
+
+Using the envelope formulas
+\[
+\partial_{k_i}V_i(k_i,I_i)
+=
+\mathbb E_s\left[\varepsilon_i^\times(s)\mathbf 1_{\{s\in T_i^\times\}}\right],
+\qquad
+\partial_{I_i}V_i(k_i,I_i)
+=
+-\tilde\lambda_i-\beta_i^\times(k_i,I_i),
+\]
+the stationarity conditions become
+\[
+\mathbb E_s\left[\varepsilon_i^\times(s)\mathbf 1_{\{s\in T_i^\times\}}\right]
+=
+\mu_k-\eta_i,
+\]
+\[
+\tilde\lambda_i+\beta_i^\times(k_i,I_i)
+=
+-\mu_I+\xi_i.
+\]
+
+
+
+
+The object $\Pi_i(k_i)$ arises naturally from the envelope theorem applied to the within-category value function. On the region where $\beta_i^\times=0$, the pointwise first-order condition gives
+\[
+u\!\left(q_i^\times(\theta,s;k_i),s\right)\Gamma_i(\theta)=\varepsilon_i^\times(s;k_i) \qquad \text{for every } \theta \text{ and every } s\in T_i^\times(k_i).
+\]
+Taking expectations over $\theta$ and using the envelope formula yields
+\[
+\Pi_i(k_i) := \partial_{k_i}V_i(k_i,I_i) = \mathbb{E}_s\!\left[\mathbb{E}_{\theta_i}\!\left[u\!\left(q_i^\times(\theta,s;k_i),s\right)\Gamma_i(\theta)\right]\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right].
+\]
+Hence $\Pi_i(k_i)$ is the expected scarcity rent of category $i$ at capacity level $k_i$, and is the object equalized across categories by the outer optimum. Note that on the region $\beta_i^\times=0$, $\mathcal{G}_i(\theta)=\Gamma_i(\theta)$, so the ratio $R_\mathcal{G}(\theta):=\Delta\mathcal{G}_i(\theta)/\mathcal{G}_i(\theta)$ defined in Lemma~\ref{lem:realloc} reduces to $\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$, the same object that governs the reallocation of quantities within a category also governs the ranking of capacities across categories.
+\begin{proposition}[Category ranking under redistributive preferences]\label{prop:cat-order-beta0}
+Suppose that $\beta_i^\times = 0$ at the corresponding equilibrium for every active category $i\in N$ and that all categories share the same type distribution $G$ on $\Theta$. Pick any two categories $i,j\in N$.
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item $k_j^\ast > k_i^\ast$ if and only if
+\[
+\mathbb{E}_s\!\left[\varepsilon_i^\times(s;k_i^\ast)\,\mathbb{E}^w_i\!\left[R_\mathcal{G}\mid s;k_i^\ast\right]\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}\right]>0.
+\]
+If additionally $u(\cdot)$ exhibits constant absolute risk aversion, then $\mathbb{E}^w_i[R_\mathcal{G}\mid s]$ is independent of both $s$ and $k$, and the condition becomes a global iff: $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}^w_i\!\left[R_\mathcal{G}\right]>0$.
+\item If $\tilde\lambda_j>\tilde\lambda_i$ and $\lambda_j(\theta)/\lambda_i(\theta)$ is increasing on $\Theta$, then the condition in (i) is satisfied for any $k$ and hence $k_j^\ast>k_i^\ast$.
+\item Let $i^\ast:=\arg\min_i\tilde\lambda_i$ be the unique category with the lowest average welfare weight. Then $I_{i^\ast}^\ast=I$ and $I_i^\ast=0$ for all $i\neq i^\ast$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\textit{Part (i).} Since each $\Pi_i(k_i)$ is strictly decreasing in $k_i$ and the outer optimum equalizes $\Pi_i(k_i^\ast)=\mu_k$ across all active categories, $k_j^\ast>k_i^\ast$ if and only if $\Pi_j(k_i^\ast)>\Pi_i(k_i^\ast)$, equivalently $\Delta\Pi_i(k_i^\ast)>0$. By the envelope theorem applied to $V_i$ and the perturbation formula $\Delta\varepsilon_i^\times(s;k)=\varepsilon_i^\times(s;k)\,\mathbb{E}^w_i[R_\mathcal{G}\mid s;k]$ from Lemma~\ref{lem:realloc},
+\[
+\Delta\Pi_i(k_i^\ast) = \mathbb{E}_s\!\left[\Delta\varepsilon_i^\times(s;k_i^\ast)\,\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}\right] = \mathbb{E}_s\!\left[\varepsilon_i^\times(s;k_i^\ast)\,\mathbb{E}^w_i\!\left[R_\mathcal{G}\mid s;k_i^\ast\right]\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}\right],
+\]
+establishing the local iff. Under CARA, $R_q=1/\alpha$ is constant in both $\theta$ and $s$, so $w_i^\times(\theta,s)=1/(\alpha\varepsilon_i^\times(s))$ and $\bar{w}_i^\times(s)=1/(\alpha\varepsilon_i^\times(s))$, giving $\mathbb{E}^w_i[R_\mathcal{G}\mid s]=\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]$ independently of $s$. Moreover, since $\mathcal{G}_i(\theta)=\Gamma_i(\theta)$ does not depend on $k$ on the region $\beta_i^\times=0$, the expression $\mathbb{E}^w_i[R_\mathcal{G}]$ is also independent of $k$. Therefore
+\[
+\Delta\Pi_i(k) = \mathbb{E}^w_i\!\left[R_\mathcal{G}\right]\cdot\Pi_i(k) \qquad \text{for all } k.
+\]
+Since $\Pi_i(k)>0$ for all $k$, the sign of $\Delta\Pi_i(k)$ equals the sign of $\mathbb{E}^w_i[R_\mathcal{G}]$ globally, and the local iff becomes a global iff.
+
+\textit{Part (ii).} Since $\lambda_j(\theta)/\lambda_i(\theta)$ is increasing and $\tilde\lambda_j>\tilde\lambda_i$, Lemma~\ref{lem:preferenceorder} gives $\Gamma_j(\theta)\ge\Gamma_i(\theta)$ for all $\theta$, with strict inequality on a set of positive measure. Hence $R_\mathcal{G}(\theta)\ge 0$ everywhere and strictly positive on a set of positive measure. Since $\varepsilon_i^\times(s;k)>0$ and $w_i^\times(\theta,s)>0$ for every binding state $s$ and every $k$, we have $\Delta\Pi_i(k)>0$ for all $k$ and in particular at $k_i^\ast$, giving $k_j^\ast>k_i^\ast$.
+
+\textit{Part (iii).} The envelope theorem on $I_i$ gives $\partial_{I_i}V_i(k_i,I_i)=-\tilde\lambda_i$, which is constant in $I_i$ on the region $\beta_i^\times=0$. Since $\tilde\lambda_{i^\ast}<\tilde\lambda_i$ for all $i\neq i^\ast$, the welfare cost of raising one additional unit of revenue is strictly lowest in category $i^\ast$. The optimum therefore assigns the entire revenue requirement to category $i^\ast$:
+\[
+I_{i^\ast}^\ast=I, \qquad I_i^\ast=0 \quad \text{for all } i\neq i^\ast. \qedhere
+\]
 \end{proof}
 
 \end{document}
