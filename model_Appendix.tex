@@ -1490,4 +1490,30 @@ such that:
 When all categories share the same average welfare weight $\tilde\lambda_1 = \tilde\lambda_2 = \dots = \tilde\lambda_n$, the threshold $\tilde I$ collapses to zero and the revenue allocation is interior for any $I > 0$. The equalization condition reduces to $\beta_1^\times(k_1,I_1) = \beta_2^\times(k_2,I_2) = \dots = \beta_n^\times(k_n,I_n)$, so the revenue allocation is determined entirely by the endogenous $\beta_i^\times$ schedules. If $\mathcal{S}_i > 0$ for all categories at the optimum, then $\partial_{k_i}\beta_i^\times < 0$: categories with higher capacity have lower $\beta_i^\times$ at equal revenue, and the equalization condition requires them to bear a larger revenue share. 
 \end{remark}
 
+
+\begin{remark}[Interpretation of the local ranking condition]
+Consider an ordered collection of categories such that each adjacent pair \((i,i+1)\) differs only by a marginal perturbation of redistributive preferences. Then part (i) can be read as a local policy rule along the category ordering:
+\[
+k_{i+1}^\ast > k_i^\ast
+\quad \Longleftrightarrow \quad
+\mathbb{E}_s\!\left[
+\varepsilon_i^\times\!\left(s;k_i^\ast\right)\,
+\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]\,
+\mathbf{1}_{\left\{s\in T_i^\times\left(k_i^\ast\right)\right\}}
+\right] > 0.
+\]
+
+The term ``local'' refers to preferences, not to capacity: the result is exact when moving from one category to the next along a sequence of marginal preference perturbations, and it is evaluated at the baseline optimum \(k_i^\ast\). Economically, the condition tells the policymaker whether the optimal capacity schedule should move upward or downward when passing from category \(i\) to category \(i+1\).
+
+The statistic has a natural interpretation. The component \(\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]\) measures the proportional reweighting of effective social priorities within category \(i\), while \(\varepsilon_i^\times\!\left(s;k_i^\ast\right)\) weights this reorientation by the marginal value of relaxing capacity in state \(s\). Hence the ranking depends on whether the preference perturbation raises the social value of scarce capacity in binding states.
+
+Under the adjacent-perturbation interpretation, the condition can be applied pairwise along the ordered set of categories and therefore characterizes the ordinal shape of the final optimal policy. In particular, if the expression above is positive for every adjacent pair, then
+\[
+k_1^\ast < k_2^\ast < \cdots < k_n^\ast.
+\]
+If it is negative for every adjacent pair, the ordering is reversed. More generally, the sign pattern across adjacent categories determines whether the optimal capacity schedule is increasing, decreasing, or single-peaked.
+
+What this condition does not provide is a closed-form formula for the levels \(k_i^\ast\) or for the distance between categories. Its content is ordinal rather than cardinal: it tells the policymaker who should receive more capacity than whom in the final optimum.
+\end{remark}
+
 \end{document}
