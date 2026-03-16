@@ -990,7 +990,9 @@ hence
 \]
 
 \medskip
+
 \noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
+
 If the elasticity condition is violated at some $\theta_0$, namely if
 \[
 |R_\theta(\theta_0)R_\Gamma'(\theta_0)|
@@ -1416,7 +1418,8 @@ Suppose that $\beta_i^\times = 0$ at the corresponding equilibrium for every act
 \]
 Under Assumption~\ref{ass:CARA}, then the condition becomes a global iff: $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}^w_i\!\left[R_\mathcal{G}\right]>0$.
 \item If $\tilde\lambda_j>\tilde\lambda_i$ and $\lambda_j(\theta)/\lambda_i(\theta)$ is increasing on $\Theta$, then the condition in (i) is satisfied for any $k$ and hence $k_j^\ast>k_i^\ast$.
-\item Let $i^\ast:=\arg\min_i\tilde\lambda_i$ be the unique category with the lowest average welfare weight. Then $I_{i^\ast}^\ast=I$ and $I_i^\ast=0$ for all $i\neq i^\ast$.
+\item If the optimum has $\beta_i^\times = 0$ for all $i \in N$, then the revenue allocation must satisfy $I_{i^\ast}^\ast = I$ and $I_i^\ast = 0$ for all $i \neq i^\ast$.
+
 \end{enumerate}
 \end{proposition}
 
@@ -1432,11 +1435,59 @@ establishing the local iff. Under CARA, $R_q=1/\alpha$ is constant in both $\the
 Since $\Pi_i(k)>0$ for all $k$, the sign of $\Delta\Pi_i(k)$ equals the sign of $\mathbb{E}^w_i[R_\mathcal{G}]$ globally, and the local iff becomes a global iff.
 
 \textit{Part (ii).} Since $\lambda_j(\theta)/\lambda_i(\theta)$ is increasing and $\tilde\lambda_j>\tilde\lambda_i$, Lemma~\ref{lem:preferenceorder} gives $\Gamma_j(\theta)\ge\Gamma_i(\theta)$ for all $\theta$, with strict inequality on a set of positive measure. Hence $R_\mathcal{G}(\theta)\ge 0$ everywhere and strictly positive on a set of positive measure. Since $\varepsilon_i^\times(s;k)>0$ and $w_i^\times(\theta,s)>0$ for every binding state $s$ and every $k$, we have $\Delta\Pi_i(k)>0$ for all $k$ and in particular at $k_i^\ast$, giving $k_j^\ast>k_i^\ast$.
-
-\textit{Part (iii).} The envelope theorem on $I_i$ gives $\partial_{I_i}V_i(k_i,I_i)=-\tilde\lambda_i$, which is constant in $I_i$ on the region $\beta_i^\times=0$. Since $\tilde\lambda_{i^\ast}<\tilde\lambda_i$ for all $i\neq i^\ast$, the welfare cost of raising one additional unit of revenue is strictly lowest in category $i^\ast$. The optimum therefore assigns the entire revenue requirement to category $i^\ast$:
-\[
-I_{i^\ast}^\ast=I, \qquad I_i^\ast=0 \quad \text{for all } i\neq i^\ast. \qedhere
-\]
+\textit{Part (iii).} The envelope theorem gives $\partial_{I_i}V_i(k_i,I_i) = -\tilde\lambda_i - \beta_i^\times(k_i,I_i)$. If $\beta_i^\times = 0$ for all $i \in N$, this reduces to $-\tilde\lambda_i$. Since $\tilde\lambda_{i^\ast} < \tilde\lambda_i$ for all $i \neq i^\ast$, the welfare cost of raising one additional unit of revenue is strictly lowest in category $i^\ast$, so any optimum in this region assigns $I_{i^\ast}^\ast = I$ and $I_i^\ast = 0$ for all $i \neq i^\ast$. \qedhere
 \end{proof}
+
+The capacity ranking $k_j^\ast > k_i^\ast$ is governed by the sign of $\mathbb{E}_s[\varepsilon_i^\times(s;k_i^\ast)\mathbb{E}^w_i[R_\mathcal{G}\mid s;k_i^\ast]\mathbf{1}_{\{s\in T_i^\times\}}]$, a weighted average of the proportional difference in social weights $R_\mathcal{G}(\theta) = \Delta\Gamma_i(\theta)/\Gamma_i(\theta)$ across types, with the scarcity rent $\varepsilon_i^\times(s)$ providing state-level weighting. This is a first-order characterization of the capacity ranking: it is exact when categories $i$ and $j$ differ marginally in redistributive preferences, and identifies the proportional shift in $\Gamma_i$ as the sufficient statistic for the direction of the ranking. For finite preference differences, part~(ii) provides a primitive sufficient condition that delivers the same conclusion without requiring the comparison to be marginal. Under Assumption~\ref{ass:CARA}, $\mathbb{E}^w_i[R_\mathcal{G}\mid s]$ is independent of both $s$ and $k$, so the identity $\Delta\Pi_i(k) = \mathbb{E}^w_i[R_\mathcal{G}]\cdot\Pi_i(k)$ holds exactly for any finite preference difference, and the first-order characterization becomes an exact global iff. The sufficient condition in part~(ii) decomposes the ranking into two independent primitive conditions: the average weight ordering $\tilde\lambda_j > \tilde\lambda_i$ and the within-type monotone ratio $\lambda_j(\theta)/\lambda_i(\theta)$ increasing, which together imply $R_\mathcal{G}(\theta) \geq 0$ pointwise via Lemma~\ref{lem:preferenceorder}.
+
+The proposition delivers two non-obvious policy lessons. First, what determines the capacity ranking is not how much more generous a regulator is toward one category in absolute terms, but how that generosity is distributed proportionally across types within the category. Two preference profiles with identical average weights can generate opposite capacity rankings depending on whether the preference increment is concentrated on high or low types. Second, the average weight ordering $\tilde\lambda_j > \tilde\lambda_i$ and the within-type profile $\lambda_j(\theta)/\lambda_i(\theta)$ increasing are genuinely independent conditions: a regulator who observes only average welfare weights across categories cannot determine the capacity ranking without also knowing how preferences vary within categories, and conversely. A regulator who ignores within-type preference heterogeneity and ranks capacity by average generosity alone will systematically misallocate capacity---assigning too little to categories where preferences are concentrated on high types, who generate the most revenue to finance investment, and too much to categories where preferences are flat or favor low types.
+
+\paragraph{Lagrangian and revenue allocation.}
+With interior capacity solutions, the stationarity conditions reduce to equalizing scarcity rents $\Pi_1(k_1^\ast) = \Pi_2(k_2^\ast)$ on the capacity dimension. On the revenue dimension, the effective marginal cost of revenue differs across categories: it equals $\tilde\lambda_1$ for category 1 (IR-unconstrained) and $\tilde\lambda_2 + \beta_2^\times$ for category 2 (IR-constrained). Note that by complementary slackness, $\beta_2^\times > 0$ requires the IR/budget constraint of category 2 to bind, which is only consistent with $I_2 > 0$. Hence in the mixed regime the revenue allocation admits only two cases:
+\begin{itemize}
+\item Case A ($I_1 = 0$, $I_2 = I$): holds when $\tilde\lambda_1 \geq \tilde\lambda_2 + \beta_2^\times$;
+\item Case C ($I_1, I_2 > 0$): knife-edge, requires $\tilde\lambda_1 = \tilde\lambda_2 + \beta_2^\times$ exactly.
+\end{itemize}
+The binding IR constraint on category 2 acts as a wedge that raises the effective cost of revenue extraction from category 2 above its primitive welfare weight.
+
+\paragraph{Comparative statics on the knife-edge.}
+The knife-edge condition $\tilde\lambda_1 = \tilde\lambda_2 + \beta_2^\times(k_2,I_2)$ defines a locus in $(k_2,I_2)$ space. Its shape is governed by the two partial derivatives established in the within-category analysis:
+\begin{itemize}
+\item $\partial_{I_2}\beta_2^\times = 1/\mathcal{V}_2(k_2) > 0$ always: as the revenue burden on category 2 rises, $\beta_2^\times$ rises monotonically, so the mixed regime is self-consistent only for sufficiently low values of $I_2$ such that $\tilde\lambda_1 \geq \tilde\lambda_2 + \beta_2^\times$ remains satisfied.
+\item $\partial_{k_2}\beta_2^\times = -\mathcal{S}_2(k_2)/\mathcal{V}_2(k_2)$: if $\mathcal{S}_2 < 0$, expanding capacity in category 2 tightens its IR constraint and raises the effective cost of revenue; if $\mathcal{S}_2 > 0$, the reverse holds.
+\end{itemize}
+The sign of $\mathcal{S}_2$ --- the sufficient statistic governing welfare effects and implementation regions within category 2 --- therefore also governs the direction in which capacity expansion in category 2 shifts the effective cost of revenue across categories.
+
+\paragraph{Revenue allocation under single-crossing of $\mathcal{S}_2$.}
+Fix $I_2^\ast = I$ and let $k_2^\ast$ vary over $(0,k)$ with $k_1^\ast = k - k_2^\ast$. Under the case where $R_\theta$ is increasing and $R_q$ is log-submodular, $\mathcal{S}_2(k_2)$ is single-crossing from $+$ to $-$, so $\partial_{k_2}\beta_2^\times = -\mathcal{S}_2/\mathcal{V}_2$ changes sign from $-$ to $+$ at $k^\ast$. Hence $\beta_2^\times$ is single-dipped in $k_2$, attaining its unique minimum at $k^\ast$, and the effective marginal cost of revenue $\tilde\lambda_2 + \beta_2^\times(k_2)$ is also single-dipped.
+
+The mixed regime $\beta_1^\times = 0$, $\beta_2^\times > 0$ is therefore most naturally self-consistent for intermediate values of $k_2$ around $k^\ast$, where $\beta_2^\times$ is at its minimum and the IR constraint of category 2 is only mildly binding. The condition $\tilde\lambda_1 \geq \tilde\lambda_2 + \beta_2^\times(k_2)$ required for Case A is most easily satisfied in this intermediate range. At extreme values of $k_2$ --- either very low or very high --- $\beta_2^\times$ is large, the IR constraint of category 2 is severely binding, and maintaining $\beta_1^\times = 0$ simultaneously becomes harder as revenue pressure on the whole system rises. The mixed regime is therefore a description of an intermediate capacity range, with the fully IR-constrained regime $\beta_1^\times > 0$, $\beta_2^\times > 0$ being the more natural description at the extremes.
+
+
+\begin{lemma}[Revenue allocation across categories]\label{lem:revenue-alloc}
+Suppose $N=\{1,2\}$, $k_1,k_2>0$, and $\tilde\lambda_1<\tilde\lambda_2$. There exists a unique threshold $\tilde I \in (0,\infty)$ defined by
+\[
+\tilde\lambda_1 + \beta_1^\times(k_1,\tilde I) = \tilde\lambda_2,
+\]
+such that:
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item For $I \in [0,\tilde I]$: $I_1^\ast = I$ and $I_2^\ast = 0$.
+\item For $I \in (\tilde I,\infty)$: $I_1^\ast > 0$ and $I_2^\ast > 0$, uniquely determined by
+\[
+\tilde\lambda_1 + \beta_1^\times(k_1,I_1^\ast) = \tilde\lambda_2 + \beta_2^\times(k_2,I_2^\ast), \qquad I_1^\ast + I_2^\ast = I.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\textit{Part (i).} Since $\tilde\lambda_1 < \tilde\lambda_2$ and $\partial_{I_i}V_i = -\tilde\lambda_i - \beta_i^\times$, the marginal welfare cost of revenue is strictly lower in category 1 than in category 2 whenever $\beta_1^\times \leq \tilde\lambda_2 - \tilde\lambda_1$. The KKT condition for $I_2^\ast = 0$ is $\xi_2 = \tilde\lambda_2 - (\tilde\lambda_1 + \beta_1^\times(k_1,I)) \geq 0$, which holds as long as $\tilde\lambda_1 + \beta_1^\times(k_1,I) \leq \tilde\lambda_2$. Since $\partial_I \beta_1^\times(k_1,I) = 1/\mathcal{V}_1(k_1) > 0$, the effective cost $\tilde\lambda_1 + \beta_1^\times(k_1,I)$ is strictly increasing in $I$ and crosses $\tilde\lambda_2$ at a unique threshold $\tilde I$, defining the corner regime. Note that $\beta_2^\times = 0$ throughout this region by complementary slackness since $I_2^\ast = 0$.
+
+\textit{Part (ii).} For $I > \tilde I$, maintaining $I_2^\ast = 0$ would require $\xi_2 = \tilde\lambda_2 - (\tilde\lambda_1 + \beta_1^\times(k_1,I)) < 0$, violating dual feasibility. Hence $I_2^\ast > 0$, which by complementary slackness forces $\beta_2^\times > 0$, and the interior KKT condition $\tilde\lambda_1 + \beta_1^\times(k_1,I_1^\ast) = \tilde\lambda_2 + \beta_2^\times(k_2,I_2^\ast)$ must hold. Existence and uniqueness of the interior solution follow from the intermediate value theorem: the left-hand side is strictly increasing in $I_1$ from $\tilde\lambda_1$ at $I_1=0$ to $\tilde\lambda_1+\beta_1^\times(k_1,I)>\tilde\lambda_2$ at $I_1=I$, while the right-hand side is strictly decreasing in $I_1$ from $\tilde\lambda_2+\beta_2^\times(k_2,I)$ at $I_1=0$ to $\tilde\lambda_2$ at $I_1=I$. Since LHS $<$ RHS at $I_1=0$ and LHS $>$ RHS at $I_1=I$, a unique crossing exists in $(0,I)$. \qedhere
+\end{proof}
+
+
+\begin{remark}[Equal average weights]
+When all categories share the same average welfare weight $\tilde\lambda_1 = \tilde\lambda_2 = \dots = \tilde\lambda_n$, the threshold $\tilde I$ collapses to zero and the revenue allocation is interior for any $I > 0$. The equalization condition reduces to $\beta_1^\times(k_1,I_1) = \beta_2^\times(k_2,I_2) = \dots = \beta_n^\times(k_n,I_n)$, so the revenue allocation is determined entirely by the endogenous $\beta_i^\times$ schedules. If $\mathcal{S}_i > 0$ for all categories at the optimum, then $\partial_{k_i}\beta_i^\times < 0$: categories with higher capacity have lower $\beta_i^\times$ at equal revenue, and the equalization condition requires them to bear a larger revenue share. 
+\end{remark}
 
 \end{document}
