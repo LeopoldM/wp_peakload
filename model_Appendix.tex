@@ -765,162 +765,59 @@ k_i\in[\tilde k_i,k_i^+].
 
 \section{Proof of Preferences}
 \begin{proof}
-Write
+Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
 \[
-\lambda_i^1(\theta):=\lambda_i(\theta),
-\qquad
-\lambda_i^2(\theta):=\lambda_i^\Delta(\theta),
+\tilde\lambda_i^k := \int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta), \qquad \Lambda_i^k(\theta) := \frac{1}{g_i(\theta)}\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t), \qquad k\in\{1,2\}.
 \]
-and define
-\[
-\tilde\lambda_i^k
-:=
-\int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta),
-\qquad
-\Lambda_i^k(\theta)
-:=
-\frac{1}{g_i(\theta)}
-\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t),
-\qquad
-k\in\{1,2\}.
-\]
-Let
-\[
-m(\theta):=\frac{\lambda_i^2(\theta)}{\lambda_i^1(\theta)},
-\]
-which is increasing in the upward-shift case and decreasing in the downward-shift case.
+Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
 
 \medskip
 \noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
 For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by
 \[
-dQ_\theta(t)
-:=
-\frac{\lambda_i^1(t)\,dG_i(t)}
-{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}
-\,\mathbf 1\{t\ge\theta\}.
+dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}\,\mathbf{1}\{t\ge\theta\}.
 \]
-Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$,
-\[
-\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}
-=
-\mathbb E_{Q_\theta}[m(\tilde\theta)].
-\]
-For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance,
-\[
-\mathbb E_{Q_\theta}[m(\tilde\theta)]
-\ge
-\mathbb E_{Q_{\theta'}}[m(\tilde\theta)].
-\]
-Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
+Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, we have $\Lambda_i^2(\theta)/\Lambda_i^1(\theta) = \mathbb{E}_{Q_\theta}[m(\tilde\theta)]$. For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance $\mathbb{E}_{Q_\theta}[m(\tilde\theta)] \ge \mathbb{E}_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
 
 \medskip
 \noindent\textit{Proof of (i).}
 Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its logarithm is monotone too. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,
 \[
-0
-\le
-\frac{d}{d\theta}
-\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right)
-=
-\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)}
--
-\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}
+0 \le \frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right) = \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)} - \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},
 \]
-in the upward case, which yields
-\[
-\frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}
-\ge
-\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}
-\]
-for almost every $\theta$. The reverse inequality holds in the downward case.
+in the upward case, which yields $\Lambda_i^{\Delta\,\prime}(\theta)/\Lambda_i^\Delta(\theta) \ge \Lambda_i'(\theta)/\Lambda_i(\theta)$ for almost every $\theta$. The reverse inequality holds in the downward case.
 
 \medskip
-\noindent\textit{Proof of (ii) under $\beta_i^\times=0$.}\footnote{When $\beta_i^\times\neq 0$, the effective weight is $\mathcal G_i(\theta)=J_i(\theta)(\tilde\lambda_i+\beta_i^\times)+\Lambda_i(\theta)$. An analogous argument applies with $c=(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta})/(\tilde\lambda_i+\beta_i^\times)$, but propagating the $\Lambda$ bound to the full $\mathcal G$ bound additionally requires $c\le\tilde\lambda_i^\Delta/\tilde\lambda_i$. Since this condition involves the endogenous multiplier $\beta_i^\times$ and cannot in general be verified from primitives alone, the main text restricts to the IR-unconstrained region.}
-When $\beta_i^\times=0$, the effective weight reduces to
+\noindent\textit{Proof of (ii).}
+Write
 \[
-\Gamma_i(\theta)=J_i(\theta)\tilde\lambda_i+\Lambda_i(\theta),
-\qquad
-\Gamma_i^\Delta(\theta)=J_i(\theta)\tilde\lambda_i^\Delta+\Lambda_i^\Delta(\theta).
+\mathcal{G}_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i^\times\bigr)+\Lambda_i(\theta), \qquad \mathcal{G}_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta}\bigr)+\Lambda_i^\Delta(\theta).
 \]
 
 \medskip
-\noindent\textbf{Upward case.}
-Assume $m$ is increasing and $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$. Set
+\noindent\textbf{Upward case.} Assume $m$ is increasing and $1\le c_{\mathcal{G}}\le c_\Lambda$. The boundary evaluation gives
 \[
-c:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}\ge 1.
+\frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)} = \frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i} = c_\Lambda.
 \]
-The boundary evaluation gives
+Since the ratio is increasing by the core step and starts at $c_\Lambda \ge c_{\mathcal{G}}$,
 \[
-\frac{\Lambda_i^2(\underline\theta_i)}{\Lambda_i^1(\underline\theta_i)}
-=
-\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}
-=
-c.
+\Lambda_i^\Delta(\theta) \ge c_\Lambda\,\Lambda_i(\theta) \ge c_{\mathcal{G}}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
 \]
-Since the ratio is increasing by the core step and starts at $c$,
+Using the definition of $c_{\mathcal{G}}$,
 \[
-\Lambda_i^\Delta(\theta)\ge c\,\Lambda_i(\theta)
-\qquad
-\text{for all }\theta.
+\mathcal{G}_i^\Delta(\theta) = c_{\mathcal{G}}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i^\times\bigr)+\Lambda_i^\Delta(\theta) \ge c_{\mathcal{G}}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i^\times\bigr)+c_{\mathcal{G}}\,\Lambda_i(\theta) = c_{\mathcal{G}}\,\mathcal{G}_i(\theta).
 \]
-Writing
-\[
-\Gamma_i^\Delta(\theta)
-=
-c\,J_i(\theta)\tilde\lambda_i+\Lambda_i^\Delta(\theta)
-\ge
-c\,\Gamma_i(\theta),
-\]
-and using $c\ge 1$ and $\Gamma_i(\theta)>0$, we obtain
-\[
-\Delta\mathcal G_i(\theta)\ge (c-1)\Gamma_i(\theta)\ge 0
-\qquad
-\text{for all }\theta\in[\underline\theta_i,\overline\theta_i].
-\]
+Since $c_{\mathcal{G}}\ge 1$ and $\mathcal{G}_i(\theta)>0$, it follows that $\Delta\mathcal{G}_i(\theta) \ge (c_{\mathcal{G}}-1)\mathcal{G}_i(\theta) \ge 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
 
-\medskip\noindent\textbf{Downward case.}
-Assume $m$ is decreasing and $\tilde\lambda_i^\Delta\le\tilde\lambda_i$. Set
+\medskip
+\noindent\textbf{Downward case.} Assume $m$ is decreasing and $c_\Lambda\le c_{\mathcal{G}}\le 1$. The boundary evaluation gives $\Lambda_i^\Delta(\underline\theta_i)/\Lambda_i(\underline\theta_i) = c_\Lambda \le c_{\mathcal{G}}$. Since the ratio is decreasing by the core step and starts at $c_\Lambda$,
 \[
-c:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}\le 1.
+\Lambda_i^\Delta(\theta) \le c_\Lambda\,\Lambda_i(\theta) \le c_{\mathcal{G}}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
 \]
-The boundary evaluation gives
-\[
-\frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)}
-=
-\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i}
-=
-c.
-\]
-Since the ratio is decreasing by the core step and starts at $c$,
-\[
-\Lambda_i^\Delta(\theta)\le c\,\Lambda_i(\theta)
-\qquad
-\text{for all }\theta.
-\]
-Therefore
-\[
-\Gamma_i^\Delta(\theta)
-=
-c\,J_i(\theta)\tilde\lambda_i+\Lambda_i^\Delta(\theta)
-\le
-c\,J_i(\theta)\tilde\lambda_i+c\,\Lambda_i(\theta)
-=
-c\,\Gamma_i(\theta).
-\]
-Since $c\le 1$ and $\Gamma_i(\theta)>0$, it follows that
-\[
-\Delta \mathcal G_i(\theta)
-=
-\Gamma_i^\Delta(\theta)-\Gamma_i(\theta)
-\le
-(c-1)\Gamma_i(\theta)
-\le 0
-\qquad
-\text{for all }\theta\in[\underline\theta_i,\overline\theta_i].
-\]
+Therefore $\mathcal{G}_i^\Delta(\theta) \le c_{\mathcal{G}}\,\mathcal{G}_i(\theta)$, and since $c_{\mathcal{G}}\le 1$ and $\mathcal{G}_i(\theta)>0$, it follows that $\Delta\mathcal{G}_i(\theta) \le (c_{\mathcal{G}}-1)\mathcal{G}_i(\theta) \le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
 
-
+\medskip
+The special cases in the ``in particular'' clause follow immediately: if $\beta_i^\times=\beta_i^{\times,\Delta}=0$ then $c_{\mathcal{G}}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\mathcal{G}}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\times,\Delta}+\tilde\lambda_i^\Delta=\beta_i^\times+\tilde\lambda_i$ then $c_{\mathcal{G}}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
 \qedhere
 \end{proof}
 
@@ -1217,6 +1114,7 @@ The $\mathbb{E}[R_\Gamma]\mathbb{E}[R_\theta]$ terms cancel exactly. Since $\max
 \]
 When $\operatorname{Cov}(R_\Gamma,R_\theta)>0$, both $k^\ast$ shifts left and the implementation region expands, since the same argument applied to the boundary conditions of Proposition~\ref{prop:implementation} shows that $\Delta Y_i(k)>0$ for all $k$ in the implementation region, pushing $\tilde{k}_i^-$ down and $\tilde{k}_i^+$ up. The reverse holds when the covariance is negative.
 \end{proof}
+
 \section{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
 
 \begin{proof}
@@ -1300,7 +1198,76 @@ With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^
 \end{proof}
 \end{proof}
 
-\section{Lagrangia }
+
+\section{Proof of Local category ranking}
+
+
+\begin{proof}
+Since $V_i(k_i,I_i)$ is strictly concave in $k_i$ by Lemma~\ref{lem:Vi-concave}, the marginal scarcity rent
+\[
+\Pi_i(k_i):=\partial_{k_i}V_i(k_i,I_i)
+=
+\mathbb{E}_s\!\left[
+\varepsilon_i^\times(s;k_i)\mathbf{1}_{\{s\in T_i^\times(k_i)\}}
+\right]
+\]
+is strictly decreasing in $k_i$. At the outer optimum, the stationarity condition equalizes $\Pi_i(k_i^\ast)=\mu_k$ across all active categories. Therefore, to first order in $\Delta\lambda$,
+\[
+k_j^\ast>k_i^\ast
+\quad\Longleftrightarrow\quad
+\Delta \Pi_i(k_i^\ast)>0,
+\]
+where $\Delta \Pi_i(k_i^\ast):=\Pi_j(k_i^\ast)-\Pi_i(k_i^\ast)$ is the change in marginal scarcity rent induced by the preference perturbation, evaluated at the baseline capacity $k_i^\ast$. By the envelope theorem,
+\[
+\Delta \Pi_i(k_i^\ast)
+=
+\mathbb{E}_s\!\left[
+\Delta \varepsilon_i^\times(s;k_i^\ast)\,
+\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}
+\right].
+\]
+By Lemma~\ref{lem:realloc}, which holds for any allocation regime,
+\[
+\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
+=
+\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]
+\qquad
+\text{for each } s\in T_i^\times(k_i^\ast),
+\]
+where $R_{\mathcal G}(\theta)=\Delta \mathcal G_i(\theta)/\mathcal G_i(\theta)$ and $\mathcal G_i(\theta)=\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i^\ast,I_i^\ast)$. Substituting gives
+\[
+\Delta \Pi_i(k_i^\ast)
+=
+\mathbb{E}_s\!\left[
+\varepsilon_i^\times(s;k_i^\ast)\,
+\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]
+\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}
+\right],
+\]
+which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i^\times(\theta,s)=1/(\alpha\varepsilon_i^\times(s))$ is independent of $\theta$. Therefore $\mathbb{E}_i^w[R_{\mathcal G}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]$ for every state $s$, and the condition reduces to
+\[
+\Pi_i(k_i^\ast)\cdot\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0.
+\]
+Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]$.
+\end{proof}
+
+\section{Proof of Piecewise ordering along an ordered preference path}
+
+
+\begin{proof}
+Consider an adjacent pair of categories \(i-1\) and \(i\) in equilibrium, and suppose that they belong to the same regime. Under Assumption~\ref{ass:ordered-path}, the ratio \(\lambda_i(\theta)/\lambda_{i-1}(\theta)\) is weakly increasing in \(\theta\), and \(\tilde\lambda_i\ge \tilde\lambda_{i-1}\).
+
+If both categories satisfy \(\beta_{i-1}^\times=\beta_i^\times=0\), then \(\mathcal G_{i-1}=\Gamma_{i-1}\) and \(\mathcal G_i=\Gamma_i\). In this case \(c_\Lambda=c_{\mathcal G}=\tilde\lambda_i/\tilde\lambda_{i-1}\ge 1\), so the condition \(1\le c_{\mathcal G}\le c_\Lambda\) of Lemma~\ref{lem:preferenceorder} is satisfied from primitives alone, and the lemma yields \(\Gamma_i(\theta)-\Gamma_{i-1}(\theta)\ge 0\) for all \(\theta\).
+
+If instead both categories satisfy \(\beta_{i-1}^\times>0\) and \(\beta_i^\times>0\), then both have \(I_i>0\) and the outer KKT stationarity condition gives \(\tilde\lambda_i+\beta_i^\times=\tilde\lambda_{i-1}+\beta_{i-1}^\times=-\mu_I\), hence \(c_{\mathcal G}=1\). Assumption~\ref{ass:ordered-path} gives \(c_\Lambda=\tilde\lambda_i/\tilde\lambda_{i-1}\ge 1\), so \(1=c_{\mathcal G}\le c_\Lambda\) and the condition of Lemma~\ref{lem:preferenceorder} is again satisfied. The lemma then yields \(\mathcal G_i(\theta)-\mathcal G_{i-1}(\theta)\ge 0\) for all \(\theta\).
+
+In both cases \(R_{\mathcal G}(\theta)=(\mathcal G_i(\theta)-\mathcal G_{i-1}(\theta))/\mathcal G_{i-1}(\theta)\ge 0\) pointwise, so the weighted average in Proposition~\ref{prop:cat-order} is non-negative. Hence \(k_i^\ast\ge k_{i-1}^\ast\). Since this argument applies to every adjacent pair within the same regime, the equilibrium capacity profile is weakly monotone within each of \(N^0\) and \(N^+\). Any failure of global monotonicity can therefore only arise at a boundary between a category with \(\beta_i^\times=0\) and a category with \(\beta_i^\times>0\).
+\end{proof}
+
+
+
+\section{Disgression}
+
 \paragraph{Across-category problem.}
 The outer problem is
 \[
@@ -1439,54 +1406,7 @@ k_j^\ast>k_i^\ast
 Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0$.
 \end{proposition}
 
-\begin{proof}
-Since $V_i(k_i,I_i)$ is strictly concave in $k_i$ by Lemma~\ref{lem:Vi-concave}, the marginal scarcity rent
-\[
-\Pi_i(k_i):=\partial_{k_i}V_i(k_i,I_i)
-=
-\mathbb{E}_s\!\left[
-\varepsilon_i^\times(s;k_i)\mathbf{1}_{\{s\in T_i^\times(k_i)\}}
-\right]
-\]
-is strictly decreasing in $k_i$. At the outer optimum, the stationarity condition equalizes $\Pi_i(k_i^\ast)=\mu_k$ across all active categories. Therefore, to first order in $\Delta\lambda$,
-\[
-k_j^\ast>k_i^\ast
-\quad\Longleftrightarrow\quad
-\Delta \Pi_i(k_i^\ast)>0,
-\]
-where $\Delta \Pi_i(k_i^\ast):=\Pi_j(k_i^\ast)-\Pi_i(k_i^\ast)$ is the change in marginal scarcity rent induced by the preference perturbation, evaluated at the baseline capacity $k_i^\ast$. By the envelope theorem,
-\[
-\Delta \Pi_i(k_i^\ast)
-=
-\mathbb{E}_s\!\left[
-\Delta \varepsilon_i^\times(s;k_i^\ast)\,
-\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}
-\right].
-\]
-By Lemma~\ref{lem:realloc}, which holds for any allocation regime,
-\[
-\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}
-=
-\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]
-\qquad
-\text{for each } s\in T_i^\times(k_i^\ast),
-\]
-where $R_{\mathcal G}(\theta)=\Delta \mathcal G_i(\theta)/\mathcal G_i(\theta)$ and $\mathcal G_i(\theta)=\Gamma_i(\theta)+J_i(\theta)\beta_i^\times(k_i^\ast,I_i^\ast)$. Substituting gives
-\[
-\Delta \Pi_i(k_i^\ast)
-=
-\mathbb{E}_s\!\left[
-\varepsilon_i^\times(s;k_i^\ast)\,
-\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]
-\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}
-\right],
-\]
-which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i^\times(\theta,s)=1/(\alpha\varepsilon_i^\times(s))$ is independent of $\theta$. Therefore $\mathbb{E}_i^w[R_{\mathcal G}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]$ for every state $s$, and the condition reduces to
-\[
-\Pi_i(k_i^\ast)\cdot\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0.
-\]
-Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]$.
-\end{proof}
+
 
 \begin{remark}[Continuous preference ordering]
 The proposition is local in preference space: it compares a baseline category $i$ to a nearby category $j$ obtained through a marginal perturbation of redistributive preferences, evaluated at the baseline optimum $k_i^\ast$. 
@@ -1620,5 +1540,6 @@ If it is negative for every adjacent pair, the ordering is reversed. More genera
 
 What this condition does not provide is a closed-form formula for the levels \(k_i^\ast\) or for the distance between categories. Its content is ordinal rather than cardinal: it tells the policymaker who should receive more capacity than whom in the final optimum.
 \end{remark}
+
 
 \end{document}

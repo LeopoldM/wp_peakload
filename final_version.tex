@@ -724,8 +724,7 @@ Both Proposition~\ref{prop:Elasticity} and Corollary~\ref{cor:CARA} share the sa
 
 
 
-\subsection{Accross category allocation}
-
+\subsection{Across category allocation}
 
 \begin{proposition}[Across-category allocation]\label{prop:outer}
 Consider
@@ -736,12 +735,12 @@ subject to
 \[
 \sum_{i\in N} k_i = k, \qquad \sum_{i\in N} I_i = I, \qquad k_i\ge 0, \qquad I_i\ge 0 \quad \forall i.
 \]
-The across-category problem admits at least one solution, and the set of optimal allocations is convex and interior. If every category lies in the IR-constrained, capacity-binding region at the optimum, the optimal allocation is unique.
+The across-category problem admits at least one solution, and the set of optimal allocations is convex. If every category lies in the IR-constrained, capacity-binding region at the optimum, the optimal allocation is unique.
 \end{proposition}
 
 
 \begin{proposition}[Local category ranking under redistributive preferences]\label{prop:cat-order}
-Suppose all categories share the same type distribution $G$ on $\Theta$. Fix a baseline category $i$, and let category $j$ be obtained from $i$ through a marginal perturbation of redistributive preferences. Then, to first order in $\Delta\lambda$,
+Suppose all categories share the same type support $\Theta$. Fix a baseline category $i$, and let category $j$ be obtained from $i$ through a marginal perturbation of redistributive preferences. Then, to first order in $\Delta\lambda$,
 \[
 k_j^\ast>k_i^\ast
 \quad\Longleftrightarrow\quad
@@ -753,6 +752,24 @@ k_j^\ast>k_i^\ast
 \]
 Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0$.
 \end{proposition}
+
+\begin{assumption}[Ordered preference path]\label{ass:ordered-path}
+Categories are indexed so that for each \(i=2,\dots,n\), \(\tilde\lambda_i\ge \tilde\lambda_{i-1}\) and \(m_i(\theta):=\lambda_i(\theta)/\lambda_{i-1}(\theta)\) is weakly increasing in \(\theta\) on \(\Theta\). Moreover, for each adjacent pair \(i-1\) and \(i\), there exists a smooth path \(t\mapsto\lambda(t)\) on \([0,1]\) with \(\lambda(0)=\lambda_{i-1}\) and \(\lambda(1)=\lambda_i\) such that at every \(t\), the ratio \(\lambda(t+dt)/\lambda(t)\) is weakly increasing in \(\theta\) on \(\Theta\) and \(\tilde\lambda(t)\) is non-decreasing in \(t\).
+\end{assumption}
+
+\begin{corollary}[Piecewise ordering along an ordered preference path]
+Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\), and define the two endogenous subsets
+\[
+N^0:=\{i\in N:\beta_i^\times=0\},
+\qquad
+N^+:=\{i\in N:\beta_i^\times>0\},
+\]
+ either of which may be empty. Under Assumption~\ref{ass:ordered-path}, for any adjacent pair \(i-1\) and \(i\) in the same regime, \(k_i^\ast\ge k_{i-1}^\ast\). The equilibrium capacity profile is therefore weakly monotone within each of \(N^0\) and \(N^+\), and any failure of global monotonicity can only arise at a boundary between the two regimes.
+
+\end{corollary}
+
+
+
 
 
 \bibliographystyle{apalike}
