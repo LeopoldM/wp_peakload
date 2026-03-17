@@ -739,6 +739,22 @@ subject to
 The across-category problem admits at least one solution, and the set of optimal allocations is convex and interior. If every category lies in the IR-constrained, capacity-binding region at the optimum, the optimal allocation is unique.
 \end{proposition}
 
+
+\begin{proposition}[Local category ranking under redistributive preferences]\label{prop:cat-order}
+Suppose all categories share the same type distribution $G$ on $\Theta$. Fix a baseline category $i$, and let category $j$ be obtained from $i$ through a marginal perturbation of redistributive preferences. Then, to first order in $\Delta\lambda$,
+\[
+k_j^\ast>k_i^\ast
+\quad\Longleftrightarrow\quad
+\mathbb{E}_s\!\left[
+\varepsilon_i^\times(s;k_i^\ast)\,
+\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]
+\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}
+\right]>0.
+\]
+Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0$.
+\end{proposition}
+
+
 \bibliographystyle{apalike}
 \bibliography{lib}
 
