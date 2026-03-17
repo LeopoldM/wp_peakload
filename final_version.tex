@@ -651,17 +651,21 @@ We now formally characterize the consequences of a (marginal) perturbation of pr
 The following Lemma establishes the link between a particular change of redistributive preferences and the expression $\Delta\G_i(\theta)$.
 
 \begin{lemma}\label{lem:preferenceorder}
-Consider a weight function $\lambda_i(\theta)$ and its perturbation $\lambda_i^\Delta(\theta)$, with $\Delta\lambda_i(\theta):=\lambda_i^\Delta(\theta)-\lambda_i(\theta)$ and $\Delta\G_i(\theta):=\G_i^\Delta(\theta)-\G_i(\theta)$. Suppose $\G_i(\theta),\G_i^\Delta(\theta)>0$ for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. If $\lambda_i^\Delta(\theta)$ shifts preferences toward higher (resp. lower) types proportionally more than $\lambda_i(\theta)$, in the sense that $\frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$
+Consider a weight function $\lambda_i(\theta)$ and its perturbation $\lambda_i^\Delta(\theta)$, with $\Delta\lambda_i(\theta):=\lambda_i^\Delta(\theta)-\lambda_i(\theta)$ and $\Delta\G_i(\theta):=\G_i^\Delta(\theta)-\G_i(\theta)$. Suppose $\G_i(\theta),\G_i^\Delta(\theta)>0$ for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. If $\lambda_i^\Delta(\theta)$ shifts preferences toward higher (resp. lower) types proportionally more than $\lambda_i(\theta)$, in the sense that $\frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$ \noindent i) Then for a.e. $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, %##########################################
+\[ \frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)} \;\ge\; (\text{resp.} \le) \; \frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)}, \] %##########################################
+Define
+\[
+c_\Lambda:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i},
+\qquad
+c_{\G}:=\frac{\tilde\lambda_i^\Delta+\beta_i^\Delta}
+{\tilde\lambda_i+\beta_i}.
+\]
 
-\noindent i) Then for a.e. $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
-%##########################################
-        \[
-          \frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)}
-          \;\ge\; (\text{resp.} \le) \; 
-          \frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)},
-        \]
-%##########################################
-\noindent ii) Assume $\beta = 0$, then if $\tilde{\lambda}_i^\Delta\ge  (\text{resp.} \le) \tilde{\lambda}_i$   then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\;\ge\; (\text{resp.} \le)  \; 0$.
+\noindent ii) if
+$1\le c_{\G}\le c_\Lambda$ and 
+(resp. $c_\Lambda\le c_{\G}\le 1)$, then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\;\ge\;(\text{resp. }\le)\;0$.
+
+In particular, if either $\beta_i=\beta_i^\Delta=0$ or $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the condition in part ii) reduces to $\tilde\lambda_i^\Delta\ge (\text{resp. }\le)\tilde\lambda_i$.
 \end{lemma}
 
 Lemma~\ref{lem:preferenceorder} connects the direction of a preference shift to the sign of $\Delta\mathcal{G}_i(\theta)$: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises the effective social weight pointwise; and conversely, shifting proportionally toward lower types while not increasing the average weight lowers it. A standard perturbation in the redistribution literature is a mean-preserving rotation of $\lambda_i(\theta)$: $\Delta\tilde \lambda_i=0$. Under such a rotation, $\Delta\mathcal{G}_i(\theta)$ has a constant sign throughout the type space - positive when the rotation favors higher types, negative when it favors lower types. 
