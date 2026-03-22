@@ -48,12 +48,12 @@ since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_
 \begin{proof}
 We maintain throughout that $B(k)+M(k)\neq 0$, where $B(k)+M(k)$ is the derivative of the binding residual equation with respect to $\beta$ after substituting the optimal allocation; this is the local regularity condition needed to apply the implicit function theorem, while $B(k)+M(k)>0$ delivers the monotone comparative statics used below.
 
-\medskip\noindent\textbf{Corner case: $\beta(k)=0$.} If $\beta(k)=0$ there are no contributing types. On $T^*$, the first-order condition is $\theta\,u(q_i^*(\theta,s),s) = \varepsilon(s)/\lambda_i(\theta)$. Differentiating and substituting into the capacity constraint gives $\frac{\partial\varepsilon(s)}{\partial k} = -1/\overline w^{nc}(s) < 0$ and $\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^{nc}(\theta,s)/\overline w^{nc}(s) > 0$ on $T^*$. Since non-contributing types pay no transfer:
+\noindent\textbf{Corner case: $\beta(k)=0$.} If $\beta(k)=0$ there are no contributing types. On $T^*$, the first-order condition is $\theta\,u(q_i^*(\theta,s),s) = \varepsilon(s)/\lambda_i(\theta)$. Differentiating and substituting into the capacity constraint gives $\frac{\partial\varepsilon(s)}{\partial k} = -1/\overline w^{nc}(s) < 0$ and $\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^{nc}(\theta,s)/\overline w^{nc}(s) > 0$ on $T^*$. Since non-contributing types pay no transfer:
 \[
 \frac{\partial CS_i(\theta;k)}{\partial k} = \mathbb{E}_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
 \]
 
-\medskip\noindent\textbf{Interior case: $\beta(k)>0$ with coexistence.} Assume contributing and non-contributing types coexist on a set of peak states of positive probability. On $T^*$, the first-order conditions are
+\noindent\textbf{Interior case: $\beta(k)>0$ with coexistence.} Assume contributing and non-contributing types coexist on a set of peak states of positive probability. On $T^*$, the first-order conditions are
 \[
 \theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta(k)}, \quad \lambda_i(\theta)\leq\beta(k), \qquad \theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\lambda_i(\theta)}, \quad \lambda_i(\theta)>\beta(k).
 \]
@@ -73,7 +73,7 @@ Differentiating the capacity constraint and using continuity of the allocation a
 \frac{\partial\varepsilon(s)}{\partial k} = m^c(s)\,\frac{d\beta}{dk} - \frac{1}{\overline w(s)}. \tag{$\partial_k\varepsilon$}\label{depsk}
 \]
 
-\medskip\noindent\textbf{Step 1: sign of $\frac{d\beta}{dk}$.} Since the IR constraint of marginal types binds, $R^M(k)\equiv 0$. Differentiating this identity with respect to $k$, substituting \eqref{dqc} and \eqref{depsk}, and collecting all terms in $\frac{d\beta}{dk}$ on one side yields
+\noindent\textbf{Step 1: sign of $\frac{d\beta}{dk}$.} Since the IR constraint of marginal types binds, $R^M(k)\equiv 0$. Differentiating this identity with respect to $k$, substituting \eqref{dqc} and \eqref{depsk}, and collecting all terms in $\frac{d\beta}{dk}$ on one side yields
 \[
 \mathbb{E}_s\!\left[\sum_i\mu_i\,\mathbb{E}^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right] - I'(k) + \frac{d\beta}{dk}\,B(k) = 0,
 \]
@@ -87,12 +87,12 @@ Solving for $\frac{d\beta}{dk}$:
 \]
 Since $B(k)>0$, condition \eqref{Ui*} implies $\frac{d\beta}{dk}\leq 0$.
 
-\medskip\noindent\textbf{Step 2: surplus of non-contributing types.} Since $\frac{d\beta}{dk}\leq 0$ and $m^c(s)>0$, equation \eqref{depsk} gives $\frac{\partial\varepsilon(s)}{\partial k}<0$ for all $s\in T^*$. From \eqref{dqnc}: $\frac{\partial q_i^*(\theta,s)}{\partial k} = -w_i^{nc}(\theta,s)\frac{\partial\varepsilon(s)}{\partial k} > 0$ for every non-contributing type. Since $t_i^*(\theta,s)=0$:
+\noindent\textbf{Step 2: surplus of non-contributing types.} Since $\frac{d\beta}{dk}\leq 0$ and $m^c(s)>0$, equation \eqref{depsk} gives $\frac{\partial\varepsilon(s)}{\partial k}<0$ for all $s\in T^*$. From \eqref{dqnc}: $\frac{\partial q_i^*(\theta,s)}{\partial k} = -w_i^{nc}(\theta,s)\frac{\partial\varepsilon(s)}{\partial k} > 0$ for every non-contributing type. Since $t_i^*(\theta,s)=0$:
 \[
 \frac{\partial CS_i(\theta;k)}{\partial k} = \mathbb{E}_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
 \]
 
-\medskip\noindent\textbf{Corner case: all types strictly contributing.} If all types satisfy $\lambda_i(\theta)<\beta(k)$, there are no non-contributing types and the statement is vacuous.
+\noindent\textbf{Corner case: all types strictly contributing.} If all types satisfy $\lambda_i(\theta)<\beta(k)$, there are no non-contributing types and the statement is vacuous.
 \end{proof}
 
 \subsection{Part ii)}
@@ -688,12 +688,12 @@ For each binding state $s\in T_i^\times$, differentiating the pointwise FOC \eqr
 \[\frac{\partial q_i^\times(\theta,s)}{\partial k_i} = \frac{w_i^\times(\theta,s)}{\bar w_i^\times(s)} - w_i^\times(\theta,s)\,\mathsf H_i(k_i,s)\,\beta_i^{\times\prime}(k_i) + w_i^\times(\theta,s)\,u\!\left(q_i^\times(\theta,s),s\right)J_i(\theta)\,\beta_i^{\times\prime}(k_i),\]
 where $w_i^\times$, $\bar w_i^\times$, and $\mathsf H_i$ are as defined in the preliminary step of Lemma~\ref{lem:SC-dir}.
 
-\medskip
+
 \noindent\textbf{IR-unconstrained allocation.} Since $\beta_i^\times = 0$, we have $\beta_i^{\times\prime}(k_i) = 0$ and $\mathcal G_i(\theta)\equiv\Gamma_i(\theta)$. The expression for $\partial q_i^\times/\partial k_i$ reduces to $w_i^\times(\theta,s)/\bar w_i^\times(s)$, so
 \[\mathcal W_i'(\theta) = \mathbb E_s\!\left[\frac{u(q_i^\times(\theta,s),s)\,w_i^\times(\theta,s)}{\bar w_i^\times(s)}\mathbf 1_{\{s\in T_i^\times\}}\right] = \mathbb E_s\!\left[\frac{R_q(\theta,s)}{\Gamma_i(\theta)\,\bar w_i^\times(s)}\mathbf 1_{\{s\in T_i^\times\}}\right] > 0,\]
 since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\bar w_i^\times(s) > 0$ by Assumption~\ref{ass:interior}. Hence $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $\mathcal W_i(\underline\theta_i) = \partial \mathbb E\underline{CS}_i^\times/\partial k_i$ has the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive, $\mathcal W_i(\underline\theta_i)>0$ and strict monotonicity implies every type gains. If \eqref{Eujmd} is negative, $\mathcal W_i(\underline\theta_i)<0$ and, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; if and only if $\mathcal W_i(\overline\theta_i)>0$, a unique cutoff $\tilde\theta_i$ exists and types below lose while types above gain.
 
-\medskip
+
 \noindent\textbf{IR-constrained allocation.}
 
 \noindent\textit{Step 1: initial condition.} Since $\mathbb E\underline{CS}_i^\times = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{ICmd-def}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
@@ -771,7 +771,7 @@ Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^
 \]
 Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
 
-\medskip
+
 \noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
 For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by
 \[
@@ -779,7 +779,7 @@ dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overli
 \]
 Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, we have $\Lambda_i^2(\theta)/\Lambda_i^1(\theta) = \mathbb{E}_{Q_\theta}[m(\tilde\theta)]$. For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance $\mathbb{E}_{Q_\theta}[m(\tilde\theta)] \ge \mathbb{E}_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
 
-\medskip
+
 \noindent\textit{Proof of (i).}
 Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its logarithm is monotone too. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,
 \[
@@ -787,14 +787,14 @@ Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its lo
 \]
 in the upward case, which yields $\Lambda_i^{\Delta\,\prime}(\theta)/\Lambda_i^\Delta(\theta) \ge \Lambda_i'(\theta)/\Lambda_i(\theta)$ for almost every $\theta$. The reverse inequality holds in the downward case.
 
-\medskip
+
 \noindent\textit{Proof of (ii).}
 Write
 \[
 \mathcal{G}_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i^\times\bigr)+\Lambda_i(\theta), \qquad \mathcal{G}_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta}\bigr)+\Lambda_i^\Delta(\theta).
 \]
 
-\medskip
+
 \noindent\textbf{Upward case.} Assume $m$ is increasing and $1\le c_{\mathcal{G}}\le c_\Lambda$. The boundary evaluation gives
 \[
 \frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)} = \frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i} = c_\Lambda.
@@ -809,14 +809,14 @@ Using the definition of $c_{\mathcal{G}}$,
 \]
 Since $c_{\mathcal{G}}\ge 1$ and $\mathcal{G}_i(\theta)>0$, it follows that $\Delta\mathcal{G}_i(\theta) \ge (c_{\mathcal{G}}-1)\mathcal{G}_i(\theta) \ge 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
 
-\medskip
+
 \noindent\textbf{Downward case.} Assume $m$ is decreasing and $c_\Lambda\le c_{\mathcal{G}}\le 1$. The boundary evaluation gives $\Lambda_i^\Delta(\underline\theta_i)/\Lambda_i(\underline\theta_i) = c_\Lambda \le c_{\mathcal{G}}$. Since the ratio is decreasing by the core step and starts at $c_\Lambda$,
 \[
 \Lambda_i^\Delta(\theta) \le c_\Lambda\,\Lambda_i(\theta) \le c_{\mathcal{G}}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
 \]
 Therefore $\mathcal{G}_i^\Delta(\theta) \le c_{\mathcal{G}}\,\mathcal{G}_i(\theta)$, and since $c_{\mathcal{G}}\le 1$ and $\mathcal{G}_i(\theta)>0$, it follows that $\Delta\mathcal{G}_i(\theta) \le (c_{\mathcal{G}}-1)\mathcal{G}_i(\theta) \le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
 
-\medskip
+
 The special cases in the ``in particular'' clause follow immediately: if $\beta_i^\times=\beta_i^{\times,\Delta}=0$ then $c_{\mathcal{G}}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\mathcal{G}}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\times,\Delta}+\tilde\lambda_i^\Delta=\beta_i^\times+\tilde\lambda_i$ then $c_{\mathcal{G}}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
 \qedhere
 \end{proof}
@@ -827,7 +827,7 @@ The special cases in the ``in particular'' clause follow immediately: if $\beta_
 \begin{proof}
 The proof proceeds in three steps.
 
-\medskip
+
 \noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
 Differentiating
 \[
@@ -865,7 +865,7 @@ Thus the elasticity condition implies
 \]
 for all $\theta$. Since $R_\Gamma(\theta)$ has a constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign, so $\Delta R_\theta(\theta)$ is globally monotone.
 
-\medskip
+
 \noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
 By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The covariance-monotonicity then implies
 \[
@@ -888,7 +888,7 @@ hence
 \operatorname{sign}\!\left(R_q'(\theta)\right).
 \]
 
-\medskip
+
 
 \noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
 
@@ -987,8 +987,8 @@ R_\Gamma(\theta)-\mathbb E_i^w\!\left[R_\Gamma\mid s\right]
 \right).
 \]
 
-\medskip
-\noindent\textit{First part: $\Delta q_i^\times(\cdot,s)$ is not monotone when $R_\Gamma$ is not constant.}
+
+\noindent\textit{First part: IR-unconstrained allocation.}
 Since $\mathbb E_i^w[R_\Gamma\mid s]$ is a weighted average of $R_\Gamma$ with positive weights, if $R_\Gamma$ is not almost everywhere constant then
 \[
 R_\Gamma(\theta)-\mathbb E_i^w\!\left[R_\Gamma\mid s\right]
@@ -1019,7 +1019,16 @@ R_\Gamma-\mathbb E_i^w[R_\Gamma\mid s]
 \]
 so the endpoint values of $\Delta q_i^\times(\theta,s)$ have the same sign (or are both zero). Since $\Delta q_i^\times(\theta,s)$ takes both signs while its endpoint values coincide in sign, it cannot be monotone on $\Theta_i$.
 
-\medskip
+
+
+\noindent\textit{Second part: IR-constrained allocation.}
+
+Under $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, we have $\Delta\tilde\lambda_i+\Delta\beta_i^\times=0$. At $\overline\theta_i$, since $\Lambda_i(\overline\theta_i)=0$ and therefore $\Delta\Lambda_i(\overline\theta_i)=0$,
+\[
+\Delta\mathcal{G}_i(\overline\theta_i) = J_i(\overline\theta_i)(\Delta\tilde\lambda_i+\Delta\beta_i^\times) = 0,
+\]
+so $R_{\mathcal{G}}(\overline\theta_i)=0$ and therefore $\Delta q_i^\times(\overline\theta_i,s)=0$. Since the capacity constraint requires $\mathbb{E}_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$ for each $s\in T_i^\times$, and since $\Delta q_i^\times(\overline\theta_i,s)=0$ while $R_{\mathcal{G}}(\theta)$ is not almost everywhere constant, the function $\Delta q_i^\times(\cdot,s)$ must take both positive and negative values on $\Theta_i$. A function that vanishes at one endpoint and takes both signs cannot be monotone on $\Theta_i$.
+
 \noindent\textit{Second part: unimodality and mean-preserving perturbations.}
 Assume now that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0$. Then
 \[
@@ -1071,6 +1080,9 @@ This is exactly the characterization stated in the proposition.
 
 If instead $\Delta\mathcal G_i(\theta)\le 0$ for all $\theta$, apply the same argument to $-\Delta\mathcal G_i(\theta)$. This reverses all inequalities and proves part~(ii).
 \end{proof}
+
+
+
 \section{Proof of Corollary~\ref{cor:CARA}}
 \begin{proof}
 Assume $\beta_i^\times=0$. In any on-peak state $s\in T_i^\times$ where the capacity constraint binds with multiplier $\varepsilon_i^\times(s)>0$, the interior FOC is
@@ -1139,7 +1151,7 @@ Fix a category $i$. On binding states $s\in T_i^\times(k_i)$, the pointwise firs
 u\!\left(q_i^\times(\theta,s),s\right)\mathcal G_i(\theta)=\varepsilon_i^\times(s), \qquad \mathcal G_i(\theta)=\Gamma_i(\theta)+\beta_i^\times J_i(\theta).
 \]
 
-\medskip
+
 \noindent\textbf{Step 1: \(k_i\)-derivative and the boundary term.}
 
 By the envelope theorem,
@@ -1151,7 +1163,7 @@ Differentiating with respect to $k_i$ gives a boundary term proportional to $\va
 V_{i,k_ik_i}(k_i,I_i) = \mathbb{E}_s\!\left[\partial_{k_i}\varepsilon_i^\times(s;k_i,I_i)\,\mathbf{1}_{\{s\in T_i^\times(k_i)\}}\right].
 \]
 
-\medskip
+
 \noindent\textbf{Step 2: \(\partial_{I_i}\varepsilon_i^\times(s)\) and the cross derivative.}
 
 Fix $k_i$ and $s\in T_i^\times$. Differentiating the first-order condition with respect to $I_i$ and imposing the binding capacity constraint $\mathbb E_{\theta_i}[\partial_{I_i}q_i^\times(\theta,s)]=0$ yields
@@ -1163,7 +1175,7 @@ where $w_i^\times(\theta,s):=-1/(u_q(q_i^\times,s)\mathcal G_i(\theta))>0$ and t
 V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i^\times(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I_i)= -\frac{1}{\mathcal V_i(k_i)}<0, \qquad V_{i,k_iI_i}(k_i,I_i) = \frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
 \]
 
-\medskip
+
 \noindent\textbf{Step 3: \(V_{i,k_ik_i}\) on the IR-constrained region.}
 
 Holding $\beta$ fixed gives $\partial_{k_i}\varepsilon_i^\times(s)|_\beta = -1/\overline w_i^\times(s)$. Along the optimal path, the chain rule and the identity $\partial_\beta\varepsilon_i^\times(s)=\mathsf H_i(k_i,s)$ (established in the proof of Lemma~\ref{lem:SC-dir}) give
@@ -1180,12 +1192,12 @@ The Hessian on the IR-constrained, capacity-binding region is
 \]
 with determinant $\det\nabla^2 V_i = \mathcal A_i/\mathcal V_i > 0$. Both diagonal entries are negative and the determinant is positive, so $\nabla^2 V_i$ is negative definite, proving part~(i).
 
-\medskip
+
 \noindent\textbf{Step 4: the remaining regimes.}
 
 If $\beta_i^\times=0$, then $V_i$ is locally affine in $I_i$, so $V_{i,I_iI_i}=0$ and $V_{i,k_iI_i}=0$. If capacity binds on a positive-mass set of states, the fixed-$\beta$ formula gives $V_{i,k_ik_i}=-\mathcal A_i\le 0$, so the Hessian is negative semidefinite, proving part~(ii). If $T_i^\times(k_i)=\varnothing$, all second derivatives vanish and the Hessian is the zero matrix, proving part~(iii).
 
-\medskip
+
 \noindent\textbf{Step 5: global concavity across regime boundaries.}
 
 It remains to verify that $\nabla V_i$ is continuous across the two regime boundaries, which is required for the piecewise concavity argument to yield global concavity.
@@ -1553,6 +1565,31 @@ What this condition does not provide is a closed-form formula for the levels \(k
 \item \textbf{Case 2: $I_i > 0$, $\beta_i^\times = 0$.} The budget constraint is slack despite positive revenue extraction. Complementary slackness forces $\xi_i = 0$, and the stationarity condition pins down $\tilde\lambda_i = -\mu_I$ exactly. This is the knife-edge marginal category: it bears revenue but its budget constraint does not bind. Generically at most one category satisfies this condition. The effective weight is again $\mathcal{G}_i(\theta) = \Gamma_i(\theta)$.
 \item \textbf{Case 3: $I_i > 0$, $\beta_i^\times > 0$.} The budget constraint binds. Complementary slackness forces $\xi_i = 0$, and the stationarity condition gives $\tilde\lambda_i + \beta_i^\times = -\mu_I$, so $\beta_i^\times = -\mu_I - \tilde\lambda_i > 0$, which requires $\tilde\lambda_i < -\mu_I$. The effective weight is $\mathcal{G}_i(\theta) = \Gamma_i(\theta) + J_i(\theta)\beta_i^\times$, reflecting the additional revenue pressure on the allocation.
 \end{itemize}
+
+
+
+
+
+
+Proposition~\ref{prop:Elasticity} provides conditions under which a change of preferences unambiguously impacts the trade-off channel. Since $R_q$ depends on the preferences only through $q_i$, and as $R_q(\theta)>0$, the effect of the behavioral change is equivalent to the effect on the optimal allocation of a change in preferences. However, the behavioral channel is not monotonic in $\theta$  so the aggregate effect of a change of preference on the equilibrium cannot be signed in general: in the IR-unconstrained region, Proposition~\ref{prop:rprefreallocation} formally establishes that $\Delta q_i(\cdot,s) $is non-monotone; in the IR-constrained region, no analogous characterization is available without conditions on the equilibrium. Corollary~\ref{cor:CARA} provides a clean bypass of this limitation under the Assumption~\ref{ass:CARA}, where $R_q(\theta)$ is constant, and the total effect reduces to the trade-off channel alone.
+
+
+\begin{proposition}[Elasticity condition]\label{prop:Elasticity} Assume that $R_\theta(\theta)$ and $R_q(\theta)$ are monotone, that $R_{\G}(\theta)$ has a constant sign, and that, for all $\theta$ such that $R_{\G}(\theta)R_\theta(\theta)\neq 0$,\footnote{At isolated zeros of $R_\theta(\theta)$, the cross-term $-R_\theta(\theta)R_{\G}'(\theta)$ vanishes and the sign of $\Delta R_\theta'(\theta)$ is determined by $-R_{\G}(\theta)R_\theta'(\theta)$ directly. At isolated zeros of $R_{\G}(\theta)$, the constant-sign hypothesis forces $R_{\G}'(\theta)=0$ by differentiability, so the cross-term vanishes there as well. Monotonicity of $\Delta R_\theta(\theta)$ is preserved in both cases.} \[ \left|\frac{R_{\G}'(\theta)}{R_{\G}(\theta)}\right| \le \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|. \] Then $\Delta R_\theta(\theta)$ is monotone and \[ \mathrm{sign}\!\left(\Cov_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)\right) = \mathrm{sign}\!\left(-R_{\G}(\theta)R_\theta'(\theta)\right)\cdot \mathrm{sign}\!\left(R_q'(\theta)\right). \] If the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone. \end{proposition}
+
+The proposition provides sufficient conditions under which a change in redistributive preferences unambiguously affects the trade-off covariance term, and conversely that a same direction of a change of preference can have opposite effect on the equilibrium. The elasticity condition is a uniform sufficient condition across all achievable sign configurations. It compares two elasticities: (i) $\left|\frac{R_{\G}'(\theta)}{R_{\G}(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. The condition requires that the preference change be smoother in proportional terms than the existing sorting pattern. The sorting condition follows from differentiating $R_\theta(\theta)$:
+%##########################################
+\[\Delta\!\left(R_\theta'(\theta)\right) = -R_\theta(\theta)\,R_{\G}'(\theta)-R_{\G}(\theta)\,R_\theta'(\theta).\]
+%##########################################
+The proposition considers all possible case given any sign configuration of $(R_{\G}(\theta), R_\theta'(\theta), R_q'(\theta))$. To interpret its economic meaning, consider the case where lower types are allocated more capacity ($R_q'(\theta)\le 0$), higher types gets higher rents ($R'_\theta(\theta)\ge 0$), the change of preferences is towards higher types ($\Delta R_{\G}\ge 0$), and we are looking to reduce the adverse sorting effect such that the covariance term is positive ($\Delta R_\theta'(\theta) \le 0 $). Then a change of preference ---even in the correct direction---can exacerbate adverse sorting by creating local distortions. More specifically, the sufficient elasticity condition binds in two regions: (a) types contributing negatively to the trade-off ($R_\theta(\theta)<0$) but receiving increasing proportional weights ($R_{\G}'(\theta)\ge 0$), and (b) types contributing positively to the trade-off ($R_\theta(\theta)>0$) but receiving decreasing proportional weights ($R_{\G}'(\theta)\le 0$). In both regions, preference changes that are too concentrated reverse the sign of $\Delta(R_\theta'(\theta))$; the elasticity bound ensures changes remain sufficiently gradual. 
+
+We illustrate the implications of the proposition in Figure \ref{fig:variation_uniform_preference_tradeoff}: even when the direction of a preference shift favors the same consumers, particular concentration of social weights adjustments can exacerbate adverse sorting, worsening rather than improving the trade-off effect. The first plot represents two similar perturbations: from a utilitarian market designer where $\lambda_i(\theta) =1$ to a weight function that favors higher types (in both cases). The middle set of plots shows that the perturbation in the case A leads to a non monotonic change in $\Delta R_\theta(\theta)$ with respect to $\theta$, compared to case B, which is strictly decreasing (we assume that $R_q$ is decreasing in $\theta$). In case A, this increasing part of the function leads to a negative covariance. The right panel shows that the increasing part is due to the violation of the sufficient conditions in the Proposition.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/variation_uniform_preference_tradeoff.png}
+    \caption{Effects of change in redistributive preferences on the trade-off effect. The first plot shows the new $\lambda_i(\theta)$. The second plot indicates the effect of the perturbation on the term $\Delta R_\theta(\theta)$. The last plot links the condition in Proposition \ref{prop:Elasticity} to the sign of $\Delta R'_\theta(\theta)$. $R_q(\theta)$ is assumed to be decreasing in $\theta$, $R_\theta(\theta)$ and $J_i(\theta)$ are increasing in $\theta$. In this example, $R'_{\G}(\theta)<0$ and $J_i(\theta)>0$ for all $\theta$, so the worsening effect comes from types generating revenues while receiving proportionally decreasing weights.}
+    \label{fig:variation_uniform_preference_tradeoff}
+\end{figure}
 
 
 \end{document}
