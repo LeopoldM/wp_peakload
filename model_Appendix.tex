@@ -22,13 +22,10 @@ $R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta,k_i)$} if $\p
 \begin{lemma}[Single-crossing]\label{lem:SC-dir}
 Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta,k_i)\). Then the map
 \[
-k_i \longmapsto \mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]
+k_i \longmapsto \mathbb E_s\!\left[
+\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]
 \]
-is single-crossing in $k_i$. The crossing direction is pinned down by the combination of monotonicities:
-\begin{enumerate}[label=(\roman*), leftmargin=1cm]
-\item it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular;
-\item in the other cases and under the assumption that $J_i'(\theta)>0$, the map is always positive on $k_i$ .
-\end{enumerate}
+is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
 \end{lemma}
 
 The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is increasing, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta)\) is decreasing in \(\theta\). Combined with \(R_\theta(\theta)\) increasing, this makes the covariance term in \eqref{signEuJ} more negative as \(k_i\) grows. Thus, as capacity expands, the weighted average \eqref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates. Lemma~\ref{lem:SC-dir} formalizes this single-crossing intuition.
@@ -44,7 +41,7 @@ so $R_q'(\theta)<0$ for linear and quadratic demand, while $R_q'(\theta)>0$ for 
 \sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue term}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC term}}\Bigg).
 \]
 %##########################################
-The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second compares the proportional growth rates of the two.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\G_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
+The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second compares the proportional growth rates of the two: when $\Lambda_i'(\theta)<0$, the IC term is shrinking, and the revenue term automatically dominates, giving $R_\theta'(\theta)>0$.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\G_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
 
 
 \begin{remark}[Primitive foundation]\label{rem:prim}
@@ -730,9 +727,6 @@ k_i\longmapsto \mathcal S_i(k_i)
 \right]
 \]
 is single-crossing in $k_i$, with crossing direction pinned down by the combination of monotonicities stated in the lemma.
-
-
-\noindent\textit{Part (ii): positivity under $J_i'(\theta)>0$.} In the remaining cases ($R_\theta$ increasing and $R_q$ log-supermodular, or $R_\theta$ decreasing and $R_q$ log-submodular), any zero of $\mathcal S_i$ would be crossed from $-$ to $+$. Suppose for contradiction that such a zero exists at some $k_i^0>0$. Then $\mathcal S_i(k_i)<0$ for $k_i$ in a left neighborhood of $k_i^0$. However, as $k_i\to 0$, every state becomes binding and $q_i^\times(\theta,s)\to 0$ for all $(\theta,s)$. At $q=0$, using $\mathbb{E}_{\theta_i}[J_i]>0$, $U>0$ at any interior allocation, and $\mathrm{Cov}_{\theta_i}(J_i,U)\geq 0$ by monotonicity of both $J_i$ (from $J_i'(\theta)>0$) and $U$ in $q$ together with monotonicity of $q$ in $\theta$, we obtain $\mathcal S_i(0)>0$ strictly. Therefore $\mathcal S_i$ starts strictly positive and any zero would require it to first become negative before recovering, contradicting the single-crossing from $-$ to $+$. Hence $\mathcal S_i(k_i)>0$ for all $k_i>0$ in these cases.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
