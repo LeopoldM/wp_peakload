@@ -318,10 +318,10 @@ Constraint \eqref{IC-def} imposes incentive compatibility in expectation over $s
 This representation follows from standard envelope arguments; see \cite{milgrom2002envelope}. Let $\gamma_i(\theta)$ denote the inverse hazard rate of $G_i$ and $J_i(\theta)$ the virtual surplus function associated with a consumer from category $i$ and type $\theta$
 %##########################################
 \[
-\gamma_i(\theta):= \frac{1-G_i(\theta)}{g_i(\theta)} \quad \text{and} \quad  J_i(\theta):=\theta - \gamma_i(\theta)
+\gamma_i(\theta):= \frac{1-G_i(\theta)}{g_i(\theta)} \quad \text{and} \quad  J_i(\theta):=\theta - \gamma_i(\theta).
 \]
 %##########################################
-Then define $\Lambda_i(\theta) := \gamma_i(\theta)\E[\lambda_i(\tilde\theta) \mid \tilde\theta \ge \theta]$. This term captures the social value of the information rents accruing to all types $\tilde\theta > \theta$ when type $\theta$ receives a marginal unit: incentive compatibility forces the designer to also compensate all higher types, at a rate governed by the inverse hazard rate $\gamma_i(\theta)$, and these rents are evaluated at the average social weight of types above $\theta$.
+We maintain throughout the standard regularity condition that $J_i(\theta)$  is increasing in $\theta$. Then define $\Lambda_i(\theta) := \gamma_i(\theta)\E[\lambda_i(\tilde\theta) \mid \tilde\theta \ge \theta]$. This term captures the social value of the information rents accruing to all types $\tilde\theta > \theta$ when type $\theta$ receives a marginal unit: incentive compatibility forces the designer to also compensate all higher types, at a rate governed by the inverse hazard rate $\gamma_i(\theta)$, and these rents are evaluated at the average social weight of types above $\theta$.
 
 \begin{lemma}[Virtual surplus representation]\label{lem:Transfer}
 The program of the market designer can be expressed as: 
@@ -381,11 +381,19 @@ The first-order condition is
 u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)-\varepsilon_i(s)=0,
 \]
 %##########################################
-where $\mathcal{G}_i(\theta) := \Gamma_i(\theta) + J_i(\theta)\,\beta_i$.\footnote{Equivalently, $\mathcal{G}_i(\theta) = (\tilde\lambda_i + \beta_i)J_i(\theta) + \Lambda_i(\theta)$: the effective social weight is therefore an equilibrium object: for instance, when $J_i(\theta) > 0$, a relaxation of the budget constraint ($\beta_i$ falling) reduces the premium placed on revenue-generating types and lowers their effective weight.}. We focus on interior solutions (i.e., all types receive a strictly positive allocation at the optimum):
+where $\mathcal{G}_i(\theta) := \Gamma_i(\theta) + J_i(\theta)\,\beta_i$.\footnote{Equivalently, $\mathcal{G}_i(\theta) = (\tilde\lambda_i + \beta_i)J_i(\theta) + \Lambda_i(\theta)$: the effective social weight is therefore an equilibrium object: for instance, when $J_i(\theta) > 0$, a relaxation of the budget constraint ($\beta_i$ falling) reduces the premium placed on revenue-generating types and lowers their effective weight.}. We focus on interior solutions and impose two regularity conditions. The first discipline of the allocation rule: it ensures all types receive a strictly positive allocation and that the monotonicity constraint is automatically satisfied at the optimum.\footnote{If the first set of conditions fails, standard Myerson-style ironing restores monotonicity without affecting the subsequent comparative statics, since the ironed weight $\overline{G}_i(\theta)$ enters the FOC in place of $\G_i(\theta)$ but does not alter the structure of \eqref{Eujmd}. This stands in contrast with settings where the supply side imposes additional structure on the allocation: either indivisibility, as in \cite{CONDORELLI2013582}, or a fixed-quality schedule, as in \cite{akbarpour2023redistributive}, which restricts the set of implementable mechanisms.}
 
-\renewcommand{\theassumption}{Int.}
+\renewcommand{\theassumption}{Int}
 \begin{assumption}\label{ass:interior}
-For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\G_i(\theta)>0$ and $\G_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q_i(\theta,s)$ is satisfied at the optimum.\footnote{If this condition fails, standard Myerson-style ironing restores monotonicity without affecting the subsequent comparative statics, since the ironed weight $\overline{G}_i(\theta)$ enters the FOC in place of $\G_i(\theta)$ but does not alter the structure of \eqref{Eujmd}. This stands in contrast with settings where the supply side imposes additional structure on the allocation: either indivisibility, as in \cite{CONDORELLI2013582}, or a fixed-quality schedule, as in \cite{akbarpour2023redistributive}, which restricts the set of implementable mechanisms.}
+For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\mathcal{G}_i(\theta)>0$ and $\mathcal{G}_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q_i(\theta,s)$ is satisfied at the optimum.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+The second ensures the within-category revenue constraint defines a convex feasibility set, which is needed for the uniqueness and comparative statics results that follow.
+
+\renewcommand{\theassumption}{Cvx}
+\begin{assumption}\label{ass:convex}
+For every category $i$ and every $I_i\ge 0$, the set $\left\{q_i(\theta,s):\mathbb{E}_{\theta_i,s}\!\left[J_i(\theta)\,U(q_i(\theta,s),s)\right]\ge I_i\right\}$ is convex.
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
@@ -625,15 +633,15 @@ Recall that the function $\Lambda_i(\theta)$ measures the social value of the in
 \begin{lemma}[Reallocation under preference perturbations]\label{lem:realloc}
 Fix category \(i\) and a across allocation \((k_i,I_i)\) For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
 \[
-\Delta q_i^\times(\theta,s) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i^\times.
+\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i.
 \]
 \end{lemma}
 
-To interpret Lemma~\ref{lem:realloc}, note that the sign of $\Delta q_i^\times(\theta,s)$ is determined by whether the preference change raises the marginal social valuation of type $\theta$ by more or less than the equilibrium adjustment in the scarcity rent. Linearizing the pointwise first-order condition makes this precise:
+To interpret Lemma~\ref{lem:realloc}, note that the sign of $\Delta q_i(\theta,s)$ is determined by whether the preference change raises the marginal social valuation of type $\theta$ by more or less than the equilibrium adjustment in the scarcity rent. Linearizing the pointwise first-order condition makes this precise:
 \[
-\Delta q_i^\times(\theta,s) = w_i(\theta,s)\bigl(u(q_i^\times,s)\,\Delta\mathcal{G}_i(\theta) - \Delta\varepsilon_i^\times(s)\bigr) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right).
+\Delta q_i(\theta,s) = w_i(\theta,s)\bigl(u(q_i,s)\,\Delta\mathcal{G}_i(\theta) - \Delta\varepsilon_i(s)\bigr) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right).
 \]
-Type $\theta$ receives more capacity if and only if its marginal social valuation rises by more than the scarcity rent. The second expression refines this condition in terms of the sufficient statistic $R_{\mathcal{G}}(\theta)$: the designer reallocates toward types whose proportional change in effective weight exceeds the capacity-weighted average. Since capacity is fixed, the reallocation is zero-sum across types within each binding state: $\mathbb{E}_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$ for each $s\in T_i^\times$, so any type that gains necessarily comes at the expense of another. This zero-sum condition is precisely what pins the mean-correction to $\mathbb{E}^w_i[R_{\mathcal{G}}\mid s]$: the capacity-weighted average of $R_{\mathcal{G}}(\theta)$ rather than a uniform one, because the weights $w_i(\theta,s)$ capture the heterogeneity in unweighted marginal utilities induced by redistributive preferences.
+Type $\theta$ receives more capacity if and only if its marginal social valuation rises by more than the scarcity rent. The second expression refines this condition in terms of the sufficient statistic $R_{\mathcal{G}}(\theta)$: the designer reallocates toward types whose proportional change in effective weight exceeds the capacity-weighted average. Since capacity is fixed, the reallocation is zero-sum across types within each binding state: $\mathbb{E}_{\theta_i}[\Delta q_i(\theta,s)]=0$ for each $s\in T_i$, so any type that gains necessarily comes at the expense of another. This zero-sum condition is precisely what pins the mean-correction to $\mathbb{E}^w_i[R_{\mathcal{G}}\mid s]$: the capacity-weighted average of $R_{\mathcal{G}}(\theta)$ rather than a uniform one, because the weights $w_i(\theta,s)$ capture the heterogeneity in unweighted marginal utilities induced by redistributive preferences.
 
 \begin{proposition}[Non-monotone reallocation under preference perturbations]\label{prop:rprefreallocation}
 Under the IR-unconstrained allocation, if $R_\G(\theta)$ is not (a.e.) constant, then $\Delta q_i(\cdot,s)$ is not monotone on $\Theta_i$. Moreover, assume that $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then  $\Delta q_i(\cdot,s)$ is also not monotone on $\Theta_i$ under the IR-constrained allocation. 
@@ -671,8 +679,8 @@ and $\Delta\mathcal{G}_i(\theta)$, which governs the interior shape. If $\Delta\
 Proposition~\ref{prop:welfare-redist} delivers a sharp lesson for redistributive policy. Even when the direction of a preference shift is unambiguous (see  Lemma~\ref{lem:preferenceorder}), the resulting welfare changes are generically non-monotone across types. The reason is that two forces operate simultaneously and in opposite directions for different types. First, the capacity constraint makes reallocation zero-sum. Second, the IC structure means that the boundary surplus $\Delta\mathbb{E}\underline{CS}_i$ shifts uniformly across all types, independently of where the preference change is concentrated. Together, these two forces create interior reversals in the welfare profile regardless of the direction of the preference shift, generating up to four alternating regions of winners and losers. A policymaker who observes only that preferences have shifted toward, say, lower types cannot therefore infer that lower types will benefit: whether they do depends on the curvature of demand and the IC structure of the allocation, not just the direction of the shift.\footnote{Under Assumption~\ref{ass:CARA}, the precise number of regions depends on the individual surplus of the highest type, whose sign is governed by the weighted integral of $R_{\mathcal{G}}(\theta)$ around its mean: $\mathbb{E}_{\theta_i}\!\left[(R_{\mathcal{G}}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal{G}}(\theta)])/\mathcal{G}_i(\theta)\right]$.}
 
 The result stems directly from the analysis of the change in the optimal allocation. Indeed, the individual welfare change for type $\theta$ satisfies
-\[\frac{\partial\Delta\mathbb{E}CS_i(\theta)}{\partial\theta} = \mathbb{E}_s\!\left[\frac{\varepsilon_i^\times(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i^\times\}}\right],\]
-whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]$ since $\varepsilon_i^\times(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Unimodality of $R_{\mathcal{G}}(\theta)$ — equivalently, single-crossing of the derivative in $\theta$ — ensures that $R_{\mathcal{G}}(\theta)$ crosses its capacity-weighted mean at most twice, generating at most two turning points in the welfare profile.\footnote{Note that the unimodality assumption is used only to bound the number of alternating regions. The result should therefore be interpreted as a lower bound on possible alternating regions.} Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$ is $s$-independent, which allows the sign of the boundary term $\Delta\mathbb{E}\underline{CS}_i$ to have the sign of the covariance $\bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$; without CARA, both the derivative and the boundary term involve $s$-dependent weighted averages that cannot be signed without additional structure.
+\[\frac{\partial\Delta\mathbb{E}CS_i(\theta)}{\partial\theta} = \mathbb{E}_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
+whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]$ since $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Unimodality of $R_{\mathcal{G}}(\theta)$ — equivalently, single-crossing of the derivative in $\theta$ — ensures that $R_{\mathcal{G}}(\theta)$ crosses its capacity-weighted mean at most twice, generating at most two turning points in the welfare profile.\footnote{Note that the unimodality assumption is used only to bound the number of alternating regions. The result should therefore be interpreted as a lower bound on possible alternating regions.} Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$ is $s$-independent, which allows the sign of the boundary term $\Delta\mathbb{E}\underline{CS}_i$ to have the sign of the covariance $\bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$; without CARA, both the derivative and the boundary term involve $s$-dependent weighted averages that cannot be signed without additional structure.
 
 \begin{figure}[h]
 \centering
@@ -706,17 +714,39 @@ whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mat
 
 \subsection{Across category allocation}\label{sec:across}
 
+\subsection{Characterization}\label{sec:across}
+
+Because the objective and all constraints in Lemma~\ref{lem:Transfer} are separable across categories except through the two aggregate constraints $\sum_{i \in N} \mu_i k_i = k$ and $\sum_{i \in N} \mu_i I_i = I(k)$, the designer problem decomposes into: (i) an outer allocation of $(k_i, I_i)$ across categories subject to the two aggregate constraints, and (ii) for each $i$, an inner optimization over $q_i(\theta,s)$ given $(k_i, I_i)$. The within-category value function is defined as
+\[
+V_i(k_i, I_i) \;:=\; \max_{q_i(\theta,s)} \;\mathbb{E}_{(s,\theta_i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)\right] - \tilde\lambda_i I_i
+\]
+
+Letting $\zeta_k, \zeta_I \in \mathbb{R}$ denote the multipliers on the capacity and revenue equality constraints and $\xi_i \ge 0$ the multiplier on $I_i \ge 0$.\footnote{The Inada conditions on $u(\cdot)$ ensure that $k_i>0$ at the optimum, so the multiplier on $k_i \ge 0$ is zero.} This representation follows from Lemma~\ref{lem:Transfer} and the binding revenue constraint established in Section~\ref{sec:within}: $V_i(k_i,I_i)$ captures the total weighted consumer surplus the designer can achieve in category $i$ given capacity allocation $k_i$ and revenue requirement $I_i$, after optimizing over the incentive-compatible allocation rule.
+
+By the envelope theorem applied to the within-category problem, the two partial derivatives of $V_i$ are
+\[
+\partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right], \qquad \partial_{I_i} V_i(k_i,I_i) \;=\; -\tilde\lambda_i - \beta_i(k_i,I_i).
+\]
+We define the marginal capacity value of category $i$ as
+\[
+\Pi_i(k_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \mathbb{E}_s\!\left[u(q_i(\theta,s),s) \G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right],
+\]
+Where the last equality stems from Lemma~\ref{lem:FOC}. In that case, the marginal capacity value of category equivalently captures at the same time the expected scarcity rents across the off-peak periods and also the expected marginal utility weighted by $\G_i(\theta)$. It is strictly positive whenever the capacity constraint binds. We show in the Appendix that it is strictly decreasing in $k_i$ by Lemma~\ref{lem:Vi-concave}. The second derivative $\partial_{I_i} V_i = -\tilde\lambda_i - \beta_i$ is the effective marginal cost of raising one unit of revenue from category $i$: it combines the primitive welfare weight $\tilde\lambda_i$ and the endogenous shadow cost $\beta_i$, which is positive whenever the IR-budget constraint binds and zero otherwise.\footnote{Recall that it mirrors the revenue part of the social weight $\G_i(\theta)$ which was weighting the marginal virtual term $J_i(\theta)$}
+
+
 \begin{proposition}[Across-category allocation]\label{prop:outer}
-Consider
+The outer problem admits at least one solution, and the set of optimal allocations is convex. Moreover, the KKT conditions are necessary and sufficient. The stationarity conditions are, for each $i \in N$,
 \[
-\max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N} V_i(k_i,I_i)
+\Pi_i(k_i^\ast) \;=\; \zeta_k, \qquad \tilde\lambda_i + \beta_i(k_i^\ast,I_i^\ast) \;=\; -\zeta_I + \xi_i,
 \]
-subject to
-\[
-\sum_{i\in N} k_i = k, \qquad \sum_{i\in N} I_i = I, \qquad k_i\ge 0, \qquad I_i\ge 0 \quad \forall i.
-\]
-The across-category problem admits at least one solution, and the set of optimal allocations is convex. If every category lies in the IR-constrained, capacity-binding region at the optimum, the optimal allocation is unique.
+with complementary slackness $\xi_i I_i^\ast = 0$ for all $i$.
 \end{proposition}
+
+
+
+If the outer optimum is not unique, the solution set is confined to a connected interval and does not yield qualitatively distinct optima.
+
+The two stationarity conditions have a direct economic interpretation that connects the across-category problem to the within-category analysis of Section~\ref{sec:within}. The first condition equalizes marginal capacity values across all categories: the designer allocates capacity until the expected scarcity rent $\Pi_i(k_i^\ast) = \mathbb{E}_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]$ is the same at the margin for every category. Since $\Pi_i(k_i)$ is strictly decreasing in $k_i$, this equalization pins down a unique capacity ranking conditional on the revenue allocation. The second condition has an equally direct interpretation in terms of the effective social weight $\mathcal{G}_i(\theta) = (\tilde\lambda_i + \beta_i)J_i(\theta) + \Lambda_i(\theta)$: the coefficient on the virtual surplus term $J_i(\theta)$ in $\mathcal{G}_i(\theta)$ is precisely $\tilde\lambda_i + \beta_i$, so the revenue condition equalizes this coefficient across revenue-bearing categories at $-\zeta_I$. The designer therefore assigns revenue burdens so that the weight placed on virtual surplus is equalized across categories at the optimum. Categories with $I_i^\ast = 0$ bear no revenue burden, which is optimal whenever $\tilde\lambda_i > -\zeta_I$: their primitive welfare weight already exceeds the system-wide marginal cost of revenue, so extracting revenue from them would be too costly.
 
 \newpage
 \begin{theorem}[Local category ranking under redistributive preferences]\label{thm:cat-order}
@@ -725,9 +755,9 @@ Suppose all categories share the same type support $\Theta$. Fix a baseline cate
 k_j^\ast>k_i^\ast
 \quad\Longleftrightarrow\quad
 \mathbb{E}_s\!\left[
-\varepsilon_i^\times(s;k_i^\ast)\,
+\varepsilon_i(s;k_i^\ast)\,
 \mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]
-\mathbf{1}_{\{s\in T_i^\times(k_i^\ast)\}}
+\mathbf{1}_{\{s\in T_i(k_i^\ast)\}}
 \right]>0.
 \]
 Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0$. 
@@ -746,10 +776,10 @@ Moreover, for each adjacent pair \(i-1\) and \(i\), there exists a smooth path \
 
 
 \begin{corollary}[Capacity ordering along an ordered preference path]
-Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\), and define the two endogenous subsets $N^0:=\{i\in N:\beta_i^\times=0\}$, and $N^+:=\{i\in N:\beta_i^\times>0\}$, which partition $N$ (either may be empty). Under Assumption~\ref{ass:ordered-path}: 
+Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\), and define the two endogenous subsets $N^0:=\{i\in N:\beta_i=0\}$, and $N^+:=\{i\in N:\beta_i>0\}$, which partition $N$ (either may be empty). Under Assumption~\ref{ass:ordered-path}: 
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
 \item $N^+$ is an initial segment and $N^0$ a terminal segment of $N$. 
-\item within $N^+$, the shadow cost $\beta_i^\times$ is weakly decreasing: $\beta_1^\times\ge\cdots\ge\beta_{|N^+|}^\times>0$.
+\item within $N^+$, the shadow cost $\beta_i$ is weakly decreasing: $\beta_1\ge\cdots\ge\beta_{|N^+|}>0$.
 \item The equilibrium capacity profile is globally weakly monotone: \(k_1^\ast\le\cdots\le k_n^\ast\).
 \end{enumerate}
 \end{corollary}
@@ -757,9 +787,9 @@ Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\), and defin
 \begin{corollary}[Revenue ordering]
 Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\). Fix a baseline category $i$, and let category $j$ be obtained from $i$ through a marginal perturbation of redistributive preferences. Let $\Delta\tilde\lambda$ and $\Delta k$ be the marginal differences in average weights and optimal capacity between the two categories. Then
 \[
-I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial\beta_i^\times(k_i^\ast)}{\partial k_i} > -\frac{\Delta\tilde\lambda}{\Delta k},
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial\beta_i(k_i^\ast)}{\partial k_i} > -\frac{\Delta\tilde\lambda}{\Delta k},
 \]
-where the sign of $\partial\beta_i^\times(k_i^\ast)/\partial k_i$ is fully determined by the sign of \eqref{Eujmd}. Under Assumption~\ref{ass:CARA}, the condition reduces to
+where the sign of $\partial\beta_i(k_i^\ast)/\partial k_i$ is fully determined by the sign of \eqref{Eujmd}. Under Assumption~\ref{ass:CARA}, the condition reduces to
 \[
 I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \mathbb{E}_{\theta_i}[R_{\mathcal{G}}]\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]} < \Delta\tilde\lambda.
 \]
