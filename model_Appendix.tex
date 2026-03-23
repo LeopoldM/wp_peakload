@@ -976,156 +976,62 @@ which is the desired identity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Proof of Proposition~\ref{prop:rprefreallocation}}
+
 \begin{proof}
 Under the IR-unconstrained allocation, $\beta_i^\times=0$, so Lemma~\ref{lem:realloc} gives, for each $s\in T_i^\times$,
 \[
-\Delta q_i^\times(\theta,s)
-=
-R_q(\theta,s)
-\left(
-R_\Gamma(\theta)-\mathbb E_i^w\!\left[R_\Gamma\mid s\right]
-\right).
+\Delta q_i^\times(\theta,s) = R_q(\theta,s)\left(R_\Gamma(\theta)-\mathbb{E}_i^w\!\left[R_\Gamma\mid s\right]\right).
 \]
-
 
 \noindent\textit{First part: IR-unconstrained allocation.}
-Since $\mathbb E_i^w[R_\Gamma\mid s]$ is a weighted average of $R_\Gamma$ with positive weights, if $R_\Gamma$ is not almost everywhere constant then
+Since $\mathbb{E}_i^w[R_\Gamma\mid s]$ is a weighted average of $R_\Gamma$ with positive weights, if $R_\Gamma$ is not almost everywhere constant then $R_\Gamma(\theta)-\mathbb{E}_i^w[R_\Gamma\mid s]$ must take both positive and negative values on $\Theta_i$. Because $R_q(\theta,s)>0$, the same is true of $\Delta q_i^\times(\theta,s)$. Next, recall that $\Gamma_i(\underline\theta_i)=\tilde\lambda_i\,\underline\theta_i$ and $\Gamma_i(\overline\theta_i)=\tilde\lambda_i\,\overline\theta_i$, so for any perturbation,
 \[
-R_\Gamma(\theta)-\mathbb E_i^w\!\left[R_\Gamma\mid s\right]
+R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i) = \frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}.
 \]
-must take both positive and negative values on $\Theta_i$. Because $R_q(\theta,s)>0$, the same is true of $\Delta q_i^\times(\theta,s)$.
-
-Next, recall that
-\[
-\Gamma_i(\underline\theta_i)=\tilde\lambda_i\,\underline\theta_i,
-\qquad
-\Gamma_i(\overline\theta_i)=\tilde\lambda_i\,\overline\theta_i.
-\]
-Hence, for any perturbation,
-\[
-R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)
-=
-\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}.
-\]
-Therefore
-\[
-\left(
-R_\Gamma-\mathbb E_i^w[R_\Gamma\mid s]
-\right)(\underline\theta_i)
-=
-\left(
-R_\Gamma-\mathbb E_i^w[R_\Gamma\mid s]
-\right)(\overline\theta_i),
-\]
-so the endpoint values of $\Delta q_i^\times(\theta,s)$ have the same sign (or are both zero). Since $\Delta q_i^\times(\theta,s)$ takes both signs while its endpoint values coincide in sign, it cannot be monotone on $\Theta_i$.
-
-
+Therefore the endpoint values of $\Delta q_i^\times(\theta,s)$ have the same sign (or are both zero). Since $\Delta q_i^\times(\theta,s)$ takes both signs while its endpoint values coincide in sign, it cannot be monotone on $\Theta_i$.
 
 \noindent\textit{Second part: IR-constrained allocation.}
-
 Under $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, we have $\Delta\tilde\lambda_i+\Delta\beta_i^\times=0$. At $\overline\theta_i$, since $\Lambda_i(\overline\theta_i)=0$ and therefore $\Delta\Lambda_i(\overline\theta_i)=0$,
 \[
 \Delta\mathcal{G}_i(\overline\theta_i) = J_i(\overline\theta_i)(\Delta\tilde\lambda_i+\Delta\beta_i^\times) = 0,
 \]
 so $R_{\mathcal{G}}(\overline\theta_i)=0$ and therefore $\Delta q_i^\times(\overline\theta_i,s)=0$. Since the capacity constraint requires $\mathbb{E}_{\theta_i}[\Delta q_i^\times(\theta,s)]=0$ for each $s\in T_i^\times$, and since $\Delta q_i^\times(\overline\theta_i,s)=0$ while $R_{\mathcal{G}}(\theta)$ is not almost everywhere constant, the function $\Delta q_i^\times(\cdot,s)$ must take both positive and negative values on $\Theta_i$. A function that vanishes at one endpoint and takes both signs cannot be monotone on $\Theta_i$.
-
-\noindent\textit{Second part: unimodality and mean-preserving perturbations.}
-Assume now that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0$. Then
-\[
-R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)=0.
-\]
-
-Consider first the case $\Delta\mathcal G_i(\theta)\ge 0$ for all $\theta$. Since $\Gamma_i(\theta)>0$, this is equivalent to $R_\Gamma(\theta)\ge 0$ for all $\theta$. Set
-\[
-c_s:=\mathbb E_i^w[R_\Gamma\mid s]
-=
-\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)}.
-\]
-Because $R_\Gamma$ is nonnegative, not constant, and vanishes at both endpoints, one has
-\[
-0<c_s<\max_{\theta\in\Theta_i}R_\Gamma(\theta).
-\]
-By unimodality, the equation
-\[
-R_\Gamma(\theta)=c_s
-\]
-has exactly two solutions, denoted $\theta_-<\theta_+$. Since
-\[
-\Delta q_i^\times(\theta,s)
-=
-R_q(\theta,s)\bigl(R_\Gamma(\theta)-c_s\bigr)
-\qquad\text{and}\qquad
-R_q(\theta,s)>0,
-\]
-it follows that
-\[
-\Delta q_i^\times(\theta,s)\le 0
-\quad\text{for }\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i],
-\]
-and
-\[
-\Delta q_i^\times(\theta,s)\ge 0
-\quad\text{for }\theta\in[\theta_-,\theta_+].
-\]
-
-Finally, using the binding first-order condition
-\[
-u(q_i^\times(\theta,s),s)\Gamma_i(\theta)=\varepsilon_i^\times(s),
-\]
-the equation $R_\Gamma(\theta)=c_s$ is equivalent to
-\[
-u(q_i^\times(\theta,s),s)\,\Delta\mathcal G_i(\theta)=\Delta\varepsilon_i^\times(s).
-\]
-This is exactly the characterization stated in the proposition.
-
-If instead $\Delta\mathcal G_i(\theta)\le 0$ for all $\theta$, apply the same argument to $-\Delta\mathcal G_i(\theta)$. This reverses all inequalities and proves part~(ii).
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proof of Corollary~\ref{cor:rprefreallocation}}
 
-
-\section{Proof of Corollary~\ref{cor:CARA}}
 \begin{proof}
-Assume $\beta_i^\times=0$. In any on-peak state $s\in T_i^\times$ where the capacity constraint binds with multiplier $\varepsilon_i^\times(s)>0$, the interior FOC is
-\[
-u\!\left(q_i^\times(\theta,s),s\right)\Gamma_i(\theta)=\varepsilon_i^\times(s). \label{eq:FOC-CARA}\tag{FOC-CARA}
-\]
-\paragraph{Step 1: CARA implies $R_q$ is constant and the behavioral channel vanishes.}
-Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$ for some $\alpha>0$, hence $R_q(\theta):=-u/u_q=1/\alpha$ is constant. For a preference perturbation $\Delta\lambda_i(\theta)$ with $R_\Gamma(\theta):=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$, we have
-\[
-\Delta R_\theta(\theta) = \Delta\!\left(\frac{J_i(\theta)}{\Gamma_i(\theta)}\right) = -R_\Gamma(\theta)R_\theta(\theta).
-\]
-In particular, $\mathbb{E}_{\theta_i}[\Delta R_\theta(\theta)] = -\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta) - \mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]$.
+Assume $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0$. Then $R_\mathcal{G}(\underline\theta_i)=R_\mathcal{G}(\overline\theta_i)=0$ in both regimes: under the IR-unconstrained allocation this follows from $R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)=\Delta\tilde\lambda_i/\tilde\lambda_i=0$; under the IR-constrained allocation, $\Delta\beta_i^\times=-\Delta\tilde\lambda_i=0$ so the same endpoint evaluations apply. By Proposition~\ref{prop:rprefreallocation}, $\Delta q_i^\times(\cdot,s)$ is not monotone and therefore takes both signs, so the set of cutoffs $\{\theta:\Delta q_i^\times(\theta,s)=0\}$ contains at least two elements. Let $\theta_-$ and $\theta_+$ denote its minimum and maximum elements.
 
-\paragraph{Step 2: covariance formula under CARA.}
-By Lemma~\ref{lem:realloc} with $\beta_i^\times=0$,
-\[
-\Delta q_i^\times(\theta,s) = R_q(\theta,s)\!\left(R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s]\right).
-\]
-Under Assumption~\ref{ass:CARA}, the weights $w_i^\times(\theta,s)$ from the preliminary step of Lemma~\ref{lem:SC-dir} satisfy $w_i^\times(\theta,s)=1/(\alpha\varepsilon_i^\times(s))$, which is constant in $\theta$. Therefore $\mathbb{E}^w_i[R_\Gamma\mid s]=\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ and
-\[
-\Delta q_i^\times(\theta,s) = \frac{1}{\alpha}\!\left(R_\Gamma(\theta)-\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]\right).
-\]
-Moreover, from \eqref{eq:FOC-CARA}, $\Delta\varepsilon_i^\times(s)/\varepsilon_i^\times(s) = \mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ for each $s\in T_i^\times$.
+\noindent\textit{Part (i).} Suppose $\Delta\mathcal{G}_i(\theta)\ge 0$ for all $\theta$, so $R_\mathcal{G}(\theta)\ge 0$. Since $R_\mathcal{G}$ is nonnegative, not identically zero, and vanishes at both endpoints, the weighted average satisfies $\mathbb{E}^w_i[R_\mathcal{G}\mid s]>0$. Therefore $R_\mathcal{G}(\underline\theta_i)-\mathbb{E}^w_i[R_\mathcal{G}\mid s]\le 0$ and $R_\mathcal{G}(\overline\theta_i)-\mathbb{E}^w_i[R_\mathcal{G}\mid s]\le 0$, so by Lemma~\ref{lem:realloc}, $\Delta q_i^\times(\theta,s)\le 0$ for $\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i]$.
 
-\paragraph{Step 3: comparative statics of $k^\ast$.}
-Let $F(k):=\partial_k\mathbb{E}\underline{CS}_i^\times(k)$. Single-peakedness and an interior maximizer imply $F(k^\ast)=0$ and $F'(k^\ast)<0$, so $\operatorname{sign}(\Delta k^\ast)=\operatorname{sign}(\Delta F(k^\ast))$. Under Assumption~\ref{ass:CARA} with $\beta_i^\times=0$, the envelope expression gives
-\[
-F(k) = \mathbb{E}_s[\varepsilon_i^\times(s)]\,\mathbb{E}_{\theta_i}[R_\theta(\theta)].
-\]
-The full linearization is
-\[
-\Delta F = \Delta\!\left(\mathbb{E}_s[\varepsilon_i^\times]\right)\cdot\mathbb{E}_{\theta_i}[R_\theta] + \mathbb{E}_s[\varepsilon_i^\times]\cdot\mathbb{E}_{\theta_i}[\Delta R_\theta].
-\]
-From Step~2, $\Delta\varepsilon_i^\times(s)=\varepsilon_i^\times(s)\,\mathbb{E}_{\theta_i}[R_\Gamma]$ for each $s\in T_i^\times$, so $\Delta(\mathbb{E}_s[\varepsilon_i^\times])=\mathbb{E}_s[\varepsilon_i^\times]\,\mathbb{E}_{\theta_i}[R_\Gamma]$. Substituting and using $\mathbb{E}_{\theta_i}[\Delta R_\theta]=-\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)-\mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]$ from Step~1,
-\[
-\Delta F = \mathbb{E}_s[\varepsilon_i^\times]\!\left(\mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta] - \operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta) - \mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]\right) = -\mathbb{E}_s[\varepsilon_i^\times]\,\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta).
-\]
-The $\mathbb{E}[R_\Gamma]\mathbb{E}[R_\theta]$ terms cancel exactly. Since $\max_k\mathbb{E}\underline{CS}_i^\times(k_i)>0$, peak capacity binds with positive probability and $\mathbb{E}_s[\varepsilon_i^\times(s)]>0$, so
-\[
-\operatorname{sign}(\Delta k^\ast) = -\operatorname{sign}\!\left(\operatorname{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta))\right).
-\]
-When $\operatorname{Cov}(R_\Gamma,R_\theta)>0$, both $k^\ast$ shifts left and the implementation region expands, since the same argument applied to the boundary conditions of Proposition~\ref{prop:implementation} shows that $\Delta Y_i(k)>0$ for all $k$ in the implementation region, pushing $\tilde{k}_i^-$ down and $\tilde{k}_i^+$ up. The reverse holds when the covariance is negative.
+\noindent\textit{Part (ii).} Apply the same argument to $-\Delta\mathcal{G}_i(\theta)$, reversing all inequalities.
 \end{proof}
+
+
+
+
+
+\section{Proof of Corollary~\ref{cor:CARA}}\begin{proof}
+The welfare change follows from the IC representation \eqref{ICmd-def}:
+\[\Delta\mathbb{E}CS_i(\theta) = \Delta\mathbb{E}\underline{CS}_i + \int_{\underline\theta_i}^{\theta}\mathbb{E}_s\!\left[u\!\left(q_i^\times(\tilde\theta,s),s\right)\Delta q_i^\times(\tilde\theta,s)\,\mathbf{1}_{\{s\in T_i^\times\}}\right]d\tilde\theta.\]
+Substituting Lemma~\ref{lem:realloc} and using the first-order condition $u(q_i^\times,s)=\varepsilon_i^\times(s)/\mathcal{G}_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
+\[\frac{\partial\Delta\mathbb{E}CS_i(\theta)}{\partial\theta} = \frac{1}{\alpha}\mathbb{E}_s\!\left[\frac{\varepsilon_i^\times(s)}{\mathcal{G}_i(\theta)}\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]\right)\mathbf{1}_{\{s\in T_i^\times\}}\right] = \frac{\bar\varepsilon_i}{\alpha\,\mathcal{G}_i(\theta)}\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]\right),\]
+where $\bar\varepsilon_i:=\mathbb{E}_s[\varepsilon_i^\times(s)\mathbf{1}_{\{s\in T_i^\times\}}]>0$. Since $\bar\varepsilon_i/(\alpha\,\mathcal{G}_i(\theta))>0$, the sign of the derivative is determined solely by $R_{\mathcal{G}}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$. Under unimodality of $R_{\mathcal{G}}$, this expression crosses zero at most twice, so $\Delta\mathbb{E}CS_i(\theta)$ has at most two turning points and at most three zeros in $[\underline\theta_i,\overline\theta_i]$.
+
+\medskip\noindent\textit{Boundary conditions.}
+
+\noindent\textit{IR-constrained allocation.} The IR constraint $\mathbb{E}\underline{CS}_i=0$ binds at both the baseline and the perturbed allocation, so $\Delta\mathbb{E}\underline{CS}_i=0$ and therefore $\Delta\mathbb{E}CS_i(\underline\theta_i)=0$.
+
+\noindent\textit{IR-unconstrained allocation.} Linearizing \eqref{ECSi} with respect to the preference perturbation and substituting Lemma~\ref{lem:realloc}:
+\[\Delta\mathbb{E}\underline{CS}_i = \mathbb{E}_{(s,\theta_i)}\!\left[u\!\left(q_i^\times,s\right)\Delta q_i^\times(\theta,s)\,J_i(\theta)\,\mathbf{1}_{\{s\in T_i^\times\}}\right] = \mathbb{E}_{(s,\theta_i)}\!\left[\varepsilon_i^\times(s)\,R_\theta(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]\right)\mathbf{1}_{\{s\in T_i^\times\}}\right].\]
+Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$ is $s$-independent, so the expression separates and yields
+\[\Delta\mathbb{E}\underline{CS}_i = \bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}\!\left(R_\theta(\theta),R_{\mathcal{G}}(\theta)\right).\]
+
+\medskip\noindent\textit{Cutoff structure.} In both regimes, $\Delta\mathbb{E}CS_i(\theta)$ starts from its boundary value, has at most two turning points, and its derivative pattern is governed by the sign of $\Delta\mathcal{G}_i(\theta)$ through the unimodality of $R_{\mathcal{G}}$. Under $\Delta\mathcal{G}_i(\theta)\ge 0$, $R_{\mathcal{G}}(\theta)$ peaks above its mean in the interior so the derivative pattern is $-,+,-$, and the number of zeros of $\Delta\mathbb{E}CS_i(\theta)$ beyond the boundary is determined by the starting value: zero in the IR-constrained case and $\bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$ in the IR-unconstrained case, giving the patterns stated in the proposition. Under $\Delta\mathcal{G}_i(\theta)\le 0$, all signs are reversed throughout.
+\end{proof}
+
 
 \section{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
 
