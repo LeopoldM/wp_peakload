@@ -739,7 +739,7 @@ By the envelope theorem applied to the within-category problem, the two partial 
 \]
 We define the marginal capacity value of category $i$ as
 \[
-\Pi_i(k_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \mathbb{E}_s\!\left[u(q_i(\theta,s),s) \G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right].
+\Pi_i(k_i,I_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \mathbb{E}_s\!\left[u(q_i(\theta,s),s) \G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right].
 \]
 Where the last equality stems from Lemma~\ref{lem:FOC}. The effect of capacity extension on the value function is greatly simplified compared to the analysis of Section~\ref{sec:welfare} of the within-category effect: while we showed the individual effect is not trivial, here, the capacity expansion is always positive at the category level (recall that $\varepsilon_i(s)>0$ for any on-peak periods). The marginal capacity value of category $i$ equivalently captures at the same time the expected scarcity rents across the off-peak periods and also the expected marginal utility weighted by $\G_i(\theta)$. We show in the Appendix that it is strictly decreasing in $k_i$ by Lemma~\ref{lem:Vi-concave}. The second derivative $\partial_{I_i} V_i = -\tilde\lambda_i - \beta_i$ is the effective marginal cost of raising one unit of revenue from category $i$: it combines the primitive welfare weight $\tilde\lambda_i$ and the endogenous shadow cost $\beta_i$, which is positive whenever the IR-budget constraint binds and zero otherwise.\footnote{Recall that it mirrors the revenue part of the social weight $\G_i(\theta)$ which was weighting the marginal virtual term $J_i(\theta)$}
 
@@ -747,7 +747,7 @@ Where the last equality stems from Lemma~\ref{lem:FOC}. The effect of capacity e
 \begin{proposition}[Across-category allocation]\label{prop:outer}
 The outer problem admits at least one solution, and the set of optimal allocations is convex. Moreover, the KKT conditions are necessary and sufficient. The stationarity conditions are, for each $i \in N$,
 \[
-\Pi_i(k_i^\ast) \;=\; \zeta_k, \qquad \tilde\lambda_i + \beta_i(k_i^\ast,I_i^\ast) \;=\; -\zeta_I + \xi_i,
+\Pi_i(k_i^\ast,I_i^\ast) \;=\; \zeta_k, \qquad \tilde\lambda_i + \beta_i(k_i^\ast,I_i^\ast) \;=\; -\zeta_I + \xi_i,
 \]
 with complementary slackness $\xi_i I_i^\ast = 0$ for all $i$ and where $\zeta_k, \zeta_I \in \mathbb{R}$ denote the multipliers on the capacity and revenue equality constraints, and $\xi_i \ge 0$ the multiplier on $I_i \ge 0$.\footnote{The Inada conditions on $u(\cdot)$ ensure that $k_i>0$ at the optimum, so the multiplier on $k_i \ge 0$ is zero.}
 \end{proposition}
@@ -756,7 +756,7 @@ with complementary slackness $\xi_i I_i^\ast = 0$ for all $i$ and where $\zeta_k
 
 If the outer optimum is not unique, the solution set is confined to a connected interval and does not yield qualitatively distinct optima.
 
-The two stationarity conditions have a direct economic interpretation that connects the across-category problem to the within-category analysis of Section~\ref{sec:within}. The first condition equalizes marginal capacity values across all categories: the designer allocates capacity until the expected scarcity rent $\Pi_i(k_i^\ast) = \mathbb{E}_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]$ is the same at the margin for every category. Since $\Pi_i(k_i)$ is strictly decreasing in $k_i$, this equalization pins down a unique capacity ranking conditional on the revenue allocation. The second condition has an equally direct interpretation in terms of the effective social weight $\mathcal{G}_i(\theta) = (\tilde\lambda_i + \beta_i)J_i(\theta) + \Lambda_i(\theta)$: the coefficient on the virtual surplus term $J_i(\theta)$ in $\mathcal{G}_i(\theta)$ is precisely $\tilde\lambda_i + \beta_i$, so the revenue condition equalizes this coefficient across categories that contribute to the budget at $-\zeta_I$. The designer, therefore, assigns revenue burdens so that the weight placed on virtual surplus is equalized across categories at the optimum. Categories with $I_i^\ast = 0$ do not participate in the revenue, which is optimal whenever $\tilde\lambda_i > -\zeta_I$: their primitive welfare weight already exceeds the system-wide marginal cost of revenue, so extracting revenue from them would be too costly.
+The two stationarity conditions have a direct economic interpretation that connects the across-category problem to the within-category analysis of Section~\ref{sec:within}. The first condition equalizes marginal capacity values across all categories: the designer allocates capacity until the expected scarcity rent $\Pi_i(k_i^\ast,I_i^\ast) = \mathbb{E}_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]$ is the same at the margin for every category. Since $\Pi_i(k_i,I_i)$ is strictly decreasing in $k_i$, this equalization pins down a unique capacity ranking conditional on the revenue allocation. The second condition has an equally direct interpretation in terms of the effective social weight $\mathcal{G}_i(\theta) = (\tilde\lambda_i + \beta_i)J_i(\theta) + \Lambda_i(\theta)$: the coefficient on the virtual surplus term $J_i(\theta)$ in $\mathcal{G}_i(\theta)$ is precisely $\tilde\lambda_i + \beta_i$, so the revenue condition equalizes this coefficient across categories that contribute to the budget at $-\zeta_I$. The designer, therefore, assigns revenue burdens so that the weight placed on virtual surplus is equalized across categories at the optimum. Categories with $I_i^\ast = 0$ do not participate in the revenue, which is optimal whenever $\tilde\lambda_i > -\zeta_I$: their primitive welfare weight already exceeds the system-wide marginal cost of revenue, so extracting revenue from them would be too costly.
 
 \subsubsection{Ranking of the optimal allocation}\label{sec:rankingall}
 
@@ -765,28 +765,28 @@ We now turn to the analysis of how capacity and revenue requirements differ acro
 The following Theorem provides a necessary and sufficient local condition for comparing two categories in terms of optimal capacities.
 
 \begin{theorem}[Local category ranking under redistributive preferences]\label{thm:cat-order}
-Suppose all categories share the same type support $\Theta$. Fix a baseline category $i$, and let category $j$ be obtained from $i$ through a marginal perturbation of redistributive preferences. Then, to first order in $\Delta\lambda$,
+Suppose category \(j\) differs from a baseline category \(i\) only through a marginal perturbation of redistributive preferences. Fix the baseline optimum \((k_i^\ast,I_i^\ast)\). Then, to first order in \(\Delta\lambda\),
 \[
 k_j^\ast>k_i^\ast
 \quad\Longleftrightarrow\quad
 \mathbb{E}_s\!\left[
-\varepsilon_i(s;k_i^\ast)\,
-\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right]
-\mathbf{1}_{\{s\in T_i(k_i^\ast)\}}
+\varepsilon_i(s)\,
+\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]
+\mathbf{1}_{\{s\in T_i\}}
 \right]>0.
 \]
-Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta,k_i^\ast)]>0$. 
+Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta)]>0$. 
 \end{theorem}
 
 Capacity ranking is determined by the proportional comparison of IC-adjusted social weights, rather than by their absolute change. Two categories may experience the same absolute shift in welfare weights, yet receive opposite capacity rankings if that shift is proportionally concentrated on different parts of the type distribution. 
 
 To see this, note that the marginal change in the marginal capacity value of category $i$ can be decomposed into a change in optimal allocation $q_i(\theta,s)$ and a change in the social weights $\G_i(\theta)$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\[ \Delta \Pi_i(k_i^\ast) = \mathbb{E}_s\!\left[(\Delta q_i(\theta,s) u_q(q_i(\theta,s),s) \G_i(\theta) +  u(q_i(\theta,s),s) \Delta \G_i(\theta) )\,\mathbf{1}_{\{s\in T_i\}}\right]\]
+\[ \Delta \Pi_i(k_i^\ast,I_i^\ast) = \mathbb{E}_s\!\left[(\Delta q_i(\theta,s) u_q(q_i(\theta,s),s) \G_i(\theta) +  u(q_i(\theta,s),s) \Delta \G_i(\theta) )\,\mathbf{1}_{\{s\in T_i\}}\right]\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Then, the theorem uses the results from Lemma~\ref{lem:realloc}, which describe how $\Delta q_i(\theta,s) $ is based on the difference between the change in the scarcity rent of the category $i$ and the change in marginal utility measured by $u(q_i(\theta,s),s) \Delta \G_i(\theta)$. This second effect compensates for the change in the social weights of the above equation. Therefore, using the equivalence  $\frac{\Delta\varepsilon_i^\times(s)}{\varepsilon_i^\times(s)} = \mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]$, this simplifies the previous equation to: 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\[ \Delta \Pi_i(k_i^\ast) = \mathbb{E}_s\!\left[ \varepsilon_i(s;k_i^\ast)\, \mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s;k_i^\ast\right] \mathbf{1}_{\{s\in T_i(k_i^\ast)\}} \right]\]
+\[ \Delta \Pi_i(k_i^\ast,I_i^\ast) = \mathbb{E}_s\!\left[ \varepsilon_i(s)\, \mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right] \mathbf{1}_{\{s\in T_i\}} \right]\]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A category receives more capacity when the perturbation shifts social priority toward types for whom relaxing capacity is more valuable in the IC-constrained allocation. Similar to the optimal condition of the outer problem in Proposition~\ref{prop:outer}, the across-category solution aggregates the effect at play of the within allocation problem, in particular via the scarcity rent captured by $\varepsilon^\times(s)$. A designer who ranks categories only by the direction or size of the preference shift, ignoring their proportional and IC-weighted incidence across types, can therefore misrank them.
 
@@ -794,22 +794,32 @@ We next present the consequences of the Theorem by providing sufficient conditio
 
 \renewcommand{\theassumption}{Order}
 \begin{assumption}[Ordered preference path]\label{ass:ordered-path}
-Categories are indexed so that for each \(i=2,\dots,n\):
-%%%%%%%%%%%%%%%%%%%%%%
-\[\tilde\lambda_i\ge \tilde\lambda_{i-1}\quad \text{and} \quad m_i(\theta):=\frac{\lambda_i(\theta)}{\lambda_{i-1}(\theta)} \quad \text{is weakly increasing in $\theta$ on $\Theta$}\]
-%%%%%%%%%%%%%%%%%%%%%%
-Moreover, for each adjacent pair \(i-1\) and \(i\), there exists a smooth path \(t\mapsto\lambda(t)\) on \([0,1]\) with \(\lambda(0)=\lambda_{i-1}\) and \(\lambda(1)=\lambda_i\) such that at every \(t\), the ratio \(\lambda(t+dt)/\lambda(t)\) is weakly increasing in \(\theta\) on \(\Theta\) and \(\tilde\lambda(t)\) is non-decreasing in \(t\). 
+For each adjacent pair \(i-1\) and \(i\), there exists a positive \(C^1\) path $(t,\theta)\mapsto \lambda(t,\theta) \text{ on }[0,1]\times\Theta$ such that $\lambda(0,\theta)=\lambda_{i-1}(\theta)$,$ \lambda(1,\theta)=\lambda_i(\theta)$. Along this path, two conditions hold for every \(t\in[0,1]\):
+
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item the average redistributive weight is weakly increasing, $\partial_t \tilde\lambda(t)\ge 0$, where $\tilde\lambda(t):=\mathbb{E}_{\theta}[\lambda(t,\theta)]$,
+\item the relative tilt of redistributive weights is toward higher types, in the sense that $\partial_t \log \lambda(t,\theta)$ is weakly increasing in \(\theta\) on \(\Theta\).
+\end{enumerate}
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
-The indexation uses the results from Lemma~\ref{lem:preferenceorder} to link $\Delta\lambda_i(\theta)$ and the sign of $\Delta G_i(\theta)$. The smooth path is used to ensure the local condition of Theorem~\ref{thm:cat-order} holds globally. Then,
+Assumption~\ref{ass:ordered-path} orders categories along a path of redistributive preferences. Condition (i) says that moving from category \(i-1\) to category \(i\) weakly raises the average welfare weight \(\tilde\lambda\). Condition (ii) says that this change also tilts relative weights toward higher types: along the path, the proportional change in weight, \(\partial_t \log \lambda(t,\theta)\), is weakly larger for higher \(\theta\). The indexation uses the results from Lemma~\ref{lem:preferenceorder} to link $\Delta\lambda_i(\theta)$ and the sign of $\Delta G_i(\theta)$. The smooth path is used to ensure the local condition of Theorem~\ref{thm:cat-order} holds globally. Then,
 
 \begin{corollary}[Capacity ordering along an ordered preference path]
-Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\), and define the two endogenous subsets $N^0:=\{i\in N:\beta_i=0\}$, and $N^+:=\{i\in N:\beta_i>0\}$, which partition $N$ (either may be empty). Under Assumption~\ref{ass:ordered-path}: 
+Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast,\beta_i^\ast\}_{i\in N}\), and define the two endogenous subsets
+\[
+N^0:=\{i\in N:\beta_i^\ast=0\},
+\qquad
+N^+:=\{i\in N:\beta_i^\ast>0\},
+\]
+which partition \(N\) (either may be empty). Under Assumption~\ref{ass:ordered-path}:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
-\item $N^+$ is an initial segment and $N^0$ a terminal segment of $N$, 
-\item within $N^+$, the shadow cost $\beta_i$ is weakly decreasing: $\beta_1\ge\cdots\ge\beta_{|N^+|}>0$,
-\item the equilibrium capacity profile is globally weakly monotone: \(k_1^\ast\le\cdots\le k_n^\ast\).
+\item \(N^+\) is an initial segment and \(N^0\) a terminal segment of \(N\),
+\item within \(N^+\), the shadow cost \(\beta_i^\ast\) is weakly decreasing,
+\item the equilibrium capacity profile is globally weakly monotone:
+\[
+k_1^\ast\le\cdots\le k_n^\ast.
+\]
 \end{enumerate}
 \end{corollary}
 
