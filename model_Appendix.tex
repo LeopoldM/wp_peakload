@@ -5,7 +5,56 @@
 \textcolor{red}{Assume Inada then q > 0}
 \textcolor{red}{Remember the online appendix: non-monotonicity of q} 
 \textcolor{red}{Deal with t>=0} 
-\section{Proof of Proposition FB-alloc}
+
+
+\section{Additional text}
+
+\subsection{Technicalities on the sufficient statistics}
+
+
+Lemma~\ref{lem:SC-dir} provides sufficient regularity conditions under which \eqref{Eujmd} is single-crossing in \(k_i\), so its sign can be characterized sharply. The key condition is an equilibrium sorting property: capacity expansion must reallocate the endogenous responsiveness \(R_q(\theta)\) across types in a monotone way.
+
+\begin{definition}
+$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta,k_i)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq (\text{resp.} \geq 0)$.
+\end{definition}
+
+\begin{lemma}[Single-crossing]\label{lem:SC-dir}
+Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta,k_i)\). Then the map
+\[
+k_i \longmapsto \mathbb E_s\!\left[
+\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]
+\]
+is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
+\end{lemma}
+
+The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is increasing, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta)\) is decreasing in \(\theta\). Combined with \(R_\theta(\theta)\) increasing, this makes the covariance term in \eqref{signEuJ} more negative as \(k_i\) grows. Thus, as capacity expands, the weighted average \eqref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates. Lemma~\ref{lem:SC-dir} formalizes this single-crossing intuition.
+
+The sign of both ratios depends on the model primitives as follows. For $R_q'(\theta)$, only the curvature of $u$ matters:
+%##########################################
+\[\sign\!\left(R_q'(\theta)\right)=-\sign\!\left((u_q(\cdot))^2-u(\cdot)u_{qq}(\cdot)\right),\]
+%##########################################
+so $R_q'(\theta)<0$ for linear and quadratic demand, while $R_q'(\theta)>0$ for CES/isoelastic demand. For $R_\theta'(\theta)$, the answer depends on whether the virtual surplus $J_i(\theta)$ grows faster or slower than the IC term $\Lambda_i(\theta)$ as $\theta$ increases,
+%##########################################
+\[
+\label{signRt}\tag{$\sign R_\theta$}
+\sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue term}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC term}}\Bigg).
+\]
+%##########################################
+The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second compares the proportional growth rates of the two: when $\Lambda_i'(\theta)<0$, the IC term is shrinking, and the revenue term automatically dominates, giving $R_\theta'(\theta)>0$.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\G_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
+
+
+\begin{remark}[Primitive foundation]\label{rem:prim}
+On the IR-unconstrained region, where $\beta_i=0$, the log-monotone-differences condition becomes a condition on primitives alone: since $\partial q_i/\partial k_i = w_i/\bar{w}_i$ is proportional across types, the sign of $\partial^2\log R_q/\partial\theta\,\partial k_i$ reduces to the sign of $R_q''(q)$, so $R_q$ is log-submodular whenever $R_q''(\cdot)\le 0$ and log-supermodular whenever $R_q''(\cdot)\ge 0$. On the IR-constrained region, the response of the shadow cost $\beta_i$ enters the derivative of $\partial q_i/\partial k_i$ and the condition is no longer implied by the curvature of $U$ alone. Under Assumption~\ref{ass:CARA}, however, $R_q = 1/\alpha$ is constant, so all cross-derivatives of $\log R_q$ vanish identically; the log-monotone-differences condition is therefore satisfied with equality regardless of the regime considered. Finally, note that unlike the log-monotone-differences condition on $R_q$, the monotonicity of $R_\theta(\theta)$ does not depend on $k_i$: from \eqref{signRt}, its sign is determined entirely by the type distribution and the welfare weights.
+\end{remark}
+
+
+\section{Proofs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Proof of Proposition FB-alloc}
+
+
 
 \begin{proof}
 Let $\beta$, $\varepsilon(s)$, $\phi_i(\theta,s)$, and $\rho_i(\theta)$ be the Lagrange multipliers on the budget, the capacity, the transfer positivity, and the participation constraints, respectively. The Lagrangian is
@@ -42,7 +91,7 @@ Complementary slackness conditions are
 since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_i \mathbb{E}_{\theta_i}[q_i^*(\theta,s)]$ is strictly increasing in $s$, which guarantees existence of a unique threshold $s^*$ separating $S^*$ and $T^*$.
 \end{proof}
 
-\section{Proof of Proposition CI-welfare}
+\subsection{Proof of Proposition CI-welfare}
 
 \subsection{Part i)}
 \begin{proof}
@@ -129,7 +178,7 @@ When $I(\cdot)$ is convex, the complete-information problem is a concave maximiz
 
 \end{proof}
 
-\section{Proof of Lemma Transfer}
+\subsection{Proof of Lemma Transfer}
 
 \begin{proof}
 
@@ -325,7 +374,7 @@ This yields the desired expression:
 
 \end{proof}
 
-\section{Proof of Lemma FOC Without Ironing}
+\subsection{Proof of Lemma FOC Without Ironing}
 \begin{proof}
 Consider the within-category problem
 \[
@@ -398,7 +447,7 @@ For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slac
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Single crossing}
+\subsection{Proof of Single crossing}
 \begin{proof}
 For each binding state $s\in T_i^\times(k_i)$ and each $k_i$, define
 \[
@@ -680,7 +729,7 @@ is single-crossing in $k_i$, with crossing direction pinned down by the combinat
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Theorem~\ref{thm:welfare}}
+\subsection{Proof of Theorem~\ref{thm:welfare}}
 \begin{proof}
 Define $\mathcal W_i(\theta) := \partial \mathbb E CS_i^\times(\theta)/\partial k_i$. From the envelope representation \eqref{ICmd-def},
 \[\mathcal W_i(\theta) = \mathcal W_i(\underline\theta_i) + \int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta, \qquad \mathcal W_i'(\theta) = \mathbb E_s\!\left[u\!\left(q_i^\times(\theta,s),s\right)\frac{\partial q_i^\times(\theta,s)}{\partial k_i}\mathbf 1_{\{s\in T_i^\times\}}\right].\]
@@ -707,7 +756,7 @@ where $\mathcal A_i := \mathbb E_s[\bar w_i^\times(s)^{-1}\mathbf 1_{\{s\in T_i^
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Proposition Region}
+\subsection{Proof of Proposition Region}
 \begin{proof}
 Let
 \[
@@ -763,7 +812,7 @@ k_i\in[\tilde k_i,k_i^+].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Preferences}
+\subsection{Proof of Preferences}
 \begin{proof}
 Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
 \[
@@ -823,7 +872,7 @@ The special cases in the ``in particular'' clause follow immediately: if $\beta_
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Proposition~\ref{prop:Elasticity}}
+\subsection{Proof of Proposition~\ref{prop:Elasticity}}
 \begin{proof}
 The proof proceeds in three steps.
 
@@ -907,7 +956,7 @@ then depends on the distribution of types and on the magnitude of the reversal, 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Lemma~\ref{lem:realloc}}
+\subsection{Proof of Lemma~\ref{lem:realloc}}
 \begin{proof}
 When $\beta_i^\times=0$, one has $\mathcal G_i(\theta)=\Gamma_i(\theta)$ and therefore $R_{\mathcal G}(\theta)=R_\Gamma(\theta)$; the result in the main text is stated in terms of $R_\Gamma$ for that case. Fix $s\in T_i^\times$ and a local perturbation $\Delta\lambda_i(\theta)$ holding $k_i$ fixed.
 
@@ -975,7 +1024,7 @@ which is the desired identity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proof of Proposition~\ref{prop:rprefreallocation}}
+\subsection{Proof of Proposition~\ref{prop:rprefreallocation}}
 
 \begin{proof}
 Under the IR-unconstrained allocation, $\beta_i^\times=0$, so Lemma~\ref{lem:realloc} gives, for each $s\in T_i^\times$,
@@ -999,7 +1048,7 @@ so $R_{\mathcal{G}}(\overline\theta_i)=0$ and therefore $\Delta q_i^\times(\over
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Proof of Corollary~\ref{cor:rprefreallocation}}
+\subsection{Proof of Corollary~\ref{cor:rprefreallocation}}
 
 \begin{proof}
 Assume $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0$. Then $R_\mathcal{G}(\underline\theta_i)=R_\mathcal{G}(\overline\theta_i)=0$ in both regimes: under the IR-unconstrained allocation this follows from $R_\Gamma(\underline\theta_i)=R_\Gamma(\overline\theta_i)=\Delta\tilde\lambda_i/\tilde\lambda_i=0$; under the IR-constrained allocation, $\Delta\beta_i^\times=-\Delta\tilde\lambda_i=0$ so the same endpoint evaluations apply. By Proposition~\ref{prop:rprefreallocation}, $\Delta q_i^\times(\cdot,s)$ is not monotone and therefore takes both signs, so the set of cutoffs $\{\theta:\Delta q_i^\times(\theta,s)=0\}$ contains at least two elements. Let $\theta_-$ and $\theta_+$ denote its minimum and maximum elements.
@@ -1013,7 +1062,7 @@ Assume $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0
 
 
 
-\section{Proof of Corollary~\ref{cor:CARA}}\begin{proof}
+\subsection{Proof of Corollary~\ref{cor:CARA}}\begin{proof}
 The welfare change follows from the IC representation \eqref{ICmd-def}:
 \[\Delta\mathbb{E}CS_i(\theta) = \Delta\mathbb{E}\underline{CS}_i + \int_{\underline\theta_i}^{\theta}\mathbb{E}_s\!\left[u\!\left(q_i^\times(\tilde\theta,s),s\right)\Delta q_i^\times(\tilde\theta,s)\,\mathbf{1}_{\{s\in T_i^\times\}}\right]d\tilde\theta.\]
 Substituting Lemma~\ref{lem:realloc} and using the first-order condition $u(q_i^\times,s)=\varepsilon_i^\times(s)/\mathcal{G}_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
@@ -1033,7 +1082,7 @@ Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{
 \end{proof}
 
 
-\section{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
+\subsection{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
 
 \begin{proof}
 The feasible set
@@ -1117,7 +1166,7 @@ With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^
 \end{proof}
 
 
-\section{Proof of Local category ranking}
+\subsection{Proof of Local category ranking}
 
 
 \begin{proof}
