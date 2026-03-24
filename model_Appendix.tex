@@ -7,6 +7,7 @@
 \textcolor{red}{Deal with t>=0} 
 \textcolor{red}{Deal with Revenue>=0 at I = 0} 
 \textcolor{red}{J'aime pas le double du term social weight} 
+\textcolor{red}{Nail the sorting effect} 
 
 
 \section{Additional text}
@@ -1063,6 +1064,7 @@ Assume $\Delta\lambda_i(\theta)$ is mean-preserving, so $\Delta\tilde\lambda_i=0
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Corollary~\ref{cor:CARA}}\begin{proof}
 The welfare change follows from the IC representation \eqref{ICmd-def}:
@@ -1084,6 +1086,7 @@ Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{
 \end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
 
 \begin{proof}
@@ -1168,6 +1171,8 @@ With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^
 \end{proof}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Local category ranking}
 
 
@@ -1221,6 +1226,8 @@ Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely
 \end{proof}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Corollary~\ref{cor:ordered-path}}
 
 \begin{lemma}[Revenue positivity]\label{lem:rev-pos}
@@ -1432,6 +1439,45 @@ k_1^\ast\le \cdots \le k_n^\ast.
 This proves (iii), and hence the corollary.
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Proof of Corollary Revenue ordering}
+\begin{proof}
+\textit{General case.} Since \(\beta_i^\ast>0\) and \(\beta_j^\ast>0\), both categories are interior contributors. By Proposition~\ref{prop:outer}, the revenue stationarity condition holds with equality and without slackness:
+\[
+\tilde\lambda_i+\beta_i(k_i^\ast,I_i^\ast) = \tilde\lambda_j+\beta_j(k_j^\ast,I_j^\ast).
+\]
+Let $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$, $\Delta k:=k_j^\ast-k_i^\ast$, $\Delta I:=I_j^\ast-I_i^\ast$. Since category \(j\) is obtained from \(i\) through a marginal perturbation, a first-order expansion around \((k_i^\ast,I_i^\ast)\) gives
+\[
+0 = \Delta\tilde\lambda + \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k + \frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)\,\Delta I.
+\]
+Rearranging,
+\[
+\Delta I = -\frac{\Delta\tilde\lambda + \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k}{\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)}.
+\]
+From Lemma~\ref{lem:Vi-concave}, $\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)=1/\mathcal{V}_i(k_i^\ast)>0$. Hence $\Delta I<0$ if and only if $\Delta\tilde\lambda+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k<0$. Since $\Delta k>0$ by hypothesis, dividing by $\Delta k$ yields
+\[
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) < -\frac{\Delta\tilde\lambda}{\Delta k}.
+\]
+From the preliminary step of Lemma~\ref{lem:SC-dir}, the sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)=-\mathcal{S}_i(k_i^\ast)/\mathcal{V}_i(k_i^\ast)$ is opposite to the sign of \eqref{Eujmd}. This proves the general condition.
+
+\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\bar{w}_i(s)=1/(\alpha\varepsilon_i(s))$ and $\mathsf{H}_i(k_i,s)=\mathbb{E}_{\theta_i}[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\mathbb{E}_{\theta_i}[R_\theta]$. Integrating over binding states gives $\mathcal{S}_i(k_i^\ast)=\mathbb{E}_{\theta_i}[R_\theta]\cdot\Pi_i(k_i^\ast)$. Since $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_{\theta_i}(R_\theta)$ under CARA, one obtains $\mathcal{V}_i(k_i^\ast)=\Pi_i(k_i^\ast)\mathrm{Var}_{\theta_i}(R_\theta)/\alpha$. The $\Pi_i$ factors cancel and
+\[
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) = -\frac{\mathcal{S}_i}{\mathcal{V}_i} = -\frac{\alpha\,\mathbb{E}_{\theta_i}[R_\theta]}{\mathrm{Var}_{\theta_i}(R_\theta)}.
+\]
+For $\Delta k$, since $\Delta\Pi_i(k_i^\ast)=\mathbb{E}_{\theta_i}[R_\mathcal{G}]\cdot\Pi_i(k_i^\ast)$ and $\Pi_i'(k_i^\ast)=-\mathcal{A}_i-\mathcal{S}_i^2/\mathcal{V}_i$, the CARA expressions $\mathcal{A}_i=\alpha\Pi_i(k_i^\ast)$ and $\mathcal{S}_i^2/\mathcal{V}_i=\alpha(\mathbb{E}[R_\theta])^2\Pi_i(k_i^\ast)/\mathrm{Var}(R_\theta)$ yield
+\[
+\Pi_i'(k_i^\ast) = -\frac{\alpha\Pi_i(k_i^\ast)\,\mathbb{E}_{\theta_i}[R_\theta^2]}{\mathrm{Var}_{\theta_i}(R_\theta)},
+\]
+using $\mathrm{Var}(R_\theta)+(\mathbb{E}[R_\theta])^2=\mathbb{E}[R_\theta^2]$. Hence $\Delta k=-\Delta\Pi_i/\Pi_i'=\mathbb{E}_{\theta_i}[R_\mathcal{G}]\,\mathrm{Var}_{\theta_i}(R_\theta)/(\alpha\,\mathbb{E}_{\theta_i}[R_\theta^2])$. Substituting into the general condition,
+\[
+-\frac{\alpha\,\mathbb{E}[R_\theta]}{\mathrm{Var}(R_\theta)} < -\Delta\tilde\lambda\cdot\frac{\alpha\,\mathbb{E}[R_\theta^2]}{\mathbb{E}[R_\mathcal{G}]\,\mathrm{Var}(R_\theta)}.
+\]
+Multiplying both sides by $-\mathrm{Var}(R_\theta)/\alpha<0$ reverses the inequality:
+\[
+\mathbb{E}[R_\theta] > \Delta\tilde\lambda\cdot\frac{\mathbb{E}[R_\theta^2]}{\mathbb{E}[R_\mathcal{G}]}.
+\]
+Since $\mathbb{E}[R_\mathcal{G}]>0$ (as $\Delta k>0$) and $\mathbb{E}[R_\theta^2]>0$, rearranging gives the stated condition.
+\end{proof}
 
 \section{Disgression}
 
