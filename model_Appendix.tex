@@ -9,6 +9,7 @@
 \textcolor{red}{J'aime pas le double du term social weight} 
 \textcolor{red}{Nail the sorting effect} 
 \textcolor{red}{Change the multipier of the outter problem} 
+\textcolor{red}{Fix the notaiton for the contribtuing group} 
 
 
 \section{Additional text}
@@ -1225,7 +1226,7 @@ By Proposition~\ref{prop:outer},
 \Pi_i(k_i^\ast,I_i^\ast)=\zeta_k
 \qquad\text{for every }i,
 \]
-and by the within-category envelope formula and the first-order condition~\eqref{KKT-qMD},
+where, by the within-category envelope formula and the first-order condition~\eqref{KKT-qMD},
 \[
 \Pi_i(k_i^\ast,I_i^\ast)
 =
@@ -1233,23 +1234,38 @@ and by the within-category envelope formula and the first-order condition~\eqref
 u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
 \right].
 \]
-Multiplying by $\mu_i$ and summing over $i$ yields
+
+Let
 \[
-\zeta_k
-=
-\sum_i \mu_i\,\mathbb{E}_{(s,\theta_i)}\!\left[
-u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
-\right],
+\mu^+ := \sum_{i\in N^+}\mu_i.
 \]
-hence
+Since $\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k$ for every contributing category,
+\[
+\mu^+\,\zeta_k
+=
+\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast).
+\]
+Combining this with $\tilde\lambda^\ast I'(k^\ast)=\zeta_k$ yields
+\[
+I'(k^\ast)
+=
+\frac{1}{\mu^+}
+\sum_{i\in N^+}\mu_i\,
+\mathbb{E}_{(s,\theta_i)}\!\left[
+u(q_i(\theta,s),s)\,
+\frac{\mathcal G_i(\theta)}{\tilde\lambda^\ast}\,
+\mathbf 1_{\{s\in T_i\}}
+\right].
+\]
+
+For the comparative statics below, it is convenient to note the equivalent whole-$N$ representation
 \[
 I'(k^\ast)
 =
 \frac{1}{\tilde\lambda^\ast}
-\sum_i \mu_i\,\mathbb{E}_{(s,\theta_i)}\!\left[
-u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
-\right].
+\sum_{i\in N}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast),
 \]
+which follows from the same identity $\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k$.
 
 Finally, the outer KKT condition is
 \[
@@ -1285,18 +1301,51 @@ Thus
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Corollary \ref{cor:investment}}
-
-
 \begin{proof}
-\textit{Part (i).} Differentiating the FOC of Proposition~\ref{prop:investment} with respect to the perturbation and applying the envelope theorem gives
+For this proof, it is convenient to use the equivalent whole-$N$ representation from Proposition~\ref{prop:investment},
 \[
-W''(k^\ast)\,\Delta k^\ast = \frac{1}{\tilde\lambda^\ast}\sum_i \mu_i\,\Delta\Pi_i - \frac{\Delta\tilde\lambda^\ast}{(\tilde\lambda^\ast)^2}\sum_i \mu_i\,\Pi_i.
+I'(k^\ast)
+=
+\frac{1}{\tilde\lambda^\ast}
+\sum_i \mu_i\,\Pi_i,
+\qquad
+\Pi_i
+:=
+\mathbb{E}_{(s,\theta_i)}\!\left[
+u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
+\right].
 \]
-Substituting $\frac{1}{\tilde\lambda^\ast}\sum_i\mu_i\Pi_i = I'(k^\ast)$ from Proposition~\ref{prop:investment} and using the CARA expression for $\Delta\Pi_i = \mathbb{E}_{\theta_i}[R_\mathcal{G}]\cdot\Pi_i$ from Theorem~\ref{thm:cat-order}, together with $\Delta\tilde\lambda^\ast = \Delta\beta_i^\ast = -\bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_\mathcal{G})/\mathcal{V}_i$ from the implicit function theorem applied to $\Phi_i(k_i,\beta_i)=0$ as in the proof of Lemma~\ref{lem:Vi-concave}, and the CARA expressions $\bar\varepsilon_i/\mathcal{V}_i = \alpha/\mathrm{Var}_{\theta_i}(R_\theta)$ established in the proof of the Revenue ordering corollary, yields the stated expression.
 
-\textit{Part (ii).} If $\tilde\lambda^\ast$ is unchanged, then $\Delta\tilde\lambda^\ast = 0$ and the second term vanishes. Since $W''(k^\ast)<0$ by strict concavity of $W$ established in Proposition~\ref{prop:investment} and $\Pi_i>0$ for all active categories, the iff follows immediately.
+\textit{Part (i).} Differentiating the first-order condition with respect to the perturbation and applying the envelope theorem gives
+\[
+W''(k^\ast)\,\Delta k^\ast
+=
+I'(k^\ast)\,\Delta\tilde\lambda^\ast
+-
+\frac{1}{\tilde\lambda^\ast}\sum_i \mu_i\,\Delta\Pi_i .
+\]
+Using the CARA expression
+\[
+\Delta\Pi_i = \Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}]
+\]
+from Theorem~\ref{thm:cat-order}, together with
+\[
+\Delta\tilde\lambda^\ast = \Delta\beta_i^\ast
+=
+-\bar\varepsilon_i\,
+\frac{\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal G})}{\mathcal V_i}
+\]
+from the implicit function theorem applied to $\Phi_i(k_i,\beta_i)=0$ as in the proof of Lemma~\ref{lem:Vi-concave}, and the CARA identity
+\[
+\frac{\bar\varepsilon_i}{\mathcal V_i}
+=
+\frac{\alpha}{\mathrm{Var}_{\theta_i}(R_\theta)}
+\]
+established in the proof of Proposition~\ref{prop:revenueordering}, yields the stated expression.
 
-\textit{Part (iii).} Under Assumption~\ref{ass:ordered-path}, the perturbation follows the preference ordering, so Theorem~\ref{thm:cat-order} gives $\mathbb{E}_{\theta_i}[R_\mathcal{G}]>0$ for all $i$. Part~(i) of Proposition~\ref{prop:revenueordering} then implies $\Delta\tilde\lambda^\ast\leq 0$ since contributing categories move toward $\tilde\lambda^\ast$ from below. Both terms on the right of part~(i) are therefore positive, so $\Delta k^\ast>0$.
+\textit{Part (ii).} If $\tilde\lambda^\ast$ is unchanged, then $\Delta\tilde\lambda^\ast = 0$ and the first term vanishes. Since $W''(k^\ast)<0$ by strict concavity of $W$ established in Proposition~\ref{prop:investment} and $\Pi_i>0$ for all active categories, the iff follows immediately.
+
+\textit{Part (iii).} Under Assumption~\ref{ass:ordered-path}, the perturbation follows the preference ordering, so Theorem~\ref{thm:cat-order} gives $\mathbb E_{\theta_i}[R_{\mathcal G}]>0$ for all $i$. Part~(i) of Proposition~\ref{prop:revenueordering} then implies $\Delta\tilde\lambda^\ast\leq 0$ since contributing categories move toward $\tilde\lambda^\ast$ from below. Both terms on the right-hand side of part~(i) are therefore negative, so $\Delta k^\ast>0$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
