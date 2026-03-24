@@ -8,6 +8,7 @@
 \textcolor{red}{Deal with Revenue>=0 at I = 0} 
 \textcolor{red}{J'aime pas le double du term social weight} 
 \textcolor{red}{Nail the sorting effect} 
+\textcolor{red}{Change the multipier of the outter problem} 
 
 
 \section{Additional text}
@@ -1116,7 +1117,7 @@ This proves (iii), and hence the corollary.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Proof of Corollary Revenue ordering}
+\subsection{Proof of Proposition \ref{prop:revenueordering}}
 \begin{proof}
 \textit{General case.} Since \(\beta_i^\ast>0\) and \(\beta_j^\ast>0\), both categories are interior contributors. By Proposition~\ref{prop:outer}, the revenue stationarity condition holds with equality and without slackness:
 \[
@@ -1153,6 +1154,17 @@ Multiplying both sides by $-\mathrm{Var}(R_\theta)/\alpha<0$ reverses the inequa
 \mathbb{E}[R_\theta] > \Delta\tilde\lambda\cdot\frac{\mathbb{E}[R_\theta^2]}{\mathbb{E}[R_\mathcal{G}]}.
 \]
 Since $\mathbb{E}[R_\mathcal{G}]>0$ (as $\Delta k>0$) and $\mathbb{E}[R_\theta^2]>0$, rearranging gives the stated condition.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Proof of \ref{prop:investment}}
+
+\begin{proof}
+\textit{Existence of an interior solution.} $W(k)$ is well-defined and continuous by Berge's maximum theorem applied to the outer problem of Proposition~\ref{prop:outer}, concave by Lemma~\ref{lem:Vi-concave} and convexity of $I(k)$, satisfies $W'(0^+)=+\infty$ from the Inada condition on $u$, and $W'(k)\to-\infty$ for large $k$ from strict convexity of $I$. Hence an interior maximizer $k^\ast>0$ exists.
+
+\textit{The FOC.} Differentiability of $W$ follows from the implicit function theorem applied to $\Phi_i(k_i,\beta_i)=0$ as established in the proof of Lemma~\ref{lem:Vi-concave}. The envelope theorem applied to the outer value function then gives $W'(k^\ast)=\zeta_k - \zeta_I I'(k^\ast)=0$, and substituting $\zeta_k = \mathbb{E}_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}] = \mathbb{E}_{(s,\theta_i)}[u(q_i(\theta,s),s)\mathcal{G}_i(\theta)\mathbf{1}_{\{s\in T_i\}}]$ from the within-category FOC~\eqref{KKT-qMD} yields the stated condition.
+
+\textit{Characterization of $\tilde\lambda^\ast$.} The bounds $\max_{i\in N^+}\tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i\in N^0}\tilde\lambda_i$ follow directly from the KKT stationarity conditions of Proposition~\ref{prop:outer} and the definition of $N^+$ and $N^0$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1443,134 +1455,246 @@ is single-crossing in $k_i$, with crossing direction pinned down by the combinat
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Proposition~\ref{prop:Elasticity}}
+
 \begin{proof}
 The proof proceeds in three steps.
 
-
 \noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
-Differentiating
+Using the identity established above,
 \[
-\Delta R_\theta(\theta)=-R_\Gamma(\theta)R_\theta(\theta)
+\Delta R_\theta(\theta)=-R_\mathcal{G}(\theta)R_\theta(\theta),
 \]
-gives
+we differentiate to obtain
 \[
 \Delta R_\theta'(\theta)
 =
--R_\Gamma(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\Gamma'(\theta).
+-R_\mathcal{G}(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\mathcal{G}'(\theta).
 \]
-If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ inherits that sign directly. If they have opposite signs, then
+If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ has that sign directly. If they have opposite signs, then
 \[
 \operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
 =
-\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\operatorname{sign}\!\left(-R_\mathcal{G}(\theta)R_\theta'(\theta)\right)
 \]
-if and only if
+whenever
 \[
-|R_\Gamma(\theta)R_\theta'(\theta)|
+|R_\mathcal{G}(\theta)R_\theta'(\theta)|
 \ge
-|R_\theta(\theta)R_\Gamma'(\theta)|,
+|R_\theta(\theta)R_\mathcal{G}'(\theta)|.
 \]
-which is equivalent to
+Since $R_\mathcal{G}(\theta)$ and $R_\theta(\theta)$ are nonzero on the relevant domain, this condition is equivalent to
 \[
-\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|
+\left|\frac{R_\mathcal{G}'(\theta)}{R_\mathcal{G}(\theta)}\right|
 \le
 \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
 \]
-Thus the elasticity condition implies
+Hence, under the elasticity condition,
 \[
 \operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
 =
-\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\operatorname{sign}\!\left(-R_\mathcal{G}(\theta)R_\theta'(\theta)\right)
+\qquad\text{for all }\theta.
 \]
-for all $\theta$. Since $R_\Gamma(\theta)$ has a constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign, so $\Delta R_\theta(\theta)$ is globally monotone.
+Because $R_\mathcal{G}(\theta)$ has constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign. Therefore $\Delta R_\theta(\theta)$ is globally monotone.
 
-
+\medskip
 \noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
-By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The covariance-monotonicity then implies
+By Step~1, $\Delta R_\theta(\theta)$ is monotone. Since $R_q(\theta)$ is also monotone by assumption, the standard monotone-covariance property implies
 \[
 \operatorname{sign}\!\left(
 \operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
 \right)
 =
 \operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-\cdot
-\operatorname{sign}\!\left(R_q'(\theta)\right),
-\]
-hence
-\[
-\operatorname{sign}\!\left(
-\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\right)
-=
-\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
 \cdot
 \operatorname{sign}\!\left(R_q'(\theta)\right).
 \]
-
-
-
-\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
-
-If the elasticity condition is violated at some $\theta_0$, namely if
+Using the conclusion of Step~1 yields
 \[
-|R_\theta(\theta_0)R_\Gamma'(\theta_0)|
->
-|R_\Gamma(\theta_0)R_\theta'(\theta_0)|,
+\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(-R_\mathcal{G}(\theta)R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right).
 \]
-then $\Delta R_\theta'(\theta_0)$ has the opposite sign to $-R_\Gamma(\theta_0)R_\theta'(\theta_0)$. This creates a local reversal in the monotonicity of $\Delta R_\theta(\theta)$, so the covariance-monotonicity lemma no longer applies. The sign of
+This gives the claimed sign result.
+
+\medskip
+\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
+If the elasticity condition fails at some $\theta_0$, namely if
+\[
+\left|\frac{R_\mathcal{G}'(\theta_0)}{R_\mathcal{G}(\theta_0)}\right|
+>
+\left|\frac{R_\theta'(\theta_0)}{R_\theta(\theta_0)}\right|,
+\]
+then the term $-R_\theta(\theta_0)R_\mathcal{G}'(\theta_0)$ dominates
+$-R_\mathcal{G}(\theta_0)R_\theta'(\theta_0)$ whenever the two terms have opposite signs. In that case, the sign of $\Delta R_\theta'(\theta_0)$ is no longer pinned down by the primitive sign of $-R_\mathcal{G}(\theta_0)R_\theta'(\theta_0)$. More generally, once the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone. Since the covariance sign in Step~2 relies on that monotonicity, no distribution-free sign result for
 \[
 \operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
 \]
-then depends on the distribution of types and on the magnitude of the reversal, and no distribution-free sign result obtains.
+is available in general.
 \end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Corollary~\ref{cor:CARA}}
 \begin{proof}
-Assume $\beta_i=0$. In any on-peak state $s\in T_i$ where the capacity constraint binds with multiplier $\varepsilon_i(s)>0$, the interior FOC is
+We work on the IR-unconstrained region characterized in Proposition~\ref{prop:implementation}. On that region, $\beta_i=0$, so $\mathcal{G}_i(\theta)=\Gamma_i(\theta)$ and therefore
 \[
-u\!\left(q_i(\theta,s),s\right)\Gamma_i(\theta)=\varepsilon_i(s). \label{eq:FOC-CARA}\tag{FOC-CARA}
+R_\mathcal{G}(\theta)=R_\Gamma(\theta).
 \]
-\noindent{Step 1: CARA implies $R_q$ is constant and the behavioral channel vanishes.}
-Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$ for some $\alpha>0$, hence $R_q(\theta):=-u/u_q=1/\alpha$ is constant. For a preference perturbation $\Delta\lambda_i(\theta)$ with $R_\Gamma(\theta):=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$, we have
-\[
-\Delta R_\theta(\theta) = \Delta\!\left(\frac{J_i(\theta)}{\Gamma_i(\theta)}\right) = -R_\Gamma(\theta)R_\theta(\theta).
-\]
-In particular, $\mathbb{E}_{\theta_i}[\Delta R_\theta(\theta)] = -\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta) - \mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]$.
+The proof proceeds in three steps.
 
-\noindent{Step 2: covariance formula under CARA.}
-By Lemma~\ref{lem:realloc} with $\beta_i=0$,
+\noindent\textit{Step 1: under CARA, the weighted averages collapse to ordinary averages.}
+Under Assumption~\ref{ass:CARA}, we have
 \[
-\Delta q_i(\theta,s) = R_q(\theta,s)\!\left(R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s]\right).
+u_q\!\left(q_i(\theta,s),s\right)=-\alpha\,u\!\left(q_i(\theta,s),s\right)
+\qquad\text{for some }\alpha>0,
 \]
-Under Assumption~\ref{ass:CARA}, the weights $w_i(\theta,s)$ from the preliminary step of Lemma~\ref{lem:SC-dir} satisfy $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$, which is constant in $\theta$. Therefore $\mathbb{E}^w_i[R_\Gamma\mid s]=\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ and
+hence
 \[
-\Delta q_i(\theta,s) = \frac{1}{\alpha}\!\left(R_\Gamma(\theta)-\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]\right).
+R_q(\theta):=-\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)}=\frac{1}{\alpha},
 \]
-Moreover, from \eqref{eq:FOC-CARA}, $\Delta\varepsilon_i(s)/\varepsilon_i(s) = \mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ for each $s\in T_i$.
+which is constant. In any on-peak state $s\in T_i(k)$, the first-order condition with $\beta_i=0$ is
+\[
+u\!\left(q_i(\theta,s),s\right)\Gamma_i(\theta)=\varepsilon_i(s).
+\]
+Using the preliminary step in the proof of Lemma~\ref{lem:realloc},
+\[
+w_i(\theta,s)
+=
+-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\Gamma_i(\theta)}
+=
+\frac{1}{\alpha\,\varepsilon_i(s)},
+\]
+which is constant in $\theta$. Therefore, for every on-peak state $s$,
+\[
+\mathbb E_i^w[X\mid s]=\mathbb E_{\theta_i}[X].
+\]
+Applying Lemma~\ref{lem:realloc} then yields
+\[
+\Delta q_i(\theta,s)
+=
+\frac{1}{\alpha}\left(
+R_\mathcal{G}(\theta)-\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)]
+\right),
+\]
+and, by the same derivation,
+\[
+\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
+=
+\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)]
+\qquad\text{for every }s\in T_i(k).
+\]
 
-\noindent{Step 3: comparative statics of $k^\ast$.}
-Let $F(k):=\partial_k\mathbb{E}\underline{CS}_i(k)$. Single-peakedness and an interior maximizer imply $F(k^\ast)=0$ and $F'(k^\ast)<0$, so $\operatorname{sign}(\Delta k^\ast)=\operatorname{sign}(\Delta F(k^\ast))$. Under Assumption~\ref{ass:CARA} with $\beta_i=0$, the envelope expression gives
+\medskip
+\noindent\textit{Step 2: the sign of the covariance determines whether the implementation region expands or contracts.}
+By Proposition~\ref{prop:implementation}, the IR-unconstrained implementation region is characterized by
 \[
-F(k) = \mathbb{E}_s[\varepsilon_i(s)]\,\mathbb{E}_{\theta_i}[R_\theta(\theta)].
+\mathbb E\underline{CS}_i(k)\ge 0.
 \]
-The full linearization is
+Using the general perturbation formula derived in the proof of Proposition~\ref{prop:implementation}, and the collapse of weighted averages from Step~1, we obtain on the IR-unconstrained region
 \[
-\Delta F = \Delta\!\left(\mathbb{E}_s[\varepsilon_i]\right)\cdot\mathbb{E}_{\theta_i}[R_\theta] + \mathbb{E}_s[\varepsilon_i]\cdot\mathbb{E}_{\theta_i}[\Delta R_\theta].
+\Delta\mathbb E\underline{CS}_i(k)
+=
+\bar\varepsilon_i(k)\,
+\operatorname{Cov}_{\theta_i}\!\left(R_\theta(\theta),R_\mathcal{G}(\theta)\right),
 \]
-From Step~2, $\Delta\varepsilon_i(s)=\varepsilon_i(s)\,\mathbb{E}_{\theta_i}[R_\Gamma]$ for each $s\in T_i$, so $\Delta(\mathbb{E}_s[\varepsilon_i])=\mathbb{E}_s[\varepsilon_i]\,\mathbb{E}_{\theta_i}[R_\Gamma]$. Substituting and using $\mathbb{E}_{\theta_i}[\Delta R_\theta]=-\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)-\mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]$ from Step~1,
+where
 \[
-\Delta F = \mathbb{E}_s[\varepsilon_i]\!\left(\mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta] - \operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta) - \mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]\right) = -\mathbb{E}_s[\varepsilon_i]\,\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta).
+\bar\varepsilon_i(k):=
+\mathbb E_s\!\left[
+\varepsilon_i(s;k)\mathbf 1_{\{s\in T_i(k)\}}
+\right]>0.
 \]
-The $\mathbb{E}[R_\Gamma]\mathbb{E}[R_\theta]$ terms cancel exactly. Since $\max_k\mathbb{E}\underline{CS}_i(k_i)>0$, peak capacity binds with positive probability and $\mathbb{E}_s[\varepsilon_i(s)]>0$, so
+Hence the sign of $\Delta\mathbb E\underline{CS}_i(k)$ is constant over the whole IR-unconstrained region and equals the sign of
 \[
-\operatorname{sign}(\Delta k^\ast) = -\operatorname{sign}\!\left(\operatorname{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta))\right).
+\operatorname{Cov}_{\theta_i}\!\left(R_\theta(\theta),R_\mathcal{G}(\theta)\right).
 \]
-When $\operatorname{Cov}(R_\Gamma,R_\theta)>0$, both $k^\ast$ shifts left and the implementation region expands, since the same argument applied to the boundary conditions of Proposition~\ref{prop:implementation} shows that $\Delta Y_i(k)>0$ for all $k$ in the implementation region, pushing $\tilde{k}_i^-$ down and $\tilde{k}_i^+$ up. The reverse holds when the covariance is negative.
+If this covariance is positive, then $\mathbb E\underline{CS}_i(k)$ shifts upward pointwise, so the set of $k$ such that $\mathbb E\underline{CS}_i(k)\ge 0$ expands:
+\[
+\tilde k_i^- \text{ decreases and } \tilde k_i^+ \text{ increases.}
+\]
+If the covariance is negative, the opposite occurs and the implementation region contracts.
+
+\medskip
+\noindent\textit{Step 3: the same covariance determines the direction of the shift in the peak $k^\ast$.}
+Let
+\[
+F(k):=\partial_k \mathbb E\underline{CS}_i(k).
+\]
+By the derivative formula established before, on the IR-unconstrained region,
+\[
+F(k)
+=
+\mathbb E_s\!\left[
+\varepsilon_i(s;k)\,
+\mathbb E_i^w[R_\theta\mid s;k]\,
+\mathbf 1_{\{s\in T_i(k)\}}
+\right].
+\]
+Under CARA, Step~1 implies $\mathbb E_i^w[R_\theta\mid s;k]=\mathbb E_{\theta_i}[R_\theta(\theta)]$, so
+\[
+F(k)=\bar\varepsilon_i(k)\,\mathbb E_{\theta_i}[R_\theta(\theta)].
+\]
+Its perturbation is therefore
+\[
+\Delta F(k)
+=
+\Delta\bar\varepsilon_i(k)\,\mathbb E_{\theta_i}[R_\theta(\theta)]
++
+\bar\varepsilon_i(k)\,\mathbb E_{\theta_i}[\Delta R_\theta(\theta)].
+\]
+Using Step~1,
+\[
+\Delta\bar\varepsilon_i(k)
+=
+\bar\varepsilon_i(k)\,\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)].
+\]
+Moreover, since
+\[
+\Delta R_\theta(\theta)=-R_\mathcal{G}(\theta)R_\theta(\theta),
+\]
+we have
+\[
+\mathbb E_{\theta_i}[\Delta R_\theta(\theta)]
+=
+-\operatorname{Cov}_{\theta_i}\!\left(R_\mathcal{G}(\theta),R_\theta(\theta)\right)
+-\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)]\,\mathbb E_{\theta_i}[R_\theta(\theta)].
+\]
+Substituting into the expression for $\Delta F(k)$ gives
+\[
+\Delta F(k)
+=
+-\bar\varepsilon_i(k)\,
+\operatorname{Cov}_{\theta_i}\!\left(R_\mathcal{G}(\theta),R_\theta(\theta)\right).
+\]
+Let $k^\ast$ denote the unique maximizer of $\mathbb E\underline{CS}_i(k)$. Then
+\[
+F(k^\ast)=0
+\qquad\text{and}\qquad
+F'(k^\ast)<0.
+\]
+A first-order perturbation therefore satisfies
+\[
+\Delta k^\ast
+=
+-\frac{\Delta F(k^\ast)}{F'(k^\ast)},
+\]
+so $\Delta k^\ast$ has the same sign as $\Delta F(k^\ast)$. Hence
+\[
+\operatorname{sign}(\Delta k^\ast)
+=
+-\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}\!\left(R_\mathcal{G}(\theta),R_\theta(\theta)\right)
+\right).
+\]
+Therefore, a positive covariance shifts $k^\ast$ to the left, while a negative covariance shifts it to the right. Since on the IR-unconstrained region $R_\mathcal{G}=R_\Gamma$, this is exactly the statement of the corollary.
 \end{proof}
-
 
 \section{Disgression}
 

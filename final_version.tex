@@ -723,9 +723,9 @@ whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mat
 
 
 \begin{remark}[Link between $R_\mathcal{G}(\theta)$ and $R_\theta(\theta)$]
-The identity
+The identity from a local perturbation
 \[\Delta R_\theta(\theta) = -R_\mathcal{G}(\theta) R_\theta(\theta)\]
-provides a formal bridge between the two sufficient statistics that govern both the within- and across-category results. A preference perturbation reshapes who gains from capacity expansion precisely by changing how virtual surplus is sorted across types. We discuss in Proposition~\ref{prop:Elasticity} in the Appendix the conditions under which a change in preferences can clearly affect how virtual surplus is sorted across types (notably the monotonicity of $\Delta R_\theta(\theta)$). When it fails, $R_\mathcal{G}(\theta)$ and $R_\theta(\theta)$ move independently, and sharp results are no longer available.
+provides a formal bridge between the two sufficient statistics that govern both the within- and across-category results. A preference perturbation reshapes who gains from capacity expansion precisely by changing how virtual surplus is sorted across types. We discuss in Proposition~\ref{prop:Elasticity} in the Appendix the conditions under which a change in preferences can clearly affect how virtual surplus is sorted across types (notably the monotonicity of $\Delta R_\theta(\theta)$). When it fails, their joint effect on sorting can no longer be signed from primitives alone, and sharp results are no longer available.
 \end{remark}
 
 \subsection{Across category allocation}\label{sec:across}
@@ -790,7 +790,7 @@ We now turn to the across-category implications of redistributive preferences. C
 
 The following theorem provides a necessary and sufficient local condition for comparing the optimal capacities of two nearby categories.
 
-\begin{theorem}[Local category ranking under redistributive preferences]\label{thm:cat-order}
+\begin{theorem}[Category ranking]\label{thm:cat-order}
 Suppose category \(j\) differs from a baseline category \(i\) only through a marginal perturbation of redistributive preferences. Fix the baseline optimum \((k_i^\ast,I_i^\ast)\). Then, to first order in \(\Delta\lambda\),
 \[
 k_j^\ast>k_i^\ast
@@ -842,11 +842,46 @@ Thus, categories are ranked by whether the preference shift tilts social priorit
 
 
 
+\begin{proposition}[Revenue ordering]\label{prop:revenueordering}
+Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the two endogenous subsets 
+\[
+N^+:=\{i\in N:\beta_i^\ast>0\},
+\qquad
+N^0:=\{i\in N:\beta_i^\ast=0\},
+\]
+which partition \(N\) between categories that contribute and does not contribute to the budget (either may be empty). Then:
+
+\noindent\textbf{(i)} At any equilibrium, $\max_{i \in N^+} \tilde\lambda_i < \min_{i \in N^0} \tilde\lambda_i$, so $N^+$ and $N^0$ are strictly separated in terms of average welfare weights, regardless of within-type preference structure.
+
+\noindent\textbf{(ii)} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then
+\[
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)<-\frac{\Delta\tilde\lambda}{\Delta k}.
+\]
+The sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \eqref{Eujmd}. Under Assumption~\ref{ass:CARA}, this reduces to
+\[
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \mathbb{E}_{\theta_i}[R_{\mathcal G}]\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]} > \Delta\tilde\lambda.
+\]
+\end{proposition}
+
+The previous theorem identifies how capacities are ordered; this proposition goes one step further by i) establishing the identity of which category should be contributing to the budget based solely on the average social weights; and ii) ranking the equilibrium revenue requirements \(I_i^\ast\) within the contributing set.\footnote{Part (i) follows directly from the optimality conditions alone and requires no additional structure on preferences, while part (ii) is local and requires knowing how preferences vary within each category. The binary contribute/not-contribute decision is therefore simpler to characterize than the capacity ranking, and the revenue ranking within the contributing set.}
+
+This result is of separate interest because the ranking of equilibrium revenue requirements is governed by a different mechanism than the ranking of capacities and which category should be contributing to the budget. While the latter depends on how redistributive preferences affect the marginal scarcity value \(\Pi_i\), the former depends on how additional capacity changes the endogenous shadow cost of the budget constraint, \(\beta_i\). The condition
+\[
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
+<
+-\frac{\Delta\tilde\lambda}{\Delta k}
+\]
+has a natural economic interpretation: the term \(-\Delta\tilde\lambda/\Delta k\) measures the increase in average redistributive concern per unit of additional capacity, whereas \(\partial \beta_i/\partial k_i\) captures how the shadow cost of revenue responds when that capacity is expanded. Hence, a category that is more favored by redistributive preferences receives a lower equilibrium revenue requirement only when the induced reduction in the shadow cost of revenue is sufficiently strong. This links the across-category allocation directly back to the within-category analysis, since the sign of \(\partial \beta_i/\partial k_i\) is itself governed by \eqref{Eujmd}, i.e. by whether a capacity expansion relaxes or tightens the budget tradeoff inside the category.
+
+Under Assumption~\ref{ass:CARA}, the condition has a particularly sharp interpretation, governed entirely by the two sufficient statistics $R_\theta(\theta)$
+$R_\mathcal{G}(\theta)$ introduced in Section~\ref{sec:within}. A higher average redistributive weight is not sufficient for a category to face a lower equilibrium revenue requirement. In fact, a rise in average social concern, \(\Delta\tilde\lambda>0\), can be offset, and even reversed in its revenue implications, if it is not directed toward the types that matter most for the IC-adjusted revenue tradeoff. What matters is therefore not only the level of redistributive concern, but also how it is distributed across types. This composition effect is summarized by
+\[
+\mathbb{E}_{\theta_i}[R_{\mathcal G}]
+\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]}.
+\]
 
 
-
-We next derive global implications of Theorem~\ref{thm:cat-order} by imposing sufficient structure directly on the primitives of redistributive preferences. The theorem gives a local comparison between nearby categories; the role of the next assumption is to order all categories along a common path of preference shifts, so that these local comparisons can be aggregated into a global ranking.
-
+We now derive global implications of Theorem~\ref{thm:cat-order} by imposing sufficient structure on the primitives. The theorem gives a local comparison between nearby categories; the role of the next assumption is to order all categories along a common path of preference shifts, so that these local comparisons can be aggregated into a global ranking.
 
 \renewcommand{\theassumption}{Order}
 \begin{assumption}[Ordered preference path]\label{ass:ordered-path}
@@ -861,15 +896,8 @@ For each adjacent pair \(i-1\) and \(i\), there exists a positive \(C^1\) path $
 
 Assumption~\ref{ass:ordered-path} orders categories along a common redistributive path. Condition~(i) says that moving from category \(i-1\) to category \(i\) weakly raises the average welfare weight \(\tilde\lambda\). Condition~(ii) says that this increase is not neutral across types: it is proportionally stronger for higher types. Together, these two restrictions ensure that the local comparison in Theorem~\ref{thm:cat-order} can be iterated across adjacent categories. Using Lemma~\ref{lem:preferenceorder}, they imply that effective social weights shift upward along the ordering in a way that is strong enough to generate a global monotone allocation.
 
-
 \begin{corollary}[Capacity ordering along an ordered preference path]
-Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast,\beta_i^\ast\}_{i\in N}\), and define the two endogenous subsets
-\[
-N^0:=\{i\in N:\beta_i^\ast=0\},
-\qquad
-N^+:=\{i\in N:\beta_i^\ast>0\},
-\]
-which partition \(N\) (either may be empty). Under Assumption~\ref{ass:ordered-path}:
+Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast,\beta_i^\ast\}_{i\in N}\). Under Assumption~\ref{ass:ordered-path}:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
 \item \(N^+\) is an initial segment and \(N^0\) a terminal segment of \(N\),
 \item within \(N^+\), the shadow cost \(\beta_i^\ast\) is weakly decreasing,
@@ -881,40 +909,37 @@ k_1^\ast\le\cdots\le k_n^\ast.
 \end{corollary}
 
 The corollary provides a sharp economic ranking of categories by participation in revenue extraction and capacity allocation, though not yet a full ordering of equilibrium revenue requirements \(I_i^\ast\), which is discussed below. A higher average social weight \(\tilde\lambda_i\) alone is not enough for a category to receive more capacity: what also matters is how redistributive preferences are tilted across types. Categories that place proportionally more weight on higher types have a larger effective weight $\G_i(\theta)=J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta)$, not only through the average term \(\tilde\lambda_i+\beta_i\), but also through the informational-rent component \(\Lambda_i(\theta)\). Under Assumption~\ref{ass:ordered-path}, these two forces move in the same direction. As a result, categories that are higher in the redistributive ordering optimally bear a lower shadow cost of revenue and receive a larger capacity.
-\begin{corollary}[Revenue ordering]
-Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast\}_{i\in N}\). Fix a baseline category \(i\), and let category \(j\) be obtained from \(i\) through a marginal perturbation of redistributive preferences. Let $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$, $\Delta k:=k_j^\ast-k_i^\ast$. Suppose \(\beta_i^\ast>0\) and \(\beta_j^\ast>0\), and that the condition in Theorem~\ref{thm:cat-order} implies \(\Delta k>0\). Then
+
+
+\subsection{Optimal investment}
+
+\begin{proposition}[Optimal investment level]\label{prop:investment}
+The investment problem $\max_{k\geq 0} W(k)$ admits an interior solution $k^\ast > 0$. The optimal investment level satisfies
 \[
-I_j^\ast<I_i^\ast
-\quad\Longleftrightarrow\quad
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)<-\frac{\Delta\tilde\lambda}{\Delta k}.
+I'(k^\ast) = \frac{1}{\tilde\lambda^\ast}\sum_i \mu_i\, \mathbb{E}_{(s,\theta_i)}\!\left[u(q_i(\theta,s),s)\,\mathcal{G}_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right],
 \]
-Moreover, the sign of \(\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\) is determined by the sign of \eqref{Eujmd}. Under Assumption~\ref{ass:CARA}, this condition reduces to
+where $\tilde\lambda^\ast := \zeta_I$ is the equilibrium marginal cost of funds. It is unique and and satisfies 
+\[\max_{i \in N^+} \tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i \in N^0} \tilde\lambda_i.\]
+\end{proposition}
+
+
+\begin{corollary}[Investment response to redistributive preference perturbations]\label{cor:investment}
+Assume Assumption~\ref{ass:CARA}. Suppose each category $i$ becomes a new category $j$ through a marginal mean-preserving perturbation of $\lambda_i(\theta)$. Then:
+
+\noindent\textbf{(i)} The change in optimal investment satisfies
 \[
-I_j^\ast<I_i^\ast
-\quad\Longleftrightarrow\quad
-\mathbb{E}_{\theta_i}[R_{\mathcal G}]
-\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]}
->
-\Delta\tilde\lambda.
+W''(k^\ast)\,\Delta k^\ast = \frac{1}{\tilde\lambda^\ast}\sum_i \mu_i \Pi_i\!\left(\mathbb{E}_{\theta_i}[R_\mathcal{G}] + \alpha\frac{\,\mathrm{Cov}_{\theta_i}(R_\theta, R_\mathcal{G})}{\mathrm{Var}_{\theta_i}(R_\theta)}\right).
 \]
+
+\noindent\textbf{(ii)} If $\tilde\lambda^\ast$ is unchanged by the perturbation, then
+\[
+\Delta k^\ast > 0 \quad\Longleftrightarrow\quad \sum_i \mu_i \Pi_i\,\mathbb{E}_{\theta_i}[R_\mathcal{G}] > 0.
+\]
+\noindent\textbf{(iii)} Under Assumption~\ref{ass:ordered-path}, if the perturbation follows the preference ordering, then by Theorem~\ref{thm:cat-order}, $\mathbb{E}_{\theta_i}[R_\mathcal{G}]>0$ for all $i$, and therefore $\Delta k^\ast>0$.
 \end{corollary}
 
-The previous corollary identifies which categories contribute and how capacities are ordered; this corollary goes one step further by ranking the equilibrium revenue requirements \(I_i^\ast\) within the contributing set.
 
-This corollary is of separate interest because the ranking of equilibrium revenue requirements is governed by a different mechanism than the ranking of capacities. While the latter depends on how redistributive preferences affect the marginal scarcity value \(\Pi_i\), the former depends on how additional capacity changes the endogenous shadow cost of the budget constraint, \(\beta_i\). The condition
-\[
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
-<
--\frac{\Delta\tilde\lambda}{\Delta k}
-\]
-has a natural economic interpretation: the term \(-\Delta\tilde\lambda/\Delta k\) measures the increase in average redistributive concern per unit of additional capacity, whereas \(\partial \beta_i/\partial k_i\) captures how the shadow cost of revenue responds when that capacity is expanded. Hence, a category that is more favored by redistributive preferences receives a lower equilibrium revenue requirement only when the induced reduction in the shadow cost of revenue is sufficiently strong. This links the across-category allocation directly back to the within-category analysis, since the sign of \(\partial \beta_i/\partial k_i\) is itself governed by \eqref{Eujmd}, i.e. by whether a capacity expansion relaxes or tightens the budget tradeoff inside the category.
 
-Under Assumption~\ref{ass:CARA}, the condition has a particularly sharp interpretation, governed entirely by the two sufficient statistics $R_\theta(\theta)$
-$R_\mathcal{G}(\theta)$ introduced in Section~\ref{sec:within}. A higher average redistributive weight is not sufficient for a category to face a lower equilibrium revenue requirement. In fact, a rise in average social concern, \(\Delta\tilde\lambda>0\), can be offset, and even reversed in its revenue implications, if it is not directed toward the types that matter most for the IC-adjusted revenue tradeoff. What matters is therefore not only the level of redistributive concern, but also how it is distributed across types. This composition effect is summarized by
-\[
-\mathbb{E}_{\theta_i}[R_{\mathcal G}]
-\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]}.
-\]
 
 \bibliographystyle{apalike}
 \bibliography{lib}
