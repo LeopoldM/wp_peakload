@@ -1157,14 +1157,146 @@ Since $\mathbb{E}[R_\mathcal{G}]>0$ (as $\Delta k>0$) and $\mathbb{E}[R_\theta^2
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Proof of \ref{prop:investment}}
+\subsection{Proof of Proposition \ref{prop:investment}}
+\begin{proof}
+Define the outer indirect value
+\[
+\overline W(K,I)
+:=
+\max_{\{k_i,I_i\}_{i\in N}}
+\sum_{i\in N}\mu_i\,V_i(k_i,I_i)
+\]
+subject to
+\[
+\sum_{i\in N}\mu_i k_i = K,
+\qquad
+\sum_{i\in N}\mu_i I_i = I,
+\qquad
+k_i\geq 0,
+\qquad
+I_i\geq 0
+\quad \forall i\in N.
+\]
+By Proposition~\ref{prop:outer}, $\overline W$ is well defined and continuous, and by Lemma~\ref{lem:Vi-concave} it is concave in $(K,I)$. Moreover, since
+\[
+\partial_{I_i}V_i(k_i,I_i)=-\tilde\lambda_i-\beta_i(k_i,I_i)<0,
+\]
+the function $\overline W(K,I)$ is strictly decreasing in $I$.
+
+Now define
+\[
+W(k):=\overline W\!\left(k,I(k)\right).
+\]
+Let $k_0,k_1\geq 0$ and $t\in(0,1)$. By concavity of $\overline W$ and convexity of $I$,
+\[
+\begin{aligned}
+W\!\left(tk_0+(1-t)k_1\right)
+&=
+\overline W\!\left(tk_0+(1-t)k_1,\ I\!\left(tk_0+(1-t)k_1\right)\right) \\
+&\geq
+\overline W\!\left(tk_0+(1-t)k_1,\ tI(k_0)+(1-t)I(k_1)\right) \\
+&\geq
+t\,W(k_0)+(1-t)\,W(k_1).
+\end{aligned}
+\]
+Since $I$ is strictly convex and $\overline W$ is strictly decreasing in its second argument, the first inequality is strict whenever $k_0\neq k_1$. Hence $W$ is strictly concave, so any maximizer is unique.
+
+By the maintained Inada condition on $u$, the marginal value of capacity tends to $+\infty$ as $k\downarrow 0$, while strict convexity of $I$ implies $W(k)\to -\infty$ for large $k$. Therefore the unique maximizer satisfies $k^\ast>0$.
+
+At any point of differentiability, the envelope theorem for the outer problem gives
+\[
+W'(k)=\zeta_k+\zeta_I I'(k),
+\]
+where $\zeta_k$ and $\zeta_I$ are the multipliers on the two aggregate constraints. Since $k^\ast$ is an interior maximizer,
+\[
+0=W'(k^\ast)=\zeta_k+\zeta_I I'(k^\ast).
+\]
+Let
+\[
+\tilde\lambda^\ast:=-\zeta_I>0.
+\]
+Then
+\[
+\tilde\lambda^\ast I'(k^\ast)=\zeta_k.
+\]
+
+By Proposition~\ref{prop:outer},
+\[
+\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k
+\qquad\text{for every }i,
+\]
+and by the within-category envelope formula and the first-order condition~\eqref{KKT-qMD},
+\[
+\Pi_i(k_i^\ast,I_i^\ast)
+=
+\mathbb{E}_{(s,\theta_i)}\!\left[
+u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
+\right].
+\]
+Multiplying by $\mu_i$ and summing over $i$ yields
+\[
+\zeta_k
+=
+\sum_i \mu_i\,\mathbb{E}_{(s,\theta_i)}\!\left[
+u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
+\right],
+\]
+hence
+\[
+I'(k^\ast)
+=
+\frac{1}{\tilde\lambda^\ast}
+\sum_i \mu_i\,\mathbb{E}_{(s,\theta_i)}\!\left[
+u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
+\right].
+\]
+
+Finally, the outer KKT condition is
+\[
+\tilde\lambda_i+\beta_i(k_i^\ast,I_i^\ast)=\tilde\lambda^\ast+\xi_i,
+\qquad
+\xi_i I_i^\ast=0,
+\qquad
+\xi_i\geq 0.
+\]
+If $i\in N^+$, then $\beta_i^\ast>0$, so
+\[
+\tilde\lambda_i<\tilde\lambda_i+\beta_i^\ast=\tilde\lambda^\ast+\xi_i.
+\]
+Since contributing categories are interior in the revenue margin, $\xi_i=0$, and therefore
+\[
+\tilde\lambda_i<\tilde\lambda^\ast.
+\]
+If instead $i\in N^0$, then $\beta_i^\ast=0$, so
+\[
+\tilde\lambda_i=\tilde\lambda^\ast+\xi_i\geq \tilde\lambda^\ast.
+\]
+Thus
+\[
+\max_{i\in N^+}\tilde\lambda_i
+<
+\tilde\lambda^\ast
+\leq
+\min_{i\in N^0}\tilde\lambda_i.
+\qedhere
+\]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Proof of Corollary \ref{cor:investment}}
+
 
 \begin{proof}
-\textit{Existence of an interior solution.} $W(k)$ is well-defined and continuous by Berge's maximum theorem applied to the outer problem of Proposition~\ref{prop:outer}, concave by Lemma~\ref{lem:Vi-concave} and convexity of $I(k)$, satisfies $W'(0^+)=+\infty$ from the Inada condition on $u$, and $W'(k)\to-\infty$ for large $k$ from strict convexity of $I$. Hence an interior maximizer $k^\ast>0$ exists.
+\textit{Part (i).} Differentiating the FOC of Proposition~\ref{prop:investment} with respect to the perturbation and applying the envelope theorem gives
+\[
+W''(k^\ast)\,\Delta k^\ast = \frac{1}{\tilde\lambda^\ast}\sum_i \mu_i\,\Delta\Pi_i - \frac{\Delta\tilde\lambda^\ast}{(\tilde\lambda^\ast)^2}\sum_i \mu_i\,\Pi_i.
+\]
+Substituting $\frac{1}{\tilde\lambda^\ast}\sum_i\mu_i\Pi_i = I'(k^\ast)$ from Proposition~\ref{prop:investment} and using the CARA expression for $\Delta\Pi_i = \mathbb{E}_{\theta_i}[R_\mathcal{G}]\cdot\Pi_i$ from Theorem~\ref{thm:cat-order}, together with $\Delta\tilde\lambda^\ast = \Delta\beta_i^\ast = -\bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_\mathcal{G})/\mathcal{V}_i$ from the implicit function theorem applied to $\Phi_i(k_i,\beta_i)=0$ as in the proof of Lemma~\ref{lem:Vi-concave}, and the CARA expressions $\bar\varepsilon_i/\mathcal{V}_i = \alpha/\mathrm{Var}_{\theta_i}(R_\theta)$ established in the proof of the Revenue ordering corollary, yields the stated expression.
 
-\textit{The FOC.} Differentiability of $W$ follows from the implicit function theorem applied to $\Phi_i(k_i,\beta_i)=0$ as established in the proof of Lemma~\ref{lem:Vi-concave}. The envelope theorem applied to the outer value function then gives $W'(k^\ast)=\zeta_k - \zeta_I I'(k^\ast)=0$, and substituting $\zeta_k = \mathbb{E}_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}] = \mathbb{E}_{(s,\theta_i)}[u(q_i(\theta,s),s)\mathcal{G}_i(\theta)\mathbf{1}_{\{s\in T_i\}}]$ from the within-category FOC~\eqref{KKT-qMD} yields the stated condition.
+\textit{Part (ii).} If $\tilde\lambda^\ast$ is unchanged, then $\Delta\tilde\lambda^\ast = 0$ and the second term vanishes. Since $W''(k^\ast)<0$ by strict concavity of $W$ established in Proposition~\ref{prop:investment} and $\Pi_i>0$ for all active categories, the iff follows immediately.
 
-\textit{Characterization of $\tilde\lambda^\ast$.} The bounds $\max_{i\in N^+}\tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i\in N^0}\tilde\lambda_i$ follow directly from the KKT stationarity conditions of Proposition~\ref{prop:outer} and the definition of $N^+$ and $N^0$.
+\textit{Part (iii).} Under Assumption~\ref{ass:ordered-path}, the perturbation follows the preference ordering, so Theorem~\ref{thm:cat-order} gives $\mathbb{E}_{\theta_i}[R_\mathcal{G}]>0$ for all $i$. Part~(i) of Proposition~\ref{prop:revenueordering} then implies $\Delta\tilde\lambda^\ast\leq 0$ since contributing categories move toward $\tilde\lambda^\ast$ from below. Both terms on the right of part~(i) are therefore positive, so $\Delta k^\ast>0$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

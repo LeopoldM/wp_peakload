@@ -924,19 +924,28 @@ where $\tilde\lambda^\ast := \zeta_I$ is the equilibrium marginal cost of funds.
 
 
 \begin{corollary}[Investment response to redistributive preference perturbations]\label{cor:investment}
-Assume Assumption~\ref{ass:CARA}. Suppose each category $i$ becomes a new category $j$ through a marginal mean-preserving perturbation of $\lambda_i(\theta)$. Then:
+Assume Assumption~\ref{ass:CARA}. Suppose each category $i$ becomes a new category $j$ through a marginal mean-preserving perturbation of $\lambda_i(\theta)$ where \(\Delta\tilde\lambda^\ast\) denotes the first-order change in the equilibrium marginal cost of funds. Then:
 
-\noindent\textbf{(i)} The change in optimal investment satisfies
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item The induced change in optimal investment satisfies
 \[
-W''(k^\ast)\,\Delta k^\ast = \frac{1}{\tilde\lambda^\ast}\sum_i \mu_i \Pi_i\!\left(\mathbb{E}_{\theta_i}[R_\mathcal{G}] + \alpha\frac{\,\mathrm{Cov}_{\theta_i}(R_\theta, R_\mathcal{G})}{\mathrm{Var}_{\theta_i}(R_\theta)}\right).
+W''(k^\ast)\,\Delta k^\ast
+=
+I'(k^\ast)\,\Delta\tilde\lambda^\ast
+-
+\frac{1}{\tilde\lambda^\ast}
+\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}],
 \]
-
-\noindent\textbf{(ii)} If $\tilde\lambda^\ast$ is unchanged by the perturbation, then
+\item  If $\tilde\lambda^\ast$ is unchanged by the perturbation ( \(\Delta\tilde\lambda^\ast = 0\)), then
 \[
-\Delta k^\ast > 0 \quad\Longleftrightarrow\quad \sum_i \mu_i \Pi_i\,\mathbb{E}_{\theta_i}[R_\mathcal{G}] > 0.
+\Delta k^\ast>0
+\quad\Longleftrightarrow\quad
+\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}]>0.
 \]
-\noindent\textbf{(iii)} Under Assumption~\ref{ass:ordered-path}, if the perturbation follows the preference ordering, then by Theorem~\ref{thm:cat-order}, $\mathbb{E}_{\theta_i}[R_\mathcal{G}]>0$ for all $i$, and therefore $\Delta k^\ast>0$.
+\item  In particular, if the mean-preserving perturbation follows a smooth ordered path that tilts redistributive preferences toward higher types, then \(\mathbb E_{\theta_i}[R_{\mathcal G}]>0\) for all \(i\), and hence, when \(\Delta\tilde\lambda^\ast=0\), \(\Delta k^\ast>0\).
+\end{enumerate}
 \end{corollary}
+
 
 
 
