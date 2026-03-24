@@ -347,7 +347,7 @@ Because the objective and all constraints are separable across categories $i$ ex
 
 \subsection{Optimal within-category allocation}\label{sec:within}
 
-This section studies the within-category problem for a given pair $(k_i,I_i)$. The key question is how private information and redistributive preferences modify the allocation once the designer must both respect the category-specific capacity constraint and raise the required revenue. The first step is therefore to characterize the optimal allocation and to show that everything relies on whether the revenue requirement can be met without activating an additional distortion through the participation constraint.
+This section studies the within-category problem for a given pair $(k_i, I_i)$. The analysis proceeds in two parts. The first asks how capacity expansion reshapes welfare across types: the answer depends on how marginal virtual surplus varies across types, which determines who benefits from relaxing scarcity once incentive constraints and redistributive preferences are accounted for. The second holds capacity fixed and asks how a change in redistributive preferences reallocates quantities and welfare: here both the sorting of virtual surplus and the proportional reweighting of social priorities interact, producing a generically non-monotone welfare pattern regardless of the direction of the preference shift.
 
 \subsubsection{Characterization}
 
@@ -722,8 +722,7 @@ whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mat
 \end{figure}
 
 \subsection{Across category allocation}\label{sec:across}
-
-Having characterized the within-category problem, we now return to the designer's outer allocation problem. The question is no longer how a given category adjusts to $(k_i,I_i)$, but how total capacity and total revenue requirements should be distributed across categories. The key idea is that the inner problem delivers a value function and a pair of marginal objects for each category, so the across-category allocation can be read as a comparison of marginal capacity values and effective marginal costs of revenue extraction across groups.
+Having characterized the within-category problem, we now return to the designer's outer allocation problem. The question is no longer how a given category adjusts to $(k_i,I_i)$, but how total capacity and total revenue requirements should be distributed across categories. The key idea is that the same objects governing welfare incidence and preference reallocation within a category — the sorting of virtual surplus and the proportional reweighting of social priorities — also drive the across-category comparison, now reducing it to a ranking of marginal capacity values and effective marginal costs of revenue extraction across groups.
 
 \subsubsection{Characterization}
 
@@ -797,6 +796,8 @@ k_j^\ast>k_i^\ast
 \]
 Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta)]>0$. 
 \end{theorem}
+
+The result connects directly with Section~\ref{sec:within}: the same object $R_\mathcal{G}(\theta)$ that governed the reallocation of quantities and the welfare pattern of preference shifts within a category now determines which category receives more capacity at the outer optimum.
 
 Since \(\Pi_i(k_i,I_i)\) is weakly decreasing in \(k_i\), the category with the larger marginal capacity value is the one that receives more capacity at the optimum. Theorem~\ref{thm:cat-order} provides the exact necessary and sufficient local condition for this comparison. The key implication is that categories are ranked not by the absolute size of the change in redistributive preferences, but by their proportional incidence through IC-adjusted social weights. Hence, two categories may face the same absolute shift in welfare weights and nevertheless receive opposite capacity rankings if that shift falls proportionally on different parts of the type distribution.
 
@@ -901,7 +902,8 @@ This corollary is of separate interest because the ranking of equilibrium revenu
 \]
 has a natural economic interpretation: the term \(-\Delta\tilde\lambda/\Delta k\) measures the increase in average redistributive concern per unit of additional capacity, whereas \(\partial \beta_i/\partial k_i\) captures how the shadow cost of revenue responds when that capacity is expanded. Hence, a category that is more favored by redistributive preferences receives a lower equilibrium revenue requirement only when the induced reduction in the shadow cost of revenue is sufficiently strong. This links the across-category allocation directly back to the within-category analysis, since the sign of \(\partial \beta_i/\partial k_i\) is itself governed by \eqref{Eujmd}, i.e. by whether a capacity expansion relaxes or tightens the budget tradeoff inside the category.
 
-Under Assumption~\ref{ass:CARA}, the condition has a particularly sharp interpretation. A higher average redistributive weight is not sufficient for a category to face a lower equilibrium revenue requirement. In fact, a rise in average social concern, \(\Delta\tilde\lambda>0\), can be offset, and even reversed in its revenue implications, if it is not directed toward the types that matter most for the IC-adjusted revenue tradeoff. What matters is therefore not only the level of redistributive concern, but also how it is distributed across types. This composition effect is summarized by
+Under Assumption~\ref{ass:CARA}, the condition has a particularly sharp interpretation, governed entirely by the two sufficient statistics $R_\theta(\theta)$
+$R_\mathcal{G}(\theta)$ introduced in Section~\ref{sec:within}. A higher average redistributive weight is not sufficient for a category to face a lower equilibrium revenue requirement. In fact, a rise in average social concern, \(\Delta\tilde\lambda>0\), can be offset, and even reversed in its revenue implications, if it is not directed toward the types that matter most for the IC-adjusted revenue tradeoff. What matters is therefore not only the level of redistributive concern, but also how it is distributed across types. This composition effect is summarized by
 \[
 \mathbb{E}_{\theta_i}[R_{\mathcal G}]
 \frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]}.
