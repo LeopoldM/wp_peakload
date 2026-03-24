@@ -51,6 +51,44 @@ On the IR-unconstrained region, where $\beta_i=0$, the log-monotone-differences 
 \end{remark}
 
 
+
+\subsection{Redistributive preferences and the sorting effect}\label{app:sorting}
+
+This section examines how a change in redistributive preferences affects the sufficient statistic \eqref{Eujmd} that governs the welfare incidence of capacity expansion. Differentiating $\mathbb{E}^w[uJ\mid s] = \varepsilon_i(s)\,\mathbb{E}_{\theta_i}[R_q(\theta)R_\theta(\theta)]$ with respect to the preference perturbation yields three terms:
+\[
+\Delta\mathbb{E}^w[uJ\mid s] = \underbrace{\Delta\varepsilon_i(s)\,\mathbb{E}_{\theta_i}[R_q R_\theta]}_{\text{scarcity rent}} + \underbrace{\varepsilon_i(s)\,\mathbb{E}_{\theta_i}[\Delta R_q \cdot R_\theta]}_{\text{behavioral}} + \underbrace{\varepsilon_i(s)\,\mathbb{E}_{\theta_i}[R_q \cdot \Delta R_\theta]}_{\text{sorting}}.
+\]
+The scarcity rent term is governed by $\Delta\varepsilon_i(s)/\varepsilon_i(s) = \mathbb{E}^w_i[R_\mathcal{G}\mid s]$, established in Lemma~\ref{lem:realloc}. The sorting term is governed by the identity $\Delta R_\theta(\theta) = -R_\mathcal{G}(\theta)R_\theta(\theta)$, which is the formal bridge discussed in the main text. The behavioral term cannot be signed in general, as established in Proposition~\ref{prop:rprefreallocation}. Proposition~\ref{prop:Elasticity} below provides conditions under which the sorting term can nonetheless be signed from primitives. Under Assumption~\ref{ass:CARA}, the behavioral term vanishes entirely since $R_q$ is constant, and both the scarcity rent and sorting terms collapse to a single covariance condition between $R_\mathcal{G}(\theta)$ and $R_\theta(\theta)$, as stated in Corollary~\ref{cor:CARA}.
+
+\begin{proposition}[Elasticity condition]\label{prop:Elasticity}
+Assume that $R_\theta(\theta)$ and $R_q(\theta)$ are monotone, that $R_{\mathcal{G}}(\theta)$ has a constant sign, and that, for all $\theta$ such that $R_{\mathcal{G}}(\theta)R_\theta(\theta)\neq 0$,\footnote{At isolated zeros of $R_\theta(\theta)$, the cross-term $-R_\theta(\theta)R_{\mathcal{G}}'(\theta)$ vanishes and the sign of $\Delta R_\theta'(\theta)$ is determined by $-R_{\mathcal{G}}(\theta)R_\theta'(\theta)$ directly. At isolated zeros of $R_{\mathcal{G}}(\theta)$, the constant-sign hypothesis forces $R_{\mathcal{G}}'(\theta)=0$ by differentiability, so the cross-term vanishes there as well. Monotonicity of $\Delta R_\theta(\theta)$ is preserved in both cases.}
+\[
+\left|\frac{R_{\mathcal{G}}'(\theta)}{R_{\mathcal{G}}(\theta)}\right| \le \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+Then $\Delta R_\theta(\theta)$ is monotone and
+\[
+\mathrm{sign}\!\left(\mathrm{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)\right) = \mathrm{sign}\!\left(-R_{\mathcal{G}}(\theta)R_\theta'(\theta)\right)\cdot \mathrm{sign}\!\left(R_q'(\theta)\right).
+\]
+If the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone.
+\end{proposition}
+
+The elasticity condition compares two elasticities: (i) $\left|R_{\mathcal{G}}'(\theta)/R_{\mathcal{G}}(\theta)\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|R_\theta'(\theta)/R_\theta(\theta)\right|$, which measures how sharply the existing sorting pattern varies across types. The condition requires that the preference change be smoother in proportional terms than the existing sorting pattern. To interpret its economic meaning, consider the case where lower types are allocated more capacity ($R_q'(\theta)\le 0$), higher types get higher rents ($R_\theta'(\theta)\ge 0$), the change of preferences is toward higher types ($R_{\mathcal{G}}(\theta)\ge 0$), and we seek to reduce the adverse sorting effect. Then a preference change — even in the correct direction — can exacerbate adverse sorting by creating local distortions. The sufficient elasticity condition binds in two regions: (a) types contributing negatively to the trade-off ($R_\theta(\theta)<0$) but receiving increasing proportional weights ($R_{\mathcal{G}}'(\theta)\ge 0$), and (b) types contributing positively to the trade-off ($R_\theta(\theta)>0$) but receiving decreasing proportional weights ($R_{\mathcal{G}}'(\theta)\le 0$). In both regions, preference changes that are too concentrated reverse the sign of $\Delta R_\theta'(\theta)$; the elasticity bound ensures changes remain sufficiently gradual.
+
+Figure~\ref{fig:variation_uniform_preference_tradeoff} illustrates this: even when the direction of a preference shift favors the same consumers, a particular concentration of social weight adjustments can exacerbate adverse sorting, worsening rather than improving the trade-off effect.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{figure/variation_uniform_preference_tradeoff.png}
+\caption{Effects of a change in redistributive preferences on the trade-off effect. The first plot shows the new $\lambda_i(\theta)$. The second plot indicates the effect of the perturbation on the term $\Delta R_\theta(\theta)$. The last plot links the condition in Proposition~\ref{prop:Elasticity} to the sign of $\Delta R_\theta'(\theta)$. $R_q(\theta)$ is assumed to be decreasing in $\theta$, $R_\theta(\theta)$ and $J_i(\theta)$ are increasing in $\theta$. In this example, $R_{\mathcal{G}}'(\theta)<0$ and $J_i(\theta)>0$ for all $\theta$, so the worsening effect comes from types generating revenues while receiving proportionally decreasing weights.}
+\label{fig:variation_uniform_preference_tradeoff}
+\end{figure}
+
+\begin{corollary}\label{cor:CARA}
+Under Assumption~\ref{ass:CARA}, the behavioral channel vanishes, and the entire implementation region $[\tilde{k}_i^-,\tilde{k}_i^+]$ and its peak $k^\ast$ are governed by a single covariance condition: (i) if $\operatorname{Cov}_{\theta_i}(R_{\mathcal{G}},R_\theta)>0$, the region expands and $k^\ast$ shifts left; (ii) if $\operatorname{Cov}_{\theta_i}(R_{\mathcal{G}},R_\theta)<0$, the region contracts and $k^\ast$ shifts right.
+\end{corollary}
+
+Both results share the same spirit: they characterize when a preference shift exacerbates or relaxes the fundamental negative sorting in the revenue structure. The covariance $\operatorname{Cov}(R_{\mathcal{G}}, R_\theta)$ directly captures this: when the preference shift allocates proportionally more weight to types with low $R_\theta(\theta)$ — types contributing little to virtual surplus — the budget constraint tightens and the implementation region contracts.
+
 \section{Proofs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,8 +134,9 @@ since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_
 
 \subsection{Proof of Proposition CI-welfare}
 
-\subsection{Part i)}
 \begin{proof}
+
+\noindent{Part i)}
 We maintain throughout that $B(k)+M(k)\neq 0$, where $B(k)+M(k)$ is the derivative of the binding residual equation with respect to $\beta$ after substituting the optimal allocation; this is the local regularity condition needed to apply the implicit function theorem, while $B(k)+M(k)>0$ delivers the monotone comparative statics used below.
 
 \noindent\textbf{Corner case: $\beta(k)=0$.} If $\beta(k)=0$ there are no contributing types. On $T^*$, the first-order condition is $\theta\,u(q_i^*(\theta,s),s) = \varepsilon(s)/\lambda_i(\theta)$. Differentiating and substituting into the capacity constraint gives $\frac{\partial\varepsilon(s)}{\partial k} = -1/\overline w^{nc}(s) < 0$ and $\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^{nc}(\theta,s)/\overline w^{nc}(s) > 0$ on $T^*$. Since non-contributing types pay no transfer:
@@ -145,11 +184,9 @@ Since $B(k)>0$, condition \eqref{Ui*} implies $\frac{d\beta}{dk}\leq 0$.
 \]
 
 \noindent\textbf{Corner case: all types strictly contributing.} If all types satisfy $\lambda_i(\theta)<\beta(k)$, there are no non-contributing types and the statement is vacuous.
-\end{proof}
 
-\subsection{Part ii)}
+\noindent{Part ii)}
 
-\begin{proof}
 From the Lagrangian \eqref{P-CI}, the FOC with respect to $k$ is
 \[
 -\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,
@@ -181,6 +218,7 @@ When $I(\cdot)$ is convex, the complete-information problem is a concave maximiz
 
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Lemma Transfer}
 
 \begin{proof}
@@ -377,6 +415,7 @@ This yields the desired expression:
 
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Lemma FOC Without Ironing}
 \begin{proof}
 Consider the within-category problem
@@ -448,288 +487,6 @@ For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slac
 \end{proof}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Proof of Single crossing}
-\begin{proof}
-For each binding state $s\in T_i(k_i)$ and each $k_i$, define
-\[
-\mathsf H_i(k_i,s):=\mathbb E_i^w[uJ\mid s],
-\qquad
-\mathcal S_i(k_i):=\int_{s_i(k_i)}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds.
-\]
-
-For every binding state $s\in T_i(k_i)$, define the probability measure
-\[
-dP_{k_i,s}(\theta):=
-\frac{R_q(\theta,k_i,s)\,g_i(\theta)}
-{\mathbb E_{\theta_i}[R_q(\theta,k_i,s)]}\,d\theta.
-\]
-Since
-\[
-R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
-\]
-we can write
-\[
-\mathsf H_i(k_i,s)
-=
-\frac{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\,R_\theta(\theta,k_i)\right]}
-{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\right]}
-=
-\int_{\Theta_i} R_\theta(\theta,k_i)\,dP_{k_i,s}(\theta).
-\]
-
-Differentiating $\mathsf H_i(k_i,s)$ with respect to $k_i$ gives
-\[
-\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
-=
-M_i(k_i,s)+D_i(k_i,s),
-\]
-where
-\[
-M_i(k_i,s)
-:=
-\left.
-\frac{\partial}{\partial t}
-\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
-\right|_{t=k_i}
-\]
-is the pure measure-shift term, and
-\[
-D_i(k_i,s)
-:=
-\int_{\Theta_i}
-\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}\,dP_{k_i,s}(\theta)
-\]
-is the direct effect through the $k_i$-dependence of $R_\theta$.
-
-By the log-monotone-differences assumption on $R_q$, the family $\{P_{k_i,s}\}_{k_i}$ is ordered by monotone likelihood ratio for each binding state $s$. Hence, since $\theta\mapsto R_\theta(\theta,k_i)$ is monotone for each $k_i$,
-\[
-M_i(k_i,s)\ge 0
-\]
-in the two cases
-\[
-R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
-\qquad
-R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
-\]
-while
-\[
-M_i(k_i,s)\le 0
-\]
-in the two opposite cases.
-
-Next, since
-\[
-R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
-\qquad
-\mathcal G_i(\theta,k_i)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i),
-\]
-we have
-\[
-\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
-=
--\beta_i^{\times\prime}(k_i)\,
-\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}.
-\]
-Therefore
-\[
-D_i(k_i,s)
-=
--\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s),
-\]
-where
-\[
-\mathcal Q_i(k_i,s)
-:=
-\int_{\Theta_i}
-\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}\,dP_{k_i,s}(\theta)
->0.
-\]
-Thus
-\[
-\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
-=
-M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s).
-\]
-
-We now relate $\beta_i^{\times\prime}(k_i)$ to $\mathcal S_i(k_i)$. On the IR-constrained region, define
-\[
-\Phi_i(k_i,\beta)
-:=
-\mathbb E_s\!\left[
-\mathbb E_{\theta_i}\!\left[
-U\!\left(q_i(\theta,s;k_i,\beta),s\right)J_i(\theta)
-\right]
-\right]
--I_i.
-\]
-By construction,
-\[
-\Phi_i\!\left(k_i,\beta_i(k_i)\right)=0.
-\]
-
-Holding $\beta$ fixed, the standard comparative-statics identity gives, for every binding state $s$,
-\[
-\frac{\partial q_i(\theta,s;k_i,\beta)}{\partial k_i}
-=
-\frac{w_i(\theta,s)}{\bar w_i(s)}.
-\]
-Hence
-\[
-\partial_{k_i}\Phi_i(k_i,\beta)
-=
-\mathbb E_s\!\left[
-\mathbf 1_{\{s\in T_i(k_i)\}}
-\,
-\mathbb E_i^w[uJ\mid s]
-\right]
-=
-\mathcal S_i(k_i),
-\]
-where the moving-threshold term vanishes because
-\[
-u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0
-\qquad
-\text{for every }\theta.
-\]
-
-Holding $k_i$ fixed, differentiating the pointwise FOC
-\[
-u\!\left(q_i(\theta,s),s\right)\mathcal G_i(\theta,k_i)
-=
-\varepsilon_i(s)
-\]
-with respect to $\beta$, using $\partial_\beta\mathcal G_i(\theta,k_i)=J_i(\theta)$ and imposing
-\[
-\mathbb E_{\theta_i}\!\left[\partial_\beta q_i(\theta,s)\right]=0,
-\]
-yields
-\[
-\frac{\partial \varepsilon_i(s)}{\partial \beta}
-=
-\mathbb E_i^w[uJ\mid s]
-=
-\mathsf H_i(k_i,s)
-\]
-and
-\[
-\frac{\partial q_i(\theta,s)}{\partial \beta}
-=
-w_i(\theta,s)
-\left(
-u\!\left(q_i(\theta,s),s\right)J_i(\theta)
--
-\mathsf H_i(k_i,s)
-\right).
-\]
-Therefore
-\[
-\partial_\beta \Phi_i(k_i,\beta)
-=
-\mathbb E_s\!\left[
-\mathbf 1_{\{s\in T_i(k_i)\}}
-\,
-\bar w_i(s)\,
-\mathrm{Var}_i^w(uJ\mid s)
-\right]
-=:
-\mathcal V_i(k_i),
-\]
-with $\mathcal V_i(k_i)>0$ away from knife-edge cases. Differentiating
-\[
-\Phi_i\!\left(k_i,\beta_i(k_i)\right)=0
-\]
-with respect to $k_i$ gives
-\[
-0
-=
-\mathcal S_i(k_i)+\mathcal V_i(k_i)\,\beta_i^{\times\prime}(k_i),
-\]
-hence
-\[
-\beta_i^{\times\prime}(k_i)
-=
--\frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
-\]
-
-Finally, differentiate
-\[
-\mathcal S_i(k_i)
-=
-\int_{s_i(k_i)}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds.
-\]
-Using Leibniz' rule,
-\[
-\mathcal S_i'(k_i)
-=
--
-\mathsf H_i\!\left(k_i,s_i(k_i)\right)
-f\!\left(s_i(k_i)\right)
-s_i^{\times\prime}(k_i)
-+
-\int_{s_i(k_i)}^{\overline s}
-\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}\,f(s)\,ds.
-\]
-At the threshold state $s_i(k_i)$ we have
-\[
-u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0
-\qquad
-\text{for every }\theta,
-\]
-so $\mathsf H_i\!\left(k_i,s_i(k_i)\right)=0$. Hence the boundary term vanishes and
-\[
-\mathcal S_i'(k_i)
-=
-\overline M_i(k_i)-\beta_i^{\times\prime}(k_i)\,\overline{\mathcal Q}_i(k_i),
-\]
-where
-\[
-\overline M_i(k_i)
-:=
-\int_{s_i(k_i)}^{\overline s}M_i(k_i,s)\,f(s)\,ds,
-\qquad
-\overline{\mathcal Q}_i(k_i)
-:=
-\int_{s_i(k_i)}^{\overline s}\mathcal Q_i(k_i,s)\,f(s)\,ds
->0.
-\]
-
-Now let $k_i^0$ satisfy $\mathcal S_i(k_i^0)=0$. Then
-\[
-\beta_i^{\times\prime}(k_i^0)=0,
-\]
-so
-\[
-\mathcal S_i'(k_i^0)=\overline M_i(k_i^0).
-\]
-Since each $M_i(k_i^0,s)$ has the same sign across binding states, $\overline M_i(k_i^0)$ has that same sign. Therefore every sign-changing zero of $\mathcal S_i$ is crossed in the same direction:
-\[
-\mathcal S_i'(k_i^0)>0
-\]
-when
-\[
-R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
-\qquad
-R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
-\]
-so any sign change is from $-$ to $+$; and
-\[
-\mathcal S_i'(k_i^0)<0
-\]
-in the two opposite cases, so any sign change is from $+$ to $-$.
-
-Thus the map
-\[
-k_i\longmapsto \mathcal S_i(k_i)
-=
-\mathbb E_s\!\left[
-\mathbb E_i^w[uJ\mid s]\,
-\mathbf 1_{\{s\in T_i(k_i)\}}
-\right]
-\]
-is single-crossing in $k_i$, with crossing direction pinned down by the combination of monotonicities stated in the lemma.
-\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Theorem~\ref{thm:welfare}}
@@ -875,89 +632,7 @@ The special cases in the ``in particular'' clause follow immediately: if $\beta_
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Proof of Proposition~\ref{prop:Elasticity}}
-\begin{proof}
-The proof proceeds in three steps.
 
-
-\noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
-Differentiating
-\[
-\Delta R_\theta(\theta)=-R_\Gamma(\theta)R_\theta(\theta)
-\]
-gives
-\[
-\Delta R_\theta'(\theta)
-=
--R_\Gamma(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\Gamma'(\theta).
-\]
-If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ inherits that sign directly. If they have opposite signs, then
-\[
-\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-=
-\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
-\]
-if and only if
-\[
-|R_\Gamma(\theta)R_\theta'(\theta)|
-\ge
-|R_\theta(\theta)R_\Gamma'(\theta)|,
-\]
-which is equivalent to
-\[
-\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|
-\le
-\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
-\]
-Thus the elasticity condition implies
-\[
-\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-=
-\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
-\]
-for all $\theta$. Since $R_\Gamma(\theta)$ has a constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign, so $\Delta R_\theta(\theta)$ is globally monotone.
-
-
-\noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
-By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The covariance-monotonicity then implies
-\[
-\operatorname{sign}\!\left(
-\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\right)
-=
-\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-\cdot
-\operatorname{sign}\!\left(R_q'(\theta)\right),
-\]
-hence
-\[
-\operatorname{sign}\!\left(
-\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\right)
-=
-\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
-\cdot
-\operatorname{sign}\!\left(R_q'(\theta)\right).
-\]
-
-
-
-\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
-
-If the elasticity condition is violated at some $\theta_0$, namely if
-\[
-|R_\theta(\theta_0)R_\Gamma'(\theta_0)|
->
-|R_\Gamma(\theta_0)R_\theta'(\theta_0)|,
-\]
-then $\Delta R_\theta'(\theta_0)$ has the opposite sign to $-R_\Gamma(\theta_0)R_\theta'(\theta_0)$. This creates a local reversal in the monotonicity of $\Delta R_\theta(\theta)$, so the covariance-monotonicity lemma no longer applies. The sign of
-\[
-\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\]
-then depends on the distribution of types and on the magnitude of the reversal, and no distribution-free sign result obtains.
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Lemma~\ref{lem:realloc}}
 \begin{proof}
@@ -1439,6 +1114,7 @@ k_1^\ast\le \cdots \le k_n^\ast.
 This proves (iii), and hence the corollary.
 \end{proof}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Corollary Revenue ordering}
 \begin{proof}
@@ -1478,8 +1154,429 @@ Multiplying both sides by $-\mathrm{Var}(R_\theta)/\alpha<0$ reverses the inequa
 \]
 Since $\mathbb{E}[R_\mathcal{G}]>0$ (as $\Delta k>0$) and $\mathbb{E}[R_\theta^2]>0$, rearranging gives the stated condition.
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Proof Appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Proof of Single crossing}
+\begin{proof}
+For each binding state $s\in T_i(k_i)$ and each $k_i$, define
+\[
+\mathsf H_i(k_i,s):=\mathbb E_i^w[uJ\mid s],
+\qquad
+\mathcal S_i(k_i):=\int_{s_i(k_i)}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds.
+\]
+
+For every binding state $s\in T_i(k_i)$, define the probability measure
+\[
+dP_{k_i,s}(\theta):=
+\frac{R_q(\theta,k_i,s)\,g_i(\theta)}
+{\mathbb E_{\theta_i}[R_q(\theta,k_i,s)]}\,d\theta.
+\]
+Since
+\[
+R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+\]
+we can write
+\[
+\mathsf H_i(k_i,s)
+=
+\frac{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\,R_\theta(\theta,k_i)\right]}
+{\mathbb E_{\theta_i}\!\left[R_q(\theta,k_i,s)\right]}
+=
+\int_{\Theta_i} R_\theta(\theta,k_i)\,dP_{k_i,s}(\theta).
+\]
+
+Differentiating $\mathsf H_i(k_i,s)$ with respect to $k_i$ gives
+\[
+\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
+=
+M_i(k_i,s)+D_i(k_i,s),
+\]
+where
+\[
+M_i(k_i,s)
+:=
+\left.
+\frac{\partial}{\partial t}
+\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
+\right|_{t=k_i}
+\]
+is the pure measure-shift term, and
+\[
+D_i(k_i,s)
+:=
+\int_{\Theta_i}
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}\,dP_{k_i,s}(\theta)
+\]
+is the direct effect through the $k_i$-dependence of $R_\theta$.
+
+By the log-monotone-differences assumption on $R_q$, the family $\{P_{k_i,s}\}_{k_i}$ is ordered by monotone likelihood ratio for each binding state $s$. Hence, since $\theta\mapsto R_\theta(\theta,k_i)$ is monotone for each $k_i$,
+\[
+M_i(k_i,s)\ge 0
+\]
+in the two cases
+\[
+R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
+\qquad
+R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
+\]
+while
+\[
+M_i(k_i,s)\le 0
+\]
+in the two opposite cases.
+
+Next, since
+\[
+R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\mathcal G_i(\theta,k_i)},
+\qquad
+\mathcal G_i(\theta,k_i)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i),
+\]
+we have
+\[
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
+=
+-\beta_i^{\times\prime}(k_i)\,
+\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}.
+\]
+Therefore
+\[
+D_i(k_i,s)
+=
+-\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s),
+\]
+where
+\[
+\mathcal Q_i(k_i,s)
+:=
+\int_{\Theta_i}
+\frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}\,dP_{k_i,s}(\theta)
+>0.
+\]
+Thus
+\[
+\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
+=
+M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s).
+\]
+
+We now relate $\beta_i^{\times\prime}(k_i)$ to $\mathcal S_i(k_i)$. On the IR-constrained region, define
+\[
+\Phi_i(k_i,\beta)
+:=
+\mathbb E_s\!\left[
+\mathbb E_{\theta_i}\!\left[
+U\!\left(q_i(\theta,s;k_i,\beta),s\right)J_i(\theta)
+\right]
+\right]
+-I_i.
+\]
+By construction,
+\[
+\Phi_i\!\left(k_i,\beta_i(k_i)\right)=0.
+\]
+
+Holding $\beta$ fixed, the standard comparative-statics identity gives, for every binding state $s$,
+\[
+\frac{\partial q_i(\theta,s;k_i,\beta)}{\partial k_i}
+=
+\frac{w_i(\theta,s)}{\bar w_i(s)}.
+\]
+Hence
+\[
+\partial_{k_i}\Phi_i(k_i,\beta)
+=
+\mathbb E_s\!\left[
+\mathbf 1_{\{s\in T_i(k_i)\}}
+\,
+\mathbb E_i^w[uJ\mid s]
+\right]
+=
+\mathcal S_i(k_i),
+\]
+where the moving-threshold term vanishes because
+\[
+u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0
+\qquad
+\text{for every }\theta.
+\]
+
+Holding $k_i$ fixed, differentiating the pointwise FOC
+\[
+u\!\left(q_i(\theta,s),s\right)\mathcal G_i(\theta,k_i)
+=
+\varepsilon_i(s)
+\]
+with respect to $\beta$, using $\partial_\beta\mathcal G_i(\theta,k_i)=J_i(\theta)$ and imposing
+\[
+\mathbb E_{\theta_i}\!\left[\partial_\beta q_i(\theta,s)\right]=0,
+\]
+yields
+\[
+\frac{\partial \varepsilon_i(s)}{\partial \beta}
+=
+\mathbb E_i^w[uJ\mid s]
+=
+\mathsf H_i(k_i,s)
+\]
+and
+\[
+\frac{\partial q_i(\theta,s)}{\partial \beta}
+=
+w_i(\theta,s)
+\left(
+u\!\left(q_i(\theta,s),s\right)J_i(\theta)
+-
+\mathsf H_i(k_i,s)
+\right).
+\]
+Therefore
+\[
+\partial_\beta \Phi_i(k_i,\beta)
+=
+\mathbb E_s\!\left[
+\mathbf 1_{\{s\in T_i(k_i)\}}
+\,
+\bar w_i(s)\,
+\mathrm{Var}_i^w(uJ\mid s)
+\right]
+=:
+\mathcal V_i(k_i),
+\]
+with $\mathcal V_i(k_i)>0$ away from knife-edge cases. Differentiating
+\[
+\Phi_i\!\left(k_i,\beta_i(k_i)\right)=0
+\]
+with respect to $k_i$ gives
+\[
+0
+=
+\mathcal S_i(k_i)+\mathcal V_i(k_i)\,\beta_i^{\times\prime}(k_i),
+\]
+hence
+\[
+\beta_i^{\times\prime}(k_i)
+=
+-\frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
+\]
+
+Finally, differentiate
+\[
+\mathcal S_i(k_i)
+=
+\int_{s_i(k_i)}^{\overline s}\mathsf H_i(k_i,s)\,f(s)\,ds.
+\]
+Using Leibniz' rule,
+\[
+\mathcal S_i'(k_i)
+=
+-
+\mathsf H_i\!\left(k_i,s_i(k_i)\right)
+f\!\left(s_i(k_i)\right)
+s_i^{\times\prime}(k_i)
++
+\int_{s_i(k_i)}^{\overline s}
+\frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}\,f(s)\,ds.
+\]
+At the threshold state $s_i(k_i)$ we have
+\[
+u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0
+\qquad
+\text{for every }\theta,
+\]
+so $\mathsf H_i\!\left(k_i,s_i(k_i)\right)=0$. Hence the boundary term vanishes and
+\[
+\mathcal S_i'(k_i)
+=
+\overline M_i(k_i)-\beta_i^{\times\prime}(k_i)\,\overline{\mathcal Q}_i(k_i),
+\]
+where
+\[
+\overline M_i(k_i)
+:=
+\int_{s_i(k_i)}^{\overline s}M_i(k_i,s)\,f(s)\,ds,
+\qquad
+\overline{\mathcal Q}_i(k_i)
+:=
+\int_{s_i(k_i)}^{\overline s}\mathcal Q_i(k_i,s)\,f(s)\,ds
+>0.
+\]
+
+Now let $k_i^0$ satisfy $\mathcal S_i(k_i^0)=0$. Then
+\[
+\beta_i^{\times\prime}(k_i^0)=0,
+\]
+so
+\[
+\mathcal S_i'(k_i^0)=\overline M_i(k_i^0).
+\]
+Since each $M_i(k_i^0,s)$ has the same sign across binding states, $\overline M_i(k_i^0)$ has that same sign. Therefore every sign-changing zero of $\mathcal S_i$ is crossed in the same direction:
+\[
+\mathcal S_i'(k_i^0)>0
+\]
+when
+\[
+R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
+\qquad
+R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
+\]
+so any sign change is from $-$ to $+$; and
+\[
+\mathcal S_i'(k_i^0)<0
+\]
+in the two opposite cases, so any sign change is from $+$ to $-$.
+
+Thus the map
+\[
+k_i\longmapsto \mathcal S_i(k_i)
+=
+\mathbb E_s\!\left[
+\mathbb E_i^w[uJ\mid s]\,
+\mathbf 1_{\{s\in T_i(k_i)\}}
+\right]
+\]
+is single-crossing in $k_i$, with crossing direction pinned down by the combination of monotonicities stated in the lemma.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Proof of Proposition~\ref{prop:Elasticity}}
+\begin{proof}
+The proof proceeds in three steps.
+
+
+\noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
+Differentiating
+\[
+\Delta R_\theta(\theta)=-R_\Gamma(\theta)R_\theta(\theta)
+\]
+gives
+\[
+\Delta R_\theta'(\theta)
+=
+-R_\Gamma(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\Gamma'(\theta).
+\]
+If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ inherits that sign directly. If they have opposite signs, then
+\[
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+=
+\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\]
+if and only if
+\[
+|R_\Gamma(\theta)R_\theta'(\theta)|
+\ge
+|R_\theta(\theta)R_\Gamma'(\theta)|,
+\]
+which is equivalent to
+\[
+\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|
+\le
+\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+Thus the elasticity condition implies
+\[
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+=
+\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\]
+for all $\theta$. Since $R_\Gamma(\theta)$ has a constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign, so $\Delta R_\theta(\theta)$ is globally monotone.
+
+
+\noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
+By Step~1, both $\Delta R_\theta(\theta)$ and $R_q(\theta)$ are monotone. The covariance-monotonicity then implies
+\[
+\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right),
+\]
+hence
+\[
+\operatorname{sign}\!\left(
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(-R_\Gamma(\theta)R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right).
+\]
+
+
+
+\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
+
+If the elasticity condition is violated at some $\theta_0$, namely if
+\[
+|R_\theta(\theta_0)R_\Gamma'(\theta_0)|
+>
+|R_\Gamma(\theta_0)R_\theta'(\theta_0)|,
+\]
+then $\Delta R_\theta'(\theta_0)$ has the opposite sign to $-R_\Gamma(\theta_0)R_\theta'(\theta_0)$. This creates a local reversal in the monotonicity of $\Delta R_\theta(\theta)$, so the covariance-monotonicity lemma no longer applies. The sign of
+\[
+\operatorname{Cov}_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\]
+then depends on the distribution of types and on the magnitude of the reversal, and no distribution-free sign result obtains.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Proof of Corollary~\ref{cor:CARA}}
+\begin{proof}
+Assume $\beta_i=0$. In any on-peak state $s\in T_i$ where the capacity constraint binds with multiplier $\varepsilon_i(s)>0$, the interior FOC is
+\[
+u\!\left(q_i(\theta,s),s\right)\Gamma_i(\theta)=\varepsilon_i(s). \label{eq:FOC-CARA}\tag{FOC-CARA}
+\]
+\noindent{Step 1: CARA implies $R_q$ is constant and the behavioral channel vanishes.}
+Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$ for some $\alpha>0$, hence $R_q(\theta):=-u/u_q=1/\alpha$ is constant. For a preference perturbation $\Delta\lambda_i(\theta)$ with $R_\Gamma(\theta):=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$, we have
+\[
+\Delta R_\theta(\theta) = \Delta\!\left(\frac{J_i(\theta)}{\Gamma_i(\theta)}\right) = -R_\Gamma(\theta)R_\theta(\theta).
+\]
+In particular, $\mathbb{E}_{\theta_i}[\Delta R_\theta(\theta)] = -\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta) - \mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]$.
+
+\noindent{Step 2: covariance formula under CARA.}
+By Lemma~\ref{lem:realloc} with $\beta_i=0$,
+\[
+\Delta q_i(\theta,s) = R_q(\theta,s)\!\left(R_\Gamma(\theta)-\mathbb{E}^w_i[R_\Gamma\mid s]\right).
+\]
+Under Assumption~\ref{ass:CARA}, the weights $w_i(\theta,s)$ from the preliminary step of Lemma~\ref{lem:SC-dir} satisfy $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$, which is constant in $\theta$. Therefore $\mathbb{E}^w_i[R_\Gamma\mid s]=\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ and
+\[
+\Delta q_i(\theta,s) = \frac{1}{\alpha}\!\left(R_\Gamma(\theta)-\mathbb{E}_{\theta_i}[R_\Gamma(\theta)]\right).
+\]
+Moreover, from \eqref{eq:FOC-CARA}, $\Delta\varepsilon_i(s)/\varepsilon_i(s) = \mathbb{E}_{\theta_i}[R_\Gamma(\theta)]$ for each $s\in T_i$.
+
+\noindent{Step 3: comparative statics of $k^\ast$.}
+Let $F(k):=\partial_k\mathbb{E}\underline{CS}_i(k)$. Single-peakedness and an interior maximizer imply $F(k^\ast)=0$ and $F'(k^\ast)<0$, so $\operatorname{sign}(\Delta k^\ast)=\operatorname{sign}(\Delta F(k^\ast))$. Under Assumption~\ref{ass:CARA} with $\beta_i=0$, the envelope expression gives
+\[
+F(k) = \mathbb{E}_s[\varepsilon_i(s)]\,\mathbb{E}_{\theta_i}[R_\theta(\theta)].
+\]
+The full linearization is
+\[
+\Delta F = \Delta\!\left(\mathbb{E}_s[\varepsilon_i]\right)\cdot\mathbb{E}_{\theta_i}[R_\theta] + \mathbb{E}_s[\varepsilon_i]\cdot\mathbb{E}_{\theta_i}[\Delta R_\theta].
+\]
+From Step~2, $\Delta\varepsilon_i(s)=\varepsilon_i(s)\,\mathbb{E}_{\theta_i}[R_\Gamma]$ for each $s\in T_i$, so $\Delta(\mathbb{E}_s[\varepsilon_i])=\mathbb{E}_s[\varepsilon_i]\,\mathbb{E}_{\theta_i}[R_\Gamma]$. Substituting and using $\mathbb{E}_{\theta_i}[\Delta R_\theta]=-\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta)-\mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]$ from Step~1,
+\[
+\Delta F = \mathbb{E}_s[\varepsilon_i]\!\left(\mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta] - \operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta) - \mathbb{E}_{\theta_i}[R_\Gamma]\,\mathbb{E}_{\theta_i}[R_\theta]\right) = -\mathbb{E}_s[\varepsilon_i]\,\operatorname{Cov}_{\theta_i}(R_\Gamma,R_\theta).
+\]
+The $\mathbb{E}[R_\Gamma]\mathbb{E}[R_\theta]$ terms cancel exactly. Since $\max_k\mathbb{E}\underline{CS}_i(k_i)>0$, peak capacity binds with positive probability and $\mathbb{E}_s[\varepsilon_i(s)]>0$, so
+\[
+\operatorname{sign}(\Delta k^\ast) = -\operatorname{sign}\!\left(\operatorname{Cov}_{\theta_i}(R_\Gamma(\theta),R_\theta(\theta))\right).
+\]
+When $\operatorname{Cov}(R_\Gamma,R_\theta)>0$, both $k^\ast$ shifts left and the implementation region expands, since the same argument applied to the boundary conditions of Proposition~\ref{prop:implementation} shows that $\Delta Y_i(k)>0$ for all $k$ in the implementation region, pushing $\tilde{k}_i^-$ down and $\tilde{k}_i^+$ up. The reverse holds when the covariance is negative.
+\end{proof}
+
 
 \section{Disgression}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \paragraph{Across-category problem.}
 The outer problem is
