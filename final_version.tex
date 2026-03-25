@@ -202,100 +202,48 @@ This formulation of the objective function has several limitations as described 
 
 \section{Complete Information Benchmark}\label{chap3sec:sec3}
 
-The first regime we study is the complete information case: the market designer observes each consumer's category $i$ and type $\theta$, so the individual welfare weight $\lambda_i(\theta)$ is known, and allocation rules can condition on true types without incentive issues. The category label $i$ remains relevant as it indexes the population mass $\mu_i$ and the type distribution $G_i(\theta)$, but the average weight $\tilde{\lambda}_i$ plays no allocative role: what matters for redistribution is the pointwise value $\lambda_i(\theta)$. The market designer solves
-%##########################################
-\[
-\tag{P$^*$}\label{P-CI}
-\max_{\substack{ t_i(\theta,s) \geq 0, \\ q_i(\theta,s) \geq 0}} \quad \sum_{i} \mu_i \; \E_{(s,\theta_i)} \left[\lambda_i(\theta)\;(\theta \; U(q_i(\theta,s),s) - t_i(\theta,s))\right]
-\]
-%##########################################
-subject to the budget constraint \eqref{R-def}, the capacity constraint \eqref{K-def}, and the participation constraint \eqref{IR-def}. With multipliers $\varepsilon(s) \geq 0$, $\beta\geq0$, $\rho_i(\theta)\geq0$, and $\phi_i(\theta,s)\geq 0$ on the capacity, budget, participation, and transfer-positivity constraints respectively. 
+Under complete information, the market designer observes each consumer's category $i$ and type $\theta$, so allocation rules and transfers can condition directly on true types. Since there are no incentive constraints, redistributive preferences enter the allocation problem through the pointwise weights $\lambda_i(\theta)$. Relative to the standard peak-load benchmark, this changes both the optimal marginal condition and the way revenue is extracted.
 
-Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ be the off-peak and on-peak sets, where $s^*$ is the unique threshold at which $\sum_{i} \mu_i \E_{\theta_i} [q_i^*(\theta,s^*)] = k$. Define the marginal welfare weight $\lambda^*$ as the lowest weight such that the transfers collected from all types with $\lambda_i(\theta)\leq\lambda^*$ suffice to cover the investment cost $I(k)$. As shown in Proposition~\ref{prop:FBalloc}, the participation constraint \eqref{IR-def} binds for all strictly contributing types, so their transfer equals their expected gross utility and the condition reduces to:
-%##########################################
+Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ denote the off-peak and on-peak regions, where $s^*$ is the unique threshold such that
 \[
-\sum_i \mu_i \E_{(s,\theta_i)}\!\left[\theta\, U(q_i^*(\theta,s),s)\,\mathbf{1}_{\lambda_i(\theta) < \lambda^*}\right] < I(k) \leq \sum_i \mu_i \E_{(s,\theta_i)}\!\left[\theta\, U(q_i^*(\theta,s),s)\,\mathbf{1}_{\lambda_i(\theta) \leq \lambda^*}\right].
+\sum_i \mu_i\,\E_{\theta_i}\!\left[q_i^*(\theta,s^*)\right]=k.
 \]
-For each category $i$, whenever the equation $\lambda_i(\theta)=\lambda^\ast$ admits a solution, let $\theta_i^\ast(k)$ denote the corresponding cutoff type.
-%Under the maintained assumption that $\lambda_i(\theta)$ is monotone, this cutoff is unique whenever it exists.
-%##########################################
+Define $\lambda^*$ as the marginal welfare weight such that extracting full surplus from all types with $\lambda_i(\theta)\leq \lambda^*$ is just sufficient to finance investment. Appendix~\ref{app:CI} gives the formal construction and the associated cutoff types.
 
-\begin{proposition}\label{prop:FBalloc}
-The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$:
-%##########################################
+\begin{proposition}[Complete-information allocation with redistribution]\label{prop:FBalloc}
+The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$ satisfying
 \[
-\label{eq:FB-S}\tag{FB-S}
-\theta\, u\!\left(q_i^*(\theta,s),s\right)=0, \qquad s\in S^{\ast},
+\theta\,u\!\left(q_i^*(\theta,s),s\right)=0,
+\qquad s\in S^*,
 \]
-%##########################################
-%##########################################
+and
 \[
-\label{eq:FB-T}\tag{FB-T}
-\theta\, u\!\left(q_i^*(\theta,s),s\right)=
+\theta\,u\!\left(q_i^*(\theta,s),s\right)=
 \begin{cases}
-\varepsilon(s)/\beta, & \text{if } \lambda_i(\theta)\leq \lambda^{\ast},\\[6pt]
-\varepsilon(s)/\lambda_i(\theta), & \text{if } \lambda_i(\theta)> \lambda^{\ast},
+\varepsilon(s)/\beta, & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
+\varepsilon(s)/\lambda_i(\theta), & \text{if } \lambda_i(\theta)>\lambda^*,
 \end{cases}
-\qquad s\in T^{\ast}.
+\qquad s\in T^*.
 \]
-%##########################################
-The optimal transfers are independent of $s$ and satisfy $t_i^*(\theta) > 0$ if $\lambda_i(\theta) \leq \lambda^*$ and $t_i^*(\theta) = 0$ if $\lambda_i(\theta) > \lambda^*$. Moreover, the participation constraint \eqref{IR-def} binds for all strictly contributing types $\lambda_i(\theta)<\lambda^*$, so that $t_i^*(\theta)=\E_s[\theta\, U(q_i^*(\theta,s),s)]$ for those types; it is potentially slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
+Transfers are independent of $s$ and satisfy $t_i^*(\theta)=\E_s\!\left[\theta\,U\!\left(q_i^*(\theta,s),s\right)\right]$ for strictly contributing types $\lambda_i(\theta)<\lambda^*$, $t_i^*(\theta)=0$ for non-contributing types $\lambda_i(\theta)>\lambda^*$, and the participation constraint may be slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
 \end{proposition}
 
-The result generalizes the Boiteux-Steiner framework (see \citealp{crew1995theory}) to redistributive weights and relates to the recent literature on redistributive mechanism design, in which the optimal allocation depends on the relationship between social weights and the exogenous preference for revenue of the market designer \citep{akbarpour2023redistributive}.\footnote{In that case $\beta$ is exogenous and when $\lambda_i(\theta)>\beta$, a positive transfer to type $\theta$ increase the marginal designer objective. See, for instance, \cite{Kang2024} for the design of optimal subsidies.} Off-peak, the optimal allocation reproduces marginal-cost pricing. On-peak, the threshold $\lambda^*=\beta$ partitions types into two groups. Contributing types ($\lambda_i(\theta)\leq\lambda^*$) have a binding IR constraint: the market designer extracts their full expected surplus and equalizes weighted marginal willingness to pay at $\varepsilon(s)/\beta$ across all of them. Non-contributing types ($\lambda_i(\theta)>\lambda^*$) receive a zero transfer and are allocated capacity according to $\varepsilon(s)/\lambda_i(\theta)$, so higher-weight types receive strictly more capacity for a given $\theta$. A spot market fails to implement this allocation: a uniform price $p(s)$ cannot replicate the type-specific condition $\varepsilon(s)/\lambda_i(\theta)$ for non-contributing types, except in the knife-edge uniform-weight case where $\lambda_i(\theta)=\lambda$ for all $(i,\theta)$.
+Proposition~\ref{prop:FBalloc} isolates the two dimensions along which redistribution departs from the traditional peak-load benchmark. First, it changes the planner's marginal condition. Off-peak, the allocation remains efficient.\footnote{We abstract from marginal production costs in order to isolate the interaction between scarcity and redistribution. This comes at the cost of shutting down an additional pricing margin: with positive marginal cost, the planner would also trade off allocative efficiency in non-scarcity states. Incorporating that margin would extend the standard analysis without changing the main mechanism emphasized here, namely how redistribution alters the scarcity component of peak-load pricing. Moreover, since the relevant objects vary continuously across states, no additional boundary term arises at the transition between off-peak and on-peak states.} On-peak, however, the marginal condition becomes type-specific for non-contributing consumers.  Without redistributive concerns, the optimal allocation is simply $\theta\,u\!\left(q_i^*(\theta,s),s\right)=\varepsilon(s)$.
 
-We now turn to the investment margin. The FOC \eqref{eq:FB-T} implies that differentiating the allocation with respect to $k$ naturally produces the following weights. Define for contributing and non-contributing types respectively:
-%##########################################
-\[
-w_i^c(\theta,s) := -\frac{1}{\beta\,\theta\,u_q(q_i^*(\theta,s),s)} > 0 \qquad \text{and} \qquad w_i^{nc}(\theta,s) := -\frac{1}{\lambda_i(\theta)\,\theta\,u_q(q_i^*(\theta,s),s)} > 0,
-\]
-%##########################################
-with aggregate weights $\overline w^c(s) := \sum_i\mu_i\,\E_{\theta_i}[w_i^c(\theta,s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}]$, $\overline w^{nc}(s) := \sum_i\mu_i\,\E_{\theta_i}[w_i^{nc}(\theta,s)\,\mathbf{1}_{\lambda_i(\theta)>\lambda^*}]$, and $\overline w(s) := \overline w^c(s)+\overline w^{nc}(s)>0$. These weights are positive since $u_q<0$ and $\theta>0$. Define the total marginal contributor surplus as
-%##########################################
-\[\tag{Euj$^\ast$}\label{EujFB}
-\begin{aligned}   
-\E^w_i[u^c|s] := \frac{1}{\overline w(s)}\,\E_{\theta_i}\!\left[w_i^c(\theta,s)\,\theta\,u(q_i^*(\theta,s),s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right] \\+ \theta^*_i(k)\,U\!\left(q_i(\theta_i^*(k),s),s\right)g_i\!\left(\theta_i^*(k)\right)\frac{d\theta_i^*(k)}{dk},
-\end{aligned}
-\]
-%##########################################
-This expression combines an inframarginal term — the weighted expected on-peak marginal utility of contributing types — and a boundary term capturing the surplus of types crossing into the contributing set, whenever such a boundary exists. The second term is specific to the complete information setting, where the designer observes $\theta$ and runs a sharp extraction algorithm: full surplus is extracted from all $\lambda_i(\theta)\leq\lambda^*$ and nothing from types above. Under incomplete information, IC constraints link adjacent types through the rent profile and this structure breaks down entirely: information rents are spread smoothly across the full type distribution, and the investment margin is governed instead by a covariance condition between the rent profile and the capacity allocation - the central object of Section~\ref{chap3sec:sec5}.\footnote{Equivalently, under incomplete information, the individual IR constraints are replaced by a single aggregate condition per category.}
+Therefore, a uniform spot price fails to implement the first best whenever the non-contributing set has positive mass, since the type-specific marginal condition cannot be replicated by a single price. Among contributing types alone, however, a spot price implements the optimal allocation, as they all face the same marginal condition.
 
-\begin{proposition}[individual welfare and optimal investment]\label{prop:CI-welfare} i) Assume that both the contributing set and the non-contributing set have positive mass. Then, for every type such that \(\lambda_i(\theta)>\lambda^*\), individual surplus is weakly increasing in \(k\) if
-\[ \E_s\left[\sum_i \mu_i \E^w_i[u^c|s]\mathbf{1}_{s\in T^*}\right] \geq I'(k). \]
-ii) Suppose the optimal investment $k^*>0$ is interior. Then 
-\[\label{eq:FB-k1}\tag{FOC$^{CI}_k$}
-\frac{1}{\mu^c}\,\E_s\!\left[\sum_i \mu_i\, \E_{\theta_i}\!\left[\theta\, u\!\left(q_i^*(\theta,s),s\right)\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{s\in T^*}\right] = I'(k^*),
-\]
-where $\mu^c := \sum_i \mu_i \Pr_i(\lambda_i(\theta)\leq\lambda^*)$ denote the total mass of contributing types. 
-\end{proposition}
 
-A key feature of Proposition~\ref{prop:CI-welfare} is that welfare effects are uniform within each group: all non-contributing types move in the same direction simultaneously. There is no within-group cutoff $\tilde\theta_i$ separating winners from losers. This uniformity reflects the absence of IC rents: the market designer observes $\theta$ directly, extracts full surplus from contributing types, and the only margin that matters for investment is the aggregate budget condition in $i)$. This condition requires that the weighted marginal benefit of capacity expansion across contributing types exceeds the marginal investment cost; when it holds, the market designer self-finances the increase in $k$ without tightening non-contributing types' allocations.
-
-The condition in ii) equates the marginal investment cost to the average on-peak marginal utility across contributing types, with no social weights appearing directly. Redistribution enters only indirectly, through the determination of $\lambda^\ast$ and hence of who belongs to the contributing set $\{\lambda_i(\theta)\leq\lambda^*\}$: the market designer chooses how large the contributing set must be to finance the investment, but conditional on that partition, the investment rule is purely utilitarian over contributors. In the uniform-weight case, all types contribute and $\mu^c=1$
-so the condition collapses to the canonical conditions
-\[
- \E_s\!\left[\sum_i\mu_i\,\E_{\theta_i}\!\left[\theta\,u(q_i^*(\theta,s),s)\right]\mathbf{1}_{s\in T^*}\right] = I'(k^*) ,
-\]
-which is the standard peak-load pricing result: invest until the expected on-peak marginal utility across all types equals the marginal cost. Figure~\ref{fig:CI} illustrates the optimal allocation and rent structure under complete information for two consumer categories, contrasting the standard peak-load pricing benchmark with the redistributive mechanism.
+The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can separate contributors from non-contributors directly, so redistribution operates through a sharp partition of consumers. Under incomplete information, this within-type partition collapses: IC constraints force contribution to be category-based, so if a category is required to raise revenue, every type within it bears the contribution. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in Appendix~\ref{app:CI}.}
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{figure/example_demand_supply_CI.png}
-    \caption{Left panel: standard peak-load pricing with a uniform price $p^*(s)$ at capacity $k$, generating a rent (grey area) covering the marginal investment cost. Right panel: the redistributive two-part tariff sets type-specific unit prices $\tilde p_1(s)>\tilde p^*(s)>\tilde p_2(s)$ such that $\tilde q_1=\tilde q_2$ (for illustration), extracting full surplus from the contributing type $\lambda_1\leq\lambda^*$ via the grey area, and setting the fixed fee of the non-contributing type $\lambda_2>\lambda^*$ to exactly offset their variable payment $\tilde p_2(s)\cdot\tilde q_2$ (blue area), so that $t_2^*=0$. The inverse demand curves $d_1(q)$ and $d_2(q)$ are derived from the marginal utility $\theta_i u(q,s)$ for each category.}
+    \caption{Complete-information benchmark with redistribution. The left panel reproduces the standard peak-load logic under a uniform price. The right panel illustrates the redistributive two-part tariff: contributing types finance investment through full surplus extraction, while non-contributing types face lower type-dependent marginal prices and zero net transfer.}
     \label{fig:CI}
 \end{figure}
 
+The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can separate contributors from non-contributors directly, so redistribution operates through a sharp partition of consumers. Under incomplete information, this partition can no longer be drawn within categories: IC links all types through the rent schedule, so revenue extraction becomes category-based and any revenue requirement distorts the whole within-category allocation. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in Appendix~\ref{app:CI}.}
 
-\begin{remark}[Implementation with a two-part tariff]
-The first-best allocation can be implemented by a tariff $T_i(x,s\mid\theta)=A_i(\theta)+p_i(\theta,s)\,x$, where the unit price replicates the designer's marginal condition: contributing types across all categories faces a unique unit price, while non-contributing categories faces a type dependent unit price:
-\[
-p(s) = \begin{cases} 0, & s\in S^*, \\ \varepsilon(s)/\beta, & s\in T^*,\ \lambda_i(\theta)\leq\lambda^*, \end{cases} \qquad \text{and} \qquad p_i(\theta,s) = \begin{cases} 0, & s\in S^*, \\  \varepsilon(s)/\lambda_i(\theta), & s\in T^*,\ \lambda_i(\theta)>\lambda^*, \end{cases}
-\]
-Moreover, $p(s)>p_i(\theta,s)$ for all $(\theta,s)$. The fixed fee $A_i(\theta)$ is set to extract the full expected surplus of contributing types, and to exactly offset the expected variable payment of non-contributing types so that $t_i^*(\theta)=0$.
-\end{remark}
-
-
-This benchmark will be modified along two precise dimensions under incomplete information. First, the market designer can no longer extract full surplus from contributing types: IC constraints force him to leave information rents, replacing full surplus with \textit{virtual surplus} in condition \eqref{EujFB}. Second, and more fundamentally, within-group heterogeneity reappears: the distribution of information rents across types creates a cutoff $\tilde\theta_i$ such that low types may lose from capacity expansion even when high types gain. The covariance condition governing this cutoff is the central object of Section~\ref{chap3sec:sec5}.
 
 \section{Optimal allocation with private information}\label{chap3sec:sec5}
 
@@ -307,7 +255,7 @@ We now assume that the consumer type is private information, while the consumer'
 \E_s[\theta U(q_i(\theta,s),s)-t_i(\theta,s)] \geq \E_s[\theta U(q_i(\hat{\theta},s),s)-t_i(\hat{\theta},s)]  \quad \quad \forall i,\theta,\hat{\theta}  \tag{IC}\label{IC-def}
 \]
 %##########################################
-Constraint \eqref{IC-def} imposes incentive compatibility in expectation over $s$. In general, this only requires monotonicity of the expected marginal payoff from reporting truthfully, and it does not, by itself, imply that $\theta\mapsto q_i(\theta,s)$ is nondecreasing for every state $s$. In our environment, however, the off-peak allocation will be independent of $\theta$, and on-peak allocations will be characterized by a first-order condition in which the dependence on $\theta$ enters through a term that does not vary with $s$. As a result, any potential failure of monotonicity (and any associated ironing) occurs across all peak states. Hence, for the purpose of the characterization, it is without loss to state monotonicity directly at the level of $q_i(\theta,s)$ (rather than at the level of its expectation over $s$): if the allocation is monotone in $\theta$ in one peak state, it is monotone in all peak states, and the IC constraint \eqref{IC-def} is then satisfied. Additionally, under \eqref{IC-def}, transfers $t_i(\theta,s)$ can be chosen so that, for each category $i$ and each type $\theta$, the  expected surplus satisfies, for some boundary term $\E\underline{CS}_i \in \Big[0,\E_s\big[\underline{\theta}_i U(q_i(\underline{\theta}_i,s),s)\big]\Big]$,
+Constraint \eqref{IC-def} imposes incentive compatibility in expectation over $s$. In general, this only requires monotonicity of the expected marginal payoff from reporting truthfully, and it does not, by itself, imply that $\theta\mapsto q_i(\theta,s)$ is nondecreasing for every state $s$. In our environment, however, the off-peak allocation will be independent of $\theta$, and on-peak allocations will be characterized by a first-order condition in which the dependence on $\theta$ enters through a term that does not vary with $s$. As a result, any potential failure of monotonicity (and any associated ironing) occurs across all peak states. Hence, for the purpose of the characterization, it is without loss to state monotonicity directly at the level of $q_i(\theta,s)$ (rather than at the level of its expectation over $s$): if the allocation is monotone in $\theta$ in one peak state, it is monotone in all peak states, and the IC constraint \eqref{IC-def} is then satisfied. Additionally, under \eqref{IC-def}, transfers $t_i(\theta,s)$ can be chosen so that, for each category $i$ and each type $\theta$, the  expected surplus satisfies, for some boundary term $\E\underline{CS}_i\geq 0$,
 %##########################################
 \[
 \tag{IC}\label{ICmd-def}
@@ -341,13 +289,13 @@ The program of the market designer can be expressed as:
 with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type, $\E\underline{CS}_i \in \Big[0,\E_s\big[\underline{\theta}_i U(q_i(\underline{\theta}_i,s),s)\big]\Big]$ for all $i$.
 \end{lemma}
 
-The formulation of this new program stems from the separation of the transfer problem (the choice of $t_i(\theta,s)$) from the allocation problem (the choice of $q_i(\theta,s)$). Consider the case in which either the budget constraint or the IR constraint is binding while the other constraint is slack; then, a feasible lump-sum transfer from the non-binding constraint exists that allows relaxing the binding constraint while maintaining the other constraint slack. Such lump-sum transfers are defined in Lemma 2. They are conditioned by the IC/IR constraint, such that high types do not mimic low types, i.e., the market designer is constrained to finance the investment on the utility of the allocation net of the informational rent a consumer receives, and the lowest type derives non-negative utility from participating in the mechanism (see  \cite{Myerson1981,Ledyard2007})
+The lemma separates the transfer and allocation problems. When one of the budget or IR constraints binds while the other is slack, a lump-sum transfer can be used to relax the binding constraint without violating the other. This transfer is constrained by IC/IR: the designer can only finance investment from the allocation's utility net of information rents, and the lowest type must weakly prefer to participate.
 
 Because the objective and all constraints are separable across categories $i$ except through the aggregate constraints $\sum_i \mu_i k_i = k$ and $\sum_i \mu_i I_i = I(k)$, the designer problem can be decomposed into: (i) an across-category allocation of $(k_i,I_i)$ subject to the two aggregate constraints, and (ii) for each $i$, a within-category mechanism that chooses $\{q_i(\theta,s)\}_{(\theta,s)}$ to respect capacity $k_i$ and raise revenue $I_i$.
 
 \subsection{Optimal within-category allocation}\label{sec:within}
 
-This section studies the within-category problem for a given pair $(k_i, I_i)$. The analysis proceeds in two parts. The first asks how capacity expansion reshapes welfare across types: the answer depends on how marginal virtual surplus varies across types, which determines who benefits from relaxing scarcity once incentive constraints and redistributive preferences are accounted for. The second holds capacity fixed and asks how a change in redistributive preferences reallocates quantities and welfare: here both the sorting of virtual surplus and the proportional reweighting of social priorities interact, producing a generically non-monotone welfare pattern regardless of the direction of the preference shift.
+This section studies the within-category problem for a given pair $(k_i, I_i)$. The analysis proceeds in two parts. The first asks how capacity expansion reshapes surplus across types: the answer depends on how marginal virtual surplus varies across types, which determines who benefits from relaxing scarcity once incentive constraints and redistributive preferences are accounted for. The second holds capacity fixed and asks how a change in redistributive preferences reallocates quantities and surplus: here both the sorting of virtual surplus and the proportional reweighting of social priorities interact, producing a generically non-monotone surplus pattern regardless of the direction of the preference shift.
 
 \subsubsection{Characterization}
 
@@ -418,55 +366,62 @@ ii) If \eqref{Rmdi-def} is slack at $(k_i,I_i)$, then $\beta_i=0$ and $\G_i(\the
 
 \subsubsection{Sufficient statistics}\label{sec:suffstat}
 
-With the optimality conditions in hand, the next step is to compress the comparative statics into a small set of economically meaningful objects. Rather than tracking the full allocation schedule, we isolate the two margins that matter: how additional capacity is distributed across types, and how marginal virtual surplus varies along the type distribution. Their interaction delivers a sufficient statistic that will organize the rest of the section, because it simultaneously governs welfare incidence, the response of the revenue distortion, and the feasibility of the undistorted regime.
+With the optimality conditions in hand, we know discuss two margins that will significantly drive the result of this analysis. Their interaction delivers a sufficient statistic whose sign will organize the rest of the section. In particular, it simultaneously governs surplus incidence of capacity expansion, the response of the revenue distortion, and the feasibility of the undistorted regime.
 
 To do so, define
 \[
-R_q(\theta) := -\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)}, \qquad R_\theta(\theta) := \frac{J_i(\theta)}{\mathcal{G}_i(\theta)}.
+R_q(\theta):=-\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)},
+\qquad
+R_\theta(\theta):=\frac{J_i(\theta)}{\mathcal G_i(\theta)}.
 \]
-Note that $R_q(\theta)\geq0$ since $u_q<0$. The first object, $R_q(\theta)$, is determined by the curvature of demand and governs how a marginal increase in $k_i$ is distributed across types at the optimal allocation: if $R_q(\theta)$ is decreasing in $\theta$, then as capacity expands, lower types receive a higher share than higher types. The second, $R_\theta(\theta)$, reflects both the type distribution and the redistributive preferences of the designer, and governs how marginal virtual surplus $u(q_i,s)J_i(\theta)$ varies across types: if $R_\theta(\theta)$ is increasing in $\theta$, then the marginal virtual surplus tends to be lower for lower types.\footnote{Formally: $\operatorname{sign}\frac{\partial}{\partial\theta}\!\left(\frac{\partial q_i(\theta,s)}{\partial k}\right) = \operatorname{sign}\, R_q'(\theta)$ and $\operatorname{sign}\frac{\partial}{\partial\theta}\!\left(u(q_i(\theta,s),s)J_i(\theta)\right) = \operatorname{sign}\, R_\theta'(\theta)$.} Crucially, $J_i(\theta)$ need not be positive: even when a consumer has negative virtual surplus, their marginal contribution to the objective may remain positive.\footnote{Assumption~\ref{ass:interior} imposes exactly this: all consumers have a strictly positive contribution to the surplus, which is equivalent to requiring $\Lambda_i(\theta)>-J_i(\theta)(\tilde\lambda_i+\beta_i)$.}
+Note that $R_q(\theta)\geq0$ since $u_q<0$. The first object, $R_q(\theta)$, is determined by the curvature of demand and governs how a marginal increase in $k_i$ is distributed across types at the optimal allocation (we also use the term responsiveness). The second, $R_\theta(\theta)$, reflects both the type distribution and the redistributive preferences of the designer, and governs how marginal virtual surplus $u(q_i,s)J_i(\theta)$ varies across types.\footnote{If $R_q(\theta)$ is decreasing in $\theta$, then as capacity expands, lower types receive a higher share than higher types. If $R_\theta(\theta)$ is increasing in $\theta$, then the marginal virtual surplus tends to be lower for lower types. Formally: $\operatorname{sign}\frac{\partial}{\partial\theta}\!\left(\frac{\partial q_i(\theta,s)}{\partial k}\right) = \operatorname{sign}\, R_q'(\theta)$ and $\operatorname{sign}\frac{\partial}{\partial\theta}\!\left(u(q_i(\theta,s),s)J_i(\theta)\right) = \operatorname{sign}\, R_\theta'(\theta)$.} Crucially, $J_i(\theta)$ need not be positive: even when a consumer has negative virtual surplus, their marginal contribution to the objective may remain positive from Assumption~\ref{ass:interior}.
 
-Next, define the weights
-%##########################################
+Define the weights
 \[
-  w_i(\theta,s):=-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\G_i(\theta)}, \qquad \overline w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right],
+w_i(\theta,s):=-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\mathcal G_i(\theta)},
+\quad
+\overline w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right], \quad \Omega_i:= \E_s\left[\frac{1}{\overline{w}_i(s)}\mathbf 1_{\{s\in T_i\}}\right]
 \]
-%##########################################
-Those weights represent the departure from the first-best allocation without redistributive preferences. As previously discussed, in this context, the marginal utility is equalized across types by a scalar. On the other hand, redistributive preferences create systematic differences in unweighted marginal utilities across types. Then defined the $w_i$-weighted average of the marginal virtual surplus
-%##########################################
+Those weights represent the departure from the first-best allocation without redistributive preferences as they create systematic differences in marginal utilities across types. Then defined the $w_i$-weighted average of the marginal virtual surplus
 \[
-  \E^w_i[uJ\mid s] :=\frac{1}{\overline w_i(s)} \E_{\theta_i}\!\left[w_i(\theta,s)\, u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right] =\frac{1}{\overline w_i(s)} \E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]. 
+\E_i^w[uJ\mid s]
+:=
+\frac{1}{\overline w_i(s)}
+\E_{\theta_i}\!\left[w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right]
+=
+\frac{1}{\overline w_i(s)}
+\E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right].
 \]
-%##########################################
-And in particular, its average over the on-peak period
-%##########################################
+Its average over binding states becomes the central sufficient statistics
 \begin{equation}
- \mathbb E_s\!\left[
-\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\,\right]. \tag{EuJ}\label{Eujmd}
+\mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]. \tag{EuJ}\label{Eujmd}
 \end{equation}
-%##########################################
 
-\eqref{Eujmd} depends on two dimensions: (i)~how the additional capacity is shared between types, captured by $R_q(\theta)$, and (ii)~how the marginal virtual surplus changes across types, captured by $R_\theta(\theta)$. The interaction between these two dimensions is formalised by the following condition:
-%##########################################
+Assumption~\ref{ass:CARA} greatly simplifies the expression which becomes $\frac{\Omega_i}{\alpha} E_{\theta_i}[R_\theta(\theta)]$.
+The statistic \eqref{Eujmd} combines two margins: how extra capacity is allocated across types, through \(R_q\), and how socially valuable those marginal allocations are, through \(R_\theta\). Equivalently,
 \begin{equation}
-  \E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right] = \E_{\theta_i}[R_\theta(\theta)]\,\E_{\theta_i}[R_q(\theta)] + \operatorname{Cov}_{\theta_i}\!\left(R_\theta(\theta),R_q(\theta)\right) \geq 0. \tag{signEuJ}\label{signEuJ}
+\E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+=
+\E_{\theta_i}[R_\theta(\theta)]\,\E_{\theta_i}[R_q(\theta)]
++
+\Cov_{\theta_i}\!\left(R_\theta(\theta),R_q(\theta)\right). \tag{signEuJ}\label{signEuJ}
 \end{equation}
-%##########################################
-The covariance term captures the \textit{capacity sorting effect}: it is adverse when the covariance in \eqref{signEuJ} is negative. For instance, if $R_q(\theta)$ is decreasing and $R_\theta(\theta)$ is increasing, then the lowest marginal virtual surplus is concentrated at the lowest $\theta$. In other words, as $k_i$ increases, a greater weight is placed on types with a potentially negative marginal virtual surplus. A decreasing virtual surplus ($J_i(\theta)<0$) implies that increasing $k_i$ reduces the budget the market designer can raise from those consumers. Therefore, the condition highlights the fundamental trade-off the market designer faces: increasing the allocation of a type, given its social weight, may conflict with revenue maximisation due to the IC constraint on higher types.
+The covariance term captures a capacity-sorting effect: it is adverse when additional capacity is tilted toward types with lower marginal virtual surplus.\footnote{For instance, if $R_q(\theta)$ is decreasing and $R_\theta(\theta)$ is increasing, then the lowest marginal virtual surplus is concentrated at the lowest $\theta$. In other words, as $k_i$ increases, a greater weight is placed on types with a potentially negative marginal virtual surplus. A decreasing virtual surplus ($J_i(\theta)<0$) implies that increasing $k_i$ reduces the budget the market designer can raise from those consumers. Therefore, the condition highlights the fundamental trade-off the market designer faces: increasing the allocation of a type, given its social weight, may conflict with revenue maximisation due to the IC constraint on higher types.}
 
-The sign of \eqref{Eujmd} simultaneously governs three comparative-statics objects: $\partial\E\underline{CS}_i/\partial k_i$, the sign of $\partial\beta_i/\partial k_i$ on the IR-constrained region, and the reallocation component of $\partial q_i(\theta,s)/\partial k_i$; the derivation is shown in the preliminary step of the proof of Lemma~\ref{lem:SC-dir}. These objects in turn govern the marginal welfare and redistributive aspect of a capacity extension (Theorem~\ref{thm:welfare}) and the feasibility of the optimal allocation (Proposition~\ref{prop:implementation}). To obtain a sharp characterization of the sign of \eqref{Eujmd}, we impose the following regularity condition.
+To obtain a sharp characterization, we impose the following regularity condition.
 
 \renewcommand{\theassumption}{Monot.}
 \begin{assumption}\label{ass:monotone}
-$R_q(\theta)$ and $R_\theta(\theta)$ are both monotone on $[\underline{\theta}_i,\overline{\theta}_i]$. Moreover, $R_q(\theta)$ exhibits log-monotone differences in \((\theta,k_i)\)
+\(R_q(\theta)\) and \(R_\theta(\theta)\) are both monotone on \([\underline{\theta}_i,\overline{\theta}_i]\). Moreover, \(R_q(\theta)\) exhibits log-monotone differences in \((\theta,k_i)\).
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
-The primitive foundations and implications of Assumption~\ref{ass:monotone} are discussed in Appendix~XXXX. Assumption~\ref{ass:monotone} is used only to obtain a sharp threshold characterization: Appendix~XXXX shows that it implies that \eqref{Eujmd} is single-crossing in \(k_i\). When the assumption fails, the same sufficient statistic remains valid, but its sign need not vary monotonically with \(k_i\), so multiple crossings may arise.\footnote{This contrasts with Assumptions~\ref{ass:CARA} and~\ref{ass:mult}, which are introduced only as simplifying restrictions in later results. Their role is to simplify the dependence of \(R_q\) on the allocation and the state, thereby yielding sharper closed-form implications.}
+Assumption~\ref{ass:monotone} is used only to obtain a sharp threshold characterization. In particular, we show in Appendeix Lemma~XXXX that it implies that \eqref{Eujmd} is single-crossing in \(k_i\). When the assumption fails, the same sufficient statistic remains valid, but its sign need not vary monotonically with \(k_i\).
 
-\subsubsection{Redistributive effects of capacity expansion}\label{sec:welfare}
 
-We now use this sufficient statistic to study the central within-category question: who benefits from a marginal increase in capacity? The answer is not mechanical. Even though a larger $k_i$ relaxes scarcity, the welfare gains from this relaxation need not accrue to all types once incentive constraints and revenue extraction are taken into account. This subsection shows that the incidence of capacity expansion is pinned down by the sign of \eqref{Eujmd} together with the ordering of types induced by $R_\theta(\theta)$.
+\subsubsection{Redistributive effects of capacity expansion}\label{sec:surplus}
+
+We now use this sufficient statistic to study the central within-category question: who benefits from a marginal increase in capacity? Even though a larger $k_i$ relaxes scarcity, the surplus gains from this relaxation need not accrue to all types once incentive constraints and revenue extraction are taken into account. This subsection shows that the incidence of capacity expansion is pinned down by the sign of \eqref{Eujmd} together with the ordering of types induced by $R_\theta(\theta)$.
 
 The individual surplus change follows from \eqref{ICmd-def}:
 %##########################################
@@ -481,10 +436,10 @@ To interpret both terms, we first record how the optimal allocation responds to 
 \end{equation}
 %##########################################
 
-Two observations: when \eqref{Rmdi-def} binds (the IR-constrained allocation), the boundary term equals zero: the entire welfare change is then carried by the IC rent in \eqref{partialkCS1}. On the other hand,  when \eqref{Rmdi-def} is slack (the IR-unconstrained allocation), then the second term in \eqref{partialkq1} is null as $\beta_i = 0$.
+Two observations: when \eqref{Rmdi-def} binds (the IR-constrained allocation), the boundary term equals zero: the entire surplus change is then carried by the IC rent in \eqref{partialkCS1}. On the other hand,  when \eqref{Rmdi-def} is slack (the IR-unconstrained allocation), then the second term in \eqref{partialkq1} is null as $\beta_i = 0$.
 
 
-\begin{theorem}[Redistributive effects of capacity expansion]\label{thm:welfare}
+\begin{theorem}[Redistributive effects of capacity expansion]\label{thm:surplus}
 Fix category \(i\) and a budget requirement \(I_i>0\). Define the set of cutoffs 
 %%%%%%%%%%%%%%%%
 \[\tilde\Theta_i := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \partial\E CS_i(\tilde\theta_i)/\partial k_i=0\right\}.\]
@@ -499,21 +454,14 @@ Fix category \(i\) and a budget requirement \(I_i>0\). Define the set of cutoffs
 If \(R_\theta(\theta)\) is decreasing, the inequalities are reversed.
 \end{theorem}
 
-Expanding capacity is therefore not always surplus-improving for all consumers, and which types gain depends on the regime and on the joint sign configuration of \eqref{Eujmd} and $R_\theta(\theta)$, as we now detail.
+Expanding capacity is not always surplus-improving for all consumers, and the identity of the winners depends on the regime and on the joint sign of \eqref{Eujmd} and \(R_\theta(\theta)\).
 
-When the participation constraint is slack ($\beta_i=0$), the second term in parentheses in \eqref{partialkq1} vanishes, so the optimal allocation is increasing in $k_i$ for all types during on-peak states and constant off-peak. However, the monotonicity of the allocation in $k_i$ is not sufficient for the capacity expansion to benefit all consumers. Indeed, the boundary term in \eqref{partialkCS1} then corresponds to an equal change in surplus across all types, while the IC rent captures the additional incentive rents induced by the change in $q_i$. If \eqref{Eujmd} is positive, both terms are positive: the common component and the IC rent both increase with $k_i$, so an increase in $k_i$ improves the welfare of all consumers. If \eqref{Eujmd} is negative, lower types are harmed. Indeed, the cross-partial derivative satisfies
-%##########################################
-\[
-  \frac{\partial^2\E CS_i(\theta)}{\partial k_i\,\partial\theta} =\E_s\!\left[\frac{\partial q_i(\theta,s)}{\partial k_i} u\!\left(q_i(\theta,s),s\right)\right],
-\]
-%##########################################
-which is strictly positive in the IR-unconstrained allocation: the boundary term does not depend on $\theta$, while the marginal IC rent is increasing in $\theta$. This monotonicity property yields uniqueness of the cutoff in part~(ii), as well as the ordering of types that experience a decrease in surplus.
+When the participation constraint is slack (\(\beta_i=0\)), the optimal allocation is increasing in \(k_i\) for all types in binding states and unchanged off-peak. But this monotonicity of quantities does not imply that all consumers gain: surplus is in particular governed by the type-independent component in the expression \eqref{partialkCS1}, which itself depends on the sign of \eqref{Eujmd}. If \eqref{Eujmd}>0, both the common surplus component and the induced IC rents increase with \(k_i\), so all types gain. If \eqref{Eujmd}<0, lower types lose while higher types gain, with a unique cutoff as stated in Theorem~\ref{thm:surplus}.\footnote{Intuitively, the type-independent component can be seen as the surplus available to the designer after having cover the required budget and the informational rents. \eqref{Eujmd} captures its marginal change with respect to $k_i$. We show in the proof that the type-dependent part in \eqref{partialkCS1} (the margin IC rent) is increasing in $\theta$. This monotonicity property yields uniqueness of the cutoff in part~(ii), as well as the ordering of types that experience a decrease in surplus.}
 
-Under the IR-constrained allocation (i.e., when \eqref{Rmdi-def} binds), the allocation must be distorted so that expected revenue equals the budget. This distortion is captured by the second term in parentheses in \eqref{partialkq1}. We show in the proof that $\beta_i$ is differentiable in $k_i$ on the IR-constrained region, and that the sign of $\partial\beta_i/\partial k_i$ is governed by the sign of \eqref{Eujmd}. The bracketed term in \eqref{partialkq1} is the deviation of a type's marginal virtual surplus $u(q_i(\theta,s),s)J_i(\theta)$ from its $w_i$-weighted average; its sign is therefore determined by the relative ranking of types according to marginal virtual surplus, which is captured by $R_\theta(\theta)$. If $R_\theta(\theta)$ is monotone, this deviation changes sign at most once, yielding a unique cutoff and the type-ranking described in Theorem~\ref{thm:welfare}. To interpret the condition, suppose expanding $k_i$ makes the budget less tight, so that $\beta_i$ decreases in $k_i$. The need for revenue extraction then falls, and the designer lowers the marginal weight on types that generate higher marginal virtual surplus. The sign of $R_\theta(\theta)$ pins down which types those are. For a given $s$, individual surplus is single-crossing in types under monotone $R_\theta$. However, this need not survive aggregation over $s$, since different states may have crossing points at different $\theta$. Multiplicative separability ensures that the allocation is $s$-independent on the binding region, so the crossing point is common across states and single-crossing is preserved in expectation.
+When the participation constraint binds the type-dependent component is null so the surplus effect of capacity expansion is driven by the quantity. However, the monotonicity of quantities fails as capacity expansion also changes the tightness of the financing constraint through the endogenous response of \(\beta_i\) as shown in \eqref{partialkq1}. The bracketed term in the expression is the deviation of a type's marginal virtual surplus $u(q_i(\theta,s),s)J_i(\theta)$ from its $w_i$-weighted average; its sign is therefore determined by the relative ranking of types according to marginal virtual surplus, which is captured by $R_\theta(\theta)$. Assumption~\ref{ass:monotone} yields a unique cutoff and the type-ranking described in Theorem~\ref{thm:surplus}. The sign of \(\partial \beta_i/\partial k_i\) is again governed by \eqref{Eujmd}.\footnote{To interpret the condition, suppose expanding $k_i$ makes the budget less tight, so that $\beta_i$ decreases in $k_i$. The need for revenue extraction then falls, and the designer lowers the marginal weight on types that generate higher marginal virtual surplus.} Finally, under multiplicative separability, this single-crossing structure is preserved after aggregation over states.
 
-The sufficient statistic in \eqref{Eujmd} does more than characterize the welfare incidence of capacity expansion. It also determines whether the IR-unconstrained allocation remains feasible as capacity increases, and therefore how the economy moves between the undistorted regime \(\beta_i=0\) and the distorted regime \(\beta_i>0\). Appendix Proposition~\ref{prop:implementation} characterizes the geometry of this implementation region: depending on whether \eqref{Eujmd} crosses zero from \(+\) to \(-\) or from \(-\) to \(+\), the set of capacities for which the IR-unconstrained allocation is feasible is respectively single-peaked or single-dipped. Thus, the same object that governs the welfare incidence of a marginal capacity expansion also governs the transition across implementation regimes. This distinction matters for the across-category problem studied next. Even categories with similar primitives may differ sharply in whether an additional unit of capacity relaxes or tightens the financing constraint, and therefore in whether their marginal value of capacity is governed purely by scarcity or also by the endogenous response of \(\beta_i\).
+In Appendix Proposition~\ref{prop:implementation}, we show that \eqref{Eujmd} also governs the transition between the IR-unconstrained and IR-constrained regimes. Figure~\ref{fig:impl_surplus} summarizes this regime geometry, while Appendix  provides the full characterization. A direct implication is that the redistributive effect of additional capacity need not be invariant to the installed capacity level: the same marginal expansion can be progressive at low \(k_i\) and regressive at high \(k_i\).
 
-Figure~\ref{fig:impl_welfare} synthesizes the joint implications of Lemma~\ref{lem:SC-dir}, Proposition~\ref{prop:implementation}, and Theorem~\ref{thm:welfare}. Two features are worth emphasizing. First, the welfare effect of a capacity expansion is governed entirely by the sign of \eqref{Eujmd}, which switches at $k^\ast$, and by IR-regime boundaries. Second, under case~(ii) of Proposition~\ref{prop:implementation}, the single-peakedness of \eqref{Eujmd} and its negative value at $k_i=0$ jointly guarantee the ordering $\tilde k_i^- < k^\ast < \tilde k_i^+$, so all four regions are generically non-empty, with degenerate cases arising only when extreme segments collapse. A direct implication is that the redistributive consequences of capacity expansion are not invariant to the existing level of installed capacity: the same incremental investment can be progressive at low capacity levels and regressive at high ones.
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[x=1.4cm, y=1cm]
@@ -569,13 +517,13 @@ Figure~\ref{fig:impl_welfare} synthesizes the joint implications of Lemma~\ref{l
 }
 \node[left, font=\small] at (-0.2, 0) {(b)};
 \end{tikzpicture}
-\caption{Joint characterization of the implementation regime and welfare effects of capacity expansion. Panel (a): submodular $R_q$ and increasing $R_\theta(\theta)$, so \eqref{Eujmd} crosses from $+$ to $-$. Panel (b): supermodular $R_q$ and decreasing $R_\theta(\theta)$, so \eqref{Eujmd} crosses from $-$ to $+$. In both panels, the welfare character (who gains from an increase in $k_i$) is governed by the sign of \eqref{Eujmd}, independently of the IR regime.}
-\label{fig:impl_welfare}
+\caption{Joint characterization of the implementation regime and surplus effects of capacity expansion. Panel (a): submodular $R_q$ and increasing $R_\theta(\theta)$, so \eqref{Eujmd} crosses from $+$ to $-$. Panel (b): supermodular $R_q$ and decreasing $R_\theta(\theta)$, so \eqref{Eujmd} crosses from $-$ to $+$. In both panels, who gains from an increase in $k_i$ is governed by the sign of \eqref{Eujmd}, independently of the IR regime.}
+\label{fig:impl_surplus}
 \end{figure}
 
 \subsubsection{Redistributive preferences and optimal allocation}\label{sec:redist}
 
-The previous subsection asked how a given redistributive objective shapes the welfare consequences of capacity expansion. We now reverse the question: holding $k_i$ fixed, how does a change of redistributive preferences reshape the optimal allocation? This allows us to study how incentive constraints shape the incidence of redistributive preference changes for a given capacity constraint. This comparative static is also the building block of the across-category analysis in Section~\ref{sec:across}: comparing the optimal allocations of two categories that differ marginally in preferences is equivalent to evaluating the local effect of a preference perturbation at fixed capacity.
+The previous subsection asked how a given redistributive objective shapes the surplus consequences of capacity expansion. We now reverse the question: holding $k_i$ fixed, how does a change of redistributive preferences reshape the optimal allocation? This allows us to study how incentive constraints shape the incidence of redistributive preference changes for a given capacity constraint. This comparative static is also the building block of the across-category analysis in Section~\ref{sec:across}: comparing the optimal allocations of two categories that differ marginally in preferences is equivalent to evaluating the local effect of a preference perturbation at fixed capacity.
 
 Let $\Delta\lambda_i(\theta)$ denote the marginal perturbation of redistributive preferences. The induced change in the welfare weight is
 %##########################################
@@ -612,7 +560,9 @@ $1\le c_{\G}\le c_\Lambda$ and
 \end{lemma}
 
 Recall that the function $\Lambda_i(\theta)$ measures the social value of the information rent given to types above $\theta$, evaluated at the welfare weights. The first part of the Lemma states that a proportional tilt of welfare weights toward higher types shifts the perturbed term $\Lambda_i^\Delta(\theta)$ upward relative to the baseline $\Lambda_i(\theta)$ across the type space.\footnote{The first result of the Lemma has a direct implication for the sign of $R'_\theta(\theta)$. From expression \eqref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. As a maintained example, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), the condition in \eqref{signRt} is easier to satisfy under a preference shift toward higher types, since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}.
-} The second part connects the direction of a preference shift to the sign of $\Delta\mathcal{G}_i(\theta)$, but requires two conditions: the effective weight must not decrease on average ($1 \le c_{\mathcal{G}}$), and the average preference shift must be at least as large as the effective-weight shift after accounting for the budget shadow cost ($c_{\mathcal{G}} \le c_\Lambda$). The ``in particular'' part simplifies these conditions under two special cases on the equilibrium object $\beta_i$, which will be used later for the across-category results: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises the effective social weight pointwise; and conversely, shifting proportionally toward lower types while not increasing the average weight lowers it. A standard perturbation in the redistribution literature is a mean-preserving rotation of $\lambda_i(\theta)$: $\Delta\tilde\lambda_i=0$. Under such a rotation, $\Delta\mathcal{G}_i(\theta)$ has a constant sign throughout the type space: positive when the rotation favors higher types, negative when it favors lower types.
+} The second part connects the direction of a preference shift to the sign of $\Delta\mathcal{G}_i(\theta)$, but requires two conditions: the effective weight must not decrease on average ($1 \le c_{\mathcal{G}}$), and the average preference shift must be at least as large as the effective-weight shift after accounting for the budget shadow cost ($c_{\mathcal{G}} \le c_\Lambda$). The ``in particular'' part simplifies these conditions under two special cases on the equilibrium object $\beta_i$, which will be used later for the across-category results: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, raises the effective social weight pointwise; and conversely, shifting proportionally toward lower types while not increasing the average weight lowers it. A standard perturbation in the redistribution literature is a (monotonic) mean-preserving rotation of $\lambda_i(\theta)$: $\Delta\tilde\lambda_i=0$. Under such a rotation, $\Delta\mathcal{G}_i(\theta)$ has a constant sign throughout the type space: positive when the rotation favors higher types, negative when it favors lower types.
+
+The following lemma characterizes the change in optimal allocation with respect to a change of preferences in terms of the sufficient statistics.
 
 \begin{lemma}[Reallocation under preference perturbations]\label{lem:realloc}
 Fix category \(i\) and a across allocation \((k_i,I_i)\) For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
@@ -621,7 +571,7 @@ Fix category \(i\) and a across allocation \((k_i,I_i)\) For any local perturbat
 \]
 \end{lemma}
 
-To interpret Lemma~\ref{lem:realloc}, note that the sign of $\Delta q_i(\theta,s)$ is determined by whether the preference change raises the marginal social valuation of type $\theta$ by more or less than the equilibrium adjustment in the scarcity rent. Linearizing the pointwise first-order condition makes this precise:
+To interpret Lemma~\ref{lem:realloc}, note that the sign of $\Delta q_i(\theta,s)$ is determined by whether the preference change raises the marginal social valuation of type $\theta$ by more or less than the equilibrium adjustment in the scarcity rent. Indeed, linearizing the pointwise first-order condition yields
 \[
 \Delta q_i(\theta,s)
 =
@@ -629,36 +579,33 @@ w_i(\theta,s)\bigl(u(q_i,s)\,\Delta\mathcal{G}_i(\theta)-\Delta\varepsilon_i(s)\
 =
 R_q(\theta)\!\left(R_{\mathcal G}(\theta)-\mathbb E_i^w\!\left[R_{\mathcal G}\mid s\right]\right).
 \]
-Type $\theta$ receives more quantity if and only if its proportional change in effective social weight exceeds the capacity-weighted average. Since capacity is fixed, the reallocation is zero-sum across types within each binding state:
-\[
-\mathbb E_{\theta_i}\!\left[\Delta q_i(\theta,s)\right]=0
-\qquad\text{for each } s\in T_i.
-\]
-Lemma~\ref{lem:realloc} is therefore also the key building block for the across-category analysis: the same statistic $R_{\mathcal G}$ that determines who gains quantity within a category will later determine which categories receive more capacity.
+Type $\theta$ receives more quantity if and only if its proportional change in effective social weight exceeds the capacity-weighted average. Since capacity is fixed, the reallocation is zero-sum across types within each binding state: $\mathbb E_{\theta_i}\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$.
 
-The sorting effect induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ is generically non-monotone in types, so a tilt of preferences toward higher or lower types does not translate into a monotone quantity reallocation. Appendix Corollary~\ref{cor:rprefreallocation} further shows that, under mean-preserving perturbations, the induced gains and losses must occur at the type boundaries in the opposite direction from the interior reallocation. 
+The sorting effect induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ is generically non-monotone in types, so a tilt of preferences toward higher or lower types does not translate into a monotone quantity reallocation.\footnote{Take  the covariance term in \eqref{signEuJ}, then a perturbation in preference yields $\Cov_{\theta_i}\!\left(R_\theta(\theta),\Delta R_q(\theta)\right) + \Cov_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)$. The non-monotonicity in $\Delta q$ prevent signing the first term and by extension the effect of a perturbation on the sign of \eqref{Eujmd}. Assumption~\ref{ass:CARA} avoid this failure by shutting down the behavioral effect of a perturbation on the final equilibrium as $\Delta R_q(\theta)=0$.} Appendix Corollary~\ref{cor:rprefreallocation} further shows that, under mean-preserving perturbations, the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
 
-We conclude by characterizing the welfare effect of a change in preferences.
+We conclude by characterizing the surplus effect of a change in preferences.
 
 
-\begin{proposition}[Welfare effects of redistributive preference perturbations]\label{prop:welfare-redist}
+\begin{proposition}[Surplus effects of redistributive preference perturbations]\label{prop:surplus-redist}
 Assume Assumption~\ref{ass:CARA} and unimodality of $R_{\mathcal{G}}(\theta)$. Define the set of cutoffs
 \[
 \tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\mathbb{E}CS_i(\tilde\theta_i)=0\right\}.
 \]
-\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $\Delta\mathcal{G}_i(\theta)\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $\Delta\mathcal{G}_i(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
 
 \noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\mathbb{E}CS_i(\theta)$ is jointly determined by two signs: $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$, which governs the starting value,
 \[\sign\!\left(\Delta\mathbb{E}CS_i(\underline\theta_i)\right)=\sign\!\left(\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})\right),\]
-and $\Delta\mathcal{G}_i(\theta)$, which governs the interior shape. If $\Delta\mathcal{G}_i(\theta)\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})>0$, and $-,+,-$ when $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})<0$. If $\Delta\mathcal{G}_i(\theta)\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
+and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})>0$, and $-,+,-$ when $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
+
+\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_{\G}\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_{\G}\le 0$ for all $\theta$, the inequalities are reversed.
 \end{proposition}
 
 
-Proposition~\ref{prop:welfare-redist} delivers a sharp lesson for redistributive policy. Even when the direction of a preference shift is unambiguous (see  Lemma~\ref{lem:preferenceorder}), the resulting welfare changes are generically non-monotone across types. The reason is that two forces operate simultaneously and in opposite directions for different types. First, the capacity constraint makes reallocation zero-sum. Second, the IC structure means that the boundary surplus $\Delta\mathbb{E}\underline{CS}_i$ shifts uniformly across all types, independently of where the preference change is concentrated. Together, these two forces create interior reversals in the welfare profile regardless of the direction of the preference shift, generating up to four alternating regions of winners and losers. A policymaker who observes only that preferences have shifted toward, say, lower types cannot therefore infer that lower types will benefit: whether they do depends on the curvature of demand and the IC structure of the allocation, not just the direction of the shift.\footnote{Under Assumption~\ref{ass:CARA}, the precise number of regions depends on the individual surplus of the highest type, whose sign is governed by the weighted integral of $R_{\mathcal{G}}(\theta)$ around its mean: $\mathbb{E}_{\theta_i}\!\left[(R_{\mathcal{G}}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal{G}}(\theta)])/\mathcal{G}_i(\theta)\right]$.}
+Proposition~\ref{prop:surplus-redist} delivers a sharp lesson for redistributive policy. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{As in Theorem~\ref{thm:surplus}, Assumption~\ref{ass:mult} is sufficient to show that the individual surplus effect is generally non-monotone across types.   Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term. In particular, the sign of the surplus change for the highest type is governed by the weighted integral $\mathbb{E}_{\theta_i}\!\left[\frac{R_{\mathcal G}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta)]}{\mathcal G_i(\theta)}\right]$.
+The unimodality of \(R_{\mathcal G}\) is used only to limit the number of sign changes of \(\Delta \mathbb{E}CS_i(\theta)\). If \(R_{\mathcal G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.} The reason is that two forces operate simultaneously and in opposite directions for different types. First, the capacity constraint makes reallocation zero-sum. Second, the IC structure means that the boundary surplus $\Delta\mathbb{E}\underline{CS}_i$ shifts uniformly across all types, independently of where the preference change is concentrated. Together, these two forces create interior reversals in the surplus profile regardless of the direction of the preference shift, generating up to four alternating regions of winners and losers. The market designer who observes only that preferences have shifted toward, say, lower types cannot therefore infer that lower types will benefit: whether they do depends on the curvature of demand and the IC structure of the allocation, not just the direction of the shift.
 
-The result stems directly from the analysis of the change in the optimal allocation. Indeed, the individual welfare change for type $\theta$ satisfies
+The result stems directly from the analysis of the change in the optimal allocation. Indeed, the individual surplus change for type $\theta$ satisfies
 \[\frac{\partial\Delta\mathbb{E}CS_i(\theta)}{\partial\theta} = \mathbb{E}_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
-whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]$ since $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Unimodality of $R_{\mathcal{G}}(\theta)$ — equivalently, single-crossing of the derivative in $\theta$ — ensures that $R_{\mathcal{G}}(\theta)$ crosses its capacity-weighted mean at most twice, generating at most two turning points in the welfare profile.\footnote{Note that the unimodality assumption is used only to bound the number of alternating regions. The result should therefore be interpreted as a lower bound on possible alternating regions.} Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$ is $s$-independent, which allows the sign of the boundary term $\Delta\mathbb{E}\underline{CS}_i$ to have the sign of the covariance $\overline\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$; without CARA, both the derivative and the boundary term involve $s$-dependent weighted averages that cannot be signed without additional structure.
+where $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Unimodality of $R_{\mathcal{G}}(\theta)$ (i.e single-crossing of the derivative in $\theta$) ensures that $R_{\mathcal{G}}(\theta)$ crosses its capacity-weighted mean at most twice, generating at most two turning points in the surplus profile.
 
 \begin{figure}[h]
 \centering
@@ -686,8 +633,8 @@ whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mat
 \node[blue, font=\small, anchor=west] at (2.9, 0.6) {$\Delta\mathcal{G}_i\ge 0,\ \mathrm{Cov}>0$};
 \node[red, font=\small, anchor=west] at (2.9, -0.6) {$\Delta\mathcal{G}_i\le 0,\ \mathrm{Cov}<0$};
 \end{tikzpicture}
-\caption{Welfare effect of a preference perturbation across types under Proposition~\ref{prop:welfare-redist}. The blue curve starts at $\Delta\mathbb{E}CS_i(\underline\theta_i)>0$ and the red curve at $\Delta\mathbb{E}CS_i(\underline\theta_i)<0$, both determined by $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$. Both generate four alternating regions of winners and losers and are mirror images of each other.}
-\label{fig:welfare-redist}
+\caption{Surplus effect of a preference perturbation across types under Proposition~\ref{prop:surplus-redist}. The blue curve starts at $\Delta\mathbb{E}CS_i(\underline\theta_i)>0$ and the red curve at $\Delta\mathbb{E}CS_i(\underline\theta_i)<0$, both determined by $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$. Both generate four alternating regions of winners and losers and are mirror images of each other.}
+\label{fig:surplus-redist}
 \end{figure}
 
 
@@ -698,17 +645,21 @@ provides a formal bridge between the two sufficient statistics that govern both 
 \end{remark}
 
 \subsection{Across category allocation}\label{sec:across}
-Having characterized the within-category problem, we now return to the designer's outer allocation problem. The question is no longer how a given category adjusts to $(k_i,I_i)$, but how total capacity and total revenue requirements should be distributed across categories. The key idea is that the same objects governing welfare incidence and preference reallocation within a category — the sorting of virtual surplus and the proportional reweighting of social priorities — also drive the across-category comparison, now reducing it to a ranking of marginal capacity values and effective marginal costs of revenue extraction across groups.
+Having characterized the within-category problem, we now return to the designer's outer allocation problem. The question is now how total capacity and total revenue requirements should be distributed across categories. The key idea is that the same objects governing surplus incidence and preference reallocation within a category (the sorting of virtual surplus and the proportional reweighting of social priorities) also drive the across-category comparison.
 
 \subsubsection{Characterization}
 
-Because the objective and all constraints in Lemma~\ref{lem:Transfer} are separable across categories except through the two aggregate constraints $\sum_{i \in N} \mu_i k_i = k$ and $\sum_{i \in N} \mu_i I_i = I(k)$, the designer problem decomposes into: (i) an outer allocation of $(k_i, I_i)$ across categories subject to the two aggregate constraints, and (ii) for each $i$, an inner optimization over $q_i(\theta,s)$ given $(k_i, I_i)$. The outer problem is to choose $\{k_i, I_i\}_{i \in N}$ to solve
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We now turn to the across-category problem. Given the within-category value functions \(V_i(k_i,I_i)\), the designer chooses \(\{k_i,I_i\}_{i\in N}\) to solve
 \[
-\max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N}\mu_i\,V_i(k_i,I_i),
+\max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N}\mu_i\,V_i(k_i,I_i)
 \]
+subject to
 \[
-\text{s.t.}\quad \sum_{i\in N} \mu_i k_i = k, \qquad \sum_{i\in N} \mu_i I_i = I(k), \qquad k_i\ge 0, \qquad I_i\ge 0 \quad \forall i\in N.
+\sum_{i\in N}\mu_i k_i = k,
+\qquad
+\sum_{i\in N}\mu_i I_i = I(k),
+\qquad
+k_i\ge 0,\quad I_i\ge 0 \quad \forall i\in N.
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 where $V_i(k_i, I_i)$ is the within-category value function defined as
@@ -717,9 +668,7 @@ where $V_i(k_i, I_i)$ is the within-category value function defined as
 V_i(k_i, I_i) \;:=\; \max_{q_i(\theta,s)} \;\mathbb{E}_{(s,\theta_i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)\right] - \tilde\lambda_i I_i
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-subject to incentive compatibility and the category-specific constraints. This representation follows from Lemma~\ref{lem:Transfer} and the binding revenue constraint established in Section~\ref{sec:within}: $V_i(k_i,I_i)$ captures the total weighted consumer surplus the designer can achieve in category $i$ given capacity allocation $k_i$ and revenue requirement $I_i$, after optimizing over the incentive-compatible allocation rule.
-
-By the envelope theorem applied to the within-category problem, the two partial derivatives of $V_i$ are
+subject to incentive compatibility and the category-specific constraints. By the envelope theorem applied to the within-category problem, the two partial derivatives of $V_i$ are
 \[
 \partial_{k_i} V_i(k_i,I_i) \;=\; \overline \varepsilon_i \; , \qquad \partial_{I_i} V_i(k_i,I_i) \;=\; -\tilde\lambda_i - \beta_i(k_i,I_i).
 \]
@@ -727,7 +676,7 @@ where $\overline \varepsilon_i =\mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}
 The decomposition highlights that the across-category problem is governed by two marginal objects. First,
 \[
 \Pi_i(k_i,I_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \mathbb{E}_{(s,\theta_i)}\!\left[ u(q_i(\theta,s),s)\,\G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right], \]
-is the expected shadow value of relaxing the category-specific capacity constraint. It measures the social gain from assigning one more unit of system capacity to category \(i\). This marginal effect is much simpler than the individual welfare effects studied in Section~\ref{sec:welfare} and in particular the result of Theorem~\ref{thm:welfare}: while the latter depend on the full response of the optimal allocation and transfers, the envelope theorem implies that, at the category level, an additional unit of capacity is valued exactly at the expected scarcity rent. In particular, \(\Pi_i(k_i,I_i)\) is strictly positive whenever category \(i\) is capacity-constrained with positive probability, since \(\varepsilon_i(s)>0\) in every on-peak state. Equivalently, \(\Pi_i(k_i,I_i)\) can be interpreted as the expected marginal utility generated by extra capacity, weighted by the effective social weight \(\G_i(\theta)\).
+is the expected shadow value of relaxing the category-specific capacity constraint. It measures the social gain from assigning one more unit of system capacity to category \(i\). This marginal effect is much simpler than the individual surplus effects studied in Section~\ref{sec:surplus} and in particular the result of Theorem~\ref{thm:surplus}: while the latter depend on the full response of the optimal allocation and transfers, the envelope theorem implies that, at the category level, an additional unit of capacity is valued exactly at the expected scarcity rent. In particular, \(\Pi_i(k_i,I_i)\) is strictly positive whenever category \(i\) is capacity-constrained with positive probability, since \(\varepsilon_i(s)>0\) in every on-peak state.\footnote{ Equivalently, \(\Pi_i(k_i,I_i)\) can be interpreted as the expected marginal utility generated by extra capacity, weighted by the effective social weight \(\G_i(\theta)\).}
 
 Second,
 \[
@@ -735,12 +684,12 @@ Second,
 =
 -\tilde\lambda_i-\beta_i(k_i,I_i),
 \]
-is the effective marginal social cost of requiring one additional unit of revenue from category \(i\). This cost combines the primitive redistributive weight \(\tilde\lambda_i\) with the endogenous shadow cost \(\beta_i\), which captures the additional welfare loss created when the IR-budget tradeoff binds. Hence, the outer problem allocates capacity toward categories with the highest marginal social value of capacity, while allocating the revenue burden toward categories with the lowest effective marginal cost of funds.
+is the effective marginal social cost of requiring one additional unit of revenue from category \(i\). This cost combines the primitive redistributive weight \(\tilde\lambda_i\) with the endogenous shadow cost \(\beta_i\), which captures the additional surplus loss created when the IR-budget tradeoff binds. Hence, the outer problem allocates capacity toward categories with the highest marginal social value of capacity, while allocating the revenue burden toward categories with the lowest effective marginal cost of funds.
 
 
 
 \begin{lemma}[Across-category allocation]\label{lem:outer}
-The outer problem admits at least one solution, and the set of optimal allocations is convex. Moreover, the KKT conditions are necessary and sufficient. The stationarity conditions are, for each $i \in N$,
+The outer problem admits at least one solution, and the set of optimal allocations is convex. The stationarity conditions are, for each $i \in N$,
 \[
 \Pi_i(k_i^\ast,I_i^\ast) \;=\; \zeta_k, \qquad \tilde\lambda_i + \beta_i(k_i^\ast,I_i^\ast) \;=\; -\zeta_I + \xi_i,
 \]
@@ -750,7 +699,7 @@ with complementary slackness $\xi_i I_i^\ast = 0$ for all $i$ and where $\zeta_k
 If the outer optimum is not unique, the set of optimal allocations is convex, hence connected. The two stationarity conditions have a direct economic interpretation. The first condition equalizes marginal capacity values across categories: the designer allocates capacity until the expected shadow value of relaxing the category-specific capacity constraint, $\Pi_i(k_i^\ast,I_i^\ast)$ is the same across all active categories. 
 
 The second condition equalizes the effective marginal social cost of revenue extraction across categories that contribute to the budget. For each category \(i\), this marginal cost is $\tilde\lambda_i+\beta_i(k_i^\ast,I_i^\ast)$,
-which combines the primitive redistributive weight \(\tilde\lambda_i\) with the endogenous shadow cost \(\beta_i\) generated by the IR-budget tradeoff. Equivalently, this object is the coefficient on the virtual-surplus term \(J_i(\theta)\) in the effective weight$\mathcal G_i(\theta)= (\tilde\lambda_i+\beta_i)J_i(\theta)+\Lambda_i(\theta)$.
+which combines the primitive redistributive weight \(\tilde\lambda_i\) with the endogenous shadow cost \(\beta_i\) generated by the IR-budget tradeoff.\footnote{Equivalently, this object is the coefficient on the virtual-surplus term \(J_i(\theta)\) in the effective weight $\mathcal G_i(\theta)= (\tilde\lambda_i+\beta_i)J_i(\theta)+\Lambda_i(\theta)$.}
 
 
 
@@ -774,7 +723,7 @@ k_j^\ast>k_i^\ast
 Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta)]>0$. 
 \end{theorem}
 
-The result connects directly with Section~\ref{sec:within}: the same object $R_\mathcal{G}(\theta)$ that governed the reallocation of quantities and the welfare pattern of preference shifts within a category now determines which category receives more capacity at the outer optimum.
+The result connects directly with Section~\ref{sec:within}: the same object $R_\mathcal{G}(\theta)$ that governed the reallocation of quantities and the surplus pattern of preference shifts within a category now determines which category receives more capacity at the outer optimum.
 
 Since \(\Pi_i(k_i,I_i)\) is weakly decreasing in \(k_i\), the category with the larger marginal capacity value is the one that receives more capacity at the optimum. Theorem~\ref{thm:cat-order} provides the exact necessary and sufficient local condition for this comparison. The key implication is that categories are ranked not by the absolute size of the change in redistributive preferences, but by their proportional incidence through IC-adjusted social weights. Hence, two categories may face the same absolute shift in welfare weights and nevertheless receive opposite capacity rankings if that shift falls proportionally on different parts of the type distribution.
 
@@ -791,26 +740,17 @@ u(q_i(\theta,s),s)\,\Delta \G_i(\theta)
 \mathbf{1}_{\{s\in T_i\}}
 \right].
 \]
-This expression decomposes the effect of a preference perturbation into two components: a behavioral effect through the induced change in the optimal allocation \(q_i(\theta,s)\), and a direct reweighting effect through the change in effective social weights \(\Delta \G_i(\theta)\). Lemma~\ref{lem:realloc} shows that these two effects combine in a particularly simple way, since
+This expression decomposes the effect of a preference perturbation into two components: a behavioral effect through the induced change in the optimal allocation \(q_i(\theta,s)\), and a direct reweighting effect through the change in effective social weights \(\Delta \G_i(\theta)\). Lemma~\ref{lem:realloc} shows that these two effects combine in a particularly simple way which yields the condition.\footnote{ In particular, the aggregate proportional change in the effective social weight is also the proportional change in the scarcity rent
 \[
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
 =
 \mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right].
 \]
-As a result,
-\[
-\Delta \Pi_i(k_i^\ast,I_i^\ast)
-=
-\mathbb{E}_s\!\left[
-\varepsilon_i(s)\,
-\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]
-\mathbf{1}_{\{s\in T_i\}}
-\right].
-\]
+}
 
 Thus, categories are ranked by whether the preference shift tilts social priority toward types for whom relaxing capacity is most valuable in the IC-constrained allocation. A designer who focuses only on the sign or size of the raw preference shift, while ignoring its proportional and IC-weighted incidence across types, may therefore misrank categories.
 
-
+We now turn to the ranking in terms of budget assignment.
 
 \begin{proposition}[Revenue ordering]\label{prop:revenueordering}
 Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the two endogenous subsets 
@@ -835,21 +775,10 @@ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \mathbb{E}_{\theta_i}[R_{\mathca
 
 The previous theorem identifies how capacities are ordered; this proposition goes one step further by i) establishing the identity of which category should be contributing to the budget based solely on the average social weights; and ii) ranking the equilibrium revenue requirements \(I_i^\ast\) within the contributing set.\footnote{Part (i) follows directly from the optimality conditions alone and requires no additional structure on preferences, while part (ii) is local and requires knowing how preferences vary within each category. The binary contribute/not-contribute decision is therefore simpler to characterize than the capacity ranking, and the revenue ranking within the contributing set.}
 
-This result is of separate interest because the ranking of equilibrium revenue requirements is governed by a different mechanism than the ranking of capacities and which category should be contributing to the budget. While the latter depends on how redistributive preferences affect the marginal scarcity value \(\Pi_i\), the former depends on how additional capacity changes the endogenous shadow cost of the budget constraint, \(\beta_i\). The condition
-\[
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
-<
--\frac{\Delta\tilde\lambda}{\Delta k}
-\]
-has a natural economic interpretation: the term \(-\Delta\tilde\lambda/\Delta k\) measures the increase in average redistributive concern per unit of additional capacity, whereas \(\partial \beta_i/\partial k_i\) captures how the shadow cost of revenue responds when that capacity is expanded. Hence, a category that is more favored by redistributive preferences receives a lower equilibrium revenue requirement only when the induced reduction in the shadow cost of revenue is sufficiently strong. This links the across-category allocation directly back to the within-category analysis, since the sign of \(\partial \beta_i/\partial k_i\) is itself governed by \eqref{Eujmd}, i.e. by whether a capacity expansion relaxes or tightens the budget tradeoff inside the category.
+This result gives a different mechanism than the ranking of capacities and which category should be contributing to the budget. While the latter depends on how redistributive preferences affect the marginal scarcity value \(\Pi_i\), the former depends on how additional capacity changes the endogenous category-based shadow cost of the budget constraint, \(\beta_i\). The condition of the proposition has a natural economic interpretation: the term \(-\Delta\tilde\lambda/\Delta k\) measures the increase in average redistributive concern per unit of additional capacity, whereas \(\partial \beta_i/\partial k_i\) captures how the shadow cost of revenue responds when that capacity is expanded. Hence, a category that is more favored by redistributive preferences receives a lower equilibrium revenue requirement only when the induced reduction in the shadow cost of revenue is sufficiently strong. This links the across-category allocation directly back to the within-category analysis, since the sign of \(\partial \beta_i/\partial k_i\) is itself governed by \eqref{Eujmd}, i.e. by whether a capacity expansion relaxes or tightens the budget tradeoff inside the category.
 
 Under Assumption~\ref{ass:CARA}, the condition has a particularly sharp interpretation, governed entirely by the two sufficient statistics $R_\theta(\theta)$
-$R_\mathcal{G}(\theta)$ introduced in Section~\ref{sec:within}. A higher average redistributive weight is not sufficient for a category to face a lower equilibrium revenue requirement. In fact, a rise in average social concern, \(\Delta\tilde\lambda>0\), can be offset, and even reversed in its revenue implications, if it is not directed toward the types that matter most for the IC-adjusted revenue tradeoff. What matters is therefore not only the level of redistributive concern, but also how it is distributed across types. This composition effect is summarized by
-\[
-\mathbb{E}_{\theta_i}[R_{\mathcal G}]
-\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]}.
-\]
-
+and $R_\mathcal{G}(\theta)$ introduced in Section~\ref{sec:within}. A higher average redistributive weight is not sufficient for a category to face a lower equilibrium revenue requirement. In fact, a rise in average social concern, \(\Delta\tilde\lambda>0\), can be offset, and even reversed in its revenue implications, if it is not directed toward the types that matter most for the IC-adjusted revenue tradeoff. What matters is therefore not only the level of redistributive concern, but also how it is distributed across types.
 
 We now derive global implications of Theorem~\ref{thm:cat-order} by imposing sufficient structure on the primitives. The theorem gives a local comparison between nearby categories; the role of the next assumption is to order all categories along a common path of preference shifts, so that these local comparisons can be aggregated into a global ranking.
 
@@ -878,7 +807,7 @@ k_1^\ast\le\cdots\le k_n^\ast.
 \end{enumerate}
 \end{corollary}
 
-The corollary provides a sharp economic ranking of categories by participation in revenue extraction and capacity allocation, though not yet a full ordering of equilibrium revenue requirements \(I_i^\ast\), which is discussed below. A higher average social weight \(\tilde\lambda_i\) alone is not enough for a category to receive more capacity: what also matters is how redistributive preferences are tilted across types. Categories that place proportionally more weight on higher types have a larger effective weight $\G_i(\theta)=J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta)$, not only through the average term \(\tilde\lambda_i+\beta_i\), but also through the informational-rent component \(\Lambda_i(\theta)\). Under Assumption~\ref{ass:ordered-path}, these two forces move in the same direction. As a result, categories that are higher in the redistributive ordering optimally bear a lower shadow cost of revenue and receive a larger capacity.
+The corollary provides a sharp economic ranking of categories by participation in revenue extraction and capacity allocation. A higher average social weight \(\tilde\lambda_i\) alone is not enough for a category to receive more capacity: what also matters is how redistributive preferences are tilted across types. Categories that place proportionally more weight on higher types have a larger effective weight $\G_i(\theta)=J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta)$, not only through the average term \(\tilde\lambda_i+\beta_i\), but also through the informational-rent component \(\Lambda_i(\theta)\). Under Assumption~\ref{ass:ordered-path}, these two forces move in the same direction. As a result, categories that are higher in the redistributive ordering optimally bear a lower shadow cost of revenue and receive a larger capacity.
 
 
 \subsection{Optimal investment}
@@ -887,9 +816,9 @@ We now endogenize total investment. The previous sections characterized the opti
 \[\max_{k\geq 0} W(k),\]
 where \(W(k)\) denotes the outer value function once total revenue is tied to the endogenous investment cost \(I(k)\), with \(I\) strictly increasing and convex.
 
-Increasing \(k\) relaxes scarcity in the states in which capacity binds, but also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint to the marginal financing cost of additional capacity. As shown in Proposition~\ref{prop:investment}, this condition is governed by the same objects, \(\mathcal{G}_i(\theta)\), \(\Pi_i\), and \(\tilde\lambda^\ast\), that have organized the within- and across-category analysis.
+Increasing \(k\) relaxes scarcity in the states in which capacity binds, but also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint to the marginal financing cost of additional capacity. As shown in Proposition~\ref{lem:investment}, this condition is governed by the same objects, \(\mathcal{G}_i(\theta)\), \(\Pi_i\), and \(\tilde\lambda^\ast\), that have organized the within- and across-category analysis.
 
-\begin{proposition}[Optimal investment and the incomplete-information peak-load rule]\label{prop:investment}
+\begin{lemma}[Optimal investment and the incomplete-information peak-load rule]\label{lem:investment}
 The investment problem \(\max_{k\geq 0} W(k)\) admits a unique interior solution \(k^\ast > 0\). The optimal investment level satisfies
 \[
 I'(k^\ast)
@@ -906,9 +835,9 @@ where $\mu^+ := \sum_{i\in N^+}\mu_i$ is the mass of contributing categories and
 \[
 \max_{i \in N^+} \tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i \in N^0} \tilde\lambda_i.
 \]
-\end{proposition}
+\end{lemma}
 
-Proposition~\ref{prop:investment} is the incomplete-information counterpart of the classic peak-load pricing rule. In the complete-information benchmark with redistributive preferences, incentive constraints play no role. There is no information rent, so \(J_i(\theta)=\theta\) and \(\Lambda_i(\theta)=0\). Hence the normalized incomplete-information object collapses to the complete-information one:
+Lemma~\ref{lem:investment} is the incomplete-information counterpart of the classic peak-load pricing rule. In the complete-information benchmark with redistributive preferences, incentive constraints play no role. There is no information rent, so \(J_i(\theta)=\theta\) and \(\Lambda_i(\theta)=0\). Hence the normalized incomplete-information object collapses to the complete-information one:
 \[
 \frac{\mathcal G_i(\theta)}{\tilde\lambda^\ast}
 \; \longrightarrow \;
@@ -916,7 +845,7 @@ Proposition~\ref{prop:investment} is the incomplete-information counterpart of t
 \]
 which yields equation~\eqref{eq:FB-k1}.\footnote{If $\tilde\lambda^\ast =\min_{i \in N^0} \tilde\lambda_i$, then the category $i$ which satisfies this condition can be considered as the marginal contributor and $\tilde\lambda^\ast$ as the marginal average welfare weight. This echoes the complete-information case in which we defined the marginal welfare weight $\lambda^\ast$.}
 
-Without redistributive concerns, the value of a transfer is the same for all consumers, so the distinction between contributing and non-contributing consumers disappears, and the marginal utility of consumption for all consumers is equated with the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\) of contributing consumers, which combines the direct welfare gain from relaxing scarcity with the informational distortions embedded in the mechanism.
+Without redistributive concerns, the value of a transfer is the same for all consumers, so the distinction between contributing and non-contributing consumers disappears, and the marginal utility of consumption for all consumers is equated with the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\) of contributing consumers, which combines the direct surplus gain from relaxing scarcity with the informational distortions embedded in the mechanism.
 
 We conclude by characterizing how endogenizing investment changes both the optimal capacity's response to redistributive preference shifts and the redistributive incidence of a global capacity expansion across consumer categories.
 
@@ -947,26 +876,26 @@ R_{\theta,i}(\theta)
 \right)
 }.
 \]
-In particular, under a smooth ordered path that tilts redistributive preferences toward higher types, one has \(\mathbb E_{\theta_i}[R_{\mathcal G,i}]>0\) for all \(i\), so the direct effect of the perturbation pushes investment upward, although the overall sign of \(\Delta k^\ast\) also depends on the induced change in \(\tilde\lambda^\ast\).
+and $W''(k^\ast)<0$ and $\overline \varepsilon_i\ge0 $. In particular, under a smooth ordered path that tilts redistributive preferences toward higher types: \(\mathbb E_{\theta_i}[R_{\mathcal G,i}]>0\) for all \(i\).
 \end{proposition}
 
 
-The proposition delivers a new insight: to determine the equilibrium direction of investment, what matters is not only an average condition, captured by the second term, but also a sorting condition, captured by the first term. Specifically, to ensure that the optimal level of investment increases, the preference shift must be aligned with the distribution of marginal virtual utility $u(q_i(\theta,s),s)J_i(\theta)$ across types within all contributing categories.
+The proposition delivers a new insight: to determine the equilibrium direction of investment, what matters is not only an the average effect of preferences on the marginal value of a capacity, captured by the second term, but also a sorting condition, captured by the first term. Specifically, to ensure that the optimal level of investment increases, the preference shift must be aligned with the distribution of marginal virtual utility $u(q_i(\theta,s),s)J_i(\theta)$ across types within all contributing categories.
 
-A preference perturbation affects the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). As in the within-category analysis, the sign of this effect is governed by the covariance between the redistributive shift and the type profile.\footnote{In particular, Proposition~\ref{prop:welfare-redist} and the Appendix Corollary~\ref{cor:CARA} show that, within a category, the sign of \(\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)\) determines whether a preference change relaxes or tightens the revenue constraint. Here, the same logic applies at the aggregate level.} Second, the perturbation changes the category-level marginal value of capacity, summarized by \(\Pi_i\). What matters is how the perturbation reshapes effective weights across types and, through them, the scarcity value of capacity. This is the aggregate analogue of the previous results. Within categories, redistributive perturbations reshape the allocation through the same effective-weight object \(R_{\mathcal G,i}\) (Proposition~\ref{prop:welfare-redist}). Across categories, they change the ranking of scarcity rents and therefore the optimal distribution of capacity (Theorem~\ref{thm:cat-order}). At the aggregate level, the same force determines whether the designer wants to increase or decrease total investment.
-
-
+A preference perturbation affects the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). As in the within-category analysis, the sign of this effect is governed by the covariance between the redistributive shift and the type profile.\footnote{In particular, Proposition~\ref{prop:surplus-redist} and the Appendix Corollary~\ref{cor:CARA} show that, within a category, the sign of \(\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)\) determines whether a preference change relaxes or tightens the revenue constraint. Here, the same logic applies at the aggregate level.} Second, the perturbation changes the category-level marginal value of capacity, summarized by \(\Pi_i\). What matters is how the perturbation reshapes effective weights across types and, through them, the scarcity value of capacity. This is the aggregate analogue of the previous results. Within categories, redistributive perturbations reshape the allocation through the same effective-weight object \(R_{\mathcal G,i}\) (Proposition~\ref{prop:surplus-redist}). Across categories, they change the ranking of scarcity rents and therefore the optimal distribution of capacity (Theorem~\ref{thm:cat-order}). At the aggregate level, the same force determines whether the designer wants to increase or decrease total investment.
 
 
 
-Having characterized how a marginal increase in \(k_i\) redistributes welfare within a category, we now embed this result in the outer problem to study how a global capacity expansion combines an aggregate reallocation effect with the within-category incidence characterized above. For simplicity, consider a neighborhood of an interior optimum in which the set of active and contributing categories is unchanged. Then
+
+
+Finally, having characterized in Section~\ref{sec:within} how a marginal increase in \(k_i\) redistributes surplus within a category, we now embed this result in the outer problem to study how a global capacity expansion combines an aggregate reallocation effect with the within-category incidence characterized above. For simplicity, consider a neighborhood of an interior optimum in which the set of active and contributing categories is unchanged. Then
 \[
 \frac{d\,\E CS_i(\theta)}{dk}
 =
 \frac{\partial \E CS_i(\theta)}{\partial k_i}\,
 \frac{dk_i^\ast}{dk}.
 \]
-The first term is the within-category incidence characterized in Theorem~\ref{thm:welfare}. The second term captures how a marginal increase in aggregate capacity is redistributed across categories. As shown in the Appendix, this second effect depends on two objects. The first is a category-specific term,
+The first term is the within-category incidence characterized in Theorem~\ref{thm:surplus}. The second term captures how a marginal increase in aggregate capacity is redistributed across categories. We show in Appendix Lemma XXXX, that this second effect depends on two objects. The first is a category-specific term,
 \[
 \Omega_i^{-1}\left(
 \mathbb E_s\!\left[\mathbb E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]
@@ -981,11 +910,11 @@ which measures whether the sufficient statistic \eqref{Eujmd} of category \(i\) 
 -I'(k^\ast)
 \right),
 \]
-which governs how the equilibrium marginal cost of funds \(\tilde\lambda^\ast\) responds to a change in aggregate capacity.\footnote{In that sense, the aggregate response mirrors the previous proposition on \(\Delta\tilde\lambda^\ast\): what matters is again how the sufficient statistic compares to the relevant aggregate benchmark. It is also related to the classic peak-load pricing rule, which compares the marginal value of capacity to the marginal investment cost.}
+which governs how the equilibrium marginal cost of funds \(\tilde\lambda^\ast\) responds to a change in aggregate capacity.\footnote{In that sense, the aggregate response mirrors the previous proposition on \(\Delta\tilde\lambda^\ast\): what matters is again how the sufficient statistic compares to the relevant aggregate benchmark.}
 
-This gives a simple interpretation of the redistributive effect of a global capacity expansion. The designer allocates the additional capacity using both the category-level comparison between \eqref{Eujmd} and \(I'(k^\ast)\), and its aggregate counterpart \eqref{dlambda}. The sign of \eqref{dlambda} determines the direction of the reallocation: if \eqref{dlambda} is positive, categories with relatively high marginal sufficient statistics receive more of the expansion; if \eqref{dlambda} is negative, categories with relatively low marginal sufficient statistics receive more. Moreover, as shown in the Appendix and used in Theorem~\ref{thm:welfare}, the sufficient statistic \eqref{Eujmd} moves monotonically with \(k_i\): depending on \(R_\theta\) and \(R_q\), it can switch from \(+\) to \(-\) or from \(-\) to \(+\). This yields a sharp qualitative implication that depends only on these two ratios and on the sign of \eqref{dlambda}.
+This gives a simple interpretation of the redistributive effect of a global capacity expansion. The designer allocates the additional capacity using both the category-level comparison between \eqref{Eujmd} and \(I'(k^\ast)\), and its aggregate counterpart \eqref{dlambda}. The sign of \eqref{dlambda} determines the direction of the reallocation: if \eqref{dlambda} is positive, categories with relatively high marginal sufficient statistics receive more of the expansion; if \eqref{dlambda} is negative, categories with relatively low marginal sufficient statistics receive more. Moreover, as shown in the Appendix and used in Theorem~\ref{thm:surplus}, the sufficient statistic \eqref{Eujmd} moves monotonically with \(k_i\): depending on \(R_\theta\) and \(R_q\), it can switch from \(+\) to \(-\) or from \(-\) to \(+\). This yields a sharp qualitative implication that depends only on these two ratios and on the sign of \eqref{dlambda}.
 
-For example, take two categories \(i\) and \(j\), assume Assumption~\ref{ass:CARA} holds, and suppose \(R'_\theta(\theta)>0\) (in both categories the virtual term $u(q_i(\theta,s),s) J_i(\theta)$ is increasing in $\theta$). If, at the initial allocation, \(k_j^\ast \gg k_i^\ast\) and \eqref{Eujmd} is positive for the low-capacity category \(i\) but sufficiently negative for the high-capacity category \(j\), then a positive value of \eqref{dlambda} implies capacity convergence: the global expansion gives relatively more to category \(i\), compressing category-level allocations. A negative value of \eqref{dlambda} implies the opposite: the global expansion gives relatively more to category \(j\), widening category-level allocations and generating divergence. Figure~\ref{fig:general_welfare} illustrates this mechanism: under convergence, both categories move toward the all-$\theta$-gain region, so the global expansion becomes less regressive for both simultaneously; under divergence, each category moves further into its current regime, deepening the redistributive heterogeneity across categories.
+For example, take two categories \(i\) and \(j\), assume Assumption~\ref{ass:CARA} holds, and suppose \(R'_\theta(\theta)>0\) (in both categories the virtual term $u(q_i(\theta,s),s) J_i(\theta)$ is increasing in $\theta$). If, at the initial allocation, \(k_j^\ast \gg k_i^\ast\) and \eqref{Eujmd} is positive for the low-capacity category \(i\) but sufficiently negative for the high-capacity category \(j\), then a positive value of \eqref{dlambda} implies capacity convergence: the global expansion gives relatively more to category \(i\), compressing category-level allocations. A negative value of \eqref{dlambda} implies the opposite: the global expansion gives relatively more to category \(j\), widening category-level allocations and generating divergence. Figure~\ref{fig:general_surplus} illustrates this mechanism. 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[x=1.4cm, y=1cm]
@@ -1041,8 +970,8 @@ For example, take two categories \(i\) and \(j\), assume Assumption~\ref{ass:CAR
 \node[left, font=\small] at (-0.2, 0) {(b)};
 \node[font=\small] at (5.0, -1.4) {$d\tilde\lambda^\ast < 0$: divergence};
 \end{tikzpicture}
-\caption{Redistributive incidence of a global capacity expansion for two categories $i$ and $j$ initially located in the lower-$\theta$-gain and higher-$\theta$-gain regimes respectively. Panel (a): when $d\tilde\lambda^\ast > 0$, the global expansion reallocates capacity toward $k_i$ and away from $k_j$, moving both toward the all-$\theta$-gain region and compressing the redistributive heterogeneity across categories. Panel (b): when $d\tilde\lambda^\ast < 0$, the expansion pushes categories further apart, deepening the redistributive divergence between them. Under case (b) of Figure~\ref{fig:impl_welfare}, where \eqref{Eujmd} crosses from $-$ to $+$, the directions of both arrows are reversed.}
-\label{fig:general_welfare}
+\caption{Redistributive incidence of a global capacity expansion for two categories $i$ and $j$ initially located in the lower-$\theta$-gain and higher-$\theta$-gain regimes respectively. Panel (a): when $d\tilde\lambda^\ast > 0$, the global expansion reallocates capacity toward $k_i$ and away from $k_j$, moving both toward the all-$\theta$-gain region and compressing the redistributive heterogeneity across categories. Panel (b): when $d\tilde\lambda^\ast < 0$, the expansion pushes categories further apart, deepening the redistributive divergence between them. Under case (b) of Figure~\ref{fig:impl_surplus}, where \eqref{Eujmd} crosses from $-$ to $+$, the directions of both arrows are reversed.}
+\label{fig:general_surplus}
 \end{figure}
 
 
