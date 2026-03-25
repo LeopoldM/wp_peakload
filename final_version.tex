@@ -429,13 +429,13 @@ Note that $R_q(\theta)\geq0$ since $u_q<0$. The first object, $R_q(\theta)$, is 
 Next, define the weights
 %##########################################
 \[
-  w_i(\theta,s):=-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\G_i(\theta)}, \qquad \bar w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right],
+  w_i(\theta,s):=-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\G_i(\theta)}, \qquad \overline w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right],
 \]
 %##########################################
 Those weights represent the departure from the first-best allocation without redistributive preferences. As previously discussed, in this context, the marginal utility is equalized across types by a scalar. On the other hand, redistributive preferences create systematic differences in unweighted marginal utilities across types. Then defined the $w_i$-weighted average of the marginal virtual surplus
 %##########################################
 \[
-  \E^w_i[uJ\mid s] :=\frac{1}{\bar w_i(s)} \E_{\theta_i}\!\left[w_i(\theta,s)\, u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right] =\frac{1}{\bar w_i(s)} \E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]. 
+  \E^w_i[uJ\mid s] :=\frac{1}{\overline w_i(s)} \E_{\theta_i}\!\left[w_i(\theta,s)\, u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right] =\frac{1}{\overline w_i(s)} \E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]. 
 \]
 %##########################################
 And in particular, its average over the on-peak period
@@ -477,7 +477,7 @@ The individual surplus change follows from \eqref{ICmd-def}:
 To interpret both terms, we first record how the optimal allocation responds to a change in $k_i$. Differentiating the first-order condition \eqref{KKT-qMD} with respect to $k_i$ gives
 %##########################################
 \begin{equation}
-  \frac{\partial q_i(\theta,s)}{\partial k_i} = w_i(\theta,s)\left( \frac{1}{\bar w_i(s)} -\frac{\partial\beta_i}{\partial k_i} \Bigl(\E^w_i[uJ\mid s] -u\!\left(q_i(\theta,s),s\right)J_i(\theta)\Bigr) \right). \tag{$\partial_k q_i$}\label{partialkq1}
+  \frac{\partial q_i(\theta,s)}{\partial k_i} = w_i(\theta,s)\left( \frac{1}{\overline w_i(s)} -\frac{\partial\beta_i}{\partial k_i} \Bigl(\E^w_i[uJ\mid s] -u\!\left(q_i(\theta,s),s\right)J_i(\theta)\Bigr) \right). \tag{$\partial_k q_i$}\label{partialkq1}
 \end{equation}
 %##########################################
 
@@ -689,7 +689,7 @@ Proposition~\ref{prop:welfare-redist} delivers a sharp lesson for redistributive
 
 The result stems directly from the analysis of the change in the optimal allocation. Indeed, the individual welfare change for type $\theta$ satisfies
 \[\frac{\partial\Delta\mathbb{E}CS_i(\theta)}{\partial\theta} = \mathbb{E}_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
-whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]$ since $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Unimodality of $R_{\mathcal{G}}(\theta)$ — equivalently, single-crossing of the derivative in $\theta$ — ensures that $R_{\mathcal{G}}(\theta)$ crosses its capacity-weighted mean at most twice, generating at most two turning points in the welfare profile.\footnote{Note that the unimodality assumption is used only to bound the number of alternating regions. The result should therefore be interpreted as a lower bound on possible alternating regions.} Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$ is $s$-independent, which allows the sign of the boundary term $\Delta\mathbb{E}\underline{CS}_i$ to have the sign of the covariance $\bar\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$; without CARA, both the derivative and the boundary term involve $s$-dependent weighted averages that cannot be signed without additional structure.
+whose sign follows directly from $R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]$ since $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Unimodality of $R_{\mathcal{G}}(\theta)$ — equivalently, single-crossing of the derivative in $\theta$ — ensures that $R_{\mathcal{G}}(\theta)$ crosses its capacity-weighted mean at most twice, generating at most two turning points in the welfare profile.\footnote{Note that the unimodality assumption is used only to bound the number of alternating regions. The result should therefore be interpreted as a lower bound on possible alternating regions.} Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{E}_{\theta_i}[R_{\mathcal{G}}]$ is $s$-independent, which allows the sign of the boundary term $\Delta\mathbb{E}\underline{CS}_i$ to have the sign of the covariance $\overline\varepsilon_i\,\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$; without CARA, both the derivative and the boundary term involve $s$-dependent weighted averages that cannot be signed without additional structure.
 
 \begin{figure}[h]
 \centering
@@ -752,8 +752,9 @@ subject to incentive compatibility and the category-specific constraints. This r
 
 By the envelope theorem applied to the within-category problem, the two partial derivatives of $V_i$ are
 \[
-\partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right], \qquad \partial_{I_i} V_i(k_i,I_i) \;=\; -\tilde\lambda_i - \beta_i(k_i,I_i).
+\partial_{k_i} V_i(k_i,I_i) \;=\; \overline \varepsilon_i \; , \qquad \partial_{I_i} V_i(k_i,I_i) \;=\; -\tilde\lambda_i - \beta_i(k_i,I_i).
 \]
+where $\overline \varepsilon_i =\mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right]$.
 The decomposition highlights that the across-category problem is governed by two marginal objects. First,
 \[
 \Pi_i(k_i,I_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \mathbb{E}_{(s,\theta_i)}\!\left[ u(q_i(\theta,s),s)\,\G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right], \]
@@ -932,7 +933,7 @@ u(q_i(\theta,s),s)\,
 \mathbf{1}_{\{s\in T_i\}}
 \right],
 \]
-where $\mu^+ := \sum_{i\in N^+}\mu_i$ is the mass of contegributing categories and \(\tilde\lambda^\ast := -\zeta_I > 0\) is the equilibrium marginal cost of funds. Moreover,
+where $\mu^+ := \sum_{i\in N^+}\mu_i$ is the mass of contributing categories and \(\tilde\lambda^\ast := -\zeta_I > 0\) is the equilibrium marginal cost of funds. Moreover,
 \[
 \max_{i \in N^+} \tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i \in N^0} \tilde\lambda_i.
 \]
@@ -944,13 +945,13 @@ Proposition~\ref{prop:investment} is the incomplete-information counterpart of t
 \; \longrightarrow \;
 \theta,
 \]
-which yields equation~\eqref{eq:FB-k1}.
+which yields equation~\eqref{eq:FB-k1}.\footnote{If $\tilde\lambda^\ast =\min_{i \in N^0} \tilde\lambda_i$, then the category $i$ which satisfies this condition can be considered as the marginal contributor and $\tilde\lambda^\ast$ as the marginal average welfare weight. This echoes the complete-information case in which we defined the marginal welfare weight $\lambda^\ast$.}
 
 Without redistributive concerns, the value of a transfer is the same for all consumers, so the distinction between contributing and non-contributing consumers disappears, and the marginal utility of consumption for all consumers is equated with the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\) of contributing consumers, which combines the direct welfare gain from relaxing scarcity with the informational distortions embedded in the mechanism.
 
 We conclude by connecting the implications of the optimal investment condition with the previous analysis of the within and across allocation: i) how does a global change in preferences affect $k^\ast$, and ii) how does a global capacity extension affect the redistributive aspect of within-category individual welfare? 
 
-The previous analysis also implies that redistributive concerns affect investment through the same objects that govern the allocation within and across categories. A preference perturbation modifies the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). Second, it changes the category-level marginal value of capacity, summarized by the scarcity rents \(\Pi_i\). The next corollary gives the corresponding comparative statics in the cleanest case.
+
 \begin{corollary}[Investment response to redistributive preference perturbations]\label{cor:investment}
 Assume Assumption~\ref{ass:CARA}. Suppose each category \(i\) becomes a new category \(j\) through a marginal and monotonic mean-preserving perturbation of \(\lambda_i(\theta)\), and let \(\Delta\tilde\lambda^\ast\) denote the first-order change in the equilibrium marginal cost of funds. Then the induced change in optimal investment satisfies
 \[
@@ -959,7 +960,7 @@ W''(k^\ast)\,\Delta k^\ast
 I'(k^\ast)\,\Delta\tilde\lambda^\ast
 -
 \frac{1}{\tilde\lambda^\ast}
-\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G,i}],
+\sum_{i\in N}\mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G,i}]
 \]
 where
 \[
@@ -967,35 +968,21 @@ where
 =
 -
 \frac{
-\sum_{i\in B}\mu_i\,
-\mathbb E_s\!\left[
-\varepsilon_i(s)\,
-\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)
-\mathbf 1_{\{s\in T_i\}}
-\right]
+\sum_{i\in N^+}\mu_i\,\bar\varepsilon_i\,
+\Cov_{\theta_i}\!\left(
+R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)
+\right)
 }{
-\sum_{i\in B}\mu_i\,
-\mathbb E_s\!\left[
-\varepsilon_i(s)\,
-\Var_{\theta_i}\!\left(R_{\theta,i}(\theta)\right)
-\mathbf 1_{\{s\in T_i\}}
-\right]
+\sum_{i\in N^+}\mu_i\,\bar\varepsilon_i\,
+\Var_{\theta_i}\!\left(
+R_{\theta,i}(\theta)
+\right)
 }.
 \]
 In particular, under a smooth ordered path that tilts redistributive preferences toward higher types, one has \(\mathbb E_{\theta_i}[R_{\mathcal G,i}]>0\) for all \(i\), so the direct effect of the perturbation pushes investment upward, although the overall sign of \(\Delta k^\ast\) also depends on the induced change in \(\tilde\lambda^\ast\).
 \end{corollary}
 
-Corollary~\ref{cor:investment} shows that the effect of redistribution on aggregate investment is not mechanically tied to the average redistributive weight alone. What matters is how the perturbation reshapes the effective weights across types and, through them, the scarcity value of capacity. In particular, when the perturbation leaves the equilibrium marginal cost of funds unchanged, the sign of the investment response is entirely governed by the weighted sum
-\[
-\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}],
-\]
-that is, by the interaction between each category's scarcity value and the direction of the redistributive tilt within that category.
-
-This is precisely the aggregate analogue of the previous results. Within categories, redistributive perturbations reshape the allocation through the same effective-weight object \(R_{\mathcal G}\). Across categories, they change the ranking of scarcity rents and therefore the optimal distribution of capacity. At the aggregate level, the same force determines whether the planner wants to increase or decrease total investment. In that sense, the investment result does not introduce a new mechanism. It is the final aggregation of the same trade-off that runs through the whole paper.
-
-Under Assumption~\ref{ass:CARA}, this aggregation becomes especially transparent. The behavioral channel collapses, and the investment response depends only on how redistributive preferences tilt effective weights across types. A perturbation that places proportionally more weight on higher types raises the scarcity value of capacity in every category. As a result, the planner optimally expands total investment. Thus, the comparative statics of aggregate investment exactly mirror the previous within-category and across-category results: a redistributive shift toward higher-demand types increases the marginal social value of relaxing scarcity, and therefore increases the optimal level of capacity.
-
-
+A preference perturbation affects the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\).\footnote{If the identity of the marginal contributor changes, then the question is equivalent to whether the new marginal contributor has a higher or lower average weight.} As in the within-category analysis, the sign of this effect is governed by the covariance between the redistributive shift and the type profile. In particular, Proposition~\ref{prop:welfare-redist} and the Appendix to Corollary~\ref{cor:CARA} show that, within a category, the sign of \(\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)\) determines whether a preference change relaxes or tightens the revenue constraint. Here, the same logic applies at the aggregate level. Second, the perturbation changes the category-level marginal value of capacity, summarized by \(\Pi_i\). What matters is how the perturbation reshapes effective weights across types and, through them, the scarcity value of capacity. This is the aggregate analogue of the previous results. Within categories, redistributive perturbations reshape the allocation through the same effective-weight object \(R_{\mathcal G,i}\) (Proposition~\ref{prop:welfare-redist}). Across categories, they change the ranking of scarcity rents and therefore the optimal distribution of capacity (Theorem~\ref{thm:cat-order}). At the aggregate level, the same force determines whether the designer wants to increase or decrease total investment.
 
 
 
