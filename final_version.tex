@@ -949,8 +949,7 @@ which yields equation~\eqref{eq:FB-k1}.\footnote{If $\tilde\lambda^\ast =\min_{i
 
 Without redistributive concerns, the value of a transfer is the same for all consumers, so the distinction between contributing and non-contributing consumers disappears, and the marginal utility of consumption for all consumers is equated with the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\) of contributing consumers, which combines the direct welfare gain from relaxing scarcity with the informational distortions embedded in the mechanism.
 
-We conclude by connecting the implications of the optimal investment condition with the previous analysis of the within and across allocation: i) how does a global change in preferences affect $k^\ast$, and ii) how does a global capacity extension affect the redistributive aspect of within-category individual welfare? 
-
+We conclude by characterizing how endogenizing investment changes both the optimal capacity's response to redistributive preference shifts and the redistributive incidence of a global capacity expansion across consumer categories.
 
 \begin{corollary}[Investment response to redistributive preference perturbations]\label{cor:investment}
 Assume Assumption~\ref{ass:CARA}. Suppose each category \(i\) becomes a new category \(j\) through a marginal and monotonic mean-preserving perturbation of \(\lambda_i(\theta)\), and let \(\Delta\tilde\lambda^\ast\) denote the first-order change in the equilibrium marginal cost of funds. Then the induced change in optimal investment satisfies
@@ -982,11 +981,16 @@ R_{\theta,i}(\theta)
 In particular, under a smooth ordered path that tilts redistributive preferences toward higher types, one has \(\mathbb E_{\theta_i}[R_{\mathcal G,i}]>0\) for all \(i\), so the direct effect of the perturbation pushes investment upward, although the overall sign of \(\Delta k^\ast\) also depends on the induced change in \(\tilde\lambda^\ast\).
 \end{corollary}
 
-A preference perturbation affects the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\).\footnote{If the identity of the marginal contributor changes, then the question is equivalent to whether the new marginal contributor has a higher or lower average weight.} As in the within-category analysis, the sign of this effect is governed by the covariance between the redistributive shift and the type profile. In particular, Proposition~\ref{prop:welfare-redist} and the Appendix to Corollary~\ref{cor:CARA} show that, within a category, the sign of \(\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)\) determines whether a preference change relaxes or tightens the revenue constraint. Here, the same logic applies at the aggregate level. Second, the perturbation changes the category-level marginal value of capacity, summarized by \(\Pi_i\). What matters is how the perturbation reshapes effective weights across types and, through them, the scarcity value of capacity. This is the aggregate analogue of the previous results. Within categories, redistributive perturbations reshape the allocation through the same effective-weight object \(R_{\mathcal G,i}\) (Proposition~\ref{prop:welfare-redist}). Across categories, they change the ranking of scarcity rents and therefore the optimal distribution of capacity (Theorem~\ref{thm:cat-order}). At the aggregate level, the same force determines whether the designer wants to increase or decrease total investment.
 
-Having characterized how a marginal increase in \(k_i\) redistributes welfare within a category, we can now embed this result in the outer problem. The next remark discusses how a global capacity expansion first changes the allocation of capacity across categories, and therefore how its redistributive incidence combines an aggregate reallocation effect with the within-category effect characterized above.
+The Corollary delivers a new insight: to determine the equilibrium direction of investment, what matters is not only an average condition, captured by the second term, but also a sorting condition, captured by the first term. Specifically, to ensure that the optimal level of investment increases, the preference shift must be aligned with the distribution of marginal virtual utility $u(q_i(\theta,s),s)J_i(\theta)$ across types within all contributing categories.
 
-For simplicity, consider a neighborhood of an interior optimum in which the set of active and contributing categories is unchanged. Then
+A preference perturbation affects the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). As in the within-category analysis, the sign of this effect is governed by the covariance between the redistributive shift and the type profile.\footnote{In particular, Proposition~\ref{prop:welfare-redist} and the Appendix to Corollary~\ref{cor:CARA} show that, within a category, the sign of \(\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)\) determines whether a preference change relaxes or tightens the revenue constraint. Here, the same logic applies at the aggregate level.} Second, the perturbation changes the category-level marginal value of capacity, summarized by \(\Pi_i\). What matters is how the perturbation reshapes effective weights across types and, through them, the scarcity value of capacity. This is the aggregate analogue of the previous results. Within categories, redistributive perturbations reshape the allocation through the same effective-weight object \(R_{\mathcal G,i}\) (Proposition~\ref{prop:welfare-redist}). Across categories, they change the ranking of scarcity rents and therefore the optimal distribution of capacity (Theorem~\ref{thm:cat-order}). At the aggregate level, the same force determines whether the designer wants to increase or decrease total investment.
+
+
+
+
+
+Having characterized how a marginal increase in \(k_i\) redistributes welfare within a category, we now embed this result in the outer problem to study how a global capacity expansion combines an aggregate reallocation effect with the within-category incidence characterized above. For simplicity, consider a neighborhood of an interior optimum in which the set of active and contributing categories is unchanged. Then
 \[
 \frac{d\,\E CS_i(\theta)}{dk}
 =
@@ -1010,10 +1014,9 @@ which measures whether the sufficient statistic \eqref{Eujmd} of category \(i\) 
 \]
 which governs how the equilibrium marginal cost of funds \(\tilde\lambda^\ast\) responds to a change in aggregate capacity.\footnote{In that sense, the aggregate response mirrors the previous corollary on \(\Delta\tilde\lambda^\ast\): what matters is again how the sufficient statistic compares to the relevant aggregate benchmark. It is also related to the classic peak-load pricing rule, which compares the marginal value of capacity to the marginal investment cost.}
 
-This gives a simple interpretation of the redistributive effect of a global capacity expansion. The designer allocates the additional capacity using both the category-level comparison between \eqref{Eujmd} and \(I'(k^\ast)\), and its aggregate counterpart \eqref{dlambda}. The sign of \eqref{dlambda} determines the direction of the reallocation: if \eqref{dlambda} is positive, categories with relatively high marginal sufficient statistics receive more of the expansion; if \eqref{dlambda} is negative, categories with relatively low marginal sufficient statistics receive more. Moreover, as shown in the Appendix and used in Theorem~\ref{thm:welfare}, the sufficient statistic \eqref{Eujmd} moves monotonically with \(k_i\): depending on \(R_\theta\) and \(R_q\), it can switch from \(+\) to \(-\) or from \(-\) to \(+\). This yields a sharp qualitative implication that depends only on these two ratios and on the sign of \eqref{dlambda}. 
+This gives a simple interpretation of the redistributive effect of a global capacity expansion. The designer allocates the additional capacity using both the category-level comparison between \eqref{Eujmd} and \(I'(k^\ast)\), and its aggregate counterpart \eqref{dlambda}. The sign of \eqref{dlambda} determines the direction of the reallocation: if \eqref{dlambda} is positive, categories with relatively high marginal sufficient statistics receive more of the expansion; if \eqref{dlambda} is negative, categories with relatively low marginal sufficient statistics receive more. Moreover, as shown in the Appendix and used in Theorem~\ref{thm:welfare}, the sufficient statistic \eqref{Eujmd} moves monotonically with \(k_i\): depending on \(R_\theta\) and \(R_q\), it can switch from \(+\) to \(-\) or from \(-\) to \(+\). This yields a sharp qualitative implication that depends only on these two ratios and on the sign of \eqref{dlambda}.
 
-For example, take two categories \(i\) and \(j\), assume Assumption~\ref{ass:CARA} holds, and suppose \(R'_\theta(\theta)>0\) (in both category the virtual term $u(q_i(\theta,s) J_i(\theta))$ is increasing in $\theta$). If, at the initial allocation, \(k_j^\ast \gg k_i^\ast\) and \eqref{Eujmd} is positive for the low-capacity category \(i\) but sufficiently negative for the high-capacity category \(j\), then a positive value of \eqref{dlambda} implies capacity convergence: the global expansion gives relatively more to category \(i\), compressing category-level allocations. A negative value of \eqref{dlambda} implies the opposite: the global expansion gives relatively more to category \(j\), widening category-level allocations and generating divergence. Figure~\ref{fig:general_welfare} illustrates this mechanism in the previous example and how it may change the progressive/regressive nature of a capacity expansion.
-
+For example, take two categories \(i\) and \(j\), assume Assumption~\ref{ass:CARA} holds, and suppose \(R'_\theta(\theta)>0\) (in both categories the virtual term $u(q_i(\theta,s),s) J_i(\theta)$ is increasing in $\theta$). If, at the initial allocation, \(k_j^\ast \gg k_i^\ast\) and \eqref{Eujmd} is positive for the low-capacity category \(i\) but sufficiently negative for the high-capacity category \(j\), then a positive value of \eqref{dlambda} implies capacity convergence: the global expansion gives relatively more to category \(i\), compressing category-level allocations. A negative value of \eqref{dlambda} implies the opposite: the global expansion gives relatively more to category \(j\), widening category-level allocations and generating divergence. Figure~\ref{fig:general_welfare} illustrates this mechanism: under convergence, both categories move toward the all-$\theta$-gain region, so the global expansion becomes less regressive for both simultaneously; under divergence, each category moves further into its current regime, deepening the redistributive heterogeneity across categories.
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[x=1.4cm, y=1cm]
@@ -1022,54 +1025,54 @@ For example, take two categories \(i\) and \(j\), assume Assumption~\ref{ass:CAR
 \fill[orange!90!black]  (5.0, -0.2) rectangle (7.5,  0.2);
 \fill[magenta!80!black] (7.5, -0.2) rectangle (10.0, 0.2);
 \draw[white, dashed, line width=1pt] (5.0,-0.2) -- (5.0,0.2);
-\draw[thick] (0,-0.9)   -- (0,-1.0)   -- (2.5,-1.0) -- (2.5,-0.9);
-\draw[thick] (2.5,-0.9) -- (2.5,-1.0) -- (7.5,-1.0) -- (7.5,-0.9);
-\draw[thick] (7.5,-0.9) -- (7.5,-1.0) -- (10,-1.0)  -- (10,-0.9);
-\node[font=\small] at (1.25, -1.5)  {IR-constrained};
-\node[font=\small] at (5.0,  -1.5)  {IR-unconstrained};
-\node[font=\small] at (8.75, -1.5)  {IR-constrained};
-\node[font=\small, green!60!black]   at (1.25, 0.55) {\eqref{Eujmd}$> 0 $};
-\node[font=\small, orange!80!black]  at (3.75, 0.55) {\eqref{Eujmd}$> 0 $};
-\node[font=\small, orange!60!black]  at (6.25, 0.55) {\eqref{Eujmd}$< 0 $};
-\node[font=\small, magenta!80!black] at (8.75, 0.55) {\eqref{Eujmd}$< 0 $};
 \node[font=\small\bfseries, green!60!black]   at (1.25, 1.1)  {lower $\theta$ gain};
 \node[font=\small\bfseries, orange!80!black]  at (3.75, 1.1)  {all $\theta$ gain};
 \node[font=\small\bfseries, orange!60!black]  at (6.25, 1.1)  {higher $\theta$ gain};
 \node[font=\small\bfseries, magenta!80!black] at (8.75, 1.1)  {higher $\theta$ gain};
+\node[font=\small, green!60!black]   at (1.25, 0.55) {\eqref{Eujmd}$> 0$};
+\node[font=\small, orange!80!black]  at (3.75, 0.55) {\eqref{Eujmd}$> 0$};
+\node[font=\small, orange!60!black]  at (6.25, 0.55) {\eqref{Eujmd}$< 0$};
+\node[font=\small, magenta!80!black] at (8.75, 0.55) {\eqref{Eujmd}$< 0$};
 \draw[->, thick] (-0.2, 0) -- (10.5, 0);
 \node[right] at (10.5, 0) {$k_i$};
-\foreach \x/\lbl in {0/$0$, 2.5/$\tilde k_i^-$, 5/$k^\ast$, 7.5/$\tilde k_i^+$, 10/$k_i^+$}{
+\foreach \x/\lbl in {0/$0$, 1.875/$k_i$, 8.125/$k_j$}{
   \draw[thick] (\x, 0.2) -- (\x, -0.2);
   \node[below, font=\small] at (\x, -0.2) {\lbl};
 }
+\draw[->, line width=2pt] (1.875,-0.8) -- (3.4,-0.8);
+\draw[->, line width=2pt] (8.125,-0.8) -- (6.6,-0.8);
 \node[left, font=\small] at (-0.2, 0) {(a)};
+\node[font=\small] at (5.0, -1.4) {$d\tilde\lambda^\ast > 0$: convergence};
 \end{tikzpicture}
 
 \vspace{1.2cm}
 
 \begin{tikzpicture}[x=1.4cm, y=1cm]
-\fill[green!70!black]   (0,   -0.2) rectangle (3.5,  0.2);
-\fill[magenta!80!black] (3.5, -0.2) rectangle (7.0,  0.2);
-\fill[orange!90!black]  (7.0, -0.2) rectangle (10.0, 0.2);
-\draw[thick] (0,-0.9)   -- (0,-1.0)   -- (7.0,-1.0) -- (7.0,-0.9);
-\draw[thick] (7.0,-0.9) -- (7.0,-1.0) -- (10,-1.0)  -- (10,-0.9);
-\node[font=\small] at (3.5,  -1.5)  {IR-constrained};
-\node[font=\small] at (8.5,  -1.5)  {IR-unconstrained};
-\node[font=\small, green!60!black]   at (1.75, 0.55) {\eqref{Eujmd}$ < 0 $};
-\node[font=\small, magenta!80!black] at (5.25, 0.55) {\eqref{Eujmd}$ > 0 $};
-\node[font=\small, orange!80!black]  at (8.5,  0.55) {\eqref{Eujmd}$> 0 $};
-\node[font=\small\bfseries, green!60!black]   at (1.75, 1.1)  {lower $\theta$ gain};
-\node[font=\small\bfseries, magenta!80!black] at (5.25, 1.1)  {higher $\theta$ gain};
-\node[font=\small\bfseries, orange!80!black]  at (8.5,  1.1)  {all $\theta$ gain};
+\fill[green!70!black]   (0,   -0.2) rectangle (2.5,  0.2);
+\fill[orange!90!black]  (2.5, -0.2) rectangle (5.0,  0.2);
+\fill[orange!90!black]  (5.0, -0.2) rectangle (7.5,  0.2);
+\fill[magenta!80!black] (7.5, -0.2) rectangle (10.0, 0.2);
+\draw[white, dashed, line width=1pt] (5.0,-0.2) -- (5.0,0.2);
+\node[font=\small\bfseries, green!60!black]   at (1.25, 1.1)  {lower $\theta$ gain};
+\node[font=\small\bfseries, orange!80!black]  at (3.75, 1.1)  {all $\theta$ gain};
+\node[font=\small\bfseries, orange!60!black]  at (6.25, 1.1)  {higher $\theta$ gain};
+\node[font=\small\bfseries, magenta!80!black] at (8.75, 1.1)  {higher $\theta$ gain};
+\node[font=\small, green!60!black]   at (1.25, 0.55) {\eqref{Eujmd}$> 0$};
+\node[font=\small, orange!80!black]  at (3.75, 0.55) {\eqref{Eujmd}$> 0$};
+\node[font=\small, orange!60!black]  at (6.25, 0.55) {\eqref{Eujmd}$< 0$};
+\node[font=\small, magenta!80!black] at (8.75, 0.55) {\eqref{Eujmd}$< 0$};
 \draw[->, thick] (-0.2, 0) -- (10.5, 0);
 \node[right] at (10.5, 0) {$k_i$};
-\foreach \x/\lbl in {0/$0$, 3.5/$k^\ast$, 7.0/$\tilde k_i$, 10/$k_i^+$}{
+\foreach \x/\lbl in {0/$0$, 1.875/$k_i$, 8.125/$k_j$}{
   \draw[thick] (\x, 0.2) -- (\x, -0.2);
   \node[below, font=\small] at (\x, -0.2) {\lbl};
 }
+\draw[->, line width=2pt] (1.875,-0.8) -- (0.5,-0.8);
+\draw[->, line width=2pt] (8.125,-0.8) -- (9.5,-0.8);
 \node[left, font=\small] at (-0.2, 0) {(b)};
+\node[font=\small] at (5.0, -1.4) {$d\tilde\lambda^\ast < 0$: divergence};
 \end{tikzpicture}
-\caption{JXXXXX}
+\caption{Redistributive incidence of a global capacity expansion for two categories $i$ and $j$ initially located in the lower-$\theta$-gain and higher-$\theta$-gain regimes respectively. Panel (a): when $d\tilde\lambda^\ast > 0$, the global expansion reallocates capacity toward $k_i$ and away from $k_j$, moving both toward the all-$\theta$-gain region and compressing the redistributive heterogeneity across categories. Panel (b): when $d\tilde\lambda^\ast < 0$, the expansion pushes categories further apart, deepening the redistributive divergence between them. Under case (b) of Figure~\ref{fig:impl_welfare}, where \eqref{Eujmd} crosses from $-$ to $+$, the directions of both arrows are reversed.}
 \label{fig:general_welfare}
 \end{figure}
 
