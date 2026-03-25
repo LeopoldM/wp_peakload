@@ -912,21 +912,18 @@ The corollary provides a sharp economic ranking of categories by participation i
 
 
 \subsection{Optimal investment}
-\subsection{Optimal investment}
 
-We now endogenize total investment. The previous sections characterized the optimal within-category allocation and the optimal allocation of capacity and revenue across categories for a given aggregate capacity \(k\). We now assume that investment is endogenous, as described in the environment, and that a total capacity \(k\) requires a total expenditure \(I(k)\), where \(I\) is strictly increasing and convex. The designer therefore chooses the aggregate investment level by solving
-\[
-\max_{k\geq 0} W(k),
-\]
-where \(W(k)\) denotes the outer value function once total revenue is tied to the endogenous investment cost \(I(k)\).
+We now endogenize total investment. The previous sections characterized the optimal within-category allocation and the optimal allocation of capacity and revenue across categories for a given aggregate capacity \(k\). We now let \(k\) itself be a choice variable. The designer solves 
+\[\max_{k\geq 0} W(k),\]
+where \(W(k)\) denotes the outer value function once total revenue is tied to the endogenous investment cost \(I(k)\), with \(I\) strictly increasing and convex.
 
-This step introduces no new allocation margin. It simply aggregates the objects characterized above. Increasing \(k\) relaxes scarcity in the states in which capacity binds, but it also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by the same trade-off as in the rest of the paper: the marginal value of relaxing the capacity constraint must equal the marginal financing cost of additional capacity.
+Increasing \(k\) relaxes scarcity in the states in which capacity binds, but also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint to the marginal financing cost of additional capacity. As shown in Proposition~\ref{prop:investment}, this condition is governed by the same objects, \(\mathcal{G}_i(\theta)\), \(\Pi_i\), and \(\tilde\lambda^\ast\), that have organized the within- and across-category analysis.
 
 \begin{proposition}[Optimal investment and the incomplete-information peak-load rule]\label{prop:investment}
 The investment problem \(\max_{k\geq 0} W(k)\) admits a unique interior solution \(k^\ast > 0\). The optimal investment level satisfies
 \[
 I'(k^\ast)
-=
+= \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast)=
 \frac{1}{\mu^+}
 \sum_{i\in N^+} \mu_i\,
 \mathbb{E}_{(s,\theta_i)}\!\left[
@@ -934,16 +931,14 @@ u(q_i(\theta,s),s)\,
 \frac{\mathcal{G}_i(\theta)}{\tilde\lambda^\ast}\,
 \mathbf{1}_{\{s\in T_i\}}
 \right],
-\qquad
-\mu^+ := \sum_{i\in N^+}\mu_i,
 \]
-where \(\tilde\lambda^\ast := -\zeta_I > 0\) is the equilibrium marginal cost of funds. Moreover,
+where $\mu^+ := \sum_{i\in N^+}\mu_i$ is the mass of contegributing categories and \(\tilde\lambda^\ast := -\zeta_I > 0\) is the equilibrium marginal cost of funds. Moreover,
 \[
 \max_{i \in N^+} \tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i \in N^0} \tilde\lambda_i.
 \]
 \end{proposition}
 
-Proposition~\ref{prop:investment} is the incomplete-information counterpart of the classic peak-load pricing rule. In the complete-information benchmark with redistributive preferences, incentive constraints play no role. There is no rent-extraction wedge, so \(J_i(\theta)=\theta\), and informational rents are absent, so \(\Lambda_i(\theta)=0\). Hence the normalized incomplete-information object collapses to the complete-information one:
+Proposition~\ref{prop:investment} is the incomplete-information counterpart of the classic peak-load pricing rule. In the complete-information benchmark with redistributive preferences, incentive constraints play no role. There is no information rent, so \(J_i(\theta)=\theta\) and \(\Lambda_i(\theta)=0\). Hence the normalized incomplete-information object collapses to the complete-information one:
 \[
 \frac{\mathcal G_i(\theta)}{\tilde\lambda^\ast}
 \; \longrightarrow \;
@@ -951,32 +946,43 @@ Proposition~\ref{prop:investment} is the incomplete-information counterpart of t
 \]
 which yields equation~\eqref{eq:FB-k1}.
 
-Without redistributive concerns, the value of a transfer is the same across consumers, so the distinction between contributing and non-contributing consumers disappears, and the aggregate marginal utility of consumption is directly equated to the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\), which combines the direct welfare gain from relaxing scarcity with the informational distortions embedded in the mechanism.
+Without redistributive concerns, the value of a transfer is the same for all consumers, so the distinction between contributing and non-contributing consumers disappears, and the marginal utility of consumption for all consumers is equated with the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\) of contributing consumers, which combines the direct welfare gain from relaxing scarcity with the informational distortions embedded in the mechanism.
 
-This expression also clarifies the role of the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). At the optimum, the aggregate scarcity value of capacity is scaled by the shadow value of public funds that emerges endogenously from the outer problem. Hence total investment is jointly governed by within-category distortions, the across-category allocation of capacity and revenue, and the financing cost of relaxing the aggregate capacity constraint.
+We conclude by connecting the implications of the optimal investment condition with the previous analysis of the within and across allocation: i) how does a global change in preferences affect $k^\ast$, and ii) how does a global capacity extension affect the redistributive aspect of within-category individual welfare? 
 
-The previous analysis also implies that redistributive concerns affect investment through the same objects that govern the allocation within and across categories. A perturbation of preferences modifies the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). Second, it changes the category-level marginal value of capacity, summarized by the scarcity rents \(\Pi_i\). The next corollary gives the corresponding comparative statics in the cleanest case.
-
+The previous analysis also implies that redistributive concerns affect investment through the same objects that govern the allocation within and across categories. A preference perturbation modifies the optimal investment level through two channels. First, it changes the equilibrium marginal cost of funds \(\tilde\lambda^\ast\). Second, it changes the category-level marginal value of capacity, summarized by the scarcity rents \(\Pi_i\). The next corollary gives the corresponding comparative statics in the cleanest case.
 \begin{corollary}[Investment response to redistributive preference perturbations]\label{cor:investment}
-Assume Assumption~\ref{ass:CARA}. Suppose each category $i$ becomes a new category $j$ through a marginal mean-preserving perturbation of $\lambda_i(\theta)$ where \(\Delta\tilde\lambda^\ast\) denotes the first-order change in the equilibrium marginal cost of funds. Then:
-\begin{enumerate}[label=(\roman*), leftmargin=1cm]
-\item The induced change in optimal investment satisfies
+Assume Assumption~\ref{ass:CARA}. Suppose each category \(i\) becomes a new category \(j\) through a marginal and monotonic mean-preserving perturbation of \(\lambda_i(\theta)\), and let \(\Delta\tilde\lambda^\ast\) denote the first-order change in the equilibrium marginal cost of funds. Then the induced change in optimal investment satisfies
 \[
 W''(k^\ast)\,\Delta k^\ast
 =
 I'(k^\ast)\,\Delta\tilde\lambda^\ast
 -
 \frac{1}{\tilde\lambda^\ast}
-\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}].
+\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G,i}],
 \]
-\item If $\tilde\lambda^\ast$ is unchanged by the perturbation (\(\Delta\tilde\lambda^\ast = 0\)), then
+where
 \[
-\Delta k^\ast>0
-\quad\Longleftrightarrow\quad
-\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}]>0.
+\Delta\tilde\lambda^\ast
+=
+-
+\frac{
+\sum_{i\in B}\mu_i\,
+\mathbb E_s\!\left[
+\varepsilon_i(s)\,
+\Cov_{\theta_i}\!\left(R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)\right)
+\mathbf 1_{\{s\in T_i\}}
+\right]
+}{
+\sum_{i\in B}\mu_i\,
+\mathbb E_s\!\left[
+\varepsilon_i(s)\,
+\Var_{\theta_i}\!\left(R_{\theta,i}(\theta)\right)
+\mathbf 1_{\{s\in T_i\}}
+\right]
+}.
 \]
-\item In particular, if the mean-preserving perturbation follows a smooth ordered path that tilts redistributive preferences toward higher types, then \(\mathbb E_{\theta_i}[R_{\mathcal G}]>0\) for all \(i\), and hence, when \(\Delta\tilde\lambda^\ast=0\), \(\Delta k^\ast>0\).
-\end{enumerate}
+In particular, under a smooth ordered path that tilts redistributive preferences toward higher types, one has \(\mathbb E_{\theta_i}[R_{\mathcal G,i}]>0\) for all \(i\), so the direct effect of the perturbation pushes investment upward, although the overall sign of \(\Delta k^\ast\) also depends on the induced change in \(\tilde\lambda^\ast\).
 \end{corollary}
 
 Corollary~\ref{cor:investment} shows that the effect of redistribution on aggregate investment is not mechanically tied to the average redistributive weight alone. What matters is how the perturbation reshapes the effective weights across types and, through them, the scarcity value of capacity. In particular, when the perturbation leaves the equilibrium marginal cost of funds unchanged, the sign of the investment response is entirely governed by the weighted sum

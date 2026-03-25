@@ -1300,9 +1300,9 @@ Thus
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Proof of Corollary \ref{cor:investment}}
+\subsection{Proof of Corollary~\ref{cor:investment}}
 \begin{proof}
-For this proof, it is convenient to use the equivalent whole-$N$ representation from Proposition~\ref{prop:investment},
+For this proof, it is convenient to use the whole-\(N\) representation from Proposition~\ref{prop:investment},
 \[
 I'(k^\ast)
 =
@@ -1316,7 +1316,7 @@ u(q_i(\theta,s),s)\,\mathcal G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
 \right].
 \]
 
-\textit{Part (i).} Differentiating the first-order condition with respect to the perturbation and applying the envelope theorem gives
+Differentiating the first-order condition with respect to the perturbation gives
 \[
 W''(k^\ast)\,\Delta k^\ast
 =
@@ -1324,28 +1324,96 @@ I'(k^\ast)\,\Delta\tilde\lambda^\ast
 -
 \frac{1}{\tilde\lambda^\ast}\sum_i \mu_i\,\Delta\Pi_i .
 \]
-Using the CARA expression
-\[
-\Delta\Pi_i = \Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G}]
-\]
-from Theorem~\ref{thm:cat-order}, together with
-\[
-\Delta\tilde\lambda^\ast = \Delta\beta_i^\ast
-=
--\bar\varepsilon_i\,
-\frac{\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal G})}{\mathcal V_i}
-\]
-from the implicit function theorem applied to $\Phi_i(k_i,\beta_i)=0$ as in the proof of Lemma~\ref{lem:Vi-concave}, and the CARA identity
-\[
-\frac{\bar\varepsilon_i}{\mathcal V_i}
-=
-\frac{\alpha}{\mathrm{Var}_{\theta_i}(R_\theta)}
-\]
-established in the proof of Proposition~\ref{prop:revenueordering}, yields the stated expression.
 
-\textit{Part (ii).} If $\tilde\lambda^\ast$ is unchanged, then $\Delta\tilde\lambda^\ast = 0$ and the first term vanishes. Since $W''(k^\ast)<0$ by strict concavity of $W$ established in Proposition~\ref{prop:investment} and $\Pi_i>0$ for all active categories, the iff follows immediately.
+Under Assumption~\ref{ass:CARA}, the weight \(w_i(\theta,s)\) is independent of \(\theta\) on every peak state, so the argument used in Corollary~\ref{prop:cat-order-beta0} yields
+\[
+\Delta\Pi_i
+=
+\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G,i}] .
+\]
+Substituting into the previous display gives
+\[
+W''(k^\ast)\,\Delta k^\ast
+=
+I'(k^\ast)\,\Delta\tilde\lambda^\ast
+-
+\frac{1}{\tilde\lambda^\ast}
+\sum_i \mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G,i}] .
+\]
 
-\textit{Part (iii).} Under Assumption~\ref{ass:ordered-path}, the perturbation follows the preference ordering, so Theorem~\ref{thm:cat-order} gives $\mathbb E_{\theta_i}[R_{\mathcal G}]>0$ for all $i$. Part~(i) of Proposition~\ref{prop:revenueordering} then implies $\Delta\tilde\lambda^\ast\leq 0$ since contributing categories move toward $\tilde\lambda^\ast$ from below. Both terms on the right-hand side of part~(i) are therefore negative, so $\Delta k^\ast>0$.
+It remains to characterize \(\Delta\tilde\lambda^\ast\). For each contributing category \(i\in B\), the binding revenue condition implies
+\[
+\Phi_i(k_i^\ast,\beta_i^\ast,\lambda_i)=0.
+\]
+Because the perturbation is mean-preserving, \(\Delta\tilde\lambda_i=0\), hence for every \(i\in B\),
+\[
+\Delta\beta_i^\ast=\Delta\tilde\lambda^\ast .
+\]
+Differentiating the binding revenue condition therefore gives
+\[
+\mathcal V_i(k_i^\ast)\,\Delta\tilde\lambda^\ast
++
+\Delta_\lambda
+\mathbb E_{(s,\theta_i)}\!\left[
+U\!\left(q_i(\theta,s),s\right)J_i(\theta)
+\right]
+=0 .
+\]
+
+Under Assumption~\ref{ass:CARA},
+\[
+\mathcal V_i(k_i^\ast)
+=
+\frac{1}{\alpha}\,
+\mathbb E_s\!\left[
+\varepsilon_i(s)\,
+\Var_{\theta_i}\!\left(R_{\theta,i}(\theta)\right)
+\mathbf 1_{\{s\in T_i\}}
+\right],
+\]
+and
+\[
+\Delta_\lambda
+\mathbb E_{(s,\theta_i)}\!\left[
+U\!\left(q_i(\theta,s),s\right)J_i(\theta)
+\right]
+=
+\frac{1}{\alpha}\,
+\mathbb E_s\!\left[
+\varepsilon_i(s)\,
+\Cov_{\theta_i}\!\left(
+R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)
+\right)
+\mathbf 1_{\{s\in T_i\}}
+\right].
+\]
+Hence, summing across contributing categories \(i\in B\) with weights \(\mu_i\),
+\[
+\Delta\tilde\lambda^\ast
+=
+-
+\frac{
+\sum_{i\in B}\mu_i\,
+\mathbb E_s\!\left[
+\varepsilon_i(s)\,
+\Cov_{\theta_i}\!\left(
+R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)
+\right)
+\mathbf 1_{\{s\in T_i\}}
+\right]
+}{
+\sum_{i\in B}\mu_i\,
+\mathbb E_s\!\left[
+\varepsilon_i(s)\,
+\Var_{\theta_i}\!\left(
+R_{\theta,i}(\theta)
+\right)
+\mathbf 1_{\{s\in T_i\}}
+\right]
+}.
+\]
+
+This yields the stated expression for the investment response.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
