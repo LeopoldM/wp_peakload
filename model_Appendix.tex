@@ -175,7 +175,29 @@ Proposition~\ref{prop:implementation} identifies the geometry of the IR-unconstr
 Figure~\ref{fig:redistribution_marg_k_uniform} illustrates Theorem~\ref{thm:surplus} and Proposition~\ref{prop:implementation}. The left panel shows the boundary term \eqref{ECSi} as a function of $k_i$ for two type supports, tracing both the implementation region and the sign of \eqref{Eujmd}. The dashed curve has a lower $\underline{\theta}_i$, which increases the mass of consumers with $J_i<0$ and shrinks the range of $k_i$ for which \eqref{Eujmd} is positive, shifting $k^\ast$ to the left. The right panels illustrate the individual surplus effects at two capacity levels: at $k_1$, where \eqref{Eujmd} is positive, all types gain from a capacity expansion; at $k_2$, where \eqref{Eujmd} is negative, only types above the cutoff $\tilde\theta_i$ benefit.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Preference perturbations and effective social weights}\label{app:preferenceorder}
 
+This subsection provides primitive conditions on redistributive preference perturbations that ensure a well-behaved change in effective social weights across types. In particular, it characterizes when the induced change in effective weights has a constant sign, a property that is useful for deriving sharp comparative statics in the main text.
+
+Recall that $\Lambda_i(\theta)$ measures the social value of the information rent given to types above $\theta$, evaluated at the welfare weights. We consider a perturbation of redistributive preferences $\lambda_i(\theta)$ and study how it affects the associated objects.
+
+\begin{lemma}[Preference shifts and effective social weights]\label{lem:preferenceorder}
+Consider a weight function $\lambda_i(\theta)$ and its perturbation $\lambda_i^\Delta(\theta)$, with $\Delta\lambda_i(\theta):=\lambda_i^\Delta(\theta)-\lambda_i(\theta)$ and $\Delta\G_i(\theta):=\G_i^\Delta(\theta)-\G_i(\theta)$. Suppose $\G_i(\theta),\G_i^\Delta(\theta)>0$ for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. Define:
+\[
+m_i(\theta) = \frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}, \qquad c_\Lambda:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i},
+\qquad
+c_{\G}:=\frac{\tilde\lambda_i^\Delta+\beta_i^\Delta}
+{\tilde\lambda_i+\beta_i}.
+\]
+If $m_i(\theta)$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$, then for $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
+\[
+\frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)} \;\ge\; (\text{resp.} \le) \; \frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)}.
+\]
+Moreover, if $1\le c_{\G}\le c_\Lambda$ (resp. $c_\Lambda\le c_{\G}\le 1$), then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\ge(\text{resp. }\le)0$. In particular, if either $\beta_i=\beta_i^\Delta=0$ or $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the condition reduces to $\tilde\lambda_i^\Delta\ge (\text{resp. }\le)\tilde\lambda_i$.
+\end{lemma}
+
+The first part of the lemma shows that a proportional tilt of welfare weights toward higher types shifts $\Lambda_i^\Delta(\theta)$ upward relative to $\Lambda_i(\theta)$ across the type space. The second part connects the direction of a preference shift to the sign of $\Delta\mathcal{G}_i(\theta)$, under conditions that relate the average change in welfare weights to the corresponding change in effective weights. In particular, monotone mean-preserving rotations of $\lambda_i(\theta)$ generate a constant-sign change in $\Delta\mathcal{G}_i(\theta)$ across types.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Additional results on preference-induced reallocation}\label{app:pref-reallocation}
 
@@ -748,7 +770,7 @@ The special cases in the ``in particular'' clause follow immediately: if $\beta_
 
 \subsection{Proof of Lemma~\ref{lem:realloc}}
 \begin{proof}
-When $\beta_i=0$, one has $\mathcal G_i(\theta)=\Gamma_i(\theta)$ and therefore $R_{\mathcal G}(\theta)=R_\Gamma(\theta)$; the result in the main text is stated in terms of $R_\Gamma$ for that case. Fix $s\in T_i$ and a local perturbation $\Delta\lambda_i(\theta)$ holding $k_i$ fixed.
+Fix $s\in T_i$ and a local perturbation $\Delta\lambda_i(\theta)$ holding $k_i$ fixed.
 
 Using the weights $w_i(\theta,s)$ and $\mathbb E_i^w[\cdot\mid s]$ from the preliminary step of Lemma~\ref{lem:SC-dir}, note that
 \[
@@ -2046,164 +2068,6 @@ is available in general.
 \end{proof}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Proof of Corollary~\ref{cor:CARA}}
-\begin{proof}
-We work on the IR-unconstrained region characterized in Proposition~\ref{prop:implementation}. On that region, $\beta_i=0$, so $\mathcal{G}_i(\theta)=\Gamma_i(\theta)$ and therefore
-\[
-R_\mathcal{G}(\theta)=R_\Gamma(\theta).
-\]
-The proof proceeds in three steps.
-
-\noindent\textit{Step 1: under CARA, the weighted averages collapse to ordinary averages.}
-Under Assumption~\ref{ass:CARA}, we have
-\[
-u_q\!\left(q_i(\theta,s),s\right)=-\alpha\,u\!\left(q_i(\theta,s),s\right)
-\qquad\text{for some }\alpha>0,
-\]
-hence
-\[
-R_q(\theta):=-\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)}=\frac{1}{\alpha},
-\]
-which is constant. In any on-peak state $s\in T_i(k)$, the first-order condition with $\beta_i=0$ is
-\[
-u\!\left(q_i(\theta,s),s\right)\Gamma_i(\theta)=\varepsilon_i(s).
-\]
-Using the preliminary step in the proof of Lemma~\ref{lem:realloc},
-\[
-w_i(\theta,s)
-=
--\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\Gamma_i(\theta)}
-=
-\frac{1}{\alpha\,\varepsilon_i(s)},
-\]
-which is constant in $\theta$. Therefore, for every on-peak state $s$,
-\[
-\mathbb E_i^w[X\mid s]=\mathbb E_{\theta_i}[X].
-\]
-Applying Lemma~\ref{lem:realloc} then yields
-\[
-\Delta q_i(\theta,s)
-=
-\frac{1}{\alpha}\left(
-R_\mathcal{G}(\theta)-\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)]
-\right),
-\]
-and, by the same derivation,
-\[
-\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
-=
-\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)]
-\qquad\text{for every }s\in T_i(k).
-\]
-
-\medskip
-\noindent\textit{Step 2: the sign of the covariance determines whether the implementation region expands or contracts.}
-By Proposition~\ref{prop:implementation}, the IR-unconstrained implementation region is characterized by
-\[
-\mathbb E\underline{CS}_i(k)\ge 0.
-\]
-Using the general perturbation formula derived in the proof of Proposition~\ref{prop:implementation}, and the collapse of weighted averages from Step~1, we obtain on the IR-unconstrained region
-\[
-\Delta\mathbb E\underline{CS}_i(k)
-=
-\overline\varepsilon_i(k)\,
-\operatorname{Cov}_{\theta_i}\!\left(R_\theta(\theta),R_\mathcal{G}(\theta)\right),
-\]
-where
-\[
-\overline\varepsilon_i(k):=
-\mathbb E_s\!\left[
-\varepsilon_i(s;k)\mathbf 1_{\{s\in T_i(k)\}}
-\right]>0.
-\]
-Hence the sign of $\Delta\mathbb E\underline{CS}_i(k)$ is constant over the whole IR-unconstrained region and equals the sign of
-\[
-\operatorname{Cov}_{\theta_i}\!\left(R_\theta(\theta),R_\mathcal{G}(\theta)\right).
-\]
-If this covariance is positive, then $\mathbb E\underline{CS}_i(k)$ shifts upward pointwise, so the set of $k$ such that $\mathbb E\underline{CS}_i(k)\ge 0$ expands:
-\[
-\tilde k_i^- \text{ decreases and } \tilde k_i^+ \text{ increases.}
-\]
-If the covariance is negative, the opposite occurs and the implementation region contracts.
-
-\medskip
-\noindent\textit{Step 3: the same covariance determines the direction of the shift in the peak $k^\ast$.}
-Let
-\[
-F(k):=\partial_k \mathbb E\underline{CS}_i(k).
-\]
-By the derivative formula established before, on the IR-unconstrained region,
-\[
-F(k)
-=
-\mathbb E_s\!\left[
-\varepsilon_i(s;k)\,
-\mathbb E_i^w[R_\theta\mid s;k]\,
-\mathbf 1_{\{s\in T_i(k)\}}
-\right].
-\]
-Under CARA, Step~1 implies $\mathbb E_i^w[R_\theta\mid s;k]=\mathbb E_{\theta_i}[R_\theta(\theta)]$, so
-\[
-F(k)=\overline\varepsilon_i(k)\,\mathbb E_{\theta_i}[R_\theta(\theta)].
-\]
-Its perturbation is therefore
-\[
-\Delta F(k)
-=
-\Delta\overline\varepsilon_i(k)\,\mathbb E_{\theta_i}[R_\theta(\theta)]
-+
-\overline\varepsilon_i(k)\,\mathbb E_{\theta_i}[\Delta R_\theta(\theta)].
-\]
-Using Step~1,
-\[
-\Delta\overline\varepsilon_i(k)
-=
-\overline\varepsilon_i(k)\,\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)].
-\]
-Moreover, since
-\[
-\Delta R_\theta(\theta)=-R_\mathcal{G}(\theta)R_\theta(\theta),
-\]
-we have
-\[
-\mathbb E_{\theta_i}[\Delta R_\theta(\theta)]
-=
--\operatorname{Cov}_{\theta_i}\!\left(R_\mathcal{G}(\theta),R_\theta(\theta)\right)
--\mathbb E_{\theta_i}[R_\mathcal{G}(\theta)]\,\mathbb E_{\theta_i}[R_\theta(\theta)].
-\]
-Substituting into the expression for $\Delta F(k)$ gives
-\[
-\Delta F(k)
-=
--\overline\varepsilon_i(k)\,
-\operatorname{Cov}_{\theta_i}\!\left(R_\mathcal{G}(\theta),R_\theta(\theta)\right).
-\]
-Let $k^\ast$ denote the unique maximizer of $\mathbb E\underline{CS}_i(k)$. Then
-\[
-F(k^\ast)=0
-\qquad\text{and}\qquad
-F'(k^\ast)<0.
-\]
-A first-order perturbation therefore satisfies
-\[
-\Delta k^\ast
-=
--\frac{\Delta F(k^\ast)}{F'(k^\ast)},
-\]
-so $\Delta k^\ast$ has the same sign as $\Delta F(k^\ast)$. Hence
-\[
-\operatorname{sign}(\Delta k^\ast)
-=
--\operatorname{sign}\!\left(
-\operatorname{Cov}_{\theta_i}\!\left(R_\mathcal{G}(\theta),R_\theta(\theta)\right)
-\right).
-\]
-Therefore, a positive covariance shifts $k^\ast$ to the left, while a negative covariance shifts it to the right. Since on the IR-unconstrained region $R_\mathcal{G}=R_\Gamma$, this is exactly the statement of the corollary.
-\end{proof}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Lemma~\ref{lem:dkidk}}
@@ -2572,7 +2436,7 @@ the stationarity conditions become
 
 The object $\Pi_i(k_i)$ arises naturally from the envelope theorem applied to the within-category value function. On the region where $\beta_i=0$, the pointwise first-order condition gives
 \[
-u\!\left(q_i(\theta,s;k_i),s\right)\Gamma_i(\theta)=\varepsilon_i(s;k_i)
+u\!\left(q_i(\theta,s;k_i),s\right)\G_i(\theta)=\varepsilon_i(s;k_i)
 \qquad
 \text{for every }\theta \text{ and every } s\in T_i(k_i).
 \]
@@ -2582,16 +2446,16 @@ Taking expectations over $\theta$ and using the envelope formula yields
 =
 \mathbb{E}_s\!\left[
 \mathbb{E}_{\theta_i}\!\left[
-u\!\left(q_i(\theta,s;k_i),s\right)\Gamma_i(\theta)
+u\!\left(q_i(\theta,s;k_i),s\right)\G_i(\theta)
 \right]
 \mathbf{1}_{\{s\in T_i(k_i)\}}
 \right].
 \]
-Hence $\Pi_i(k_i)$ is the expected scarcity rent of category $i$ at capacity level $k_i$, and is the object equalized across categories by the outer optimum. Note that on the region $\beta_i=0$, $\mathcal G_i(\theta)=\Gamma_i(\theta)$, so the ratio
+Hence $\Pi_i(k_i)$ is the expected scarcity rent of category $i$ at capacity level $k_i$, and is the object equalized across categories by the outer optimum. Note that on the region $\beta_i=0$, $\mathcal G_i(\theta)=\G_i(\theta)$, so the ratio
 \[
 R_{\mathcal G}(\theta):=\frac{\Delta \mathcal G_i(\theta)}{\mathcal G_i(\theta)}
 \]
-defined in Lemma~\ref{lem:realloc} reduces to $\Delta \Gamma_i(\theta)/\Gamma_i(\theta)$: the same proportional reweighting that governs the reallocation of quantities within a category also governs the local ranking of capacities across categories.
+defined in Lemma~\ref{lem:realloc} reduces to $\Delta \G_i(\theta)/\G_i(\theta)$: the same proportional reweighting that governs the reallocation of quantities within a category also governs the local ranking of capacities across categories.
 
 \begin{proposition}[Local category ranking under redistributive preferences]\label{prop:cat-order}
 Suppose all categories share the same type distribution $G$ on $\Theta$. Fix a baseline category $i$, and let category $j$ be obtained from $i$ through a marginal perturbation of redistributive preferences. Then, to first order in $\Delta\lambda$,
@@ -2643,12 +2507,12 @@ Suppose that $\beta_i = 0$ at the corresponding equilibrium for every active cat
 \end{enumerate}
 \end{corollary}
 \begin{proof}
-\textit{Part (i).} By Proposition~\ref{prop:cat-order}, the local iff holds for any regime. When $\beta_i=0$, $\mathcal{G}_i(\theta)=\Gamma_i(\theta)$ does not depend on $k$. Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\mathbb{E}^w_i[R_\mathcal{G}\mid s]=\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]$ for every $s$, independently of $k$. Therefore \[\Delta\Pi_i(k) = \mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]\cdot\Pi_i(k) \qquad \text{for all } k.\] Since $\Pi_i(k)>0$ for all $k$ in the interior, the sign of $\Delta\Pi_i(k)$ equals the sign of $\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]$ for all $k$, and the local iff of Proposition~\ref{prop:cat-order} holds globally.
-\textit{Part (ii).} Since $\lambda_j(\theta)/\lambda_i(\theta)$ is increasing and $\tilde\lambda_j>\tilde\lambda_i$, Lemma~\ref{lem:preferenceorder} gives $\Gamma_j(\theta)\ge\Gamma_i(\theta)$ for all $\theta$, with strict inequality on a set of positive measure. Hence $R_\mathcal{G}(\theta)\ge 0$ everywhere and strictly positive on a set of positive measure, so $\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]>0$ and the conclusion follows from part (i).
+\textit{Part (i).} By Proposition~\ref{prop:cat-order}, the local iff holds for any regime. When $\beta_i=0$, $\mathcal{G}_i(\theta)=\G_i(\theta)$ does not depend on $k$. Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\mathbb{E}^w_i[R_\mathcal{G}\mid s]=\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]$ for every $s$, independently of $k$. Therefore \[\Delta\Pi_i(k) = \mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]\cdot\Pi_i(k) \qquad \text{for all } k.\] Since $\Pi_i(k)>0$ for all $k$ in the interior, the sign of $\Delta\Pi_i(k)$ equals the sign of $\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]$ for all $k$, and the local iff of Proposition~\ref{prop:cat-order} holds globally.
+\textit{Part (ii).} Since $\lambda_j(\theta)/\lambda_i(\theta)$ is increasing and $\tilde\lambda_j>\tilde\lambda_i$, Lemma~\ref{lem:preferenceorder} gives $\Gamma_j(\theta)\ge\G_i(\theta)$ for all $\theta$, with strict inequality on a set of positive measure. Hence $R_\mathcal{G}(\theta)\ge 0$ everywhere and strictly positive on a set of positive measure, so $\mathbb{E}_{\theta_i}[R_\mathcal{G}(\theta)]>0$ and the conclusion follows from part (i).
 \textit{Part (iii).} The envelope theorem gives $\partial_{I_i}V_i(k_i,I_i) = -\tilde\lambda_i - \beta_i(k_i,I_i)$. When $\beta_i = 0$ for all $i$, this reduces to $-\tilde\lambda_i$. Since the surplus cost of raising one additional unit of revenue is strictly lowest in category $i^\ast$, any optimum assigns $I_{i^\ast}^\ast = I$ and $I_i^\ast = 0$ for all $i \neq i^\ast$. \qedhere
 \end{proof}
 
-The capacity ranking $k_j^\ast > k_i^\ast$ is governed by the sign of $\mathbb{E}_s[\varepsilon_i(s;k_i^\ast)\mathbb{E}^w_i[R_\mathcal{G}\mid s;k_i^\ast]\mathbf{1}_{\{s\in T_i\}}]$, a weighted average of the proportional difference in social weights $R_\mathcal{G}(\theta) = \Delta\Gamma_i(\theta)/\Gamma_i(\theta)$ across types, with the scarcity rent $\varepsilon_i(s)$ providing state-level weighting. This is a first-order characterization of the capacity ranking: it is exact when categories $i$ and $j$ differ marginally in redistributive preferences, and identifies the proportional shift in $\Gamma_i$ as the sufficient statistic for the direction of the ranking. For finite preference differences, part~(ii) provides a primitive sufficient condition that delivers the same conclusion without requiring the comparison to be marginal. Under Assumption~\ref{ass:CARA}, $\mathbb{E}^w_i[R_\mathcal{G}\mid s]$ is independent of both $s$ and $k$, so the identity $\Delta\Pi_i(k) = \mathbb{E}^w_i[R_\mathcal{G}]\cdot\Pi_i(k)$ holds exactly for any finite preference difference, and the first-order characterization becomes an exact global iff. The sufficient condition in part~(ii) decomposes the ranking into two independent primitive conditions: the average weight ordering $\tilde\lambda_j > \tilde\lambda_i$ and the within-type monotone ratio $\lambda_j(\theta)/\lambda_i(\theta)$ increasing, which together imply $R_\mathcal{G}(\theta) \geq 0$ pointwise via Lemma~\ref{lem:preferenceorder}.
+The capacity ranking $k_j^\ast > k_i^\ast$ is governed by the sign of $\mathbb{E}_s[\varepsilon_i(s;k_i^\ast)\mathbb{E}^w_i[R_\mathcal{G}\mid s;k_i^\ast]\mathbf{1}_{\{s\in T_i\}}]$, a weighted average of the proportional difference in social weights $R_\mathcal{G}(\theta) = \Delta\G_i(\theta)/\G_i(\theta)$ across types, with the scarcity rent $\varepsilon_i(s)$ providing state-level weighting. This is a first-order characterization of the capacity ranking: it is exact when categories $i$ and $j$ differ marginally in redistributive preferences, and identifies the proportional shift in $\Gamma_i$ as the sufficient statistic for the direction of the ranking. For finite preference differences, part~(ii) provides a primitive sufficient condition that delivers the same conclusion without requiring the comparison to be marginal. Under Assumption~\ref{ass:CARA}, $\mathbb{E}^w_i[R_\mathcal{G}\mid s]$ is independent of both $s$ and $k$, so the identity $\Delta\Pi_i(k) = \mathbb{E}^w_i[R_\mathcal{G}]\cdot\Pi_i(k)$ holds exactly for any finite preference difference, and the first-order characterization becomes an exact global iff. The sufficient condition in part~(ii) decomposes the ranking into two independent primitive conditions: the average weight ordering $\tilde\lambda_j > \tilde\lambda_i$ and the within-type monotone ratio $\lambda_j(\theta)/\lambda_i(\theta)$ increasing, which together imply $R_\mathcal{G}(\theta) \geq 0$ pointwise via Lemma~\ref{lem:preferenceorder}.
 
 The proposition delivers two non-obvious policy lessons. First, what determines the capacity ranking is not how much more generous a regulator is toward one category in absolute terms, but how that generosity is distributed proportionally across types within the category. Two preference profiles with identical average weights can generate opposite capacity rankings depending on whether the preference increment is concentrated on high or low types. Second, the average weight ordering $\tilde\lambda_j > \tilde\lambda_i$ and the within-type profile $\lambda_j(\theta)/\lambda_i(\theta)$ increasing are genuinely independent conditions: a regulator who observes only average welfare weights across categories cannot determine the capacity ranking without also knowing how preferences vary within categories, and conversely. A regulator who ignores within-type preference heterogeneity and ranks capacity by average generosity alone will systematically misallocate capacity---assigning too little to categories where preferences are concentrated on high types, who generate the most revenue to finance investment, and too much to categories where preferences are flat or favor low types.
 
@@ -2746,16 +2610,16 @@ What this condition does not provide is a closed-form formula for the levels \(k
 \item $\gamma_i(\theta) = (1-G_i(\theta))/g_i(\theta)$: the marginal leakage rate at type $\theta$ — allocating one more unit to $\theta$ forces the designer to surrender rent to all types above, and $\gamma_i(\theta)$ measures the local cost of this upward spillover.
 \item $J_i(\theta) = \theta - \gamma_i(\theta)$: the virtual surplus of type $\theta$ — the net revenue the designer extracts after accounting for the marginal leakage to higher types. Negative when the leakage cost exceeds the type's own surplus, which arises endogenously when the lower tail of the distribution is heavy and redistribution forces the designer to serve low types.
 \item $\Lambda_i(\theta) = \gamma_i(\theta)\,\mathbb{E}[\lambda_i(\tilde\theta)\mid\tilde\theta\ge\theta]$: the socially-weighted marginal leakage — the social value of the rent that flows upward to all types above $\theta$ as a consequence of serving $\theta$. It is large when the designer places high weight on higher types and when the leakage rate $\gamma_i(\theta)$ is large.
-\item $\Gamma_i(\theta) = \tilde\lambda_i J_i(\theta) + \Lambda_i(\theta)$: the total social return from allocating to type $\theta$, combining the revenue channel ($\tilde\lambda_i J_i(\theta)$) and the rent channel ($\Lambda_i(\theta)$). Positive even when $J_i(\theta)<0$ if the social value of upward rent flows is sufficiently large.
+\item $\G_i(\theta) = \tilde\lambda_i J_i(\theta) + \Lambda_i(\theta)$: the total social return from allocating to type $\theta$, combining the revenue channel ($\tilde\lambda_i J_i(\theta)$) and the rent channel ($\Lambda_i(\theta)$). Positive even when $J_i(\theta)<0$ if the social value of upward rent flows is sufficiently large.
 \item $\beta_i\ge 0$: the shadow cost of the budget constraint — it measures the marginal value of relaxing the revenue requirement by one unit. When positive, it amplifies the attractiveness of revenue-generating types ($J_i>0$) and further discounts revenue-costly types ($J_i<0$).
-\item $\mathcal{G}_i(\theta) = \Gamma_i(\theta) + J_i(\theta)\beta_i$: the effective social weight on type $\theta$ at the optimum, combining the redistributive objective and the revenue constraint. It collapses to $\Gamma_i(\theta)$ when the budget constraint is slack.
+\item $\mathcal{G}_i(\theta) = \G_i(\theta) + J_i(\theta)\beta_i$: the effective social weight on type $\theta$ at the optimum, combining the redistributive objective and the revenue constraint. It collapses to $\G_i(\theta)$ when the budget constraint is slack.
 \end{itemize}
 
 
 \begin{itemize}
-\item \textbf{Case 1: $I_i = 0$, $\beta_i = 0$.} The budget constraint is slack and no revenue is raised from category $i$. Complementary slackness gives $\xi_i \geq 0$, and the outer KKT stationarity condition gives $\tilde\lambda_i = -\mu_I + \xi_i \geq -\mu_I$. The effective weight collapses to $\mathcal{G}_i(\theta) = \Gamma_i(\theta)$.
-\item \textbf{Case 2: $I_i > 0$, $\beta_i = 0$.} The budget constraint is slack despite positive revenue extraction. Complementary slackness forces $\xi_i = 0$, and the stationarity condition pins down $\tilde\lambda_i = -\mu_I$ exactly. This is the knife-edge marginal category: it bears revenue but its budget constraint does not bind. Generically at most one category satisfies this condition. The effective weight is again $\mathcal{G}_i(\theta) = \Gamma_i(\theta)$.
-\item \textbf{Case 3: $I_i > 0$, $\beta_i > 0$.} The budget constraint binds. Complementary slackness forces $\xi_i = 0$, and the stationarity condition gives $\tilde\lambda_i + \beta_i = -\mu_I$, so $\beta_i = -\mu_I - \tilde\lambda_i > 0$, which requires $\tilde\lambda_i < -\mu_I$. The effective weight is $\mathcal{G}_i(\theta) = \Gamma_i(\theta) + J_i(\theta)\beta_i$, reflecting the additional revenue pressure on the allocation.
+\item \textbf{Case 1: $I_i = 0$, $\beta_i = 0$.} The budget constraint is slack and no revenue is raised from category $i$. Complementary slackness gives $\xi_i \geq 0$, and the outer KKT stationarity condition gives $\tilde\lambda_i = -\mu_I + \xi_i \geq -\mu_I$. The effective weight collapses to $\mathcal{G}_i(\theta) = \G_i(\theta)$.
+\item \textbf{Case 2: $I_i > 0$, $\beta_i = 0$.} The budget constraint is slack despite positive revenue extraction. Complementary slackness forces $\xi_i = 0$, and the stationarity condition pins down $\tilde\lambda_i = -\mu_I$ exactly. This is the knife-edge marginal category: it bears revenue but its budget constraint does not bind. Generically at most one category satisfies this condition. The effective weight is again $\mathcal{G}_i(\theta) = \G_i(\theta)$.
+\item \textbf{Case 3: $I_i > 0$, $\beta_i > 0$.} The budget constraint binds. Complementary slackness forces $\xi_i = 0$, and the stationarity condition gives $\tilde\lambda_i + \beta_i = -\mu_I$, so $\beta_i = -\mu_I - \tilde\lambda_i > 0$, which requires $\tilde\lambda_i < -\mu_I$. The effective weight is $\mathcal{G}_i(\theta) = \G_i(\theta) + J_i(\theta)\beta_i$, reflecting the additional revenue pressure on the allocation.
 \end{itemize}
 
 
