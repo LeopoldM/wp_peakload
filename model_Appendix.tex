@@ -131,8 +131,6 @@ k_i \longmapsto \mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\righ
 is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
 \end{lemma}
 
-The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is increasing, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta)\) is decreasing in \(\theta\). Combined with \(R_\theta(\theta)\) increasing, this makes the covariance term in \eqref{signEuJ} more negative as \(k_i\) grows. Thus, as capacity expands, the weighted average \eqref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates. Lemma~\ref{lem:SC-dir} formalizes this single-crossing intuition.
-
 The sign of both ratios depends on the model primitives as follows. For $R_q'(\theta)$, only the curvature of $u$ matters:
 %##########################################
 \[\sign\!\left(R_q'(\theta)\right)=-\sign\!\left((u_q(\cdot))^2-u(\cdot)u_{qq}(\cdot)\right),\]
@@ -289,7 +287,7 @@ The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\linewidth]{figure/redistribution_marg_k_uniform.png}
-\caption{Illustration of the individual surplus effect of a capacity expansion. The left panel shows the IR-unconstrained surplus available to the market designer, which can be redistributed to consumers as a function of the category's allocated capacity. When the value is negative, the allocation switches to the IR-Constrained allocation regime. The right panel shows the individual surplus at the optimal allocation across types and at different capacity levels.   The illustration is based on a quadratic utility function $U(q,s)=(1+s)q - \tfrac{1}{4}q^2,$ with $J_i(\theta)$ derived from a uniform distribution of types, which implies an increasing $R_\theta(\theta)$, and the budget requirement set to $I_i = 0.45$.}
+\caption{Illustration of the individual surplus effect of a capacity expansion. The left panel shows the IR-unconstrained surplus available to the designer for redistribution as a function of the category's allocated capacity. When this surplus becomes negative, the allocation switches to the IR-constrained regime. The right panel shows individual surplus across types under the optimal allocation, for different levels of capacity. The illustration is based on a quadratic utility function \(U(q,s)=(1+s)q-\tfrac{1}{4}q^2\), with \(J_i(\theta)\) derived from a uniform distribution of types, which implies an increasing \(R_\theta(\theta)\), and with budget requirement \(I_i=0.45\).}
 \label{fig:appendix_redistribution_marg_k_uniform}
 \end{figure}
 
