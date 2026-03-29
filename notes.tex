@@ -123,7 +123,156 @@ The corollary relies on three observations. First, even if the absolute preferen
 
 
 
+\section*{Revision Plan for Top-20 Submission (Current Results)}
 
+The goal is to improve clarity, narrative, and interpretability of the existing results without adding new theory.
+
+\subsection*{1. Core message (highest priority)}
+\begin{itemize}
+    \item Define a single unifying takeaway:
+    \begin{quote}
+    Redistributive preferences affect peak-load allocation through a sufficient statistic that combines virtual surplus and informational rents, generating non-monotone and category-specific distortions in allocation and investment.
+    \end{quote}
+    \item Ensure all results map to:
+    \begin{itemize}
+        \item Object: $\mathcal G_i$
+        \item Ratios: $R_\theta$, $R_q$, $R_\Gamma$
+        \item Statistic: $\mathbb E_i^w[uJ \mid s]$
+        \item Implication: non-trivial reallocation and investment effects
+    \end{itemize}
+    \item Add:
+    \begin{itemize}
+        \item A roadmap paragraph at the end of the introduction
+        \item A roadmap paragraph at the start of the private-information section
+    \end{itemize}
+\end{itemize}
+
+\subsection*{2. Reorganize results into three economic blocks}
+\begin{itemize}
+    \item \textbf{Block A: Within-category mechanism}
+    \begin{itemize}
+        \item FOC with $\mathcal G_i$
+        \item Interpretation: IC-adjusted welfare weight
+        \item Key force: sorting tension
+    \end{itemize}
+
+    \item \textbf{Block B: Sufficient statistic and comparative statics}
+    \begin{itemize}
+        \item Central object: $\mathbb E_i^w[uJ \mid s]$
+        \item Decomposition:
+        \begin{itemize}
+            \item Trade-off channel ($R_\theta$, $R_\Gamma$)
+            \item Behavioral channel ($R_q$)
+        \end{itemize}
+        \item CARA as a benchmark simplification
+    \end{itemize}
+
+    \item \textbf{Block C: Across-category allocation and investment}
+    \begin{itemize}
+        \item Allocation across categories
+        \item Investment response
+        \item Aggregation of the sufficient statistic
+    \end{itemize}
+
+    \item For each block:
+    \begin{itemize}
+        \item Add a paragraph explaining its role
+        \item Add a one-line takeaway after each main result
+    \end{itemize}
+\end{itemize}
+
+\subsection*{3. Figures (critical for identification)}
+For each figure, explicitly structure interpretation:
+\begin{itemize}
+    \item State the naive prediction:
+    \begin{quote}
+    ``A natural conjecture would be that \dots''
+    \end{quote}
+    \item State what the figure shows:
+    \begin{quote}
+    ``The figure shows that this fails because \dots''
+    \end{quote}
+\end{itemize}
+
+Types of figures:
+\begin{itemize}
+    \item Within allocation: non-monotone welfare and regime switching
+    \item Preference perturbation: winners and losers across types
+    \item $E[\Delta \Gamma]$ vs $E[R_\Gamma]$: level vs ratio distinction
+    \item Corollary: failure or sharpness of sufficient conditions
+\end{itemize}
+
+\subsection*{4. Economic interpretation of key objects}
+After each definition, include one sentence:
+\begin{itemize}
+    \item $\Gamma_i(\theta)$: effective redistributive weight (welfare + revenue)
+    \item $\mathcal G_i(\theta)$: IC-adjusted marginal social value
+    \item $R_\theta(\theta)$: relative weight on high vs low types
+    \item $R_q(\theta)$: behavioral sensitivity of allocation
+    \item $\mathbb E_i^w[uJ \mid s]$: marginal value of relaxing capacity
+\end{itemize}
+
+\subsection*{5. Make the paper easy to referee}
+\begin{itemize}
+    \item Add a ``result map'' paragraph explaining:
+    \begin{itemize}
+        \item What determines within-category allocation
+        \item What determines cross-category allocation
+        \item What determines investment
+    \end{itemize}
+    \item Provide a compact checklist of assumptions:
+    \begin{itemize}
+        \item Concavity
+        \item Monotonicity
+        \item Positivity of $\mathcal G_i$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{6. Strengthen the main takeaway (``so what?'')}
+\begin{itemize}
+    \item Emphasize:
+    \begin{itemize}
+        \item Redistribution and peak-load pricing are not separable
+        \item IC and revenue constraints interact across categories
+        \item Allocation distortions are non-monotone
+        \item Investment responses can be counterintuitive
+    \end{itemize}
+    \item Include this discussion:
+    \begin{itemize}
+        \item At the end of the introduction
+        \item At the end of the main theorem section
+    \end{itemize}
+\end{itemize}
+
+\subsection*{7. What not to do}
+\begin{itemize}
+    \item Do not add new theorems
+    \item Do not extend the model
+    \item Do not add more simulations
+    \item Do not complicate notation
+\end{itemize}
+
+\subsection*{8. Final checklist}
+\textbf{High priority}
+\begin{itemize}
+    \item Add roadmap paragraphs
+    \item Rewrite figure interpretations
+    \item Add economic meaning to objects
+    \item Add takeaway sentences after results
+\end{itemize}
+
+\textbf{Medium priority}
+\begin{itemize}
+    \item Harmonize interpretation of $R_\theta$, $R_q$, $R_\Gamma$
+    \item Emphasize the sufficient statistic throughout
+    \item Reduce redundancy
+\end{itemize}
+
+\textbf{Low priority}
+\begin{itemize}
+    \item Minor polishing
+    \item Appendix readability
+\end{itemize}
 
 \end{document}
 
