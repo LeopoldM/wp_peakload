@@ -316,7 +316,7 @@ The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{figure/appendix_withinperturbation.png}
-    \caption{Comparison of two different redistributive preferences in terms of optimal allocation and of individual surplus with respect to the utilitarian benchmark where $\lambda_i(\theta)=1$. The first panel shows the two social weights that are a mean-preserving perturbation of the benchmark. Case a shows higher weights are placed on higher types, and case b shows higher weights on lower types. The second plot shows the proportional difference in effective social weights. The third plot shows, for a given realization of the state of the world ($s = 0.14$) and a given capacity level ($k_i = 0.9$), the difference in optimal allocation for each type compared to the benchmark. Finally, the last panel shows the same comparison but in terms of expected individual surplus. The utility function is $U(q,s)=a(1+s)\,\frac{q^{\,1-\sigma}}{1-\sigma}$ where $\sigma = 0.6$ and $a =  0.0095$, and types are distributed following a uniform distribution on $[1,2]$.}
+    \caption{Comparison of two redistributive preference perturbations relative to the utilitarian benchmark \(\lambda_i(\theta)=1\), in terms of optimal allocation and individual surplus. The first panel shows two social-weight perturbations that are mean-preserving relative to the benchmark. Case A places higher weights on higher types, while Case B places higher weights on lower types. The second panel shows the proportional change in effective social weights. The third panel shows, for a given state realization (\(s=0.14\)) and a given capacity level (\(k_i=0.9\)), the difference in the optimal allocation for each type relative to the benchmark. The last panel reports the corresponding difference in expected individual surplus. The utility function is \(U(q,s)=a(1+s)\,\frac{q^{\,1-\sigma}}{1-\sigma}\), with \(\sigma=0.6\) and \(a=0.0095\), and types are uniformly distributed on \([1,2]\).}
     \label{fig:appendix_withinperturbation}
 \end{figure}
 
@@ -331,44 +331,42 @@ The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figure/appendix_two_scenarios_six_panels.png}
-\caption{Illustration of different perturbations of welfare weights $\lambda_i(\theta)$ with respect to a utilitarian benchmark where $\lambda_i(\theta)=1$. The first column of plots shows the different welfare weights. The second column of plots shows the resulting absolute difference in effective social weights, $\Delta\G_i(\theta)$, aggregated across the category. The third column of plots shows the resulting proportional difference in effective social weights, $R_\G(\theta)$, aggregated across the category. The distribution used to compute $J_i(\theta)$ is a uniform distribution on $[1,2]$. }
+\caption{Illustration of two perturbations of welfare weights \(\lambda_i(\theta)\) relative to the utilitarian benchmark \(\lambda_i(\theta)=1\). The first column displays the welfare weights. The second column shows the resulting absolute difference in effective social weights, \(\Delta \G_i(\theta)\), aggregated at the category level. The third column shows the resulting proportional difference in effective social weights, \(R_{\G,i}(\theta)\), aggregated at the category level. The distribution used to compute \(J_i(\theta)\) is uniform on \([1,2]\).}
 \label{fig:appendix_two_scenarios_six_panels}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figure/appendix_N_categories_six_panels.png}
-\caption{Optimal allocation of the global capacity level ($k = 30$) across 50 categories. We derive two cases in which categories are ordered along the following path: in case A, a category $i+1$ has an increasing of both the average social weight $\tilde \lambda_i(\theta)$ (first panel) and of the preferences for higher types compared to lower types ($m_i(\overline \theta)>m_i(\underline \theta)$ - third panel). In case B, a category $i+1$ has an increasing of the average social weight $\tilde \lambda_i(\theta)$ and of the preferences for lower types compared to higher types ($m_i(\overline \theta)<m_i(\underline \theta)$). To ensure comparability, the path of average social weight is the same across the two cases. An example of the welfare weights for each case is given in Figure \ref{fig:appendix_exampleperturbation1}. We show in the second panel the successive value of the sufficient statistic $E_{\theta_i}[R_{\G}(\theta)]$ that governs Theorem~\ref{thm:cat-order}. It is computed for each successive pair of categories. The equilibrium allocation in terms of  $k_i^\ast$ is shown on the fourth panel. The utility function is $U(q,s) = \frac{(1+s)}{\alpha}\left(1 - e^{-\alpha q}\right)$ where $\alpha = 5$, and types are distributed following a uniform distribution on $[1,2]$.}
+\caption{Optimal allocation of aggregate capacity \((k=30)\) across 50 categories. We consider two cases in which categories are ordered along a common path. In case A, moving from category \(i\) to category \(i+1\) raises both the average social weight \(\tilde\lambda_i\) (first panel) and the relative weight placed on higher types, so that \(m_i(\overline\theta)>m_i(\underline\theta)\) (third panel). In case B, moving from category \(i\) to category \(i+1\) raises the average social weight \(\tilde\lambda_i\) but shifts relative weight toward lower types, so that \(m_i(\overline\theta)<m_i(\underline\theta)\). For comparability, the path of average social weights is the same in the two cases. Examples of the corresponding welfare weights are reported in Figure~\ref{fig:appendix_exampleperturbation1}. The second panel reports the successive values of the sufficient statistic \(\mathbb E_{\theta_i}[R_{\G}(\theta)]\) that governs Theorem~\ref{thm:cat-order}, computed for each adjacent pair of categories. The fourth panel shows the resulting equilibrium allocation \(k_i^\ast\). The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).}
 \label{fig:appendix_N_categories_six_panels}
 \end{figure}
-
 
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figure/appendix_OptimalFBSB.png}
-\caption{Welfare with respect to the level of capacity $k$ given within and across optimal allocation. The first panel shows welfare with and without $\theta$ as private information, when the market designer has redistributive preferences that differ from utilitarian preferences. The right panel follows the same logic and uses the same primitives, except for the redistributive preferences that follow the utilitarian case. The utility function is $U(q,s) = \frac{(1+s)}{\alpha}\left(1 - e^{-\alpha q}\right)$ where $\alpha = 5$, and types are distributed following a uniform distribution on $[1,2]$.}
+\caption{Welfare as a function of aggregate capacity \(k\), under the optimal within- and across-category allocation. The left panel compares welfare with and without private information on \(\theta\) when the market designer has redistributive preferences different from utilitarian ones. The right panel uses the same primitives but assumes utilitarian preferences. The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).}
 \label{fig:appendix_OptimalFBSB}
 \end{figure}
-
 
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{figure/appendix_exampleoptimallevel.png}
-\caption{Optimal investment level for different redistributive preferences. Each problem solves for the optimal allocation of 25 pairs of categories, ordered following a mean-preservation perturbation of the utilitarian benchmark (in that case, category 0 is the utilitarian benchmark with $\lambda_0(\theta) = 0$). Case A assumes that higher weights are placed on higher types, and Case B assumes that higher weights are placed on higher types. Figure \ref{fig:appendix_exampleperturbation2} provides some examples of social weights. The first and second panels illustrate the value for each solution of the two terms of Proposition~\ref{prop:investment}. The third panel compares the evolution of the optimal investment level for each pair.The utility function is $U(q,s) = \frac{(1+s)}{\alpha}\left(1 - e^{-\alpha q}\right)$ where $\alpha = 5$, and types are distributed following a uniform distribution on $[1,2]$.}
+\caption{Optimal investment level under different redistributive preferences. Each problem solves for the optimal allocation of 25 successive pairs of categories, ordered along a mean-preserving perturbation path starting from the utilitarian benchmark. In this benchmark, category \(0\) is utilitarian, with \(\lambda_0(\theta)=1\). Case A assumes that higher weights are progressively assigned to higher types, whereas Case B assumes that higher weights are progressively assigned to lower types. Figure~\ref{fig:appendix_exampleperturbation2} reports examples of the corresponding social weights. The first two panels display, for each solution, the two terms appearing in Proposition~\ref{prop:investment}. The third panel shows the corresponding evolution of the optimal investment level. The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).}
 \label{fig:appendix_exampleoptimallevel}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{figure/appendix_exampleperturbation1.png}
-    \caption{Social weights for each category in the example of Figure \ref{fig:appendix_two_scenarios_six_panels}. The arrow indicates the direction of the category ordering. Note that for the same category $i$ in both cases, the average social weight is identical, but it is increasing for the category $i+1$}
+    \caption{Social weights for each category in the example of Figure~\ref{fig:appendix_N_categories_six_panels}. The arrow indicates the direction of the category ordering. For a given category \(i\), the average social weight is the same in both cases, but it is strictly higher for category \(i+1\).}
     \label{fig:appendix_exampleperturbation1}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{figure/appendix_exampleperturbation2.png}
-    \caption{Social weights for each category in the example of Figure~\ref{appendix_exampleoptimallevel}. The arrow indicates the direction of the category ordering. All social weights are mean-preserving with respect to the utilitarian benchmark.}
+    \caption{Social weights for each category in the example of Figure~\ref{fig:appendix_exampleoptimallevel}. The arrow indicates the direction of the category ordering. All social weights are mean-preserving perturbations of the utilitarian benchmark.}
     \label{fig:appendix_exampleperturbation2}
 \end{figure}
 
