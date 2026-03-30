@@ -21,7 +21,7 @@
 
 \section{Additional results}
 
-\subsection{Additional details for the complete-information benchmark}\label{app:CI}
+\subsection{Additional details for the complete-information benchmark}\label{appsec:CI}
 
 This appendix collects the elements of the complete-information benchmark that are omitted from the main text: the formal definition of the marginal contributor weight, the investment condition, and the full two-part tariff implementation.
 
@@ -118,7 +118,7 @@ This implementation highlights the two margins through which redistribution oper
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Single crossing of \eqref{Eujmd}}
+\subsection{Single crossing of \eqref{Eujmd}}\label{appsec:singlecross}
 
 This appendix establishes the single-crossing property of \eqref{Eujmd} invoked in the main text, and provides the primitive foundations of Assumption~\ref{ass:monotone}.
 
@@ -156,7 +156,7 @@ On the IR-unconstrained region, where $\beta_i=0$, the log-monotone-differences 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Implementation feasibility under capacity expansion}\label{app:implementation-region}
+\subsection{Implementation feasibility under capacity expansion}\label{appsec:implementation-region}
 
 This appendix collects the full characterization of the implementation region together with a numerical illustration. 
 
@@ -605,7 +605,24 @@ This yields the desired expression:
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Proof of Lemma~\ref{lem:FOC}}
+
+Because the revenue-feasibility constraint involves the virtual-surplus term $J_i(\theta)$, which may change sign across types, convexity of the within-category feasible set is not automatic. We therefore maintain the following condition.
+
+\begin{assumption}[Convexity of the within-category feasible set]\label{ass:Cvx}
+For every category $i$ and every $I_i \ge 0$, the set
+\[
+\left\{
+q_i(\theta,s):
+\E_{(s,\theta_i)}\!\left[J_i(\theta)U(q_i(\theta,s),s)\right] \ge I_i
+\right\}
+\]
+is convex.
+\end{assumption}
+
+Under Assumption~\ref{ass:Cvx}, the within-category problem is a concave program, so the KKT conditions used in the proof of Lemma~\ref{lem:FOC} are sufficient.
+
 \begin{proof}
 Consider the within-category problem
 \[
@@ -683,11 +700,11 @@ For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slac
 Define $\mathcal W_i(\theta) := \partial \mathbb E CS_i(\theta)/\partial k_i$. From the envelope representation \eqref{ICmd-def},
 \[\mathcal W_i(\theta) = \mathcal W_i(\underline\theta_i) + \int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta, \qquad \mathcal W_i'(\theta) = \mathbb E_s\!\left[u\!\left(q_i(\theta,s),s\right)\frac{\partial q_i(\theta,s)}{\partial k_i}\mathbf 1_{\{s\in T_i\}}\right].\]
 For each binding state $s\in T_i$, differentiating the pointwise FOC \eqref{KKT-qMD} with respect to $k_i$ and imposing the binding capacity constraint \eqref{Kmdi-def} gives
-\[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\,\mathsf H_i(k_i,s)\,\beta_i^{\times\prime}(k_i) + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\beta_i^{\times\prime}(k_i),\]
+\[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\,\mathsf H_i(k_i,s)\,\beta_i^{\prime}(k_i) + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\beta_i^{\prime}(k_i),\]
 where $w_i$, $\overline w_i$, and $\mathsf H_i$ are as defined in the preliminary step of Lemma~\ref{lem:SC-dir}.
 
 
-\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i = 0$, we have $\beta_i^{\times\prime}(k_i) = 0$ and $\mathcal G_i(\theta)\equiv\Gamma_i(\theta)$. The expression for $\partial q_i/\partial k_i$ reduces to $w_i(\theta,s)/\overline w_i(s)$, so
+\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i = 0$, we have $\beta_i^{\prime}(k_i) = 0$ and $\mathcal G_i(\theta)\equiv\Gamma_i(\theta)$. The expression for $\partial q_i/\partial k_i$ reduces to $w_i(\theta,s)/\overline w_i(s)$, so
 \[\mathcal W_i'(\theta) = \mathbb E_s\!\left[\frac{u(q_i(\theta,s),s)\,w_i(\theta,s)}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] = \mathbb E_s\!\left[\frac{R_q(\theta,s)}{\Gamma_i(\theta)\,\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] > 0,\]
 since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumption~\ref{ass:interior}. Hence $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $\mathcal W_i(\underline\theta_i) = \partial \mathbb E\underline{CS}_i/\partial k_i$ has the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive, $\mathcal W_i(\underline\theta_i)>0$ and strict monotonicity implies every type gains. If \eqref{Eujmd} is negative, $\mathcal W_i(\underline\theta_i)<0$ and, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; if and only if $\mathcal W_i(\overline\theta_i)>0$, a unique cutoff $\tilde\theta_i$ exists and types below lose while types above gain.
 
@@ -696,9 +713,9 @@ since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumptio
 
 \noindent\textit{Step 1: initial condition.} Since $\mathbb E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{ICmd-def}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
 
-\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\zeta(q_i(\theta,s))/\zeta_q(q_i(\theta,s))$ is $s$-independent on the binding region by Lemma~\ref{lem:statewise-zero-mult}. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\mathcal G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
-\[\mathcal W_i'(\theta) = \frac{R_q(\theta)}{\mathcal G_i(\theta)}\left(\mathcal A_i - \beta_i^{\times\prime}(k_i)\mathcal B_i + \beta_i^{\times\prime}(k_i)\mathcal C_i R_\theta(\theta)\right),\]
-where $\mathcal A_i := \mathbb E_s[\overline w_i(s)^{-1}\mathbf 1_{\{s\in T_i\}}]>0$, $\mathcal B_i := \mathbb E_s[\mathsf H_i(k_i,s)\mathbf 1_{\{s\in T_i\}}] = \mathcal S_i(k_i)$, and $\mathcal C_i := \mathbb E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since $\beta_i^{\times\prime}(k_i) = -\mathcal S_i(k_i)/\mathcal V_i(k_i)$ from the preliminary step of Lemma~\ref{lem:SC-dir}, the term $-\beta_i^{\times\prime}(k_i)\mathcal B_i = \mathcal B_i^2/\mathcal V_i(k_i)\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\mathcal G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\beta_i^{\times\prime}(k_i)\mathcal C_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\beta_i^{\times\prime}(k_i)$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
+\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\zeta(q_i(\theta,s))/\zeta_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\mathcal G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
+\[\mathcal W_i'(\theta) = \frac{R_q(\theta)}{\mathcal G_i(\theta)}\left(\mathcal A_i - \beta_i^{\prime}(k_i)\mathcal B_i + \beta_i^{\prime}(k_i)\mathcal C_i R_\theta(\theta)\right),\]
+where $\mathcal A_i := \mathbb E_s[\overline w_i(s)^{-1}\mathbf 1_{\{s\in T_i\}}]>0$, $\mathcal B_i := \mathbb E_s[\mathsf H_i(k_i,s)\mathbf 1_{\{s\in T_i\}}] = \mathcal S_i(k_i)$, and $\mathcal C_i := \mathbb E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since $\beta_i^{\prime}(k_i) = -\mathcal S_i(k_i)/\mathcal V_i(k_i)$ from the preliminary step of Lemma~\ref{lem:SC-dir}, the term $-\beta_i^{\prime}(k_i)\mathcal B_i = \mathcal B_i^2/\mathcal V_i(k_i)\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\mathcal G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\beta_i^{\prime}(k_i)\mathcal C_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\beta_i^{\prime}(k_i)$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
 
 \noindent\textit{Step 3: existence and direction of the second cutoff.} Since $\mathcal W_i(\underline\theta_i)=0$, a concave $\mathcal W_i$ crosses zero at most once in the interior. If $\mathcal W_i'(\underline\theta_i)>0$, the function initially rises from zero, eventually returns toward zero, and crosses it at a unique interior cutoff $\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)$; types below $\tilde\theta_i$ gain and types above lose in case~(i), and the reverse in case~(ii). If $\mathcal W_i'(\underline\theta_i)\le 0$, no interior cutoff exists and either all types lose or all types gain. The convex case is symmetric, with concavity and convexity interchanged, and all surplus inequalities reversed. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse throughout.
 \end{proof}
@@ -735,7 +752,7 @@ in the upward case, which yields $\Lambda_i^{\Delta\,\prime}(\theta)/\Lambda_i^\
 \noindent\textit{Proof of (ii).}
 Write
 \[
-\mathcal{G}_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta), \qquad \mathcal{G}_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\times,\Delta}\bigr)+\Lambda_i^\Delta(\theta).
+\mathcal{G}_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta), \qquad \mathcal{G}_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\Delta}\bigr)+\Lambda_i^\Delta(\theta).
 \]
 
 
@@ -761,7 +778,7 @@ Since $c_{\mathcal{G}}\ge 1$ and $\mathcal{G}_i(\theta)>0$, it follows that $\De
 Therefore $\mathcal{G}_i^\Delta(\theta) \le c_{\mathcal{G}}\,\mathcal{G}_i(\theta)$, and since $c_{\mathcal{G}}\le 1$ and $\mathcal{G}_i(\theta)>0$, it follows that $\Delta\mathcal{G}_i(\theta) \le (c_{\mathcal{G}}-1)\mathcal{G}_i(\theta) \le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
 
 
-The special cases in the ``in particular'' clause follow immediately: if $\beta_i=\beta_i^{\times,\Delta}=0$ then $c_{\mathcal{G}}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\mathcal{G}}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\times,\Delta}+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$ then $c_{\mathcal{G}}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
+The special cases in the ``in particular'' clause follow immediately: if $\beta_i=\beta_i^{\Delta}=0$ then $c_{\mathcal{G}}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\mathcal{G}}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\Delta}+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$ then $c_{\mathcal{G}}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
 \qedhere
 \end{proof}
 
@@ -863,7 +880,7 @@ Under Assumption~\ref{ass:CARA}, $\mathbb{E}_i^w[R_{\mathcal{G}}\mid s]=\mathbb{
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Proof of Proposition~\ref{prop:outer} (Across-category allocation)}
+\subsection{Proof of Proposition~\ref{prop:outer}}
 
 \begin{proof}
 The feasible set
@@ -874,7 +891,8 @@ is compact and convex. Continuity of each $V_i$ follows from Berge's maximum the
 
 \begin{lemma}[Concavity of the within-category value function]\label{lem:Vi-concave}
 For each category $i$, the value function $V_i(k_i,I_i)$ is concave on its feasible domain. More precisely:
-\begin{enumerate}[label=(\roman*)]
+
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
     \item on the IR-constrained, capacity-binding region, where $\beta_i(k_i,I_i)>0$ and $\Pr(s\in T_i(k_i))>0$, the Hessian of $V_i$ is negative definite and $V_i$ is strictly concave;
     \item when $\beta_i(k_i,I_i)=0$, the Hessian is negative semidefinite;
     \item when $T_i(k_i)=\varnothing$, the Hessian is negative semidefinite.
@@ -1049,7 +1067,7 @@ Since $\mathbb{E}[R_\mathcal{G}]>0$ (as $\Delta k>0$) and $\mathbb{E}[R_\theta^2
 \subsection{Proof of Corollary~\ref{cor:ordered-path}}
 
 \begin{lemma}[Revenue positivity]\label{lem:rev-pos}
-Under the maintained assumption that $J_i'(\theta)>0$, if $I_i=0$ then $\beta_i=0$.
+Under assumption~\ref{ass:regularity}, if $I_i=0$ then $\beta_i=0$.
 \end{lemma}
 \begin{proof}[Proof of Lemma~\ref{lem:rev-pos}]
 Suppose for contradiction that $I_i=0$ and $\beta_i>0$. Then complementary slackness on the IR/budget constraint requires $\mathbb{E}_{(s,\theta_i)}[U(q_i,s)J_i(\theta)]=0$. However, since $J_i'(\theta)>0$ and $q_i(\theta,s)$ is increasing in $\theta$ due to the IC constraint, hence both $J_i(\theta)$ and $U(q_i(\theta,s),s)$ are increasing in $\theta$. Therefore $\mathrm{Cov}_{\theta_i}(J_i,U)\ge 0$, and combined with $\mathbb{E}_{\theta_i}[J_i]=\underline\theta_i>0$ and $U>0$ at any interior allocation, we obtain $\mathbb{E}_{(s,\theta_i)}[U(q_i,s)J_i(\theta)]>0$ strictly, a contradiction.
@@ -1425,7 +1443,7 @@ I'(k^\ast)\,\Delta\tilde\lambda^\ast
 \]
 
 Under Assumption~\ref{ass:CARA}, the same simplification as in
-Corollary~\ref{prop:cat-order-beta0} applies, so for every category \(i\),
+Theorem~\ref{thm:cat-order} applies, so for every category \(i\),
 \[
 \Delta_\lambda \Pi_i
 =
@@ -1688,14 +1706,14 @@ we have
 \[
 \frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
 =
--\beta_i^{\times\prime}(k_i)\,
+-\beta_i^{\prime}(k_i)\,
 \frac{J_i(\theta)^2}{\mathcal G_i(\theta,k_i)^2}.
 \]
 Therefore
 \[
 D_i(k_i,s)
 =
--\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s),
+-\beta_i^{\prime}(k_i)\,\mathcal Q_i(k_i,s),
 \]
 where
 \[
@@ -1709,10 +1727,10 @@ Thus
 \[
 \frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}
 =
-M_i(k_i,s)-\beta_i^{\times\prime}(k_i)\,\mathcal Q_i(k_i,s).
+M_i(k_i,s)-\beta_i^{\prime}(k_i)\,\mathcal Q_i(k_i,s).
 \]
 
-We now relate $\beta_i^{\times\prime}(k_i)$ to $\mathcal S_i(k_i)$. On the IR-constrained region, define
+We now relate $\beta_i^{\prime}(k_i)$ to $\mathcal S_i(k_i)$. On the IR-constrained region, define
 \[
 \Phi_i(k_i,\beta)
 :=
@@ -1803,11 +1821,11 @@ with respect to $k_i$ gives
 \[
 0
 =
-\mathcal S_i(k_i)+\mathcal V_i(k_i)\,\beta_i^{\times\prime}(k_i),
+\mathcal S_i(k_i)+\mathcal V_i(k_i)\,\beta_i^{\prime}(k_i),
 \]
 hence
 \[
-\beta_i^{\times\prime}(k_i)
+\beta_i^{\prime}(k_i)
 =
 -\frac{\mathcal S_i(k_i)}{\mathcal V_i(k_i)}.
 \]
@@ -1825,7 +1843,7 @@ Using Leibniz' rule,
 -
 \mathsf H_i\!\left(k_i,s_i(k_i)\right)
 f\!\left(s_i(k_i)\right)
-s_i^{\times\prime}(k_i)
+s_i^{\prime}(k_i)
 +
 \int_{s_i(k_i)}^{\overline s}
 \frac{\partial \mathsf H_i(k_i,s)}{\partial k_i}\,f(s)\,ds.
@@ -1840,7 +1858,7 @@ so $\mathsf H_i\!\left(k_i,s_i(k_i)\right)=0$. Hence the boundary term vanishes 
 \[
 \mathcal S_i'(k_i)
 =
-\overline M_i(k_i)-\beta_i^{\times\prime}(k_i)\,\overline{\mathcal Q}_i(k_i),
+\overline M_i(k_i)-\beta_i^{\prime}(k_i)\,\overline{\mathcal Q}_i(k_i),
 \]
 where
 \[
@@ -1856,7 +1874,7 @@ where
 
 Now let $k_i^0$ satisfy $\mathcal S_i(k_i^0)=0$. Then
 \[
-\beta_i^{\times\prime}(k_i^0)=0,
+\beta_i^{\prime}(k_i^0)=0,
 \]
 so
 \[
