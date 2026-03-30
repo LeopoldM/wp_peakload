@@ -71,16 +71,17 @@ with $U(0,s)=0$. The marginal willingness to pay $u(q,s)$ satisfies: $u_s > 0$, 
 Participation requires that this surplus is nonnegative for all types:
 \begin{equation}
 \E_s\!\left[\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right] \ge 0,
-\qquad \forall \theta \in \Theta_i.
+\qquad \forall \theta \in \Theta_i,
 \tag{IR}\label{IR-def}
 \end{equation}
+where $\E_s[\cdot]$ denotes expectation with respect to the distribution of states $s$.
 
 \paragraph{Technology and feasibility.}
 The market designer chooses the allocation of the good subject to capacity constraints. Let $q_i(\theta,s)$ denote the quantity allocated to a consumer of type $\theta$ in category $i$ at state $s$. The total quantity allocated in state $s$ is
 \[
-Q(s) = \sum_{i \in N} \mu_i \E_{\theta_i}[q_i(\theta,s)].
+Q(s) = \sum_{i \in N} \mu_i \E_{i}[q_i(\theta,s)],
 \]
-Capacity is determined by an investment level $k \ge 0$, with cost $I(k)$, where $I$ is increasing and convex. Production has zero marginal cost. Feasibility requires that total allocation does not exceed capacity in any state:
+where $\E_i[\cdot]$ denotes expectation with respect to the distribution of types $\theta$. Capacity is determined by an investment level $k \ge 0$, with cost $I(k)$, where $I$ is increasing and convex. Production has zero marginal cost. Feasibility requires that total allocation does not exceed capacity in any state:
 \begin{equation}
 Q(s) \le k \qquad \forall s \in S.
 \tag{K}\label{K-def}
@@ -89,15 +90,15 @@ Q(s) \le k \qquad \forall s \in S.
 The designer must also satisfy a revenue requirement:
 \begin{equation}
 \sum_{i\in N}\mu_i
-\E_{(s,\theta_i)}\!\left[t_i(\theta,s)\right] - I(k) \ge 0.
+\E_{(s,i)}\!\left[t_i(\theta,s)\right] - I(k) \ge 0.
 \tag{R}\label{R-def}
 \end{equation}
 
 \paragraph{Planner's objective.}
-The market designer maximizes a weighted expected sum of consumer surpluses. Let $\lambda_i(\theta) \ge 0$ denote the welfare weight assigned to a consumer of type $\theta$ in category $i$, and let $\tilde\lambda_i := \E_{\theta_i}[\lambda_i(\theta)]$ denote the average weight in category $i$. The objective is
+The market designer maximizes a weighted expected sum of consumer surpluses. Let $\lambda_i(\theta) \ge 0$ denote the welfare weight assigned to a consumer of type $\theta$ in category $i$, and let $\tilde\lambda_i := \E_{i}[\lambda_i(\theta)]$ denote the average weight in category $i$. The objective is
 \[
 \sum_{i \in N} \mu_i \,
-\E_{(s,\theta_i)}\!\left[
+\E_{(s,i)}\!\left[
 \lambda_i(\theta)\left(\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right)
 \right].
 \]
@@ -149,11 +150,11 @@ The program of the market designer can be expressed as:
 \max_{q_i(\theta,s), \, \E\underline{CS}_i}  \quad\quad 
 &  \sum_{i \in N}  \mu_i   \; 
 \Big\{ \;  \tilde{\lambda}_i \;\E\underline{CS}_i 
-      + \E_{(s,\theta_i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
+      + \E_{(s,i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
 \tag{CS}\label{CSmd-def}  \\
 \text{s.t.} \quad
 & \sum_{i\in N}\mu_i
-(\E_{(s,\theta_i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E\underline{CS}_i)\;-\; I(k)
+(\E_{(s,i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E\underline{CS}_i)\;-\; I(k)
 \;\ge\; 0. \tag{R}\label{Rmd-def}
 \end{align*}
 %##########################################
@@ -184,24 +185,24 @@ This section studies the within-category problem for a given pair $(k_i, I_i)$. 
 
 We begin with the basic structure of the optimal within-category allocation. The main takeaway is that the entire allocation can be organized into two regimes: one in which the participation constraint is slack and the allocation is undistorted, and one in which financing the revenue requirement induces an endogenous distortion via the shadow value $\beta_i$.
 
-Following Lemma~\ref{lem:Transfer}, the within-category problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,\theta_i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \eqref{ECSi} into this equality and integrating by parts with respect to $\theta$,, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields the single combined constraint
+Following Lemma~\ref{lem:Transfer}, the within-category problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \eqref{ECSi} into this equality and integrating by parts with respect to $\theta$,, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields the single combined constraint
 %##########################################
 \[
 \E \underline{CS}_i
 =
-\E_{(s,\theta_i)}\!\left[U\!\left(q_i(\theta,s),s\right) J_i(\theta)\right]-I_i.
+\E_{(s,i)}\!\left[U\!\left(q_i(\theta,s),s\right) J_i(\theta)\right]-I_i.
 \tag{$\E \underline{CS}_i$}\label{underlineECSi}
 \]
 %##########################################
 This reformulation combines the participation and budget requirements in a single constraint when the designer maximizes consumer surplus. Substituting $\E \underline{CS}_i$ into the objective, the within-category problem becomes
 %##########################################
 \begin{align*}
-\max_{q_i(\theta,s)} \quad & \E_{(s,\theta_i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)-\tilde\lambda_i I_i\right]
+\max_{q_i(\theta,s)} \quad & \E_{(s,i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)-\tilde\lambda_i I_i\right]
 \label{CSmdi-def}\tag{CS} \\
 \text{s.t.}\quad &
-\E_{(s,\theta_i)}\!\left[U\!\left(q_i(\theta,s),s\right) J_i(\theta)\right]-I_i \ge 0,
+\E_{(s,i)}\!\left[U\!\left(q_i(\theta,s),s\right) J_i(\theta)\right]-I_i \ge 0,
 \label{Rmdi-def}\tag{IR-R$_i$} \\
-& \E_{\theta_i}\!\left[q_i(\theta,s)\right]\le k_i \qquad \forall s.
+& \E_{i}\!\left[q_i(\theta,s)\right]\le k_i \qquad \forall s.
 \label{Kmdi-def}\tag{K$_i$}
 \end{align*}
 %##########################################
@@ -222,7 +223,7 @@ For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\math
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
-Define $S_i=[\underline s,s_i)$ and $T_i=[s_i,\overline s]$ as the off-peak and on-peak sets under the optimal allocation, where $s_i$ satisfies $\E_{\theta_i}\!\left[q_i(\theta,s_i)\right]=k_i$.
+Define $S_i=[\underline s,s_i)$ and $T_i=[s_i,\overline s]$ as the off-peak and on-peak sets under the optimal allocation, where $s_i$ satisfies $\E_{i}\!\left[q_i(\theta,s_i)\right]=k_i$.
 
 \begin{lemma}[Off-peak and on-peak allocation]\label{lem:FOC}
 Assume~\ref{ass:interior} holds and that the within-category problem is convex. i) Under the weighted objective with type-dependent weights $\lambda(\theta)$, the allocation is characterized by a unique quantity schedule $q_i(\theta,s)$ for each $\theta$ and $s$:
@@ -255,29 +256,29 @@ Define the weights
 \[
 w_i(\theta,s):=-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\mathcal G_i(\theta)},
 \quad
-\overline w_i(s):=\E_{\theta_i}\!\left[w_i(\theta,s)\right], \quad \Omega_i:= \E_s\left[\frac{1}{\overline{w}_i(s)}\mathbf 1_{\{s\in T_i\}}\right]
+\overline w_i(s):=\E_{i}\!\left[w_i(\theta,s)\right], \quad \Omega_i:= \E_s\left[\frac{1}{\overline{w}_i(s)}\mathbf 1_{\{s\in T_i\}}\right]
 \]
 Those weights represent the departure from the first-best allocation without redistributive preferences as they create systematic differences in marginal utilities across types. Then defined the $w_i$-weighted average of the marginal virtual surplus
 \[
 \E_i^w[uJ\mid s]
 :=
 \frac{1}{\overline w_i(s)}
-\E_{\theta_i}\!\left[w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right]
+\E_{i}\!\left[w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right]
 =
 \frac{1}{\overline w_i(s)}
-\E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right].
+\E_{i}\!\left[R_\theta(\theta)R_q(\theta)\right].
 \]
 Its average over binding states yields
 \begin{equation}
-\mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]. \tag{EuJ}\label{Eujmd}
+\E_{(s,i)}^w[uJ\mid s] := \mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]. \tag{EuJ}\label{Eujmd}
 \end{equation}
 This weighted value plays a key role in this analysis: it is the expected marginal revenue for the market designer with respect to the level of capacity, accounting for redistributive preferences and incentive constraints.\footnote{Equivalently, in the context of a market designer that maximizes consumer surplus under a given budget constraint, this is equivalent to the marginal change of available surplus the designer can redistributive to consumer once the budget and informational rent have been covered.} To see this, the statistic \eqref{Eujmd} combines two margins: how extra capacity is allocated across types, through \(R_q\), and how socially valuable those marginal allocations are, through \(R_\theta\). Equivalently,
 \begin{equation}
-\E_{\theta_i}\!\left[R_\theta(\theta)R_q(\theta)\right]
+\E_{i}\!\left[R_\theta(\theta)R_q(\theta)\right]
 =
-\E_{\theta_i}[R_\theta(\theta)]\,\E_{\theta_i}[R_q(\theta)]
+\E_{i}[R_\theta(\theta)]\,\E_{i}[R_q(\theta)]
 +
-\Cov_{\theta_i}\!\left(R_\theta(\theta),R_q(\theta)\right). \tag{signEuJ}\label{signEuJ}
+\Cov_i\!\left(R_\theta(\theta),R_q(\theta)\right). \tag{signEuJ}\label{signEuJ}
 \end{equation}
 The first term captures an average effect: increasing capacity frees up surplus for all consumers, thereby increasing the market designer's available revenue. The covariance term captures a sorting effect: it is adverse when additional capacity is tilted toward types with lower marginal virtual surplus.\footnote{For instance, if $R_q(\theta)$ is decreasing and $R_\theta(\theta)$ is increasing, then the lowest marginal virtual surplus is concentrated at the lowest $\theta$. In other words, as $k_i$ increases, a greater weight is placed on types with a potentially negative marginal virtual surplus. A decreasing virtual surplus ($J_i(\theta)<0$) implies that increasing $k_i$ reduces the budget the market designer can raise from those consumers. Therefore, the condition highlights the fundamental trade-off the market designer faces: increasing the allocation of a type, given its social weight, may conflict with revenue maximisation due to the IC constraint on higher types.}
 
@@ -420,14 +421,14 @@ Let $\Delta\lambda_i(\theta)$ denote the marginal perturbation of redistributive
 \[
 \Delta\G_i(\theta):= J_i(\theta) (\Delta\tilde\lambda_i+\Delta\beta_i)+\Delta\Lambda_i(\theta)
 \quad \text{with} \quad  
-\Delta\Lambda_i(\theta):=\gamma_i(\theta)\E_{\theta_i}\!\left[\Delta\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right].
+\Delta\Lambda_i(\theta):=\gamma_i(\theta)\E_{i}\!\left[\Delta\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right].
 \]
 %##########################################
 In a similar spirit to the previous section, the effect of a marginal perturbation of preferences is captured by an average and a sorting effect. The key statistic is  the proportional change in the effective social weight of a type $\theta$:
 \[
 R_{\G}(\theta):=\frac{\Delta\G_i(\theta)}{\G_i(\theta)},
 \]
-which measures how the perturbation tilts the effective weight of type $\theta$ relative to the baseline allocation. What matters for the reallocation is therefore not the absolute change of $\G_i(\theta)$. Importantly, the IC structure implies that a change of $\lambda_i(\theta)$ of a single type $\theta$ propagates to other types. Therefore, we also define the effect at the category level the aggregate term  $\mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]$ which is the average of $R_\G(\theta)$ weights by $w_i(\theta,s)$ as in \eqref{Eujmd}.
+which measures how the perturbation tilts the effective weight of type $\theta$ relative to the baseline allocation. What matters for the reallocation is therefore not the absolute change of $\G_i(\theta)$. Importantly, the IC structure implies that a change of $\lambda_i(\theta)$ of a single type $\theta$ propagates to other types. Therefore, we also define the effect at the category level the aggregate term  $\E^w_i\!\left[R_{\mathcal{G}}\mid s\right]$ which is the average of $R_\G(\theta)$ weights by $w_i(\theta,s)$ as in \eqref{Eujmd}.
 
 Appendix Lemma~\ref{lem:preferenceorder} provides primitive conditions on preference perturbations under which $R_{\G}(\theta)$ has a constant sign across types. The first part of the Lemma states that a proportional tilt of welfare weights toward higher types shifts the social value of the information rent given to types above $\theta$ (i.e., $\Lambda_i(\theta)$) upward relative to the baseline across the type space.\footnote{The first result of the Lemma has a direct implication for the sign of $R'_\theta(\theta)$. From expression \eqref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. As a maintained example, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), the condition in \eqref{signRt} is easier to satisfy under a preference shift toward higher types, since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}.} The second part connects the direction of a preference shift to the sign of $R_{\G}(\theta)$, but requires two conditions: the effective weight must not decrease on average, and the average preference shift must be at least as large as the effective-weight shift after accounting for the budget shadow cost. These conditions simplify under two special cases on the equilibrium object $\beta_i$, which will be used later for the across-category results: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, yields $R_{\G}(\theta)>0$ for all $\theta$; and conversely, shifting proportionally toward lower types while not increasing the average weight yields $R_{\G}(\theta)<0$ for all $\theta$. A standard perturbation in the redistribution literature is a (monotonic) mean-preserving rotation of $\lambda_i(\theta)$, i.e.\ $\Delta\tilde\lambda_i=0$. Under such a rotation, $R_{\G}(\theta)$ has a constant sign throughout the type space: positive when the rotation favors higher types, and negative when it favors lower types.
 
@@ -436,7 +437,7 @@ We now turn to the characterization of how such perturbations affect the optimal
 \begin{lemma}[Reallocation under preference perturbations]\label{lem:realloc}
 Fix category \(i\) and a across allocation \((k_i,I_i)\) For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
 \[
-\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \mathbb{E}^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i.
+\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \E^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i.
 \]
 \end{lemma}
 
@@ -452,13 +453,13 @@ That is the condition of receiving more or less allocation is determined by whet
 \[
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
 =
-\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right].
+\E_i^w\!\left[R_{\mathcal G}\mid s\right].
 \]
-} Since capacity is fixed, the reallocation is zero-sum across types within each binding state: $\mathbb E_{\theta_i}\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$.
+} Since capacity is fixed, the reallocation is zero-sum across types within each binding state: $\mathbb E_i\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$.
 
 
 
-The sorting effect of the optimal allocation induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ is generically non-monotone in types, so a tilt of preferences toward higher or lower types does not translate into a monotone quantity reallocation.\footnote{Take the covariance term in \eqref{signEuJ}, then a perturbation in preference yields $\Cov_{\theta_i}\!\left(R_\theta(\theta),\Delta R_q(\theta)\right) + \Cov_{\theta_i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)$. The non-monotonicity in $\Delta q$ prevents signing the first term and, by extension, the effect of a perturbation on the sign of \eqref{Eujmd}. Assumption~\ref{ass:CARA} avoids these limits by shutting down the behavioral effect of a perturbation on the final equilibrium as $\Delta R_q(\theta)=0$.} This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_{\G}(\theta)$ and not the absolute change $\Delta G_i(\theta)$. While a change of preference can lead to a monotonic change in the absolute value along $\theta$, it's never the case for $R_{\G}(\theta)$. To see this, consider the extreme types $\underline{\theta}$ and $\overline{\theta}$ and a perturbation of an optimal allocation in the IR-unconstrained regime. Using the definition of $J_i(\theta)$ and $\Lambda_i(\theta)$, the effective weight is $\G_i(\theta)= \theta  \tilde\lambda_i - \gamma_i(\theta) \tilde\lambda_i + \gamma_i(\theta)\E_{\theta_i}\!\left[\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right]$. At $\underline{\theta}$, the social value of the information rent is the information rent valued at the expected social weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta})= \underline{\theta}  \tilde\lambda_i$. At $\overline{\theta}$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta})= \overline{\theta}  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta})= \underline{\theta}  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta})= \overline{\theta}  \Delta \tilde\lambda_i$. Therefore, while we can have $\Delta \G_i(\underline{\theta}) \neq \Delta \G_i(\overline{\theta})$, we always have $R_\G(\underline{\theta}) = R_\G(\overline{\theta})$ for any perturbation of redistributive preferences. In particular, Appendix Corollary~\ref{cor:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
+The sorting effect of the optimal allocation induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ is generically non-monotone in types, so a tilt of preferences toward higher or lower types does not translate into a monotone quantity reallocation.\footnote{Take the covariance term in \eqref{signEuJ}, then a perturbation in preference yields $\Cov_i\!\left(R_\theta(\theta),\Delta R_q(\theta)\right) + \Cov_i\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)$. The non-monotonicity in $\Delta q$ prevents signing the first term and, by extension, the effect of a perturbation on the sign of \eqref{Eujmd}. Assumption~\ref{ass:CARA} avoids these limits by shutting down the behavioral effect of a perturbation on the final equilibrium as $\Delta R_q(\theta)=0$.} This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_{\G}(\theta)$ and not the absolute change $\Delta G_i(\theta)$. While a change of preference can lead to a monotonic change in the absolute value along $\theta$, it's never the case for $R_{\G}(\theta)$. To see this, consider the extreme types $\underline{\theta}$ and $\overline{\theta}$ and a perturbation of an optimal allocation in the IR-unconstrained regime. Using the definition of $J_i(\theta)$ and $\Lambda_i(\theta)$, the effective weight is $\G_i(\theta)= \theta  \tilde\lambda_i - \gamma_i(\theta) \tilde\lambda_i + \gamma_i(\theta)\E_{i}\!\left[\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right]$. At $\underline{\theta}$, the social value of the information rent is the information rent valued at the expected social weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta})= \underline{\theta}  \tilde\lambda_i$. At $\overline{\theta}$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta})= \overline{\theta}  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta})= \underline{\theta}  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta})= \overline{\theta}  \Delta \tilde\lambda_i$. Therefore, while we can have $\Delta \G_i(\underline{\theta}) \neq \Delta \G_i(\overline{\theta})$, we always have $R_\G(\underline{\theta}) = R_\G(\overline{\theta})$ for any perturbation of redistributive preferences. In particular, Appendix Corollary~\ref{cor:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
 
 We are now ready to characterize the surplus effect of a change in preferences. Similarly to the capacity extension expression \eqref{partialkCS1}, the individual surplus change follows from \eqref{ICmd-def}
 %##########################################
@@ -466,32 +467,32 @@ We are now ready to characterize the surplus effect of a change in preferences. 
   \Delta CS_i(\theta) = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
 \end{equation*}
 Using lemma \ref{lem:realloc}, the marginal change with respect to types yields
-\[\frac{\partial\Delta\mathbb{E}CS_i(\theta)}{\partial\theta} = \mathbb{E}_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
+\[\frac{\partial\Delta\ECS_i(\theta)}{\partial\theta} = \E_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\E_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
 where $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Similarly, a perturbation of preference changes the available revenue \eqref{underlineECSi} via the optimal allocation:
 \[
-\Delta\mathbb{E}\underline{CS}_i =\mathbb{E}_{(s,\theta_i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\left(R_{\mathcal{G}}(\theta)-\mathbb{E}_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\mathbf{1}_{\{s\in T_i\}}\right].
+\Delta\E\underline{CS}_i =\E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\left(R_{\mathcal{G}}(\theta)-\E_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\mathbf{1}_{\{s\in T_i\}}\right].
 \]
 
 
 \begin{proposition}[Surplus effects of redistributive preference perturbations]\label{prop:surplus-redist}
 Assume Assumption~\ref{ass:CARA} and unimodality of $R_{\mathcal{G}}(\theta)$. Define the set of cutoffs
 \[
-\tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\mathbb{E}CS_i(\tilde\theta_i)=0\right\}.
+\tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\ECS_i(\tilde\theta_i)=0\right\}.
 \]
-\noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\mathbb{E}CS_i(\theta)$ is jointly determined by two signs: $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})$, which governs the starting value,
-\[\sign\!\left(\Delta\mathbb{E}CS_i(\underline\theta_i)\right)=\sign\!\left(\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})\right),\]
-and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})>0$, and $-,+,-$ when $\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
+\noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\ECS_i(\theta)$ is jointly determined by two signs: $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})$, which governs the starting value,
+\[\sign\!\left(\Delta\ECS_i(\underline\theta_i)\right)=\sign\!\left(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\right),\]
+and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})>0$, and $-,+,-$ when $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
 
 \noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_{\G}\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_{\G}\le 0$ for all $\theta$, the inequalities are reversed.
 \end{proposition}
 
-Proposition~\ref{prop:surplus-redist} delivers a sharp redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{As in Theorem~\ref{thm:surplus}, Assumption~\ref{ass:mult} is sufficient to show that the individual surplus effect is generally non-monotone across types.  Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \eqref{underlineECSi}. The unimodality of \(R_{\mathcal G}\) is used only to limit the number of sign changes of \(\Delta \mathbb{E}CS_i(\theta)\). If \(R_{\mathcal G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
+Proposition~\ref{prop:surplus-redist} delivers a sharp redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{As in Theorem~\ref{thm:surplus}, Assumption~\ref{ass:mult} is sufficient to show that the individual surplus effect is generally non-monotone across types.  Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \eqref{underlineECSi}. The unimodality of \(R_{\mathcal G}\) is used only to limit the number of sign changes of \(\Delta \ECS_i(\theta)\). If \(R_{\mathcal G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
 
 In both regimes, the origin of the non-monotonicity in the change in surplus is the same: the individual surplus change combines an IC-rent channel and a level channel, and neither of them follows the direction of the preference perturbation mechanically. Figure~\ref{fig:surplus-redist} provides a simple geometry illustration of the proposition.
 
 The first channel is the IC-rent channel. By construction, informational rents are built from the allocation received by lower types. As a result, when the perturbation changes the quantity assigned to some type \(\tilde\theta\), this change is inherited by all higher types through the rent formula. The shape of the IC-rent term is therefore determined by the shape of \(\Delta q_i(\theta,s)\) across types. Lemma~\ref{lem:realloc} shows that this behavioral response is itself governed by the gap between the proportional change in effective social weight, \(R_{\mathcal G}(\theta)\), and its equilibrium average. Since \(R_{\mathcal G}(\theta)\) is non-monotone, the induced quantity response is also generically non-monotone. Hence, even when the underlying preference shift is monotone, the associated IC-rent effect on surplus need not be monotone across types.
 
-The second channel is a level effect, and its source depends on the regime. When participation is slack, the surplus change contains both the fixed component \(\Delta \mathbb E\underline{CS}_i\) and the IC-rent term. The fixed component is common across types and depends on how the surplus available to the designer moves under the perturbation; this is what gives rise to the covariance term in Proposition~\ref{prop:surplus-redist}. This covariance has a natural interpretation: if a consumer who receives the greatest proportional change is also the one who participates the most in the revenue, then the available surplus for all consumers increases. When participation binds, the lowest type remains at the boundary, so that \(\Delta \mathbb E CS_i(\underline\theta_i)=0\). In that case, the level effect is pinned down by the endpoint condition\footnote{The sign of the surplus change for the highest type is governed by the weighted integral $\mathbb{E}_{\theta_i}\!\left[\frac{R_{\mathcal G}(\theta)-\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta)]}{\mathcal G_i(\theta)}\right]$.}, and the entire surplus profile is shaped by the accumulation of the non-monotone quantity response through the IC formula.
+The second channel is a level effect, and its source depends on the regime. When participation is slack, the surplus change contains both the fixed component \(\Delta \mathbb E\underline{CS}_i\) and the IC-rent term. The fixed component is common across types and depends on how the surplus available to the designer moves under the perturbation; this is what gives rise to the covariance term in Proposition~\ref{prop:surplus-redist}. This covariance has a natural interpretation: if a consumer who receives the greatest proportional change is also the one who participates the most in the revenue, then the available surplus for all consumers increases. When participation binds, the lowest type remains at the boundary, so that \(\Delta \mathbb E CS_i(\underline\theta_i)=0\). In that case, the level effect is pinned down by the endpoint condition\footnote{The sign of the surplus change for the highest type is governed by the weighted integral $\E_i\!\left[\frac{R_{\mathcal G}(\theta)-\E_i[R_{\mathcal G}(\theta)]}{\mathcal G_i(\theta)}\right]$.}, and the entire surplus profile is shaped by the accumulation of the non-monotone quantity response through the IC formula.
 
 Taken together, these two channels explain why the surplus effect of a redistributive preference perturbation is generically non-monotone across types. A shift in preferences toward higher or lower types does not translate mechanically into a monotone pattern of winners and losers, because the perturbation operates through the endogenous reallocation of quantities and through the way informational rents accumulate along the type space.
 
@@ -502,7 +503,7 @@ Taken together, these two channels explain why the surplus effect of a redistrib
 \centering
 \begin{tikzpicture}[x=3.5cm, y=1.8cm]
 \draw[->, thick] (0,0) -- (3.2,0) node[right] {$\theta$};
-\draw[->, thick] (0,-1.4) -- (0,1.4) node[above] {$\Delta\mathbb{E}CS_i(\theta)$};
+\draw[->, thick] (0,-1.4) -- (0,1.4) node[above] {$\Delta\ECS_i(\theta)$};
 \foreach \x/\lbl in {0/$\underline\theta_i$, 0.7/$\theta_1$, 1.4/$\theta_2$, 2.1/$\theta_3$, 2.8/$\overline\theta_i$}{
   \draw[thin] (\x, 0.05) -- (\x, -0.05);
   \node[below, font=\small] at (\x, -0.05) {\lbl};
@@ -524,7 +525,7 @@ Taken together, these two channels explain why the surplus effect of a redistrib
 \node[blue, font=\small, anchor=west] at (2.9, 0.6) {$\Delta\mathcal{G}_i\ge 0,\ \mathrm{Cov}>0$};
 \node[red, font=\small, anchor=west] at (2.9, -0.6) {$\Delta\mathcal{G}_i\le 0,\ \mathrm{Cov}<0$};
 \end{tikzpicture}
-\caption{Surplus effect of a preference perturbation across types under Proposition~\ref{prop:surplus-redist}. The blue curve starts from \(\Delta\mathbb{E}CS_i(\underline\theta_i)>0\) and the red curve from \(\Delta\mathbb{E}CS_i(\underline\theta_i)<0\), where the starting value is determined by \(\mathrm{Cov}_{\theta_i}(R_\theta,R_{\mathcal{G}})\). In both cases, the surplus effect is non-monotone across types and generates four alternating regions of winners and losers.}
+\caption{Surplus effect of a preference perturbation across types under Proposition~\ref{prop:surplus-redist}. The blue curve starts from \(\Delta\ECS_i(\underline\theta_i)>0\) and the red curve from \(\Delta\ECS_i(\underline\theta_i)<0\), where the starting value is determined by \(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\). In both cases, the surplus effect is non-monotone across types and generates four alternating regions of winners and losers.}
 \label{fig:surplus-redist}
 \end{figure}
 
@@ -558,18 +559,18 @@ k_i\ge 0,\quad I_i\ge 0 \quad \forall i\in N.
 where $V_i(k_i, I_i)$ is the within-category value function defined as
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \[
-V_i(k_i, I_i) \;:=\; \max_{q_i(\theta,s)} \;\mathbb{E}_{(s,\theta_i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)\right] - \tilde\lambda_i I_i
+V_i(k_i, I_i) \;:=\; \max_{q_i(\theta,s)} \;\E_{(s,i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)\right] - \tilde\lambda_i I_i
 \]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subject to incentive compatibility and the category-specific constraints. By the envelope theorem applied to the within-category problem, the two partial derivatives of $V_i$ are
 \[
 \partial_{k_i} V_i(k_i,I_i) \;=\; \overline \varepsilon_i \; , \qquad \partial_{I_i} V_i(k_i,I_i) \;=\; -\tilde\lambda_i - \beta_i(k_i,I_i).
 \]
-where $\overline \varepsilon_i =\mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right]$.
+where $\overline \varepsilon_i =\E_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right]$.
 
 The envelope decomposition shows that the across-category problem is governed by only two marginal objects. First,
 \[
-\Pi_i(k_i,I_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \mathbb{E}_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \mathbb{E}_{(s,\theta_i)}\!\left[ u(q_i(\theta,s),s)\,\G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right], \]
+\Pi_i(k_i,I_i) \;:=\; \partial_{k_i} V_i(k_i,I_i) \;=\; \E_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i\}}\right] \;=\; \E_{(s,i)}\!\left[ u(q_i(\theta,s),s)\,\G_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right], \]
 is the expected shadow value of relaxing the category-specific capacity constraint. As in canonical peak-load pricing, the marginal value of an additional unit of capacity is equal to the expected scarcity rent. Equivalently, using the within-category first-order condition, it can be written as the expected aggregate marginal utility generated by extra capacity. The difference relative to the canonical model is that this marginal utility is here weighted by the effective social weight \(\G_i(\theta)\), rather than by $\theta$. This IC-adjusted weighting will be crucial for the comparative statics below.\footnote{Note that \(\Pi_i(k_i,I_i)\) is strictly positive whenever category \(i\) is capacity-constrained with positive probability, since \(\varepsilon_i(s)>0\) in every on-peak state.}
 
 Second,
@@ -600,7 +601,7 @@ Using the first-order conditions in Lemma~\ref{lem:outer}, consider the induced 
 \[
 \Delta \Pi_i(k_i^\ast,I_i^\ast)
 =
-\mathbb{E}_{(s,\theta_i)}\![
+\E_{(s,i)}\![
 (
 \underbrace{u_q(q_i(\theta,s),s)\,\G_i(\theta)\,\Delta q_i(\theta,s)
 }_{\text{behavioral effect}}+
@@ -609,7 +610,7 @@ Using the first-order conditions in Lemma~\ref{lem:outer}, consider the induced 
 \mathbf{1}_{\{s\in T_i\}}
 ].
 \]
-This expression separates the effect of a preference variation into two margins: a behavioral effect, through the induced change in the optimal allocation \(q_i(\theta,s)\), and a direct reweighting effect, through the change in effective social weights \(\Delta \G_i(\theta)\). By Lemma~\ref{lem:realloc} and \eqref{Deltaq}, the allocation response has the same decomposition. At the aggregate level, however, the two direct reweighting terms offset each other. What remains is the average proportional difference in effective social weights $\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]$.
+This expression separates the effect of a preference variation into two margins: a behavioral effect, through the induced change in the optimal allocation \(q_i(\theta,s)\), and a direct reweighting effect, through the change in effective social weights \(\Delta \G_i(\theta)\). By Lemma~\ref{lem:realloc} and \eqref{Deltaq}, the allocation response has the same decomposition. At the aggregate level, however, the two direct reweighting terms offset each other. What remains is the average proportional difference in effective social weights $\E_i^w\!\left[R_{\mathcal G}\mid s\right]$.
 
 The next theorem provides a necessary and sufficient local condition for the following question: when do redistributive preference differences across categories translate into different capacity allocations?
 
@@ -618,20 +619,20 @@ Suppose category \(j\) differs from a baseline category \(i\) only through a mar
 \[
 k_j^\ast>k_i^\ast
 \quad\Longleftrightarrow\quad
-\mathbb{E}_s\!\left[
+\E_s\!\left[
 \varepsilon_i(s)\,
-\mathbb{E}_i^w\!\left[R_{\mathcal G}\mid s\right]
+\E_i^w\!\left[R_{\mathcal G}\mid s\right]
 \mathbf{1}_{\{s\in T_i\}}
 \right]>0.
 \]
-Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\mathbb{E}_{\theta_i}[R_{\mathcal G}(\theta)]>0$. 
+Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\E_i[R_{\mathcal G}(\theta)]>0$. 
 \end{theorem}
 
 The theorem delivers a direct outer-margin counterpart to the within-category analysis: the same object \(R_{\mathcal G}(\theta)\) that governed the reallocation of quantities and the surplus effects of preference differences within a category now determines which category receives more capacity at the outer optimum.
 
 The key implication of the theorem is the following. The relevant comparison is not which category has the larger average effective weight, but whether category \(j\)'s advantage in effective weights is concentrated on types for which category \(i\)'s effective weight is low. Categories should therefore be ranked not by the absolute size of the difference in redistributive preferences, but by the relative distribution of their effective social weights across types. As a result, two categories may exhibit the same absolute difference in welfare weights and nevertheless receive opposite capacity rankings if that difference is distributed differently across the type space. A designer who focuses only on the sign and magnitude of the absolute difference in preferences, while ignoring how effective weights are sorted across types, may therefore misrank categories.
 
-We provide, in Figure \ref{fig:appendix_two_scenarios_six_panels} in the Appendix, simple numerical examples of redistributive preferences around the utilitarian benchmark, that is, \(\lambda_i(\theta)=1\). These examples show that the ranking induced by the absolute effect, \(\E_{\theta_i}\!\left[\Delta \G_i(\theta)\right]\), and the ranking induced by the proportional effect, \(\E_{\theta_i}\!\left[R_{\G,i}(\theta)\right]\), can be non-trivial and may even go in opposite directions. In two cases, we consider pairs of categories \(i\) and \(j\) whose redistributive weights \(\lambda_i(\theta)\) and \(\lambda_j(\theta)\) both deviate from the constant benchmark \(1\), while all other parameters are held fixed. We show that even when category \(i\) has a higher average effective weight relative to the utilitarian benchmark whereas category \(j\) has a lower one, so that \(\E_{\theta_i}\!\left[\Delta \G_i(\theta)\right] > 0 > \E_{\theta_j}\!\left[\Delta \G_j(\theta)\right]\), it is still possible to have \(\E_{\theta_i}\!\left[R_{\G,i}(\theta)\right] < 0 < \E_{\theta_j}\!\left[R_{\G,j}(\theta)\right]\).
+We provide, in Figure \ref{fig:appendix_two_scenarios_six_panels} in the Appendix, simple numerical examples of redistributive preferences around the utilitarian benchmark, that is, \(\lambda_i(\theta)=1\). These examples show that the ranking induced by the absolute effect, \(\E_{i}\!\left[\Delta \G_i(\theta)\right]\), and the ranking induced by the proportional effect, \(\E_{i}\!\left[R_{\G,i}(\theta)\right]\), can be non-trivial and may even go in opposite directions. In two cases, we consider pairs of categories \(i\) and \(j\) whose redistributive weights \(\lambda_i(\theta)\) and \(\lambda_j(\theta)\) both deviate from the constant benchmark \(1\), while all other parameters are held fixed. We show that even when category \(i\) has a higher average effective weight relative to the utilitarian benchmark whereas category \(j\) has a lower one, so that \(\E_{i}\!\left[\Delta \G_i(\theta)\right] > 0 > \E_{\theta_j}\!\left[\Delta \G_j(\theta)\right]\), it is still possible to have \(\E_{i}\!\left[R_{\G,i}(\theta)\right] < 0 < \E_{\theta_j}\!\left[R_{\G,j}(\theta)\right]\).
 
 We now derive global implications of Theorem~\ref{thm:cat-order} by imposing additional structure on redistributive preferences. The theorem provides a local comparison between nearby categories; the role of the next assumption is to place all categories along a common ordered path, so that these local comparisons can be aggregated into a global ranking.
 
@@ -640,7 +641,7 @@ We now derive global implications of Theorem~\ref{thm:cat-order} by imposing add
 For each adjacent pair \(i-1\) and \(i\), there exists a positive \(C^1\) path $(t,\theta)\mapsto \lambda(t,\theta) \text{ on }[0,1]\times\Theta$ such that \(\lambda(0,\theta)=\lambda_{i-1}(\theta)\) and \(\lambda(1,\theta)=\lambda_i(\theta)\). Along this path, two conditions hold for every \(t\in[0,1]\):
 
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
-\item the average redistributive weight is weakly increasing, $\partial_t \tilde\lambda(t)\ge 0$, where $\tilde\lambda(t):=\mathbb{E}_{\theta}[\lambda(t,\theta)]$,
+\item the average redistributive weight is weakly increasing, $\partial_t \tilde\lambda(t)\ge 0$, where $\tilde\lambda(t):=\E_{\theta}[\lambda(t,\theta)]$,
 \item the relative tilt of redistributive weights is toward higher types, in the sense that $\partial_t \log \lambda(t,\theta)$ is weakly increasing in \(\theta\) on \(\Theta\).
 \end{enumerate}
 \end{assumption}
@@ -685,7 +686,7 @@ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial \beta_i}{\partial
 \]
 The sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \eqref{Eujmd}. Under Assumption~\ref{ass:CARA}, this reduces to
 \[
-I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \mathbb{E}_{\theta_i}[R_{\mathcal G}]\frac{\mathbb{E}_{\theta_i}[R_\theta]}{\mathbb{E}_{\theta_i}[R_\theta^2]} > \Delta\tilde\lambda.
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \E_i[R_{\mathcal G}]\frac{\E_i[R_\theta]}{\E_i[R_\theta^2]} > \Delta\tilde\lambda.
 \]
 \end{proposition}
 
@@ -713,7 +714,7 @@ I'(k^\ast)
 = \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast)=
 \frac{1}{\mu^+}
 \sum_{i\in N^+} \mu_i\,
-\mathbb{E}_{(s,\theta_i)}\!\left[
+\E_{(s,i)}\!\left[
 u(q_i(\theta,s),s)\,
 \frac{\mathcal{G}_i(\theta)}{\tilde\lambda^\ast}\,
 \mathbf{1}_{\{s\in T_i\}}
@@ -749,7 +750,7 @@ W''(k^\ast)\,\Delta k^\ast
 =
 -
 \underbrace{\Bigg.\frac{1}{\tilde\lambda^\ast}
-\sum_{i\in N}\mu_i\,\Pi_i\,\mathbb E_{\theta_i}[R_{\mathcal G,i}]\Bigg.}_{\text{average effect}}
+\sum_{i\in N}\mu_i\,\Pi_i\,\mathbb E_i[R_{\mathcal G,i}]\Bigg.}_{\text{average effect}}
 \qquad +  \qquad \underbrace{ \Bigg.I'(k^\ast)\,\Delta\tilde\lambda^\ast\Bigg.}_{\text{sorting effect}}
 \]
 where
@@ -759,12 +760,12 @@ where
 -
 \frac{
 \sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
-\Cov_{\theta_i}\!\left(
+\Cov_i\!\left(
 R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)
 \right)
 }{
 \sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
-\Var_{\theta_i}\!\left(
+\Var_i\!\left(
 R_{\theta,i}(\theta)
 \right)
 }.
@@ -788,7 +789,7 @@ Finally, we connect a marginal increase in aggregate capacity \(k\) to its redis
 The first term is the within-category incidence characterized in Theorem~\ref{thm:surplus}. The second term captures how a marginal increase in aggregate capacity is redistributed across categories. As shown in Appendix Lemma~\ref{lem:dkidk}, this term depends on two objects. The first is the category-specific expression
 \[
 \Omega_i^{-1}\left(
-\mathbb E_s\!\left[\mathbb E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]
+\mathbb \E_{(s,i)}^w[uJ\mid s]
 -I'(k^\ast)
 \right),
 \]
@@ -796,7 +797,7 @@ which measures whether the marginal revenue \eqref{Eujmd} for category \(i\) is 
 \[\tag{$d\lambda^\ast$}\label{dlambda}
 \sum_{j\in N } \mu_j\,\Omega_j^{-1}
 \left(
-\mathbb E_s\!\left[\mathbb E_j^w[uJ\mid s]\mathbf 1_{\{s\in T_j\}}\right]
+\E_{(s,i)}^w[uJ\mid s]
 -I'(k^\ast)
 \right),
 \]
@@ -874,7 +875,7 @@ Under complete information, the market designer observes each consumer's categor
 
 Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ denote the off-peak and on-peak regions, where $s^*$ is the unique threshold such that
 \[
-\sum_i \mu_i\,\E_{\theta_i}\!\left[q_i^*(\theta,s^*)\right]=k.
+\sum_i \mu_i\,\E_{i}\!\left[q_i^*(\theta,s^*)\right]=k.
 \]
 Define $\lambda^*$ as the marginal welfare weight such that extracting full surplus from all types with $\lambda_i(\theta)\leq \lambda^*$ is just sufficient to finance investment. The section~\ref{appsec:CI} in the Appendix gives the formal construction and the associated cutoff types.
 
@@ -931,7 +932,7 @@ Our framework consists of five elements:
 
 \noindent There is a unit mass of consumers for electricity. Each consumer is characterized by a type vector $(i,\theta,s,\lambda)$. We assume that the three dimensions of the vector $(i,\theta,\lambda)$ have a joint distribution among consumers and are known by the market designer. The first characteristic refers to the consumer category, e.g., household or industry. There is a finite set of categories such that $i \in N = \{1,...,n\}$. It is publicly observed, and the size of each category, i.e., the number of agents, is denoted by $\mu_i>0$ for each group. The second characteristic is consumer private preference $\theta$, which, under an incomplete information framework, is assumed to be observed only by the consumer. Conditional on belonging to a category $i$, this value is drawn from a common-knowledge cumulative distribution function $G_i$ whose continuous density is $g_i>0$ has full support on $\Theta_i$ and is strictly positive on $[\ubar{\theta}_i, \overline{\theta}_i]$. With households, $\theta$ represents the revenue shocks, the lowest type of consumer being the poor household, and the highest type of consumer being the more prosperous household. Industrial consumers could also be modeled with this framework, where $\theta$ represents their buyers' orders. The characteristic $s \in S = [\underline{s},\overline{s}]$ represents the state of the world and introduces demand uncertainty. We assume that all consumers are subject to the same shock $s$ and that the market designer's redistributive preferences do not depend on the realization of $s$. It is common knowledge among all agents. Economically, $s$ can capture, for example, a weather condition or a macroeconomic factor. The shock is drawn from a continuous distribution $F$ with density $f>0$, both of which are common knowledge before the shock is realized, and has full support on $S$. Each consumer type is known before the demand shocks are realized. Therefore, this framework encompasses two interpretations of the demand shocks: (i) a static model with a single shock and there is uncertainty concerning its realization, or a (ii) a repetition of multiple shocks over a given period (for example, one year), which are drawn from the distribution $F(.)$ \citep{leautier2016visible}. In the last interpretation, we assume that the consumer type does not change across shocks and is determined before this period. Finally, $\lambda \in \mathbb{R}_+$ are the market designer welfare weights for a given individual. As for the type $\theta$, we assume that this information is private and unobserved by the market designer. All agents in the game are considered to be risk-neutral.
 
-We define a consumer's utility belonging to a category $i$ of a type $\theta_i$. The value for electricity consumption for each consumer is denoted: 
+We define a consumer's utility belonging to a category $i$ of a type $\theta$. The value for electricity consumption for each consumer is denoted: 
 %##########################################
 \begin{equation*}
     \theta \; U(q,s) = \theta\int_0^{q} u(\tilde{q},s) d\tilde{q}
@@ -955,7 +956,7 @@ One key element in the model is the quantity responsiveness of a consumer of typ
 \noindent \textbf{General Mechanism}. Given a total quantity $Q(s)$ of electricity in state $s$, a general allocation mechanism $\mathcal{M}$  consists of collection of functions $q_i: [\ubar{\theta}_i, \overline{\theta}_i]\times S \rightarrow [0,Q(s)] $ where $q_i(\theta,s)$ is the quantity of electricity allocated to a consumer of type $\theta$ in category $i$ at state $s$. The aggregate quantity allocated to a group  $i$ is
 %##########################################
 \begin{equation*}
-    Q_i(s) = \mu_i \E_{\theta_i} [q_i(\theta,s)].
+    Q_i(s) = \mu_i \E_{i} [q_i(\theta,s)].
 \end{equation*}
 %##########################################
 Feasibility requires that $Q(s) = \sum_{i} Q_i(s)$. Transfers are described by the functions $t_i(\theta,s)$ assigning a monetary payment to each consumer of type $\theta$ in category $i$ at state $s$. To study the optimal second-best mechanism with incomplete information in section \ref{chap3sec:sec5}, we rely on the Revelation Principle. In a direct mechanism $(q_i,t_i)_{i = \{1,2\}}$, consumers report their type $\theta$, receive an allocation $q_i(\theta,s)$, and pays $t_i(\theta,s)$ to the market designer. 
@@ -976,7 +977,7 @@ For tractability, we model the market designer as directly choosing production a
 %##########################################
 % \[
 % \sum_{i\in N}\mu_i
-% \E_{(s,\theta_i)}\left[ t_i(\theta,s) \right]\;-\; I(k)
+% \E_{(s,i)}\left[ t_i(\theta,s) \right]\;-\; I(k)
 % \;\ge\; 0. \tag{R}\label{R-def}
 % \]
 %##########################################
@@ -988,10 +989,10 @@ The investment level $k_i$ determines capacity, which imposes the feasibility co
 %##########################################
 where $Q(s)$ is the total quantity allocated in state $s$.
 
-The market designer maximizes a weighted expected sum of consumer surpluses across types and states. We define the expectation of $\lambda$ of an individual conditional of its type $\theta$ and belonging to a category $i$ as $\lambda_i(\theta) = \E_{\theta_i}[\lambda|i,\theta]$. Those Pareto weights are assumed to be continuous in $\theta$ for each category $i$. Let $\tilde\lambda_i:= \E_{\theta_i}[\lambda_i]$ be the average weight for a category $i$. The market designer's objective function is
+The market designer maximizes a weighted expected sum of consumer surpluses across types and states. We define the expectation of $\lambda$ of an individual conditional of its type $\theta$ and belonging to a category $i$ as $\lambda_i(\theta) = \E_{i}[\lambda|i,\theta]$. Those Pareto weights are assumed to be continuous in $\theta$ for each category $i$. Let $\tilde\lambda_i:= \E_{i}[\lambda_i]$ be the average weight for a category $i$. The market designer's objective function is
 %##########################################
 \begin{equation*}
-    \text{Obj} := \;  \sum_{i}  \; \mu_i\; \E_{(s,\theta_i)} \left[\; \lambda_i(\theta)\; ( \; \theta \; U(q_i(\theta,s),s)  -  t_i(\theta,s)\; )\; \right]
+    \text{Obj} := \;  \sum_{i}  \; \mu_i\; \E_{(s,i)} \left[\; \lambda_i(\theta)\; ( \; \theta \; U(q_i(\theta,s),s)  -  t_i(\theta,s)\; )\; \right]
 \end{equation*}
 %##########################################
 This formulation of the objective function has several limitations as described in \cite{akbarpour2023redistributive}. XXXX How to endogenoize welfare weights.
