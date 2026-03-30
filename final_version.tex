@@ -133,7 +133,7 @@ for some boundary term $\E\underline{CS}_i \ge 0$. This representation follows f
 \gamma_i(\theta):= \frac{1-G_i(\theta)}{g_i(\theta)} \quad \text{and} \quad  J_i(\theta):=\theta - \gamma_i(\theta).
 \]
 %##########################################
-We maintain throughout the standard regularity condition that $J_i(\theta)$  is increasing in $\theta$
+We maintain throughout the following regularity condition
 
 \renewcommand{\theassumption}{Reg}
 \begin{assumption}\label{ass:regularity}
@@ -315,7 +315,7 @@ Under Assumption~\ref{ass:mult}, $R_q = -\kappa(q)/\kappa'(q)$ depends only on $
 
 We now study the central within-category question: who benefits from a marginal increase in capacity? Even though a larger $k_i$ relaxes scarcity, the surplus gains from this relaxation need not accrue to all types once incentive constraints and revenue extraction are taken into account. This subsection shows that the incidence of capacity expansion is pinned down by the sign of \eqref{Eujmd} together with the ordering of types induced by $R_\theta(\theta)$.
 
-The individual surplus change follows from \eqref{ICmd-def} and is decomposed into two terms: i) the type-independent component that corresponds to the available surplus after accounting for the budget and the informational rents, and whose directional change is given by \ref{Eujmd}, and ii) the informational rent which depends on the optimal allocation.
+The individual surplus change follows from \eqref{ECSi} and is decomposed into two terms: i) the type-independent component that corresponds to the available surplus after accounting for the budget and the informational rents, and whose directional change is given by \ref{Eujmd}, and ii) the informational rent which depends on the optimal allocation.
 %##########################################
 \begin{equation}
   \frac{\partial\E CS_i(\theta)}{\partial k_i} = \underbrace{\Bigg.\frac{\partial\E\underline{CS}_i}{\partial k_i}\Bigg.}_{ \text{type-independent transfer} } +\underbrace{\Bigg. \int_{\underline\theta_i}^{\theta} \E_s\!\left[\frac{\partial q_i(\tilde\theta,s)}{\partial k_i} u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta\Bigg. }_{\text{IC type-dependent transfer}}. \tag{$\partial_k CS$}\label{partialkCS1}
@@ -461,7 +461,7 @@ That is the condition of receiving more or less allocation is determined by whet
 
 The sorting effect of the optimal allocation induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ is generically non-monotone in types, so a tilt of preferences toward higher or lower types does not translate into a monotone quantity reallocation.\footnote{Take the covariance term in \eqref{signEuJ}, then a perturbation in preference yields $\Cov_i\!\left(R_\theta(\theta),\Delta R_q(\theta)\right) + \Cov_i\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)$. The non-monotonicity in $\Delta q$ prevents signing the first term and, by extension, the effect of a perturbation on the sign of \eqref{Eujmd}. Assumption~\ref{ass:CARA} avoids these limits by shutting down the behavioral effect of a perturbation on the final equilibrium as $\Delta R_q(\theta)=0$.} This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_{\G}(\theta)$ and not the absolute change $\Delta G_i(\theta)$. While a change of preference can lead to a monotonic change in the absolute value along $\theta$, it's never the case for $R_{\G}(\theta)$. To see this, consider the extreme types $\underline{\theta}$ and $\overline{\theta}$ and a perturbation of an optimal allocation in the IR-unconstrained regime. Using the definition of $J_i(\theta)$ and $\Lambda_i(\theta)$, the effective weight is $\G_i(\theta)= \theta  \tilde\lambda_i - \gamma_i(\theta) \tilde\lambda_i + \gamma_i(\theta)\E_{i}\!\left[\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right]$. At $\underline{\theta}$, the social value of the information rent is the information rent valued at the expected social weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta})= \underline{\theta}  \tilde\lambda_i$. At $\overline{\theta}$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta})= \overline{\theta}  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta})= \underline{\theta}  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta})= \overline{\theta}  \Delta \tilde\lambda_i$. Therefore, while we can have $\Delta \G_i(\underline{\theta}) \neq \Delta \G_i(\overline{\theta})$, we always have $R_\G(\underline{\theta}) = R_\G(\overline{\theta})$ for any perturbation of redistributive preferences. In particular, Appendix Corollary~\ref{cor:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
 
-We are now ready to characterize the surplus effect of a change in preferences. Similarly to the capacity extension expression \eqref{partialkCS1}, the individual surplus change follows from \eqref{ICmd-def}
+We are now ready to characterize the surplus effect of a change in preferences. Similarly to the capacity extension expression \eqref{partialkCS1}, the individual surplus change follows from \eqref{ECSi}
 %##########################################
 \begin{equation*}
   \Delta CS_i(\theta) = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
@@ -649,7 +649,7 @@ For each adjacent pair \(i-1\) and \(i\), there exists a positive \(C^1\) path $
 
 Assumption~\ref{ass:ordered-path} orders categories along a common redistributive path. Condition~(i) requires average welfare weights to be weakly increasing along the ordering. Condition~(ii) requires this increase to be proportionally stronger for higher types. Together, these two restrictions allow the local comparison in Theorem~\ref{thm:cat-order} to be iterated across adjacent categories. By Appendix Lemma~\ref{lem:preferenceorder}, they imply a monotone ordering of effective social weights that carries over to the equilibrium capacity profile.
 
-\begin{corollary}[Capacity ordering along an ordered preference path]
+\begin{corollary}[Capacity ordering along an ordered preference path]\ref{cor:ordered-path}
 Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast,\beta_i^\ast\}_{i\in N}\). Under Assumption~\ref{ass:ordered-path}, the equilibrium capacity profile is globally weakly monotone:
 \[
 k_1^\ast\le\cdots\le k_n^\ast.

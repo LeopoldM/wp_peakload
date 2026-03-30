@@ -240,7 +240,7 @@ This section examines how a change in redistributive preferences affects the suf
 \[
 \Delta\E^w[uJ\mid s] = \underbrace{\Delta\varepsilon_i(s)\,\E_i[R_q R_\theta]}_{\text{scarcity rent}} + \underbrace{\varepsilon_i(s)\,\E_i[\Delta R_q \cdot R_\theta]}_{\text{behavioral}} + \underbrace{\varepsilon_i(s)\,\E_i[R_q \cdot \Delta R_\theta]}_{\text{sorting}}.
 \]
-The scarcity rent term is governed by $\Delta\varepsilon_i(s)/\varepsilon_i(s) = \E^w_i[R_\G\mid s]$, established in Lemma~\ref{lem:realloc}. The sorting term is governed by the identity $\Delta R_\theta(\theta) = -R_\G(\theta)R_\theta(\theta)$, which is the formal bridge discussed in the main text. The behavioral term cannot be signed in general, as established in Proposition~\ref{prop:rprefreallocation}. Proposition~\ref{prop:Elasticity} below provides conditions under which the sorting term can nonetheless be signed from primitives. Under Assumption~\ref{ass:CARA}, the behavioral term vanishes entirely since $R_q$ is constant, and both the scarcity rent and sorting terms collapse to a single covariance condition between $R_\G(\theta)$ and $R_\theta(\theta)$, as stated in Corollary~\ref{cor:CARA}.
+The scarcity rent term is governed by $\Delta\varepsilon_i(s)/\varepsilon_i(s) = \E^w_i[R_\G\mid s]$, established in Lemma~\ref{lem:realloc}. The sorting term is governed by the identity $\Delta R_\theta(\theta) = -R_\G(\theta)R_\theta(\theta)$, which is the formal bridge discussed in the main text. The behavioral term cannot be signed in general, as established in Proposition~\ref{prop:rprefreallocation}. Proposition~\ref{prop:Elasticity} below provides conditions under which the sorting term can nonetheless be signed from primitives. Under Assumption~\ref{ass:CARA}, the behavioral term vanishes entirely since $R_q$ is constant, and both the scarcity rent and sorting terms collapse to a single covariance condition between $R_\G(\theta)$ and $R_\theta(\theta)$.
 
 \begin{proposition}[Elasticity condition]\label{prop:Elasticity}
 Assume that $R_\theta(\theta)$ and $R_q(\theta)$ are monotone, that $R_{\G}(\theta)$ has a constant sign, and that, for all $\theta$ such that $R_{\G}(\theta)R_\theta(\theta)\neq 0$,\footnote{At isolated zeros of $R_\theta(\theta)$, the cross-term $-R_\theta(\theta)R_{\G}'(\theta)$ vanishes and the sign of $\Delta R_\theta'(\theta)$ is determined by $-R_{\G}(\theta)R_\theta'(\theta)$ directly. At isolated zeros of $R_{\G}(\theta)$, the constant-sign hypothesis forces $R_{\G}'(\theta)=0$ by differentiability, so the cross-term vanishes there as well. Monotonicity of $\Delta R_\theta(\theta)$ is preserved in both cases.}
@@ -698,7 +698,7 @@ For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slac
 
 \subsection{Proof of Theorem~\ref{thm:surplus}}
 \begin{proof}
-Define $\mathcal W_i(\theta) := \partial \E CS_i(\theta)/\partial k_i$. From the envelope representation \eqref{ICmd-def},
+Define $\mathcal W_i(\theta) := \partial \E CS_i(\theta)/\partial k_i$. From the envelope representation \eqref{ECSi},
 \[\mathcal W_i(\theta) = \mathcal W_i(\underline\theta_i) + \int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta, \qquad \mathcal W_i'(\theta) = \E_s\!\left[u\!\left(q_i(\theta,s),s\right)\frac{\partial q_i(\theta,s)}{\partial k_i}\mathbf 1_{\{s\in T_i\}}\right].\]
 For each binding state $s\in T_i$, differentiating the pointwise FOC \eqref{KKT-qMD} with respect to $k_i$ and imposing the binding capacity constraint \eqref{Kmdi-def} gives
 \[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\,\mathsf \E_i^w[uJ\mid s]\,\frac{\partial \beta_i(k_i)}{\partial k_i} + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\frac{\partial \beta_i(k_i)}{\partial k_i},\]
@@ -712,9 +712,9 @@ since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumptio
 
 \noindent\textbf{IR-constrained allocation.}
 
-\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{ICmd-def}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
+\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{ECSi}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
 
-\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\zeta(q_i(\theta,s))/\zeta_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
+\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\kappa(q_i(\theta,s))/\kappa_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
 \[\mathcal W_i'(\theta) = \frac{R_q(\theta)}{\G_i(\theta)}\left(\Omega_i - \frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] + \frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)\right),\]
 and $ \overline \varepsilon_i := \E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since $\frac{\partial \beta_i(k_i)}{\partial k_i} = -\E_{(s,i)}^w[uJ\mid s]/\E_{(s,i)}^w[\overline w_i\mathrm{Var}_i(uJ\mid s)]$ from the preliminary step of Lemma~\ref{lem:SC-dir}, the term $-\frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] = \E_{(s,i)}^w[uJ\mid s]^2/\E_{(s,i)}^w[\overline w_i\mathrm{Var}_i(uJ\mid s)]\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\frac{\partial \beta_i(k_i)}{\partial k_i}$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
 
@@ -861,7 +861,7 @@ which is the desired identity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Proof of Proposition~\ref{prop:surplus-redist}}\begin{proof}
-The surplus change follows from the IC representation \eqref{ICmd-def}:
+The surplus change follows from the IC representation \eqref{ECSi}:
 \[\Delta\ECS_i(\theta) = \Delta\E\underline{CS}_i + \int_{\underline\theta_i}^{\theta}\E_s\!\left[u\!\left(q_i(\tilde\theta,s),s\right)\Delta q_i(\tilde\theta,s)\,\mathbf{1}_{\{s\in T_i\}}\right]d\tilde\theta.\]
 Substituting Lemma~\ref{lem:realloc} and using the first-order condition $u(q_i,s)=\varepsilon_i(s)/\G_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
 \[\frac{\partial\Delta\ECS_i(\theta)}{\partial\theta} = \frac{1}{\alpha}\E_s\!\left[\frac{\varepsilon_i(s)}{\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right] = \frac{\overline\varepsilon_i}{\alpha\,\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right),\]
@@ -881,7 +881,7 @@ Under Assumption~\ref{ass:CARA}, $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}]$ is $s$-inde
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Proof of Proposition~\ref{prop:outer}}
+\subsection{Proof of Lemma~\ref{lem:outer}}
 
 \begin{proof}
 The feasible set
@@ -1026,7 +1026,7 @@ Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Proposition \ref{prop:revenueordering}}
 \begin{proof}
-\textit{General case.} Since \(\beta_i^\ast>0\) and \(\beta_j^\ast>0\), both categories are interior contributors. By Proposition~\ref{prop:outer}, the revenue stationarity condition holds with equality and without slackness:
+\textit{General case.} Since \(\beta_i^\ast>0\) and \(\beta_j^\ast>0\), both categories are interior contributors. By Lemma~\ref{lem:outer}, the revenue stationarity condition holds with equality and without slackness:
 \[
 \tilde\lambda_i+\beta_i(k_i^\ast,I_i^\ast) = \tilde\lambda_j+\beta_j(k_j^\ast,I_j^\ast).
 \]
@@ -1298,7 +1298,7 @@ k_i\geq 0,
 I_i\geq 0
 \quad \forall i\in N.
 \]
-By Proposition~\ref{prop:outer}, $\overline W$ is well defined and continuous, and by Lemma~\ref{lem:Vi-concave} it is concave in $(K,I)$. Moreover, since
+By Lemma~\ref{lem:outer}, $\overline W$ is well defined and continuous, and by Lemma~\ref{lem:Vi-concave} it is concave in $(K,I)$. Moreover, since
 \[
 \partial_{I_i}V_i(k_i,I_i)=-\tilde\lambda_i-\beta_i(k_i,I_i)<0,
 \]
@@ -1341,7 +1341,7 @@ Then
 \tilde\lambda^\ast I'(k^\ast)=\zeta_k.
 \]
 
-By Proposition~\ref{prop:outer},
+By Lemma~\ref{lem:outer},
 \[
 \Pi_i(k_i^\ast,I_i^\ast)=\zeta_k
 \qquad\text{for every }i,
@@ -1425,7 +1425,7 @@ Thus
 Let \(\Delta_\lambda\) denote the first-order effect of the perturbation of
 \(\lambda_i(\theta)\) evaluated at the baseline equilibrium allocation.
 
-From Proposition~\ref{prop:investment}, we use the equivalent whole-\(N\)
+From Lemma~\ref{lem:investment}, we use the equivalent whole-\(N\)
 representation
 \[
 I'(k^\ast)
@@ -1462,7 +1462,7 @@ I'(k^\ast)\,\Delta\tilde\lambda^\ast
 
 It remains to characterize \(\Delta\tilde\lambda^\ast\). For every contributing
 category \(i\in N^+\), the revenue constraint binds. Since the perturbation is
-mean-preserving, \(\Delta\tilde\lambda_i=0\), and Proposition~\ref{prop:investment}
+mean-preserving, \(\Delta\tilde\lambda_i=0\), and Lemma~\ref{lem:investment}
 implies
 \[
 \tilde\lambda_i+\beta_i^\ast=\tilde\lambda^\ast
@@ -1897,7 +1897,7 @@ is single-crossing in $k_i$, with crossing direction pinned down by the combinat
 \subsection{Proof of Proposition~\ref{prop:implementation}}
 \begin{proof}
 
-By the preliminary step of Lemma~\ref{lem:SC-dir},
+By Lemma~\ref{lem:SC-dir},
 \[
 \frac{\partial \E\underline{CS}_i}{\partial k_i}
 =
@@ -2232,7 +2232,7 @@ Substituting the previous expression for each \(dk_j^\ast\) gives
 \sum_{j\in N}\mu_j\Omega_j^{-1}
 \left[
 \left(
-\E_{(s,i)}^w[uJ\mid s] 
+\E_{(s,j)}^w[uJ\mid s] 
 -I'(k^\ast)
 \right)d\tilde\lambda^\ast
 -
