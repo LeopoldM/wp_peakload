@@ -409,7 +409,7 @@ Complementary slackness conditions are
 
 \textit{Step 2: structure of optimal transfers.} Suppose two types $(\theta,i)$ and $(\theta',i')$ satisfy $\lambda_i(\theta) < \lambda_{i'}(\theta')$. Assume for contradiction that $t_{i'}(\theta') > 0$ and $t_i(\theta) = 0$. If both participation constraints are slack, then $\rho_i(\theta) = \rho_{i'}(\theta') = 0$ and $\phi_{i'}(\theta') = 0$, so the FOC on $t$ gives $\lambda_{i'}(\theta') = \beta$. But $t_i(\theta) = 0$ with slack participation requires $\phi_i(\theta) > 0$, giving $\lambda_i(\theta) = \beta + \phi_i(\theta)/\mu_i > \beta = \lambda_{i'}(\theta')$, contradicting $\lambda_i(\theta) < \lambda_{i'}(\theta')$. The case where the participation constraint of $(\theta', i')$ binds leads to the same contradiction. Therefore at the optimum, any type with $\lambda_i(\theta) < \lambda^*$ has $t_i^*(\theta) > 0$ and any type with $\lambda_i(\theta) > \lambda^*$ has $t_i^*(\theta) = 0$, where $\lambda^* = \beta$ is the marginal welfare weight pinned by the budget constraint.
 
-\textit{Step 3: optimal quantities.} When capacity is slack, $\varepsilon(s) = 0$ and the FOC on $q$ gives $\theta\, u(q_i^*,s) = 0$, which is \eqref{eq:FB-S}. When capacity binds, the FOC on $q$ gives $\theta\, u(q_i^*,s) = \varepsilon(s)/(\lambda_i(\theta) + \rho_i(\theta)/\mu_i)$. For types with $\lambda_i(\theta) > \lambda^*$: $\rho_i(\theta) = 0$ and $\theta\, u(q_i^*,s) = \varepsilon(s)/\lambda_i(\theta)$. For types with $\lambda_i(\theta) \leq \lambda^*$: from the FOC on $t$, $\lambda_i(\theta) + \rho_i(\theta)/\mu_i = \beta$, so $\theta\, u(q_i^*,s) = \varepsilon(s)/\beta$. This establishes \eqref{eq:FB-T}.
+\textit{Step 3: optimal quantities.} When capacity is slack, $\varepsilon(s) = 0$ and the FOC on $q$ gives $\theta\, u(q_i^*,s) = 0$, which is \eqref{FB-S}. When capacity binds, the FOC on $q$ gives $\theta\, u(q_i^*,s) = \varepsilon(s)/(\lambda_i(\theta) + \rho_i(\theta)/\mu_i)$. For types with $\lambda_i(\theta) > \lambda^*$: $\rho_i(\theta) = 0$ and $\theta\, u(q_i^*,s) = \varepsilon(s)/\lambda_i(\theta)$. For types with $\lambda_i(\theta) \leq \lambda^*$: from the FOC on $t$, $\lambda_i(\theta) + \rho_i(\theta)/\mu_i = \beta$, so $\theta\, u(q_i^*,s) = \varepsilon(s)/\beta$. This establishes \eqref{FB-T}.
 
 \textit{Step 4: monotonicity of $q_i^*$ in $s$ and uniqueness of $s^*$.} When capacity is slack, totally differentiating $\theta\, u(q_i^*,s) = 0$ gives
 \[
@@ -925,9 +925,9 @@ Fix $k_i$ and $s\in T_i$. Differentiating the first-order condition with respect
 \[
 \partial_{I_i}\varepsilon_i(s) = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s], \qquad \mathsf \E_i^w[uJ\mid s]:=\E_i^w[uJ\mid s],
 \]
-where $w_i(\theta,s):=-1/(u_q(q_i,s)\G_i(\theta))>0$ and the weighted expectation is as defined in Lemma~\ref{lem:SC-dir}. Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\E \underline{CS}_i=\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]>0$, gives $\partial_{I_i}\beta_i=1\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\partial_{I_i}\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so defining $\E_{(s,i)}^w[uJ\mid s]:=\E_s\!\left[\mathsf \E_i^w[uJ\mid s]\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]$,
+where $w_i(\theta,s):=-1/(u_q(q_i,s)\G_i(\theta))>0$ and the weighted expectation is as defined in Lemma~\ref{lem:SC-dir}. Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\E \underline{CS}_i=\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$, gives $\partial_{I_i}\beta_i=1\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\partial_{I_i}\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so defining $\E_{(s,i)}^w[uJ\mid s]:=\E_s\!\left[\mathsf \E_i^w[uJ\mid s]\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]$,
 \[
-V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I_i)= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]}<0, \qquad V_{i,k_iI_i}(k_i,I_i) = \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]}.
+V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I_i)= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0, \qquad V_{i,k_iI_i}(k_i,I_i) = \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
 \]
 
 
@@ -935,15 +935,15 @@ V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I
 
 Holding $\beta$ fixed gives $\partial_{k_i}\varepsilon_i(s)|_\beta = -1/\overline w_i(s)$. Along the optimal path, the chain rule and the identity $\partial_\beta\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]$ (established in the proof of Lemma~\ref{lem:SC-dir}) give
 \[
-\partial_{k_i}\varepsilon_i(s) = -\frac{1}{\overline w_i(s)} - \mathsf \E_i^w[uJ\mid s]\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]}.
+\partial_{k_i}\varepsilon_i(s) = -\frac{1}{\overline w_i(s)} - \mathsf \E_i^w[uJ\mid s]\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
 \]
 Integrating over binding states and defining $\Omega_i(k_i):=\E_s\!\left[\overline w_i(s)^{-1}\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]>0$,
 \[
-V_{i,k_ik_i}(k_i,I_i) = -\Omega_i(k_i)-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]}<0.
+V_{i,k_ik_i}(k_i,I_i) = -\Omega_i(k_i)-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0.
 \]
 The Hessian on the IR-constrained, capacity-binding region is
 \[
-\nabla^2 V_i(k_i,I_i) = \begin{pmatrix} -\Omega_i-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]} & \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]} \\[0.4em] \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]} & -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]} \end{pmatrix},
+\nabla^2 V_i(k_i,I_i) = \begin{pmatrix} -\Omega_i-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} & \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} \\[0.4em] \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} & -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} \end{pmatrix},
 \]
 with determinant $\det\nabla^2 V_i = \Omega_i\E_{(s,i)}^w[\mathrm{Var}_i(uJ)] > 0$. Both diagonal entries are negative and the determinant is positive, so $\nabla^2 V_i$ is negative definite, proving part~(i).
 
@@ -1044,9 +1044,9 @@ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial \beta_i}{\partial
 \]
 From the preliminary step of Lemma~\ref{lem:SC-dir}, the sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)=-\E_{(s,i)}^w[uJ\mid s](k_i^\ast)\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)$ is opposite to the sign of \eqref{Eujmd}. This proves the general condition.
 
-\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\overline{w}_i(s)=1/(\alpha\varepsilon_i(s))$ and $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$. Integrating over binding states gives $\E_{(s,i)}^w[uJ\mid s](k_i^\ast)=\E_i[R_\theta]\cdot\Pi_i(k_i^\ast)$. Since $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_{i}(R_\theta)$ under CARA, one obtains $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]](k_i^\ast)=\Pi_i(k_i^\ast)\mathrm{Var}_{i}(R_\theta)/\alpha$. The $\Pi_i$ factors cancel and
+\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\overline{w}_i(s)=1/(\alpha\varepsilon_i(s))$ and $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$. Integrating over binding states gives $\E_{(s,i)}^w[uJ\mid s](k_i^\ast)=\E_i[R_\theta]\cdot\Pi_i(k_i^\ast)$. Since $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_{i}(R_\theta)$ under CARA, one obtains $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)=\Pi_i(k_i^\ast)\mathrm{Var}_{i}(R_\theta)/\alpha$. The $\Pi_i$ factors cancel and
 \[
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]} = -\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_{i}(R_\theta)}.
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} = -\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_{i}(R_\theta)}.
 \]
 For $\Delta k$, since $\Delta\Pi_i(k_i^\ast)=\E_i[R_\G]\cdot\Pi_i(k_i^\ast)$ and $\Pi_i'(k_i^\ast)=-\Omega_i-\E_{(s,i)}^w[uJ\mid s]^2\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$, the CARA expressions $\Omega_i=\alpha\Pi_i(k_i^\ast)$ and $\E_{(s,i)}^w[uJ\mid s]^2\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\alpha(\E[R_\theta])^2\Pi_i(k_i^\ast)/\mathrm{Var}(R_\theta)$ yield
 \[
@@ -1474,7 +1474,7 @@ hence
 \]
 Taking the first-order effect of the perturbation in the binding condition gives
 \[
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]](k_i^\ast)\,\Delta\tilde\lambda^\ast
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)\,\Delta\tilde\lambda^\ast
 +
 \Delta_\lambda
 \E_{(s,i)}\!\left[
@@ -1486,7 +1486,7 @@ U(q_i(\theta,s),s)\,J_i(\theta)
 
 Under Assumption~\ref{ass:CARA}, we have
 \[
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]](k_i^\ast)
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)
 =
 \frac{\overline\varepsilon_i}{\alpha}\,
 \Var_{i}\!\left(R_{\theta,i}(\theta)\right),
@@ -1605,7 +1605,7 @@ Since $B(k)>0$, condition \eqref{Ui*} implies $\frac{d\beta}{dk}\leq 0$.
 
 \noindent{Part ii)}
 
-From the Lagrangian \eqref{P-CI}, the FOC with respect to $k$ is
+From the Lagrangian, the FOC with respect to $k$ is
 \[
 -\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,
 \]
@@ -1614,7 +1614,7 @@ where we used $\varepsilon(s)=0$ for all $s\in S^*$, so that
 \beta\, I'(k) = \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)].
 \end{equation}
 
-\textit{Step 1: contributing types.} From \eqref{eq:FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
+\textit{Step 1: contributing types.} From \eqref{FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
 \[
 \theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta}.
 \]
@@ -1800,14 +1800,14 @@ Therefore
 \mathrm{Var}_i^w(uJ\mid s)
 \right]
 =:
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]],
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)],
 \]
 Where $\mathrm{Var}_i^w(uJ\mid s)$ is the associated weighted variance such that $\mathrm{Var}_i^w(X\mid s)
 :=
 \mathbb E_i^w\!\left[
 \left(X-\mathbb E_i^w[X\mid s]\right)^2
 \,\middle|\, s
-\right]$ and $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]>0$ away from knife-edge cases. Differentiating
+\right]$ and $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$ away from knife-edge cases. Differentiating
 \[
 \E \underline{CS}_i\!\left(k_i,\beta_i(k_i)\right)=0
 \]
@@ -1815,13 +1815,13 @@ with respect to $k_i$ gives
 \[
 0
 =
-\E_{(s,i)}^w[uJ\mid s]+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]\,\frac{\partial \beta_i(k_i)}{\partial k_i},
+\E_{(s,i)}^w[uJ\mid s]+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,\frac{\partial \beta_i(k_i)}{\partial k_i},
 \]
 hence
 \[
 \frac{\partial \beta_i(k_i)}{\partial k_i}
 =
--\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]}.
+-\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
 \]
 
 Finally, differentiate and using Leibniz' rule,
@@ -2099,7 +2099,7 @@ Using the expressions established above,
 V_{I_iI_i}(k_i^\ast,I_i^\ast)
 =
 -\frac{1}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
 },
 \]
 and
@@ -2111,7 +2111,7 @@ V_{I_ik_i}(k_i^\ast,I_i^\ast)
 \frac{
 \E_{(s,i)}^w[uJ\mid s]
 }{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
 },
 \]
 the second differentiated first-order condition gives
@@ -2120,7 +2120,7 @@ dI_i^\ast
 =
 \E_{(s,i)}^w[uJ\mid s]\,dk_i^\ast
 +
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]\,d\tilde\lambda^\ast.
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,d\tilde\lambda^\ast.
 \]
 Substituting into the first differentiated first-order condition yields
 \[
@@ -2132,7 +2132,7 @@ V_{k_ik_i}(k_i^\ast,I_i^\ast)
 \E_{(s,i)}^w[uJ\mid s]
 \right)^2
 }{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
 }
 \right) dk_i^\ast
 \]
@@ -2158,7 +2158,7 @@ V_{k_ik_i}(k_i^\ast,I_i^\ast)
 \E_{(s,i)}^w[uJ\mid s]
 \right)^2
 }{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
 }
 \right) dk_i^\ast
 \]
@@ -2184,7 +2184,7 @@ V_{k_ik_i}(k_i^\ast,I_i^\ast)
 \E_{(s,i)}^w[uJ\mid s]
 \right)^2
 }{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
 },
 \]
 which implies
@@ -2197,7 +2197,7 @@ V_{k_ik_i}(k_i^\ast,I_i^\ast)
 \E_{(s,i)}^w[uJ\mid s]
 \right)^2
 }{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]]
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
 }
 =
 \Omega_i,
@@ -2244,11 +2244,7 @@ dk.
 Rearranging,
 \[
 d\tilde\lambda^\ast
-\sum_{j\in N}\mu_j\Omega_j^{-1}
-\left(
-\E_{(s,i)}^w[uJ\mid s] 
--I'(k^\ast)
-\right)
+\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
 =
 \left(
 1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
@@ -2261,11 +2257,7 @@ so
 \frac{
 1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
 }{
-\sum_{j\in N}\mu_j\Omega_j^{-1}
-\left(
-\E_{(s,i)}^w[uJ\mid s] 
--I'(k^\ast)
-\right)
+\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
 }.
 \]
 Substituting this expression back into the formula for \(dk_i^\ast\) yields
@@ -2279,11 +2271,7 @@ Substituting this expression back into the formula for \(dk_i^\ast\) yields
 -I'(k^\ast)
 \right)
 }{
-\sum_{j\in N}\mu_j\Omega_j^{-1}
-\left(
-\E_{(s,i)}^w[uJ\mid s] 
--I'(k^\ast)
-\right)
+\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
 }
 \left(
 1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
