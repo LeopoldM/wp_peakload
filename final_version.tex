@@ -176,6 +176,8 @@ Because both the objective and the constraints are separable across categories e
 
 \section{Optimal allocation}\label{chap3sec:sec5}
 
+\subsection{Within category allocation}\label{sec:across}
+
 This section studies the within-category problem for a given pair $(k_i, I_i)$. The analysis proceeds in two parts. The first asks how capacity expansion reshapes surplus across types: the answer depends on how marginal virtual surplus varies across types, which determines who benefits from relaxing scarcity once incentive constraints and redistributive preferences are accounted for. The second holds capacity fixed and asks how a change in redistributive preferences reallocates quantities and surplus: here both the sorting of virtual surplus and the proportional reweighting of social priorities interact, producing a generically non-monotone surplus pattern regardless of the direction of the preference shift.
 
 \subsubsection{Characterization}
@@ -231,7 +233,7 @@ For every category $i$ and every $I_i\ge 0$, the set $\left\{q_i(\theta,s):\math
 Define $S_i=[\underline s,s_i)$ and $T_i=[s_i,\overline s]$ as the off-peak and on-peak sets under the optimal allocation, where $s_i$ satisfies $\E_{\theta_i}\!\left[q_i(\theta,s_i)\right]=k_i$.
 
 \begin{lemma}[Off-peak and on-peak allocation]\label{lem:FOC}
-i) Under the weighted objective with type-dependent weights $\lambda(\theta)$, the allocation is characterized by a unique quantity schedule $q_i(\theta,s)$ for each $\theta$ and $s$:
+Assume~\ref{ass:interior} and~\ref{ass:convex} hold. i) Under the weighted objective with type-dependent weights $\lambda(\theta)$, the allocation is characterized by a unique quantity schedule $q_i(\theta,s)$ for each $\theta$ and $s$:
 %##########################################
 \[
 \label{eq:SB-Smd1}\tag{SB-S}
@@ -296,6 +298,24 @@ To obtain a sharp characterization, we impose the following regularity condition
 \renewcommand{\theassumption}{\arabic{assumption}}
 
 In particular, we show in Lemma~XXXX of the Appendix that \eqref{Eujmd} is single-crossing in \(k_i\) depending on whether \(R_q(\theta)\) and \(R_\theta(\theta)\) are increasing or decreasing, and on whether \(R_q(\theta)\) exhibits positive or negative log-monotone differences in \((\theta,k_i)\). Hence, the market designer's revenue is either single-peaked or single-dipped.\footnote{The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), $R_\theta(\theta)$ is increasing in $\theta$, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta)\) is decreasing in \(\theta\). Thus, as capacity expands, the weighted average \eqref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates.} We discuss in Appendix XXXX, the conditions for establishing the monotonicity of those ratios. When those assumptions fail, the same sufficient statistic remains valid, but its sign need not vary monotonically with \(k_i\).
+
+Two special cases simplify the analysis by restricting which arguments $R_q$ depends on.
+
+\renewcommand{\theassumption}{CARA}
+\begin{assumption}\label{ass:CARA}
+$u(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Under Assumption~\ref{ass:CARA}, $R_q = 1/\alpha$ is constant: a consumer's responsiveness is identical regardless of the quantity allocated to her. Additional capacity is therefore distributed across types in proportions determined solely by social weights, and the behavioral channel through which a preference shift distorts the allocation across types vanishes.
+
+\renewcommand{\theassumption}{Multi}
+\begin{assumption}\label{ass:mult}
+$u(q,s) = \kappa(q)\zeta(s)$ for some functions $\kappa$ and $\zeta$ with $\kappa' < 0$ and $\zeta' > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Under Assumption~\ref{ass:mult}, $R_q = -\kappa(q)/\kappa'(q)$ depends only on $q$ and not on $s$: a consumer's responsiveness is identical regardless of the realization of the common shock. Note that Assumption~\ref{ass:CARA} implies Assumption~\ref{ass:mult}, with $\kappa(q) = \exp(-\alpha q)$ and $\zeta(s) = v(s)$.
 
 
 \subsubsection{Redistributive effects of capacity expansion}\label{sec:surplus}
@@ -934,23 +954,7 @@ With $q$ the quantity of electricity allocated to the consumer. If a consumer do
 \]
 %##########################################
 
-One key element in the model is the quantity responsiveness of a consumer of type $\theta$ at allocation $q$ in state $s$; defined as $R_q(q) := -u(q,s)/u_q(q,s) > 0$. It measures how much a marginal increase in $q$ raises willingness to pay relative to its rate of decline. Two special cases simplify the analysis by restricting which arguments $R_q$ depends on.
-
-\renewcommand{\theassumption}{CARA}
-\begin{assumption}\label{ass:CARA}
-$u(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
-\end{assumption}
-\renewcommand{\theassumption}{\arabic{assumption}}
-
-Under Assumption~\ref{ass:CARA}, $R_q = 1/\alpha$ is constant: a consumer's responsiveness is identical regardless of the quantity allocated to her. Additional capacity is therefore distributed across types in proportions determined solely by social weights, and the behavioral channel through which a preference shift distorts the allocation across types vanishes.
-
-\renewcommand{\theassumption}{Multi}
-\begin{assumption}\label{ass:mult}
-$u(q,s) = \kappa(q)\zeta(s)$ for some functions $\kappa$ and $\zeta$ with $\kappa' < 0$ and $\zeta > 0$.
-\end{assumption}
-\renewcommand{\theassumption}{\arabic{assumption}}
-
-Under Assumption~\ref{ass:mult}, $R_q = -\kappa(q)/\kappa'(q)$ depends only on $q$ and not on $s$: a consumer's responsiveness is identical regardless of the realization of the common shock. Note that Assumption~\ref{ass:CARA} implies Assumption~\ref{ass:mult}, with $\kappa(q) = \exp(-\alpha q)$ and $\zeta(s) = v(s)$, so CARA is the leading example of both simultaneously.
+One key element in the model is the quantity responsiveness of a consumer of type $\theta$ at allocation $q$ in state $s$; defined as $R_q(q) := -u(q,s)/u_q(q,s) > 0$. It measures how much a marginal increase in $q$ raises willingness to pay relative to its rate of decline.
 
 \noindent \textbf{Allocation Design} 
 
