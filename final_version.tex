@@ -51,219 +51,80 @@ From a theoretical perspective, the issues related to distributive concerns are 
 In particular, \cite{akbarpour2023economic} and \cite{akbarpour2023redistributive} provide a framework with consumers' characteristics, such as the private information and the publicly-observed categories, in line with the current paper. They study the trade-off between allocating certain vaccines on a free but random basis or using prices to discriminate and extract information from consumers. The authors assume that the market designer has distributive and exogenous revenue preferences. Therefore, the model exhibits a tension of allocating the good via prices, which generates some revenue, or via a random free allocation that minimizes distributive issues. This paper endogenizes the revenue preference by implementing investment decisions with a revenue constraint. We also provide results when the market designer can imperfectly implement prices. Finally, a recent paper by \cite{crampespricing} studies the implementation of an optimal Pareto income tax schedule \textit{à la Mirrlees} when considering the interaction between consuming energy services (heating, air conditioning, light) and investing in energy efficiency with incomplete information about consumer utility. This paper has a similar spirit, but the link between consumption and production capacity fundamentally differs.
 
 
+
 \section{Environment}\label{chap3sec:sec2}
 
-Although the terminology is tailored to electricity, the results can, with some modifications, be applied to other essential goods, as noted in the introduction. 
+\paragraph{Consumers.}
+There is a unit mass of consumers. Each consumer is characterized by a pair $(i,\theta)$ and is subject to a common shock $s$. The index $i \in N = \{1,\dots,n\}$ denotes the consumer category (e.g., households or industrial users). Categories are publicly observed, and category $i$ has mass $\mu_i > 0$. Conditional on category $i$, each consumer has a privately observed type $\theta \in \Theta_i = [\underline{\theta}_i,\overline{\theta}_i]$, drawn from a distribution $G_i$ with density $g_i > 0$ on $\Theta_i$. Types are independent across consumers and are known to the consumer but not to the market designer. All consumers are subject to a common demand shock $s \in S = [\underline{s},\overline{s}]$, drawn from a distribution $F$ with density $f > 0$. The realization of $s$ is observed by all agents.
 
-Our framework consists of five elements: 
-(i) the demand side, which may represent households, industrial consumers, or retailers; 
-(ii) the allocation mechanism, which specifies how the market designer allocates electricity in terms of both quantity and monetary transfer; 
-(iii) the supply side, which captures investment and production decisions;
-(iv) the objective function of the market designer; and 
-(v) the timing of decisions.
-
-\noindent \textbf{Consumers Preferences} 
-
-\noindent There is a unit mass of consumers for electricity. Each consumer is characterized by a type vector $(i,\theta,s,\lambda)$. We assume that the three dimensions of the vector $(i,\theta,\lambda)$ have a joint distribution among consumers and are known by the market designer. The first characteristic refers to the consumer category, e.g., household or industry. There is a finite set of categories such that $i \in N = \{1,...,n\}$. It is publicly observed, and the size of each category, i.e., the number of agents, is denoted by $\mu_i>0$ for each group. The second characteristic is consumer private preference $\theta$, which, under an incomplete information framework, is assumed to be observed only by the consumer. Conditional on belonging to a category $i$, this value is drawn from a common-knowledge cumulative distribution function $G_i$ whose continuous density is $g_i>0$ has full support on $\Theta_i$ and is strictly positive on $[\ubar{\theta}_i, \overline{\theta}_i]$. With households, $\theta$ represents the revenue shocks, the lowest type of consumer being the poor household, and the highest type of consumer being the more prosperous household. Industrial consumers could also be modeled with this framework, where $\theta$ represents their buyers' orders. The characteristic $s \in S = [\underline{s},\overline{s}]$ represents the state of the world and introduces demand uncertainty. We assume that all consumers are subject to the same shock $s$ and that the market designer's redistributive preferences do not depend on the realization of $s$. It is common knowledge among all agents. Economically, $s$ can capture, for example, a weather condition or a macroeconomic factor. The shock is drawn from a continuous distribution $F$ with density $f>0$, both of which are common knowledge before the shock is realized, and has full support on $S$. Each consumer type is known before the demand shocks are realized. Therefore, this framework encompasses two interpretations of the demand shocks: (i) a static model with a single shock and there is uncertainty concerning its realization, or a (ii) a repetition of multiple shocks over a given period (for example, one year), which are drawn from the distribution $F(.)$ \citep{leautier2016visible}. In the last interpretation, we assume that the consumer type does not change across shocks and is determined before this period. Finally, $\lambda \in \mathbb{R}_+$ are the market designer welfare weights for a given individual. As for the type $\theta$, we assume that this information is private and unobserved by the market designer. All agents in the game are considered to be risk-neutral.
-
-We define a consumer's utility belonging to a category $i$ of a type $\theta_i$. The value for electricity consumption for each consumer is denoted: 
-%##########################################
-\begin{equation*}
-    \theta \; U(q,s) = \theta\int_0^{q} u(\tilde{q},s) d\tilde{q}
-\end{equation*}
-%##########################################
-With $q$ the quantity of electricity allocated to the consumer. If a consumer does not receive electricity, its value is null: $U(0,s) = 0$. $u$ is the marginal willingness to pay for a given quantity of electricity. $u$ specification satisfies the Spence-Mirrlees condition that marginal willingness to pay is strictly increasing in type: higher types prefer larger allocations for any given quantity. All consumers should be allocated at least some quantity $\lim_{q\downarrow0}\theta \; U(q,s)= \infty$, that higher $s$ leads to higher willingness to pay and the marginal utility is decreasing in $q$: $u_{\theta}>0,u_{s}>0,u_{q}<0$.  A consumer receives a quantity $q$ in exchange for a monetary transfer $t$. We assume transfers are separable, and there are no income effects. Each consumer participates in the market if its expected surplus is nonnegative;
-%##########################################
+\paragraph{Preferences.}
+A consumer of type $\theta$ derives value from consuming quantity $q$ in state $s$ given by
 \[
-\; \E_{s}\!\big[\,\theta \; U(q_i(\theta,s),s) - t_i(\theta,s)\,\big]
-\;\ge\; 0,
-\qquad \forall\, \theta\in\Theta_i. \tag{IR}\label{IR-def}
+\theta \, U(q,s) = \theta \int_0^q u(\tilde q,s)\, d\tilde q,
 \]
-%##########################################
-
-One key element in the model is the quantity responsiveness of a consumer of type $\theta$ at allocation $q$ in state $s$; defined as $R_q(q) := -u(q,s)/u_q(q,s) > 0$. It measures how much a marginal increase in $q$ raises willingness to pay relative to its rate of decline. Two special cases simplify the analysis by restricting which arguments $R_q$ depends on.
-
-\renewcommand{\theassumption}{CARA}
-\begin{assumption}\label{ass:CARA}
-$u(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
-\end{assumption}
-\renewcommand{\theassumption}{\arabic{assumption}}
-
-Under Assumption~\ref{ass:CARA}, $R_q = 1/\alpha$ is constant: a consumer's responsiveness is identical regardless of the quantity allocated to her. Additional capacity is therefore distributed across types in proportions determined solely by social weights, and the behavioral channel through which a preference shift distorts the allocation across types vanishes.
-
-\renewcommand{\theassumption}{Multi}
-\begin{assumption}\label{ass:mult}
-$u(q,s) = \kappa(q)\zeta(s)$ for some functions $\kappa$ and $\zeta$ with $\kappa' < 0$ and $\zeta > 0$.
-\end{assumption}
-\renewcommand{\theassumption}{\arabic{assumption}}
-
-Under Assumption~\ref{ass:mult}, $R_q = -\kappa(q)/\kappa'(q)$ depends only on $q$ and not on $s$: a consumer's responsiveness is identical regardless of the realization of the common shock. Note that Assumption~\ref{ass:CARA} implies Assumption~\ref{ass:mult}, with $\kappa(q) = \exp(-\alpha q)$ and $\zeta(s) = v(s)$, so CARA is the leading example of both simultaneously.
-
-\noindent \textbf{Allocation Design} 
-
-\noindent We derive different mechanisms to allocate electricity. We distinguish between a \textit{general mechanism} and some \textit{market mechanisms}. In the former, the market designer independently selects the quantity and the monetary transfer, which serves as our benchmark allocation. In the latter, the market designer offers a transfer schedule, and consumers choose their preferred quantity. We now define these formally.
-
-\noindent \textbf{General Mechanism}. Given a total quantity $Q(s)$ of electricity in state $s$, a general allocation mechanism $\mathcal{M}$  consists of collection of functions $q_i: [\ubar{\theta}_i, \overline{\theta}_i]\times S \rightarrow [0,Q(s)] $ where $q_i(\theta,s)$ is the quantity of electricity allocated to a consumer of type $\theta$ in category $i$ at state $s$. The aggregate quantity allocated to a group  $i$ is
-%##########################################
-\begin{equation*}
-    Q_i(s) = \mu_i \E_{\theta_i} [q_i(\theta,s)].
-\end{equation*}
-%##########################################
-Feasibility requires that $Q(s) = \sum_{i} Q_i(s)$. Transfers are described by the functions $t_i(\theta,s)$ assigning a monetary payment to each consumer of type $\theta$ in category $i$ at state $s$. To study the optimal second-best mechanism with incomplete information in section \ref{chap3sec:sec5}, we rely on the Revelation Principle. In a direct mechanism $(q_i,t_i)_{i = \{1,2\}}$, consumers report their type $\theta$, receive an allocation $q_i(\theta,s)$, and pays $t_i(\theta,s)$ to the market designer. 
-
-\noindent \textbf{Market mechanism}. In addition to the general mechanism, we define a \textit{market allocation}, which corresponds to an indirect mechanism. Given a transfer schedule $t(q,\theta,s)$, a consumer chooses a quantity schedule $d(\theta,s)$ as the solution to
-%##########################################
+with $U(0,s)=0$. The marginal willingness to pay $u(q,s)$ satisfies: $u_\theta > 0$,$u_s > 0$, $u_q < 0$. Thus, higher types value consumption more, demand is higher in high-demand states, and marginal utility is decreasing in quantity. Transfers are separable, and there are no income effects. A consumer receiving allocation $(q_i(\theta,s), t_i(\theta,s))$ obtains expected surplus
 \[
-d(\theta,s) := \arg\max_q \{ \theta \; U(q,s) - t(q,\theta,s) \}.
+\E_s\!\left[\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right].
 \]
-%##########################################
-Hence, a market allocation is one in which consumers optimally select their allocation given the schedule offered by the designer. We use the notation $d(\theta,s)$ to distinguish this individual demand function from the direct allocation rule $q(\theta,s)$. The comparison between the mechanism design and the market allocation will become handy for different reasons. First, market allocations are the primary mechanism used to allocate electricity in practice. They encompass different pricing schemes, such as spot pricing (where $t(q,\theta,s)$ is a unit price resulting from a market-clearing condition) and two-part tariffs (where $t(q,\theta,s)$ consists of a unit price and a lump-sum transfer). Second, having the general mechanism as a benchmark allows for comparing various forms of market allocations, particularly in terms of their implications for consumer surplus. 
+Participation requires that this surplus is nonnegative for all types:
+\begin{equation}
+\E_s\!\left[\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right] \ge 0,
+\qquad \forall \theta \in \Theta_i.
+\tag{IR}\label{IR-def}
+\end{equation}
 
-\noindent \textbf{Supply side} 
-
-\noindent We assume the most straightforward formulation for the supply-side represented by a single agent, the market designer. It can be interpreted in several ways: as a public firm, as a regulator directly controlling a private monopoly, or as an intermediary between consumers and producers. In the latter case, the mechanism between consumers and the designer can be viewed as a theoretical retail market, while the mechanism between producers and the designer corresponds to a wholesale market. We remain agnostic about the institutional form of this interaction. Still, we assume it is fully efficient: production and investment decisions are identical to those that would be chosen under optimal regulation (for instance, if the market designer acts as a single buyer facing perfectly competitive producers). 
-
-For tractability, we model the market designer as directly choosing production and investment. The level of investment is denoted by $k_i$. We assume an increasing and convex investment cost $I(k)$ and a unit marginal production cost normalized to 0. We require that the profit of the market designer $\Pi$ is nonnegative
-%##########################################
+\paragraph{Technology and feasibility.}
+The market designer chooses the allocation of the good subject to capacity constraints. Let $q_i(\theta,s)$ denote the quantity allocated to a consumer of type $\theta$ in category $i$ at state $s$. The total quantity allocated in state $s$ is
 \[
+Q(s) = \sum_{i \in N} \mu_i \E_{\theta_i}[q_i(\theta,s)].
+\]
+Capacity is determined by an investment level $k \ge 0$, with cost $I(k)$, where $I$ is increasing and convex. Production has zero marginal cost. Feasibility requires that total allocation does not exceed capacity in any state:
+\begin{equation}
+Q(s) \le k \qquad \forall s \in S.
+\tag{K}\label{K-def}
+\end{equation}
+
+The designer must also satisfy a revenue requirement:
+\begin{equation}
 \sum_{i\in N}\mu_i
-\E_{(s,\theta_i)}\left[ t_i(\theta,s) \right]\;-\; I(k)
-\;\ge\; 0. \tag{R}\label{R-def}
-\]
-%##########################################
-The investment level $k_i$ determines capacity, which imposes the feasibility constraint
-%##########################################
+\E_{(s,\theta_i)}\!\left[t_i(\theta,s)\right] - I(k) \ge 0.
+\tag{R}\label{R-def}
+\end{equation}
+
+\paragraph{Planner's objective.}
+The market designer maximizes a weighted expected sum of consumer surpluses. Let $\lambda_i(\theta) \ge 0$ denote the welfare weight assigned to a consumer of type $\theta$ in category $i$, and let $\tilde\lambda_i := \E_{\theta_i}[\lambda_i(\theta)]$ denote the average weight in category $i$. The objective is
 \[
-Q(s) \leq k \quad \quad \text{for each\;} s.\label{K-def}\tag{K}
+\sum_{i \in N} \mu_i \,
+\E_{(s,\theta_i)}\!\left[
+\lambda_i(\theta)\left(\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right)
+\right].
 \]
-%##########################################
-where $Q(s)$ is the total quantity allocated in state $s$.
 
-The market designer maximizes a weighted expected sum of consumer surpluses across types and states. We define the expectation of $\lambda$ of an individual conditional of its type $\theta$ and belonging to a category $i$ as $\lambda_i(\theta) = \E_{\theta_i}[\lambda|i,\theta]$. Those Pareto weights are assumed to be continuous in $\theta$ for each category $i$. Let $\tilde\lambda_i:= \E_{\theta_i}[\lambda_i]$ be the average weight for a category $i$. The market designer's objective function is
-%##########################################
-\begin{equation*}
-    \text{Obj} := \;  \sum_{i}  \; \mu_i\; \E_{(s,\theta_i)} \left[\; \lambda_i(\theta)\; ( \; \theta \; U(q_i(\theta,s),s)  -  t_i(\theta,s)\; )\; \right]
-\end{equation*}
-%##########################################
-This formulation of the objective function has several limitations as described in \cite{akbarpour2023redistributive}. XXXX How to endogenoize welfare weights.
-
-\noindent \textbf{Timing} 
-
-\noindent We consider a multi-period game with four stages:  
-
+\paragraph{Timing.}
+The interaction unfolds as follows:
 \begin{enumerate}
-    \item \textbf{Information stage.} Consumers privately learn their type $\theta$. Under complete information, the market designer also observes types; under incomplete information, the designer only knows their distribution. 
-    \item \textbf{Investment decision.} The market designer chooses the level of investment $k_i$. 
-    \item \textbf{Allocation proposal.} 
-    \begin{enumerate}[label=(\alph*)]
-        \item The market designer proposes an allocation schedule $\mathcal{M}$ (which may be market-based or mechanism-based). The schedule can be fully contingent on the realization of $s$ or restricted if some constraints prevent complete state-contingency.  
-        \item Consumers then accept or reject the proposal. If a consumer rejects the offers, we assume no electricity consumption, and we normalize the outside utility to zero. 
-    \end{enumerate}
-    \item \textbf{Short-term allocation.} 
-    \begin{enumerate}[label=(\alph*)]
-        \item The common shock $s$ is realized and observed by all agents. 
-        \item Allocations are implemented according to the offer made in Stage 3. 
-    \end{enumerate}
+    \item Consumers privately learn their type $\theta$.
+    \item The market designer chooses investment $k$.
+    \item A mechanism $(q_i,t_i)$ is proposed.
+    \item The shock $s$ is realized and allocations are implemented.
 \end{enumerate}
 
-\begin{tcolorbox}[colback=white]
-\centering
-\tikzset{every picture/.style={line width=0.75pt}}        
+\section{Mechanism}\label{sec:PI}
 
-\begin{tikzpicture}[x=0.60pt,y=0.75pt,yscale=-1,xscale=1]
+We now consider the allocation problem under private information. The consumer’s category $i$ is publicly observed, while the type $\theta$ is privately known to the consumer. 
 
-% Timeline line
-\draw [line width=1.5] (20,100) -- (663,100);
-\draw [shift={(667,100)}, rotate = 180.07] [fill=black][line width=0.08] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle;
-
-% Stage ticks
-\foreach \x in {70,237,410,580} {
-  \draw [line width=1.5] (\x,90) -- (\x,100);
-}
-
-% Stage labels
-\draw (15,50) node [anchor=north west, font=\small, align=center] {1. Information \\ ($\theta$)};
-\draw (182,50) node [anchor=north west, font=\small, align=center] {2. Investment \\ ($k_i$)};
-\draw (355,50) node [anchor=north west, font=\small, align=center] {3. Allocation \\ proposal ($\mathcal{M}$)};
-\draw (506,50) node [anchor=north west, font=\small, align=center] {4. Shock realization \\ ($s$)};
-
-% Demand labels under line
-\draw (179,137) node [anchor=north west, font=\small, align=center] {Unknown demand};
-\draw (515,137) node [anchor=north west, font=\small, align=center] {Known demand ($s$)};
-
-% Stage numbers under ticks
-\draw (64,110) node [anchor=north west, font=\small] {1};
-\draw (231,110) node [anchor=north west, font=\small] {2};
-\draw (404,110) node [anchor=north west, font=\small] {3};
-\draw (574,110) node [anchor=north west, font=\small] {4};
-
-\end{tikzpicture}
-\end{tcolorbox}
-
-\section{Complete Information Benchmark}\label{chap3sec:sec3}
-
-Under complete information, the market designer observes each consumer's category $i$ and type $\theta$, so allocation rules and transfers can condition directly on true types. Since there are no incentive constraints, redistributive preferences enter the allocation problem through the pointwise weights $\lambda_i(\theta)$. Relative to the standard peak-load benchmark, this changes both the optimal marginal condition and the way revenue is extracted.
-
-Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ denote the off-peak and on-peak regions, where $s^*$ is the unique threshold such that
+By the revelation principle, it is without loss to focus on direct mechanisms. A direct mechanism specifies, for each category $i$, a quantity schedule $q_i(\theta,s)$ and a transfer schedule $t_i(\theta,s)$. For private information, the mechanism is feasible if it satisfies the previous constraints \eqref{R-def}, \eqref{K-def}, and \eqref{IR-def}, as well as an incentive-compatibility constraint. Truthful reporting requires that, for all $\theta,\hat\theta \in \Theta_i$, 
 \[
-\sum_i \mu_i\,\E_{\theta_i}\!\left[q_i^*(\theta,s^*)\right]=k.
-\]
-Define $\lambda^*$ as the marginal welfare weight such that extracting full surplus from all types with $\lambda_i(\theta)\leq \lambda^*$ is just sufficient to finance investment. Appendix~\ref{app:CI} gives the formal construction and the associated cutoff types.
-
-\begin{proposition}[Complete-information allocation with redistribution]\label{prop:FBalloc}
-The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$ satisfying
-\[
-\theta\,u\!\left(q_i^*(\theta,s),s\right)=0,
-\qquad s\in S^*,
-\]
-and
-\[
-\theta\,u\!\left(q_i^*(\theta,s),s\right)=
-\begin{cases}
-\varepsilon(s)/\beta, & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
-\varepsilon(s)/\lambda_i(\theta), & \text{if } \lambda_i(\theta)>\lambda^*,
-\end{cases}
-\qquad s\in T^*.
-\]
-Transfers are independent of $s$ and satisfy $t_i^*(\theta)=\E_s\!\left[\theta\,U\!\left(q_i^*(\theta,s),s\right)\right]$ for strictly contributing types $\lambda_i(\theta)<\lambda^*$, $t_i^*(\theta)=0$ for non-contributing types $\lambda_i(\theta)>\lambda^*$, and the participation constraint may be slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
-\end{proposition}
-
-Proposition~\ref{prop:FBalloc} isolates the two dimensions along which redistribution departs from the traditional peak-load benchmark. First, it changes the planner's marginal condition. Off-peak, the allocation remains efficient.\footnote{We abstract from marginal production costs in order to isolate the interaction between scarcity and redistribution. This comes at the cost of shutting down an additional pricing margin: with positive marginal cost, the planner would also trade off allocative efficiency in non-scarcity states. Incorporating that margin would extend the standard analysis without changing the main mechanism emphasized here, namely how redistribution alters the scarcity component of peak-load pricing. Moreover, since the relevant objects vary continuously across states, no additional boundary term arises at the transition between off-peak and on-peak states.} On-peak, however, the marginal condition becomes type-specific for non-contributing consumers.  Without redistributive concerns, the optimal allocation is simply $\theta\,u\!\left(q_i^*(\theta,s),s\right)=\varepsilon(s)$.
-
-Therefore, a uniform spot price fails to implement the first best whenever the non-contributing set has positive mass, since the type-specific marginal condition cannot be replicated by a single price. Among contributing types alone, however, a spot price implements the optimal allocation, as they all face the same marginal condition.
-
-
-The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can separate contributors from non-contributors directly, so redistribution operates through a sharp partition of consumers. Under incomplete information, this within-type partition collapses: IC constraints force contribution to be category-based, so if a category is required to raise revenue, every type within it bears the contribution. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in Appendix~\ref{app:CI}.}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/example_demand_supply_CI.png}
-    \caption{Complete-information benchmark with redistribution. The left panel reproduces the standard peak-load logic under a uniform price. The right panel illustrates the redistributive two-part tariff: contributing types finance investment through full surplus extraction, while non-contributing types face lower type-dependent marginal prices and zero net transfer.}
-    \label{fig:CI}
-\end{figure}
-
-The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can separate contributors from non-contributors directly, so redistribution operates through a sharp partition of consumers. Under incomplete information, this partition can no longer be drawn within categories: IC links all types through the rent schedule, so revenue extraction becomes category-based and any revenue requirement distorts the whole within-category allocation. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in Appendix~\ref{app:CI}.}
-
-
-\section{Optimal allocation with private information}\label{chap3sec:sec5}
-
-\subsection{Characterization}
-
-We now assume that the consumer type is private information, while the consumer's category remains known to the market designer. In this framework, the direct mechanism consists of consumers reporting their type $\theta$. The mechanism assigns to each consumer of each category a quantity schedule $q_i(\theta,s)$ and a transfer $t_i(\theta,s)$. For private information, the mechanism is feasible if it satisfies the previous constraints \eqref{R-def}, \eqref{K-def}, and \eqref{IR-def}, as well as an incentive-compatibility constraint. That is, each agent reports its type truthfully if the following constraint is satisfied:
+\E_s\!\left[\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right] \;\ge\; \E_s\!\left[\theta U(q_i(\hat\theta,s),s) - t_i(\hat\theta,s)\right].
+\tag{IC$^\times$}\label{IC-def1}
+\] 
+Constraint \eqref{IC-def1} imposes incentive compatibility in expectation over the common shock $s$. Under \eqref{IC-def1}, transfers can be chosen such that the expected surplus of a consumer of type $\theta$ in category $i$ satisfies 
 %##########################################
-\[
-\E_s[\theta U(q_i(\theta,s),s)-t_i(\theta,s)] \geq \E_s[\theta U(q_i(\hat{\theta},s),s)-t_i(\hat{\theta},s)]  \quad \quad \forall i,\theta,\hat{\theta}  \tag{IC}\label{IC-def}
-\]
+\[ \tag{$\ECS_i$}\label{ECSi} \E CS_i(\theta):=\E_s\!\left[\theta U\!\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right] = \E\underline{CS}_i+\int_{\underline{\theta}_i}^{\theta}\E_s\!\left[U\!\left(q_i(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}. \]
 %##########################################
-Constraint \eqref{IC-def} imposes incentive compatibility in expectation over $s$. In general, this only requires monotonicity of the expected marginal payoff from reporting truthfully, and it does not, by itself, imply that $\theta\mapsto q_i(\theta,s)$ is nondecreasing for every state $s$. In our environment, however, the off-peak allocation will be independent of $\theta$, and on-peak allocations will be characterized by a first-order condition in which the dependence on $\theta$ enters through a term that does not vary with $s$. As a result, any potential failure of monotonicity (and any associated ironing) occurs across all peak states. Hence, for the purpose of the characterization, it is without loss to state monotonicity directly at the level of $q_i(\theta,s)$ (rather than at the level of its expectation over $s$): if the allocation is monotone in $\theta$ in one peak state, it is monotone in all peak states, and the IC constraint \eqref{IC-def} is then satisfied. Additionally, under \eqref{IC-def}, transfers $t_i(\theta,s)$ can be chosen so that, for each category $i$ and each type $\theta$, the  expected surplus satisfies, for some boundary term $\E\underline{CS}_i\geq 0$,
-%##########################################
-\[
-\tag{IC}\label{ICmd-def}
-\E CS_i(\theta):=\E_s\!\left[\theta U\!\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right]
-= \E\underline{CS}_i+\int_{\underline{\theta}_i}^{\theta}\E_s\!\left[U\!\left(q_i(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}.
-\]
-%##########################################
-This representation follows from standard envelope arguments; see \cite{milgrom2002envelope}. Let $\gamma_i(\theta)$ denote the inverse hazard rate of $G_i$ and $J_i(\theta)$ the virtual surplus function associated with a consumer from category $i$ and type $\theta$
+for some boundary term $\E\underline{CS}_i \ge 0$. This representation follows from standard envelope arguments.\footnote{ In general, this only requires monotonicity of the expected marginal payoff from reporting truthfully, and it does not, by itself, imply that $\theta\mapsto q_i(\theta,s)$ is nondecreasing for every state $s$. In our environment, however, the off-peak allocation will be independent of $\theta$, and on-peak allocations will be characterized by a first-order condition in which the dependence on $\theta$ enters through a term that does not vary with $s$. As a result, any potential failure of monotonicity (and any associated ironing) occurs across all peak states. Hence, for the purpose of the characterization, it is without loss to state monotonicity directly at the level of $q_i(\theta,s)$ (rather than at the level of its expectation over $s$): if the allocation is monotone in $\theta$ in one peak state, it is monotone in all peak states, and the IC constraint \eqref{IC-def} is then satisfied.} 
+
+\paragraph{Virtual-surplus primitives.} Let $\gamma_i(\theta)$ denote the inverse hazard rate of $G_i$ and $J_i(\theta)$ the virtual surplus function associated with a consumer from category $i$ and type $\theta$
 %##########################################
 \[
 \gamma_i(\theta):= \frac{1-G_i(\theta)}{g_i(\theta)} \quad \text{and} \quad  J_i(\theta):=\theta - \gamma_i(\theta).
@@ -286,14 +147,24 @@ The program of the market designer can be expressed as:
 \;\ge\; 0. \tag{R}\label{Rmd-def}
 \end{align*}
 %##########################################
-with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type, $\E\underline{CS}_i \in \Big[0,\E_s\big[\underline{\theta}_i U(q_i(\underline{\theta}_i,s),s)\big]\Big]$ for all $i$.
+with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type, $\E\underline{CS}_i\ge 0$ for all $i$.
 \end{lemma}
 
 The lemma separates the transfer and allocation problems. When one of the budget or IR constraints binds while the other is slack, a lump-sum transfer can be used to relax the binding constraint without violating the other. This transfer is constrained by IC/IR: the designer can only finance investment from the allocation's utility net of information rents, and the lowest type must weakly prefer to participate.
 
-Because the objective and all constraints are separable across categories $i$ except through the aggregate constraints $\sum_i \mu_i k_i = k$ and $\sum_i \mu_i I_i = I(k)$, the designer problem can be decomposed into: (i) an across-category allocation of $(k_i,I_i)$ subject to the two aggregate constraints, and (ii) for each $i$, a within-category mechanism that chooses $\{q_i(\theta,s)\}_{(\theta,s)}$ to respect capacity $k_i$ and raise revenue $I_i$.
+Because both the objective and the constraints are separable across categories except through the aggregate constraints on capacity and revenue, the problem can be decomposed into:
 
-\subsection{Optimal within-category allocation}\label{sec:within}
+\begin{enumerate}
+    \item an across-category allocation of capacity and revenue requirements $(k_i,I_i)$ satisfying
+    \[
+    \sum_i \mu_i k_i = k,
+    \qquad
+    \sum_i \mu_i I_i = I(k),
+    \]
+    \item and, for each category $i$, a within-category problem that determines the optimal allocation rule $q_i(\theta,s)$ given $(k_i,I_i)$.
+\end{enumerate}
+
+\section{Optimal allocation}\label{chap3sec:sec5}
 
 This section studies the within-category problem for a given pair $(k_i, I_i)$. The analysis proceeds in two parts. The first asks how capacity expansion reshapes surplus across types: the answer depends on how marginal virtual surplus varies across types, which determines who benefits from relaxing scarcity once incentive constraints and redistributive preferences are accounted for. The second holds capacity fixed and asks how a change in redistributive preferences reallocates quantities and surplus: here both the sorting of virtual surplus and the proportional reweighting of social priorities interact, producing a generically non-monotone surplus pattern regardless of the direction of the preference shift.
 
@@ -301,7 +172,7 @@ This section studies the within-category problem for a given pair $(k_i, I_i)$. 
 
 We begin with the basic structure of the optimal within-category allocation. The main takeaway is that the entire allocation can be organized into two regimes: one in which the participation constraint is slack and the allocation is undistorted, and one in which financing the revenue requirement induces an endogenous distortion via the shadow value $\beta_i$.
 
-Following Lemma~\ref{CSmd-def}, the within-category problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement $(R_i)$ could be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,\theta_i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation $(IC)$ into this equality and integrating by parts with respect to $\theta$ --- using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{CSmd-def} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent --- yields the single combined constraint
+Following Lemma~\ref{lem:Transfer}, the within-category problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,\theta_i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \eqref{ECSi} into this equality and integrating by parts with respect to $\theta$,, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields the single combined constraint
 %##########################################
 \[
 \E \underline{CS}_i
@@ -335,7 +206,7 @@ where $\mathcal{G}_i(\theta) := \Gamma_i(\theta) + J_i(\theta)\,\beta_i$.\footno
 
 \renewcommand{\theassumption}{Int}
 \begin{assumption}\label{ass:interior}
-For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\mathcal{G}_i(\theta)>0$ and $\mathcal{G}_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q_i(\theta,s)$ is satisfied at the optimum.
+For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\mathcal{G}_i(\theta)>0$ and $\mathcal{G}_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q_i(\theta,s)$ is satisfied at the optimum. Moreover, the marginal utility function satisfies $\lim_{q\rightarrow 0}u(q,s) = +\infty$.
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
@@ -971,6 +842,208 @@ To illustrate, take two categories \(i\) and \(j\), and assume \(R'_\theta(\thet
 \caption{Redistributive incidence of a global capacity expansion for two categories \(i\) and \(j\), initially located in the lower-\(\theta\)-gain and higher-\(\theta\)-gain regimes, respectively. Panel (a): when \(d\tilde\lambda^\ast>0\), the expansion reallocates capacity toward \(k_i\) and away from \(k_j\), compressing redistributive heterogeneity across categories. Panel (b): when \(d\tilde\lambda^\ast<0\), the expansion pushes the two categories further apart, deepening redistributive divergence. Under case (b) of Figure~\ref{fig:impl_surplus}, where \eqref{Eujmd} crosses from \(-\) to \(+\), the directions of the arrows are reversed.}
 \label{fig:general_surplus}
 \end{figure}
+
+
+\section{Discussion and economic implication}
+
+\subsection{Complete Information Benchmark}\label{chap3sec:sec3}
+
+Under complete information, the market designer observes each consumer's category $i$ and type $\theta$, so allocation rules and transfers can condition directly on true types. Since there are no incentive constraints, redistributive preferences enter the allocation problem through the pointwise weights $\lambda_i(\theta)$. Relative to the standard peak-load benchmark, this changes both the optimal marginal condition and the way revenue is extracted.
+
+Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ denote the off-peak and on-peak regions, where $s^*$ is the unique threshold such that
+\[
+\sum_i \mu_i\,\E_{\theta_i}\!\left[q_i^*(\theta,s^*)\right]=k.
+\]
+Define $\lambda^*$ as the marginal welfare weight such that extracting full surplus from all types with $\lambda_i(\theta)\leq \lambda^*$ is just sufficient to finance investment. Appendix~\ref{app:CI} gives the formal construction and the associated cutoff types.
+
+\begin{proposition}[Complete-information allocation with redistribution]\label{prop:FBalloc}
+The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$ satisfying
+\[
+\theta\,u\!\left(q_i^*(\theta,s),s\right)=0,
+\qquad s\in S^*,
+\]
+and
+\[
+\theta\,u\!\left(q_i^*(\theta,s),s\right)=
+\begin{cases}
+\varepsilon(s)/\beta, & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
+\varepsilon(s)/\lambda_i(\theta), & \text{if } \lambda_i(\theta)>\lambda^*,
+\end{cases}
+\qquad s\in T^*.
+\]
+Transfers are independent of $s$ and satisfy $t_i^*(\theta)=\E_s\!\left[\theta\,U\!\left(q_i^*(\theta,s),s\right)\right]$ for strictly contributing types $\lambda_i(\theta)<\lambda^*$, $t_i^*(\theta)=0$ for non-contributing types $\lambda_i(\theta)>\lambda^*$, and the participation constraint may be slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
+\end{proposition}
+
+Proposition~\ref{prop:FBalloc} isolates the two dimensions along which redistribution departs from the traditional peak-load benchmark. First, it changes the planner's marginal condition. Off-peak, the allocation remains efficient.\footnote{We abstract from marginal production costs in order to isolate the interaction between scarcity and redistribution. This comes at the cost of shutting down an additional pricing margin: with positive marginal cost, the planner would also trade off allocative efficiency in non-scarcity states. Incorporating that margin would extend the standard analysis without changing the main mechanism emphasized here, namely how redistribution alters the scarcity component of peak-load pricing. Moreover, since the relevant objects vary continuously across states, no additional boundary term arises at the transition between off-peak and on-peak states.} On-peak, however, the marginal condition becomes type-specific for non-contributing consumers.  Without redistributive concerns, the optimal allocation is simply $\theta\,u\!\left(q_i^*(\theta,s),s\right)=\varepsilon(s)$.
+
+Therefore, a uniform spot price fails to implement the first best whenever the non-contributing set has positive mass, since the type-specific marginal condition cannot be replicated by a single price. Among contributing types alone, however, a spot price implements the optimal allocation, as they all face the same marginal condition.
+
+
+The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can separate contributors from non-contributors directly, so redistribution operates through a sharp partition of consumers. Under incomplete information, this within-type partition collapses: IC constraints force contribution to be category-based, so if a category is required to raise revenue, every type within it bears the contribution. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in Appendix~\ref{app:CI}.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/example_demand_supply_CI.png}
+    \caption{Complete-information benchmark with redistribution. The left panel reproduces the standard peak-load logic under a uniform price. The right panel illustrates the redistributive two-part tariff: contributing types finance investment through full surplus extraction, while non-contributing types face lower type-dependent marginal prices and zero net transfer.}
+    \label{fig:CI}
+\end{figure}
+
+The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can separate contributors from non-contributors directly, so redistribution operates through a sharp partition of consumers. Under incomplete information, this partition can no longer be drawn within categories: IC links all types through the rent schedule, so revenue extraction becomes category-based and any revenue requirement distorts the whole within-category allocation. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in Appendix~\ref{app:CI}.}
+
+
+
+
+
+\section{Environment}\label{chap3sec:sec2}
+
+Although the terminology is tailored to electricity, the results can, with some modifications, be applied to other essential goods, as noted in the introduction. 
+
+Our framework consists of five elements: 
+(i) the demand side, which may represent households, industrial consumers, or retailers; 
+(ii) the allocation mechanism, which specifies how the market designer allocates electricity in terms of both quantity and monetary transfer; 
+(iii) the supply side, which captures investment and production decisions;
+(iv) the objective function of the market designer; and 
+(v) the timing of decisions.
+
+\noindent \textbf{Consumers Preferences} 
+
+\noindent There is a unit mass of consumers for electricity. Each consumer is characterized by a type vector $(i,\theta,s,\lambda)$. We assume that the three dimensions of the vector $(i,\theta,\lambda)$ have a joint distribution among consumers and are known by the market designer. The first characteristic refers to the consumer category, e.g., household or industry. There is a finite set of categories such that $i \in N = \{1,...,n\}$. It is publicly observed, and the size of each category, i.e., the number of agents, is denoted by $\mu_i>0$ for each group. The second characteristic is consumer private preference $\theta$, which, under an incomplete information framework, is assumed to be observed only by the consumer. Conditional on belonging to a category $i$, this value is drawn from a common-knowledge cumulative distribution function $G_i$ whose continuous density is $g_i>0$ has full support on $\Theta_i$ and is strictly positive on $[\ubar{\theta}_i, \overline{\theta}_i]$. With households, $\theta$ represents the revenue shocks, the lowest type of consumer being the poor household, and the highest type of consumer being the more prosperous household. Industrial consumers could also be modeled with this framework, where $\theta$ represents their buyers' orders. The characteristic $s \in S = [\underline{s},\overline{s}]$ represents the state of the world and introduces demand uncertainty. We assume that all consumers are subject to the same shock $s$ and that the market designer's redistributive preferences do not depend on the realization of $s$. It is common knowledge among all agents. Economically, $s$ can capture, for example, a weather condition or a macroeconomic factor. The shock is drawn from a continuous distribution $F$ with density $f>0$, both of which are common knowledge before the shock is realized, and has full support on $S$. Each consumer type is known before the demand shocks are realized. Therefore, this framework encompasses two interpretations of the demand shocks: (i) a static model with a single shock and there is uncertainty concerning its realization, or a (ii) a repetition of multiple shocks over a given period (for example, one year), which are drawn from the distribution $F(.)$ \citep{leautier2016visible}. In the last interpretation, we assume that the consumer type does not change across shocks and is determined before this period. Finally, $\lambda \in \mathbb{R}_+$ are the market designer welfare weights for a given individual. As for the type $\theta$, we assume that this information is private and unobserved by the market designer. All agents in the game are considered to be risk-neutral.
+
+We define a consumer's utility belonging to a category $i$ of a type $\theta_i$. The value for electricity consumption for each consumer is denoted: 
+%##########################################
+\begin{equation*}
+    \theta \; U(q,s) = \theta\int_0^{q} u(\tilde{q},s) d\tilde{q}
+\end{equation*}
+%##########################################
+With $q$ the quantity of electricity allocated to the consumer. If a consumer does not receive electricity, its value is null: $U(0,s) = 0$. $u$ is the marginal willingness to pay for a given quantity of electricity. $u$ specification satisfies the Spence-Mirrlees condition that marginal willingness to pay is strictly increasing in type: higher types prefer larger allocations for any given quantity. All consumers should be allocated at least some quantity $\lim_{q\downarrow0}\theta \; U(q,s)= \infty$, that higher $s$ leads to higher willingness to pay and the marginal utility is decreasing in $q$: $u_{\theta}>0,u_{s}>0,u_{q}<0$.  A consumer receives a quantity $q$ in exchange for a monetary transfer $t$. We assume transfers are separable, and there are no income effects. Each consumer participates in the market if its expected surplus is nonnegative;
+%##########################################
+\[
+\; \E_{s}\!\big[\,\theta \; U(q_i(\theta,s),s) - t_i(\theta,s)\,\big]
+\;\ge\; 0,
+\qquad \forall\, \theta\in\Theta_i. \tag{IR}\label{IR-def}
+\]
+%##########################################
+
+One key element in the model is the quantity responsiveness of a consumer of type $\theta$ at allocation $q$ in state $s$; defined as $R_q(q) := -u(q,s)/u_q(q,s) > 0$. It measures how much a marginal increase in $q$ raises willingness to pay relative to its rate of decline. Two special cases simplify the analysis by restricting which arguments $R_q$ depends on.
+
+\renewcommand{\theassumption}{CARA}
+\begin{assumption}\label{ass:CARA}
+$u(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Under Assumption~\ref{ass:CARA}, $R_q = 1/\alpha$ is constant: a consumer's responsiveness is identical regardless of the quantity allocated to her. Additional capacity is therefore distributed across types in proportions determined solely by social weights, and the behavioral channel through which a preference shift distorts the allocation across types vanishes.
+
+\renewcommand{\theassumption}{Multi}
+\begin{assumption}\label{ass:mult}
+$u(q,s) = \kappa(q)\zeta(s)$ for some functions $\kappa$ and $\zeta$ with $\kappa' < 0$ and $\zeta > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Under Assumption~\ref{ass:mult}, $R_q = -\kappa(q)/\kappa'(q)$ depends only on $q$ and not on $s$: a consumer's responsiveness is identical regardless of the realization of the common shock. Note that Assumption~\ref{ass:CARA} implies Assumption~\ref{ass:mult}, with $\kappa(q) = \exp(-\alpha q)$ and $\zeta(s) = v(s)$, so CARA is the leading example of both simultaneously.
+
+\noindent \textbf{Allocation Design} 
+
+\noindent We derive different mechanisms to allocate electricity. We distinguish between a \textit{general mechanism} and some \textit{market mechanisms}. In the former, the market designer independently selects the quantity and the monetary transfer, which serves as our benchmark allocation. In the latter, the market designer offers a transfer schedule, and consumers choose their preferred quantity. We now define these formally.
+
+\noindent \textbf{General Mechanism}. Given a total quantity $Q(s)$ of electricity in state $s$, a general allocation mechanism $\mathcal{M}$  consists of collection of functions $q_i: [\ubar{\theta}_i, \overline{\theta}_i]\times S \rightarrow [0,Q(s)] $ where $q_i(\theta,s)$ is the quantity of electricity allocated to a consumer of type $\theta$ in category $i$ at state $s$. The aggregate quantity allocated to a group  $i$ is
+%##########################################
+\begin{equation*}
+    Q_i(s) = \mu_i \E_{\theta_i} [q_i(\theta,s)].
+\end{equation*}
+%##########################################
+Feasibility requires that $Q(s) = \sum_{i} Q_i(s)$. Transfers are described by the functions $t_i(\theta,s)$ assigning a monetary payment to each consumer of type $\theta$ in category $i$ at state $s$. To study the optimal second-best mechanism with incomplete information in section \ref{chap3sec:sec5}, we rely on the Revelation Principle. In a direct mechanism $(q_i,t_i)_{i = \{1,2\}}$, consumers report their type $\theta$, receive an allocation $q_i(\theta,s)$, and pays $t_i(\theta,s)$ to the market designer. 
+
+\noindent \textbf{Market mechanism}. In addition to the general mechanism, we define a \textit{market allocation}, which corresponds to an indirect mechanism. Given a transfer schedule $t(q,\theta,s)$, a consumer chooses a quantity schedule $d(\theta,s)$ as the solution to
+%##########################################
+\[
+d(\theta,s) := \arg\max_q \{ \theta \; U(q,s) - t(q,\theta,s) \}.
+\]
+%##########################################
+Hence, a market allocation is one in which consumers optimally select their allocation given the schedule offered by the designer. We use the notation $d(\theta,s)$ to distinguish this individual demand function from the direct allocation rule $q(\theta,s)$. The comparison between the mechanism design and the market allocation will become handy for different reasons. First, market allocations are the primary mechanism used to allocate electricity in practice. They encompass different pricing schemes, such as spot pricing (where $t(q,\theta,s)$ is a unit price resulting from a market-clearing condition) and two-part tariffs (where $t(q,\theta,s)$ consists of a unit price and a lump-sum transfer). Second, having the general mechanism as a benchmark allows for comparing various forms of market allocations, particularly in terms of their implications for consumer surplus. 
+
+\noindent \textbf{Supply side} 
+
+\noindent We assume the most straightforward formulation for the supply-side represented by a single agent, the market designer. It can be interpreted in several ways: as a public firm, as a regulator directly controlling a private monopoly, or as an intermediary between consumers and producers. In the latter case, the mechanism between consumers and the designer can be viewed as a theoretical retail market, while the mechanism between producers and the designer corresponds to a wholesale market. We remain agnostic about the institutional form of this interaction. Still, we assume it is fully efficient: production and investment decisions are identical to those that would be chosen under optimal regulation (for instance, if the market designer acts as a single buyer facing perfectly competitive producers). 
+
+For tractability, we model the market designer as directly choosing production and investment. The level of investment is denoted by $k_i$. We assume an increasing and convex investment cost $I(k)$ and a unit marginal production cost normalized to 0. We require that the profit of the market designer $\Pi$ is nonnegative
+%##########################################
+\[
+\sum_{i\in N}\mu_i
+\E_{(s,\theta_i)}\left[ t_i(\theta,s) \right]\;-\; I(k)
+\;\ge\; 0. \tag{R}\label{R-def}
+\]
+%##########################################
+The investment level $k_i$ determines capacity, which imposes the feasibility constraint
+%##########################################
+\[
+Q(s) \leq k \quad \quad \text{for each\;} s.\label{K-def}\tag{K}
+\]
+%##########################################
+where $Q(s)$ is the total quantity allocated in state $s$.
+
+The market designer maximizes a weighted expected sum of consumer surpluses across types and states. We define the expectation of $\lambda$ of an individual conditional of its type $\theta$ and belonging to a category $i$ as $\lambda_i(\theta) = \E_{\theta_i}[\lambda|i,\theta]$. Those Pareto weights are assumed to be continuous in $\theta$ for each category $i$. Let $\tilde\lambda_i:= \E_{\theta_i}[\lambda_i]$ be the average weight for a category $i$. The market designer's objective function is
+%##########################################
+\begin{equation*}
+    \text{Obj} := \;  \sum_{i}  \; \mu_i\; \E_{(s,\theta_i)} \left[\; \lambda_i(\theta)\; ( \; \theta \; U(q_i(\theta,s),s)  -  t_i(\theta,s)\; )\; \right]
+\end{equation*}
+%##########################################
+This formulation of the objective function has several limitations as described in \cite{akbarpour2023redistributive}. XXXX How to endogenoize welfare weights.
+
+\noindent \textbf{Timing} 
+
+\noindent We consider a multi-period game with four stages:  
+
+\begin{enumerate}
+    \item \textbf{Information stage.} Consumers privately learn their type $\theta$. Under complete information, the market designer also observes types; under incomplete information, the designer only knows their distribution. 
+    \item \textbf{Investment decision.} The market designer chooses the level of investment $k_i$. 
+    \item \textbf{Allocation proposal.} 
+    \begin{enumerate}[label=(\alph*)]
+        \item The market designer proposes an allocation schedule $\mathcal{M}$ (which may be market-based or mechanism-based). The schedule can be fully contingent on the realization of $s$ or restricted if some constraints prevent complete state-contingency.  
+        \item Consumers then accept or reject the proposal. If a consumer rejects the offers, we assume no electricity consumption, and we normalize the outside utility to zero. 
+    \end{enumerate}
+    \item \textbf{Short-term allocation.} 
+    \begin{enumerate}[label=(\alph*)]
+        \item The common shock $s$ is realized and observed by all agents. 
+        \item Allocations are implemented according to the offer made in Stage 3. 
+    \end{enumerate}
+\end{enumerate}
+
+\begin{tcolorbox}[colback=white]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}        
+
+\begin{tikzpicture}[x=0.60pt,y=0.75pt,yscale=-1,xscale=1]
+
+% Timeline line
+\draw [line width=1.5] (20,100) -- (663,100);
+\draw [shift={(667,100)}, rotate = 180.07] [fill=black][line width=0.08] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle;
+
+% Stage ticks
+\foreach \x in {70,237,410,580} {
+  \draw [line width=1.5] (\x,90) -- (\x,100);
+}
+
+% Stage labels
+\draw (15,50) node [anchor=north west, font=\small, align=center] {1. Information \\ ($\theta$)};
+\draw (182,50) node [anchor=north west, font=\small, align=center] {2. Investment \\ ($k_i$)};
+\draw (355,50) node [anchor=north west, font=\small, align=center] {3. Allocation \\ proposal ($\mathcal{M}$)};
+\draw (506,50) node [anchor=north west, font=\small, align=center] {4. Shock realization \\ ($s$)};
+
+% Demand labels under line
+\draw (179,137) node [anchor=north west, font=\small, align=center] {Unknown demand};
+\draw (515,137) node [anchor=north west, font=\small, align=center] {Known demand ($s$)};
+
+% Stage numbers under ticks
+\draw (64,110) node [anchor=north west, font=\small] {1};
+\draw (231,110) node [anchor=north west, font=\small] {2};
+\draw (404,110) node [anchor=north west, font=\small] {3};
+\draw (574,110) node [anchor=north west, font=\small] {4};
+
+\end{tikzpicture}
+\end{tcolorbox}
+
+
 
 
 \bibliographystyle{apalike}
