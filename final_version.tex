@@ -57,14 +57,14 @@ In particular, \cite{akbarpour2023economic} and \cite{akbarpour2023redistributiv
 \subsection{Environment}
 
 \paragraph{Consumers.}
-There is a unit mass of consumers. Each consumer is characterized by a pair $(i,\theta)$ and is subject to a common shock $s$. The index $i \in N = \{1,\dots,n\}$ denotes the consumer category (e.g., households or industrial users). Categories are publicly observed, and category $i$ has mass $\mu_i > 0$. Conditional on category $i$, each consumer has a privately observed type $\theta \in \Theta_i = [\underline{\theta}_i,\overline{\theta}_i]$, drawn from a distribution $G_i$ with density $g_i > 0$ on $\Theta_i$. Types are independent across consumers and are known to the consumer but not to the market designer. All consumers are subject to a common demand shock $s \in S = [\underline{s},\overline{s}]$, drawn from a distribution $F$ with density $f > 0$. The realization of $s$ is observed by all agents.
+There is a unit mass of consumers. Each consumer is characterized by a pair $(i,\theta)$ and is subject to a common shock $s$ unrelated to type. The index $i \in N = \{1,\dots,n\}$ denotes the consumer category (e.g., households or industrial users). Categories are publicly observed, and category $i$ has mass $\mu_i > 0$ with $\sum_i\mu_i=1$. Conditional on category $i$, each consumer has a privately observed type $\theta \in \Theta_i = [\underline{\theta}_i,\overline{\theta}_i]$, drawn from a distribution $G_i$ with density $g_i > 0$ on $\Theta_i$. Types are independent across consumers and are known to the consumer but not to the market designer. All consumers are subject to a common demand shock $s \in S = [\underline{s},\overline{s}]$, drawn from a distribution $F$ with density $f > 0$. The realization of $s$ is observed by all agents.
 
 \paragraph{Preferences.}
 A consumer of type $\theta$ derives value from consuming quantity $q$ in state $s$ given by
 \[
 \theta \, U(q,s) = \theta \int_0^q u(\tilde q,s)\, d\tilde q,
 \]
-with $U(0,s)=0$. The marginal willingness to pay $u(q,s)$ satisfies: $u_\theta > 0$,$u_s > 0$, $u_q < 0$. Thus, higher types value consumption more, demand is higher in high-demand states, and marginal utility is decreasing in quantity. Transfers are separable, and there are no income effects. A consumer receiving allocation $(q_i(\theta,s), t_i(\theta,s))$ obtains expected surplus
+with $U(0,s)=0$. The marginal willingness to pay $u(q,s)$ satisfies: $u_s > 0$, $u_q < 0$. Thus, marginal utility is higher in high-demand states, and it decreases with quantity. Transfers are separable, and there are no income effects. A consumer receiving allocation $(q_i(\theta,s), t_i(\theta,s))$ obtains expected surplus
 \[
 \E_s\!\left[\theta U(q_i(\theta,s),s) - t_i(\theta,s)\right].
 \]
@@ -124,7 +124,7 @@ Constraint \eqref{IC-def1} imposes incentive compatibility in expectation over t
 %##########################################
 \[ \tag{$\E CS_i$}\label{ECSi} \E CS_i(\theta):=\E_s\!\left[\theta U\!\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right] = \E\underline{CS}_i+\int_{\underline{\theta}_i}^{\theta}\E_s\!\left[U\!\left(q_i(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}. \]
 %##########################################
-for some boundary term $\E\underline{CS}_i \ge 0$. This representation follows from standard envelope arguments.\footnote{ In general, this only requires monotonicity of the expected marginal payoff from reporting truthfully, and it does not, by itself, imply that $\theta\mapsto q_i(\theta,s)$ is nondecreasing for every state $s$. In our environment, however, the off-peak allocation will be independent of $\theta$, and on-peak allocations will be characterized by a first-order condition in which the dependence on $\theta$ enters through a term that does not vary with $s$. As a result, any potential failure of monotonicity (and any associated ironing) occurs across all peak states. Hence, for the purpose of the characterization, it is without loss to state monotonicity directly at the level of $q_i(\theta,s)$ (rather than at the level of its expectation over $s$): if the allocation is monotone in $\theta$ in one peak state, it is monotone in all peak states, and the IC constraint \eqref{IC-def} is then satisfied.} 
+for some boundary term $\E\underline{CS}_i \ge 0$. This representation follows from standard envelope arguments.\footnote{In general, IC in expectation is weaker than pointwise IC: monotonicity of the expected marginal payoff does not, by itself, imply that the allocation is nondecreasing in $\theta$ for every state $s$ separately. We verify ex post that the optimal solution satisfies pointwise IC under Assumption Int. Off-peak, the allocation is independent of $\theta$. On-peak, Assumption~\ref{ass:interior} ensures that the effective social weight is strictly increasing in $\theta$, which implies that the allocation is strictly increasing in $\theta$ in every binding state simultaneously. The optimal allocation, therefore, satisfies pointwise IC, and imposing IC in expectation is without loss at the optimum.} 
 
 \paragraph{Virtual-surplus primitives.} Let $\gamma_i(\theta)$ denote the inverse hazard rate of $G_i$ and $J_i(\theta)$ the virtual surplus function associated with a consumer from category $i$ and type $\theta$
 %##########################################
@@ -132,7 +132,15 @@ for some boundary term $\E\underline{CS}_i \ge 0$. This representation follows f
 \gamma_i(\theta):= \frac{1-G_i(\theta)}{g_i(\theta)} \quad \text{and} \quad  J_i(\theta):=\theta - \gamma_i(\theta).
 \]
 %##########################################
-We maintain throughout the standard regularity condition that $J_i(\theta)$  is increasing in $\theta$. Then define $\Lambda_i(\theta) := \gamma_i(\theta)\E[\lambda_i(\tilde\theta) \mid \tilde\theta \ge \theta]$. This term captures the social value of the information rents accruing to all types $\tilde\theta > \theta$ when type $\theta$ receives a marginal unit: incentive compatibility forces the designer to also compensate all higher types, at a rate governed by the inverse hazard rate $\gamma_i(\theta)$, and these rents are evaluated at the average social weight of types above $\theta$.
+We maintain throughout the standard regularity condition that $J_i(\theta)$  is increasing in $\theta$
+
+\renewcommand{\theassumption}{Reg}
+\begin{assumption}\label{ass:regularity}
+For each category $i$, the virtual surplus $J_i(\theta) := \theta - (1-G_i(\theta))/g_i(\theta)$ is strictly increasing on $[\underline{\theta}_i, \overline{\theta}_i]$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+Then define $\Lambda_i(\theta) := \gamma_i(\theta)\E[\lambda_i(\tilde\theta) \mid \tilde\theta \ge \theta]$. This term captures the social value of the information rents accruing to all types $\tilde\theta > \theta$ when type $\theta$ receives a marginal unit: incentive compatibility forces the designer to also compensate all higher types, at a rate governed by the inverse hazard rate $\gamma_i(\theta)$, and these rents are evaluated at the average social weight of types above $\theta$.
 
 \begin{lemma}[Virtual surplus representation]\label{lem:Transfer}
 The program of the market designer can be expressed as: 
