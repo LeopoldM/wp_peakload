@@ -158,7 +158,7 @@ The program of the market designer can be expressed as:
 \;\ge\; 0. \tag{R}\label{Rmd-def}
 \end{align*}
 %##########################################
-with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type, $\E\underline{CS}_i\ge 0$ for all $i$.
+with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type ($\E\underline{CS}_i\ge 0$).
 \end{lemma}
 
 The lemma separates the transfer and allocation problems. When one of the budget or IR constraints binds while the other is slack, a lump-sum transfer can be used to relax the binding constraint without violating the other. This transfer is constrained by IC/IR: the designer can only finance investment from the allocation's utility net of information rents, and the lowest type must weakly prefer to participate.
@@ -331,13 +331,13 @@ The derivative of the type-independent component is obtained from \eqref{ECSi} w
 Two observations: when \eqref{Rmdi-def} binds (the IR-constrained allocation), the boundary term us null: the entire surplus change is then carried by the IC rent in \eqref{partialkCS1}. On the other hand,  when \eqref{Rmdi-def} is slack (the IR-unconstrained allocation), then the second term in \eqref{partialkq1} is null as $\beta_i = 0$.
 
 \begin{theorem}[Redistributive effects of capacity expansion]\label{thm:surplus}
-Fix category \(i\), a budget requirement \(I_i>0\) and assume~\ref{ass:monotone} holds. Define the set of cutoffs 
+Fix category \(i\), a budget requirement \(I_i>0\) and assume~\ref{ass:monotone} and~\ref{ass:mult} hold. Define the set of cutoffs 
 %%%%%%%%%%%%%%%%
 \[\tilde\Theta_i := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \partial\E CS_i(\tilde\theta_i)/\partial k_i=0\right\}.\]
 %%%%%%%%%%%%%%%%
 \noindent\textbf{IR-unconstrained allocation.} If \eqref{Eujmd} is positive, then an increase in \(k_i\) increases expected surplus for every type \(\theta\). If \eqref{Eujmd} is negative, \(\tilde\Theta_i\) contains at most a unique cutoff; and if it exists expected surplus decreases for all \(\theta<\tilde\theta_i\) and increases for all \(\theta>\tilde\theta_i\).
 
-\noindent\textbf{IR-constrained allocation.} Assume~\ref{ass:mult} holds. The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:\footnote{When no interior cutoff exists, either all types lose from a capacity expansion or all types gain.}
+\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
     \item if \eqref{Eujmd} is positive, expected surplus increases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and decreases for all \(\theta\ge\tilde\theta_i\);
     \item if \eqref{Eujmd} is negative, expected surplus decreases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and increases for all \(\theta\ge\tilde\theta_i\).
@@ -351,7 +351,7 @@ When the participation constraint is slack (\(\beta_i=0\)), the optimal allocati
 
 When the participation constraint binds, the type-dependent component is null, so the surplus effect of a capacity expansion is driven by the quantity margin. However, the monotonicity of quantities in $k_i$ may fail because a capacity expansion also changes the tightness of the financing constraint through the endogenous response of \(\beta_i\), as shown in \eqref{partialkq1}. The bracketed term in that expression is the deviation of a type's marginal virtual surplus \(u(q_i(\theta,s),s)J_i(\theta)\) from its \(w_i\)-weighted average; its sign is therefore determined by the relative ranking of types according to marginal virtual surplus, which is captured by \(R_\theta(\theta)\).  The sign of \(\partial \beta_i/\partial k_i\) is again governed by \eqref{Eujmd}, which captures how capacity expansion tightens or loosens the budget constraint. Therefore, the condition on \ref{Eujmd} and $R_\theta(\theta)$ has a direct interpretation: suppose that expanding \(k_i\) makes the budget less tight, so that \(\beta_i\) decreases in \(k_i\). The need for revenue extraction then falls, and the designer lowers the marginal weight on types that generate higher marginal virtual surplus.
 
-Assumption~\ref{ass:monotone} allows us to characterize cleanly the set of winners and losers from a capacity expansion. Without this requirement, the model may simply exhibit a richer set of cutoffs.\footnote{Under multiplicative separability, this single-crossing structure is preserved after aggregation over states.} In Appendix Proposition~\ref{prop:implementation}, we show that \eqref{Eujmd} also governs the transition between the IR-unconstrained and IR-constrained regimes. This transition depends on whether the available revenue is single-peaked or single-dipped. Figure~\ref{fig:impl_surplus} summarizes this regime geometry by illustrating how the distributional incidence of a capacity expansion changes across regimes and across capacity levels, while the section~\ref{appsec:implementation-region} in the Appendix provides the full characterization. A direct implication is that the redistributive effect of additional capacity is not invariant to the installed capacity level: the same marginal expansion can be progressive at low \(k_i\) and regressive at high \(k_i\). We also provide a closed-form numerical simulation in the Appendix Figure~\ref{fig:appendix_redistribution_marg_k_uniform} illustrating how the identity of the winners and losers from a capacity expansion depends on the current level of capacity.
+Assumption~\ref{ass:monotone} allows us to characterize cleanly the set of winners and losers from a capacity expansion. Without this requirement, the model may simply exhibit a richer set of cutoffs. Assumption~\ref{ass:mult} is required only for the IR-constrained case so that the single-crossing structure is preserved after aggregation over states. In Appendix Proposition~\ref{prop:implementation}, we show that \eqref{Eujmd} also governs the transition between the IR-unconstrained and IR-constrained regimes. This transition depends on whether the available revenue is single-peaked or single-dipped. Figure~\ref{fig:impl_surplus} summarizes this regime geometry by illustrating how the distributional incidence of a capacity expansion changes across regimes and across capacity levels, while the section~\ref{appsec:implementation-region} in the Appendix provides the full characterization. A direct implication is that the redistributive effect of additional capacity is not invariant to the installed capacity level: the same marginal expansion can be progressive at low \(k_i\) and regressive at high \(k_i\). We also provide a closed-form numerical simulation in the Appendix Figure~\ref{fig:appendix_redistribution_marg_k_uniform} illustrating how the identity of the winners and losers from a capacity expansion depends on the current level of capacity.
 
 \begin{figure}[h]
 \centering
@@ -435,7 +435,7 @@ Appendix Lemma~\ref{lem:preferenceorder} provides primitive conditions on prefer
 We now turn to the characterization of how such perturbations affect the optimal allocation.
 
 \begin{lemma}[Reallocation under preference perturbations]\label{lem:realloc}
-Fix category \(i\) and a across allocation \((k_i,I_i)\) For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
+Fix category \(i\) and an across-category allocation \((k_i,I_i)\). For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
 \[
 \Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \E^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i.
 \]
@@ -459,7 +459,7 @@ That is the condition of receiving more or less allocation is determined by whet
 
 
 
-The sorting effect of the optimal allocation induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ is generically non-monotone in types, so a tilt of preferences toward higher or lower types does not translate into a monotone quantity reallocation.\footnote{Take the covariance term in \eqref{signEuJ}, then a perturbation in preference yields $\Cov_i\!\left(R_\theta(\theta),\Delta R_q(\theta)\right) + \Cov_i\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)$. The non-monotonicity in $\Delta q$ prevents signing the first term and, by extension, the effect of a perturbation on the sign of \eqref{Eujmd}. Assumption~\ref{ass:CARA} avoids these limits by shutting down the behavioral effect of a perturbation on the final equilibrium as $\Delta R_q(\theta)=0$.} This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_{\G}(\theta)$ and not the absolute change $\Delta G_i(\theta)$. While a change of preference can lead to a monotonic change in the absolute value along $\theta$, it's never the case for $R_{\G}(\theta)$. To see this, consider the extreme types $\underline{\theta}$ and $\overline{\theta}$ and a perturbation of an optimal allocation in the IR-unconstrained regime. Using the definition of $J_i(\theta)$ and $\Lambda_i(\theta)$, the effective weight is $\G_i(\theta)= \theta  \tilde\lambda_i - \gamma_i(\theta) \tilde\lambda_i + \gamma_i(\theta)\E_{i}\!\left[\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right]$. At $\underline{\theta}$, the social value of the information rent is the information rent valued at the expected social weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta})= \underline{\theta}  \tilde\lambda_i$. At $\overline{\theta}$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta})= \overline{\theta}  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta})= \underline{\theta}  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta})= \overline{\theta}  \Delta \tilde\lambda_i$. Therefore, while we can have $\Delta \G_i(\underline{\theta}) \neq \Delta \G_i(\overline{\theta})$, we always have $R_\G(\underline{\theta}) = R_\G(\overline{\theta})$ for any perturbation of redistributive preferences. In particular, Appendix Corollary~\ref{cor:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
+The sorting effect of the optimal allocation induced by a preference perturbation is, however, different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ can be non-monotone in types, so a tilt of preferences toward higher or lower types does not mechanically translate into a monotone quantity reallocation.\footnote{Take the covariance term in \eqref{signEuJ}, then a perturbation in preference yields $\Cov_i\!\left(R_\theta(\theta),\Delta R_q(\theta)\right) + \Cov_i\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)$. The non-monotonicity in $\Delta q$ prevents signing the first term and, by extension, the effect of a perturbation on the sign of \eqref{Eujmd}. Assumption~\ref{ass:CARA} avoids these limits by shutting down the behavioral effect of a perturbation on the final equilibrium as $\Delta R_q(\theta)=0$.} This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_{\G}(\theta)$ and not the absolute change $\Delta G_i(\theta)$. While a change in preferences may induce a monotonic variation in the absolute change $\Delta \mathcal G_i(\theta)$ along types, this need not be the case for the proportional change $R_{\mathcal G}(\theta)$. To see this, consider the extreme types $\underline{\theta}_i$ and $\overline{\theta}_i$ and a perturbation of an optimal allocation in the IR-unconstrained regime. Using the definition of $J_i(\theta)$ and $\Lambda_i(\theta)$, the effective weight is $\G_i(\theta)= \theta  \tilde\lambda_i - \gamma_i(\theta) \tilde\lambda_i + \gamma_i(\theta)\E_{i}\!\left[\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right]$. At $\underline{\theta}_i$, the social value of the information rent is the information rent valued at the expected social weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta}_i)= \underline{\theta}_i  \tilde\lambda_i$. At $\overline{\theta}_i$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta}_i)= \overline{\theta}_i  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta}_i)= \underline{\theta}_i  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta}_i)= \overline{\theta}_i  \Delta \tilde\lambda_i$. Therefore, while we can have $\Delta \G_i(\underline{\theta}_i) \neq \Delta \G_i(\overline{\theta}_i)$, we always have $R_\G(\underline{\theta}_i) = R_\G(\overline{\theta}_i)$ for any perturbation of redistributive preferences. In particular, the second part of Appendix Proposition~\ref{prop:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
 
 We are now ready to characterize the surplus effect of a change in preferences. Similarly to the capacity extension expression \eqref{partialkCS1}, the individual surplus change follows from \eqref{ECSi}
 %##########################################
@@ -467,26 +467,26 @@ We are now ready to characterize the surplus effect of a change in preferences. 
   \Delta CS_i(\theta) = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
 \end{equation*}
 Using lemma \ref{lem:realloc}, the marginal change with respect to types yields
-\[\frac{\partial\Delta\ECS_i(\theta)}{\partial\theta} = \E_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\E_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
+\[\frac{\partial\Delta\E CS_i(\theta)}{\partial\theta} = \E_s\!\left[\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\E_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right],\]
 where $\varepsilon_i(s)/\mathcal{G}_i(\theta)>0$ and $R_q(\theta)>0$. Similarly, a perturbation of preference changes the available revenue \eqref{underlineECSi} via the optimal allocation:
 \[
-\Delta\E\underline{CS}_i =\E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\left(R_{\mathcal{G}}(\theta)-\E_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\mathbf{1}_{\{s\in T_i\}}\right].
+\Delta\E\underline{CS}_i =\E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_{\mathcal{G}}(\theta)-\E_i^w\!\left[R_{\mathcal{G}}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\mathbf{1}_{\{s\in T_i\}}\right].
 \]
 
 
 \begin{proposition}[Surplus effects of redistributive preference perturbations]\label{prop:surplus-redist}
 Assume Assumption~\ref{ass:CARA} and unimodality of $R_{\mathcal{G}}(\theta)$. Define the set of cutoffs
 \[
-\tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\ECS_i(\tilde\theta_i)=0\right\}.
+\tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\E CS_i(\tilde\theta_i)=0\right\}.
 \]
-\noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\ECS_i(\theta)$ is jointly determined by two signs: $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})$, which governs the starting value,
-\[\sign\!\left(\Delta\ECS_i(\underline\theta_i)\right)=\sign\!\left(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\right),\]
+\noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\E CS_i(\theta)$ is jointly determined by two signs: $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})$, which governs the starting value,
+\[\sign\!\left(\Delta\E CS_i(\underline\theta_i)\right)=\sign\!\left(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\right),\]
 and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})>0$, and $-,+,-$ when $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
 
 \noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_{\G}\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_{\G}\le 0$ for all $\theta$, the inequalities are reversed.
 \end{proposition}
 
-Proposition~\ref{prop:surplus-redist} delivers a sharp redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{As in Theorem~\ref{thm:surplus}, Assumption~\ref{ass:mult} is sufficient to show that the individual surplus effect is generally non-monotone across types.  Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \eqref{underlineECSi}. The unimodality of \(R_{\mathcal G}\) is used only to limit the number of sign changes of \(\Delta \ECS_i(\theta)\). If \(R_{\mathcal G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
+Proposition~\ref{prop:surplus-redist} delivers a sharp redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{As in Theorem~\ref{thm:surplus}, Assumption~\ref{ass:mult} is sufficient to show that the individual surplus effect is generally non-monotone across types.  Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \eqref{underlineECSi}. The unimodality of \(R_{\mathcal G}\) is used only to limit the number of sign changes of \(\Delta \E CS_i(\theta)\). If \(R_{\mathcal G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
 
 In both regimes, the origin of the non-monotonicity in the change in surplus is the same: the individual surplus change combines an IC-rent channel and a level channel, and neither of them follows the direction of the preference perturbation mechanically. Figure~\ref{fig:surplus-redist} provides a simple geometry illustration of the proposition.
 
@@ -496,36 +496,36 @@ The second channel is a level effect, and its source depends on the regime. When
 
 Taken together, these two channels explain why the surplus effect of a redistributive preference perturbation is generically non-monotone across types. A shift in preferences toward higher or lower types does not translate mechanically into a monotone pattern of winners and losers, because the perturbation operates through the endogenous reallocation of quantities and through the way informational rents accumulate along the type space.
 
- We illustrate in Figure~\ref{fig:appendix_withinperturbation} in the Appendix a numerical simulation. We assume an initial category characterized by utilitarian preferences, and then compute two (mean-preserving) perturbations in social weights $\lambda_i(\theta)$: case A exhibits higher weights on higher types, while case B exhibits higher weights on lower types. In the second panel, $\Delta\G_i(\theta)$ is positive for case A and negative for case B, following Lemma~\ref {lem:preferenceorder}. The third panel shows how the optimal allocation responds to the perturbation: for instance the allocation of $\overline{\theta}$ decrease in case A and increase in case B while $\lambda(\theta)$ is the highest in case A and the lowest in case B. The fourth panel confirms the illustration in Figure~\ref{fig:surplus-redist}.
+ We illustrate in Figure~\ref{fig:appendix_withinperturbation} in the Appendix a numerical simulation. We assume an initial category characterized by utilitarian preferences, and then compute two (mean-preserving) perturbations in social weights $\lambda_i(\theta)$: case A exhibits higher weights on higher types, while case B exhibits higher weights on lower types. In the second panel, $\Delta\G_i(\theta)$ is positive for case A and negative for case B, following Lemma~\ref {lem:preferenceorder}. The third panel shows how the optimal allocation responds to the perturbation: for instance the allocation of $\overline{\theta}_i$ decrease in case A and increase in case B while $\lambda(\theta)$ is the highest in case A and the lowest in case B. The fourth panel confirms the illustration in Figure~\ref{fig:surplus-redist}.
 
 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[x=3.5cm, y=1.8cm]
 \draw[->, thick] (0,0) -- (3.2,0) node[right] {$\theta$};
-\draw[->, thick] (0,-1.4) -- (0,1.4) node[above] {$\Delta\ECS_i(\theta)$};
-\foreach \x/\lbl in {0/$\underline\theta_i$, 0.7/$\theta_1$, 1.4/$\theta_2$, 2.1/$\theta_3$, 2.8/$\overline\theta_i$}{
+\draw[->, thick] (0,-1.4) -- (0,1.4) node[above] {$\Delta\E CS_i(\theta)$};
+\foreach \x/\lbl in {0/$\quad \underline\theta_i$, 0.5/$\theta_1$, 1.4/$\theta_2$, 2.1/$\theta_3$, 2.8/$\overline\theta_i$}{
   \draw[thin] (\x, 0.05) -- (\x, -0.05);
   \node[below, font=\small] at (\x, -0.05) {\lbl};
 }
 \draw[blue, thick, smooth] plot coordinates {
-  (0, 0.6) (0.35, 0.9) (0.7, 0) (1.05, -0.7) (1.4, 0) (1.75, 0.7) (2.1, 0) (2.45, -0.6) (2.8, -0.85)
+  (0, 0.8) (0.5, 0) (1.05, -0.7) (1.4, 0) (1.75, 0.7) (2.1, 0) (2.45, -0.6) (2.8, -0.85)
 };
 \draw[red, dashed, thick, smooth] plot coordinates {
-  (0, -0.6) (0.35, -0.9) (0.7, 0) (1.05, 0.7) (1.4, 0) (1.75, -0.7) (2.1, 0) (2.45, 0.6) (2.8, 0.85)
+  (0, -0.8) (0.5, 0) (1.05, 0.7) (1.4, 0) (1.75, -0.7) (2.1, 0) (2.45, 0.6) (2.8, 0.85)
 };
-\node[blue, font=\small] at (0.25, 1.1) {$+$};
+\node[blue, font=\small] at (0.25, 0.9) {$+$};
 \node[blue, font=\small] at (1.05, -0.9) {$-$};
 \node[blue, font=\small] at (1.75, 0.9) {$+$};
 \node[blue, font=\small] at (2.45, -0.9) {$-$};
-\node[red, font=\small] at (0.25, -1.1) {$-$};
+\node[red, font=\small] at (0.25, -0.9) {$-$};
 \node[red, font=\small] at (1.05, 0.9) {$+$};
 \node[red, font=\small] at (1.75, -0.9) {$-$};
 \node[red, font=\small] at (2.45, 0.9) {$+$};
-\node[blue, font=\small, anchor=west] at (2.9, 0.6) {$\Delta\mathcal{G}_i\ge 0,\ \mathrm{Cov}>0$};
-\node[red, font=\small, anchor=west] at (2.9, -0.6) {$\Delta\mathcal{G}_i\le 0,\ \mathrm{Cov}<0$};
+\node[blue, font=\small, anchor=west] at (2.9, -0.6) {$\Delta\mathcal{G}_i\ge 0,\ \mathrm{Cov}>0$};
+\node[red, font=\small, anchor=west] at (2.9, 0.6) {$\Delta\mathcal{G}_i\le 0,\ \mathrm{Cov}<0$};
 \end{tikzpicture}
-\caption{Surplus effect of a preference perturbation across types under Proposition~\ref{prop:surplus-redist}. The blue curve starts from \(\Delta\ECS_i(\underline\theta_i)>0\) and the red curve from \(\Delta\ECS_i(\underline\theta_i)<0\), where the starting value is determined by \(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\). In both cases, the surplus effect is non-monotone across types and generates four alternating regions of winners and losers.}
+\caption{Surplus effect of a preference perturbation across types under Proposition~\ref{prop:surplus-redist}. The blue curve starts from \(\Delta\E CS_i(\underline\theta_i)>0\) and the red curve from \(\Delta\E CS_i(\underline\theta_i)<0\), where the starting value is determined by \(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\). In both cases, the surplus effect is non-monotone across types and generates four alternating regions of winners and losers.}
 \label{fig:surplus-redist}
 \end{figure}
 
@@ -711,7 +711,7 @@ Increasing \(k\) relaxes scarcity in the states in which capacity binds, but it 
 The investment problem \(\max_{k\geq 0} W(k)\) admits a unique interior solution \(k^\ast > 0\). The optimal investment level satisfies
 \[
 I'(k^\ast)
-= \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast)=
+= \frac{1}{\mu^+\tilde\lambda^\ast}\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast)=
 \frac{1}{\mu^+}
 \sum_{i\in N^+} \mu_i\,
 \E_{(s,i)}\!\left[
@@ -748,9 +748,7 @@ Assume Assumption~\ref{ass:CARA}. Suppose each category \(i\) becomes a new cate
 \[
 W''(k^\ast)\,\Delta k^\ast
 =
--
-\underbrace{\Bigg.\frac{1}{\tilde\lambda^\ast}
-\sum_{i\in N}\mu_i\,\Pi_i\,\mathbb E_i[R_{\mathcal G,i}]\Bigg.}_{\text{average effect}}
+-\underbrace{\Bigg.\sum_{i\in N}\mu_i\,\Pi_i\,\mathbb E_i[R_{\mathcal G,i}]\Bigg.}_{\text{average effect}}
 \qquad +  \qquad \underbrace{ \Bigg.I'(k^\ast)\,\Delta\tilde\lambda^\ast\Bigg.}_{\text{sorting effect}}
 \]
 where
@@ -887,11 +885,10 @@ The optimal allocation is characterized by a unique quantity schedule $q_i^*(\th
 \]
 and
 \[\tag{FOC$_T^{fb}$}\label{FB-T}
-\theta\,u\!\left(q_i^*(\theta,s),s\right)=
-\begin{cases}
-\varepsilon(s)/\beta, & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
-\varepsilon(s)/\lambda_i(\theta), & \text{if } \lambda_i(\theta)>\lambda^*,
-\end{cases}
+\begin{aligned}   
+& u\!\left(q_i^*(\theta,s),s\right)\,\beta \theta= \varepsilon(s), & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
+& u\!\left(q_i^*(\theta,s),s\right)\,\lambda_i(\theta)\theta=\varepsilon(s), & \text{if } \lambda_i(\theta)>\lambda^*,
+\end{aligned}
 \qquad s\in T^*.
 \]
 Transfers are independent of $s$ and satisfy $t_i^*(\theta)=\E_s\!\left[\theta\,U\!\left(q_i^*(\theta,s),s\right)\right]$ for strictly contributing types $\lambda_i(\theta)<\lambda^*$, $t_i^*(\theta)=0$ for non-contributing types $\lambda_i(\theta)>\lambda^*$, and the participation constraint may be slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
@@ -915,140 +912,6 @@ The complete-information benchmark highlights two features that disappear under 
 
 
 
-
-
-\section{Environment}\label{chap3sec:sec2}
-
-Although the terminology is tailored to electricity, the results can, with some modifications, be applied to other essential goods, as noted in the introduction. 
-
-Our framework consists of five elements: 
-(i) the demand side, which may represent households, industrial consumers, or retailers; 
-(ii) the allocation mechanism, which specifies how the market designer allocates electricity in terms of both quantity and monetary transfer; 
-(iii) the supply side, which captures investment and production decisions;
-(iv) the objective function of the market designer; and 
-(v) the timing of decisions.
-
-\noindent \textbf{Consumers Preferences} 
-
-\noindent There is a unit mass of consumers for electricity. Each consumer is characterized by a type vector $(i,\theta,s,\lambda)$. We assume that the three dimensions of the vector $(i,\theta,\lambda)$ have a joint distribution among consumers and are known by the market designer. The first characteristic refers to the consumer category, e.g., household or industry. There is a finite set of categories such that $i \in N = \{1,...,n\}$. It is publicly observed, and the size of each category, i.e., the number of agents, is denoted by $\mu_i>0$ for each group. The second characteristic is consumer private preference $\theta$, which, under an incomplete information framework, is assumed to be observed only by the consumer. Conditional on belonging to a category $i$, this value is drawn from a common-knowledge cumulative distribution function $G_i$ whose continuous density is $g_i>0$ has full support on $\Theta_i$ and is strictly positive on $[\ubar{\theta}_i, \overline{\theta}_i]$. With households, $\theta$ represents the revenue shocks, the lowest type of consumer being the poor household, and the highest type of consumer being the more prosperous household. Industrial consumers could also be modeled with this framework, where $\theta$ represents their buyers' orders. The characteristic $s \in S = [\underline{s},\overline{s}]$ represents the state of the world and introduces demand uncertainty. We assume that all consumers are subject to the same shock $s$ and that the market designer's redistributive preferences do not depend on the realization of $s$. It is common knowledge among all agents. Economically, $s$ can capture, for example, a weather condition or a macroeconomic factor. The shock is drawn from a continuous distribution $F$ with density $f>0$, both of which are common knowledge before the shock is realized, and has full support on $S$. Each consumer type is known before the demand shocks are realized. Therefore, this framework encompasses two interpretations of the demand shocks: (i) a static model with a single shock and there is uncertainty concerning its realization, or a (ii) a repetition of multiple shocks over a given period (for example, one year), which are drawn from the distribution $F(.)$ \citep{leautier2016visible}. In the last interpretation, we assume that the consumer type does not change across shocks and is determined before this period. Finally, $\lambda \in \mathbb{R}_+$ are the market designer welfare weights for a given individual. As for the type $\theta$, we assume that this information is private and unobserved by the market designer. All agents in the game are considered to be risk-neutral.
-
-We define a consumer's utility belonging to a category $i$ of a type $\theta$. The value for electricity consumption for each consumer is denoted: 
-%##########################################
-\begin{equation*}
-    \theta \; U(q,s) = \theta\int_0^{q} u(\tilde{q},s) d\tilde{q}
-\end{equation*}
-%##########################################
-With $q$ the quantity of electricity allocated to the consumer. If a consumer does not receive electricity, its value is null: $U(0,s) = 0$. $u$ is the marginal willingness to pay for a given quantity of electricity. $u$ specification satisfies the Spence-Mirrlees condition that marginal willingness to pay is strictly increasing in type: higher types prefer larger allocations for any given quantity. All consumers should be allocated at least some quantity $\lim_{q\downarrow0}\theta \; U(q,s)= \infty$, that higher $s$ leads to higher willingness to pay and the marginal utility is decreasing in $q$: $u_{\theta}>0,u_{s}>0,u_{q}<0$.  A consumer receives a quantity $q$ in exchange for a monetary transfer $t$. We assume transfers are separable, and there are no income effects. Each consumer participates in the market if its expected surplus is nonnegative;
-%##########################################
-\[
-\; \E_{s}\!\big[\,\theta \; U(q_i(\theta,s),s) - t_i(\theta,s)\,\big]
-\;\ge\; 0,
-\qquad \forall\, \theta\in\Theta_i. \tag{IR$^{fb}$}\label{IRfp-def}
-\]
-%##########################################
-
-One key element in the model is the quantity responsiveness of a consumer of type $\theta$ at allocation $q$ in state $s$; defined as $R_q(q) := -u(q,s)/u_q(q,s) > 0$. It measures how much a marginal increase in $q$ raises willingness to pay relative to its rate of decline.
-
-\noindent \textbf{Allocation Design} 
-
-\noindent We derive different mechanisms to allocate electricity. We distinguish between a \textit{general mechanism} and some \textit{market mechanisms}. In the former, the market designer independently selects the quantity and the monetary transfer, which serves as our benchmark allocation. In the latter, the market designer offers a transfer schedule, and consumers choose their preferred quantity. We now define these formally.
-
-\noindent \textbf{General Mechanism}. Given a total quantity $Q(s)$ of electricity in state $s$, a general allocation mechanism $\mathcal{M}$  consists of collection of functions $q_i: [\ubar{\theta}_i, \overline{\theta}_i]\times S \rightarrow [0,Q(s)] $ where $q_i(\theta,s)$ is the quantity of electricity allocated to a consumer of type $\theta$ in category $i$ at state $s$. The aggregate quantity allocated to a group  $i$ is
-%##########################################
-\begin{equation*}
-    Q_i(s) = \mu_i \E_{i} [q_i(\theta,s)].
-\end{equation*}
-%##########################################
-Feasibility requires that $Q(s) = \sum_{i} Q_i(s)$. Transfers are described by the functions $t_i(\theta,s)$ assigning a monetary payment to each consumer of type $\theta$ in category $i$ at state $s$. To study the optimal second-best mechanism with incomplete information in section \ref{chap3sec:sec5}, we rely on the Revelation Principle. In a direct mechanism $(q_i,t_i)_{i = \{1,2\}}$, consumers report their type $\theta$, receive an allocation $q_i(\theta,s)$, and pays $t_i(\theta,s)$ to the market designer. 
-
-\noindent \textbf{Market mechanism}. In addition to the general mechanism, we define a \textit{market allocation}, which corresponds to an indirect mechanism. Given a transfer schedule $t(q,\theta,s)$, a consumer chooses a quantity schedule $d(\theta,s)$ as the solution to
-%##########################################
-\[
-d(\theta,s) := \arg\max_q \{ \theta \; U(q,s) - t(q,\theta,s) \}.
-\]
-%##########################################
-Hence, a market allocation is one in which consumers optimally select their allocation given the schedule offered by the designer. We use the notation $d(\theta,s)$ to distinguish this individual demand function from the direct allocation rule $q(\theta,s)$. The comparison between the mechanism design and the market allocation will become handy for different reasons. First, market allocations are the primary mechanism used to allocate electricity in practice. They encompass different pricing schemes, such as spot pricing (where $t(q,\theta,s)$ is a unit price resulting from a market-clearing condition) and two-part tariffs (where $t(q,\theta,s)$ consists of a unit price and a lump-sum transfer). Second, having the general mechanism as a benchmark allows for comparing various forms of market allocations, particularly in terms of their implications for consumer surplus. 
-
-\noindent \textbf{Supply side} 
-
-\noindent We assume the most straightforward formulation for the supply-side represented by a single agent, the market designer. It can be interpreted in several ways: as a public firm, as a regulator directly controlling a private monopoly, or as an intermediary between consumers and producers. In the latter case, the mechanism between consumers and the designer can be viewed as a theoretical retail market, while the mechanism between producers and the designer corresponds to a wholesale market. We remain agnostic about the institutional form of this interaction. Still, we assume it is fully efficient: production and investment decisions are identical to those that would be chosen under optimal regulation (for instance, if the market designer acts as a single buyer facing perfectly competitive producers). 
-
-For tractability, we model the market designer as directly choosing production and investment. The level of investment is denoted by $k_i$. We assume an increasing and convex investment cost $I(k)$ and a unit marginal production cost normalized to 0. We require that the profit of the market designer $\Pi$ is nonnegative
-%##########################################
-% \[
-% \sum_{i\in N}\mu_i
-% \E_{(s,i)}\left[ t_i(\theta,s) \right]\;-\; I(k)
-% \;\ge\; 0. \tag{R}\label{R-def}
-% \]
-%##########################################
-The investment level $k_i$ determines capacity, which imposes the feasibility constraint
-%##########################################
-% \[
-% Q(s) \leq k \quad \quad \text{for each\;} s.\label{K-def}\tag{K}
-% \]
-%##########################################
-where $Q(s)$ is the total quantity allocated in state $s$.
-
-The market designer maximizes a weighted expected sum of consumer surpluses across types and states. We define the expectation of $\lambda$ of an individual conditional of its type $\theta$ and belonging to a category $i$ as $\lambda_i(\theta) = \E_{i}[\lambda|i,\theta]$. Those Pareto weights are assumed to be continuous in $\theta$ for each category $i$. Let $\tilde\lambda_i:= \E_{i}[\lambda_i]$ be the average weight for a category $i$. The market designer's objective function is
-%##########################################
-\begin{equation*}
-    \text{Obj} := \;  \sum_{i}  \; \mu_i\; \E_{(s,i)} \left[\; \lambda_i(\theta)\; ( \; \theta \; U(q_i(\theta,s),s)  -  t_i(\theta,s)\; )\; \right]
-\end{equation*}
-%##########################################
-This formulation of the objective function has several limitations as described in \cite{akbarpour2023redistributive}. XXXX How to endogenoize welfare weights.
-
-\noindent \textbf{Timing} 
-
-\noindent We consider a multi-period game with four stages:  
-
-\begin{enumerate}
-    \item \textbf{Information stage.} Consumers privately learn their type $\theta$. Under complete information, the market designer also observes types; under incomplete information, the designer only knows their distribution. 
-    \item \textbf{Investment decision.} The market designer chooses the level of investment $k_i$. 
-    \item \textbf{Allocation proposal.} 
-    \begin{enumerate}[label=(\alph*)]
-        \item The market designer proposes an allocation schedule $\mathcal{M}$ (which may be market-based or mechanism-based). The schedule can be fully contingent on the realization of $s$ or restricted if some constraints prevent complete state-contingency.  
-        \item Consumers then accept or reject the proposal. If a consumer rejects the offers, we assume no electricity consumption, and we normalize the outside utility to zero. 
-    \end{enumerate}
-    \item \textbf{Short-term allocation.} 
-    \begin{enumerate}[label=(\alph*)]
-        \item The common shock $s$ is realized and observed by all agents. 
-        \item Allocations are implemented according to the offer made in Stage 3. 
-    \end{enumerate}
-\end{enumerate}
-
-\begin{tcolorbox}[colback=white]
-\centering
-\tikzset{every picture/.style={line width=0.75pt}}        
-
-\begin{tikzpicture}[x=0.60pt,y=0.75pt,yscale=-1,xscale=1]
-
-% Timeline line
-\draw [line width=1.5] (20,100) -- (663,100);
-\draw [shift={(667,100)}, rotate = 180.07] [fill=black][line width=0.08] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle;
-
-% Stage ticks
-\foreach \x in {70,237,410,580} {
-  \draw [line width=1.5] (\x,90) -- (\x,100);
-}
-
-% Stage labels
-\draw (15,50) node [anchor=north west, font=\small, align=center] {1. Information \\ ($\theta$)};
-\draw (182,50) node [anchor=north west, font=\small, align=center] {2. Investment \\ ($k_i$)};
-\draw (355,50) node [anchor=north west, font=\small, align=center] {3. Allocation \\ proposal ($\mathcal{M}$)};
-\draw (506,50) node [anchor=north west, font=\small, align=center] {4. Shock realization \\ ($s$)};
-
-% Demand labels under line
-\draw (179,137) node [anchor=north west, font=\small, align=center] {Unknown demand};
-\draw (515,137) node [anchor=north west, font=\small, align=center] {Known demand ($s$)};
-
-% Stage numbers under ticks
-\draw (64,110) node [anchor=north west, font=\small] {1};
-\draw (231,110) node [anchor=north west, font=\small] {2};
-\draw (404,110) node [anchor=north west, font=\small] {3};
-\draw (574,110) node [anchor=north west, font=\small] {4};
-
-\end{tikzpicture}
-\end{tcolorbox}
 
 
 
