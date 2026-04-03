@@ -284,7 +284,7 @@ Then the marginal response of category \(i\) is
 }{
 \sum_{j\in N } \mu_j\,\Omega_j^{-1}
 \left(
-\E_{(s,i)}^w[uJ\mid s] 
+\E_{(s,j)}^w[uJ\mid s] 
 -I'(k^\ast)
 \right)
 }
@@ -922,9 +922,9 @@ V_{i,k_ik_i}(k_i,I_i) = \E_s\!\left[\partial_{k_i}\varepsilon_i(s;k_i,I_i)\,\mat
 
 Fix $k_i$ and $s\in T_i$. Differentiating the first-order condition with respect to $I_i$ and imposing the binding capacity constraint $\E_i[\partial_{I_i}q_i(\theta,s)]=0$ yields
 \[
-\partial_{I_i}\varepsilon_i(s) = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s], \qquad \mathsf \E_i^w[uJ\mid s]:=\E_i^w[uJ\mid s],
+\partial_{I_i}\varepsilon_i(s) = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s],
 \]
-where $w_i(\theta,s):=-1/(u_q(q_i,s)\G_i(\theta))>0$ and the weighted expectation is as defined in Lemma~\ref{lem:SC-dir}. Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\E \underline{CS}_i=\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$, gives $\partial_{I_i}\beta_i=1\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\partial_{I_i}\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so defining $\E_{(s,i)}^w[uJ\mid s]:=\E_s\!\left[\mathsf \E_i^w[uJ\mid s]\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]$,
+Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\E \underline{CS}_i=\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$, gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\partial_{I_i}\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so defining $\E_{(s,i)}^w[uJ\mid s]:=\E_s\!\left[\mathsf \E_i^w[uJ\mid s]\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]$,
 \[
 V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I_i)= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0, \qquad V_{i,k_iI_i}(k_i,I_i) = \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
 \]
@@ -1040,17 +1040,17 @@ Rearranging,
 \[
 \Delta I = -\frac{\Delta\tilde\lambda + \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k}{\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)}.
 \]
-From Lemma~\ref{lem:Vi-concave}, $\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)=1\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)>0$. Hence $\Delta I<0$ if and only if $\Delta\tilde\lambda+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k<0$. Since $\Delta k>0$ by hypothesis, dividing by $\Delta k$ yields
+From Lemma~\ref{lem:Vi-concave}, $\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)>0$. Hence $\Delta I<0$ if and only if $\Delta\tilde\lambda+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k>0$. Since $\Delta k>0$ by hypothesis, dividing by $\Delta k$ yields
 \[
-I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) < -\frac{\Delta\tilde\lambda}{\Delta k}.
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad - \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) <\frac{\Delta\tilde\lambda}{\Delta k}.
 \]
-From the preliminary step of Lemma~\ref{lem:SC-dir}, the sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)=-\E_{(s,i)}^w[uJ\mid s](k_i^\ast)\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)$ is opposite to the sign of \eqref{Eujmd}. This proves the general condition.
+From the preliminary step of Lemma~\ref{lem:SC-dir}, the sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)=-\E_{(s,i)}^w[uJ\mid s](k_i^\ast)/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)$ is opposite to the sign of \eqref{Eujmd}. This proves the general condition.
 
 \textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\overline{w}_i(s)=1/(\alpha\varepsilon_i(s))$ and $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$. Integrating over binding states gives $\E_{(s,i)}^w[uJ\mid s](k_i^\ast)=\E_i[R_\theta]\cdot\Pi_i(k_i^\ast)$. Since $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_{i}(R_\theta)$ under CARA, one obtains $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)=\Pi_i(k_i^\ast)\mathrm{Var}_{i}(R_\theta)/\alpha$. The $\Pi_i$ factors cancel and
 \[
 \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} = -\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_{i}(R_\theta)}.
 \]
-For $\Delta k$, since $\Delta\Pi_i(k_i^\ast)=\E_i[R_\G]\cdot\Pi_i(k_i^\ast)$ and $\Pi_i'(k_i^\ast)=-\Omega_i-\E_{(s,i)}^w[uJ\mid s]^2\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$, the CARA expressions $\Omega_i=\alpha\Pi_i(k_i^\ast)$ and $\E_{(s,i)}^w[uJ\mid s]^2\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\alpha(\E[R_\theta])^2\Pi_i(k_i^\ast)/\mathrm{Var}(R_\theta)$ yield
+For $\Delta k$, since $\Delta\Pi_i(k_i^\ast)=\E_i[R_\G]\cdot\Pi_i(k_i^\ast)$ and $\Pi_i'(k_i^\ast)=-\Omega_i-\E_{(s,i)}^w[uJ\mid s]^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$, the CARA expressions $\Omega_i=\alpha\Pi_i(k_i^\ast)$ and $\E_{(s,i)}^w[uJ\mid s]^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\alpha(\E[R_\theta])^2\Pi_i(k_i^\ast)/\mathrm{Var}(R_\theta)$ yield
 \[
 \Pi_i'(k_i^\ast) = -\frac{\alpha\Pi_i(k_i^\ast)\,\E_i[R_\theta^2]}{\mathrm{Var}_{i}(R_\theta)},
 \]
