@@ -1026,43 +1026,182 @@ Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely
 \subsection{Proof of Proposition \ref{prop:revenueordering}}
 \begin{proof}
 
-\noindent\textit{Part (i).} For $i\in N^+$, complementary slackness gives $\xi_i=0$, so the outer KKT condition from Lemma~\ref{lem:outer} yields $\tilde\lambda_i+\beta_i^\ast=-\zeta_I=:\tilde\lambda^\ast$. Since $\beta_i^\ast>0$, we have $\tilde\lambda_i<\tilde\lambda^\ast$. For $j\in N^0$, $\beta_j^\ast=0$ and the KKT condition gives $\tilde\lambda_j=-\zeta_I+\xi_j=\tilde\lambda^\ast+\xi_j\ge\tilde\lambda^\ast$. Hence $\max_{i\in N^+}\tilde\lambda_i<\tilde\lambda^\ast\le\min_{j\in N^0}\tilde\lambda_j$.
+\noindent\textit{Part (i).} If either $N^+$ or $N^0$ is empty, there is nothing to prove. Assume therefore that both sets are nonempty. For $i\in N^+$, complementary slackness gives $\xi_i=0$, so the outer KKT condition from Lemma~\ref{lem:outer} yields
+\[
+\tilde\lambda_i+\beta_i^\ast=-\zeta_I=:\tilde\lambda^\ast.
+\]
+Since $\beta_i^\ast>0$, we have $\tilde\lambda_i<\tilde\lambda^\ast$. For $j\in N^0$, $\beta_j^\ast=0$ and the KKT condition gives
+\[
+\tilde\lambda_j=-\zeta_I+\xi_j=\tilde\lambda^\ast+\xi_j\ge \tilde\lambda^\ast.
+\]
+Hence
+\[
+\max_{i\in N^+}\tilde\lambda_i<\tilde\lambda^\ast\le \min_{j\in N^0}\tilde\lambda_j,
+\]
+which proves the strict separation.
 
-\noindent\textit{Part (ii).} \textit{General case.} Since \(\beta_i^\ast>0\) and \(\beta_j^\ast>0\), both categories are interior contributors. By Lemma~\ref{lem:outer}, the revenue stationarity condition holds with equality and without slackness:
+\noindent\textit{Part (ii). General case.} Since $\beta_i^\ast>0$ and $\beta_j^\ast>0$, both categories are interior contributors. By Lemma~\ref{lem:outer}, the outer KKT conditions hold with equality and without slackness:
 \[
-\tilde\lambda_i+\beta_i(k_i^\ast,I_i^\ast) = \tilde\lambda_j+\beta_j(k_j^\ast,I_j^\ast).
+\tilde\lambda_i+\beta_i^\ast = \tilde\lambda^\ast = \tilde\lambda_j+\beta_j^\ast,
 \]
-Let $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$, $\Delta k:=k_j^\ast-k_i^\ast$, $\Delta I:=I_j^\ast-I_i^\ast$. Since category \(j\) is obtained from \(i\) through a marginal perturbation, a first-order expansion around \((k_i^\ast,I_i^\ast)\) gives
+so
 \[
-0 = \Delta\tilde\lambda + \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k + \frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)\,\Delta I.
+\Delta\beta^\ast:=\beta_j^\ast-\beta_i^\ast=-\Delta\tilde\lambda.
 \]
-Rearranging,
+Let $\Delta k:=k_j^\ast-k_i^\ast>0$ and $\Delta I:=I_j^\ast-I_i^\ast$. Since category $j$ is obtained from $i$ through a marginal perturbation of redistributive preferences, a first-order expansion of
 \[
-\Delta I = -\frac{\Delta\tilde\lambda + \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k}{\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)}.
+\beta_j^\ast=\beta_j(k_j^\ast,I_j^\ast;\lambda_j)
 \]
-From Lemma~\ref{lem:Vi-concave}, $\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)>0$. Hence $\Delta I<0$ if and only if $\Delta\tilde\lambda+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k>0$. Since $\Delta k>0$ by hypothesis, dividing by $\Delta k$ yields
+around $(k_i^\ast,I_i^\ast;\lambda_i)$ must account for three channels: the movement in $k$, the movement in $I$, and the direct effect of the preference change at fixed $(k_i^\ast,I_i^\ast)$, denoted $\Delta_\lambda\beta_i$. Hence
 \[
-I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad - \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) <\frac{\Delta\tilde\lambda}{\Delta k}.
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k
++
+\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)\,\Delta I
++
+\Delta_\lambda\beta_i
+=
+-\Delta\tilde\lambda.
 \]
-From the preliminary step of Lemma~\ref{lem:SC-dir}, the sign of $\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)=-\E_{(s,i)}^w[uJ\mid s](k_i^\ast)/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)$ is opposite to the sign of \eqref{Eujmd}. This proves the general condition.
 
-\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, so $\overline{w}_i(s)=1/(\alpha\varepsilon_i(s))$ and $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$. Integrating over binding states gives $\E_{(s,i)}^w[uJ\mid s](k_i^\ast)=\E_i[R_\theta]\cdot\Pi_i(k_i^\ast)$. Since $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_{i}(R_\theta)$ under CARA, one obtains $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)=\Pi_i(k_i^\ast)\mathrm{Var}_{i}(R_\theta)/\alpha$. The $\Pi_i$ factors cancel and
+To characterize $\Delta_\lambda\beta_i$, hold $(k_i^\ast,I_i^\ast)$ fixed and differentiate the binding IR constraint
 \[
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast) = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} = -\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_{i}(R_\theta)}.
+\E\underline{CS}_i(k_i^\ast,I_i^\ast;\beta_i;\lambda_i)=0
 \]
-For $\Delta k$, since $\Delta\Pi_i(k_i^\ast)=\E_i[R_\G]\cdot\Pi_i(k_i^\ast)$ and $\Pi_i'(k_i^\ast)=-\Omega_i-\E_{(s,i)}^w[uJ\mid s]^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$, the CARA expressions $\Omega_i=\alpha\Pi_i(k_i^\ast)$ and $\E_{(s,i)}^w[uJ\mid s]^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\alpha(\E[R_\theta])^2\Pi_i(k_i^\ast)/\mathrm{Var}(R_\theta)$ yield
+with respect to the preference perturbation, allowing $\beta_i$ to adjust. This gives
 \[
-\Pi_i'(k_i^\ast) = -\frac{\alpha\Pi_i(k_i^\ast)\,\E_i[R_\theta^2]}{\mathrm{Var}_{i}(R_\theta)},
+\Delta_\lambda\beta_i
+=
+-\frac{\mathcal C_i}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]},
 \]
-using $\mathrm{Var}(R_\theta)+(\E[R_\theta])^2=\E[R_\theta^2]$. Hence $\Delta k=-\Delta\Pi_i/\Pi_i'=\E_i[R_\G]\,\mathrm{Var}_{i}(R_\theta)/(\alpha\,\E_i[R_\theta^2])$. Substituting into the general condition,
+where
 \[
--\frac{\alpha\,\E[R_\theta]}{\mathrm{Var}(R_\theta)} < -\Delta\tilde\lambda\cdot\frac{\alpha\,\E[R_\theta^2]}{\E[R_\G]\,\mathrm{Var}(R_\theta)}.
+\mathcal C_i
+:=
+\E_{(s,i)}\!\left[
+\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)
+\left(
+R_{\mathcal G}(\theta)-\E_i^w[R_{\mathcal G}\mid s]
+\right)
+\mathbf 1_{\{s\in T_i\}}
+\right]
 \]
-Multiplying both sides by $-\mathrm{Var}(R_\theta)/\alpha<0$ reverses the inequality:
+is the direct effect of the perturbation on available revenue at fixed $(k_i^\ast,I_i^\ast,\beta_i^\ast)$.
+
+Rearranging and using
 \[
-\E[R_\theta] > \Delta\tilde\lambda\cdot\frac{\E[R_\theta^2]}{\E[R_\G]}.
+\frac{\partial\beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)
+=
+\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}(k_i^\ast)>0
 \]
-Since $\E[R_\G]>0$ (as $\Delta k>0$) and $\E[R_\theta^2]>0$, rearranging gives the stated condition.
+from Lemma~\ref{lem:Vi-concave}, we obtain
+\[
+\Delta I
+=
+-\frac{
+\Delta\tilde\lambda
++
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k
++
+\Delta_\lambda\beta_i
+}{
+\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)
+}.
+\]
+Since $\frac{\partial\beta_i}{\partial I_i}>0$, we have $\Delta I<0$ if and only if
+\[
+\Delta\tilde\lambda
++
+\frac{\partial\beta_i}{\partial k_i}\Delta k
++
+\Delta_\lambda\beta_i
+>0,
+\]
+which is the stated condition. The sign of
+\[
+\frac{\partial\beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
+=
+-\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}
+\]
+is opposite to the sign of \eqref{Eujmd} by Lemma~\ref{lem:SC-dir}.
+
+\noindent\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent. We compute the three terms entering the general condition in turn.
+
+\noindent\textit{Step 1: $\frac{\partial\beta_i}{\partial k_i}$.} Since $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$ and $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_i(R_\theta)$ under CARA, integrating over binding states gives $\E_{(s,i)}^w[uJ\mid s]=\bar\varepsilon_i\E_i[R_\theta]$ and $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\bar\varepsilon_i\mathrm{Var}_i(R_\theta)/\alpha$, so
+\[
+\frac{\partial\beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
+=
+-\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_i(R_\theta)}.
+\]
+
+\noindent\textit{Step 2: $\Delta k$.} From Theorem~\ref{thm:cat-order},
+\[
+\Delta\Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_\mathcal{G}].
+\]
+Using $\Omega_i=\alpha\Pi_i(k_i^\ast)$ under CARA and
+\[
+\mathrm{Var}(R_\theta)+(\E[R_\theta])^2=\E[R_\theta^2],
+\]
+the formula
+\[
+\Pi_i'(k_i^\ast)
+=
+-\Omega_i-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}
+\]
+reduces to
+\[
+\Pi_i'(k_i^\ast)
+=
+-\alpha\Pi_i(k_i^\ast)\frac{\E_i[R_\theta^2]}{\mathrm{Var}_i(R_\theta)}.
+\]
+Hence
+\[
+\Delta k = -\frac{\Delta\Pi_i}{\Pi_i'(k_i^\ast)}
+\]
+gives
+\[
+\Delta k
+=
+\frac{\E_i[R_\mathcal{G}]\,\mathrm{Var}_i(R_\theta)}{\alpha\,\E_i[R_\theta^2]},
+\]
+so that
+\[
+\Delta k\,\frac{\partial\beta_i}{\partial k_i}
+=
+-\frac{\E_i[R_\mathcal{G}]\,\E_i[R_\theta]}{\E_i[R_\theta^2]}.
+\]
+
+\noindent\textit{Step 3: $\Delta_\lambda\beta_i$.} The direct preference effect on available revenue at fixed $(k_i^\ast,I_i^\ast,\beta_i^\ast)$ is, by the same computation as in the proof of Proposition~\ref{prop:surplus-redist},
+\[
+\mathcal C_i
+=
+\frac{\bar\varepsilon_i}{\alpha}\mathrm{Cov}_i(R_\theta,R_\mathcal{G}).
+\]
+Since
+\[
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+=
+\frac{\bar\varepsilon_i}{\alpha}\mathrm{Var}_i(R_\theta),
+\]
+the $\bar\varepsilon_i/\alpha$ factors cancel and
+\[
+\Delta_\lambda\beta_i
+=
+-\frac{\mathrm{Cov}_i(R_\theta,R_\mathcal{G})}{\mathrm{Var}_i(R_\theta)}.
+\]
+
+\noindent\textit{Assembling.} Combining Steps 1--3,
+\[
+-\!\left(
+\Delta k\,\frac{\partial\beta_i}{\partial k_i}
++
+\Delta_\lambda\beta_i
+\right)
+=
+\frac{\E_i[R_\mathcal{G}]\,\E_i[R_\theta]}{\E_i[R_\theta^2]}
++
+\frac{\mathrm{Cov}_i(R_\theta,R_\mathcal{G})}{\mathrm{Var}_i(R_\theta)},
+\]
+which gives the stated CARA condition.
 \end{proof}
 
 

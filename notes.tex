@@ -8,1254 +8,1253 @@
 \begin{document}
 
 
-\noindent \textbf{How do redistributive preferences shape the optimal allocation?}
-
-A change in redistributive preferences affects the optimal allocation through two channels. First, it directly changes the trade-off between revenue and incentive constraints, captured by $\Delta R_\theta(\theta)$ (we formally define below the preference-perturbation operator $\Delta(\cdot)$). Second, it induces a behavioral response in the optimal allocation $q_i^\times(\theta,s)$, which in turn changes $R_q(\theta)=-u/u_q$. Formally,
-\[
-\Delta \E_{\theta_i}\!\left[R_q(\theta)R_\theta(\theta)\right]
-=
-\E_{\theta_i}\!\left[R_q(\theta)\,\Delta R_\theta(\theta)\right]
-+
-\E_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right],
-\]
-and since $R_q$ depends on $q_i^\times$, we have $\Delta R_q(\theta)=\frac{\partial R_q(\theta)}{\partial q}\,\Delta q_i^\times(\theta,s)$. Hence the behavioral channel equals
-\[
-\E_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right]
-=
-\E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\,\frac{\partial R_q(\theta)}{\partial q}\,R_\theta(\theta)\right].
-\]
-Corollary~\ref{cor:rho-q-cov-iron1} shows that $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in $\theta$, even when the absolute weight change $\Delta\Gamma_i(\theta)$ is monotone. As a result, without further restrictions on preferences and demand curvature, the behavioral channel cannot be signed in general. We therefore focus on the trade-off channel $\E_{\theta_i}[R_q(\theta)\Delta R_\theta(\theta)]$, for which Corollary~\ref{cor:rho-q-cov-iron2} provides conditions under which $\Delta R_\theta(\theta)$ inherits a monotonicity pattern in $\theta$.
-
-In the Appendix, we show that the sign of $R_q'(\theta)$ depends only on the curvature of $u$. In particular,
-\[
-\sign\!\left(R_q'(\theta)\right)=\sign\!\left((u_q(\cdot))^2-u(\cdot)u_{qq}(\cdot)\right).
-\]
-Therefore, $R_q'(\theta)<0$ for linear and quadratic demand functions, while $R_q'(\theta)>0$ for CES/isoelastic demand functions. The sign of $R_\theta'(\theta)$ depends on how the virtual surplus $J_i(\theta)$ moves relative to $\Lambda_i(\theta)$ (the IC term for higher types). Since we assume positive weights, $\Lambda_i(\theta)\ge 0$, and we have
-\[
-\label{signRt}\tag{$\sign R_\theta$}
-\sign\!\left(R_\theta'(\theta)\right)
-=
-\sign\!\left(J_i(\theta)\right)\,
-\sign\!\left(
-\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue}}
--
-\underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC}}
-\right).
-\]
-This expression reflects two effects of an increase in $\theta$ on marginal virtual surplus $u(q_i^\times(\theta,s),s)J_i(\theta)$: the allocation effect through $q_i^\times(\theta,s)$ and the direct effect through $J_i(\theta)$. The first term indicates whether a type generates revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second term compares how the ability to raise revenue, $J_i(\theta)$, changes proportionally faster or slower than the social-weighted IC term, $\Lambda_i(\theta)$. For instance, suppose the virtual surplus is increasing in $\theta$ (i.e., $J_i(\theta)\ge 0$ and the type can contribute to the budget) and $g_i(\theta)$ is regular (so $J_i'(\theta)\ge 0$). Then $R_\theta'(\theta)>0$ if and only if $\frac{J_i'(\theta)}{J_i(\theta)}$ increases proportionally faster than $\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}$. In particular, $\Lambda_i'(\theta)<0$ is a sufficient condition for $R_\theta'(\theta)>0$.\footnote{The sign of $\Lambda_i'(\theta)$ depends on the shape of $g_i(\theta)$ and on $\lambda_i(\theta)$. In particular,
-\[
-\Lambda_i'(\theta)
-=
--\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta),
-\]
-so $\Lambda_i'(\theta)<0$ for a uniform distribution, while its sign may be ambiguous for other distributions.}
-
-The inequality \eqref{COV1}, and therefore the severity of adverse sorting (and the welfare effect of changing $k$), depends crucially on preferences. We first ask under which conditions a change in preferences affects the IC term in \eqref{signRt}. Note that in \eqref{signRt} only the IC term depends on preferences; the revenue term is determined solely by the type distribution. Consider two weight functions $\lambda_i^1(\theta)$ and $\lambda_i^2(\theta)$, and denote by $\Lambda_i^1(\theta)$ and $\Lambda_i^2(\theta)$ the corresponding IC terms. Suppose $\lambda_i^1$ shifts preferences toward higher types proportionally more than $\lambda_i^2$, in the sense that $\frac{\lambda_i^1(\theta)}{\lambda_i^2(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$. In the Appendix we show that for every $\theta$,
-\[
-\frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}
-\;\ge\;
-\frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)},
-\]
-and the inequality reverses when $\lambda_i^1$ shifts preferences toward lower types proportionally more than $\lambda_i^2$. To interpret the implications, assume that $\Lambda_i^{1\,\prime}(\theta)<0$ and $\Lambda_i^{2\,\prime}(\theta)<0$, and that marginal revenue is increasing in $\theta$ ($J_i'(\theta)>0$). Then $R_\theta'(\theta)$ is more likely to be positive when higher types are preferred. Indeed, for types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), $R_\theta'(\theta)>0$ requires $\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}$ to be less negative; since $\frac{\Lambda_i^{1\,\prime}}{\Lambda_i^1}$ is less negative than $\frac{\Lambda_i^{2\,\prime}}{\Lambda_i^2}$, this condition is easier to satisfy under $\lambda_i^1$.
-
-\begin{remarks}
-A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply the absence of adverse sorting, since it places implicit weight on higher types: in that case $\Gamma_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.
-\end{remarks}
-
-The previous comparison applies to any two weight functions. We now characterize conditions under which a marginal perturbation of preferences, denoted $\Delta\lambda_i(\theta)$, affects the sorting effect. The induced change in the welfare weight is
-\[
-\Delta\Gamma_i(\theta)=J_i(\theta)\,\Delta\tilde\lambda_i+\Delta\Lambda_i(\theta),
-\qquad
-\Delta\Lambda_i(\theta)=\gamma_i(\theta)\E\!\left[\Delta\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right].
-\]
-We further impose a mean-preserving preference change, $\Delta\tilde\lambda_i=0$, so that $\Delta\Gamma_i(\theta)=\Delta\Lambda_i(\theta)$. In that case, $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$ indicates that the preference shift tilts toward higher types relative to lower types.\footnote{A monotone change in $\lambda_i(\theta)$ is sufficient to determine the sign of $\Delta\Gamma_i(\theta)$: if $\Delta \lambda_i'(\theta)\ge 0$ for all $\theta$, then $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, while if $\Delta \lambda_i'(\theta)\le 0$ for all $\theta$, then $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$. Under mean preservation, this implies a unique cutoff such that $\Delta \lambda_i(\theta)=0$.} Similarly, $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$ indicates that the preference shift tilts toward lower types. The ratio
-\[
-R_\Gamma(\theta):=\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)}
-\]
-captures the proportional change in preferences. The corollary below formalizes how a preference shift affects the sorting effect through $\Delta R_\theta(\theta)$ (i.e., whether $\operatorname{COV}_{q\theta}$ increases or decreases).
-
-\begin{corollary}\label{cor:rho-q-cov-iron2}
-\noindent{\bf Preferences and sorting effect.} Assume that $R_\theta(\theta)$ is increasing and $R_q(\theta)$ is decreasing.
-
-\noindent (i) If $\Delta \Gamma_i(\theta) \ge 0$ for all $\theta$, then $\Cov_{\theta_i}\!\left(R_q(\theta),\Delta R_\theta(\theta)\right)\ge 0$ if
-\[
-\forall\,\theta:\quad R_\theta(\theta)\,R_\Gamma'(\theta)\le 0
-\quad \text{and} \quad
-\left| \frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)} \right|
-\le
-\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
-\]
-\noindent (ii) If $\Delta \Gamma_i(\theta) \le 0$ for all $\theta$, then $\Cov_{\theta_i}\!\left(R_q(\theta),\Delta R_\theta(\theta)\right)\ge 0$ only if
-\[
-\exists\,\theta:\quad R_\theta(\theta)\,R_\Gamma'(\theta)\ge 0
-\quad \text{and} \quad
-\left| \frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)} \right|
-\ge
-\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
-\]
-\end{corollary}
-
-The sorting effect is adverse when types receiving a larger share of capacity are also those with low or negative marginal virtual surplus (i.e., increasing $R_\theta(\theta)$ and decreasing $R_q(\theta)$).\footnote{The inequalities reverse if $R_\theta'(\theta)$ and $R_q'(\theta)$ have the opposite signs.} Corollary~\ref{cor:rho-q-cov-iron2} provides conditions (sufficient when $\Delta\Gamma_i\ge 0$ and necessary otherwise) under which a preference shift does not exacerbate this adverse sorting. The conditions compare two elasticities: (i) $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. They follow from differentiating $R_\theta(\theta)$:
-\[
-\Delta\!\left(R_\theta'(\theta)\right)
-=
--R_\theta(\theta)\,R_\Gamma'(\theta)-R_\Gamma(\theta)\,R_\theta'(\theta).
-\]
-For example, suppose the market designer shifts weight toward higher types (so $\Delta \Gamma_i\ge 0$ and $R_\Gamma(\theta)\ge 0$). The sufficient condition in (i) restricts two regions: (a) types contributing negatively to revenue ($R_\theta(\theta)<0$) but receiving increasing proportional weights ($R_\Gamma'(\theta)\ge 0$), or (b) types contributing positively to revenue ($R_\theta(\theta)>0$) but receiving decreasing proportional weights ($R_\Gamma'(\theta)\le 0$). In both regions, preference changes that are too concentrated exacerbate adverse sorting; the bound requires changes to be sufficiently gradual. When preferences shift toward lower types ($\Delta\Gamma_i\le 0$), the necessary condition in (ii) is harder to satisfy: such shifts tend to worsen adverse sorting since lower types already receive a disproportionate share of capacity.
-
-We conclude with the effect of preferences on the behavioral response, i.e., how a change in social weights affects the optimal allocation $q_i^\times(\theta,s)$.
-
-\begin{corollary}\label{cor:rho-q-cov-iron1}
-\noindent{\bf Preferences and reallocation.}
-(A) Fix a peak state $s\in T_i^\times$. Consider a first-order perturbation $\Delta(\cdot)$ of preferences. If $R_\Gamma$ is not (a.e.) constant, then $\Delta q_i^\times(\cdot,s)$ is not monotone on $\Theta_i$.
-(B) Moreover, assume that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda(\theta)$ is mean-preserving. Then there exist unique cutoffs $\theta_-<\theta_+$ solving $u(q_i^\times(\theta,s),s)\,\Delta\Gamma_i(\theta)=\Delta\varepsilon_i(s)$ such that:
-(i) if $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, then $\Delta q_i^\times(\theta)\le 0$ for $\theta\in[\underline\theta,\theta_-)\cup(\theta_+,\overline\theta]$ and $\Delta q_i^\times(\theta)\ge 0$ for $\theta\in[\theta_-,\theta_+]$;
-(ii) if $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
-\end{corollary}
-
-Corollary~\ref{cor:rho-q-cov-iron1} has strong consequences for the welfare analysis of preference shifts. Since the aggregate effect combines an average component and a sorting component, and since the behavioral response $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in types, it is not possible, without further structure, to sign the overall expression \eqref{deltaGeneral}.
-
-The corollary relies on three observations. First, even if the absolute preference shift $\Delta\Gamma_i(\theta)$ is monotone, the proportional shift $R_\Gamma(\theta)=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$ is generally not monotone. Second, the designer reallocates toward types with the largest marginal welfare gain, measured by $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$. We show in the proof that if $R_\Gamma(\theta)$ is unimodal, then so is $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$; hence ranking types by marginal welfare gain is equivalent to ranking them by $R_\Gamma(\theta)$. Third, the location of the maximizers of $R_\Gamma(\theta)$ depends on the sign of $\Delta\Gamma_i$: when $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, $R_\Gamma(\theta)$ is quasi-concave with a unique interior maximum, so reallocation concentrates on an interior interval; when $\Delta\Gamma_i(\theta)\le 0$, $R_\Gamma(\theta)$ is quasi-convex and its maximizers occur at the endpoints, so reallocation concentrates near $\underline\theta$ and $\overline\theta$. The capacity constraint yields existence and uniqueness of the interval because $\E_{\theta_i}[\Delta q_i^\times]=0$. Taken together, these observations imply that monotonicity of the absolute weight change is not sufficient to predict reallocation in $q_i^\times$ following a change in preferences.
-
-
-
-
-
-
-
-\section*{Revision Plan for Top-20 Submission (Current Results)}
-
-The goal is to improve clarity, narrative, and interpretability of the existing results without adding new theory.
-
-\subsection*{1. Core message (highest priority)}
-\begin{itemize}
-    \item Define a single unifying takeaway:
-    \begin{quote}
-    Redistributive preferences affect peak-load allocation through a sufficient statistic that combines virtual surplus and informational rents, generating non-monotone and category-specific distortions in allocation and investment.
-    \end{quote}
-    \item Ensure all results map to:
-    \begin{itemize}
-        \item Object: $\mathcal G_i$
-        \item Ratios: $R_\theta$, $R_q$, $R_\Gamma$
-        \item Statistic: $\mathbb E_i^w[uJ \mid s]$
-        \item Implication: non-trivial reallocation and investment effects
-    \end{itemize}
-    \item Add:
-    \begin{itemize}
-        \item A roadmap paragraph at the end of the introduction
-        \item A roadmap paragraph at the start of the private-information section
-    \end{itemize}
-\end{itemize}
-
-\subsection*{2. Reorganize results into three economic blocks}
-\begin{itemize}
-    \item \textbf{Block A: Within-category mechanism}
-    \begin{itemize}
-        \item FOC with $\mathcal G_i$
-        \item Interpretation: IC-adjusted welfare weight
-        \item Key force: sorting tension
-    \end{itemize}
-
-    \item \textbf{Block B: Sufficient statistic and comparative statics}
-    \begin{itemize}
-        \item Central object: $\mathbb E_i^w[uJ \mid s]$
-        \item Decomposition:
-        \begin{itemize}
-            \item Trade-off channel ($R_\theta$, $R_\Gamma$)
-            \item Behavioral channel ($R_q$)
-        \end{itemize}
-        \item CARA as a benchmark simplification
-    \end{itemize}
-
-    \item \textbf{Block C: Across-category allocation and investment}
-    \begin{itemize}
-        \item Allocation across categories
-        \item Investment response
-        \item Aggregation of the sufficient statistic
-    \end{itemize}
-
-    \item For each block:
-    \begin{itemize}
-        \item Add a paragraph explaining its role
-        \item Add a one-line takeaway after each main result
-    \end{itemize}
-\end{itemize}
-
-\subsection*{3. Figures (critical for identification)}
-For each figure, explicitly structure interpretation:
-\begin{itemize}
-    \item State the naive prediction:
-    \begin{quote}
-    ``A natural conjecture would be that \dots''
-    \end{quote}
-    \item State what the figure shows:
-    \begin{quote}
-    ``The figure shows that this fails because \dots''
-    \end{quote}
-\end{itemize}
-
-Types of figures:
-\begin{itemize}
-    \item Within allocation: non-monotone welfare and regime switching
-    \item Preference perturbation: winners and losers across types
-    \item $E[\Delta \Gamma]$ vs $E[R_\Gamma]$: level vs ratio distinction
-    \item Corollary: failure or sharpness of sufficient conditions
-\end{itemize}
-
-\subsection*{4. Economic interpretation of key objects}
-After each definition, include one sentence:
-\begin{itemize}
-    \item $\Gamma_i(\theta)$: effective redistributive weight (welfare + revenue)
-    \item $\mathcal G_i(\theta)$: IC-adjusted marginal social value
-    \item $R_\theta(\theta)$: relative weight on high vs low types
-    \item $R_q(\theta)$: behavioral sensitivity of allocation
-    \item $\mathbb E_i^w[uJ \mid s]$: marginal value of relaxing capacity
-\end{itemize}
-
-\subsection*{5. Make the paper easy to referee}
-\begin{itemize}
-    \item Add a ``result map'' paragraph explaining:
-    \begin{itemize}
-        \item What determines within-category allocation
-        \item What determines cross-category allocation
-        \item What determines investment
-    \end{itemize}
-    \item Provide a compact checklist of assumptions:
-    \begin{itemize}
-        \item Concavity
-        \item Monotonicity
-        \item Positivity of $\mathcal G_i$
-    \end{itemize}
-\end{itemize}
-
-\subsection*{6. Strengthen the main takeaway (``so what?'')}
-\begin{itemize}
-    \item Emphasize:
-    \begin{itemize}
-        \item Redistribution and peak-load pricing are not separable
-        \item IC and revenue constraints interact across categories
-        \item Allocation distortions are non-monotone
-        \item Investment responses can be counterintuitive
-    \end{itemize}
-    \item Include this discussion:
-    \begin{itemize}
-        \item At the end of the introduction
-        \item At the end of the main theorem section
-    \end{itemize}
-\end{itemize}
-
-\subsection*{7. What not to do}
-\begin{itemize}
-    \item Do not add new theorems
-    \item Do not extend the model
-    \item Do not add more simulations
-    \item Do not complicate notation
-\end{itemize}
-
-\subsection*{8. Final checklist}
-\textbf{High priority}
-\begin{itemize}
-    \item Add roadmap paragraphs
-    \item Rewrite figure interpretations
-    \item Add economic meaning to objects
-    \item Add takeaway sentences after results
-\end{itemize}
-
-\textbf{Medium priority}
-\begin{itemize}
-    \item Harmonize interpretation of $R_\theta$, $R_q$, $R_\Gamma$
-    \item Emphasize the sufficient statistic throughout
-    \item Reduce redundancy
-\end{itemize}
-
-\textbf{Low priority}
-\begin{itemize}
-    \item Minor polishing
-    \item Appendix readability
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{How to Sell the Paper: Introduction Strategy}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{The Central Question}
-
-The introduction should be organized around a single question that 
-neither parent literature can answer: how should a regulator jointly 
-design a pricing mechanism and choose an investment level for an 
-essential good when consumers have private information and the 
-regulator has redistributive preferences? The question is natural, 
-practically relevant, and genuinely open. The introduction should 
-establish this question as the center of gravity of the paper before 
-introducing any technical machinery.
-
-The question has two features that make it nontrivial. First, the 
-two decisions --- mechanism design and investment --- are not 
-separable. The mechanism determines both who pays for investment 
-and who benefits from capacity relief, and those two margins 
-interact in ways that change both the optimal investment rule and 
-its distributional consequences. Second, the answer reveals economic 
-forces that are invisible when either problem is solved in isolation: 
-a covariance between how capacity relief is distributed across types 
-and how socially valuable those marginal allocations are, which 
-neither the peak-load pricing literature nor the redistributive 
-mechanism design literature has characterized.
-
-\subsection{What the Paper Is Not}
-
-Before stating the sell positively, it is worth being explicit about 
-three framings that should be avoided, because they will be 
-tempting to write and damaging to the reception of the paper.
-
-The first is ``redistribution and incentive compatibility modify 
-peak-load pricing in non-trivial ways.'' This is a description of 
-difficulty, not of insight. A referee reads this and thinks: 
-difficult but derivative. It positions the paper as an extension 
-rather than a contribution.
-
-The second is ``this paper extends ADK to allow for endogenous 
-capacity.'' This undersells the investment content, frames the paper 
-as incremental relative to ADK, and invites the referee to ask 
-whether the additional results are proportionate to the complexity 
-added. ADK should enter the introduction as the inner benchmark, not 
-as the paper being extended.
-
-The third is ``this paper extends Boiteux-Steiner to allow for 
-redistribution and private information.'' This undersells the 
-mechanism design content and obscures the fact that the paper's 
-main contribution is not the generalization of an investment rule 
-but the identification of the covariance structure that governs 
-both the investment rule and its distributional consequences.
-
-\subsection{The Correct Sell}
-
-The correct sell has three components that should appear in this 
-order in the introduction.
-
-\paragraph{Component one: the investment rule.} The paper derives 
-the correct investment rule for an essential good when the regulator 
-faces privately informed consumers and has redistributive 
-preferences. This is the Boiteux-Steiner rule corrected for 
-informational rents and redistributive preferences simultaneously. 
-The relevant marginal value of capacity is no longer the consumer's 
-raw marginal utility but the incentive-adjusted social value of 
-consumption, $u(q_i,s)\,\mathcal{G}_i(\theta)/\tilde\lambda^\ast$, 
-which weights each type's marginal utility by the ratio of their 
-effective social weight to the equilibrium marginal cost of funds. 
-Under redistributive preferences, the informational wedge generally 
-survives at the optimum: unlike the utilitarian case, the distortion 
-from incomplete information does not wash out in the aggregate 
-investment condition. This is the object of the paper, and 
-everything else serves to derive and characterize it.
-
-\paragraph{Component two: the covariance structure.} Deriving the 
-investment rule requires characterizing the social value of capacity 
-relief under incentive constraints and redistributive preferences. 
-This social value is governed by a covariance between two objects: 
-$R_q(\theta) = -u/u_q$, the demand curvature that determines how 
-capacity relief is distributed across types, and 
-$R_\theta(\theta) = J_i(\theta)/\mathcal{G}_i(\theta)$, the ratio 
-of virtual surplus to effective social weight that determines how 
-socially valuable those marginal allocations are. The covariance 
-between these two is the sufficient statistic that organizes the 
-investment rule, the capacity ranking across categories, and the 
-distributional incidence of investment. This covariance is the 
-economic object that the paper identifies and that neither parent 
-literature contains.
-
-The covariance reveals a fundamental tension: the types that benefit 
-most from capacity expansion are not necessarily the types that make 
-investment socially valuable. This tension is invisible in 
-Boiteux-Steiner because there is no revenue productivity channel 
-without redistribution. It is invisible in ADK because there is no 
-demand responsiveness channel without a capacity margin. The paper 
-shows that when both are present simultaneously, the covariance 
-between them is the correct investment criterion.
-
-\paragraph{Component three: the distributional consequences.} The 
-same covariance object that governs the investment rule also 
-organizes all the paper's distributional results. The sign of 
-$\mathbb{E}^w_i[uJ \mid s]$ determines whether a capacity expansion 
-is progressive or regressive within a category. The proportional 
-change $R_{\mathcal{G}}(\theta)$ determines how a shift in 
-redistributive preferences reallocates quantities within the optimal 
-mechanism and which categories should receive more capacity at the 
-outer optimum. The response of optimal investment to redistributive 
-preference perturbations is governed by the covariance between 
-$R_{\mathcal{G}}(\theta)$ and $R_\theta(\theta)$ within contributing 
-categories. These are not separate results requiring separate 
-derivations: they are consequences of the same covariance structure 
-that produces the investment rule, and the introduction should 
-present them as such.
-
-\subsection{The Role of Observable Categories}
-
-Observable categories --- the labels in ADK's language --- play a 
-role in the introduction that should be presented carefully. Their 
-role is not to create a new physical instrument such as a capacity 
-share. Their role is to allow the regulator to condition the 
-mechanism on group membership, which enables group-specific 
-exploitation of the covariance structure identified in the inner 
-problem. Without labels, the regulator faces a single mechanism for 
-a heterogeneous population and the covariance between $R_q(\theta)$ 
-and $R_\theta(\theta)$ is aggregated away across groups. With labels, 
-the regulator can tailor the distortion pattern to each group's 
-specific covariance structure, and the outer problem then 
-characterizes how those group-specific mechanisms should be 
-coordinated through the investment and financing decisions.
-
-A concrete and practically relevant implementation of this 
-coordination is through explicit capacity shares or priority access 
-rules. Electricity markets use interruptible service contracts. 
-Hospital systems use priority queuing by patient group. Public 
-transport uses reserved capacity for specific user categories. These 
-are implementations of group-specific capacity allocation, and the 
-paper provides the correct normative criterion for setting those 
-shares: not average social need $\tilde\lambda_i$, but the 
-proportional sorting of effective social weights across types within 
-each group, captured by $\mathbb{E}_i[R_{\mathcal{G}}(\theta)]$. 
-This concrete implementation should appear in the introduction as 
-an illustration, not as the main claim.
-
-\subsection{The Structure of the Introduction}
-
-The introduction should proceed in the following order.
-
-First, establish the question: how should a regulator jointly design 
-a pricing mechanism and choose an investment level for an essential 
-good with privately informed consumers and redistributive 
-preferences?
-
-Second, state the answer at a high level: the correct investment 
-criterion is the Boiteux-Steiner rule corrected for informational 
-rents and redistributive preferences, and the correction is governed 
-by a covariance between demand responsiveness and revenue 
-productivity across types.
-
-Third, explain why this covariance is new: it is invisible when 
-either the investment problem or the screening problem is solved in 
-isolation, and it generates economic forces --- non-invariant 
-distributional incidence of investment, non-monotone surplus effects 
-of preference changes, within-group structure of the capacity 
-ranking --- that neither parent literature predicts.
-
-Fourth, state the inner/outer decomposition: the paper solves an 
-inner problem that characterizes the optimal mechanism for a given 
-capacity and financing allocation, and an outer problem that uses 
-the resulting sufficient statistics to determine the optimal 
-capacity allocation and investment level.
-
-Fifth, place ADK as the inner benchmark and Boiteux-Steiner as the 
-investment benchmark, and explain precisely how the paper departs 
-from each.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Comparison with ADK}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Shared Structure}
-
-Both papers share a common redistributive-screening logic. A 
-regulator with unobserved welfare weights $\lambda$ uses publicly 
-observable labels and elicited demand types to target redistribution 
-through the mechanism. The designer cannot elicit $\lambda$ 
-truthfully under incentive compatibility, so she forms conditional 
-beliefs $\lambda_i(\theta) = \mathbb{E}[\lambda \mid i, \theta]$ 
-and uses the statistical correlation between observable types and 
-unobservable welfare weights to design the mechanism. Observable 
-categories play the same tagging role in both papers, enabling 
-group-specific mechanism design that exploits this correlation.
-
-Both papers decompose the social objective into two channels. A 
-revenue channel, through the virtual surplus $J_i(\theta) = \theta 
-- \gamma_i(\theta)$, captures the net revenue the designer can 
-extract from type $\theta$ after compensating higher types for 
-their informational rents. A redistributive channel, through 
-$\Lambda_i(\theta) = \gamma_i(\theta)\,\mathbb{E}[\lambda_i(\tilde\theta) 
-\mid \tilde\theta \geq \theta]$, captures the social value of those 
-informational rents as they accrue to types above $\theta$. The 
-combination $\Gamma_i(\theta) = \tilde\lambda_i J_i(\theta) + 
-\Lambda_i(\theta)$ is the total social return from allocating a 
-marginal unit to type $\theta$, and it is the direct analogue of 
-ADK's social value function $V_i(r) = \alpha J_i(r) + 
-\Lambda_i(r)h_i(r)$.
-
-Both papers generate a partition of groups into those that 
-contribute to the designer's revenue objective and those that do 
-not. In ADK, this partition is governed by the comparison of the 
-revenue weight $\alpha$ with the average Pareto weight 
-$\bar\lambda_i$: group $i$ is subsidised rather than taxed when 
-$\bar\lambda_i > \alpha$. In the paper, the partition $N^+$ versus 
-$N^0$ is governed by the comparison of $\tilde\lambda_i$ with the 
-equilibrium marginal cost of funds $\tilde\lambda^\ast$: category 
-$i$ contributes to investment financing if and only if 
-$\tilde\lambda_i < \tilde\lambda^\ast$.
-
-\subsection{Where the Analogy Is Algebraically Tight but 
-Economically Distinct}
-
-The effective social weight in the paper is $\mathcal{G}_i(\theta) 
-= \Gamma_i(\theta) + \beta_i J_i(\theta)$. When $\beta_i > 0$, 
-this becomes $(\tilde\lambda_i + \beta_i)J_i(\theta) + 
-\Lambda_i(\theta)$, which is algebraically identical to ADK's 
-$V_i(r) = \alpha J_i(r) + \Lambda_i(r)h_i(r)$ under the 
-substitution $\alpha \to \tilde\lambda_i + \beta_i$. This is a 
-genuine formal parallel, but it should not be overstated. In ADK, 
-$\alpha$ is a primitive that the designer takes as given and that 
-admits a clean economic interpretation as the marginal social value 
-of revenue. In the paper, $\beta_i$ is a category-specific 
-endogenous shadow cost of a category-specific financing constraint. 
-It depends jointly on the type distribution, the welfare weights, 
-the capacity level, and the financing requirement, and it changes 
-with the capacity level through the single-crossing structure of 
-$\mathbb{E}^w_i[uJ \mid s]$. These are different economic objects 
-that happen to enter the algebra in the same way.
-
-Furthermore, $\mathcal{G}_i(\theta)$ enters a state-dependent 
-quantity problem through $u(q_i(\theta,s),s)\,\mathcal{G}_i(\theta) 
-= \varepsilon_i(s)$, where both the quantity $q_i(\theta,s)$ and 
-the scarcity rent $\varepsilon_i(s)$ are endogenous and 
-state-specific. ADK's $V_i(r)$ enters a static quality-allocation 
-problem through a concavification argument on the transformed 
-objective $\Psi_i$. The solution techniques, the objects being 
-optimized, and the economic interpretations are all different, even 
-though the formal expression for the effective social weight is 
-algebraically parallel.
-
-\subsection{Two Forces in ADK versus One Analogue in the Paper}
-
-ADK identifies two distinct reasons for nonmarket mechanisms. The 
-first is label-revealed inequality: when the average Pareto weight 
-$\bar\lambda_i$ exceeds the revenue weight $\alpha$, the label 
-identifies a group for which the social value of redistribution 
-justifies allocating some objects for free. The second is 
-WTP-revealed inequality: even when $\bar\lambda_i \leq \alpha$, 
-if low willingness to pay reveals high welfare weights within the 
-group, the optimal mechanism distorts the allocation away from 
-assortative matching. Both forces operate within the within-group 
-problem and shape the optimal allocation rule.
-
-The paper's contributing/non-contributing partition is the outer 
-analogue of the first ADK force. The condition 
-$\tilde\lambda_i < \tilde\lambda^\ast$ parallels 
-$\bar\lambda_i < \alpha$ in its role of identifying which groups 
-bear the financing burden. But this is a statement about the outer 
-financing problem, not about the shape of the within-category 
-allocation rule. The within-category allocation in the paper is 
-always distorted by the covariance structure 
-$\mathbb{E}^w_i[uJ \mid s]$, regardless of whether the category 
-contributes to financing. The ADK within-group distortion and the 
-paper's within-category covariance distortion are driven by 
-different economic forces and should not be conflated.
-
-\subsection{The Monotonicity Contrast}
-
-ADK characterizes the shape of the baseline optimal allocation: 
-random matching below a cutoff type and assortative matching above, 
-with the cutoff determined by the concave-decreasing closure of 
-$\Psi_i$. This is a statement about the optimal mechanism itself. 
-The paper's non-monotonicity result is a statement about comparative 
-statics: even when the baseline optimal allocation has a simple 
-monotone structure under standard regularity conditions, the 
-response of the optimal quantity schedule to redistributive 
-preference perturbations is generically non-monotone across types. 
-The reallocation identity
-\[
-\Delta q_i(\theta,s) 
-= R_q(\theta)
-\left(R_{\mathcal{G}}(\theta) 
-- \mathbb{E}^w_i[R_{\mathcal{G}} \mid s]\right)
-\]
-shows that the quantity response depends on whether the perturbation 
-raises a type's proportional effective weight above or below the 
-capacity-weighted average. The equal-endpoint structure of 
-$R_{\mathcal{G}}(\theta)$ at both boundary types then forces the 
-response to change sign in the interior, producing alternating 
-regions of winners and losers regardless of the direction of the 
-preference shift. This is a different and stronger result than ADK's 
-monotone shape characterization: it says that even a well-behaved 
-baseline mechanism responds to preference changes in a non-trivial 
-way that cannot be inferred from the direction of the change alone.
-
-\subsection{The Across-Category Problem}
-
-Both papers have an across-group allocation problem, and in both 
-papers observable labels are the instrument that makes group-specific 
-treatment possible. In ADK, the across-group problem allocates 
-qualities across groups and generates clean monotone ranking results: 
-groups with higher $\int r\lambda_i(r)\,dG_i(r)$ receive uniformly 
-higher qualities under random matching, and groups with higher 
-$\bar r_i$ receive the highest quality objects under assortative 
-matching. These are level comparisons of scalar sufficient 
-statistics.
-
-In the paper, the across-category problem allocates capacity and 
-financing requirements across categories and determines optimal 
-investment. The category ranking for capacity is governed locally 
-by $\mathbb{E}^w_i[R_{\mathcal{G}} \mid s]$ evaluated at the 
-baseline optimum: a category receives more capacity than a 
-neighboring category in the ordered preference path if and only if 
-the proportional shift in effective social weights raises the 
-expected scarcity rent. This is a local result, evaluated at a 
-benchmark allocation, and it depends on how redistributive 
-preferences are distributed across types within each category, not 
-just on their average. Two categories with identical average welfare 
-weights $\tilde\lambda_i$ can receive opposite capacity rankings if 
-the within-group distribution of effective social weights differs. 
-This has no analogue in ADK, whose across-group ranking conditions 
-depend only on group-level scalar quantities.
-
-\subsection{The Investment Rule as the Structural Departure}
-
-The most important departure from ADK is the investment rule itself, 
-for which ADK has no analogue. ADK's supply is fixed; there is no 
-investment margin to characterize. The paper's investment rule
-\[
-I'(k^\ast) 
-= \frac{1}{\mu^+\tilde\lambda^\ast}
-\sum_{i\in N^+}\mu_i\,
-\mathbb{E}_{(s,i)}\!\left[
-u(q_i(\theta,s),s)\,
-\frac{\mathcal{G}_i(\theta)}{\tilde\lambda^\ast}\,
-\mathbf{1}_{\{s\in T_i\}}
-\right]
-\]
-is the Boiteux-Steiner rule corrected for informational rents and 
-redistributive preferences. The correction is the replacement of 
-raw marginal utility by its incentive-adjusted social value 
-$u\,\mathcal{G}_i(\theta)/\tilde\lambda^\ast$, which weights each 
-type's marginal utility by the ratio of their effective social 
-weight to the marginal cost of funds. Under utilitarian preferences 
-and complete information, this collapses to the standard peak-load 
-rule. Under redistributive preferences, the informational wedge 
-generally survives at the optimum: the gap between the 
-complete-information and incomplete-information welfare profiles 
-persists even at the optimal investment level, in contrast to the 
-utilitarian case where the two coincide at $k^\ast$.
-
-The response of optimal investment to redistributive preference 
-perturbations is governed jointly by an average effect --- the 
-direct impact of the perturbation on category-level scarcity rents 
---- and a sorting effect through the induced change in the 
-equilibrium marginal cost of funds $\tilde\lambda^\ast$. The sign 
-of the sorting effect is determined by the covariance between 
-$R_{\mathcal{G}}(\theta)$ and $R_\theta(\theta)$ within contributing 
-categories. This covariance connects the investment response to 
-the same within-category distributional forces that organize the 
-surplus incidence results and the capacity ranking, establishing 
-a unified structure that runs from the inner problem through to 
-the optimal investment level.
-
-\subsection{Summary of the Comparison}
-
-Table~\ref{tab:comparison} organizes the comparison between ADK 
-and the paper along six dimensions.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lll}
-\hline
-Dimension & ADK & This paper \\
-\hline
-Supply & Fixed, heterogeneous quality & 
-    Endogenous capacity, homogeneous good \\
-Revenue weight & Exogenous primitive $\alpha$ & 
-    Endogenous $\tilde\lambda^\ast$ and $\beta_i$ \\
-Effective social weight & $V_i(r) = \alpha J_i + \Lambda_i h_i$ & 
-    $\mathcal{G}_i(\theta) = \Gamma_i(\theta) + \beta_i J_i(\theta)$ \\
-Within-group result & Monotone shape of optimal allocation & 
-    Covariance governs surplus incidence and \\
- & (random below, assortative above) & 
-    non-monotone response to perturbations \\
-Across-group ranking & Scalar level comparisons & 
-    Local proportional comparisons via \\
- & ($\int r\lambda_i dG_i$, $\bar r_i$) & 
-    $\mathbb{E}_i[R_{\mathcal{G}}(\theta)]$ \\
-Investment rule & None (fixed supply) & 
-    Boiteux-Steiner corrected for \\
- & & informational rents and redistribution \\
-\hline
-\end{tabular}
-\caption{Comparison between ADK and this paper.}
-\label{tab:comparison}
-\end{table}
-
-The relationship between the two papers is therefore the following. 
-ADK provides the redistributive-screening benchmark for the inner 
-problem: the decomposition of the social objective into revenue and 
-redistributive channels, and the tagging logic through which 
-observable labels enable group-specific mechanism design. The paper 
-takes this inner benchmark as given and adds the margin that ADK 
-does not have: endogenous capacity provision under state-contingent 
-scarcity, which introduces the covariance between demand 
-responsiveness and revenue productivity as the central economic 
-object. This covariance is what makes the joint design of the 
-pricing mechanism and the investment level nontrivial, and it is 
-the object that unifies the investment rule, the capacity ranking, 
-and the distributional incidence results into a single coherent 
-framework.
-
-\section{Roadmap for the Introduction: paragraph-by-paragraph content}
-
-\noindent
-The discussion leads to an introduction built around a clear progression:
-\[
-\text{question and environment}
-\;\longrightarrow\;
-\text{two inner margins}
-\;\longrightarrow\;
-\text{within-category mechanism}
-\;\longrightarrow\;
-\text{across-category allocation}
-\;\longrightarrow\;
-\text{aggregate investment rule}.
-\]
-The role of the introduction is not to restate the formal results, but to explain
-the economic logic of the paper in the same order as the reader will later discover it.
-
-\bigskip
-
-\subsection*{Paragraph 1: central question and minimal model structure}
-
-\noindent
-The first paragraph should open with the paper's central economic question and immediately
-embed it in the minimal model environment needed to make that question concrete.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The central question.} State that the paper studies how a regulator should
-    jointly design a pricing mechanism and choose an investment level for an essential good
-    when consumers are privately informed and the regulator has redistributive preferences.
-
-    \item \textbf{The core environment.} Describe the model in economic terms rather than in notation:
-    there is a scarce essential good, demand depends on a common state so scarcity is sometimes
-    binding and sometimes not, consumers are heterogeneous and privately informed, and consumers
-    belong to observable categories.
-
-    \item \textbf{The two policy dimensions.} Explain that the regulator acts both
-    \begin{itemize}
-        \item \emph{within} categories, through the pricing/quantity mechanism,
-        \item and \emph{across} categories, through the allocation of capacity and financing.
-    \end{itemize}
-    This should appear as part of the environment, not yet as the formal inner/outer decomposition.
-
-    \item \textbf{The source of non-separability.} End the paragraph by making clear that pricing
-    and investment cannot be treated separately because the mechanism determines both who finances
-    capacity and who benefits from scarcity relief.
-\end{enumerate}
-
-\medskip
-
-\noindent
-The paragraph should therefore leave the reader with three ideas already in mind:
-\begin{itemize}
-    \item this is a state-dependent peak-load problem rather than a static screening model,
-    \item this is a mechanism-design problem rather than a reduced-form pricing problem,
-    \item and redistribution operates both within categories and across categories.
-\end{itemize}
-
-\bigskip
-
-\subsection*{Paragraph 2: the two inner margins that solve the question}
-
-\noindent
-The second paragraph should explain \emph{how} the paper answers the central question.
-Its role is to present the two key economic margins in words and to show why they generate
-non-trivial economics.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The methodological answer.} Explain that the paper resolves the joint pricing-and-investment
-    problem by identifying two inner margins that summarize how the constrained optimal mechanism responds
-    to changes in scarcity and to changes in redistributive preferences.
-
-    \item \textbf{The first margin: capacity sorting.} Present in words the object captured by
-    $\mathbb E_i^w[uJ\mid s]$.
-    The language should emphasize that when scarcity is relaxed, additional capacity is not spread
-    uniformly across types. The social value of extra capacity depends on how capacity relief is sorted
-    across consumers inside the constrained optimum, and on whether the marginal beneficiaries are also
-    the consumers for whom additional consumption is most socially valuable once informational rents and
-    redistributive weights are taken into account.
-
-    \item \textbf{The second margin: behavioral / preference sorting.} Present in words the object
-    captured by $\Delta\mathcal G_i(\theta)$ and $R_{\mathcal G}(\theta)$.
-    The language should emphasize that a redistributive preference change affects the mechanism through
-    the way social priorities are reweighted across types \emph{relative to the constrained optimum already
-    in place}. The key economic distinction is between an absolute change in effective social weights and
-    a proportional tilt relative to the baseline constrained allocation.
-
-    \item \textbf{The non-triviality of the first margin.} Explain the economic channel:
-    a change in $k_i$ does not merely raise consumption. It changes
-    \begin{itemize}
-        \item the revenue that can be left to or extracted by the market designer,
-        \item and the quantity schedule itself, because the financing constraint and the incentive constraints
-        jointly determine the allocation.
-    \end{itemize}
-    The incidence of capacity expansion is therefore endogenous and need not be monotone across types.
-
-    \item \textbf{The non-triviality of the second margin.} Explain the economic channel:
-    a shift in redistributive preferences does not translate mechanically into a monotone shift in quantities.
-    What matters is how the perturbation is distributed across types relative to the effective social weights
-    already embedded in the constrained optimum.
-
-    \item \textbf{The forward-looking role of the two margins.} Close the paragraph by saying that these two
-    margins do double duty in the paper:
-    they first describe the comparative statics of the mechanism within a category, and they later determine
-    the optimal allocation of capacity and financing across categories.
-\end{enumerate}
-
-\medskip
-
-\noindent
-This paragraph should make the reader understand that the paper's contribution is not simply that
-capacity, incentive compatibility, and financing constraints all matter. The contribution is that the
-paper identifies the specific channels through which they matter:
-\begin{itemize}
-    \item the interaction between scarcity relief and the social value of marginal allocations,
-    \item and the interaction between redistributive perturbations and the constrained optimum already in place.
-\end{itemize}
-
-\bigskip
-
-\subsection*{Paragraph 3: within-category mechanism and comparative statics}
-
-\noindent
-The third paragraph should explain what the paper does at the within-category level.
-Its role is to show that the conditional mechanism is analytically compact, but economically rich because
-its comparative statics are non-trivial and already driven by the two margins introduced above.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The conditional problem.} State that, conditional on $(k_i,I_i)$, the paper characterizes
-    the optimal category-specific mechanism. The characterization is compact enough to make the full problem
-    tractable. The key contrast is that the static conditional optimum is relatively simple, while the economic
-    content appears in how that constrained optimum responds to perturbations.
-
-    \item \textbf{The role of the state structure.} Mention the off-peak / on-peak logic:
-    capacity is slack in some states and binding in others, so the optimal mechanism has a simple pointwise
-    form but with a genuine scarcity structure.
-
-    \item \textbf{Capacity comparative statics inside a category.} Explain the first within-category channel.
-    A change in $k_i$ modifies both
-    \begin{itemize}
-        \item the \emph{available budget} or extractable surplus left to the designer,
-        \item and the \emph{quantity schedule}, because the tightening or loosening of the financing constraint
-        changes the distorted optimal allocation under incentive compatibility.
-    \end{itemize}
-    The introduction should emphasize the narrative, not the full algebra:
-    redistribution makes the budgetary consequences of capacity expansion non-trivial,
-    and these budgetary consequences feed into individual surplus through both a transfer-like component
-    and a quantity-reallocation component.
-
-    \item \textbf{The economic role of $\mathbb E_i^w[uJ\mid s]$.} Explain in words that this object
-    summarizes how scarcity relief is sorted across types relative to the virtual-surplus and effective-weight
-    structure of the constrained optimum. It is the object that determines whether capacity expansion tends to
-    relax or tighten the within-category financing problem, and therefore whether the induced quantity response
-    benefits the types whose marginal contribution lies above or below the relevant weighted average.
-
-    \item \textbf{Preference comparative statics inside a category.} Explain the second within-category channel.
-    A change in redistributive preferences alters both
-    \begin{itemize}
-        \item the marginal social value attached to consumption across types,
-        \item and the optimal quantity schedule, because the scarcity value must still be matched by the
-        incentive-adjusted social weight under the capacity and financing constraints.
-    \end{itemize}
-    The core economic idea is that the mechanism responds to the perturbation \emph{relative to the baseline}
-    through $R_{\mathcal G}$ rather than to $\Delta\mathcal G$ alone.
-
-    \item \textbf{The economic role of $R_{\mathcal G}(\theta)$.} Explain that the behavioral response of
-    quantities depends on whether a type's proportional reweighting lies above or below the appropriate average.
-    This is what generates non-monotone reallocation and non-trivial surplus incidence under redistributive
-    preference changes.
-
-    \item \textbf{The within-category decomposition.} End the paragraph by stating that both types of within-category
-    comparative statics can be understood through two broad components:
-    \begin{itemize}
-        \item a transfer-like or fixed-part component, which works through the budget left to the designer and its
-        redistribution back to consumers,
-        \item and a quantity-reallocation component, which works through the perturbation of the incentive-constrained
-        allocation schedule itself.
-    \end{itemize}
-    The exact formulas are not needed in the introduction; what matters is the economic logic.
-\end{enumerate}
-
-\medskip
-
-\noindent
-The paragraph should leave the reader with the idea that the within-category section is not only a baseline
-mechanism characterization. It is the place where the paper identifies the two margins that govern how scarcity
-and redistribution are transmitted through the constrained optimum.
-
-\bigskip
-
-\subsection*{Paragraph 4: across-category allocation and ranking}
-
-\noindent
-The fourth paragraph should explain how the paper moves from the behavior of the category-specific mechanism
-to the regulator's allocation problem across categories.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The transition from inner to outer.} Begin by saying that once the within-category mechanism
-    has been characterized, the regulator must choose which capacities $k_i$ and financing requirements $I_i$
-    are assigned to each category. This is the outer allocation problem.
-
-    \item \textbf{The simplification result.} Explain that, relative to the within-category analysis,
-    the across-category problem is much simpler:
-    it no longer requires comparing full schedules, because the within-category distortions can be compressed
-    into a small number of category-level sufficient statistics.
-
-    \item \textbf{The two rankings.} State that the outer problem consists of two related ranking exercises:
-    \begin{itemize}
-        \item a ranking of categories by the marginal social value of additional capacity,
-        \item and a ranking of categories by the social cost or value of requiring revenue from them.
-    \end{itemize}
-    The important point is that both rankings are governed by the same inner objects that drove the within-category
-    comparative statics.
-
-    \item \textbf{Capacity ranking.} Explain that the regulator allocates capacity across categories according to
-    category-level summaries of the behavioral / preference-sorting structure. The key economic message is that
-    capacity allocation depends not only on average social need, but on how redistributive concern is sorted across
-    types inside each category.
-
-    \item \textbf{Revenue ranking.} Explain that the regulator allocates financing requirements across categories
-    according to category-level summaries of the capacity-sorting and behavioral-sorting margins. The social desirability
-    of raising revenue from a category depends both on the category's effective social weights and on how the within-category
-    mechanism transforms capacity and financing into extractable surplus.
-
-    \item \textbf{Primitive foundations.} End by explaining that these rankings have an intuitive primitive interpretation
-    under suitable conditions. They are related to features such as
-    \begin{itemize}
-        \item higher average welfare weights,
-        \item and redistributive tilts toward higher or lower types within a category.
-    \end{itemize}
-    This gives the outer allocation problem an economically interpretable foundation rather than a purely formal one.
-\end{enumerate}
-
-\medskip
-
-\noindent
-This paragraph should leave the reader with the idea that the within-category complexity is not lost in the outer problem.
-Instead, it is compressed into a small set of ranking objects that preserve the economic content of the inner analysis.
-
-\bigskip
-
-\subsection*{Paragraph 5: aggregate investment and synthesis}
-
-\noindent
-The final paragraph should present the aggregate investment result as the payoff of the whole paper.
-Its role is to connect the canonical peak-load logic to the two previous layers of analysis and to show that the
-main normative object of the paper is the corrected investment rule.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{Continuity with peak-load pricing.} Open with the canonical principle:
-    the aggregate investment problem retains the usual economic logic of peak-load pricing.
-    The regulator invests until the marginal value of additional capacity equals its marginal financing cost.
-
-    \item \textbf{The new marginal value.} Immediately explain that the paper changes the content of this marginal value.
-    It is no longer raw marginal utility. It is the incentive-adjusted social value of marginal consumption,
-    aggregated only over the contributing categories and normalized by the equilibrium marginal cost of funds.
-    This makes the investment rule a genuine extension of the classical condition rather than a replacement of it.
-
-    \item \textbf{The role of contributing categories.} State that only the categories that finance the expansion enter the
-    aggregate investment condition. This makes the investment rule an equilibrium object tied to the outer allocation problem,
-    not a mechanical average over all consumers.
-
-    \item \textbf{The informational wedge.} Explain the key contrast with the utilitarian benchmark:
-    under redistributive preferences, the informational wedge does not wash out at the optimum.
-    The complete-information and incomplete-information investment rules generally remain different even at the optimal
-    aggregate capacity level.
-
-    \item \textbf{Preference comparative statics of $k^\ast$.} Explain that the aggregate investment rule also delivers
-    comparative statics with respect to redistributive preference changes. These operate through the same inner margins
-    already identified in the within and across sections:
-    preference changes alter both the category-level value of capacity and the equilibrium marginal cost of funds.
-
-    \item \textbf{Incidence of aggregate expansion.} Close by explaining that the welfare incidence of an increase in total
-    capacity is the synthesis of the previous two sections:
-    \begin{itemize}
-        \item within-category incidence depends on how a given category-specific capacity increase is transmitted through
-        the constrained mechanism,
-        \item across-category incidence depends on how the planner redistributes the aggregate increase across categories.
-    \end{itemize}
-    The aggregate investment result therefore unifies the within-category and across-category analyses rather than standing
-    apart from them.
-\end{enumerate}
-
-\medskip
-
-\noindent
-The final paragraph should leave the reader with the following synthesis:
-the paper preserves the classic peak-load logic at the aggregate level, but shows that once private information and
-redistributive preferences are introduced, the social value of investment must be computed through the same two inner
-margins that govern both the mechanism's within-category comparative statics and the regulator's across-category allocation.
-
-\bigskip
-
-\subsection*{Compact summary of the logic across the five paragraphs}
-
-\begin{enumerate}
-    \item \textbf{Paragraph 1:} pose the question and define the model environment.
-    \item \textbf{Paragraph 2:} explain that the paper answers the question through two inner margins:
-    one for scarcity/capacity sorting and one for behavioral/preference sorting.
-    \item \textbf{Paragraph 3:} show how these two margins govern the within-category mechanism and its
-    comparative statics.
-    \item \textbf{Paragraph 4:} show how the same margins are compressed into category-level ranking objects
-    for the outer allocation of capacity and financing.
-    \item \textbf{Paragraph 5:} present the aggregate investment rule as the synthesis of the previous two levels,
-    and as the main normative contribution of the paper.
-\end{enumerate}
-
-
-\section{Roadmap for the Introduction: paragraph-by-paragraph content}
-
-\noindent
-The discussion leads to an introduction built around a clear progression:
-\[
-\text{question and environment}
-\;\longrightarrow\;
-\text{two sorting margins}
-\;\longrightarrow\;
-\text{within-category comparative statics}
-\;\longrightarrow\;
-\text{across-category allocation}
-\;\longrightarrow\;
-\text{aggregate investment rule}.
-\]
-The role of the introduction is not to restate the formal results, but to explain the economic logic of the paper in the same order as the reader will later discover it.
-
-\bigskip
-
-\subsection*{Paragraph 1: central question and minimal model structure}
-
-\noindent
-The first paragraph should open with the paper's central economic question and immediately embed it in the minimal model environment needed to make that question concrete.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The central question.} State that the paper studies how a regulator should jointly design a pricing mechanism and choose an investment level for an essential good when consumers are privately informed and the regulator has redistributive preferences.
-
-    \item \textbf{The core environment.} Describe the model in economic terms rather than in notation: there is a scarce essential good, demand depends on a common state so scarcity is sometimes binding and sometimes not, consumers are heterogeneous and privately informed, and consumers belong to observable categories.
-
-    \item \textbf{The two policy dimensions.} Explain that the regulator acts both
-    \begin{itemize}
-        \item \emph{within} categories, through the pricing/quantity mechanism,
-        \item and \emph{across} categories, through the allocation of capacity and financing.
-    \end{itemize}
-    This should appear as part of the environment, not yet as the formal inner/outer decomposition.
-
-    \item \textbf{The source of non-separability.} End the paragraph by making clear that pricing and investment cannot be treated separately because the mechanism determines both who finances capacity and who benefits from scarcity relief.
-\end{enumerate}
-
-\medskip
-
-\noindent
-The paragraph should therefore leave the reader with three ideas already in mind:
-\begin{itemize}
-    \item this is a state-dependent peak-load problem rather than a static screening model,
-    \item this is a mechanism design problem rather than a reduced-form pricing problem,
-    \item and redistribution operates both within categories and across categories.
-\end{itemize}
-
-\bigskip
-
-\subsection*{Paragraph 2: the core tension and the two sorting margins}
-
-\noindent
-The second paragraph should explain the core tension of the paper and how it generates two sorting margins that organize all subsequent results. The key message is that the interaction between incentive constraints and redistributive preferences creates two endogenous sorting problems that cannot be resolved independently.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The core tension.} Explain that the paper resolves the joint pricing-and-investment problem by identifying the fundamental tension between incentive constraints and redistributive preferences. IC constraints force the designer to leave rents to higher types, while redistributive preferences assign differential social value to those rents. Their interaction generates two sorting margins that simultaneously govern surplus incidence, the feasibility of the mechanism, and the across-category allocation.
-
-    \item \textbf{The first margin: the capacity sorting margin $\mathbb{E}_i^w[uJ\mid s]$.} Present in words the object captured by $\mathbb{E}_i^w[uJ\mid s]$. This is the marginal revenue of the market designer from relaxing the capacity constraint, and it depends on two objects that interact through a sorting effect. The first is the responsiveness of each type to additional capacity, determined by demand curvature, which governs how a marginal unit of capacity is distributed across types at the constrained optimum. The second is whether the types receiving that additional capacity generate positive or negative net revenue for the designer once IC rents to higher types are accounted for. This ratio can be negative when the informational cost of serving a type exceeds its gross value. The sufficient statistic $\mathbb{E}_i^w[uJ\mid s]$ summarizes whether the sorting of capacity expansion across types goes with or against the revenue structure of the mechanism.
-
-    \item \textbf{The second margin: the behavioral sorting margin $R_{\mathcal{G}}(\theta)$.} Present in words the object captured by $\Delta\mathcal{G}_i(\theta)$ and $R_{\mathcal{G}}(\theta)$. A redistributive preference change affects the mechanism through the way social priorities are reweighted across types \emph{relative to the constrained optimum already in place}. The key economic distinction is between an absolute change in effective social weights and a proportional tilt relative to the baseline constrained allocation. What matters for reallocation is not the absolute size of the preference perturbation but how it tilts the effective weight of each type relative to the existing allocation.
-
-    \item \textbf{The non-triviality of the capacity margin.} Explain the economic channel: a change in $k_i$ does not merely raise consumption. It changes
-    \begin{itemize}
-        \item the revenue that can be left to or extracted by the market designer,
-        \item and the quantity schedule itself, because the financing constraint and the incentive constraints jointly determine the allocation.
-    \end{itemize}
-    The incidence of capacity expansion is therefore endogenous and need not be monotone across types.
-
-    \item \textbf{The non-triviality of the behavioral margin.} Explain the economic channel: a shift in redistributive preferences does not translate mechanically into a monotone shift in quantities. What matters is how the perturbation is distributed across types relative to the effective social weights already embedded in the constrained optimum.
-
-    \item \textbf{The forward-looking role of the two margins.} Close the paragraph by saying that these two margins do double duty in the paper: they first describe the comparative statics of the mechanism within a category, and they later determine the optimal allocation of capacity and financing across categories.
-\end{enumerate}
-
-\medskip
-
-\noindent
-This paragraph should make the reader understand that the paper's contribution is not simply that capacity, incentive compatibility, and financing constraints all matter. The contribution is that the paper identifies the specific sorting channels through which they matter:
-\begin{itemize}
-    \item the interaction between scarcity relief and the responsiveness and net revenue structure of the constrained allocation,
-    \item and the interaction between redistributive perturbations and the proportional reweighting of effective social weights relative to the constrained optimum.
-\end{itemize}
-
-\bigskip
-
-\subsection*{Paragraph 3: within-category comparative statics}
-
-\noindent
-The third paragraph should explain the first set of results: how the two sorting margins jointly govern the within-category comparative statics on both capacity expansion and preference perturbations. Its role is to show that the conditional mechanism is analytically compact but economically rich, and that non-monotonicity in both dimensions is a structural feature rather than a special case.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The conditional problem.} State that, conditional on $(k_i,I_i)$, the paper characterizes the optimal category-specific mechanism. The key contrast is that the static conditional optimum is relatively simple, while the economic content appears in how that constrained optimum responds to perturbations.
-
-    \item \textbf{The regime structure.} The market designer is a consumer surplus maximizer, not a profit maximizer. This distinction generates a natural economic question: does the mechanism produce enough revenue, once IC rents and the investment cost are covered, to leave a distributable residual that can be rebated lump-sum to consumers? When the answer is yes, the designer operates in the slack regime and the residual flows back to all consumers. When the answer is no, no such residual exists and the mechanism must be fully self-financing out of virtual surplus. The capacity sorting margin $\mathbb{E}_i^w[uJ\mid s]$ simultaneously determines the sign of this residual, its response to a change in capacity, and the transition between the two regimes. The same object therefore organizes surplus incidence, the shadow cost of the financing constraint, and the feasibility of distributable surplus.
-
-    \item \textbf{Capacity comparative statics inside a category.} Explain the first within-category channel. A change in $k_i$ modifies both the available distributable surplus after accounting for the budget and informational rents, whose directional change is governed by $\mathbb{E}_i^w[uJ\mid s]$, and the quantity schedule itself, because the tightening or loosening of the financing constraint changes the distorted optimal allocation under incentive compatibility.
-
-    \item \textbf{The economic role of $\mathbb{E}_i^w[uJ\mid s]$.} Explain in words that this object summarizes whether the sorting of capacity expansion across types goes with or against the revenue structure of the constrained mechanism. It determines whether capacity expansion tends to generate or exhaust the distributable surplus and therefore whether the induced quantity response benefits the types whose marginal contribution lies above or below the relevant weighted average.
-
-    \item \textbf{Preference comparative statics inside a category.} Explain the second within-category channel. A change in redistributive preferences alters both the marginal social value attached to consumption across types and the optimal quantity schedule, because the scarcity value must still be matched by the incentive-adjusted social weight under the capacity and financing constraints.
-
-    \item \textbf{Two levels of non-triviality in the preference comparative statics.} The non-monotonicity of the optimal quantity response has two logically independent sources that should both be stated. The first is that the relevant object governing reallocation is the proportional change $R_{\mathcal{G}}(\theta)$ rather than the absolute change $\Delta\mathcal{G}_i(\theta)$: a preference shift that is monotone in absolute terms need not be monotone in proportional terms, so the direction of the type-by-type reallocation is already non-obvious. The second is that, regardless of the direction or shape of the perturbation, the proportional change in effective social weight takes the same value at both boundary types. Since the reallocation is zero-sum at fixed capacity and the endpoints have the same sign, the quantity response must change direction at least twice in the interior. Non-monotonicity is therefore a structural feature of the mechanism, not a knife-edge outcome.
-
-    \item \textbf{The within-category decomposition.} End the paragraph by stating that both types of within-category comparative statics can be understood through two broad components:
-    \begin{itemize}
-        \item a transfer-like or fixed-part component, which works through the distributable surplus and its rebate to consumers,
-        \item and a quantity-reallocation component, which works through the perturbation of the incentive-constrained allocation schedule itself.
-    \end{itemize}
-\end{enumerate}
-
-    \item \textbf{The non-triviality of the capacity margin.} Explain the economic channel: a change in $k_i$ does not merely raise consumption. It changes
-    \begin{itemize}
-        \item the revenue that can be left to or extracted by the market designer,
-        \item and the quantity schedule itself, because the financing constraint and the incentive constraints jointly determine the allocation.
-    \end{itemize}
-    The incidence of capacity expansion is therefore endogenous and need not be monotone across types.
-
-    \item \textbf{The non-triviality of the behavioral margin.} Explain the economic channel: a shift in redistributive preferences does not translate mechanically into a monotone shift in quantities. What matters is how the perturbation is distributed across types relative to the effective social weights already embedded in the constrained optimum.
-
-\medskip
-
-\noindent
-The paragraph should leave the reader with the idea that the within-category section identifies the two sorting margins that govern how scarcity and redistribution are transmitted through the constrained optimum, and that non-monotonicity in both dimensions is structurally inevitable.
-
-\bigskip
-
-\subsection*{Paragraph 4: across-category allocation and ranking}
-
-\noindent
-The fourth paragraph should explain how the paper moves from the behavior of the category-specific mechanism to the regulator's allocation problem across categories. It presents three distinct rankings in increasing order of complexity, each governed by a different primitive object.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{The transition from inner to outer.} Begin by saying that once the within-category mechanism has been characterized, the regulator must choose which capacities $k_i$ and financing requirements $I_i$ are assigned to each category. Relative to the within-category analysis, the across-category problem is much simpler: it no longer requires comparing full schedules, because the within-category distortions can be compressed into a small number of category-level sufficient statistics.
-
-    \item \textbf{The capacity ranking.} The regulator allocates more capacity to a category when the behavioral sorting margin $R_{\mathcal{G}}(\theta)$ is positive on average, meaning that the preference perturbation concentrates proportional weight on types for which the constrained allocation is most responsive to scarcity. The primitive condition involves both the average welfare weight and the within-type tilt of preferences toward higher types. Two categories with identical average weights can receive opposite capacity rankings if the within-type tilt differs. A regulator who ranks categories only by average generosity will systematically misallocate capacity.
-
-    \item \textbf{The extensive revenue margin: contributing versus non-contributing categories.} The partition of categories into contributors $N^+$ and non-contributors $N^0$ is governed entirely by the average welfare weight $\tilde\lambda_i$. Categories with sufficiently low average weight contribute to the budget; categories with sufficiently high average weight do not. No within-type structure of preferences is needed to determine this partition. The average welfare weight is therefore a sufficient statistic for the extensive margin of revenue extraction, independently of the within-type preference structure.
-
-    \item \textbf{The intensive revenue ranking.} Conditional on belonging to the contributing set, the ranking of equilibrium revenue requirements across categories depends on how the capacity sorting margin interacts with the preference perturbation within each category. This is a strictly more demanding object than the average weight. The key economic asymmetry is that the same object --- the average welfare weight --- that fully determines whether a category contributes is not sufficient to determine how much it contributes. A regulator who conditions revenue extraction only on average social weights resolves the extensive margin correctly but cannot rank the intensive margin without knowing the within-type sorting structure.
-
-    \item \textbf{Primitive foundations.} End by explaining that the three rankings have interpretable primitive foundations. The capacity ranking depends on whether redistributive preferences are tilted proportionally toward higher types within a category. The extensive margin depends only on the ordering of average welfare weights across categories. The intensive margin depends on whether the proportional preference tilt aligns with the types that generate the most revenue for the constrained mechanism. These are three genuinely distinct primitive conditions, not restatements of the same ordering.
-\end{enumerate}
-
-\medskip
-
-\noindent
-This paragraph should leave the reader with the idea that the within-category complexity is not lost in the outer problem. Instead, it is compressed into a small set of ranking objects that preserve the economic content of the inner analysis, and that average welfare weights alone are insufficient to resolve the full allocation problem.
-
-\bigskip
-
-\subsection*{Paragraph 5: aggregate investment and synthesis}
-
-\noindent
-The final paragraph should present the aggregate investment result as the payoff of the whole paper. Its role is to connect the canonical peak-load logic to the two previous layers of analysis and to show that the main normative object of the paper is the corrected investment rule and its departure from the utilitarian benchmark.
-
-\medskip
-
-\noindent
-This paragraph should contain, in this order:
-
-\begin{enumerate}
-    \item \textbf{Continuity with peak-load pricing.} Open with the canonical principle: the aggregate investment problem retains the usual economic logic of peak-load pricing. The regulator invests until the marginal value of additional capacity equals its marginal financing cost.
-
-    \item \textbf{The new marginal value.} Immediately explain that the paper changes the content of this marginal value. It is no longer raw marginal utility. It is the incentive-adjusted social value of marginal consumption, aggregated only over the contributing categories and normalized by the equilibrium marginal cost of funds. This makes the investment rule a genuine extension of the classical condition rather than a replacement of it.
-
-    \item \textbf{The role of contributing categories.} State that only the categories that finance the expansion enter the aggregate investment condition. This makes the investment rule an equilibrium object tied to the outer allocation problem, not a mechanical average over all consumers.
-
-    \item \textbf{The informational wedge and the utilitarian benchmark.} Explain the key contrast with the utilitarian benchmark and why it is the degenerate case. Under utilitarian preferences, information rents are pure transfers within the social objective: they flow from the designer's revenue to the consumer's surplus, but both sides enter the welfare function with the same unit weight. IC constraints distort the distribution of surplus across types but do not change total utilitarian welfare at the optimum. The complete-information and incomplete-information investment rules therefore coincide at $k^\ast$ under utilitarian preferences. Under redistributive preferences, by contrast, information rents flowing to high types are valued at a different social weight than base consumption, creating a genuine net social cost that persists at the optimum. The gap between the complete- and incomplete-information investment rules survives because the equilibrium marginal cost of funds $\tilde\lambda^\ast$ depends on redistributive preferences through the financing structure, not merely on the level of investment. The utilitarian case emerges as the degenerate benchmark rather than the general case.
-
-    \item \textbf{Preference comparative statics of $k^\ast$.} Explain that the aggregate investment rule also delivers comparative statics with respect to redistributive preference changes. These operate through the same two sorting margins already identified in the within and across sections: preference changes alter both the category-level value of capacity and the equilibrium marginal cost of funds.
-
-    \item \textbf{Incidence of aggregate expansion.} Close by explaining that the welfare incidence of an increase in total capacity is the synthesis of the previous two sections:
-    \begin{itemize}
-        \item within-category incidence depends on how a given category-specific capacity increase is transmitted through the constrained mechanism,
-        \item across-category incidence depends on how the planner redistributes the aggregate increase across categories.
-    \end{itemize}
-    The aggregate investment result therefore unifies the within-category and across-category analyses rather than standing apart from them.
-\end{enumerate}
-
-\medskip
-
-\noindent
-The final paragraph should leave the reader with the following synthesis: the paper preserves the classic peak-load logic at the aggregate level, but shows that once private information and redistributive preferences are introduced, the social value of investment must be computed through the same two sorting margins that govern both the mechanism's within-category comparative statics and the regulator's across-category allocation. The utilitarian case, in which the informational wedge washes out at the optimum, emerges as the degenerate benchmark rather than the general case.
-
-\bigskip
-
-\subsection*{Compact summary of the logic across the five paragraphs}
-
-\begin{enumerate}
-    \item \textbf{Paragraph 1:} pose the question and define the model environment.
-    \item \textbf{Paragraph 2:} explain the core tension between IC constraints and redistributive preferences, and introduce the two sorting margins: the capacity margin $\mathbb{E}_i^w[uJ\mid s]$ and the behavioral margin $R_{\mathcal{G}}(\theta)$.
-    \item \textbf{Paragraph 3:} show how the two margins govern the within-category mechanism and its comparative statics, establish the regime structure through the CS maximizer lens, and explain the two independent sources of non-monotonicity.
-    \item \textbf{Paragraph 4:} present three distinct rankings — capacity, extensive revenue, intensive revenue — each governed by a different primitive object, and establish that average welfare weights are sufficient for the extensive margin but not for the others.
-    \item \textbf{Paragraph 5:} present the aggregate investment rule as the synthesis, explain the utilitarian coincidence as the degenerate benchmark, and connect the investment comparative statics back to the two sorting margins.
-\end{enumerate}
-
-\newpage
-
-This paper studies how a market designer should jointly design the allocation mechanism and choose capacity for an essential good when scarcity is state-dependent, consumers have private information, and the regulator has redistributive preferences captured by welfare weights on consumer surplus. In standard peak-load pricing, the investment problem is governed by a comparison between the marginal utility brought from an additional unit of capacity and its marginal cost. Here, the same logic survives, but the content of the marginal value changes. Under private information, an expansion of capacity depends on which consumers receive the additional quantity under the constrained mechanism, how that reallocation interacts with incentive constraints, and how the market design can raise revenue. I consider an environment in which consumers belong to observable categories, differ in privately known marginal utility within each category, and face a common state that makes capacity bind only in high-demand states. The regulator therefore acts along two margins at once: within each category, it chooses the allocation mechanism; across categories, it chooses how total capacity and the revenue requirement are distributed. By conditioning on observable categories before screening within them, the designer can target scarcity and raising revenue more efficiently, which helps mitigate the efficiency losses created by private information. As a result, both a change in capacity and a change in redistributive preferences operate through the same object: they reshape the constrained allocation within categories and, through it, the social value of relaxing scarcity.
+% \noindent \textbf{How do redistributive preferences shape the optimal allocation?}
+
+% A change in redistributive preferences affects the optimal allocation through two channels. First, it directly changes the trade-off between revenue and incentive constraints, captured by $\Delta R_\theta(\theta)$ (we formally define below the preference-perturbation operator $\Delta(\cdot)$). Second, it induces a behavioral response in the optimal allocation $q_i^\times(\theta,s)$, which in turn changes $R_q(\theta)=-u/u_q$. Formally,
+% \[
+% \Delta \E_{\theta_i}\!\left[R_q(\theta)R_\theta(\theta)\right]
+% =
+% \E_{\theta_i}\!\left[R_q(\theta)\,\Delta R_\theta(\theta)\right]
+% +
+% \E_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right],
+% \]
+% and since $R_q$ depends on $q_i^\times$, we have $\Delta R_q(\theta)=\frac{\partial R_q(\theta)}{\partial q}\,\Delta q_i^\times(\theta,s)$. Hence the behavioral channel equals
+% \[
+% \E_{\theta_i}\!\left[R_\theta(\theta)\,\Delta R_q(\theta)\right]
+% =
+% \E_{\theta_i}\!\left[\Delta q_i^\times(\theta,s)\,\frac{\partial R_q(\theta)}{\partial q}\,R_\theta(\theta)\right].
+% \]
+% Corollary~\ref{cor:rho-q-cov-iron1} shows that $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in $\theta$, even when the absolute weight change $\Delta\Gamma_i(\theta)$ is monotone. As a result, without further restrictions on preferences and demand curvature, the behavioral channel cannot be signed in general. We therefore focus on the trade-off channel $\E_{\theta_i}[R_q(\theta)\Delta R_\theta(\theta)]$, for which Corollary~\ref{cor:rho-q-cov-iron2} provides conditions under which $\Delta R_\theta(\theta)$ inherits a monotonicity pattern in $\theta$.
+
+% In the Appendix, we show that the sign of $R_q'(\theta)$ depends only on the curvature of $u$. In particular,
+% \[
+% \sign\!\left(R_q'(\theta)\right)=\sign\!\left((u_q(\cdot))^2-u(\cdot)u_{qq}(\cdot)\right).
+% \]
+% Therefore, $R_q'(\theta)<0$ for linear and quadratic demand functions, while $R_q'(\theta)>0$ for CES/isoelastic demand functions. The sign of $R_\theta'(\theta)$ depends on how the virtual surplus $J_i(\theta)$ moves relative to $\Lambda_i(\theta)$ (the IC term for higher types). Since we assume positive weights, $\Lambda_i(\theta)\ge 0$, and we have
+% \[
+% \label{signRt}\tag{$\sign R_\theta$}
+% \sign\!\left(R_\theta'(\theta)\right)
+% =
+% \sign\!\left(J_i(\theta)\right)\,
+% \sign\!\left(
+% \underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue}}
+% -
+% \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC}}
+% \right).
+% \]
+% This expression reflects two effects of an increase in $\theta$ on marginal virtual surplus $u(q_i^\times(\theta,s),s)J_i(\theta)$: the allocation effect through $q_i^\times(\theta,s)$ and the direct effect through $J_i(\theta)$. The first term indicates whether a type generates revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second term compares how the ability to raise revenue, $J_i(\theta)$, changes proportionally faster or slower than the social-weighted IC term, $\Lambda_i(\theta)$. For instance, suppose the virtual surplus is increasing in $\theta$ (i.e., $J_i(\theta)\ge 0$ and the type can contribute to the budget) and $g_i(\theta)$ is regular (so $J_i'(\theta)\ge 0$). Then $R_\theta'(\theta)>0$ if and only if $\frac{J_i'(\theta)}{J_i(\theta)}$ increases proportionally faster than $\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}$. In particular, $\Lambda_i'(\theta)<0$ is a sufficient condition for $R_\theta'(\theta)>0$.\footnote{The sign of $\Lambda_i'(\theta)$ depends on the shape of $g_i(\theta)$ and on $\lambda_i(\theta)$. In particular,
+% \[
+% \Lambda_i'(\theta)
+% =
+% -\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta),
+% \]
+% so $\Lambda_i'(\theta)<0$ for a uniform distribution, while its sign may be ambiguous for other distributions.}
+
+% The inequality \eqref{COV1}, and therefore the severity of adverse sorting (and the welfare effect of changing $k$), depends crucially on preferences. We first ask under which conditions a change in preferences affects the IC term in \eqref{signRt}. Note that in \eqref{signRt} only the IC term depends on preferences; the revenue term is determined solely by the type distribution. Consider two weight functions $\lambda_i^1(\theta)$ and $\lambda_i^2(\theta)$, and denote by $\Lambda_i^1(\theta)$ and $\Lambda_i^2(\theta)$ the corresponding IC terms. Suppose $\lambda_i^1$ shifts preferences toward higher types proportionally more than $\lambda_i^2$, in the sense that $\frac{\lambda_i^1(\theta)}{\lambda_i^2(\theta)}$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$. In the Appendix we show that for every $\theta$,
+% \[
+% \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)}
+% \;\ge\;
+% \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)},
+% \]
+% and the inequality reverses when $\lambda_i^1$ shifts preferences toward lower types proportionally more than $\lambda_i^2$. To interpret the implications, assume that $\Lambda_i^{1\,\prime}(\theta)<0$ and $\Lambda_i^{2\,\prime}(\theta)<0$, and that marginal revenue is increasing in $\theta$ ($J_i'(\theta)>0$). Then $R_\theta'(\theta)$ is more likely to be positive when higher types are preferred. Indeed, for types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), $R_\theta'(\theta)>0$ requires $\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}$ to be less negative; since $\frac{\Lambda_i^{1\,\prime}}{\Lambda_i^1}$ is less negative than $\frac{\Lambda_i^{2\,\prime}}{\Lambda_i^2}$, this condition is easier to satisfy under $\lambda_i^1$.
+
+% \begin{remarks}
+% A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply the absence of adverse sorting, since it places implicit weight on higher types: in that case $\Gamma_i(\theta)=\theta$, and the IC term in \eqref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.
+% \end{remarks}
+
+% The previous comparison applies to any two weight functions. We now characterize conditions under which a marginal perturbation of preferences, denoted $\Delta\lambda_i(\theta)$, affects the sorting effect. The induced change in the welfare weight is
+% \[
+% \Delta\Gamma_i(\theta)=J_i(\theta)\,\Delta\tilde\lambda_i+\Delta\Lambda_i(\theta),
+% \qquad
+% \Delta\Lambda_i(\theta)=\gamma_i(\theta)\E\!\left[\Delta\lambda_i(\tilde\theta)\mid \tilde\theta\ge \theta\right].
+% \]
+% We further impose a mean-preserving preference change, $\Delta\tilde\lambda_i=0$, so that $\Delta\Gamma_i(\theta)=\Delta\Lambda_i(\theta)$. In that case, $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$ indicates that the preference shift tilts toward higher types relative to lower types.\footnote{A monotone change in $\lambda_i(\theta)$ is sufficient to determine the sign of $\Delta\Gamma_i(\theta)$: if $\Delta \lambda_i'(\theta)\ge 0$ for all $\theta$, then $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, while if $\Delta \lambda_i'(\theta)\le 0$ for all $\theta$, then $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$. Under mean preservation, this implies a unique cutoff such that $\Delta \lambda_i(\theta)=0$.} Similarly, $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$ indicates that the preference shift tilts toward lower types. The ratio
+% \[
+% R_\Gamma(\theta):=\frac{\Delta\Gamma_i(\theta)}{\Gamma_i(\theta)}
+% \]
+% captures the proportional change in preferences. The corollary below formalizes how a preference shift affects the sorting effect through $\Delta R_\theta(\theta)$ (i.e., whether $\operatorname{COV}_{q\theta}$ increases or decreases).
+
+% \begin{corollary}\label{cor:rho-q-cov-iron2}
+% \noindent{\bf Preferences and sorting effect.} Assume that $R_\theta(\theta)$ is increasing and $R_q(\theta)$ is decreasing.
+
+% \noindent (i) If $\Delta \Gamma_i(\theta) \ge 0$ for all $\theta$, then $\Cov_{\theta_i}\!\left(R_q(\theta),\Delta R_\theta(\theta)\right)\ge 0$ if
+% \[
+% \forall\,\theta:\quad R_\theta(\theta)\,R_\Gamma'(\theta)\le 0
+% \quad \text{and} \quad
+% \left| \frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)} \right|
+% \le
+% \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+% \]
+% \noindent (ii) If $\Delta \Gamma_i(\theta) \le 0$ for all $\theta$, then $\Cov_{\theta_i}\!\left(R_q(\theta),\Delta R_\theta(\theta)\right)\ge 0$ only if
+% \[
+% \exists\,\theta:\quad R_\theta(\theta)\,R_\Gamma'(\theta)\ge 0
+% \quad \text{and} \quad
+% \left| \frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)} \right|
+% \ge
+% \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+% \]
+% \end{corollary}
+
+% The sorting effect is adverse when types receiving a larger share of capacity are also those with low or negative marginal virtual surplus (i.e., increasing $R_\theta(\theta)$ and decreasing $R_q(\theta)$).\footnote{The inequalities reverse if $R_\theta'(\theta)$ and $R_q'(\theta)$ have the opposite signs.} Corollary~\ref{cor:rho-q-cov-iron2} provides conditions (sufficient when $\Delta\Gamma_i\ge 0$ and necessary otherwise) under which a preference shift does not exacerbate this adverse sorting. The conditions compare two elasticities: (i) $\left|\frac{R_\Gamma'(\theta)}{R_\Gamma(\theta)}\right|$, which measures how sharply the preference change varies across types, and (ii) $\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|$, which measures how sharply the existing sorting pattern varies across types. They follow from differentiating $R_\theta(\theta)$:
+% \[
+% \Delta\!\left(R_\theta'(\theta)\right)
+% =
+% -R_\theta(\theta)\,R_\Gamma'(\theta)-R_\Gamma(\theta)\,R_\theta'(\theta).
+% \]
+% For example, suppose the market designer shifts weight toward higher types (so $\Delta \Gamma_i\ge 0$ and $R_\Gamma(\theta)\ge 0$). The sufficient condition in (i) restricts two regions: (a) types contributing negatively to revenue ($R_\theta(\theta)<0$) but receiving increasing proportional weights ($R_\Gamma'(\theta)\ge 0$), or (b) types contributing positively to revenue ($R_\theta(\theta)>0$) but receiving decreasing proportional weights ($R_\Gamma'(\theta)\le 0$). In both regions, preference changes that are too concentrated exacerbate adverse sorting; the bound requires changes to be sufficiently gradual. When preferences shift toward lower types ($\Delta\Gamma_i\le 0$), the necessary condition in (ii) is harder to satisfy: such shifts tend to worsen adverse sorting since lower types already receive a disproportionate share of capacity.
+
+% We conclude with the effect of preferences on the behavioral response, i.e., how a change in social weights affects the optimal allocation $q_i^\times(\theta,s)$.
+
+% \begin{corollary}\label{cor:rho-q-cov-iron1}
+% \noindent{\bf Preferences and reallocation.}
+% (A) Fix a peak state $s\in T_i^\times$. Consider a first-order perturbation $\Delta(\cdot)$ of preferences. If $R_\Gamma$ is not (a.e.) constant, then $\Delta q_i^\times(\cdot,s)$ is not monotone on $\Theta_i$.
+% (B) Moreover, assume that $R_\Gamma(\theta)$ is unimodal and that $\Delta\lambda(\theta)$ is mean-preserving. Then there exist unique cutoffs $\theta_-<\theta_+$ solving $u(q_i^\times(\theta,s),s)\,\Delta\Gamma_i(\theta)=\Delta\varepsilon_i(s)$ such that:
+% (i) if $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, then $\Delta q_i^\times(\theta)\le 0$ for $\theta\in[\underline\theta,\theta_-)\cup(\theta_+,\overline\theta]$ and $\Delta q_i^\times(\theta)\ge 0$ for $\theta\in[\theta_-,\theta_+]$;
+% (ii) if $\Delta\Gamma_i(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
+% \end{corollary}
+
+% Corollary~\ref{cor:rho-q-cov-iron1} has strong consequences for the welfare analysis of preference shifts. Since the aggregate effect combines an average component and a sorting component, and since the behavioral response $\Delta q_i^\times(\cdot,s)$ is generically non-monotone in types, it is not possible, without further structure, to sign the overall expression \eqref{deltaGeneral}.
+
+% The corollary relies on three observations. First, even if the absolute preference shift $\Delta\Gamma_i(\theta)$ is monotone, the proportional shift $R_\Gamma(\theta)=\Delta\Gamma_i(\theta)/\Gamma_i(\theta)$ is generally not monotone. Second, the designer reallocates toward types with the largest marginal welfare gain, measured by $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$. We show in the proof that if $R_\Gamma(\theta)$ is unimodal, then so is $u(q_i^\times(\theta,s),s)\Delta\Gamma_i(\theta)$; hence ranking types by marginal welfare gain is equivalent to ranking them by $R_\Gamma(\theta)$. Third, the location of the maximizers of $R_\Gamma(\theta)$ depends on the sign of $\Delta\Gamma_i$: when $\Delta\Gamma_i(\theta)\ge 0$ for all $\theta$, $R_\Gamma(\theta)$ is quasi-concave with a unique interior maximum, so reallocation concentrates on an interior interval; when $\Delta\Gamma_i(\theta)\le 0$, $R_\Gamma(\theta)$ is quasi-convex and its maximizers occur at the endpoints, so reallocation concentrates near $\underline\theta$ and $\overline\theta$. The capacity constraint yields existence and uniqueness of the interval because $\E_{\theta_i}[\Delta q_i^\times]=0$. Taken together, these observations imply that monotonicity of the absolute weight change is not sufficient to predict reallocation in $q_i^\times$ following a change in preferences.
+
+
+
+
+
+
+
+% \section*{Revision Plan for Top-20 Submission (Current Results)}
+
+% The goal is to improve clarity, narrative, and interpretability of the existing results without adding new theory.
+
+% \subsection*{1. Core message (highest priority)}
+% \begin{itemize}
+%     \item Define a single unifying takeaway:
+%     \begin{quote}
+%     Redistributive preferences affect peak-load allocation through a sufficient statistic that combines virtual surplus and informational rents, generating non-monotone and category-specific distortions in allocation and investment.
+%     \end{quote}
+%     \item Ensure all results map to:
+%     \begin{itemize}
+%         \item Object: $\mathcal G_i$
+%         \item Ratios: $R_\theta$, $R_q$, $R_\Gamma$
+%         \item Statistic: $\mathbb E_i^w[uJ \mid s]$
+%         \item Implication: non-trivial reallocation and investment effects
+%     \end{itemize}
+%     \item Add:
+%     \begin{itemize}
+%         \item A roadmap paragraph at the end of the introduction
+%         \item A roadmap paragraph at the start of the private-information section
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection*{2. Reorganize results into three economic blocks}
+% \begin{itemize}
+%     \item \textbf{Block A: Within-category mechanism}
+%     \begin{itemize}
+%         \item FOC with $\mathcal G_i$
+%         \item Interpretation: IC-adjusted welfare weight
+%         \item Key force: sorting tension
+%     \end{itemize}
+
+%     \item \textbf{Block B: Sufficient statistic and comparative statics}
+%     \begin{itemize}
+%         \item Central object: $\mathbb E_i^w[uJ \mid s]$
+%         \item Decomposition:
+%         \begin{itemize}
+%             \item Trade-off channel ($R_\theta$, $R_\Gamma$)
+%             \item Behavioral channel ($R_q$)
+%         \end{itemize}
+%         \item CARA as a benchmark simplification
+%     \end{itemize}
+
+%     \item \textbf{Block C: Across-category allocation and investment}
+%     \begin{itemize}
+%         \item Allocation across categories
+%         \item Investment response
+%         \item Aggregation of the sufficient statistic
+%     \end{itemize}
+
+%     \item For each block:
+%     \begin{itemize}
+%         \item Add a paragraph explaining its role
+%         \item Add a one-line takeaway after each main result
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection*{3. Figures (critical for identification)}
+% For each figure, explicitly structure interpretation:
+% \begin{itemize}
+%     \item State the naive prediction:
+%     \begin{quote}
+%     ``A natural conjecture would be that \dots''
+%     \end{quote}
+%     \item State what the figure shows:
+%     \begin{quote}
+%     ``The figure shows that this fails because \dots''
+%     \end{quote}
+% \end{itemize}
+
+% Types of figures:
+% \begin{itemize}
+%     \item Within allocation: non-monotone welfare and regime switching
+%     \item Preference perturbation: winners and losers across types
+%     \item $E[\Delta \Gamma]$ vs $E[R_\Gamma]$: level vs ratio distinction
+%     \item Corollary: failure or sharpness of sufficient conditions
+% \end{itemize}
+
+% \subsection*{4. Economic interpretation of key objects}
+% After each definition, include one sentence:
+% \begin{itemize}
+%     \item $\Gamma_i(\theta)$: effective redistributive weight (welfare + revenue)
+%     \item $\mathcal G_i(\theta)$: IC-adjusted marginal social value
+%     \item $R_\theta(\theta)$: relative weight on high vs low types
+%     \item $R_q(\theta)$: behavioral sensitivity of allocation
+%     \item $\mathbb E_i^w[uJ \mid s]$: marginal value of relaxing capacity
+% \end{itemize}
+
+% \subsection*{5. Make the paper easy to referee}
+% \begin{itemize}
+%     \item Add a ``result map'' paragraph explaining:
+%     \begin{itemize}
+%         \item What determines within-category allocation
+%         \item What determines cross-category allocation
+%         \item What determines investment
+%     \end{itemize}
+%     \item Provide a compact checklist of assumptions:
+%     \begin{itemize}
+%         \item Concavity
+%         \item Monotonicity
+%         \item Positivity of $\mathcal G_i$
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection*{6. Strengthen the main takeaway (``so what?'')}
+% \begin{itemize}
+%     \item Emphasize:
+%     \begin{itemize}
+%         \item Redistribution and peak-load pricing are not separable
+%         \item IC and revenue constraints interact across categories
+%         \item Allocation distortions are non-monotone
+%         \item Investment responses can be counterintuitive
+%     \end{itemize}
+%     \item Include this discussion:
+%     \begin{itemize}
+%         \item At the end of the introduction
+%         \item At the end of the main theorem section
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection*{7. What not to do}
+% \begin{itemize}
+%     \item Do not add new theorems
+%     \item Do not extend the model
+%     \item Do not add more simulations
+%     \item Do not complicate notation
+% \end{itemize}
+
+% \subsection*{8. Final checklist}
+% \textbf{High priority}
+% \begin{itemize}
+%     \item Add roadmap paragraphs
+%     \item Rewrite figure interpretations
+%     \item Add economic meaning to objects
+%     \item Add takeaway sentences after results
+% \end{itemize}
+
+% \textbf{Medium priority}
+% \begin{itemize}
+%     \item Harmonize interpretation of $R_\theta$, $R_q$, $R_\Gamma$
+%     \item Emphasize the sufficient statistic throughout
+%     \item Reduce redundancy
+% \end{itemize}
+
+% \textbf{Low priority}
+% \begin{itemize}
+%     \item Minor polishing
+%     \item Appendix readability
+% \end{itemize}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{How to Sell the Paper: Introduction Strategy}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{The Central Question}
+
+% The introduction should be organized around a single question that 
+% neither parent literature can answer: how should a regulator jointly 
+% design a pricing mechanism and choose an investment level for an 
+% essential good when consumers have private information and the 
+% regulator has redistributive preferences? The question is natural, 
+% practically relevant, and genuinely open. The introduction should 
+% establish this question as the center of gravity of the paper before 
+% introducing any technical machinery.
+
+% The question has two features that make it nontrivial. First, the 
+% two decisions --- mechanism design and investment --- are not 
+% separable. The mechanism determines both who pays for investment 
+% and who benefits from capacity relief, and those two margins 
+% interact in ways that change both the optimal investment rule and 
+% its distributional consequences. Second, the answer reveals economic 
+% forces that are invisible when either problem is solved in isolation: 
+% a covariance between how capacity relief is distributed across types 
+% and how socially valuable those marginal allocations are, which 
+% neither the peak-load pricing literature nor the redistributive 
+% mechanism design literature has characterized.
+
+% \subsection{What the Paper Is Not}
+
+% Before stating the sell positively, it is worth being explicit about 
+% three framings that should be avoided, because they will be 
+% tempting to write and damaging to the reception of the paper.
+
+% The first is ``redistribution and incentive compatibility modify 
+% peak-load pricing in non-trivial ways.'' This is a description of 
+% difficulty, not of insight. A referee reads this and thinks: 
+% difficult but derivative. It positions the paper as an extension 
+% rather than a contribution.
+
+% The second is ``this paper extends ADK to allow for endogenous 
+% capacity.'' This undersells the investment content, frames the paper 
+% as incremental relative to ADK, and invites the referee to ask 
+% whether the additional results are proportionate to the complexity 
+% added. ADK should enter the introduction as the inner benchmark, not 
+% as the paper being extended.
+
+% The third is ``this paper extends Boiteux-Steiner to allow for 
+% redistribution and private information.'' This undersells the 
+% mechanism design content and obscures the fact that the paper's 
+% main contribution is not the generalization of an investment rule 
+% but the identification of the covariance structure that governs 
+% both the investment rule and its distributional consequences.
+
+% \subsection{The Correct Sell}
+
+% The correct sell has three components that should appear in this 
+% order in the introduction.
+
+% \paragraph{Component one: the investment rule.} The paper derives 
+% the correct investment rule for an essential good when the regulator 
+% faces privately informed consumers and has redistributive 
+% preferences. This is the Boiteux-Steiner rule corrected for 
+% informational rents and redistributive preferences simultaneously. 
+% The relevant marginal value of capacity is no longer the consumer's 
+% raw marginal utility but the incentive-adjusted social value of 
+% consumption, $u(q_i,s)\,\mathcal{G}_i(\theta)/\tilde\lambda^\ast$, 
+% which weights each type's marginal utility by the ratio of their 
+% effective social weight to the equilibrium marginal cost of funds. 
+% Under redistributive preferences, the informational wedge generally 
+% survives at the optimum: unlike the utilitarian case, the distortion 
+% from incomplete information does not wash out in the aggregate 
+% investment condition. This is the object of the paper, and 
+% everything else serves to derive and characterize it.
+
+% \paragraph{Component two: the covariance structure.} Deriving the 
+% investment rule requires characterizing the social value of capacity 
+% relief under incentive constraints and redistributive preferences. 
+% This social value is governed by a covariance between two objects: 
+% $R_q(\theta) = -u/u_q$, the demand curvature that determines how 
+% capacity relief is distributed across types, and 
+% $R_\theta(\theta) = J_i(\theta)/\mathcal{G}_i(\theta)$, the ratio 
+% of virtual surplus to effective social weight that determines how 
+% socially valuable those marginal allocations are. The covariance 
+% between these two is the sufficient statistic that organizes the 
+% investment rule, the capacity ranking across categories, and the 
+% distributional incidence of investment. This covariance is the 
+% economic object that the paper identifies and that neither parent 
+% literature contains.
+
+% The covariance reveals a fundamental tension: the types that benefit 
+% most from capacity expansion are not necessarily the types that make 
+% investment socially valuable. This tension is invisible in 
+% Boiteux-Steiner because there is no revenue productivity channel 
+% without redistribution. It is invisible in ADK because there is no 
+% demand responsiveness channel without a capacity margin. The paper 
+% shows that when both are present simultaneously, the covariance 
+% between them is the correct investment criterion.
+
+% \paragraph{Component three: the distributional consequences.} The 
+% same covariance object that governs the investment rule also 
+% organizes all the paper's distributional results. The sign of 
+% $\mathbb{E}^w_i[uJ \mid s]$ determines whether a capacity expansion 
+% is progressive or regressive within a category. The proportional 
+% change $R_{\mathcal{G}}(\theta)$ determines how a shift in 
+% redistributive preferences reallocates quantities within the optimal 
+% mechanism and which categories should receive more capacity at the 
+% outer optimum. The response of optimal investment to redistributive 
+% preference perturbations is governed by the covariance between 
+% $R_{\mathcal{G}}(\theta)$ and $R_\theta(\theta)$ within contributing 
+% categories. These are not separate results requiring separate 
+% derivations: they are consequences of the same covariance structure 
+% that produces the investment rule, and the introduction should 
+% present them as such.
+
+% \subsection{The Role of Observable Categories}
+
+% Observable categories --- the labels in ADK's language --- play a 
+% role in the introduction that should be presented carefully. Their 
+% role is not to create a new physical instrument such as a capacity 
+% share. Their role is to allow the regulator to condition the 
+% mechanism on group membership, which enables group-specific 
+% exploitation of the covariance structure identified in the inner 
+% problem. Without labels, the regulator faces a single mechanism for 
+% a heterogeneous population and the covariance between $R_q(\theta)$ 
+% and $R_\theta(\theta)$ is aggregated away across groups. With labels, 
+% the regulator can tailor the distortion pattern to each group's 
+% specific covariance structure, and the outer problem then 
+% characterizes how those group-specific mechanisms should be 
+% coordinated through the investment and financing decisions.
+
+% A concrete and practically relevant implementation of this 
+% coordination is through explicit capacity shares or priority access 
+% rules. Electricity markets use interruptible service contracts. 
+% Hospital systems use priority queuing by patient group. Public 
+% transport uses reserved capacity for specific user categories. These 
+% are implementations of group-specific capacity allocation, and the 
+% paper provides the correct normative criterion for setting those 
+% shares: not average social need $\tilde\lambda_i$, but the 
+% proportional sorting of effective social weights across types within 
+% each group, captured by $\mathbb{E}_i[R_{\mathcal{G}}(\theta)]$. 
+% This concrete implementation should appear in the introduction as 
+% an illustration, not as the main claim.
+
+% \subsection{The Structure of the Introduction}
+
+% The introduction should proceed in the following order.
+
+% First, establish the question: how should a regulator jointly design 
+% a pricing mechanism and choose an investment level for an essential 
+% good with privately informed consumers and redistributive 
+% preferences?
+
+% Second, state the answer at a high level: the correct investment 
+% criterion is the Boiteux-Steiner rule corrected for informational 
+% rents and redistributive preferences, and the correction is governed 
+% by a covariance between demand responsiveness and revenue 
+% productivity across types.
+
+% Third, explain why this covariance is new: it is invisible when 
+% either the investment problem or the screening problem is solved in 
+% isolation, and it generates economic forces --- non-invariant 
+% distributional incidence of investment, non-monotone surplus effects 
+% of preference changes, within-group structure of the capacity 
+% ranking --- that neither parent literature predicts.
+
+% Fourth, state the inner/outer decomposition: the paper solves an 
+% inner problem that characterizes the optimal mechanism for a given 
+% capacity and financing allocation, and an outer problem that uses 
+% the resulting sufficient statistics to determine the optimal 
+% capacity allocation and investment level.
+
+% Fifth, place ADK as the inner benchmark and Boiteux-Steiner as the 
+% investment benchmark, and explain precisely how the paper departs 
+% from each.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Comparison with ADK}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{Shared Structure}
+
+% Both papers share a common redistributive-screening logic. A 
+% regulator with unobserved welfare weights $\lambda$ uses publicly 
+% observable labels and elicited demand types to target redistribution 
+% through the mechanism. The designer cannot elicit $\lambda$ 
+% truthfully under incentive compatibility, so she forms conditional 
+% beliefs $\lambda_i(\theta) = \mathbb{E}[\lambda \mid i, \theta]$ 
+% and uses the statistical correlation between observable types and 
+% unobservable welfare weights to design the mechanism. Observable 
+% categories play the same tagging role in both papers, enabling 
+% group-specific mechanism design that exploits this correlation.
+
+% Both papers decompose the social objective into two channels. A 
+% revenue channel, through the virtual surplus $J_i(\theta) = \theta 
+% - \gamma_i(\theta)$, captures the net revenue the designer can 
+% extract from type $\theta$ after compensating higher types for 
+% their informational rents. A redistributive channel, through 
+% $\Lambda_i(\theta) = \gamma_i(\theta)\,\mathbb{E}[\lambda_i(\tilde\theta) 
+% \mid \tilde\theta \geq \theta]$, captures the social value of those 
+% informational rents as they accrue to types above $\theta$. The 
+% combination $\Gamma_i(\theta) = \tilde\lambda_i J_i(\theta) + 
+% \Lambda_i(\theta)$ is the total social return from allocating a 
+% marginal unit to type $\theta$, and it is the direct analogue of 
+% ADK's social value function $V_i(r) = \alpha J_i(r) + 
+% \Lambda_i(r)h_i(r)$.
+
+% Both papers generate a partition of groups into those that 
+% contribute to the designer's revenue objective and those that do 
+% not. In ADK, this partition is governed by the comparison of the 
+% revenue weight $\alpha$ with the average Pareto weight 
+% $\bar\lambda_i$: group $i$ is subsidised rather than taxed when 
+% $\bar\lambda_i > \alpha$. In the paper, the partition $N^+$ versus 
+% $N^0$ is governed by the comparison of $\tilde\lambda_i$ with the 
+% equilibrium marginal cost of funds $\tilde\lambda^\ast$: category 
+% $i$ contributes to investment financing if and only if 
+% $\tilde\lambda_i < \tilde\lambda^\ast$.
+
+% \subsection{Where the Analogy Is Algebraically Tight but 
+% Economically Distinct}
+
+% The effective social weight in the paper is $\mathcal{G}_i(\theta) 
+% = \Gamma_i(\theta) + \beta_i J_i(\theta)$. When $\beta_i > 0$, 
+% this becomes $(\tilde\lambda_i + \beta_i)J_i(\theta) + 
+% \Lambda_i(\theta)$, which is algebraically identical to ADK's 
+% $V_i(r) = \alpha J_i(r) + \Lambda_i(r)h_i(r)$ under the 
+% substitution $\alpha \to \tilde\lambda_i + \beta_i$. This is a 
+% genuine formal parallel, but it should not be overstated. In ADK, 
+% $\alpha$ is a primitive that the designer takes as given and that 
+% admits a clean economic interpretation as the marginal social value 
+% of revenue. In the paper, $\beta_i$ is a category-specific 
+% endogenous shadow cost of a category-specific financing constraint. 
+% It depends jointly on the type distribution, the welfare weights, 
+% the capacity level, and the financing requirement, and it changes 
+% with the capacity level through the single-crossing structure of 
+% $\mathbb{E}^w_i[uJ \mid s]$. These are different economic objects 
+% that happen to enter the algebra in the same way.
+
+% Furthermore, $\mathcal{G}_i(\theta)$ enters a state-dependent 
+% quantity problem through $u(q_i(\theta,s),s)\,\mathcal{G}_i(\theta) 
+% = \varepsilon_i(s)$, where both the quantity $q_i(\theta,s)$ and 
+% the scarcity rent $\varepsilon_i(s)$ are endogenous and 
+% state-specific. ADK's $V_i(r)$ enters a static quality-allocation 
+% problem through a concavification argument on the transformed 
+% objective $\Psi_i$. The solution techniques, the objects being 
+% optimized, and the economic interpretations are all different, even 
+% though the formal expression for the effective social weight is 
+% algebraically parallel.
+
+% \subsection{Two Forces in ADK versus One Analogue in the Paper}
+
+% ADK identifies two distinct reasons for nonmarket mechanisms. The 
+% first is label-revealed inequality: when the average Pareto weight 
+% $\bar\lambda_i$ exceeds the revenue weight $\alpha$, the label 
+% identifies a group for which the social value of redistribution 
+% justifies allocating some objects for free. The second is 
+% WTP-revealed inequality: even when $\bar\lambda_i \leq \alpha$, 
+% if low willingness to pay reveals high welfare weights within the 
+% group, the optimal mechanism distorts the allocation away from 
+% assortative matching. Both forces operate within the within-group 
+% problem and shape the optimal allocation rule.
+
+% The paper's contributing/non-contributing partition is the outer 
+% analogue of the first ADK force. The condition 
+% $\tilde\lambda_i < \tilde\lambda^\ast$ parallels 
+% $\bar\lambda_i < \alpha$ in its role of identifying which groups 
+% bear the financing burden. But this is a statement about the outer 
+% financing problem, not about the shape of the within-category 
+% allocation rule. The within-category allocation in the paper is 
+% always distorted by the covariance structure 
+% $\mathbb{E}^w_i[uJ \mid s]$, regardless of whether the category 
+% contributes to financing. The ADK within-group distortion and the 
+% paper's within-category covariance distortion are driven by 
+% different economic forces and should not be conflated.
+
+% \subsection{The Monotonicity Contrast}
+
+% ADK characterizes the shape of the baseline optimal allocation: 
+% random matching below a cutoff type and assortative matching above, 
+% with the cutoff determined by the concave-decreasing closure of 
+% $\Psi_i$. This is a statement about the optimal mechanism itself. 
+% The paper's non-monotonicity result is a statement about comparative 
+% statics: even when the baseline optimal allocation has a simple 
+% monotone structure under standard regularity conditions, the 
+% response of the optimal quantity schedule to redistributive 
+% preference perturbations is generically non-monotone across types. 
+% The reallocation identity
+% \[
+% \Delta q_i(\theta,s) 
+% = R_q(\theta)
+% \left(R_{\mathcal{G}}(\theta) 
+% - \mathbb{E}^w_i[R_{\mathcal{G}} \mid s]\right)
+% \]
+% shows that the quantity response depends on whether the perturbation 
+% raises a type's proportional effective weight above or below the 
+% capacity-weighted average. The equal-endpoint structure of 
+% $R_{\mathcal{G}}(\theta)$ at both boundary types then forces the 
+% response to change sign in the interior, producing alternating 
+% regions of winners and losers regardless of the direction of the 
+% preference shift. This is a different and stronger result than ADK's 
+% monotone shape characterization: it says that even a well-behaved 
+% baseline mechanism responds to preference changes in a non-trivial 
+% way that cannot be inferred from the direction of the change alone.
+
+% \subsection{The Across-Category Problem}
+
+% Both papers have an across-group allocation problem, and in both 
+% papers observable labels are the instrument that makes group-specific 
+% treatment possible. In ADK, the across-group problem allocates 
+% qualities across groups and generates clean monotone ranking results: 
+% groups with higher $\int r\lambda_i(r)\,dG_i(r)$ receive uniformly 
+% higher qualities under random matching, and groups with higher 
+% $\bar r_i$ receive the highest quality objects under assortative 
+% matching. These are level comparisons of scalar sufficient 
+% statistics.
+
+% In the paper, the across-category problem allocates capacity and 
+% financing requirements across categories and determines optimal 
+% investment. The category ranking for capacity is governed locally 
+% by $\mathbb{E}^w_i[R_{\mathcal{G}} \mid s]$ evaluated at the 
+% baseline optimum: a category receives more capacity than a 
+% neighboring category in the ordered preference path if and only if 
+% the proportional shift in effective social weights raises the 
+% expected scarcity rent. This is a local result, evaluated at a 
+% benchmark allocation, and it depends on how redistributive 
+% preferences are distributed across types within each category, not 
+% just on their average. Two categories with identical average welfare 
+% weights $\tilde\lambda_i$ can receive opposite capacity rankings if 
+% the within-group distribution of effective social weights differs. 
+% This has no analogue in ADK, whose across-group ranking conditions 
+% depend only on group-level scalar quantities.
+
+% \subsection{The Investment Rule as the Structural Departure}
+
+% The most important departure from ADK is the investment rule itself, 
+% for which ADK has no analogue. ADK's supply is fixed; there is no 
+% investment margin to characterize. The paper's investment rule
+% \[
+% I'(k^\ast) 
+% = \frac{1}{\mu^+\tilde\lambda^\ast}
+% \sum_{i\in N^+}\mu_i\,
+% \mathbb{E}_{(s,i)}\!\left[
+% u(q_i(\theta,s),s)\,
+% \frac{\mathcal{G}_i(\theta)}{\tilde\lambda^\ast}\,
+% \mathbf{1}_{\{s\in T_i\}}
+% \right]
+% \]
+% is the Boiteux-Steiner rule corrected for informational rents and 
+% redistributive preferences. The correction is the replacement of 
+% raw marginal utility by its incentive-adjusted social value 
+% $u\,\mathcal{G}_i(\theta)/\tilde\lambda^\ast$, which weights each 
+% type's marginal utility by the ratio of their effective social 
+% weight to the marginal cost of funds. Under utilitarian preferences 
+% and complete information, this collapses to the standard peak-load 
+% rule. Under redistributive preferences, the informational wedge 
+% generally survives at the optimum: the gap between the 
+% complete-information and incomplete-information welfare profiles 
+% persists even at the optimal investment level, in contrast to the 
+% utilitarian case where the two coincide at $k^\ast$.
+
+% The response of optimal investment to redistributive preference 
+% perturbations is governed jointly by an average effect --- the 
+% direct impact of the perturbation on category-level scarcity rents 
+% --- and a sorting effect through the induced change in the 
+% equilibrium marginal cost of funds $\tilde\lambda^\ast$. The sign 
+% of the sorting effect is determined by the covariance between 
+% $R_{\mathcal{G}}(\theta)$ and $R_\theta(\theta)$ within contributing 
+% categories. This covariance connects the investment response to 
+% the same within-category distributional forces that organize the 
+% surplus incidence results and the capacity ranking, establishing 
+% a unified structure that runs from the inner problem through to 
+% the optimal investment level.
+
+% \subsection{Summary of the Comparison}
+
+% Table~\ref{tab:comparison} organizes the comparison between ADK 
+% and the paper along six dimensions.
+
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{lll}
+% \hline
+% Dimension & ADK & This paper \\
+% \hline
+% Supply & Fixed, heterogeneous quality & 
+%     Endogenous capacity, homogeneous good \\
+% Revenue weight & Exogenous primitive $\alpha$ & 
+%     Endogenous $\tilde\lambda^\ast$ and $\beta_i$ \\
+% Effective social weight & $V_i(r) = \alpha J_i + \Lambda_i h_i$ & 
+%     $\mathcal{G}_i(\theta) = \Gamma_i(\theta) + \beta_i J_i(\theta)$ \\
+% Within-group result & Monotone shape of optimal allocation & 
+%     Covariance governs surplus incidence and \\
+%  & (random below, assortative above) & 
+%     non-monotone response to perturbations \\
+% Across-group ranking & Scalar level comparisons & 
+%     Local proportional comparisons via \\
+%  & ($\int r\lambda_i dG_i$, $\bar r_i$) & 
+%     $\mathbb{E}_i[R_{\mathcal{G}}(\theta)]$ \\
+% Investment rule & None (fixed supply) & 
+%     Boiteux-Steiner corrected for \\
+%  & & informational rents and redistribution \\
+% \hline
+% \end{tabular}
+% \caption{Comparison between ADK and this paper.}
+% \label{tab:comparison}
+% \end{table}
+
+% The relationship between the two papers is therefore the following. 
+% ADK provides the redistributive-screening benchmark for the inner 
+% problem: the decomposition of the social objective into revenue and 
+% redistributive channels, and the tagging logic through which 
+% observable labels enable group-specific mechanism design. The paper 
+% takes this inner benchmark as given and adds the margin that ADK 
+% does not have: endogenous capacity provision under state-contingent 
+% scarcity, which introduces the covariance between demand 
+% responsiveness and revenue productivity as the central economic 
+% object. This covariance is what makes the joint design of the 
+% pricing mechanism and the investment level nontrivial, and it is 
+% the object that unifies the investment rule, the capacity ranking, 
+% and the distributional incidence results into a single coherent 
+% framework.
+
+% \section{Roadmap for the Introduction: paragraph-by-paragraph content}
+
+% \noindent
+% The discussion leads to an introduction built around a clear progression:
+% \[
+% \text{question and environment}
+% \;\longrightarrow\;
+% \text{two inner margins}
+% \;\longrightarrow\;
+% \text{within-category mechanism}
+% \;\longrightarrow\;
+% \text{across-category allocation}
+% \;\longrightarrow\;
+% \text{aggregate investment rule}.
+% \]
+% The role of the introduction is not to restate the formal results, but to explain
+% the economic logic of the paper in the same order as the reader will later discover it.
+
+% \bigskip
+
+% \subsection*{Paragraph 1: central question and minimal model structure}
+
+% \noindent
+% The first paragraph should open with the paper's central economic question and immediately
+% embed it in the minimal model environment needed to make that question concrete.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The central question.} State that the paper studies how a regulator should
+%     jointly design a pricing mechanism and choose an investment level for an essential good
+%     when consumers are privately informed and the regulator has redistributive preferences.
+
+%     \item \textbf{The core environment.} Describe the model in economic terms rather than in notation:
+%     there is a scarce essential good, demand depends on a common state so scarcity is sometimes
+%     binding and sometimes not, consumers are heterogeneous and privately informed, and consumers
+%     belong to observable categories.
+
+%     \item \textbf{The two policy dimensions.} Explain that the regulator acts both
+%     \begin{itemize}
+%         \item \emph{within} categories, through the pricing/quantity mechanism,
+%         \item and \emph{across} categories, through the allocation of capacity and financing.
+%     \end{itemize}
+%     This should appear as part of the environment, not yet as the formal inner/outer decomposition.
+
+%     \item \textbf{The source of non-separability.} End the paragraph by making clear that pricing
+%     and investment cannot be treated separately because the mechanism determines both who finances
+%     capacity and who benefits from scarcity relief.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% The paragraph should therefore leave the reader with three ideas already in mind:
+% \begin{itemize}
+%     \item this is a state-dependent peak-load problem rather than a static screening model,
+%     \item this is a mechanism-design problem rather than a reduced-form pricing problem,
+%     \item and redistribution operates both within categories and across categories.
+% \end{itemize}
+
+% \bigskip
+
+% \subsection*{Paragraph 2: the two inner margins that solve the question}
+
+% \noindent
+% The second paragraph should explain \emph{how} the paper answers the central question.
+% Its role is to present the two key economic margins in words and to show why they generate
+% non-trivial economics.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The methodological answer.} Explain that the paper resolves the joint pricing-and-investment
+%     problem by identifying two inner margins that summarize how the constrained optimal mechanism responds
+%     to changes in scarcity and to changes in redistributive preferences.
+
+%     \item \textbf{The first margin: capacity sorting.} Present in words the object captured by
+%     $\mathbb E_i^w[uJ\mid s]$.
+%     The language should emphasize that when scarcity is relaxed, additional capacity is not spread
+%     uniformly across types. The social value of extra capacity depends on how capacity relief is sorted
+%     across consumers inside the constrained optimum, and on whether the marginal beneficiaries are also
+%     the consumers for whom additional consumption is most socially valuable once informational rents and
+%     redistributive weights are taken into account.
+
+%     \item \textbf{The second margin: behavioral / preference sorting.} Present in words the object
+%     captured by $\Delta\mathcal G_i(\theta)$ and $R_{\mathcal G}(\theta)$.
+%     The language should emphasize that a redistributive preference change affects the mechanism through
+%     the way social priorities are reweighted across types \emph{relative to the constrained optimum already
+%     in place}. The key economic distinction is between an absolute change in effective social weights and
+%     a proportional tilt relative to the baseline constrained allocation.
+
+%     \item \textbf{The non-triviality of the first margin.} Explain the economic channel:
+%     a change in $k_i$ does not merely raise consumption. It changes
+%     \begin{itemize}
+%         \item the revenue that can be left to or extracted by the market designer,
+%         \item and the quantity schedule itself, because the financing constraint and the incentive constraints
+%         jointly determine the allocation.
+%     \end{itemize}
+%     The incidence of capacity expansion is therefore endogenous and need not be monotone across types.
+
+%     \item \textbf{The non-triviality of the second margin.} Explain the economic channel:
+%     a shift in redistributive preferences does not translate mechanically into a monotone shift in quantities.
+%     What matters is how the perturbation is distributed across types relative to the effective social weights
+%     already embedded in the constrained optimum.
+
+%     \item \textbf{The forward-looking role of the two margins.} Close the paragraph by saying that these two
+%     margins do double duty in the paper:
+%     they first describe the comparative statics of the mechanism within a category, and they later determine
+%     the optimal allocation of capacity and financing across categories.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% This paragraph should make the reader understand that the paper's contribution is not simply that
+% capacity, incentive compatibility, and financing constraints all matter. The contribution is that the
+% paper identifies the specific channels through which they matter:
+% \begin{itemize}
+%     \item the interaction between scarcity relief and the social value of marginal allocations,
+%     \item and the interaction between redistributive perturbations and the constrained optimum already in place.
+% \end{itemize}
+
+% \bigskip
+
+% \subsection*{Paragraph 3: within-category mechanism and comparative statics}
+
+% \noindent
+% The third paragraph should explain what the paper does at the within-category level.
+% Its role is to show that the conditional mechanism is analytically compact, but economically rich because
+% its comparative statics are non-trivial and already driven by the two margins introduced above.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The conditional problem.} State that, conditional on $(k_i,I_i)$, the paper characterizes
+%     the optimal category-specific mechanism. The characterization is compact enough to make the full problem
+%     tractable. The key contrast is that the static conditional optimum is relatively simple, while the economic
+%     content appears in how that constrained optimum responds to perturbations.
+
+%     \item \textbf{The role of the state structure.} Mention the off-peak / on-peak logic:
+%     capacity is slack in some states and binding in others, so the optimal mechanism has a simple pointwise
+%     form but with a genuine scarcity structure.
+
+%     \item \textbf{Capacity comparative statics inside a category.} Explain the first within-category channel.
+%     A change in $k_i$ modifies both
+%     \begin{itemize}
+%         \item the \emph{available budget} or extractable surplus left to the designer,
+%         \item and the \emph{quantity schedule}, because the tightening or loosening of the financing constraint
+%         changes the distorted optimal allocation under incentive compatibility.
+%     \end{itemize}
+%     The introduction should emphasize the narrative, not the full algebra:
+%     redistribution makes the budgetary consequences of capacity expansion non-trivial,
+%     and these budgetary consequences feed into individual surplus through both a transfer-like component
+%     and a quantity-reallocation component.
+
+%     \item \textbf{The economic role of $\mathbb E_i^w[uJ\mid s]$.} Explain in words that this object
+%     summarizes how scarcity relief is sorted across types relative to the virtual-surplus and effective-weight
+%     structure of the constrained optimum. It is the object that determines whether capacity expansion tends to
+%     relax or tighten the within-category financing problem, and therefore whether the induced quantity response
+%     benefits the types whose marginal contribution lies above or below the relevant weighted average.
+
+%     \item \textbf{Preference comparative statics inside a category.} Explain the second within-category channel.
+%     A change in redistributive preferences alters both
+%     \begin{itemize}
+%         \item the marginal social value attached to consumption across types,
+%         \item and the optimal quantity schedule, because the scarcity value must still be matched by the
+%         incentive-adjusted social weight under the capacity and financing constraints.
+%     \end{itemize}
+%     The core economic idea is that the mechanism responds to the perturbation \emph{relative to the baseline}
+%     through $R_{\mathcal G}$ rather than to $\Delta\mathcal G$ alone.
+
+%     \item \textbf{The economic role of $R_{\mathcal G}(\theta)$.} Explain that the behavioral response of
+%     quantities depends on whether a type's proportional reweighting lies above or below the appropriate average.
+%     This is what generates non-monotone reallocation and non-trivial surplus incidence under redistributive
+%     preference changes.
+
+%     \item \textbf{The within-category decomposition.} End the paragraph by stating that both types of within-category
+%     comparative statics can be understood through two broad components:
+%     \begin{itemize}
+%         \item a transfer-like or fixed-part component, which works through the budget left to the designer and its
+%         redistribution back to consumers,
+%         \item and a quantity-reallocation component, which works through the perturbation of the incentive-constrained
+%         allocation schedule itself.
+%     \end{itemize}
+%     The exact formulas are not needed in the introduction; what matters is the economic logic.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% The paragraph should leave the reader with the idea that the within-category section is not only a baseline
+% mechanism characterization. It is the place where the paper identifies the two margins that govern how scarcity
+% and redistribution are transmitted through the constrained optimum.
+
+% \bigskip
+
+% \subsection*{Paragraph 4: across-category allocation and ranking}
+
+% \noindent
+% The fourth paragraph should explain how the paper moves from the behavior of the category-specific mechanism
+% to the regulator's allocation problem across categories.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The transition from inner to outer.} Begin by saying that once the within-category mechanism
+%     has been characterized, the regulator must choose which capacities $k_i$ and financing requirements $I_i$
+%     are assigned to each category. This is the outer allocation problem.
+
+%     \item \textbf{The simplification result.} Explain that, relative to the within-category analysis,
+%     the across-category problem is much simpler:
+%     it no longer requires comparing full schedules, because the within-category distortions can be compressed
+%     into a small number of category-level sufficient statistics.
+
+%     \item \textbf{The two rankings.} State that the outer problem consists of two related ranking exercises:
+%     \begin{itemize}
+%         \item a ranking of categories by the marginal social value of additional capacity,
+%         \item and a ranking of categories by the social cost or value of requiring revenue from them.
+%     \end{itemize}
+%     The important point is that both rankings are governed by the same inner objects that drove the within-category
+%     comparative statics.
+
+%     \item \textbf{Capacity ranking.} Explain that the regulator allocates capacity across categories according to
+%     category-level summaries of the behavioral / preference-sorting structure. The key economic message is that
+%     capacity allocation depends not only on average social need, but on how redistributive concern is sorted across
+%     types inside each category.
+
+%     \item \textbf{Revenue ranking.} Explain that the regulator allocates financing requirements across categories
+%     according to category-level summaries of the capacity-sorting and behavioral-sorting margins. The social desirability
+%     of raising revenue from a category depends both on the category's effective social weights and on how the within-category
+%     mechanism transforms capacity and financing into extractable surplus.
+
+%     \item \textbf{Primitive foundations.} End by explaining that these rankings have an intuitive primitive interpretation
+%     under suitable conditions. They are related to features such as
+%     \begin{itemize}
+%         \item higher average welfare weights,
+%         \item and redistributive tilts toward higher or lower types within a category.
+%     \end{itemize}
+%     This gives the outer allocation problem an economically interpretable foundation rather than a purely formal one.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% This paragraph should leave the reader with the idea that the within-category complexity is not lost in the outer problem.
+% Instead, it is compressed into a small set of ranking objects that preserve the economic content of the inner analysis.
+
+% \bigskip
+
+% \subsection*{Paragraph 5: aggregate investment and synthesis}
+
+% \noindent
+% The final paragraph should present the aggregate investment result as the payoff of the whole paper.
+% Its role is to connect the canonical peak-load logic to the two previous layers of analysis and to show that the
+% main normative object of the paper is the corrected investment rule.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{Continuity with peak-load pricing.} Open with the canonical principle:
+%     the aggregate investment problem retains the usual economic logic of peak-load pricing.
+%     The regulator invests until the marginal value of additional capacity equals its marginal financing cost.
+
+%     \item \textbf{The new marginal value.} Immediately explain that the paper changes the content of this marginal value.
+%     It is no longer raw marginal utility. It is the incentive-adjusted social value of marginal consumption,
+%     aggregated only over the contributing categories and normalized by the equilibrium marginal cost of funds.
+%     This makes the investment rule a genuine extension of the classical condition rather than a replacement of it.
+
+%     \item \textbf{The role of contributing categories.} State that only the categories that finance the expansion enter the
+%     aggregate investment condition. This makes the investment rule an equilibrium object tied to the outer allocation problem,
+%     not a mechanical average over all consumers.
+
+%     \item \textbf{The informational wedge.} Explain the key contrast with the utilitarian benchmark:
+%     under redistributive preferences, the informational wedge does not wash out at the optimum.
+%     The complete-information and incomplete-information investment rules generally remain different even at the optimal
+%     aggregate capacity level.
+
+%     \item \textbf{Preference comparative statics of $k^\ast$.} Explain that the aggregate investment rule also delivers
+%     comparative statics with respect to redistributive preference changes. These operate through the same inner margins
+%     already identified in the within and across sections:
+%     preference changes alter both the category-level value of capacity and the equilibrium marginal cost of funds.
+
+%     \item \textbf{Incidence of aggregate expansion.} Close by explaining that the welfare incidence of an increase in total
+%     capacity is the synthesis of the previous two sections:
+%     \begin{itemize}
+%         \item within-category incidence depends on how a given category-specific capacity increase is transmitted through
+%         the constrained mechanism,
+%         \item across-category incidence depends on how the planner redistributes the aggregate increase across categories.
+%     \end{itemize}
+%     The aggregate investment result therefore unifies the within-category and across-category analyses rather than standing
+%     apart from them.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% The final paragraph should leave the reader with the following synthesis:
+% the paper preserves the classic peak-load logic at the aggregate level, but shows that once private information and
+% redistributive preferences are introduced, the social value of investment must be computed through the same two inner
+% margins that govern both the mechanism's within-category comparative statics and the regulator's across-category allocation.
+
+% \bigskip
+
+% \subsection*{Compact summary of the logic across the five paragraphs}
+
+% \begin{enumerate}
+%     \item \textbf{Paragraph 1:} pose the question and define the model environment.
+%     \item \textbf{Paragraph 2:} explain that the paper answers the question through two inner margins:
+%     one for scarcity/capacity sorting and one for behavioral/preference sorting.
+%     \item \textbf{Paragraph 3:} show how these two margins govern the within-category mechanism and its
+%     comparative statics.
+%     \item \textbf{Paragraph 4:} show how the same margins are compressed into category-level ranking objects
+%     for the outer allocation of capacity and financing.
+%     \item \textbf{Paragraph 5:} present the aggregate investment rule as the synthesis of the previous two levels,
+%     and as the main normative contribution of the paper.
+% \end{enumerate}
+
+
+% \section{Roadmap for the Introduction: paragraph-by-paragraph content}
+
+% \noindent
+% The discussion leads to an introduction built around a clear progression:
+% \[
+% \text{question and environment}
+% \;\longrightarrow\;
+% \text{two sorting margins}
+% \;\longrightarrow\;
+% \text{within-category comparative statics}
+% \;\longrightarrow\;
+% \text{across-category allocation}
+% \;\longrightarrow\;
+% \text{aggregate investment rule}.
+% \]
+% The role of the introduction is not to restate the formal results, but to explain the economic logic of the paper in the same order as the reader will later discover it.
+
+% \bigskip
+
+% \subsection*{Paragraph 1: central question and minimal model structure}
+
+% \noindent
+% The first paragraph should open with the paper's central economic question and immediately embed it in the minimal model environment needed to make that question concrete.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The central question.} State that the paper studies how a regulator should jointly design a pricing mechanism and choose an investment level for an essential good when consumers are privately informed and the regulator has redistributive preferences.
+
+%     \item \textbf{The core environment.} Describe the model in economic terms rather than in notation: there is a scarce essential good, demand depends on a common state so scarcity is sometimes binding and sometimes not, consumers are heterogeneous and privately informed, and consumers belong to observable categories.
+
+%     \item \textbf{The two policy dimensions.} Explain that the regulator acts both
+%     \begin{itemize}
+%         \item \emph{within} categories, through the pricing/quantity mechanism,
+%         \item and \emph{across} categories, through the allocation of capacity and financing.
+%     \end{itemize}
+%     This should appear as part of the environment, not yet as the formal inner/outer decomposition.
+
+%     \item \textbf{The source of non-separability.} End the paragraph by making clear that pricing and investment cannot be treated separately because the mechanism determines both who finances capacity and who benefits from scarcity relief.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% The paragraph should therefore leave the reader with three ideas already in mind:
+% \begin{itemize}
+%     \item this is a state-dependent peak-load problem rather than a static screening model,
+%     \item this is a mechanism design problem rather than a reduced-form pricing problem,
+%     \item and redistribution operates both within categories and across categories.
+% \end{itemize}
+
+% \bigskip
+
+% \subsection*{Paragraph 2: the core tension and the two sorting margins}
+
+% \noindent
+% The second paragraph should explain the core tension of the paper and how it generates two sorting margins that organize all subsequent results. The key message is that the interaction between incentive constraints and redistributive preferences creates two endogenous sorting problems that cannot be resolved independently.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The core tension.} Explain that the paper resolves the joint pricing-and-investment problem by identifying the fundamental tension between incentive constraints and redistributive preferences. IC constraints force the designer to leave rents to higher types, while redistributive preferences assign differential social value to those rents. Their interaction generates two sorting margins that simultaneously govern surplus incidence, the feasibility of the mechanism, and the across-category allocation.
+
+%     \item \textbf{The first margin: the capacity sorting margin $\mathbb{E}_i^w[uJ\mid s]$.} Present in words the object captured by $\mathbb{E}_i^w[uJ\mid s]$. This is the marginal revenue of the market designer from relaxing the capacity constraint, and it depends on two objects that interact through a sorting effect. The first is the responsiveness of each type to additional capacity, determined by demand curvature, which governs how a marginal unit of capacity is distributed across types at the constrained optimum. The second is whether the types receiving that additional capacity generate positive or negative net revenue for the designer once IC rents to higher types are accounted for. This ratio can be negative when the informational cost of serving a type exceeds its gross value. The sufficient statistic $\mathbb{E}_i^w[uJ\mid s]$ summarizes whether the sorting of capacity expansion across types goes with or against the revenue structure of the mechanism.
+
+%     \item \textbf{The second margin: the behavioral sorting margin $R_{\mathcal{G}}(\theta)$.} Present in words the object captured by $\Delta\mathcal{G}_i(\theta)$ and $R_{\mathcal{G}}(\theta)$. A redistributive preference change affects the mechanism through the way social priorities are reweighted across types \emph{relative to the constrained optimum already in place}. The key economic distinction is between an absolute change in effective social weights and a proportional tilt relative to the baseline constrained allocation. What matters for reallocation is not the absolute size of the preference perturbation but how it tilts the effective weight of each type relative to the existing allocation.
+
+%     \item \textbf{The non-triviality of the capacity margin.} Explain the economic channel: a change in $k_i$ does not merely raise consumption. It changes
+%     \begin{itemize}
+%         \item the revenue that can be left to or extracted by the market designer,
+%         \item and the quantity schedule itself, because the financing constraint and the incentive constraints jointly determine the allocation.
+%     \end{itemize}
+%     The incidence of capacity expansion is therefore endogenous and need not be monotone across types.
+
+%     \item \textbf{The non-triviality of the behavioral margin.} Explain the economic channel: a shift in redistributive preferences does not translate mechanically into a monotone shift in quantities. What matters is how the perturbation is distributed across types relative to the effective social weights already embedded in the constrained optimum.
+
+%     \item \textbf{The forward-looking role of the two margins.} Close the paragraph by saying that these two margins do double duty in the paper: they first describe the comparative statics of the mechanism within a category, and they later determine the optimal allocation of capacity and financing across categories.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% This paragraph should make the reader understand that the paper's contribution is not simply that capacity, incentive compatibility, and financing constraints all matter. The contribution is that the paper identifies the specific sorting channels through which they matter:
+% \begin{itemize}
+%     \item the interaction between scarcity relief and the responsiveness and net revenue structure of the constrained allocation,
+%     \item and the interaction between redistributive perturbations and the proportional reweighting of effective social weights relative to the constrained optimum.
+% \end{itemize}
+
+% \bigskip
+
+% \subsection*{Paragraph 3: within-category comparative statics}
+
+% \noindent
+% The third paragraph should explain the first set of results: how the two sorting margins jointly govern the within-category comparative statics on both capacity expansion and preference perturbations. Its role is to show that the conditional mechanism is analytically compact but economically rich, and that non-monotonicity in both dimensions is a structural feature rather than a special case.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The conditional problem.} State that, conditional on $(k_i,I_i)$, the paper characterizes the optimal category-specific mechanism. The key contrast is that the static conditional optimum is relatively simple, while the economic content appears in how that constrained optimum responds to perturbations.
+
+%     \item \textbf{The regime structure.} The market designer is a consumer surplus maximizer, not a profit maximizer. This distinction generates a natural economic question: does the mechanism produce enough revenue, once IC rents and the investment cost are covered, to leave a distributable residual that can be rebated lump-sum to consumers? When the answer is yes, the designer operates in the slack regime and the residual flows back to all consumers. When the answer is no, no such residual exists and the mechanism must be fully self-financing out of virtual surplus. The capacity sorting margin $\mathbb{E}_i^w[uJ\mid s]$ simultaneously determines the sign of this residual, its response to a change in capacity, and the transition between the two regimes. The same object therefore organizes surplus incidence, the shadow cost of the financing constraint, and the feasibility of distributable surplus.
+
+%     \item \textbf{Capacity comparative statics inside a category.} Explain the first within-category channel. A change in $k_i$ modifies both the available distributable surplus after accounting for the budget and informational rents, whose directional change is governed by $\mathbb{E}_i^w[uJ\mid s]$, and the quantity schedule itself, because the tightening or loosening of the financing constraint changes the distorted optimal allocation under incentive compatibility.
+
+%     \item \textbf{The economic role of $\mathbb{E}_i^w[uJ\mid s]$.} Explain in words that this object summarizes whether the sorting of capacity expansion across types goes with or against the revenue structure of the constrained mechanism. It determines whether capacity expansion tends to generate or exhaust the distributable surplus and therefore whether the induced quantity response benefits the types whose marginal contribution lies above or below the relevant weighted average.
+
+%     \item \textbf{Preference comparative statics inside a category.} Explain the second within-category channel. A change in redistributive preferences alters both the marginal social value attached to consumption across types and the optimal quantity schedule, because the scarcity value must still be matched by the incentive-adjusted social weight under the capacity and financing constraints.
+
+%     \item \textbf{Two levels of non-triviality in the preference comparative statics.} The non-monotonicity of the optimal quantity response has two logically independent sources that should both be stated. The first is that the relevant object governing reallocation is the proportional change $R_{\mathcal{G}}(\theta)$ rather than the absolute change $\Delta\mathcal{G}_i(\theta)$: a preference shift that is monotone in absolute terms need not be monotone in proportional terms, so the direction of the type-by-type reallocation is already non-obvious. The second is that, regardless of the direction or shape of the perturbation, the proportional change in effective social weight takes the same value at both boundary types. Since the reallocation is zero-sum at fixed capacity and the endpoints have the same sign, the quantity response must change direction at least twice in the interior. Non-monotonicity is therefore a structural feature of the mechanism, not a knife-edge outcome.
+
+%     \item \textbf{The within-category decomposition.} End the paragraph by stating that both types of within-category comparative statics can be understood through two broad components:
+%     \begin{itemize}
+%         \item a transfer-like or fixed-part component, which works through the distributable surplus and its rebate to consumers,
+%         \item and a quantity-reallocation component, which works through the perturbation of the incentive-constrained allocation schedule itself.
+%     \end{itemize}
+% \end{enumerate}
+
+%     \item \textbf{The non-triviality of the capacity margin.} Explain the economic channel: a change in $k_i$ does not merely raise consumption. It changes
+%     \begin{itemize}
+%         \item the revenue that can be left to or extracted by the market designer,
+%         \item and the quantity schedule itself, because the financing constraint and the incentive constraints jointly determine the allocation.
+%     \end{itemize}
+%     The incidence of capacity expansion is therefore endogenous and need not be monotone across types.
+
+%     \item \textbf{The non-triviality of the behavioral margin.} Explain the economic channel: a shift in redistributive preferences does not translate mechanically into a monotone shift in quantities. What matters is how the perturbation is distributed across types relative to the effective social weights already embedded in the constrained optimum.
+
+% \medskip
+
+% \noindent
+% The paragraph should leave the reader with the idea that the within-category section identifies the two sorting margins that govern how scarcity and redistribution are transmitted through the constrained optimum, and that non-monotonicity in both dimensions is structurally inevitable.
+
+% \bigskip
+
+% \subsection*{Paragraph 4: across-category allocation and ranking}
+
+% \noindent
+% The fourth paragraph should explain how the paper moves from the behavior of the category-specific mechanism to the regulator's allocation problem across categories. It presents three distinct rankings in increasing order of complexity, each governed by a different primitive object.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{The transition from inner to outer.} Begin by saying that once the within-category mechanism has been characterized, the regulator must choose which capacities $k_i$ and financing requirements $I_i$ are assigned to each category. Relative to the within-category analysis, the across-category problem is much simpler: it no longer requires comparing full schedules, because the within-category distortions can be compressed into a small number of category-level sufficient statistics.
+
+%     \item \textbf{The capacity ranking.} The regulator allocates more capacity to a category when the behavioral sorting margin $R_{\mathcal{G}}(\theta)$ is positive on average, meaning that the preference perturbation concentrates proportional weight on types for which the constrained allocation is most responsive to scarcity. The primitive condition involves both the average welfare weight and the within-type tilt of preferences toward higher types. Two categories with identical average weights can receive opposite capacity rankings if the within-type tilt differs. A regulator who ranks categories only by average generosity will systematically misallocate capacity.
+
+%     \item \textbf{The extensive revenue margin: contributing versus non-contributing categories.} The partition of categories into contributors $N^+$ and non-contributors $N^0$ is governed entirely by the average welfare weight $\tilde\lambda_i$. Categories with sufficiently low average weight contribute to the budget; categories with sufficiently high average weight do not. No within-type structure of preferences is needed to determine this partition. The average welfare weight is therefore a sufficient statistic for the extensive margin of revenue extraction, independently of the within-type preference structure.
+
+%     \item \textbf{The intensive revenue ranking.} Conditional on belonging to the contributing set, the ranking of equilibrium revenue requirements across categories depends on how the capacity sorting margin interacts with the preference perturbation within each category. This is a strictly more demanding object than the average weight. The key economic asymmetry is that the same object --- the average welfare weight --- that fully determines whether a category contributes is not sufficient to determine how much it contributes. A regulator who conditions revenue extraction only on average social weights resolves the extensive margin correctly but cannot rank the intensive margin without knowing the within-type sorting structure.
+
+%     \item \textbf{Primitive foundations.} End by explaining that the three rankings have interpretable primitive foundations. The capacity ranking depends on whether redistributive preferences are tilted proportionally toward higher types within a category. The extensive margin depends only on the ordering of average welfare weights across categories. The intensive margin depends on whether the proportional preference tilt aligns with the types that generate the most revenue for the constrained mechanism. These are three genuinely distinct primitive conditions, not restatements of the same ordering.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% This paragraph should leave the reader with the idea that the within-category complexity is not lost in the outer problem. Instead, it is compressed into a small set of ranking objects that preserve the economic content of the inner analysis, and that average welfare weights alone are insufficient to resolve the full allocation problem.
+
+% \bigskip
+
+% \subsection*{Paragraph 5: aggregate investment and synthesis}
+
+% \noindent
+% The final paragraph should present the aggregate investment result as the payoff of the whole paper. Its role is to connect the canonical peak-load logic to the two previous layers of analysis and to show that the main normative object of the paper is the corrected investment rule and its departure from the utilitarian benchmark.
+
+% \medskip
+
+% \noindent
+% This paragraph should contain, in this order:
+
+% \begin{enumerate}
+%     \item \textbf{Continuity with peak-load pricing.} Open with the canonical principle: the aggregate investment problem retains the usual economic logic of peak-load pricing. The regulator invests until the marginal value of additional capacity equals its marginal financing cost.
+
+%     \item \textbf{The new marginal value.} Immediately explain that the paper changes the content of this marginal value. It is no longer raw marginal utility. It is the incentive-adjusted social value of marginal consumption, aggregated only over the contributing categories and normalized by the equilibrium marginal cost of funds. This makes the investment rule a genuine extension of the classical condition rather than a replacement of it.
+
+%     \item \textbf{The role of contributing categories.} State that only the categories that finance the expansion enter the aggregate investment condition. This makes the investment rule an equilibrium object tied to the outer allocation problem, not a mechanical average over all consumers.
+
+%     \item \textbf{The informational wedge and the utilitarian benchmark.} Explain the key contrast with the utilitarian benchmark and why it is the degenerate case. Under utilitarian preferences, information rents are pure transfers within the social objective: they flow from the designer's revenue to the consumer's surplus, but both sides enter the welfare function with the same unit weight. IC constraints distort the distribution of surplus across types but do not change total utilitarian welfare at the optimum. The complete-information and incomplete-information investment rules therefore coincide at $k^\ast$ under utilitarian preferences. Under redistributive preferences, by contrast, information rents flowing to high types are valued at a different social weight than base consumption, creating a genuine net social cost that persists at the optimum. The gap between the complete- and incomplete-information investment rules survives because the equilibrium marginal cost of funds $\tilde\lambda^\ast$ depends on redistributive preferences through the financing structure, not merely on the level of investment. The utilitarian case emerges as the degenerate benchmark rather than the general case.
+
+%     \item \textbf{Preference comparative statics of $k^\ast$.} Explain that the aggregate investment rule also delivers comparative statics with respect to redistributive preference changes. These operate through the same two sorting margins already identified in the within and across sections: preference changes alter both the category-level value of capacity and the equilibrium marginal cost of funds.
+
+%     \item \textbf{Incidence of aggregate expansion.} Close by explaining that the welfare incidence of an increase in total capacity is the synthesis of the previous two sections:
+%     \begin{itemize}
+%         \item within-category incidence depends on how a given category-specific capacity increase is transmitted through the constrained mechanism,
+%         \item across-category incidence depends on how the planner redistributes the aggregate increase across categories.
+%     \end{itemize}
+%     The aggregate investment result therefore unifies the within-category and across-category analyses rather than standing apart from them.
+% \end{enumerate}
+
+% \medskip
+
+% \noindent
+% The final paragraph should leave the reader with the following synthesis: the paper preserves the classic peak-load logic at the aggregate level, but shows that once private information and redistributive preferences are introduced, the social value of investment must be computed through the same two sorting margins that govern both the mechanism's within-category comparative statics and the regulator's across-category allocation. The utilitarian case, in which the informational wedge washes out at the optimum, emerges as the degenerate benchmark rather than the general case.
+
+% \bigskip
+
+% \subsection*{Compact summary of the logic across the five paragraphs}
+
+% \begin{enumerate}
+%     \item \textbf{Paragraph 1:} pose the question and define the model environment.
+%     \item \textbf{Paragraph 2:} explain the core tension between IC constraints and redistributive preferences, and introduce the two sorting margins: the capacity margin $\mathbb{E}_i^w[uJ\mid s]$ and the behavioral margin $R_{\mathcal{G}}(\theta)$.
+%     \item \textbf{Paragraph 3:} show how the two margins govern the within-category mechanism and its comparative statics, establish the regime structure through the CS maximizer lens, and explain the two independent sources of non-monotonicity.
+%     \item \textbf{Paragraph 4:} present three distinct rankings — capacity, extensive revenue, intensive revenue — each governed by a different primitive object, and establish that average welfare weights are sufficient for the extensive margin but not for the others.
+%     \item \textbf{Paragraph 5:} present the aggregate investment rule as the synthesis, explain the utilitarian coincidence as the degenerate benchmark, and connect the investment comparative statics back to the two sorting margins.
+% \end{enumerate}
+
+% \newpage
+
+This paper studies how a market designer should jointly design the allocation mechanism and choose capacity for an essential good when scarcity is state-dependent, consumers have private information, and the regulator has redistributive preferences captured by welfare weights on consumer surplus. In standard peak-load pricing, the investment problem is governed by a comparison between the marginal utility brought from an additional unit of capacity and its marginal cost. Here, the same logic survives, but the content of the marginal value changes. Under private information, an expansion of capacity depends on which consumers receive the additional quantity under the constrained mechanism, how that reallocation interacts with incentive constraints, and how the market design can raise revenue. I consider an environment in which consumers belong to observable categories, differ in privately known marginal utility within each category, and face a common state that makes capacity bind only in high-demand states. The regulator therefore acts along two margins at once: within each category, it chooses the allocation mechanism; across categories, it chooses how total capacity and the revenue requirement are distributed. By conditioning on observable categories before screening within them, the designer can target scarcity and raising revenue more efficiently, which helps mitigate the efficiency losses created by private information. As a result, both a change in capacity and a change in redistributive preferences operate through the same object: they reshape the constrained allocation within categories and, through it, the social value of relaxing scarcity. The paper also delivers primitive sufficient conditions and tractable special cases under which these channels admit sharp and interpretable comparative-statics predictions.
 
 The core tension comes from the interaction between incentive constraints, redistributive preferences, and capacity scarcity. Incentive compatibility requires the mechanism to leave rents to higher types, but once the regulator assigns different social values to consumption and transfers across types, those rents are no longer welfare-neutral. Moreover, because the capacity constraint binds only for some states and types, the optimal allocation under the mechanism is endogenous to the investment level, so expanding capacity reshapes the rent structure itself and loops back into the revenue the mechanism can raise to finance that same investment. This interaction generates two endogenous sorting margins that organize the results. When capacity expands, the additional quantity is not distributed uniformly across types but it is reallocated toward types whose demand is most responsive, as determined by demand curvature. Furthermore, its revenue consequence depends on whether serving those types is socially costly or beneficial once the informational rents left to higher types are taken into account. This second component is captured by the ratio between virtual surplus and effective social weight of a given consumer type.\footnote{A consumer’s welfare weight and effective social weight play distinct roles. The welfare weight measures the value of an additional unit of surplus in the market designer’s objective. The effective social weight instead measures the incidence of allocating one additional unit to that consumer, accounting for both the informational rents induced for higher types and the effect on the revenue available to the mechanism.} The correlation between the two forms the \textit{capacity-sorting margin}. The second governs how redistributive preferences reshape the constrained allocation. The key object is not the absolute change in effective social weights, but their proportional change, because it captures how the preference perturbation interacts with the mechanism’s existing sorting of consumption across types. This is the \textit{preference-sorting margin}. These two margins first characterize how the mechanism responds within a category to changes in scarcity and redistributive preferences, and they later determine how capacity and revenue should be allocated across categories.
 
-Conditional on a capacity and a budget, the paper first characterizes the optimal within-category mechanism and then studies how that constrained optimum responds to changes in capacity and redistributive preferences. The key question is whether a capacity expansion relaxes or tightens the mechanism’s revenue constraint. Under redistributive preferences, the types to whom the designer would like to allocate additional quantity are not necessarily those for whom an expansion is most favorable to the category’s net revenue: serving them may be socially desirable, but it can also increase the informational rents left to higher types. The effect of a capacity expansion is therefore governed by the market designer’s marginal revenue, summarized by the \textit{capacity-sorting margin}. As a result, the welfare incidence of a capacity expansion need not be uniformly progressive or regressive, but depends on the initial investment level. A similar logic governs redistributive perturbations. A change in preferences does not translate mechanically into a monotone shift in quantities and individual surplus. What matters is the way the perturbation changes effective social weights together with the constrained allocation itself, since both objects move jointly under the mechanism. This is captured by the \textit{preference-sorting margin}. I show that the interaction between this margin with the capacity constraint may not be monotonic in types, which generate sets of winners and losers that need not align with the primitive direction of the preference change itself: a tilt in favor of lower or higher types does not mechanically imply a monotone reallocation toward those same types.     
+Conditional on a capacity and a budget, the paper first characterizes the optimal within-category mechanism and then studies how that constrained optimum responds to changes in capacity and redistributive preferences. The key question is whether a capacity expansion relaxes or tightens the mechanism’s revenue constraint. Under redistributive preferences, the types to whom the designer would like to allocate additional quantity are not necessarily those for whom an expansion is most favorable to the category’s net revenue: serving them may be socially desirable, but it can also increase the informational rents left to higher types. The effect of a capacity expansion is therefore governed by the market designer’s marginal revenue, summarized by the \textit{capacity-sorting margin}. As a result, the welfare incidence of a capacity expansion need not be uniformly progressive or regressive, but depends on the initial investment level. A similar logic governs redistributive perturbations. A change in preferences does not translate mechanically into a monotone shift in quantities and individual surplus. What matters is the way the perturbation changes effective social weights together with the constrained allocation itself, since both objects move jointly under the mechanism. This is captured by the \textit{preference-sorting margin}. I show that the interaction between this margin and the capacity constraint need not be monotonic in types, which generate sets of winners and losers that need not align with the primitive direction of the preference change itself: a tilt in favor of lower or higher types does not mechanically imply a monotone reallocation toward those same types.     
 
-Once the within-category mechanism is characterized, the designer's problem becomes one of allocating capacity and revenue across categories. Relative to the inner problem, this outer allocation is analytically simpler: the designer no longer compares full allocation schedules, because the distortions created by incentive compatibility and redistribution can be compressed into a small set of category-level objects that are the aggregate version of the previous margin. But the resulting rankings are not trivial, and they do not rely on the same primitives. The capacity ranking depends on the \textit{preference-sorting margin}: categories receive more capacity when redistributive preferences place proportionally more weight on the types for whom scarcity relief is most valuable under the constrained mechanism, so a category with either a higher absolute effective social weights or a higher average welfare weights can nonetheless receive different capacity levels. By contrast, the extensive revenue margin, that is whether a category contributes to the financing of the system at all, depends only on its average welfare weight, which is sufficient to separate contributing from non-contributing categories. The intensive revenue margin is different again. Conditional on contribution, the ranking of revenue requirements depends both of \textit{capacity-sorting} and \textit{preference-sorting margin}: not only on average weights but on how the within-category preference tilt aligns with the types that are also most valuable for the mechanism's net revenue. 
+Once the within-category mechanism is characterized, the designer’s problem becomes one of allocating capacity and revenue across categories, along three distinct margins: the capacity ranking, the extensive revenue margin that separates contributing from non-contributing categories, and the intensive revenue margin that ranks revenue requirements across contributing categories. Relative to the inner problem, this outer allocation is analytically simpler: the designer no longer compares full allocation schedules, because the distortions created by incentive compatibility and redistribution can be compressed into a small set of category-level objects that aggregate the previous within-category margins. But the resulting rankings are not trivial, and they do not rely on the same primitives. The capacity ranking depends on the preference-sorting margin: categories receive more capacity when redistributive preferences place proportionally more weight on the types for whom scarcity relief is most valuable under the constrained mechanism. Capacity is therefore not necessarily ranked by average welfare weights or by the absolute level of effective social weights. By contrast, the extensive revenue margin, depends only on its average welfare weight, which is sufficient to separate contributing from non-contributing categories. The intensive revenue margin is however different. Conditional on contribution, the ranking depends not only on average weights, but also on the ability of a category to raise revenue given the distribution of capacity and redistributive preferences, which is captured by the interaction between the capacity-sorting and preference-sorting margins.
 
-The final result returns to the canonical logic of peak-load pricing: the regulator invests until the marginal value of additional capacity equals its marginal financing cost. Under private information and redistributive preferences, it is no longer only marginal utility, but the incentive-adjusted social value of marginal consumption, aggregated over the categories that effectively contribute to the revenue and normalized by the equilibrium marginal cost of funds, captured by the highest average social weight within the contributing categories. This clarifies the role of the utilitarian benchmark: under utilitarian preferences, informational rents are pure transfers inside the social objective, so the complete-information and incomplete-information investment rules coincide at the optimum. Under redistributive preferences, by contrast, those rents are no longer welfare-neutral, and the investment rule inherits the informational wedge generated by the constrained mechanism. The aggregate investment problem therefore synthesizes the previous within- and across-category analyses, because the value of expanding total capacity depends on how additional capacity is transmitted within categories and on how it is allocated across them. It yields two comparative results that follow directly from the same earlier mechanisms. First, redistributive preference changes affect the optimal investment level \(k^\ast\) by altering both the category-level value of capacity and the equilibrium marginal cost of funds. Second, the welfare incidence of an aggregate expansion is not mechanical: whether it is progressive or regressive depends on the initial cross-category allocation of capacity, since the additional capacity is transmitted through the same within-category and across-category sorting margins.
-
+The final result returns to the canonical logic of peak-load pricing by characterizing the optimal aggregate investment level and the associated welfare under redistributive preferences. The optimality condition equates the marginal investment cost with the incentive-adjusted social value of marginal consumption, aggregated across contributing categories and normalized by the equilibrium marginal cost of funds. This yields a sharp contrast to the utilitarian benchmark case where informational rents are pure transfers in the social objective. Therefore, the complete-information and incomplete-information investment rules coincide at the optimum. Under redistributive preferences, by contrast, informational rents are no longer welfare-neutral, so the informational wedge remains even at the optimum and directly shapes both investment and welfare. The aggregate investment problem  synthesizes the previous within- and across-category analyses, because the value of expanding total capacity depends on how additional capacity is transmitted within categories and on how it is allocated across them. It also yields two comparative results that follow from the same mechanisms. First, redistributive preference changes affect the optimal investment level through two channels: they alter the average marginal value of capacity across categories and they shift the equilibrium marginal cost of funds. Second, the welfare incidence of an aggregate expansion is not mechanical: whether it is progressive or regressive depends on the initial cross-category allocation of capacity, since additional capacity is transmitted through the same within-category and across-category sorting margins.
 \end{document}
