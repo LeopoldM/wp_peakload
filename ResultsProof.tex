@@ -1,0 +1,2632 @@
+\documentclass[master.tex]{subfiles}
+
+\begin{document}
+
+\section{Reference and assumptions}
+\begin{equation}
+\E_{(s,i)}^w[uJ\mid s] := \mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]. \tag{EuJ}\label{Eujmd}
+\end{equation}
+
+\begin{equation}
+    \E_{(s,i)}\!\left[U\!\left(q_i(\theta,s),s\right) J_i(\theta)\right]-I_i \ge 0,
+\label{Rmdi-def}\tag{IR-R$_i$} 
+\end{equation}
+
+\begin{equation}
+Q(s) \le k \qquad \forall s \in S.
+\tag{K}\label{K-def}
+\end{equation}
+
+\[ \tag{$\E CS_i$}\label{ECSi} \E CS_i(\theta):=\E_s\!\left[\theta U\!\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right] = \E\underline{CS}_i+\int_{\underline{\theta}_i}^{\theta}\E_s\!\left[U\!\left(q_i(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}. \]
+
+\[
+\label{KKT-qMD}\tag{FOC$_q$}
+u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)-\varepsilon_i(s)=0,
+\]
+
+\renewcommand{\theassumption}{Reg}
+\begin{assumption}\label{ass:regularity}
+For each category $i$, the virtual surplus $J_i(\theta)$ is strictly increasing on $[\underline{\theta}_i, \overline{\theta}_i]$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+
+\renewcommand{\theassumption}{Int}
+\begin{assumption}\label{ass:interior}
+For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\mathcal{G}_i(\theta)>0$ and $\mathcal{G}_i(\theta)$ is non-decreasing in $\theta$, so that the monotonicity constraint on $q_i(\theta,s)$ is satisfied at the optimum. Moreover, the marginal utility function satisfies $\lim_{q\rightarrow 0}u(q,s) = +\infty$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+
+\renewcommand{\theassumption}{Monot.}
+\begin{assumption}\label{ass:monotone}
+\(R_q(\theta)\) and \(R_\theta(\theta)\) are both monotone on \([\underline{\theta}_i,\overline{\theta}_i]\). Moreover, \(R_q(\theta)\) exhibits log-monotone differences in \((\theta,k_i)\).
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+
+\renewcommand{\theassumption}{CARA}
+\begin{assumption}\label{ass:CARA}
+$u(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+
+\renewcommand{\theassumption}{Multi}
+\begin{assumption}\label{ass:mult}
+$u(q,s) = \kappa(q)\zeta(s)$ for some functions $\kappa$ and $\zeta$ with $\kappa_q < 0$ and $\zeta_s > 0$.
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+
+\renewcommand{\theassumption}{Order}
+\begin{assumption}[Ordered preference path]\label{ass:ordered-path}
+For each adjacent pair \(i-1\) and \(i\), there exists a positive \(C^1\) path $(t,\theta)\mapsto \lambda(t,\theta) \text{ on }[0,1]\times\Theta$ such that \(\lambda(0,\theta)=\lambda_{i-1}(\theta)\) and \(\lambda(1,\theta)=\lambda_i(\theta)\). Along this path, two conditions hold for every \(t\in[0,1]\):
+\end{assumption}
+\renewcommand{\theassumption}{\arabic{assumption}}
+
+\section{Main text results and proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Virtual surplus representation}
+
+\begin{lemma}[Virtual surplus representation]\label{lem:Transfer}
+The program of the market designer can be expressed as: 
+%##########################################
+\begin{align*}
+\max_{q_i(\theta,s), \, \E\underline{CS}_i}  \quad\quad 
+&  \sum_{i \in N}  \mu_i   \; 
+\Big\{ \;  \tilde{\lambda}_i \;\E\underline{CS}_i 
+      + \E_{(s,i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
+\tag{CS}\label{CSmd-def}  \\
+\text{s.t.} \quad
+& \sum_{i\in N}\mu_i
+(\E_{(s,i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E\underline{CS}_i)\;-\; I(k)
+\;\ge\; 0. \tag{R}\label{Rmd-def}
+\end{align*}
+%##########################################
+with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type ($\E\underline{CS}_i\ge 0$).
+\end{lemma}
+
+\begin{proof}
+
+For each category $i$, define
+\[
+B_i(\theta,s)
+:=
+\theta U\!\left(q_i(\theta,s),s\right)
+- \underline\theta_i U\!\left(q_i(\underline\theta_i,s),s\right)
+- \int_{\underline{\theta}_i}^{\theta}
+U\!\left(q_i(\tilde\theta,s),s\right)\,d\tilde\theta,
+\]
+and let
+\[
+\overline{B}_i(\theta)
+:=
+\E_s[B_i(\theta,s)].
+\]
+
+Start with the following individual transfer for each consumer of type $\theta$ in category $i$:
+\begin{align*}
+t_i(\theta,s)
+&=
+\tau_i
++ \overline{B}_i(\theta)
+- \sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
+   \E_{\theta_j}[\overline{B}_j(\theta_j)] + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big),
+\end{align*}
+where
+\[
+\tau_i
+=
+T_{i0}
++\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
+   \E_{\theta_j}[\overline{B}_j(\theta_j)]
+- \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big).
+\]
+
+Taking expectations over $\theta$, and noting that only $\overline{B}_i(\theta)$ depends on $\theta$, yields
+\begin{align*}
+\E_i[t_i(\theta,s)]
+&=
+\tau_i
++ \E_i[\overline{B}_i(\theta)]
+- \sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
+   \E_{\theta_j}[\overline{B}_j(\theta_j)] 
++ \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big).
+\end{align*}
+
+Multiplying by the size $\mu_i$ of category $i$, summing over all categories, and using $\sum_{i=1}^n\mu_i = 1$, we obtain
+\begin{align*}
+\sum_{i=1}^n \mu_i\E_i[t_i(\theta,s)]
+&=
+\sum_{i=1}^n \mu_i \tau_i
++ \sum_{i=1}^n\mu_i\,\E_i[\overline{B}_i(\theta)]-\sum_{i=1}^n\mu_i\sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\,
+   \E_{\theta_j}[\overline{B}_j(\theta_j)]
+\\
+&\quad
++ I(k)
+-\sum_{i=1}^n\mu_iI_i
++\sum_{i=1}^n\mu_i\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j.
+\end{align*}
+
+The second and third terms cancel, and the fifth and sixth terms also cancel, so that
+\[
+\sum_{i=1}^n \mu_i\E_i[t_i(\theta,s)]
+=
+\sum_{i=1}^n \mu_i \tau_i + I(k).
+\]
+Therefore, an allocation satisfies the budget constraint if and only if $\sum_{i=1}^n \mu_i \tau_i \geq 0$.
+
+Next, substitute the expression for $\tau_i$:
+\begin{align*}
+\sum_{i=1}^n \mu_i \tau_i &= \sum_{i=1}^n \mu_i \left( T_{i0} + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\, \E_{\theta_j}[\overline{B}_j(\theta_j)] - \Big(I(k) - I_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j} I_j\Big) \right) \\
+&= \sum_{i=1}^n \mu_i \left( T_{i0} + \E_i[\overline{B}_i(\theta)] \right) - I(k),
+\end{align*}
+
+By Fubini's theorem and the usual hazard-rate argument, the expectation of $\overline{B}_i(\theta)$ can be written in terms of the virtual utility
+\[
+U(q_i(\theta,s),s) J_i(\theta)
+:= U\!\left(q_i(\theta,s),s\right)(\theta -
+\gamma_i(\theta)\,),
+\]
+as
+\[
+\E_i[\overline{B}_i(\theta)]
+=
+\E_{(s,i)}\left[
+U(q_i(\theta,s),s) J_i(\theta)
+- \underline{\theta_i} U\!\left(q_i(\underline{\theta_i},s),s\right)
+\right].
+\]
+Hence
+\[
+\sum_{i=1}^n \mu_i \tau_i
+=
+\sum_{i=1}^n \mu_i \E_{(s,i)}\left[
+T_{i0} + U(q_i(\theta,s),s) J_i(\theta) - \underline{\theta_i} U\!\left(q_i(\underline{\theta_i},s),s\right)
+\right]
+- I(k).
+\]
+
+Finally, replacing $\tau_i$ in $t_i(\theta,s)$ yields
+\[
+t_i(\theta,s)
+=
+T_{i0}
++ \overline{B}_i(\theta)
+=
+T_{i0}
++ \E_s\left[
+\theta U\!\left(q_i(\theta,s),s\right)
+- \underline{\theta_i}U\!\left(q_i(\underline{\theta_i},s),s\right)
+- \int_{\underline{\theta}_i}^{\theta}
+U\!\left(q_i(\tilde\theta,s),s\right)\, d\tilde\theta
+\right].
+\]
+
+Thus
+\begin{align*}
+\E_s\big[\theta U(q_i(\theta,s),s) - t_i(\theta,s)\big]
+&=
+\E_s\big[\underline{\theta_i}U(q_i(\underline{\theta_i},s),s)\big]
+- T_{i0}
+\\
+&\quad
++ \int_{\underline{\theta}_i}^{\theta}
+\E_s\big[U(q_i(\tilde\theta,s),s)\big]\,d\tilde\theta.
+\end{align*}
+Defining
+\[
+\E\underline{CS}_i
+:=
+\E_s\big[\underline{\theta_i}U(q_i(\underline{\theta_i},s),s)\big]
+- T_{i0},
+\]
+we get
+\[
+\E_s[\theta U(q_i(\theta,s),s) - t_i(\theta,s)]
+=
+\E\underline{CS}_i
++ \int_{\underline{\theta}_i}^{\theta}
+\E_s\big[U(q_i(\tilde\theta,s),s)\big]\,d\tilde\theta,
+\]
+which is the usual envelope representation and therefore satisfies the IC condition. Moreover, substituting $\underline{\theta_i}U(q_i(\underline{\theta_i},s),s) = \E\underline{CS}_i + T_{i0}$ into the expression for $\sum_i \mu_i \tau_i$ gives the claimed transformed budget constraint
+\[
+\sum_{i=1}^n \mu_i \tau_i
+=
+\sum_{i=1}^n \mu_i \E_{(s,i)}\big[ U(q_i(\theta,s),s) J_i(\theta) - \E\underline{CS}_i\big]
+- I(k).
+\]
+
+Multiplying the utility of a consumer with type $\theta$ from category $i$ and taking the expectation over the whole category yields
+
+\[
+\E_{(s,i)}[\lambda_i(\theta) \;( \;\theta U(q_i(\theta,s),s) - t_i(\theta,s)\;)\;]
+=
+\tilde{\lambda}_i \; \E\underline{CS}_i
++ \E_i[\lambda_i(\theta)\int_{\underline{\theta}_i}^{\theta}
+\E_s\big[U(q_i(\tilde\theta,s),s)\big]\,d\tilde\theta],
+\]
+
+We apply Fubini's theorem to the second term:
+
+\begin{align*}
+\E_i\!\left[\lambda_i(\theta)\int_{\underline{\theta}_i}^{\theta}
+\E_s[U(q_i(\tilde\theta,s),s)]\,d\tilde\theta\right]
+&= \int_{\underline{\theta}_i}^{\overline{\theta}_i} \lambda_i(\theta) g_i(\theta) 
+   \left(\int_{\underline{\theta}_i}^{\theta} \E_s[U(q_i(\tilde\theta,s),s)]\,d\tilde\theta\right) d\theta \\
+&= \int_{\underline{\theta}_i}^{\overline{\theta}_i} \E_s[U(q_i(\tilde\theta,s),s)] 
+   \left(\int_{\tilde\theta}^{\overline{\theta}_i} \lambda_i(\theta) g_i(\theta)\,d\theta\right) d\tilde\theta \\
+&= \int_{\underline{\theta}_i}^{\overline{\theta}_i} \E_s[U(q_i(\tilde\theta,s),s)] 
+    \gamma_i(\tilde \theta) \E[ \ \lambda_i( \theta) \ | \ \theta \ \ge \ \tilde \theta \ ] d\tilde\theta \\
+&= \E_{(s,i)}\!\left[\Lambda_i(\theta)\, U(q_i(\theta,s),s)\right].
+\end{align*}
+
+This yields the desired expression:
+
+\[ \tilde{\lambda}_i \;\E\underline{CS}_i 
+      + \E_{(s,i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \]
+
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Off-peak and on-peak allocation}
+
+\begin{lemma}[Off-peak and on-peak allocation]\label{lem:FOC}
+Assume~\ref{ass:interior} holds and that the within-category problem is convex. i) Under the weighted objective with type-dependent weights $\lambda(\theta)$, the allocation is characterized by a unique quantity schedule $q_i(\theta,s)$ for each $\theta$ and $s$:
+%##########################################
+\[
+\label{eq:SB-Smd1}\tag{SB-S}
+u\!\left(q_i(\theta,s),s\right)=0
+\quad s\in S_i,
+\qquad \text{and} \qquad
+u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)=\varepsilon_i(s)
+\quad s\in T_i.
+\]
+%##########################################
+ii) If \eqref{Rmdi-def} is slack at $(k_i,I_i)$, then $\beta_i=0$ and $\G_i(\theta)\equiv \Gamma_i(\theta)$.
+\end{lemma}
+
+Because the revenue-feasibility constraint involves the virtual-surplus term $J_i(\theta)$, which may change sign across types, convexity of the within-category feasible set is not automatic. We therefore maintain the following condition.
+
+\begin{assumption}[Convexity of the within-category feasible set]\label{ass:Cvx}
+For every category $i$ and every $I_i \ge 0$, the set
+\[
+\left\{
+q_i(\theta,s):
+\E_{(s,i)}\!\left[J_i(\theta)U(q_i(\theta,s),s)\right] \ge I_i
+\right\}
+\]
+is convex.
+\end{assumption}
+
+Under Assumption~\ref{ass:Cvx}, the within-category problem is a concave program, so the KKT conditions used in the proof of Lemma~\ref{lem:FOC} are sufficient.
+
+\begin{proof}
+Consider the within-category problem
+\[
+\max_{q_i(\theta,s)} 
+\E_{(s,i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)\right]
+\]
+subject to
+\[
+\E_{(s,i)}\!\left[U\!\left(q_i(\theta,s),s\right)J_i(\theta)\right]-I_i \ge 0,
+\qquad
+\E_i\!\left[q_i(\theta,s)\right]\le k_i
+\quad \forall s.
+\]
+
+Let \(\beta_i \ge 0\) and \(\varepsilon_i(s)\ge 0\) denote the multipliers on \eqref{Rmdi-def} and \eqref{K-def}, respectively. The associated Lagrangian is
+\[
+\mathcal L
+=
+\E_{(s,i)}\!\left[
+\left(\Gamma_i(\theta)+\beta_i J_i(\theta)\right)
+U\!\left(q_i(\theta,s),s\right)
+\right]
+-
+\E_s\!\left[
+\varepsilon_i(s)
+\left(\E_i[q_i(\theta,s)]-k_i\right)
+\right]
+-
+\beta_i I_i.
+\]
+Hence the pointwise first-order condition is
+\[
+u\!\left(q_i(\theta,s),s\right)\G_i(\theta)-\varepsilon_i(s)=0,
+\qquad
+\text{where }
+\G_i(\theta):=\Gamma_i(\theta)+\beta_i J_i(\theta).
+\]
+
+We first characterize the states in which the capacity constraint is slack. If \(\E_i[q_i(\theta,s)]<k_i\), complementary slackness implies \(\varepsilon_i(s)=0\). Since Assumption~\ref{ass:interior} gives \(\G_i(\theta)>0\) for all \(\theta\), the first-order condition reduces to
+\[
+u\!\left(q_i(\theta,s),s\right)=0.
+\]
+By strict concavity of \(U(\cdot,s)\), this equation has a unique solution, denoted \(q_i^0(s)\). In particular, the off-peak allocation is independent of \(\theta\), so it automatically satisfies monotonicity.
+
+Moreover, implicit differentiation of \(u(q_i^0(s),s)=0\) yields
+\[
+\frac{\partial q_i^0(s)}{\partial s}
+=
+-\frac{u_s\!\left(q_i^0(s),s\right)}{u_q\!\left(q_i^0(s),s\right)}
+\ge 0,
+\]
+since \(u_s\ge 0\) and \(u_q<0\). Therefore the unconstrained aggregate demand $Q_i^0(s):=\E_i[q_i^0(s)]$ is nondecreasing in \(s\). It follows that the set of states in which the capacity constraint is slack is an interval of the form \(S_i=[\underline s,s_i)\), while the set of binding states is \(T_i=[s_i,\overline s]\), where \(s_i\) is defined by $\E_i\!\left[q_i(\theta,s_i)\right]=k_i$, with the obvious boundary cases if one of the two sets is empty.
+
+Now consider \(s\in T_i\). For such states, the allocation solves the state-by-state problem with binding aggregate quantity constraint, and the first-order condition is exactly $u\!\left(q_i(\theta,s),s\right)\G_i(\theta) = \varepsilon_i(s)$. Because \(u_q<0\) and \(\G_i(\theta)>0\), the objective is strictly concave in \(q_i(\theta,s)\) pointwise, so this first-order condition characterizes a unique allocation for each \((\theta,s)\).
+
+Finally, Assumption~\ref{ass:interior} also imposes that \(\G_i(\theta)\) is nondecreasing. Differentiating the first-order condition with respect to \(\theta\) gives
+\[
+\frac{\partial q_i(\theta,s)}{\partial \theta}
+=
+-
+\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)}
+\frac{\G_i'(\theta)}{\G_i(\theta)}
+\ge 0,
+\]
+so the monotonicity constraint is satisfied. This proves part (i).
+
+For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slackness implies \(\beta_i=0\). Hence $\G_i(\theta)=\Gamma_i(\theta)+\beta_i J_i(\theta)\equiv \Gamma_i(\theta)$. This proves part (ii).
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Redistributive effects of capacity expansion}
+
+\begin{theorem}[Redistributive effects of capacity expansion]\label{thm:surplus}
+Fix category \(i\), a budget requirement \(I_i>0\) and assume~\ref{ass:monotone} and~\ref{ass:mult} hold. Define the set of cutoffs 
+%%%%%%%%%%%%%%%%
+\[\tilde\Theta_i := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \partial\E CS_i(\tilde\theta_i)/\partial k_i=0\right\}.\]
+%%%%%%%%%%%%%%%%
+\noindent\textbf{IR-unconstrained allocation.} If \eqref{Eujmd} is positive, then an increase in \(k_i\) increases expected surplus for every type \(\theta\). If \eqref{Eujmd} is negative, \(\tilde\Theta_i\) contains at most a unique cutoff; and if it exists expected surplus decreases for all \(\theta<\tilde\theta_i\) and increases for all \(\theta>\tilde\theta_i\).
+
+\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: \(\underline\theta_i\in\tilde\Theta_i\). If \(R_\theta(\theta)\) is increasing, a second cutoff \(\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)\) may exist and when it does:
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+    \item if \eqref{Eujmd} is positive, expected surplus increases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and decreases for all \(\theta\ge\tilde\theta_i\);
+    \item if \eqref{Eujmd} is negative, expected surplus decreases for all \(\theta\in(\underline\theta_i,\tilde\theta_i)\) and increases for all \(\theta\ge\tilde\theta_i\).
+\end{enumerate}
+If \(R_\theta(\theta)\) is decreasing, the inequalities are reversed.
+\end{theorem}
+
+\begin{proof}
+Define $\mathcal W_i(\theta) := \partial \E CS_i(\theta)/\partial k_i$. From the envelope representation \eqref{ECSi},
+\[\mathcal W_i(\theta) = \mathcal W_i(\underline\theta_i) + \int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta, \qquad \mathcal W_i'(\theta) = \E_s\!\left[u\!\left(q_i(\theta,s),s\right)\frac{\partial q_i(\theta,s)}{\partial k_i}\mathbf 1_{\{s\in T_i\}}\right].\]
+For each binding state $s\in T_i$, differentiating the pointwise FOC \eqref{KKT-qMD} with respect to $k_i$ and imposing the binding capacity constraint \eqref{K-def} gives
+\[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\,\mathsf \E_i^w[uJ\mid s]\,\frac{\partial \beta_i(k_i)}{\partial k_i} + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\frac{\partial \beta_i(k_i)}{\partial k_i},\]
+where $w_i$, $\overline w_i$, and $\E_i^w[uJ\mid s]$ are as defined in the proof of Lemma~\ref{lem:SC-dir}.
+
+
+\noindent\textbf{IR-unconstrained allocation.} Since $\beta_i = 0$, we have $\frac{\partial \beta_i(k_i)}{\partial k_i} = 0$ and $\G_i(\theta)\equiv\Gamma_i(\theta)$. The expression for $\partial q_i/\partial k_i$ reduces to $w_i(\theta,s)/\overline w_i(s)$, so
+\[\mathcal W_i'(\theta) = \E_s\!\left[\frac{u(q_i(\theta,s),s)\,w_i(\theta,s)}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] = \E_s\!\left[\frac{R_q(\theta,s)}{\Gamma_i(\theta)\,\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] > 0,\]
+since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumption~\ref{ass:interior}. Hence $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By the preliminary step of Lemma~\ref{lem:SC-dir}, $\mathcal W_i(\underline\theta_i) = \partial \E\underline{CS}_i/\partial k_i$ has the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive, $\mathcal W_i(\underline\theta_i)>0$ and strict monotonicity implies every type gains. If \eqref{Eujmd} is negative, $\mathcal W_i(\underline\theta_i)<0$ and, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; if and only if $\mathcal W_i(\overline\theta_i)>0$, a unique cutoff $\tilde\theta_i$ exists and types below lose while types above gain.
+
+
+\noindent\textbf{IR-constrained allocation.}
+
+\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{ECSi}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
+
+\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\kappa(q_i(\theta,s))/\kappa_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
+\[\mathcal W_i'(\theta) = \frac{R_q(\theta)}{\G_i(\theta)}\left(\Omega_i - \frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] + \frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)\right),\]
+and $ \overline \varepsilon_i := \E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since $\frac{\partial \beta_i(k_i)}{\partial k_i} = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}$ from the preliminary step of Lemma~\ref{lem:SC-dir}, the term $-\frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] = \frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\frac{\partial \beta_i(k_i)}{\partial k_i}$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
+
+\noindent\textit{Step 3: existence and direction of the second cutoff.} Since $\mathcal W_i(\underline\theta_i)=0$, a concave $\mathcal W_i$ crosses zero at most once in the interior. If $\mathcal W_i'(\underline\theta_i)>0$, the function initially rises from zero, eventually returns toward zero, and crosses it at a unique interior cutoff $\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)$; types below $\tilde\theta_i$ gain and types above lose in case~(i), and the reverse in case~(ii). If $\mathcal W_i'(\underline\theta_i)\le 0$, no interior cutoff exists and either all types lose or all types gain. The convex case is symmetric, with concavity and convexity interchanged, and all surplus inequalities reversed. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse throughout.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reallocation under preference perturbations}
+
+\begin{lemma}[Reallocation under preference perturbations]\label{lem:realloc}
+Fix category \(i\) and an across-category allocation \((k_i,I_i)\). For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
+\[
+\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\mathcal{G}}(\theta) - \E^w_i\!\left[R_{\mathcal{G}}\mid s\right]\right), \qquad s\in T_i.
+\]
+\end{lemma}
+
+\begin{proof}
+Fix $s\in T_i$ and a local perturbation $\Delta\lambda_i(\theta)$ holding $k_i$ fixed.
+
+Using the weights $w_i(\theta,s)$ and $\E_i^w[\cdot\mid s]$ from the preliminary step of Lemma~\ref{lem:SC-dir}, note that
+\[
+R_q(\theta,s)=\varepsilon_i(s)\,w_i(\theta,s),
+\]
+which follows from
+\[
+R_q(\theta,s)=
+-\frac{u(q_i,s)}{u_q(q_i,s)}
+\qquad\text{and}\qquad
+\varepsilon_i(s)=u(q_i,s)\G_i(\theta).
+\]
+
+Linearizing the pointwise first-order condition
+\[
+u(q_i(\theta,s),s)\G_i(\theta)=\varepsilon_i(s)
+\]
+gives
+\[
+u_q\!\left(q_i(\theta,s),s\right)\G_i(\theta)\Delta q_i(\theta,s)
++
+u\!\left(q_i(\theta,s),s\right)\Delta\G_i(\theta)
+-
+\Delta\varepsilon_i(s)
+=
+0.
+\]
+Solving for $\Delta q_i(\theta,s)$ and substituting the definitions of $R_q$, $R_{\G}(\theta)=\Delta\G_i(\theta)/\G_i(\theta)$, and $\varepsilon_i(s)$ yields
+\[
+\Delta q_i(\theta,s)
+=
+R_q(\theta,s)
+\left(
+R_{\G}(\theta)
+-
+\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
+\right).
+\]
+Since the capacity constraint binds state-by-state and $k_i$ is held fixed,
+\[
+\E_i\!\left[\Delta q_i(\theta,s)\right]=0
+\qquad
+\text{for each }s\in T_i.
+\]
+Substituting the previous expression and using $R_q(\theta,s)=\varepsilon_i(s)w_i(\theta,s)$, dividing by $\varepsilon_i(s)\overline w_i(s)>0$, and rearranging gives
+\[
+\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
+=
+\E_i^w\!\left[R_{\G}\mid s\right].
+\]
+Substituting back,
+\[
+\Delta q_i(\theta,s)
+=
+R_q(\theta,s)
+\left(
+R_{\G}(\theta)-\E_i^w\!\left[R_{\G}\mid s\right]
+\right),
+\]
+which is the desired identity.
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Surplus effects of redistributive preference perturbations}
+
+\begin{proposition}[Surplus effects of redistributive preference perturbations]\label{prop:surplus-redist}
+Assume Assumption~\ref{ass:CARA} and unimodality of $R_{\mathcal{G}}(\theta)$. Define the set of cutoffs
+\[
+\tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\E CS_i(\tilde\theta_i)=0\right\}.
+\]
+\noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\E CS_i(\theta)$ is jointly determined by two signs: $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})$, which governs the starting value,
+\[\sign\!\left(\Delta\E CS_i(\underline\theta_i)\right)=\sign\!\left(\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})\right),\]
+and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})>0$, and $-,+,-$ when $\mathrm{Cov}_{i}(R_\theta,R_{\mathcal{G}})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
+
+\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_{\G}\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_{\G}\le 0$ for all $\theta$, the inequalities are reversed.
+\end{proposition}
+
+\begin{proof}
+    
+The surplus change follows from the IC representation \eqref{ECSi}:
+\[\Delta \E CS_i(\theta) = \Delta\E\underline{CS}_i + \int_{\underline\theta_i}^{\theta}\E_s\!\left[u\!\left(q_i(\tilde\theta,s),s\right)\Delta q_i(\tilde\theta,s)\,\mathbf{1}_{\{s\in T_i\}}\right]d\tilde\theta.\]
+Substituting Lemma~\ref{lem:realloc} and using the first-order condition $u(q_i,s)=\varepsilon_i(s)/\G_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
+\[\frac{\partial\Delta \E CS_i(\theta)}{\partial\theta} = \frac{1}{\alpha}\E_s\!\left[\frac{\varepsilon_i(s)}{\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right] = \frac{\overline\varepsilon_i}{\alpha\,\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right),\]
+where $\overline\varepsilon_i:=\E_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]>0$. Since $\overline\varepsilon_i/(\alpha\,\G_i(\theta))>0$, the sign of the derivative is determined solely by $R_{\G}(\theta)-\E_i[R_{\G}]$. Under unimodality of $R_{\G}$, this expression crosses zero at most twice, so $\Delta \E CS_i(\theta)$ has at most two turning points and at most three zeros in $[\underline\theta_i,\overline\theta_i]$.
+
+\noindent\textit{Boundary conditions.}
+
+\noindent\textit{IR-constrained allocation.} The IR constraint $\E\underline{CS}_i=0$ binds at both the baseline and the perturbed allocation, so $\Delta\E\underline{CS}_i=0$ and therefore $\Delta \E CS_i(\underline\theta_i)=0$.
+
+\noindent\textit{IR-unconstrained allocation.} Linearizing \eqref{ECSi} with respect to the preference perturbation and substituting Lemma~\ref{lem:realloc}:
+\[\Delta\E\underline{CS}_i = \E_{(s,i)}\!\left[u\!\left(q_i,s\right)\Delta q_i(\theta,s)\,J_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right] = \E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right].\]
+Under Assumption~\ref{ass:CARA}, $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}]$ is $s$-independent, so the expression separates and yields
+\[\Delta\E\underline{CS}_i = \frac{\overline\varepsilon_i}{\alpha}\,\Cov_{i}\!\left(R_\theta(\theta),R_{\G}(\theta)\right).\]
+
+
+
+
+\noindent\textit{Cutoff structure.} Since $R_{\mathcal{G}}(\theta)$ is unimodal, the derivative $\partial_\theta\Delta\mathbb{E}CS_i(\theta)\propto R_{\mathcal{G}}(\theta)-\mathbb{E}_i[R_{\mathcal{G}}]$ changes sign at most twice, so $\Delta\mathbb{E}CS_i(\theta)$ has at most two turning points and hence at most three interior zeros. Under $\Delta\G_i(\theta)\ge 0$, $R_{\G}(\theta)$ peaks above its mean in the interior so the derivative pattern is $-,+,-$, and the number of zeros of $\Delta \E CS_i(\theta)$ beyond the boundary is determined by the starting value: zero in the IR-constrained case and $\overline\varepsilon_i\,\Cov_{i}(R_\theta,R_{\G})$ in the IR-unconstrained case, giving the patterns stated in the proposition. Under $\Delta\G_i(\theta)\le 0$, all signs are reversed throughout.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Across-category allocation}
+
+\begin{lemma}[Across-category allocation]\label{lem:outer}
+The outer problem admits at least one solution, and the set of optimal allocations is convex. The optimality conditions are, for each $i \in N$,
+\[
+\Pi_i(k_i^\ast,I_i^\ast) \;=\; \zeta_k, \qquad \tilde\lambda_i + \beta_i(k_i^\ast,I_i^\ast) \;=\; -\zeta_I + \xi_i,
+\]
+with complementary slackness $\xi_i I_i^\ast = 0$ for all $i$ and where $\zeta_k, \zeta_I \in \mathbb{R}$ denote the multipliers on the capacity and revenue equality constraints, and $\xi_i \ge 0$ the multiplier on $I_i \ge 0$.\footnote{The Inada conditions on $u(\cdot)$ ensure that $k_i>0$ at the optimum, so the multiplier on $k_i \ge 0$ is zero.}
+\end{lemma}
+
+\begin{proof}
+The feasible set
+\[
+\mathcal F := \left\{ \{(k_i,I_i)\}_{i\in N} : \sum_{i\in N} k_i = k,\ \sum_{i\in N} I_i = I,\ k_i\ge 0,\ I_i\ge 0\ \forall i \right\}
+\]
+is compact and convex. Continuity of each $V_i$ follows from Berge's maximum theorem: the objective $\E_{(s,i)}[\Gamma_i(\theta)U(q,s)]$ and the constraints of the within-category problem are continuous in $(k_i,I_i)$, and the feasible correspondence is continuous and compact-valued under the maintained assumptions. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is concave. Hence the outer objective $W:=\sum_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
+
+\begin{lemma}[Concavity of the within-category value function]\label{lem:Vi-concave}
+For each category $i$, the value function $V_i(k_i,I_i)$ is concave on its feasible domain. More precisely:
+
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+    \item on the IR-constrained, capacity-binding region, where $\beta_i(k_i,I_i)>0$ and $\Pr(s\in T_i(k_i))>0$, the Hessian of $V_i$ is negative definite and $V_i$ is strictly concave;
+    \item when $\beta_i(k_i,I_i)=0$, the Hessian is negative semidefinite;
+    \item when $T_i(k_i)=\varnothing$, the Hessian is negative semidefinite.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem:Vi-concave}]
+Fix a category $i$. On binding states $s\in T_i(k_i)$, the pointwise first-order condition is
+\[
+u\!\left(q_i(\theta,s),s\right)\G_i(\theta)=\varepsilon_i(s), \qquad \G_i(\theta)=\Gamma_i(\theta)+\beta_i J_i(\theta).
+\]
+
+
+\noindent\textbf{Step 1: \(k_i\)-derivative and the boundary term.}
+
+By the envelope theorem,
+\[
+\partial_{k_i}V_i(k_i,I_i) = \E_s\!\left[\varepsilon_i(s;k_i,I_i)\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right].
+\]
+Differentiating with respect to $k_i$ gives a boundary term proportional to $\varepsilon_i(s_i)$. At the threshold state, the off-peak condition $u(q_i(\theta,s_i),s_i)=0$ holds for every $\theta$, and combined with the first-order condition this gives $\varepsilon_i(s_i)=0$. Hence the boundary term vanishes and
+\[
+V_{i,k_ik_i}(k_i,I_i) = \E_s\!\left[\partial_{k_i}\varepsilon_i(s;k_i,I_i)\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right].
+\]
+
+
+\noindent\textbf{Step 2: \(\partial_{I_i}\varepsilon_i(s)\) and the cross derivative.}
+
+Fix $k_i$ and $s\in T_i$. Differentiating the first-order condition with respect to $I_i$ and imposing the binding capacity constraint $\E_i[\partial_{I_i}q_i(\theta,s)]=0$ yields
+\[
+\partial_{I_i}\varepsilon_i(s) = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s],
+\]
+Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$, using $\partial_\beta\E \underline{CS}_i=\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$, gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\partial_{I_i}\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so defining $\E_{(s,i)}^w[uJ\mid s]:=\E_s\!\left[\mathsf \E_i^w[uJ\mid s]\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]$,
+\[
+V_{i,I_i}(k_i,I_i)= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad V_{i,I_iI_i}(k_i,I_i)= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0, \qquad V_{i,k_iI_i}(k_i,I_i) = \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
+\]
+
+
+\noindent\textbf{Step 3: \(V_{i,k_ik_i}\) on the IR-constrained region.}
+
+Holding $\beta$ fixed gives $\partial_{k_i}\varepsilon_i(s)|_\beta = -1/\overline w_i(s)$. Along the optimal path, the chain rule and the identity $\partial_\beta\varepsilon_i(s)=\mathsf \E_i^w[uJ\mid s]$ (established in the proof of Lemma~\ref{lem:SC-dir}) give
+\[
+\partial_{k_i}\varepsilon_i(s) = -\frac{1}{\overline w_i(s)} - \mathsf \E_i^w[uJ\mid s]\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
+\]
+Integrating over binding states and defining $\Omega_i(k_i):=\E_s\!\left[\overline w_i(s)^{-1}\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]>0$,
+\[
+V_{i,k_ik_i}(k_i,I_i) = -\Omega_i(k_i)-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0.
+\]
+The Hessian on the IR-constrained, capacity-binding region is
+\[
+\nabla^2 V_i(k_i,I_i) = \begin{pmatrix} -\Omega_i-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} & \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} \\[0.4em] \frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} & -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]} \end{pmatrix},
+\]
+with determinant $\det\nabla^2 V_i = \Omega_i\E_{(s,i)}^w[\mathrm{Var}_i(uJ)] > 0$. Both diagonal entries are negative and the determinant is positive, so $\nabla^2 V_i$ is negative definite, proving part~(i).
+
+
+\noindent\textbf{Step 4: the remaining regimes.}
+
+If $\beta_i=0$, then $V_i$ is locally affine in $I_i$, so $V_{i,I_iI_i}=0$ and $V_{i,k_iI_i}=0$. If capacity binds on a positive-mass set of states, the fixed-$\beta$ formula gives $V_{i,k_ik_i}=-\Omega_i\le 0$, so the Hessian is negative semidefinite, proving part~(ii). If $T_i(k_i)=\varnothing$, all second derivatives vanish and the Hessian is the zero matrix, proving part~(iii).
+
+
+\noindent\textbf{Step 5: global concavity across regime boundaries.}
+
+It remains to verify that $\nabla V_i$ is continuous across the two regime boundaries, which is required for the piecewise concavity argument to yield global concavity.
+
+\textit{IR-constrained to IR-unconstrained.} From Step~2, $V_{i,I_i}=-\tilde\lambda_i-\beta_i$. As $(k_i,I_i)$ approaches the boundary from the constrained side, $\beta_i\to 0^+$ by definition, so $V_{i,I_i}\to -\tilde\lambda_i$, matching the unconstrained value. As $\beta_i\to 0^+$, the allocation and hence $\varepsilon_i(s)$ converge to their unconstrained counterparts, so $\partial_{k_i}V_i$ is continuous across this boundary.
+
+\textit{Capacity-binding to capacity-slack.} As $s_i(k_i)\to\overline s$, $\E_s\!\left[\varepsilon_i(s)\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]\to 0$ continuously, matching the slack-side value of zero.
+
+With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^0,x^1$ and let $g_i(t):=V_i((1-t)x^0+tx^1)$. Then $g_i$ is piecewise $C^2$ with $g_i'$ continuous at every switching point. On each regime piece $g_i''(t)\le 0$, so $g_i'$ is nonincreasing on each piece. Continuity at switching points prevents upward jumps in $g_i'$, so $g_i'$ is globally nonincreasing and $g_i$ is concave. Hence $V_i$ is globally concave.
+\end{proof}
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Category ranking}
+
+\begin{theorem}[Category ranking]\label{thm:cat-order}
+Suppose category \(j\) differs from a baseline category \(i\) only through a marginal perturbation of redistributive preferences. Fix the baseline optimum \((k_i^\ast,I_i^\ast)\). Then, to first order in \(\Delta\lambda\), the following capacity ranking holds
+\[
+k_j^\ast>k_i^\ast
+\quad\Longleftrightarrow\quad
+\E_s\!\left[
+\varepsilon_i(s)\,
+\E_i^w\!\left[R_{\mathcal G}\mid s\right]
+\mathbf{1}_{\{s\in T_i\}}
+\right]>0.
+\]
+Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\E_i[R_{\mathcal G}(\theta)]>0$. 
+\end{theorem}
+
+
+\begin{proof}
+Since $V_i(k_i,I_i)$ is strictly concave in $k_i$ by Lemma~\ref{lem:Vi-concave}, the marginal scarcity rent
+\[
+\Pi_i(k_i):=\partial_{k_i}V_i(k_i,I_i)
+=
+\E_s\!\left[
+\varepsilon_i(s;k_i)\mathbf{1}_{\{s\in T_i(k_i)\}}
+\right]
+\]
+is strictly decreasing in $k_i$. At the outer optimum, the stationarity condition equalizes $\Pi_i(k_i^\ast)=\mu_k$ across all active categories. Therefore, to first order in $\Delta\lambda$,
+\[
+k_j^\ast>k_i^\ast
+\quad\Longleftrightarrow\quad
+\Delta \Pi_i(k_i^\ast)>0,
+\]
+where $\Delta \Pi_i(k_i^\ast):=\Pi_j(k_i^\ast)-\Pi_i(k_i^\ast)$ is the change in marginal scarcity rent induced by the preference perturbation, evaluated at the baseline capacity $k_i^\ast$. By the envelope theorem,
+\[
+\Delta \Pi_i(k_i^\ast)
+=
+\E_s\!\left[
+\Delta \varepsilon_i(s;k_i^\ast)\,
+\mathbf{1}_{\{s\in T_i(k_i^\ast)\}}
+\right].
+\]
+By Lemma~\ref{lem:realloc}, which holds for any allocation regime,
+\[
+\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
+=
+\E_i^w\!\left[R_{\G}\mid s\right]
+\qquad
+\text{for each } s\in T_i(k_i^\ast),
+\]
+where $R_{\G}(\theta)=\Delta \G_i(\theta)/\G_i(\theta)$ and $\G_i(\theta)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i^\ast,I_i^\ast)$. Substituting gives
+\[
+\Delta \Pi_i(k_i^\ast)
+=
+\E_s\!\left[
+\varepsilon_i(s;k_i^\ast)\,
+\E_i^w\!\left[R_{\G}\mid s;k_i^\ast\right]
+\mathbf{1}_{\{s\in T_i(k_i^\ast)\}}
+\right],
+\]
+which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is independent of $\theta$. Therefore $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}(\theta,k_i^\ast)]$ for every state $s$, and the condition reduces to
+\[
+\Pi_i(k_i^\ast)\cdot\E_i[R_{\G}(\theta,k_i^\ast)]>0.
+\]
+Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\E_i[R_{\G}(\theta,k_i^\ast)]$.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Capacity ordering along an ordered preference path}
+
+\begin{corollary}[Capacity ordering along an ordered preference path]\label{cor:ordered-path}
+Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast,\beta_i^\ast\}_{i\in N}\). Under Assumption~\ref{ass:ordered-path}, the equilibrium capacity profile is globally weakly monotone:
+\[
+k_1^\ast\le\cdots\le k_n^\ast.
+\]
+\end{corollary}
+
+\begin{lemma}[Revenue positivity]\label{lem:rev-pos}
+Under assumption~\ref{ass:regularity}, if $I_i=0$ then $\beta_i=0$.
+\end{lemma}
+\begin{proof}[Proof of Lemma~\ref{lem:rev-pos}]
+Suppose for contradiction that $I_i=0$ and $\beta_i>0$. Then complementary slackness on the IR/budget constraint requires $\E_{(s,i)}[U(q_i,s)J_i(\theta)]=0$. However, since $J_i'(\theta)>0$ and $q_i(\theta,s)$ is increasing in $\theta$ due to the IC constraint, hence both $J_i(\theta)$ and $U(q_i(\theta,s),s)$ are increasing in $\theta$. Therefore $\Cov_{i}(J_i,U)\ge 0$, and combined with $\E_i[J_i]=\underline\theta_i>0$ and $U>0$ at any interior allocation, we obtain $\E_{(s,i)}[U(q_i,s)J_i(\theta)]>0$ strictly, a contradiction.
+\end{proof}
+
+\begin{proof}
+We proceed in three steps.
+
+
+\noindent\textit{Step 1: Regime membership is monotone.}
+Suppose for contradiction that there exists an adjacent pair \(i-1,i\) such that
+\[
+\beta_{i-1}^\ast=0
+\qquad\text{and}\qquad
+\beta_i^\ast>0.
+\]
+By Lemma~\ref{lem:rev-pos}, \(\beta_i^\ast>0\) implies \(I_i^\ast>0\). Hence the outer KKT condition for category \(i\) gives
+\[
+\tilde\lambda_i+\beta_i^\ast=-\mu_I.
+\]
+For category \(i-1\), the stationarity condition with \(\beta_{i-1}^\ast=0\) gives
+\[
+\tilde\lambda_{i-1}=-\mu_I+\xi_{i-1},
+\qquad
+\xi_{i-1}\ge 0.
+\]
+Therefore
+\[
+\tilde\lambda_{i-1}\ge -\mu_I=\tilde\lambda_i+\beta_i^\ast>\tilde\lambda_i,
+\]
+which contradicts \(\tilde\lambda_i\ge \tilde\lambda_{i-1}\). Hence \(N^+\) is an initial segment and \(N^0\) a terminal segment of \(N\).
+
+
+\noindent\textit{Step 2: The sequence \((\beta_i^\ast)_{i\in N^+}\) is weakly decreasing.}
+Fix \(i\in N^+\). Since \(\beta_i^\ast>0\), Lemma~\ref{lem:rev-pos} implies \(I_i^\ast>0\), so the outer KKT condition yields
+\[
+\tilde\lambda_i+\beta_i^\ast=-\mu_I.
+\]
+Thus, for every \(i\in N^+\),
+\[
+\beta_i^\ast=-\mu_I-\tilde\lambda_i.
+\]
+Because \(\tilde\lambda_i\) is weakly increasing in \(i\) under Assumption~\ref{ass:ordered-path}, it follows that \(\beta_i^\ast\) is weakly decreasing on \(N^+\).
+
+
+\noindent\textit{Step 3: Capacity is weakly increasing across adjacent categories.}
+Fix an adjacent pair \(i-1,i\), and let
+\[
+t\longmapsto \lambda(t,\theta)
+\]
+be the ordered path from Assumption~\ref{ass:ordered-path}, with endpoints
+\[
+\lambda(0,\theta)=\lambda_{i-1}(\theta),
+\qquad
+\lambda(1,\theta)=\lambda_i(\theta).
+\]
+Let
+\[
+t\longmapsto \bigl(k^\ast(t),I^\ast(t),\beta^\ast(t)\bigr)
+\]
+denote the associated equilibrium path.
+
+By the argument of Step 1 applied pointwise along the path, the regime \(\beta^\ast(t)\) can move from \(>0\) to \(0\), but never from \(0\) to \(>0\). Hence, for almost every \(t\), one of the following three local cases applies between \(t\) and \(t+h\) for all sufficiently small \(h>0\):
+\[
+(\beta^\ast(t),\beta^\ast(t+h))=(0,0),\qquad
+(\beta^\ast(t),\beta^\ast(t+h))=(+, +),\qquad
+(\beta^\ast(t),\beta^\ast(t+h))=(+,0).
+\]
+
+Under Assumption~\ref{ass:ordered-path}, the local perturbation from \(t\) to \(t+h\) satisfies:
+\[
+\frac{\lambda(t+h,\theta)}{\lambda(t,\theta)}
+\quad\text{is weakly increasing in }\theta,
+\]
+and
+\[
+\tilde\lambda(t+h)\ge \tilde\lambda(t).
+\]
+We now verify that this implies
+\[
+\G(\theta;t+h)-\G(\theta;t)\ge 0
+\qquad\text{for all }\theta\in\Theta.
+\]
+
+\smallskip
+\noindent\underline{Case 1: \(\beta^\ast(t)=\beta^\ast(t+h)=0\).}
+Then
+\[
+\G(\theta;t)=\Gamma(\theta;t),
+\qquad
+\G(\theta;t+h)=\Gamma(\theta;t+h),
+\]
+so
+\[
+c_{\G}=c_\Lambda=\frac{\tilde\lambda(t+h)}{\tilde\lambda(t)}\ge 1.
+\]
+Lemma~\ref{lem:preferenceorder} therefore yields
+\[
+\G(\theta;t+h)-\G(\theta;t)\ge 0
+\qquad
+\text{for all }\theta.
+\]
+
+\smallskip
+\noindent\underline{Case 2: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)>0\).}
+Since both categories are in \(N^+\), the outer KKT conditions give
+\[
+\tilde\lambda(t)+\beta^\ast(t)
+=
+\tilde\lambda(t+h)+\beta^\ast(t+h)
+=
+-\mu_I.
+\]
+Hence
+\[
+c_{\G}=1,
+\qquad
+c_\Lambda=\frac{\tilde\lambda(t+h)}{\tilde\lambda(t)}\ge 1.
+\]
+Lemma~\ref{lem:preferenceorder} again implies
+\[
+\G(\theta;t+h)-\G(\theta;t)\ge 0
+\qquad
+\text{for all }\theta.
+\]
+
+\smallskip
+\noindent\underline{Case 3: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)=0\).}
+From the KKT conditions,
+\[
+\tilde\lambda(t)+\beta^\ast(t)=-\mu_I,
+\qquad
+\tilde\lambda(t+h)=-\mu_I+\xi(t+h),
+\qquad
+\xi(t+h)\ge 0.
+\]
+Therefore
+\[
+\tilde\lambda(t+h)\ge \tilde\lambda(t)+\beta^\ast(t),
+\]
+so
+\[
+c_{\G}
+=
+\frac{\tilde\lambda(t+h)}{\tilde\lambda(t)+\beta^\ast(t)}
+\ge 1.
+\]
+Moreover,
+\[
+c_\Lambda
+=
+\frac{\tilde\lambda(t+h)}{\tilde\lambda(t)}
+\ge
+\frac{\tilde\lambda(t+h)}{\tilde\lambda(t)+\beta^\ast(t)}
+=
+c_{\G}.
+\]
+Lemma~\ref{lem:preferenceorder} then gives
+\[
+\G(\theta;t+h)-\G(\theta;t)\ge 0
+\qquad
+\text{for all }\theta.
+\]
+
+\smallskip
+In all three cases,
+\[
+\G(\theta;t+h)-\G(\theta;t)\ge 0
+\qquad
+\text{for all }\theta,
+\]
+hence
+\[
+R_{\G}(\theta;t):=
+\frac{\partial_t\G(\theta;t)}{\G(\theta;t)}
+\ge 0
+\qquad
+\text{for all }\theta
+\]
+for almost every \(t\). Since the weights defining \(\E^w[\cdot\mid s]\) are positive,
+\[
+\E^w\!\left[R_{\G}\mid s;t\right]\ge 0
+\qquad
+\text{for every peak state } s.
+\]
+Applying Theorem~\ref{thm:cat-order} at the current optimum
+\[
+\bigl(k^\ast(t),I^\ast(t)\bigr)
+\]
+yields
+\[
+\frac{d k^\ast(t)}{dt}\ge 0
+\qquad
+\text{for almost every } t\in[0,1].
+\]
+Integrating from \(t=0\) to \(t=1\) gives
+\[
+k_i^\ast=k^\ast(1)\ge k^\ast(0)=k_{i-1}^\ast.
+\]
+
+Since this holds for every adjacent pair \(i-1,i\), we conclude that
+\[
+k_1^\ast\le \cdots \le k_n^\ast.
+\]
+This proves (iii), and hence the corollary.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Revenue ordering}
+
+\begin{proposition}[Revenue ordering]\label{prop:revenueordering}
+Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the two endogenous subsets 
+\[
+N^+:=\{i\in N:\beta_i^\ast>0\},
+\qquad
+N^0:=\{i\in N:\beta_i^\ast=0\},
+\]
+which partition \(N\) into categories that contribute to the budget and categories that do not contribute to the budget (either may be empty). Then:
+
+\noindent\textbf{(i)} At any equilibrium, $\max_{i \in N^+} \tilde\lambda_i < \min_{i \in N^0} \tilde\lambda_i$, so \(N^+\) and \(N^0\) are strictly separated in terms of average welfare weights, regardless of the within-type structure of preferences.
+
+\noindent\textbf{(ii)} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order
+\[
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad -\underbrace{\Bigg.\left(\Delta k\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)+\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\right)\Bigg.}_{\text{revenue effect}}<\underbrace{\Bigg.\Delta\tilde\lambda\Bigg.}_{\text{preference effect}}.
+\]
+where the sign of $\Delta k \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \eqref{Eujmd} and $\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)$ is the  first-order effect of the preference perturbation on the $\beta_i$. Under Assumption~\ref{ass:CARA},  and using the first-order expression for $\Delta k$,this reduces to
+\[
+I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \underbrace{\Bigg.\frac{\E_i[R_{\mathcal G}(\theta)]}{\E_i[R_\theta^2(\theta)]}\Bigg.}_{\Delta k} \underbrace{\Bigg.\E_i[R_\theta(\theta)]\Bigg. }_{\partial_k\beta}+ 
+\underbrace{\Bigg.\frac{
+\Cov_i\!\left(
+R_{\theta}(\theta),R_{\mathcal G}(\theta)
+\right)
+}{
+\Var_i\!\left(
+R_{\theta}(\theta)
+\right)
+}\Bigg.}_{\Delta_\lambda \beta} < \Delta\tilde\lambda.
+\]
+\end{proposition}
+
+\begin{proof}
+
+\noindent\textit{Part (i).} If either $N^+$ or $N^0$ is empty, there is nothing to prove. Assume therefore that both sets are nonempty. For $i\in N^+$, complementary slackness gives $\xi_i=0$, so the outer KKT condition from Lemma~\ref{lem:outer} yields
+\[
+\tilde\lambda_i+\beta_i^\ast=-\zeta_I=:\tilde\lambda^\ast.
+\]
+Since $\beta_i^\ast>0$, we have $\tilde\lambda_i<\tilde\lambda^\ast$. For $j\in N^0$, $\beta_j^\ast=0$ and the KKT condition gives
+\[
+\tilde\lambda_j=-\zeta_I+\xi_j=\tilde\lambda^\ast+\xi_j\ge \tilde\lambda^\ast.
+\]
+Hence
+\[
+\max_{i\in N^+}\tilde\lambda_i<\tilde\lambda^\ast\le \min_{j\in N^0}\tilde\lambda_j,
+\]
+which proves the strict separation.
+
+\noindent\textit{Part (ii). General case.} Since $\beta_i^\ast>0$ and $\beta_j^\ast>0$, both categories are interior contributors. By Lemma~\ref{lem:outer}, the outer KKT conditions hold with equality and without slackness:
+\[
+\tilde\lambda_i+\beta_i^\ast = \tilde\lambda^\ast = \tilde\lambda_j+\beta_j^\ast,
+\]
+so
+\[
+\Delta\beta^\ast:=\beta_j^\ast-\beta_i^\ast=-\Delta\tilde\lambda.
+\]
+Let $\Delta k:=k_j^\ast-k_i^\ast>0$ and $\Delta I:=I_j^\ast-I_i^\ast$. Since category $j$ is obtained from $i$ through a marginal perturbation of redistributive preferences, a first-order expansion of
+\[
+\beta_j^\ast=\beta_j(k_j^\ast,I_j^\ast;\lambda_j)
+\]
+around $(k_i^\ast,I_i^\ast;\lambda_i)$ must account for three channels: the movement in $k$, the movement in $I$, and the direct effect of the preference change at fixed $(k_i^\ast,I_i^\ast)$, denoted $\Delta_\lambda\beta_i$. Hence
+\[
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k
++
+\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)\,\Delta I
++
+\Delta_\lambda\beta_i
+=
+-\Delta\tilde\lambda.
+\]
+
+To characterize $\Delta_\lambda\beta_i$, hold $(k_i^\ast,I_i^\ast)$ fixed and differentiate the binding IR constraint
+\[
+\E\underline{CS}_i(k_i^\ast,I_i^\ast;\beta_i;\lambda_i)=0
+\]
+with respect to the preference perturbation, allowing $\beta_i$ to adjust. This gives
+\[
+\Delta_\lambda\beta_i
+=
+-\frac{\mathcal C_i}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]},
+\]
+where
+\[
+\mathcal C_i
+:=
+\E_{(s,i)}\!\left[
+\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)
+\left(
+R_{\mathcal G}(\theta)-\E_i^w[R_{\mathcal G}\mid s]
+\right)
+\mathbf 1_{\{s\in T_i\}}
+\right]
+\]
+is the direct effect of the perturbation on available revenue at fixed $(k_i^\ast,I_i^\ast,\beta_i^\ast)$.
+
+Rearranging and using
+\[
+\frac{\partial\beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)
+=
+\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}(k_i^\ast)>0
+\]
+from Lemma~\ref{lem:Vi-concave}, we obtain
+\[
+\Delta I
+=
+-\frac{
+\Delta\tilde\lambda
++
+\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k
++
+\Delta_\lambda\beta_i
+}{
+\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)
+}.
+\]
+Since $\frac{\partial\beta_i}{\partial I_i}>0$, we have $\Delta I<0$ if and only if
+\[
+\Delta\tilde\lambda
++
+\frac{\partial\beta_i}{\partial k_i}\Delta k
++
+\Delta_\lambda\beta_i
+>0,
+\]
+which is the stated condition. The sign of
+\[
+\frac{\partial\beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
+=
+-\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}
+\]
+is opposite to the sign of \eqref{Eujmd} by Lemma~\ref{lem:SC-dir}.
+
+\noindent\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent. We compute the three terms entering the general condition in turn.
+
+\noindent\textit{Step 1: $\frac{\partial\beta_i}{\partial k_i}$.} Since $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$ and $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_i(R_\theta)$ under CARA, integrating over binding states gives $\E_{(s,i)}^w[uJ\mid s]=\bar\varepsilon_i\E_i[R_\theta]$ and $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\bar\varepsilon_i\mathrm{Var}_i(R_\theta)/\alpha$, so
+\[
+\frac{\partial\beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
+=
+-\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_i(R_\theta)}.
+\]
+
+\noindent\textit{Step 2: $\Delta k$.} From Theorem~\ref{thm:cat-order},
+\[
+\Delta\Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_\mathcal{G}].
+\]
+Using $\Omega_i=\alpha\Pi_i(k_i^\ast)$ under CARA and
+\[
+\mathrm{Var}(R_\theta)+(\E[R_\theta])^2=\E[R_\theta^2],
+\]
+the formula
+\[
+\Pi_i'(k_i^\ast)
+=
+-\Omega_i-\frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}
+\]
+reduces to
+\[
+\Pi_i'(k_i^\ast)
+=
+-\alpha\Pi_i(k_i^\ast)\frac{\E_i[R_\theta^2]}{\mathrm{Var}_i(R_\theta)}.
+\]
+Hence
+\[
+\Delta k = -\frac{\Delta\Pi_i}{\Pi_i'(k_i^\ast)}
+\]
+gives
+\[
+\Delta k
+=
+\frac{\E_i[R_\mathcal{G}]\,\mathrm{Var}_i(R_\theta)}{\alpha\,\E_i[R_\theta^2]},
+\]
+so that
+\[
+\Delta k\,\frac{\partial\beta_i}{\partial k_i}
+=
+-\frac{\E_i[R_\mathcal{G}]\,\E_i[R_\theta]}{\E_i[R_\theta^2]}.
+\]
+
+\noindent\textit{Step 3: $\Delta_\lambda\beta_i$.} The direct preference effect on available revenue at fixed $(k_i^\ast,I_i^\ast,\beta_i^\ast)$ is, by the same computation as in the proof of Proposition~\ref{prop:surplus-redist},
+\[
+\mathcal C_i
+=
+\frac{\bar\varepsilon_i}{\alpha}\mathrm{Cov}_i(R_\theta,R_\mathcal{G}).
+\]
+Since
+\[
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+=
+\frac{\bar\varepsilon_i}{\alpha}\mathrm{Var}_i(R_\theta),
+\]
+the $\bar\varepsilon_i/\alpha$ factors cancel and
+\[
+\Delta_\lambda\beta_i
+=
+-\frac{\mathrm{Cov}_i(R_\theta,R_\mathcal{G})}{\mathrm{Var}_i(R_\theta)}.
+\]
+
+\noindent\textit{Assembling.} Combining Steps 1--3,
+\[
+-\!\left(
+\Delta k\,\frac{\partial\beta_i}{\partial k_i}
++
+\Delta_\lambda\beta_i
+\right)
+=
+\frac{\E_i[R_\mathcal{G}]\,\E_i[R_\theta]}{\E_i[R_\theta^2]}
++
+\frac{\mathrm{Cov}_i(R_\theta,R_\mathcal{G})}{\mathrm{Var}_i(R_\theta)},
+\]
+which gives the stated CARA condition.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Optimal investment and the incomplete-information peak-load rule}
+
+\begin{lemma}[Optimal investment and the incomplete-information peak-load rule]\label{lem:investment}
+The investment problem \(\max_{k\geq 0} W(k)\) admits a unique interior solution \(k^\ast > 0\). The optimal investment level satisfies
+\[
+I'(k^\ast)
+= \frac{1}{\mu^+\tilde\lambda^\ast}\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast)=
+\frac{1}{\mu^+}
+\sum_{i\in N^+} \mu_i\,
+\E_{(s,i)}\!\left[
+u(q_i(\theta,s),s)\,
+\frac{\mathcal{G}_i(\theta)}{\tilde\lambda^\ast}\,
+\mathbf{1}_{\{s\in T_i\}}
+\right],
+\]
+where \(\mu^+ := \sum_{i\in N^+}\mu_i\) denotes the mass of contributing categories and \(\tilde\lambda^\ast := -\zeta_I > 0\) is the equilibrium marginal cost of funds. Moreover,
+\[
+\max_{i \in N^+} \tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i \in N^0} \tilde\lambda_i.
+\]
+\end{lemma}
+
+\begin{proof}
+Define the outer indirect value
+\[
+\overline W(K,I)
+:=
+\max_{\{k_i,I_i\}_{i\in N}}
+\sum_{i\in N}\mu_i\,V_i(k_i,I_i)
+\]
+subject to
+\[
+\sum_{i\in N}\mu_i k_i = K,
+\qquad
+\sum_{i\in N}\mu_i I_i = I,
+\qquad
+k_i\geq 0,
+\qquad
+I_i\geq 0
+\quad \forall i\in N.
+\]
+By Lemma~\ref{lem:outer}, $\overline W$ is well defined and continuous, and by Lemma~\ref{lem:Vi-concave} it is concave in $(K,I)$. Moreover, since
+\[
+\partial_{I_i}V_i(k_i,I_i)=-\tilde\lambda_i-\beta_i(k_i,I_i)<0,
+\]
+the function $\overline W(K,I)$ is strictly decreasing in $I$.
+
+Now define
+\[
+W(k):=\overline W\!\left(k,I(k)\right).
+\]
+Let $k_0,k_1\geq 0$ and $t\in(0,1)$. By concavity of $\overline W$ and convexity of $I$,
+\[
+\begin{aligned}
+W\!\left(tk_0+(1-t)k_1\right)
+&=
+\overline W\!\left(tk_0+(1-t)k_1,\ I\!\left(tk_0+(1-t)k_1\right)\right) \\
+&\geq
+\overline W\!\left(tk_0+(1-t)k_1,\ tI(k_0)+(1-t)I(k_1)\right) \\
+&\geq
+t\,W(k_0)+(1-t)\,W(k_1).
+\end{aligned}
+\]
+Since $I$ is strictly convex and $\overline W$ is strictly decreasing in its second argument, the first inequality is strict whenever $k_0\neq k_1$. Hence $W$ is strictly concave, so any maximizer is unique.
+
+By the maintained Inada condition on $u$, the marginal value of capacity tends to $+\infty$ as $k\downarrow 0$, while strict convexity of $I$ implies $W(k)\to -\infty$ for large $k$. Therefore the unique maximizer satisfies $k^\ast>0$.
+
+At any point of differentiability, the envelope theorem for the outer problem gives
+\[
+W'(k)=\zeta_k+\zeta_I I'(k),
+\]
+where $\zeta_k$ and $\zeta_I$ are the multipliers on the two aggregate constraints. Since $k^\ast$ is an interior maximizer,
+\[
+0=W'(k^\ast)=\zeta_k+\zeta_I I'(k^\ast).
+\]
+Let
+\[
+\tilde\lambda^\ast:=-\zeta_I>0.
+\]
+Then
+\[
+\tilde\lambda^\ast I'(k^\ast)=\zeta_k.
+\]
+
+By Lemma~\ref{lem:outer},
+\[
+\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k
+\qquad\text{for every }i,
+\]
+where, by the within-category envelope formula and the first-order condition~\eqref{KKT-qMD},
+\[
+\Pi_i(k_i^\ast,I_i^\ast)
+=
+\E_{(s,i)}\!\left[
+u(q_i(\theta,s),s)\,\G_i(\theta)\,\mathbf 1_{\{s\in T_i\}}
+\right].
+\]
+
+Let
+\[
+\mu^+ := \sum_{i\in N^+}\mu_i.
+\]
+Since $\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k$ for every contributing category,
+\[
+\mu^+\,\zeta_k
+=
+\sum_{i\in N^+}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast).
+\]
+Combining this with $\tilde\lambda^\ast I'(k^\ast)=\zeta_k$ yields
+\[
+I'(k^\ast)
+=
+\frac{1}{\mu^+}
+\sum_{i\in N^+}\mu_i\,
+\E_{(s,i)}\!\left[
+u(q_i(\theta,s),s)\,
+\frac{\G_i(\theta)}{\tilde\lambda^\ast}\,
+\mathbf 1_{\{s\in T_i\}}
+\right].
+\]
+
+For the comparative statics below, it is convenient to note the equivalent whole-$N$ representation
+\[
+I'(k^\ast)
+=
+\frac{1}{\tilde\lambda^\ast}
+\sum_{i\in N}\mu_i\,\Pi_i(k_i^\ast,I_i^\ast),
+\]
+which follows from the same identity $\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k$.
+
+Finally, the outer KKT condition is
+\[
+\tilde\lambda_i+\beta_i(k_i^\ast,I_i^\ast)=\tilde\lambda^\ast+\xi_i,
+\qquad
+\xi_i I_i^\ast=0,
+\qquad
+\xi_i\geq 0.
+\]
+If $i\in N^+$, then $\beta_i^\ast>0$, so
+\[
+\tilde\lambda_i<\tilde\lambda_i+\beta_i^\ast=\tilde\lambda^\ast+\xi_i.
+\]
+Since contributing categories are interior in the revenue margin, $\xi_i=0$, and therefore
+\[
+\tilde\lambda_i<\tilde\lambda^\ast.
+\]
+If instead $i\in N^0$, then $\beta_i^\ast=0$, so
+\[
+\tilde\lambda_i=\tilde\lambda^\ast+\xi_i\geq \tilde\lambda^\ast.
+\]
+Thus
+\[
+\max_{i\in N^+}\tilde\lambda_i
+<
+\tilde\lambda^\ast
+\leq
+\min_{i\in N^0}\tilde\lambda_i.
+\qedhere
+\]
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Investment response to redistributive preference perturbations}
+
+\begin{proposition}[Investment response to redistributive preference perturbations]\label{prop:investment}
+Assume Assumption~\ref{ass:CARA}. Suppose each category \(i\) becomes a new category \(j\) through a marginal and monotonic mean-preserving perturbation of \(\lambda_i(\theta)\), and let \(\Delta\tilde\lambda^\ast\) denote the first-order change in the equilibrium marginal cost of funds. Then the induced change in optimal investment satisfies
+\[
+W''(k^\ast)\,\Delta k^\ast
+=
+-\underbrace{\Bigg.\sum_{i\in N}\mu_i\,\Pi_i\,\mathbb E_i[R_{\mathcal G,i}]\Bigg.}_{\text{average effect}}
+\qquad +  \qquad \underbrace{ \Bigg.I'(k^\ast)\,\Delta\tilde\lambda^\ast\Bigg.}_{\text{sorting effect}}
+\]
+where
+\[
+\Delta\tilde\lambda^\ast
+=
+-
+\frac{
+\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
+\Cov_i\!\left(
+R_{\theta,i}(\theta),R_{\mathcal G,i}(\theta)
+\right)
+}{
+\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
+\Var_i\!\left(
+R_{\theta,i}(\theta)
+\right)
+}.
+\]
+Here \(W''(k^\ast)<0\) and \(\overline\varepsilon_i \geq 0\).
+\end{proposition}
+
+\begin{proof}
+Let \(\Delta_\lambda\) denote the first-order effect of the perturbation of
+\(\lambda_i(\theta)\) evaluated at the baseline equilibrium allocation.
+
+From Lemma~\ref{lem:investment}, we use the equivalent whole-\(N\)
+representation
+\[
+I'(k^\ast)
+=
+\frac{1}{\tilde\lambda^\ast}
+\sum_{i\in N}\mu_i\,\Pi_i.
+\]
+Differentiating this expression with respect to the perturbation yields
+\[
+W''(k^\ast)\,\Delta k^\ast
+=
+I'(k^\ast)\,\Delta\tilde\lambda^\ast
+-
+\sum_{i\in N}\mu_i\,\Delta_\lambda \Pi_i.
+\]
+
+Under Assumption~\ref{ass:CARA}, the same simplification as in
+Theorem~\ref{thm:cat-order} applies, so for every category \(i\),
+\[
+\Delta_\lambda \Pi_i
+=
+\Pi_i\,\E_i[R_{\G,i}].
+\]
+Substituting into the previous display gives
+\[
+W''(k^\ast)\,\Delta k^\ast
+=
+I'(k^\ast)\,\Delta\tilde\lambda^\ast
+-
+\sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}].
+\]
+
+It remains to characterize \(\Delta\tilde\lambda^\ast\). For every contributing
+category \(i\in N^+\), the revenue constraint binds. Since the perturbation is
+mean-preserving, \(\Delta\tilde\lambda_i=0\), and Lemma~\ref{lem:investment}
+implies
+\[
+\tilde\lambda_i+\beta_i^\ast=\tilde\lambda^\ast
+\qquad\text{for all }i\in N^+,
+\]
+hence
+\[
+\Delta\beta_i^\ast=\Delta\tilde\lambda^\ast.
+\]
+Taking the first-order effect of the perturbation in the binding condition gives
+\[
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)\,\Delta\tilde\lambda^\ast
++
+\Delta_\lambda
+\E_{(s,i)}\!\left[
+U(q_i(\theta,s),s)\,J_i(\theta)
+\right]
+=
+0.
+\]
+
+Under Assumption~\ref{ass:CARA}, we have
+\[
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)
+=
+\frac{\overline\varepsilon_i}{\alpha}\,
+\Var_{i}\!\left(R_{\theta,i}(\theta)\right),
+\qquad
+\overline\varepsilon_i
+:=
+\E_s\!\left[
+\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}
+\right],
+\]
+and
+\[
+\Delta_\lambda
+\E_{(s,i)}\!\left[
+U(q_i(\theta,s),s)\,J_i(\theta)
+\right]
+=
+\frac{\overline\varepsilon_i}{\alpha}\,
+\Cov_{i}\!\left(
+R_{\theta,i}(\theta),R_{\G,i}(\theta)
+\right).
+\]
+Therefore, summing over all contributing categories \(i\in N^+\) with weights
+\(\mu_i\), we obtain
+\[
+\Delta\tilde\lambda^\ast
+=
+-
+\frac{
+\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
+\Cov_{i}\!\left(
+R_{\theta,i}(\theta),R_{\G,i}(\theta)
+\right)
+}{
+\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
+\Var_{i}\!\left(
+R_{\theta,i}(\theta)
+\right)
+}.
+\]
+
+Finally, under a smooth ordered path that tilts redistributive preferences toward
+higher types, we have
+\[
+\E_i[R_{\G,i}]>0
+\qquad\text{for all }i\in N.
+\]
+Hence the direct term
+\[
+-\frac{1}{\tilde\lambda^\ast}
+\sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}]
+\]
+is negative. Since \(W''(k^\ast)<0\), this direct channel pushes \(\Delta k^\ast\)
+upward. The overall sign of \(\Delta k^\ast\) nevertheless also depends on the
+induced change in \(\tilde\lambda^\ast\).
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Complete-information allocation with redistribution}
+
+\begin{proposition}[Complete-information allocation with redistribution]\label{prop:FBalloc}
+The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$ satisfying
+\[\tag{FOC$_S^{fb}$}\label{FB-S}
+\theta\,u\!\left(q_i^*(\theta,s),s\right)=0,
+\qquad s\in S^*,
+\]
+and
+\[\tag{FOC$_T^{fb}$}\label{FB-T}
+\begin{aligned}   
+& u\!\left(q_i^*(\theta,s),s\right)\,\beta \theta= \varepsilon(s), & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
+& u\!\left(q_i^*(\theta,s),s\right)\,\lambda_i(\theta)\theta=\varepsilon(s), & \text{if } \lambda_i(\theta)>\lambda^*,
+\end{aligned}
+\qquad s\in T^*.
+\]
+Transfers are independent of $s$ and satisfy $t_i^*(\theta)=\E_s\!\left[\theta\,U\!\left(q_i^*(\theta,s),s\right)\right]$ for strictly contributing types $\lambda_i(\theta)<\lambda^*$, $t_i^*(\theta)=0$ for non-contributing types $\lambda_i(\theta)>\lambda^*$, and the participation constraint may be slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
+\end{proposition}
+
+
+\begin{proof}
+Let $\beta$, $\varepsilon(s)$, $\phi_i(\theta,s)$, and $\rho_i(\theta)$ be the Lagrange multipliers on the budget, the capacity, the transfer positivity, and the participation constraints, respectively. The Lagrangian is
+\[\label{KKT}\tag{L$^*$}
+\begin{aligned}
+\mathcal{L} &= \sum_i \mu_i\, \E_{(s,i)}\!\left[\lambda_i(\theta)\,\theta\, U(q_i,s) - t_i(\theta,s)\right] + \beta\!\left(\sum_i \mu_i \E_{(s,i)}[t_i(\theta,s)] - I(k)\right) \\
+&\quad + \E_s\!\left[\varepsilon(s)\!\left(k - \sum_i \mu_i \E_i[q_i(\theta,s)]\right)\right] + \sum_i  \E_{(s,i)}\left[ \rho_i(\theta)(\theta U(q_i,s) - t_i(\theta,s))\right] dG_i(\theta) \\
+&\quad + \sum_i \mu_i\, \E_{(s,i)}\!\left[\phi_i(\theta,s)\,t_i(\theta,s)\right],
+\end{aligned}
+\]
+with $\beta, \varepsilon(s), \rho_i(\theta), \phi_i(\theta,s) \geq 0$. The FOCs for each $(i,\theta,s)$ are
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial q_i} = 0 \quad &\Rightarrow \quad \left(\mu_i\lambda_i(\theta) + \rho_i(\theta)\right)\theta\, u(q_i,s) = \mu_i\varepsilon(s), \\
+\frac{\partial \mathcal{L}}{\partial t_i} = 0 \quad &\Rightarrow \quad \mu_i\beta - \mu_i\lambda_i(\theta) - \rho_i(\theta) + \phi_i(\theta,s) = 0.
+\end{align*}
+Complementary slackness conditions are
+\[
+\varepsilon(s)\!\left(k - \sum_i \mu_i \E_i[q_i(\theta,s)]\right) = 0, \quad \beta\!\left(\sum_i \mu_i \E_{s,\theta}[t_i] - I(k)\right) = 0,
+\]
+\[
+\rho_i(\theta)\,\E_s\!\left[\theta U(q_i,s) - t_i(\theta,s)\right] = 0, \quad \phi_i(\theta,s)\,t_i(\theta,s) = 0.
+\]
+
+\textit{Step 1: $s$-independence of transfers (WLOG).} The objective, the budget constraint, and the IR constraint all depend on $t_i(\theta,s)$ only through its expectation $\E_s[t_i(\theta,s)]$. Therefore any feasible state-contingent transfer schedule $t_i(\theta,s)$ can be replaced by $\overline{t}_i(\theta) := \E_s[t_i(\theta,s)]$ without altering the objective value or any constraint. Transfer positivity is preserved since $t_i(\theta,s) \geq 0$ for all $s$ implies $\overline{t}_i(\theta) \geq 0$. Hence without loss of generality $t_i^*(\theta,s) = t_i^*(\theta)$, and $\rho_i(\theta)$ and $\phi_i(\theta)$ are also $s$-independent.
+
+\textit{Step 2: structure of optimal transfers.} Suppose two types $(\theta,i)$ and $(\theta',i')$ satisfy $\lambda_i(\theta) < \lambda_{i'}(\theta')$. Assume for contradiction that $t_{i'}(\theta') > 0$ and $t_i(\theta) = 0$. If both participation constraints are slack, then $\rho_i(\theta) = \rho_{i'}(\theta') = 0$ and $\phi_{i'}(\theta') = 0$, so the FOC on $t$ gives $\lambda_{i'}(\theta') = \beta$. But $t_i(\theta) = 0$ with slack participation requires $\phi_i(\theta) > 0$, giving $\lambda_i(\theta) = \beta + \phi_i(\theta)/\mu_i > \beta = \lambda_{i'}(\theta')$, contradicting $\lambda_i(\theta) < \lambda_{i'}(\theta')$. The case where the participation constraint of $(\theta', i')$ binds leads to the same contradiction. Therefore at the optimum, any type with $\lambda_i(\theta) < \lambda^*$ has $t_i^*(\theta) > 0$ and any type with $\lambda_i(\theta) > \lambda^*$ has $t_i^*(\theta) = 0$, where $\lambda^* = \beta$ is the marginal welfare weight pinned by the budget constraint.
+
+\textit{Step 3: optimal quantities.} When capacity is slack, $\varepsilon(s) = 0$ and the FOC on $q$ gives $\theta\, u(q_i^*,s) = 0$, which is \eqref{FB-S}. When capacity binds, the FOC on $q$ gives $\theta\, u(q_i^*,s) = \varepsilon(s)/(\lambda_i(\theta) + \rho_i(\theta)/\mu_i)$. For types with $\lambda_i(\theta) > \lambda^*$: $\rho_i(\theta) = 0$ and $\theta\, u(q_i^*,s) = \varepsilon(s)/\lambda_i(\theta)$. For types with $\lambda_i(\theta) \leq \lambda^*$: from the FOC on $t$, $\lambda_i(\theta) + \rho_i(\theta)/\mu_i = \beta$, so $\theta\, u(q_i^*,s) = \varepsilon(s)/\beta$. This establishes \eqref{FB-T}.
+
+\textit{Step 4: monotonicity of $q_i^*$ in $s$ and uniqueness of $s^*$.} When capacity is slack, totally differentiating $\theta\, u(q_i^*,s) = 0$ gives
+\[
+\frac{\partial q_i^*(\theta,s)}{\partial s} = -\frac{u_s(q_i^*,s)}{u_q(q_i^*,s)} > 0,
+\]
+since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_i \E_i[q_i^*(\theta,s)]$ is strictly increasing in $s$, which guarantees existence of a unique threshold $s^*$ separating $S^*$ and $T^*$.
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{proof}
+Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
+\[
+\tilde\lambda_i^k := \int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta), \qquad \Lambda_i^k(\theta) := \frac{1}{g_i(\theta)}\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t), \qquad k\in\{1,2\}.
+\]
+Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
+
+
+\noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
+For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by
+\[
+dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}\,\mathbf{1}\{t\ge\theta\}.
+\]
+Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, we have $\Lambda_i^2(\theta)/\Lambda_i^1(\theta) = \E_{Q_\theta}[m(\tilde\theta)]$. For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance $\E_{Q_\theta}[m(\tilde\theta)] \ge \E_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
+
+
+\noindent\textit{Proof of (i).}
+Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its logarithm is monotone too. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,
+\[
+0 \le \frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right) = \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)} - \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},
+\]
+in the upward case, which yields $\Lambda_i^{\Delta\,\prime}(\theta)/\Lambda_i^\Delta(\theta) \ge \Lambda_i'(\theta)/\Lambda_i(\theta)$ for almost every $\theta$. The reverse inequality holds in the downward case.
+
+
+\noindent\textit{Proof of (ii).}
+Write
+\[
+\G_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta), \qquad \G_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\Delta}\bigr)+\Lambda_i^\Delta(\theta).
+\]
+
+
+\noindent\textbf{Upward case.} Assume $m$ is increasing and $1\le c_{\G}\le c_\Lambda$. The boundary evaluation gives
+\[
+\frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)} = \frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i} = c_\Lambda.
+\]
+Since the ratio is increasing by the core step and starts at $c_\Lambda \ge c_{\G}$,
+\[
+\Lambda_i^\Delta(\theta) \ge c_\Lambda\,\Lambda_i(\theta) \ge c_{\G}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
+\]
+Using the definition of $c_{\G}$,
+\[
+\G_i^\Delta(\theta) = c_{\G}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i^\Delta(\theta) \ge c_{\G}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+c_{\G}\,\Lambda_i(\theta) = c_{\G}\,\G_i(\theta).
+\]
+Since $c_{\G}\ge 1$ and $\G_i(\theta)>0$, it follows that $\Delta\G_i(\theta) \ge (c_{\G}-1)\G_i(\theta) \ge 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
+
+
+\noindent\textbf{Downward case.} Assume $m$ is decreasing and $c_\Lambda\le c_{\G}\le 1$. The boundary evaluation gives $\Lambda_i^\Delta(\underline\theta_i)/\Lambda_i(\underline\theta_i) = c_\Lambda \le c_{\G}$. Since the ratio is decreasing by the core step and starts at $c_\Lambda$,
+\[
+\Lambda_i^\Delta(\theta) \le c_\Lambda\,\Lambda_i(\theta) \le c_{\G}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
+\]
+Therefore $\G_i^\Delta(\theta) \le c_{\G}\,\G_i(\theta)$, and since $c_{\G}\le 1$ and $\G_i(\theta)>0$, it follows that $\Delta\G_i(\theta) \le (c_{\G}-1)\G_i(\theta) \le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
+
+
+The special cases in the ``in particular'' clause follow immediately: if $\beta_i=\beta_i^{\Delta}=0$ then $c_{\G}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\G}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\Delta}+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$ then $c_{\G}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
+\qedhere
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Appendix text results and proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Individual surplus and optimal investment under complete information}
+
+\begin{proposition}[Individual surplus and optimal investment under complete information]\label{prop:CI-surplus}
+Assume that both the contributing set and the non-contributing set have positive mass.
+
+\noindent\textbf{(i)} For every type such that $\lambda_i(\theta)>\lambda^*$, individual surplus is weakly increasing in $k$ if
+\[
+\E_s\!\left[\sum_i \mu_i \, \E_i^w[u^c\mid s]\,\mathbf 1_{\{s\in T^*\}}\right] \geq I'(k).
+\]
+
+\noindent\textbf{(ii)} Suppose the optimal investment $k^*>0$ is interior. Then
+\[
+\tag{FOC$^{CI}_k$}\label{eq:FB-k1}
+\frac{1}{\mu^c}\,
+\E_s\!\left[\sum_i \mu_i\, \E_i\!\left[\theta\,u\!\left(q_i^*(\theta,s),s\right)\,\mathbf 1_{\{\lambda_i(\theta)\leq\lambda^*\}}\right]\mathbf 1_{\{s\in T^*\}}\right]
+= I'(k^*),
+\]
+where
+\[
+\mu^c:=\sum_i \mu_i\Pr_i\!\left(\lambda_i(\theta)\leq\lambda^*\right)
+\]
+denotes the total mass of contributing types.
+\end{proposition}
+
+
+\begin{proof}
+
+\noindent{Part i)}
+We maintain throughout that $B(k)+M(k)\neq 0$, where $B(k)+M(k)$ is the derivative of the binding residual equation with respect to $\beta$ after substituting the optimal allocation; this is the local regularity condition needed to apply the implicit function theorem, while $B(k)+M(k)>0$ delivers the monotone comparative statics used below.
+
+\noindent\textbf{Corner case: $\beta(k)=0$.} If $\beta(k)=0$ there are no contributing types. On $T^*$, the first-order condition is $\theta\,u(q_i^*(\theta,s),s) = \varepsilon(s)/\lambda_i(\theta)$. Differentiating and substituting into the capacity constraint gives $\frac{\partial\varepsilon(s)}{\partial k} = -1/\overline w^{nc}(s) < 0$ and $\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^{nc}(\theta,s)/\overline w^{nc}(s) > 0$ on $T^*$. Since non-contributing types pay no transfer:
+\[
+\frac{\partial CS_i(\theta;k)}{\partial k} = \E_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
+\]
+
+\noindent\textbf{Interior case: $\beta(k)>0$ with coexistence.} Assume contributing and non-contributing types coexist on a set of peak states of positive probability. On $T^*$, the first-order conditions are
+\[
+\theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta(k)}, \quad \lambda_i(\theta)\leq\beta(k), \qquad \theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\lambda_i(\theta)}, \quad \lambda_i(\theta)>\beta(k).
+\]
+The weights $w_i^c$, $w_i^{nc}$, $\overline w^c(s)$, $\overline w^{nc}(s)$, $\overline w(s)$ and the inframarginal component
+\[
+m^c(s) := \frac{1}{\overline w(s)}\sum_i\mu_i\,\E_i\!\left[w_i^c(\theta,s)\,\theta\,u(q_i^*(\theta,s),s)\,\mathbf{1}_{\lambda_i(\theta)\leq\beta(k)}\right]
+\]
+are as defined above. Differentiating the first-order conditions with respect to $k$:
+\[
+\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^c(\theta,s)\!\left(-\frac{\partial\varepsilon(s)}{\partial k} + \theta\,u(q_i^*,s)\,\frac{d\beta}{dk}\right), \quad \lambda_i(\theta)\leq\beta(k), \tag{$\partial_k q^c$}\label{dqc}
+\]
+\[
+\frac{\partial q_i^*(\theta,s)}{\partial k} = -\,w_i^{nc}(\theta,s)\,\frac{\partial\varepsilon(s)}{\partial k}, \quad \lambda_i(\theta)>\beta(k). \tag{$\partial_k q^{nc}$}\label{dqnc}
+\]
+Differentiating the capacity constraint and using continuity of the allocation at each cutoff $\theta_i^*(k)$ --- so that boundary terms cancel --- yields
+\[
+\frac{\partial\varepsilon(s)}{\partial k} = m^c(s)\,\frac{d\beta}{dk} - \frac{1}{\overline w(s)}. \tag{$\partial_k\varepsilon$}\label{depsk}
+\]
+
+\noindent\textbf{Step 1: sign of $\frac{d\beta}{dk}$.} Since the IR constraint of marginal types binds, $R^M(k)\equiv 0$. Differentiating this identity with respect to $k$, substituting \eqref{dqc} and \eqref{depsk}, and collecting all terms in $\frac{d\beta}{dk}$ on one side yields
+\[
+\E_s\!\left[\sum_i\mu_i\,\E^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right] - I'(k) + \frac{d\beta}{dk}\,B(k) = 0,
+\]
+where, for convenience of exposition, we write $\E^w_i[u^c|s]$ for the full per-category object defined above --- combining the inframarginal weighted marginal utility and the boundary term from the movement of $\theta_i^*(k)$ --- and
+\[
+B(k) := \E_s\!\left[\frac{\varepsilon(s)^2}{\beta(k)^2}\frac{\overline w^c(s)\,\overline w^{nc}(s)}{\overline w(s)}\,\mathbf{1}_{s\in T^*}\right] > 0.
+\]
+Solving for $\frac{d\beta}{dk}$:
+\[
+\frac{d\beta}{dk} = \frac{I'(k) - \E_s\!\left[\sum_i\mu_i\,\E^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right]}{B(k)}.
+\]
+Since $B(k)>0$, condition \eqref{Ui*} implies $\frac{d\beta}{dk}\leq 0$.
+
+\noindent\textbf{Step 2: surplus of non-contributing types.} Since $\frac{d\beta}{dk}\leq 0$ and $m^c(s)>0$, equation \eqref{depsk} gives $\frac{\partial\varepsilon(s)}{\partial k}<0$ for all $s\in T^*$. From \eqref{dqnc}: $\frac{\partial q_i^*(\theta,s)}{\partial k} = -w_i^{nc}(\theta,s)\frac{\partial\varepsilon(s)}{\partial k} > 0$ for every non-contributing type. Since $t_i^*(\theta,s)=0$:
+\[
+\frac{\partial CS_i(\theta;k)}{\partial k} = \E_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
+\]
+
+\noindent\textbf{Corner case: all types strictly contributing.} If all types satisfy $\lambda_i(\theta)<\beta(k)$, there are no non-contributing types and the statement is vacuous.
+
+\noindent{Part ii)}
+
+From the Lagrangian, the FOC with respect to $k$ is
+\[
+-\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,
+\]
+where we used $\varepsilon(s)=0$ for all $s\in S^*$, so that
+\begin{equation}\label{eq:FOC-k}
+\beta\, I'(k) = \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)].
+\end{equation}
+
+\textit{Step 1: contributing types.} From \eqref{FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
+\[
+\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta}.
+\]
+Multiplying by $\mu_i$, integrating over contributing types, and taking the expectation over $s\in T^*$:
+\begin{equation}\label{eq:step1}
+\E_s\!\left[\sum_i \mu_i\,\E_i\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \frac{\E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]}{\beta}\,\mu^c = I'(k)\,\mu^c,
+\end{equation}
+where the last equality uses \eqref{eq:FOC-k}. Dividing by $\mu^c$ gives \eqref{eq:FB-k1}.
+
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Single-crossing}
+
+\begin{lemma}[Single-crossing]\label{lem:SC-dir}
+Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta,k_i)\). Then the map
+\[
+k_i \longmapsto \E_{(s,i)}^w[uJ\mid s]
+\]
+is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
+\end{lemma}
+
+\begin{proof}
+For every binding state $s\in T_i(k_i)$, define the probability measure
+\[
+dP_{k_i,s}(\theta):=
+\frac{R_q(\theta,k_i,s)\,g_i(\theta)}
+{\E_i[R_q(\theta,k_i,s)]}\,d\theta.
+\]
+Since
+\[
+R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\G_i(\theta,k_i)},
+\]
+we can write
+\[
+\mathsf \E_i^w[uJ\mid s]
+=
+\frac{\E_i\!\left[R_q(\theta,k_i,s)\,R_\theta(\theta,k_i)\right]}
+{\E_i\!\left[R_q(\theta,k_i,s)\right]}
+=
+\int_{\Theta_i} R_\theta(\theta,k_i)\,dP_{k_i,s}(\theta).
+\]
+
+Differentiating $\mathsf \E_i^w[uJ\mid s]$ with respect to $k_i$ gives
+\[
+\frac{\partial \mathsf \E_i^w[uJ\mid s]}{\partial k_i}
+=
+M_i(k_i,s)+D_i(k_i,s),
+\]
+where
+\[
+M_i(k_i,s)
+:=
+\left.
+\frac{\partial}{\partial t}
+\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
+\right|_{t=k_i}
+\]
+is the pure measure-shift term, and
+\[
+D_i(k_i,s)
+:=
+\int_{\Theta_i}
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}\,dP_{k_i,s}(\theta)
+\]
+is the direct effect through the $k_i$-dependence of $R_\theta$.
+
+By the log-monotone-differences assumption on $R_q$, the family $\{P_{k_i,s}\}_{k_i}$ is ordered by monotone likelihood ratio for each binding state $s$. Hence, since $\theta\mapsto R_\theta(\theta,k_i)$ is monotone for each $k_i$,
+\[
+M_i(k_i,s)\ge 0
+\]
+in the two cases
+\[
+R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
+\qquad
+R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
+\]
+while
+\[
+M_i(k_i,s)\le 0
+\]
+in the two opposite cases.
+
+Next, since
+\[
+R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\G_i(\theta,k_i)},
+\qquad
+\G_i(\theta,k_i)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i),
+\]
+we have
+\[
+\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
+=
+-\frac{\partial \beta_i(k_i)}{\partial k_i}\,
+\frac{J_i(\theta)^2}{\G_i(\theta,k_i)^2}.
+\]
+Therefore
+\[
+D_i(k_i,s)
+=
+-\frac{\partial \beta_i(k_i)}{\partial k_i}\,\mathcal Q_i(k_i,s),
+\]
+where
+\[
+\mathcal Q_i(k_i,s)
+:=
+\int_{\Theta_i}
+\frac{J_i(\theta)^2}{\G_i(\theta,k_i)^2}\,dP_{k_i,s}(\theta)
+>0.
+\]
+Thus
+\[
+\frac{\partial \mathsf \E_i^w[uJ\mid s]}{\partial k_i}
+=
+M_i(k_i,s)-\frac{\partial \beta_i(k_i)}{\partial k_i}\,\mathcal Q_i(k_i,s).
+\]
+
+We now relate $\frac{\partial \beta_i(k_i)}{\partial k_i}$ to $\E_{(s,i)}^w[uJ\mid s]$. On the IR-constrained region:
+\[
+\E \underline{CS}_i(k_i,\beta)
+=
+\E_{(s,i)}\!\left[ U\!\left(q_i(\theta,s;k_i,\beta),s\right)J_i(\theta)
+\right]
+-I_i.
+\]
+By construction,
+\[
+\E \underline{CS}_i\!\left(k_i,\beta_i(k_i)\right)=0.
+\]
+
+Holding $\beta$ fixed, the standard comparative-statics identity gives, for every binding state $s$,
+\[
+\frac{\partial q_i(\theta,s;k_i,\beta)}{\partial k_i}
+=
+\frac{w_i(\theta,s)}{\overline w_i(s)}.
+\]
+Hence
+\[
+\partial_{k_i}\E \underline{CS}_i(k_i,\beta)
+=
+\E_s\!\left[
+\mathbf 1_{\{s\in T_i(k_i)\}}
+\,
+\E_i^w[uJ\mid s]
+\right]
+=
+\E_{(s,i)}^w[uJ\mid s],
+\]
+where the moving-threshold term vanishes because
+\[
+u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0
+\qquad
+\text{for every }\theta.
+\]
+
+Holding $k_i$ fixed, differentiating the pointwise FOC
+\[
+u\!\left(q_i(\theta,s),s\right)\G_i(\theta,k_i)
+=
+\varepsilon_i(s)
+\]
+with respect to $\beta$, using $\partial_\beta\G_i(\theta,k_i)=J_i(\theta)$ and imposing
+\[
+\E_i\!\left[\partial_\beta q_i(\theta,s)\right]=0,
+\]
+yields
+\[
+\frac{\partial \varepsilon_i(s)}{\partial \beta}
+=
+\E_i^w[uJ\mid s]
+\]
+and
+\[
+\frac{\partial q_i(\theta,s)}{\partial \beta}
+=
+w_i(\theta,s)
+\left(
+u\!\left(q_i(\theta,s),s\right)J_i(\theta)
+-
+\mathsf \E_i^w[uJ\mid s]
+\right).
+\]
+Therefore
+\[
+\partial_\beta \E \underline{CS}_i(k_i,\beta)
+=
+\E_s\!\left[
+\mathbf 1_{\{s\in T_i(k_i)\}}
+\,
+\overline w_i(s)\,
+\mathrm{Var}_i^w(uJ\mid s)
+\right]
+=:
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)],
+\]
+Where $\mathrm{Var}_i^w(uJ\mid s)$ is the associated weighted variance such that $\mathrm{Var}_i^w(X\mid s)
+:=
+\mathbb E_i^w\!\left[
+\left(X-\mathbb E_i^w[X\mid s]\right)^2
+\,\middle|\, s
+\right]$ and $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$ away from knife-edge cases. Differentiating
+\[
+\E \underline{CS}_i\!\left(k_i,\beta_i(k_i)\right)=0
+\]
+with respect to $k_i$ gives
+\[
+0
+=
+\E_{(s,i)}^w[uJ\mid s]+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,\frac{\partial \beta_i(k_i)}{\partial k_i},
+\]
+hence
+\[
+\frac{\partial \beta_i(k_i)}{\partial k_i}
+=
+-\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
+\]
+
+Finally, differentiate and using Leibniz' rule,
+\[
+\frac{\partial \E_{(s,i)}^w[uJ\mid s]}{\partial k_i}
+=
+-
+\E_i^w[uJ\mid s]\!\left(k_i,s_i(k_i)\right)
+f\!\left(s_i(k_i)\right)
+\frac{\partial s_i(k_i)}{\partial k_i}
++
+\int_{s_i(k_i)}^{\overline s}
+\frac{\partial \E_i^w[uJ\mid s]}{\partial k_i}\,f(s)\,ds.
+\]
+At the threshold state $s_i(k_i)$ we have
+\[
+u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0
+\qquad
+\text{for every }\theta,
+\]
+so $\E_i^w[uJ\mid s]\!\left(k_i,s_i(k_i)\right)=0$. Hence the boundary term vanishes and
+\[
+\frac{\partial \E_{(s,i)}^w[uJ\mid s]}{\partial k_i}
+=
+\overline M_i(k_i)-\frac{\partial \beta_i(k_i)}{\partial k_i}\,\overline{\mathcal Q}_i(k_i),
+\]
+where
+\[
+\overline M_i(k_i)
+:=
+\int_{s_i(k_i)}^{\overline s}M_i(k_i,s)\,f(s)\,ds,
+\qquad
+\overline{\mathcal Q}_i(k_i)
+:=
+\int_{s_i(k_i)}^{\overline s}\mathcal Q_i(k_i,s)\,f(s)\,ds
+>0.
+\]
+
+Now let $k_i^0$ satisfy $\E_{(s,i)}^w[uJ\mid s](k_i^0)=0$. Then
+\[
+\frac{\partial \beta_i(k_i^0))}{\partial k_i}=0,
+\]
+so
+\[
+\frac{\partial \E_{(s,i)}^w[uJ\mid s]}{\partial k_i}(k_i^0)=\overline M_i(k_i^0).
+\]
+Since each $M_i(k_i^0,s)$ has the same sign across binding states, $\overline M_i(k_i^0)$ has that same sign. Therefore every sign-changing zero of $\E_{(s,i)}^w[uJ\mid s]$ is crossed in the same direction:
+\[
+\frac{\partial \E_{(s,i)}^w[uJ\mid s]}{\partial k_i}(k_i^0)>0
+\]
+when
+\[
+R_\theta(\cdot,k_i)\ \text{increasing and }R_q\ \text{log-supermodular},
+\qquad
+R_\theta(\cdot,k_i)\ \text{decreasing and }R_q\ \text{log-submodular},
+\]
+so any sign change is from $-$ to $+$; and
+\[
+\frac{\partial \E_{(s,i)}^w[uJ\mid s]}{\partial k_i}(k_i^0)<0
+\]
+in the two opposite cases, so any sign change is from $+$ to $-$.
+
+Thus the map
+\[
+k_i\longmapsto \E_{(s,i)}^w[uJ\mid s]
+\]
+is single-crossing in $k_i$, with crossing direction pinned down by the combination of monotonicities stated in the lemma.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Implementation feasibility under capacity expansion}
+
+\begin{proposition}[Implementation feasibility under capacity expansion]\label{prop:implementation}
+Fix category \(i\) and a budget requirement \(I_i>0\). Let \(k_i^+\) be the capacity level at which the capacity constraint never binds.
+
+Assume that \eqref{Eujmd} is \emph{single-crossing in \(k_i\) from \(+\) to \(-\)} on \([0,k_i^+]\). Then \(\E\underline{CS}_i(k_i)\) is single-peaked on \([0,k_i^+]\) and the set of capacities for which the IR-unconstrained allocation is feasible (equivalently, \(\E\underline{CS}_i(k_i)\ge 0\)) has the following form:
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item If \(\E\underline{CS}_i(k_i^+)\ge 0\), there exists a unique cutoff \(\tilde k_i\in(0,k_i^+]\) such that the IR-unconstrained allocation is optimal for all \(k_i\in[\tilde k_i,k_i^+]\).
+\item If \(\E\underline{CS}_i(k_i^+)<0\), the IR-unconstrained allocation is either never optimal on \([0,k_i^+]\) or optimal only on an intermediate interval \([\tilde k_i^-,\tilde k_i^+]\subset(0,k_i^+)\).
+\end{enumerate}
+
+If instead \eqref{Eujmd} crosses from \(-\) to \(+\), then \(\E\underline{CS}_i(k_i)\) is single-dipped on \([0,k_i^+]\) and either \(\E\underline{CS}_i(k_i)<0\) for all \(k_i\in[0,k_i^+]\), or there exists a unique \(\tilde k_i\in(0,k_i^+]\) such that \(\E\underline{CS}_i(k_i)\ge 0\) for all \(k_i\in[\tilde k_i,k_i^+]\).
+\end{proposition}
+
+\begin{proof}
+
+By Lemma~\ref{lem:SC-dir},
+\[
+\frac{\partial \E\underline{CS}_i}{\partial k_i}
+=
+\E_{(s,i)}^w[uJ\mid s].
+\]
+Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto \E_{(s,i)}^w[uJ\mid s]$ is single-crossing. Hence $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is monotone and crosses zero at most once in a given direction.
+
+When \eqref{Eujmd} crosses from $+$ to $-$, $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is decreasing and crosses zero at most once from above, so $\E\underline{CS}_i$ is single-peaked on $[0,k_i^+]$. When \eqref{Eujmd} crosses from $-$ to $+$, $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is increasing and $\E\underline{CS}_i$ is single-dipped. At $k_i=0$ the capacity constraint binds at zero, so $q_i(\theta,s)=0$ for all $(\theta,s)$, giving
+\[
+\E\underline{CS}_i(0)=-I_i<0
+\qquad
+\text{for any }I_i>0.
+\]
+
+\noindent\textit{Case: \eqref{Eujmd} crosses from $+$ to $-$.}
+Suppose first that $\E\underline{CS}_i(k_i^+)\ge 0$. Since $\E\underline{CS}_i(0)<0$ and $\E\underline{CS}_i(k_i^+)\ge 0$, continuity gives at least one zero in $(0,k_i^+]$. Single-peakedness implies that this zero is unique, defining $\tilde k_i$, and
+\[
+\E\underline{CS}_i(k_i)\ge 0
+\Longleftrightarrow
+k_i\in[\tilde k_i,k_i^+].
+\]
+
+This proves part~(i).
+
+Suppose instead that $\E\underline{CS}_i(k_i^+)<0$. Then $\E\underline{CS}_i$ is negative at both endpoints. If the peak value is negative, then $\E\underline{CS}_i<0$ throughout. If the peak value is nonnegative, continuity and single-peakedness yield exactly two zeros
+\[
+\tilde k_i^-<\tilde k_i^+
+\]
+in $(0,k_i^+)$ such that
+\[
+\E\underline{CS}_i(k_i)\ge 0
+\Longleftrightarrow
+k_i\in[\tilde k_i^-,\tilde k_i^+].
+\]
+This proves part~(ii).
+
+\noindent\textit{Case: \eqref{Eujmd} crosses from $-$ to $+$.}
+Then $\E\underline{CS}_i$ is single-dipped with $\E\underline{CS}_i(0)<0$. Either the trough value is negative and $\E\underline{CS}_i<0$ throughout, or $\E\underline{CS}_i$ rises above zero after the trough, crossing zero exactly once from below at a unique $\tilde k_i\in(0,k_i^+]$, and
+\[
+\E\underline{CS}_i(k_i)\ge 0
+\Longleftrightarrow
+k_i\in[\tilde k_i,k_i^+].
+\]
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Preference shifts and effective social weights}
+
+\begin{lemma}[Preference shifts and effective social weights]\label{lem:preferenceorder}
+Consider a weight function $\lambda_i(\theta)$ and its perturbation $\lambda_i^\Delta(\theta)$, with $\Delta\lambda_i(\theta):=\lambda_i^\Delta(\theta)-\lambda_i(\theta)$ and $\Delta\G_i(\theta):=\G_i^\Delta(\theta)-\G_i(\theta)$. Suppose $\G_i(\theta),\G_i^\Delta(\theta)>0$ for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$. Define:
+\[
+m_i(\theta) = \frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}, \qquad c_\Lambda:=\frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i},
+\qquad
+c_{\G}:=\frac{\tilde\lambda_i^\Delta+\beta_i^\Delta}
+{\tilde\lambda_i+\beta_i}.
+\]
+If $m_i(\theta)$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$, then for $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
+\[
+\frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)} \;\ge\; (\text{resp.} \le) \; \frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)}.
+\]
+Moreover, if $1\le c_{\G}\le c_\Lambda$ (resp. $c_\Lambda\le c_{\G}\le 1$), then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\ge(\text{resp. }\le)0$. In particular, if either $\beta_i=\beta_i^\Delta=0$ or $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the condition reduces to $\tilde\lambda_i^\Delta\ge (\text{resp. }\le)\tilde\lambda_i$.
+\end{lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Non-monotone reallocation under preference perturbations}
+
+\begin{proposition}[Non-monotone reallocation under preference perturbations]\label{prop:rprefreallocation}
+Assume $R_{\mathcal{G}}(\theta)$ is not (a.e.) constant.
+
+\noindent\textbf{(i)} Under the IR-unconstrained allocation, $\Delta q_i(\cdot,s)$ is not monotone on $\Theta_i$ for any perturbation. Under the IR-constrained allocation, assume that $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the same conclusion holds whenever $|\Delta\tilde\lambda_i|$ is sufficiently small.
+
+\noindent\textbf{(ii)} Assume a mean preserving perturbation such that $\Delta\tilde\lambda_i=0$. Then $\Delta q_i(\cdot,s)$ is not monotone, the cutoff set $\{\theta:\Delta q_i(\theta,s)=0\}$ contains at least two elements, and letting $\theta_-\le\theta_+$ denote its minimum and maximum elements:
+\begin{enumerate}[label=(\roman*), leftmargin=1cm]
+\item if $\Delta\mathcal{G}_i(\theta)\ge 0$ for all $\theta$, then $\Delta q_i(\theta,s)\le 0$ for $\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i]$;
+\item if $\Delta\mathcal{G}_i(\theta)\le 0$ for all $\theta$, then $\Delta q_i(\theta,s)\ge 0$ for $\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i]$.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+Fix a peak state $s\in T_i$. The proof is based on the reallocation identity from Lemma~\ref{lem:realloc}:
+\begin{equation}\label{eq:realloc-proof}
+\Delta q_i(\theta,s)
+=
+R_q(\theta)\!\left(
+R_{\mathcal G}(\theta)-\E_i^w\!\left[R_{\mathcal G}\mid s\right]
+\right),
+\end{equation}
+together with the fact that, at fixed capacity,
+\begin{equation}\label{eq:mean-zero-proof}
+\E_i[\Delta q_i(\theta,s)]=0.
+\end{equation}
+Indeed, both the baseline and perturbed allocations satisfy the same state-by-state capacity constraint in state $s$.
+
+We proceed in three steps.
+
+\noindent\textit{Step 1: endpoint values of $R_{\mathcal G}$.}
+
+Under the IR-unconstrained allocation, $\beta_i=0$, using $J_i(\underline\theta_i)=\underline\theta_i-\gamma_i(\underline\theta_i)$ and
+$\Lambda_i(\underline\theta_i)=\gamma_i(\underline\theta_i)\tilde\lambda_i$, we obtain
+\[
+\mathcal G_i(\underline\theta_i)=\underline\theta_i\tilde\lambda_i.
+\]
+Likewise, since $\Lambda_i(\overline\theta_i)=0$ and $J_i(\overline\theta_i)=\overline\theta_i$, we obtain
+\[
+\mathcal G_i(\overline\theta_i)=\overline\theta_i\tilde\lambda_i.
+\]
+Therefore,
+\begin{equation}\label{eq:endpoint-unconstrained}
+R_{\mathcal G}(\underline\theta_i)
+=
+R_{\mathcal G}(\overline\theta_i)
+=
+\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}.
+\end{equation}
+
+Under the IR-constrained allocation, assume
+\[
+\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i,
+\]
+that is,
+\[
+\Delta\beta_i+\Delta\tilde\lambda_i=0.
+\]
+it follows that
+\[
+\Delta\mathcal G_i(\theta)
+=
+(\Delta\tilde\lambda_i+\Delta\beta_i)J_i(\theta)+\Delta\Lambda_i(\theta)
+=
+\Delta\Lambda_i(\theta).
+\]
+Evaluating at the upper endpoint gives
+\[
+\Delta\mathcal G_i(\overline\theta_i)
+=
+\Delta\Lambda_i(\overline\theta_i)
+=
+0,
+\]
+since $\Lambda_i(\overline\theta_i)=0$. Hence
+\begin{equation}\label{eq:upper-constrained}
+R_{\mathcal G}(\overline\theta_i)=0.
+\end{equation}
+At the lower endpoint,
+\[
+\Delta\mathcal G_i(\underline\theta_i)
+=
+\Delta\Lambda_i(\underline\theta_i)
+=
+\gamma_i(\underline\theta_i)\Delta\tilde\lambda_i,
+\]
+so
+\begin{equation}\label{eq:lower-constrained}
+R_{\mathcal G}(\underline\theta_i)
+=
+\frac{\gamma_i(\underline\theta_i)}{\mathcal G_i(\underline\theta_i)}\Delta\tilde\lambda_i.
+\end{equation}
+In particular, the lower-endpoint value is of order $\Delta\tilde\lambda_i$, whereas the upper-endpoint value is exactly zero. Under a mean-preserving perturbation, $\Delta\tilde\lambda_i=0$, so both endpoint values are zero.
+
+
+\noindent\textit{Step 2: proof of part (i).}
+
+We first consider the IR-unconstrained allocation. By \eqref{eq:endpoint-unconstrained}, the bracket in \eqref{eq:realloc-proof} takes the same value at both endpoints. Hence
+\[
+\Delta q_i(\underline\theta_i,s)
+=
+R_q(\underline\theta_i)
+\left(
+\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}
+-
+\E_i^w[R_{\mathcal G}\mid s]
+\right),
+\]
+\[
+\Delta q_i(\overline\theta_i,s)
+=
+R_q(\overline\theta_i)
+\left(
+\frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}
+-
+\E_i^w[R_{\mathcal G}\mid s]
+\right).
+\]
+Since $R_q(\theta)>0$, the two endpoint values of $\Delta q_i(\cdot,s)$ have the same sign.
+
+Moreover, because $R_{\mathcal G}$ is not a.e.\ constant, the term
+\[
+R_{\mathcal G}(\theta)-\E_i^w[R_{\mathcal G}\mid s]
+\]
+is not a.e.\ zero, so \eqref{eq:realloc-proof} implies that $\Delta q_i(\cdot,s)$ is not identically zero. Combining this with \eqref{eq:mean-zero-proof}, $\Delta q_i(\cdot,s)$ must take both positive and negative values. A function on an interval that takes both signs and whose two endpoint values have the same sign cannot be monotone. This proves the first claim in part (i).
+
+Consider next the IR-constrained allocation. By \eqref{eq:upper-constrained}--\eqref{eq:lower-constrained},
+\[
+\Delta q_i(\overline\theta_i,s)
+=
+-
+R_q(\overline\theta_i)\E_i^w[R_{\mathcal G}\mid s],
+\]
+whereas
+\[
+\Delta q_i(\underline\theta_i,s)
+=
+R_q(\underline\theta_i)
+\left(
+\frac{\gamma_i(\underline\theta_i)}{\mathcal G_i(\underline\theta_i)}\Delta\tilde\lambda_i
+-
+\E_i^w[R_{\mathcal G}\mid s]
+\right).
+\]
+Hence the two endpoint values have the same sign whenever
+\[
+\left|
+\frac{\gamma_i(\underline\theta_i)}{\mathcal G_i(\underline\theta_i)}
+\Delta\tilde\lambda_i
+\right|
+<
+\left|
+\E_i^w[R_{\mathcal G}\mid s]
+\right|.
+\]
+Therefore, for $|\Delta\tilde\lambda_i|$ sufficiently small, the two endpoints inherit the same sign. Since $\Delta q_i(\cdot,s)$ is again not identically zero and satisfies \eqref{eq:mean-zero-proof}, it cannot be monotone. This proves the second claim in part (i).
+
+
+\noindent\textit{Step 3: proof of part (ii).}
+
+Assume now that the perturbation is mean-preserving, so $\Delta\tilde\lambda_i=0$. Under the maintained restriction
+\[
+\Delta\beta_i+\Delta\tilde\lambda_i=0,
+\]
+this also gives $\Delta\beta_i=0$. By Step 1,
+\[
+R_{\mathcal G}(\underline\theta_i)=R_{\mathcal G}(\overline\theta_i)=0.
+\]
+Hence, evaluating \eqref{eq:realloc-proof} at the two endpoints,
+\begin{equation}\label{eq:endpoints-part-ii}
+\Delta q_i(\underline\theta_i,s)
+=
+-
+R_q(\underline\theta_i)\E_i^w[R_{\mathcal G}\mid s],
+\qquad
+\Delta q_i(\overline\theta_i,s)
+=
+-
+R_q(\overline\theta_i)\E_i^w[R_{\mathcal G}\mid s].
+\end{equation}
+Thus the two endpoints have the same sign, and by part (i), $\Delta q_i(\cdot,s)$ is not monotone.
+
+Because $\Delta q_i(\cdot,s)$ is continuous, not identically zero, and satisfies \eqref{eq:mean-zero-proof}, it must cross zero at least twice. Therefore the cutoff set
+\[
+\{\theta:\Delta q_i(\theta,s)=0\}
+\]
+contains at least two elements. Let $\theta_-\le \theta_+$ denote its minimum and maximum elements.
+
+Suppose first that $\Delta\mathcal G_i(\theta)\ge 0$ for all $\theta$. Since $\mathcal G_i(\theta)>0$, this implies
+\[
+R_{\mathcal G}(\theta)=\frac{\Delta\mathcal G_i(\theta)}{\mathcal G_i(\theta)}\ge 0
+\qquad
+\text{for all }\theta,
+\]
+and therefore
+\[
+\E_i^w[R_{\mathcal G}\mid s]\ge 0.
+\]
+By \eqref{eq:endpoints-part-ii}, both endpoint values of $\Delta q_i(\cdot,s)$ are nonpositive. Since $\Delta q_i(\cdot,s)$ has zero mean and is not identically zero, it must be strictly positive on an interior subset of positive measure. It follows that
+\[
+\Delta q_i(\theta,s)\le 0
+\qquad
+\text{for }\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i].
+\]
+
+The case $\Delta\mathcal G_i(\theta)\le 0$ is symmetric. In that case,
+\[
+R_{\mathcal G}(\theta)\le 0
+\qquad\text{for all }\theta,
+\]
+so
+\[
+\E_i^w[R_{\mathcal G}\mid s]\le 0,
+\]
+and \eqref{eq:endpoints-part-ii} implies that both endpoint values of $\Delta q_i(\cdot,s)$ are nonnegative. Hence
+\[
+\Delta q_i(\theta,s)\ge 0
+\qquad
+\text{for }\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i].
+\]
+
+This proves part (ii).
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Elasticity condition}
+
+\begin{proposition}[Elasticity condition]\label{prop:Elasticity}
+Assume that $R_\theta(\theta)$ and $R_q(\theta)$ are monotone, that $R_{\G}(\theta)$ has a constant sign, and that, for all $\theta$ such that $R_{\G}(\theta)R_\theta(\theta)\neq 0$,\footnote{At isolated zeros of $R_\theta(\theta)$, the cross-term $-R_\theta(\theta)R_{\G}'(\theta)$ vanishes and the sign of $\Delta R_\theta'(\theta)$ is determined by $-R_{\G}(\theta)R_\theta'(\theta)$ directly. At isolated zeros of $R_{\G}(\theta)$, the constant-sign hypothesis forces $R_{\G}'(\theta)=0$ by differentiability, so the cross-term vanishes there as well. Monotonicity of $\Delta R_\theta(\theta)$ is preserved in both cases.}
+\[
+\left|\frac{R_{\G}'(\theta)}{R_{\G}(\theta)}\right| \le \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+Then $\Delta R_\theta(\theta)$ is monotone and
+\[
+\mathrm{sign}\!\left(\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)\right) = \mathrm{sign}\!\left(-R_{\G}(\theta)R_\theta'(\theta)\right)\cdot \mathrm{sign}\!\left(R_q'(\theta)\right).
+\]
+If the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone.
+\end{proposition}
+
+\begin{proof}
+The proof proceeds in three steps.
+
+\noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
+Using the identity established above,
+\[
+\Delta R_\theta(\theta)=-R_\G(\theta)R_\theta(\theta),
+\]
+we differentiate to obtain
+\[
+\Delta R_\theta'(\theta)
+=
+-R_\G(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\G'(\theta).
+\]
+If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ has that sign directly. If they have opposite signs, then
+\[
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+=
+\operatorname{sign}\!\left(-R_\G(\theta)R_\theta'(\theta)\right)
+\]
+whenever
+\[
+|R_\G(\theta)R_\theta'(\theta)|
+\ge
+|R_\theta(\theta)R_\G'(\theta)|.
+\]
+Since $R_\G(\theta)$ and $R_\theta(\theta)$ are nonzero on the relevant domain, this condition is equivalent to
+\[
+\left|\frac{R_\G'(\theta)}{R_\G(\theta)}\right|
+\le
+\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
+\]
+Hence, under the elasticity condition,
+\[
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+=
+\operatorname{sign}\!\left(-R_\G(\theta)R_\theta'(\theta)\right)
+\qquad\text{for all }\theta.
+\]
+Because $R_\G(\theta)$ has constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign. Therefore $\Delta R_\theta(\theta)$ is globally monotone.
+
+
+\noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
+By Step~1, $\Delta R_\theta(\theta)$ is monotone. Since $R_q(\theta)$ is also monotone by assumption, the standard monotone-covariance property implies
+\[
+\operatorname{sign}\!\left(
+\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right).
+\]
+Using the conclusion of Step~1 yields
+\[
+\operatorname{sign}\!\left(
+\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\right)
+=
+\operatorname{sign}\!\left(-R_\G(\theta)R_\theta'(\theta)\right)
+\cdot
+\operatorname{sign}\!\left(R_q'(\theta)\right).
+\]
+This gives the claimed sign result.
+
+
+\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
+If the elasticity condition fails at some $\theta_0$, namely if
+\[
+\left|\frac{R_\G'(\theta_0)}{R_\G(\theta_0)}\right|
+>
+\left|\frac{R_\theta'(\theta_0)}{R_\theta(\theta_0)}\right|,
+\]
+then the term $-R_\theta(\theta_0)R_\G'(\theta_0)$ dominates
+$-R_\G(\theta_0)R_\theta'(\theta_0)$ whenever the two terms have opposite signs. In that case, the sign of $\Delta R_\theta'(\theta_0)$ is no longer pinned down by the primitive sign of $-R_\G(\theta_0)R_\theta'(\theta_0)$. More generally, once the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone. Since the covariance sign in Step~2 relies on that monotonicity, no distribution-free sign result for
+\[
+\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
+\]
+is available in general.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Marginal response of category allocations to aggregate capacity}
+
+\begin{lemma}[Marginal response of category allocations to aggregate capacity]\label{lem:dkidk}
+Fix an interior optimum \(\{k_i^\ast,I_i^\ast\}_{i\in N}\) and suppose that, on a neighborhood of the optimum, the set of active and contributing categories is unchanged. For each interior category \(i\), define
+\[
+\Omega_i
+:=
+\E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right].
+\]
+Then the marginal response of category \(i\) is
+\[
+\frac{dk_i^\ast}{dk}
+=
+\frac{
+\Omega_i^{-1}
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+-I'(k^\ast)
+\right)
+}{
+\sum_{j\in N } \mu_j\,\Omega_j^{-1}
+\left(
+\E_{(s,j)}^w[uJ\mid s] 
+-I'(k^\ast)
+\right)
+}
+\mathcal{B}
+-\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast).
+\]
+where
+\[\mathcal{B} =\left(
+1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N } \mu_j \Omega_j^{-1}
+\right)>0\]
+as $\tilde\lambda^\ast I''(k^\ast)>0$. In particular, since \(\Omega_i>0\), for a given marginal change in aggregate capacity, the sign of the category capacity change is fully determined by the sufficient statistic \eqref{Eujmd} 
+
+\end{lemma}
+
+\begin{proof}
+For each interior category \(i\), the first-order conditions of the outer problem are
+\[
+V_{k_i}(k_i^\ast,I_i^\ast)=\tilde\lambda^\ast I'(k^\ast)
+\qquad\text{and}\qquad
+V_{I_i}(k_i^\ast,I_i^\ast)=-\tilde\lambda^\ast.
+\]
+Differentiating with respect to aggregate capacity \(k\) yields
+\[
+V_{k_ik_i}(k_i^\ast,I_i^\ast)\,dk_i^\ast
++
+V_{k_iI_i}(k_i^\ast,I_i^\ast)\,dI_i^\ast
+=
+I'(k^\ast)\,d\tilde\lambda^\ast
++
+\tilde\lambda^\ast I''(k^\ast)\,dk,
+\]
+and
+\[
+V_{I_ik_i}(k_i^\ast,I_i^\ast)\,dk_i^\ast
++
+V_{I_iI_i}(k_i^\ast,I_i^\ast)\,dI_i^\ast
+=
+-d\tilde\lambda^\ast.
+\]
+
+Using the expressions established above,
+\[
+V_{I_iI_i}(k_i^\ast,I_i^\ast)
+=
+-\frac{1}{
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+},
+\]
+and
+\[
+V_{k_iI_i}(k_i^\ast,I_i^\ast)
+=
+V_{I_ik_i}(k_i^\ast,I_i^\ast)
+=
+\frac{
+\E_{(s,i)}^w[uJ\mid s]
+}{
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+},
+\]
+the second differentiated first-order condition gives
+\[
+dI_i^\ast
+=
+\E_{(s,i)}^w[uJ\mid s]\,dk_i^\ast
++
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,d\tilde\lambda^\ast.
+\]
+Substituting into the first differentiated first-order condition yields
+\[
+\left(
+V_{k_ik_i}(k_i^\ast,I_i^\ast)
++
+\frac{
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+\right)^2
+}{
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+}
+\right) dk_i^\ast
+\]
+\[
+\qquad\qquad
+=
+\left(
+I'(k^\ast)
+-
+\E_{(s,i)}^w[uJ\mid s]
+\right)d\tilde\lambda^\ast
++
+\tilde\lambda^\ast I''(k^\ast)\,dk.
+\]
+Multiplying both sides by \(-1\),
+\[
+\left(
+-
+V_{k_ik_i}(k_i^\ast,I_i^\ast)
+-
+\frac{
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+\right)^2
+}{
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+}
+\right) dk_i^\ast
+\]
+\[
+\qquad\qquad
+=
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+-
+I'(k^\ast)
+\right)d\tilde\lambda^\ast
+-
+\tilde\lambda^\ast I''(k^\ast)\,dk.
+\]
+
+Now use the identity
+\[
+V_{k_ik_i}(k_i^\ast,I_i^\ast)
+=
+-\E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right]
+-\frac{
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+\right)^2
+}{
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+},
+\]
+which implies
+\[
+-
+V_{k_ik_i}(k_i^\ast,I_i^\ast)
+-
+\frac{
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+\right)^2
+}{
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+}
+=
+\Omega_i,
+\]
+where
+\[
+\Omega_i
+:=
+\E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right].
+\]
+Therefore
+\[
+dk_i^\ast
+=
+\Omega_i^{-1}
+\left[
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+-I'(k^\ast)
+\right)d\tilde\lambda^\ast
+-
+\tilde\lambda^\ast I''(k^\ast)\,dk
+\right].
+\]
+
+To determine \(d\tilde\lambda^\ast\), use the aggregate feasibility condition
+\[
+\sum_{j\in N}\mu_j\,dk_j^\ast = dk.
+\]
+Substituting the previous expression for each \(dk_j^\ast\) gives
+\[
+\sum_{j\in N}\mu_j\Omega_j^{-1}
+\left[
+\left(
+\E_{(s,j)}^w[uJ\mid s] 
+-I'(k^\ast)
+\right)d\tilde\lambda^\ast
+-
+\tilde\lambda^\ast I''(k^\ast)\,dk
+\right]
+=
+dk.
+\]
+Rearranging,
+\[
+d\tilde\lambda^\ast
+\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
+=
+\left(
+1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
+\right)dk,
+\]
+so
+\[
+\frac{d\tilde\lambda^\ast}{dk}
+=
+\frac{
+1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
+}{
+\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
+}.
+\]
+Substituting this expression back into the formula for \(dk_i^\ast\) yields
+\[
+\frac{dk_i^\ast}{dk}
+=
+\frac{
+\Omega_i^{-1}
+\left(
+\E_{(s,i)}^w[uJ\mid s]
+-I'(k^\ast)
+\right)
+}{
+\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
+}
+\left(
+1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
+\right)
+-\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast).
+\]
+
+Finally, since \(\Omega_i>0\), for a given marginal change in aggregate capacity, the cross-category ordering of the sign cutoff is governed by the sufficient statistic \eqref{Eujmd}. 
+\end{proof}
+
+
+\end{document}
