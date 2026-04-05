@@ -1,0 +1,301 @@
+1. Missing Rq(θ)R_q(\theta)
+Rq​(θ) Factor in the Formula for ΔECS‾i\Delta\mathbb{E}\underline{CS}_i
+ΔECS​i​ in
+sec:redist
+The main text writes ΔECS‾i=E(s,i)[εi(s)Rθ(θ)(RG(θ)−Eiw[RG∣s])1Ti1Ti]\Delta\mathbb{E}\underline{CS}_i = \mathbb{E}_{(s,i)}[\varepsilon_i(s)R_\theta(\theta)(R_\mathcal{G}(\theta) - \mathbb{E}_i^w[R_\mathcal{G}|s])\mathbf{1}_{T_i}\mathbf{1}_{T_i}]
+ΔECS​i​=E(s,i)​[εi​(s)Rθ​(θ)(RG​(θ)−Eiw​[RG​∣s])1Ti​​1Ti​​]. The correct derivation gives ΔECS‾i=E(s,i)[u(qi,s)ΔqiJi1Ti]\Delta\mathbb{E}\underline{CS}_i = \mathbb{E}_{(s,i)}[u(q_i,s)\Delta q_i J_i\mathbf{1}_{T_i}]
+ΔECS​i​=E(s,i)​[u(qi​,s)Δqi​Ji​1Ti​​]. Substituting u(qi,s)=εi/Giu(q_i,s) = \varepsilon_i/\mathcal{G}_i
+u(qi​,s)=εi​/Gi​, Ji=RθGiJ_i = R_\theta\mathcal{G}_i
+Ji​=Rθ​Gi​, and Δqi=Rq(RG−Eiw[RG∣s])\Delta q_i = R_q(R_\mathcal{G} - \mathbb{E}_i^w[R_\mathcal{G}|s])
+Δqi​=Rq​(RG​−Eiw​[RG​∣s]) gives E(s,i)[εiRθRq(RG−Eiw[RG∣s])1Ti]\mathbb{E}_{(s,i)}[\varepsilon_i R_\theta R_q(R_\mathcal{G} - \mathbb{E}_i^w[R_\mathcal{G}|s])\mathbf{1}_{T_i}]
+E(s,i)​[εi​Rθ​Rq​(RG​−Eiw​[RG​∣s])1Ti​​]. The factor Rq(θ)R_q(\theta)
+Rq​(θ) is missing. This error propagates to the proof of `prop:surplus-redist`: under Assumption CARA where Rq=1/αR_q = 1/\alpha
+Rq​=1/α, the boundary term should be ε‾iαCovi(Rθ,RG)\frac{\overline\varepsilon_i}{\alpha}\mathrm{Cov}_i(R_\theta, R_\mathcal{G})
+αεi​​Covi​(Rθ​,RG​), not ε‾iCovi(Rθ,RG)\overline\varepsilon_i\mathrm{Cov}_i(R_\theta, R_\mathcal{G})
+εi​Covi​(Rθ​,RG​). The sign conclusion of the proposition is unaffected since 1/α>01/\alpha > 0
+1/α>0, but the formula is numerically wrong and will be caught by any referee checking the derivation. The same formula also contains a redundant double 1Ti\mathbf{1}_{T_i}
+1Ti​​ indicator, an obvious copy-paste typo.
+
+
+2. Spurious 1/λ~∗1/\tilde\lambda^\ast
+1/λ~∗ in the Average-Effect Term of
+prop:investment
+Both the statement and the proof of `prop:investment` display W′′(k∗)Δk∗=I′(k∗)Δλ~∗−1λ~∗∑i∈NμiΠiEi[RG,i]W''(k^\ast)\Delta k^\ast = I'(k^\ast)\Delta\tilde\lambda^\ast - \frac{1}{\tilde\lambda^\ast}\sum_{i\in N}\mu_i\Pi_i\mathbb{E}_i[R_{\mathcal{G},i}]
+W′′(k∗)Δk∗=I′(k∗)Δλ~∗−λ~∗1​∑i∈N​μi​Πi​Ei​[RG,i​]. The correct formula, obtained by differentiating the optimality condition W′(k∗)=0W'(k^\ast) = 0
+W′(k∗)=0 with respect to the perturbation parameter, is W′′(k∗)Δk∗=I′(k∗)Δλ~∗−∑i∈NμiΔλΠiW''(k^\ast)\Delta k^\ast = I'(k^\ast)\Delta\tilde\lambda^\ast - \sum_{i\in N}\mu_i\Delta_\lambda\Pi_i
+W′′(k∗)Δk∗=I′(k∗)Δλ~∗−∑i∈N​μi​Δλ​Πi​. Under CARA, ΔλΠi=ΠiEi[RG]\Delta_\lambda\Pi_i = \Pi_i\mathbb{E}_i[R_\mathcal{G}]
+Δλ​Πi​=Πi​Ei​[RG​], so the second term is ∑NμiΠiEi[RG]\sum_N\mu_i\Pi_i\mathbb{E}_i[R_\mathcal{G}]
+∑N​μi​Πi​Ei​[RG​] without any 1/λ~∗1/\tilde\lambda^\ast
+1/λ~∗. The proof introduces this factor by differentiating the whole-NN
+N representation I′(k∗)=1λ~∗∑NμiΠiI'(k^\ast) = \frac{1}{\tilde\lambda^\ast}\sum_N\mu_i\Pi_i
+I′(k∗)=λ~∗1​∑N​μi​Πi​, but that differentiation also introduces a λ~∗\tilde\lambda^\ast
+λ~∗ in the denominator of the Δλ~∗\Delta\tilde\lambda^\ast
+Δλ~∗ term, producing a formula inconsistent with the direct approach. Since Πi>0\Pi_i > 0
+Πi​>0 and λ~∗>0\tilde\lambda^\ast > 0
+λ~∗>0, the sign of the average-effect term is unaffected, but the numerical formula in the proposition statement is wrong by a factor of λ~∗\tilde\lambda^\ast
+λ~∗.
+
+
+3. cor:rprefreallocation Silently Imports Condition from prop:rprefreallocation for the IR-Constrained Case
+The corollary states its conclusion holds "for any allocation regime," but the proof's IR-constrained argument uses Δβi=0\Delta\beta_i = 0
+Δβi​=0, which it derives from the mean-preserving condition Δλ~i=0\Delta\tilde\lambda_i = 0
+Δλ~i​=0 combined with Δβi+Δλ~i=0\Delta\beta_i + \Delta\tilde\lambda_i = 0
+Δβi​+Δλ~i​=0. The second part of this is the hypothesis of the IR-constrained case of
+prop:rprefreallocation — it is not a consequence of mean-preservation alone, and it is not stated in the corollary. As written, a reader applying the corollary to the IR-constrained regime without knowing the parent proposition's hypothesis would obtain a result that may not hold. The corollary should explicitly state that in the IR-constrained regime the condition Δλ~i+Δβi=0\Delta\tilde\lambda_i + \Delta\beta_i = 0
+Δλ~i​+Δβi​=0 is maintained.
+
+
+4. Sign of the Denominator in lem:dkidk Not Established
+The lemma formula for dki∗/dkdk_i^\ast/dk
+dki∗​/dk has denominator D:=∑jμjΩj−1(E(s,j)w[uJ∣s]−I′(k∗))D := \sum_j\mu_j\Omega_j^{-1}(\mathbb{E}_{(s,j)}^w[uJ|s] - I'(k^\ast))
+D:=∑j​μj​Ωj−1​(E(s,j)w​[uJ∣s]−I′(k∗)). The lemma concludes that "the sign of the category capacity change is fully determined by the sufficient statistic \eqref{Eujmd}," but this conclusion requires knowing the sign of DD
+D. If D<0D < 0
+D<0, the inequality in the sign characterization is reversed; if D=0D = 0
+D=0, the formula is undefined. The lemma states (1+λ~∗I′′(k∗)∑jμjΩj−1)>0(1 + \tilde\lambda^\ast I''(k^\ast)\sum_j\mu_j\Omega_j^{-1}) > 0
+(1+λ~∗I′′(k∗)∑j​μj​Ωj−1​)>0 and λ~∗I′′(k∗)>0\tilde\lambda^\ast I''(k^\ast) > 0
+λ~∗I′′(k∗)>0, but neither implies a sign for DD
+D. The sign of DD
+D is not trivially determined at an interior optimum since E(s,j)w[uJ∣s]−I′(k∗)\mathbb{E}_{(s,j)}^w[uJ|s] - I'(k^\ast)
+E(s,j)w​[uJ∣s]−I′(k∗) can take either sign across categories. The lemma needs either a proof that DD
+D has a determinate sign, or a qualification that the sign conclusion on dki∗/dkdk_i^\ast/dk
+dki∗​/dk is conditional on the sign of DD
+D.
+
+
+1. Incorrect First Equality in the Peak-Load Rule of Lemma lem:investment
+The displayed formula states I′(k∗)=1μ+∑i∈N+μiΠiI'(k^\ast) = \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\Pi_i
+I′(k∗)=μ+1​∑i∈N+​μi​Πi​. But from the proof, Πi=ζk=λ~∗I′(k∗)\Pi_i = \zeta_k = \tilde\lambda^\ast I'(k^\ast)
+Πi​=ζk​=λ~∗I′(k∗) for every i∈N+i\in N^+
+i∈N+, so the right-hand side equals 1μ+⋅μ+⋅λ~∗I′(k∗)=λ~∗I′(k∗)\frac{1}{\mu^+}\cdot\mu^+\cdot\tilde\lambda^\ast I'(k^\ast) = \tilde\lambda^\ast I'(k^\ast)
+μ+1​⋅μ+⋅λ~∗I′(k∗)=λ~∗I′(k∗). The first equality therefore asserts I′(k∗)=λ~∗I′(k∗)I'(k^\ast) = \tilde\lambda^\ast I'(k^\ast)
+I′(k∗)=λ~∗I′(k∗), which holds only if λ~∗=1\tilde\lambda^\ast = 1
+λ~∗=1. The correct statement is λ~∗I′(k∗)=1μ+∑i∈N+μiΠi\tilde\lambda^\ast I'(k^\ast) = \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\Pi_i
+λ~∗I′(k∗)=μ+1​∑i∈N+​μi​Πi​, or equivalently I′(k∗)=1μ+λ~∗∑i∈N+μiΠiI'(k^\ast) = \frac{1}{\mu^+\tilde\lambda^\ast}\sum_{i\in N^+}\mu_i\Pi_i
+I′(k∗)=μ+λ~∗1​∑i∈N+​μi​Πi​. The second equality in the displayed formula, which writes \Gi(θ)/λ~∗\G_i(\theta)/\tilde\lambda^\ast
+\Gi​(θ)/λ~∗ inside the expectation, is correct; the error is confined to the first equality. The whole-NN
+N equivalent representation given in the proof ("I′(k∗)=1λ~∗∑i∈NμiΠiI'(k^\ast) = \frac{1}{\tilde\lambda^\ast}\sum_{i\in N}\mu_i\Pi_i
+I′(k∗)=λ~∗1​∑i∈N​μi​Πi​") is also correct and makes the missing λ~∗\tilde\lambda^\ast
+λ~∗ factor transparent. Fix: replace the first equality with λ~∗I′(k∗)=1μ+∑i∈N+μiΠi\tilde\lambda^\ast I'(k^\ast) = \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\Pi_i
+λ~∗I′(k∗)=μ+1​∑i∈N+​μi​Πi​ and display the normalised version as the operational form of the rule.
+
+
+2. Broken Figure Cross-Reference in Appendix appsec:implementation-region
+The text of that subsection reads "Figure~\ref{fig:redistribution_marg_k_uniform} illustrates Theorem~\ref{thm:surplus} and Proposition~\ref{prop:implementation}." The figure itself is labeled \label{fig:appendix_redistribution_marg_k_uniform}. These do not match: fig:redistribution_marg_k_uniform is undefined and will produce a dangling reference. The main text in sec:surplus correctly uses \ref{fig:appendix_redistribution_marg_k_uniform}, so the fix is to update the appendix reference to match the figure's actual label.
+
+3. Figure fig:surplus-redist Inconsistent with Proposition prop:surplus-redist
+The TikZ figure labels the red curve as "Δ\Gi≤0\Delta\G_i \leq 0
+Δ\Gi​≤0, Cov<0\mathrm{Cov}<0
+Cov<0" and plots a −,+,−,+-,+,-,+
+−,+,−,+ pattern (4 regions, 3 interior zeros, starting at −0.6-0.6
+−0.6). According to the proposition, the R\G≥0R_\G \geq 0
+R\G​≥0, Cov>0\mathrm{Cov}>0
+Cov>0 case gives +,−,+,−+,-,+,-
++,−,+,− and the R\G≤0R_\G \leq 0
+R\G​≤0 case reverses all inequalities. Applying the reversal to the Cov<0\mathrm{Cov}<0
+Cov<0 case (which gives −,+,−-,+,-
+−,+,− under R\G≥0R_\G \geq 0
+R\G​≥0) yields +,−,++,-,+
++,−,+ — three regions, starting positive. But the red curve starts negative and has four regions. The −,+,−,+-,+,-,+
+−,+,−,+ pattern with a negative start is consistent with R\G≤0R_\G \leq 0
+R\G​≤0 combined with Cov>0\mathrm{Cov}>0
+Cov>0 (the reversal of +,−,+,−+,-,+,-
++,−,+,−), not Cov<0\mathrm{Cov}<0
+Cov<0 as the label claims. Either the covariance sign label on the red curve is wrong, or the proposition's reversal clause produces a different pattern than claimed. Either way, the figure caption "four alternating regions of winners and losers" applies to the blue curve but contradicts the proposition's claim that the Cov<0\mathrm{Cov}<0
+Cov<0 case generates only three regions. This needs to be resolved before submission: the inconsistency is visible and will be caught immediately by any careful referee.
+
+
+4. Proof of Proposition prop:investment — Dropped Δki∗\Delta k_i^\ast
+Δki∗​ Term in the Derivation of Δλ~∗\Delta\tilde\lambda^\ast
+Δλ~∗
+The proof differentiates the IR binding condition \E(s,i)[U(qi,s)Ji(θ)]=Ii∗\E_{(s,i)}[U(q_i,s)J_i(\theta)] = I_i^\ast
+\E(s,i)​[U(qi​,s)Ji​(θ)]=Ii∗​ with respect to the preference-perturbation parameter and writes, for each i∈N+i\in N^+
+i∈N+: \E(s,i)w[Vari(uJ)]Δλ~∗+Δλ\E(s,i)[UJ]=0\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\Delta\tilde\lambda^\ast + \Delta_\lambda\E_{(s,i)}[UJ] = 0
+\E(s,i)w​[Vari​(uJ)]Δλ~∗+Δλ​\E(s,i)​[UJ]=0. The total derivative of the IR constraint has a third term: \E(s,i)w[uJ∣s]⋅Δki∗\E_{(s,i)}^w[uJ|s]\cdot\Delta k_i^\ast
+\E(s,i)w​[uJ∣s]⋅Δki∗​, arising from the preference-induced change in category capacity. This term is dropped without justification. Including it would give \E(s,i)w[uJ∣s]Δki∗+\E(s,i)w[Vari]Δλ~∗+Δλ\E(s,i)[UJ]=0\E_{(s,i)}^w[uJ|s]\Delta k_i^\ast + \E_{(s,i)}^w[\mathrm{Var}_i]\Delta\tilde\lambda^\ast + \Delta_\lambda\E_{(s,i)}[UJ] = 0
+\E(s,i)w​[uJ∣s]Δki∗​+\E(s,i)w​[Vari​]Δλ~∗+Δλ​\E(s,i)​[UJ]=0 for each i∈N+i\in N^+
+i∈N+. With n+n^+
+n+ such equations and the aggregate feasibility condition, the system is properly determined only once Δki∗\Delta k_i^\ast
+Δki∗​ is substituted from the capacity FOC — which requires bringing in Lemma `lem:dkidk` before solving for Δλ~∗\Delta\tilde\lambda^\ast
+Δλ~∗. As written, the formula for Δλ~∗\Delta\tilde\lambda^\ast
+Δλ~∗ in the proposition statement is incomplete. The proof must either show that the Δki∗\Delta k_i^\ast
+Δki∗​ term vanishes at the optimum (which it does not, generically) or rederive the formula accounting for it.
+
+
+5. Grammatical Error in Statement of Lemma lem:realloc
+The lemma statement reads "Fix category ii
+i and a across allocation (ki,Ii)(k_i, I_i)
+(ki​,Ii​)." The correct phrase is "an across-category allocation." The error is minor but the lemma statement should be clean for submission.
+
+
+6. Unresolved Placeholder Citation Following Lemma lem:investment
+The paragraph immediately after the lemma contains the sentence "this distortion disappears at the optimal investment level k∗k^\ast
+k∗ (see XXXX)." This is an unfilled citation, visible in the compiled output. The paper cannot be submitted in this state; the reference must be identified and inserted.
+
+
+7. Duplicate Label chap3sec:sec2
+The old draft "Environment" section beginning "Although the terminology is tailored to electricity, the results can..." (appearing in final_version.tex after the "Discussion" section) carries \label{chap3sec:sec2}, which duplicates the label on the active Section 2 "Environment and Problem Formulation." LaTeX will silently use the last definition of the label when resolving \ref{chap3sec:sec2}, meaning any cross-reference to the active Section 2 may instead point to the dead draft. The dead section should be deleted entirely; the memories already identify it as dead code to be cleaned up, but the label conflict makes this urgent.
+
+1. Mathematical Error in the Proof of Theorem thm:surplus — IR-constrained step
+In Step 2 of the IR-constrained case, the proof writes: "the term −∂βi(ki)∂kiE(s,i)w[uJ∣s]=E(s,i)w[uJ∣s]2E(s,i)w[Vari(uJ)]≥0-\frac{\partial \beta_i(k_i)}{\partial k_i}\mathbb{E}_{(s,i)}^w[uJ\mid s] = \mathbb{E}_{(s,i)}^w[uJ\mid s]^2\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)] \geq 0
+−∂ki​∂βi​(ki​)​E(s,i)w​[uJ∣s]=E(s,i)w​[uJ∣s]2E(s,i)w​[Vari​(uJ)]≥0." This implies ∂βi/∂ki=−Ew[uJ]⋅Ew[Var]\partial\beta_i/\partial k_i = -\mathbb{E}^w[uJ]\cdot\mathbb{E}^w[\mathrm{Var}]
+∂βi​/∂ki​=−Ew[uJ]⋅Ew[Var], i.e., the *product* of the two objects. But in the proof of Lemma `lem:SC-dir`, the formula derived is ∂βi/∂ki=−E(s,i)w[uJ∣s] / E(s,i)w[Vari(uJ)]\partial\beta_i/\partial k_i = -\mathbb{E}_{(s,i)}^w[uJ\mid s]\,/\,\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+∂βi​/∂ki​=−E(s,i)w​[uJ∣s]/E(s,i)w​[Vari​(uJ)], i.e., the *ratio*. These differ by a factor of Ew[Var]2\mathbb{E}^w[\mathrm{Var}]^2
+Ew[Var]2. The sign conclusion (C0>0C_0 > 0
+C0​>0, hence the constant part of the bracket is strictly positive) happens to be correct under both formulas, but the identity written is wrong and inconsistent with `lem:SC-dir`. Fix: replace the product with the ratio, then note that −∂βi/∂ki⋅Ew[uJ∣s]=(Ew[uJ∣s])2/Ew[Vari(uJ)]≥0-\partial\beta_i/\partial k_i \cdot \mathbb{E}^w[uJ\mid s] = (\mathbb{E}^w[uJ\mid s])^2/\mathbb{E}^w[\mathrm{Var}_i(uJ)] \geq 0
+−∂βi​/∂ki​⋅Ew[uJ∣s]=(Ew[uJ∣s])2/Ew[Vari​(uJ)]≥0, matching the Hessian structure established in Lemma `lem:Vi-concave`.
+
+
+2. Incorrect Claim in the Proof of Proposition prop:rprefreallocation — IR-constrained case
+The proof claims Δqi(θ‾i,s)=0\Delta q_i(\overline\theta_i, s) = 0
+Δqi​(θi​,s)=0 under the condition Δλ~i+Δβi=0\Delta\tilde\lambda_i + \Delta\beta_i = 0
+Δλ~i​+Δβi​=0. This is wrong. What is true is RG(θ‾i)=0R_\mathcal{G}(\overline\theta_i) = 0
+RG​(θi​)=0 (established correctly via Λi(θ‾i)=0\Lambda_i(\overline\theta_i) = 0
+Λi​(θi​)=0 and ΔGi(θ‾i)=Ji(θ‾i)(Δλ~i+Δβi)=0\Delta\mathcal{G}_i(\overline\theta_i) = J_i(\overline\theta_i)(\Delta\tilde\lambda_i + \Delta\beta_i) = 0
+ΔGi​(θi​)=Ji​(θi​)(Δλ~i​+Δβi​)=0). But substituting into Lemma `lem:realloc` gives Δqi(θ‾i,s)=Rq(θ‾i)(0−Eiw[RG∣s])=−Rq(θ‾i) Eiw[RG∣s]\Delta q_i(\overline\theta_i, s) = R_q(\overline\theta_i)(0 - \mathbb{E}_i^w[R_\mathcal{G}\mid s]) = -R_q(\overline\theta_i)\,\mathbb{E}_i^w[R_\mathcal{G}\mid s]
+Δqi​(θi​,s)=Rq​(θi​)(0−Eiw​[RG​∣s])=−Rq​(θi​)Eiw​[RG​∣s], which is generically nonzero. The proof then builds on this false zero to conclude that Δqi(⋅,s)\Delta q_i(\cdot, s)
+Δqi​(⋅,s) takes both signs — an argument that collapses if the endpoint is not actually a zero. The conclusion of the proposition (non-monotonicity) is correct, since Ei[Δqi(θ,s)]=0\mathbb{E}_i[\Delta q_i(\theta,s)] = 0
+Ei​[Δqi​(θ,s)]=0 by capacity-binding and Δqi\Delta q_i
+Δqi​ is not identically zero, so it must take both signs. But the stated mechanism of the proof is wrong. The proof needs to be rewritten: identify the correct argument (the zero-mean property plus non-constancy of Δqi\Delta q_i
+Δqi​), drop the false endpoint claim, and verify separately that a function that averages to zero and is non-constant cannot be monotone without a zero in the interior.
+
+The same error propagates to Corollary cor:rprefreallocation, which states "A function that vanishes at one endpoint and takes both signs cannot be monotone." The endpoint θ‾i\overline\theta_i
+θi​ does not generally vanish, so this sentence is false as written.
+
+
+3. Missing Proof of Part (i) of Proposition prop:revenueordering
+The subsection "Proof of Proposition~\ref{prop:revenueordering}" proves only the intensive margin ranking of Part (ii). Part (i), the partition result max⁡i∈N+λ~i<min⁡i∈N0λ~i\max_{i\in N^+}\tilde\lambda_i < \min_{i\in N^0}\tilde\lambda_i
+maxi∈N+​λ~i​<mini∈N0​λ~i​, has no proof within that subsection. The result does follow cleanly from the KKT conditions of Lemma
+lem:outer: for i∈N+i\in N^+
+i∈N+, complementary slackness gives ξi=0\xi_i = 0
+ξi​=0 and λ~i+βi∗=−ζI=:λ~∗\tilde\lambda_i + \beta_i^\ast = -\zeta_I =: \tilde\lambda^\ast
+λ~i​+βi∗​=−ζI​=:λ~∗, so λ~i<λ~∗\tilde\lambda_i < \tilde\lambda^\ast
+λ~i​<λ~∗; for j∈N0j\in N^0
+j∈N0, λ~j=λ~∗+ξj≥λ~∗\tilde\lambda_j = \tilde\lambda^\ast + \xi_j \geq \tilde\lambda^\ast
+λ~j​=λ~∗+ξj​≥λ~∗. Hence max⁡N+λ~i<λ~∗≤min⁡N0λ~j\max_{N^+}\tilde\lambda_i < \tilde\lambda^\ast \leq \min_{N^0}\tilde\lambda_j
+maxN+​λ~i​<λ~∗≤minN0​λ~j​. This three-line argument needs to be added at the start of the proof. The footnote in the main text that dismisses Part (i) as requiring "no additional structure" is correct in spirit but offers no substitute proof.
+
+
+4. Undefined Symbol B\mathcal{B}
+B in the Statement of Lemma
+lem:dkidk
+The formula in the lemma statement contains B\mathcal{B}
+B without defining it:
+
+dki∗dk=Ωi−1(Ew[uJ∣s]−I′(k∗))∑jμjΩj−1(Ejw[uJ∣s]−I′(k∗))B−Ωi−1λ~∗I′′(k∗)\frac{dk_i^\ast}{dk} = \frac{\Omega_i^{-1}(\mathbb{E}^w[uJ\mid s] - I'(k^\ast))}{\sum_j\mu_j\Omega_j^{-1}(\mathbb{E}^w_j[uJ\mid s]-I'(k^\ast))}\mathcal{B} - \Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast)dkdki∗​​=∑j​μj​Ωj−1​(Ejw​[uJ∣s]−I′(k∗))Ωi−1​(Ew[uJ∣s]−I′(k∗))​B−Ωi−1​λ~∗I′′(k∗)
+The "where" clause immediately following says (1+λ~∗I′′(k∗)∑jμjΩj−1)>0(1 + \tilde\lambda^\ast I''(k^\ast)\sum_j\mu_j\Omega_j^{-1}) > 0
+(1+λ~∗I′′(k∗)∑j​μj​Ωj−1​)>0 and λ~∗I′′(k∗)>0\tilde\lambda^\ast I''(k^\ast) > 0
+λ~∗I′′(k∗)>0, implicitly identifying B\mathcal{B}
+B, but it is never written as B:=1+λ~∗I′′(k∗)∑jμjΩj−1\mathcal{B} := 1 + \tilde\lambda^\ast I''(k^\ast)\sum_j\mu_j\Omega_j^{-1}
+B:=1+λ~∗I′′(k∗)∑j​μj​Ωj−1​. A reader cannot parse the formula from the statement alone without already knowing the proof. Define B\mathcal{B}
+B explicitly in the lemma statement before displaying the formula.
+
+
+5. Assumption Cvx: Informal in Main Text, Formal in Appendix — Mismatch
+Lemma lem:FOC in the main text states "assume the within-category problem is convex" as an informal parenthetical. The appendix proof introduces Assumption~\ref{ass:Cvx} formally: "the set {qi:E(s,i)[Ji(θ)U(qi,s)]≥Ii}\{q_i: \mathbb{E}_{(s,i)}[J_i(\theta)U(q_i,s)] \geq I_i\}
+{qi​:E(s,i)​[Ji​(θ)U(qi​,s)]≥Ii​} is convex." These are the same condition, but the main text has no pointer to the formal assumption label. The result is that
+lem:FOC appears to invoke only Assumption Int, while the proof requires a separate convexity hypothesis. Either promote Assumption Cvx to the main text alongside Assumption Int in the lemma statement, or at minimum add a footnote cross-referencing the appendix assumption. Note also that Assumption Cvx is non-trivial whenever Ji(θ)J_i(\theta)
+Ji​(θ) changes sign, which it does whenever the mass of types with negative virtual surplus is positive — precisely the redistributive case of interest. The paper should acknowledge whether this is generically satisfied or requires verification.
+
+
+6. Label Inconsistency: sec:surplus vs Expected sec:welfare
+The subsubsection heading "Redistributive effects of capacity expansion" carries the label \label{sec:surplus}. Your memory records this as sec:welfare. This creates no broken reference since the label is not cross-referenced internally. But the mismatch with the documented label map is a latent confusion risk if you later add \ref{sec:welfare} anywhere. Standardize.
+
+7. thm:surplus — Assumption~\ref{ass:mult} Scope Not Flagged at Theorem Head
+The theorem statement opens with "Fix category ii
+i, a budget requirement Ii>0I_i > 0
+Ii​>0, and assume~\ref{ass
+:monotone} holds." Then the IR-constrained clause begins "Assume~\ref{ass:mult} holds." The additional assumption is introduced mid-theorem, not at the head. A careful reader will not know until reaching the IR-constrained case that a second assumption is being invoked. Restructure: state at the theorem head that both assumptions are maintained, with a parenthetical noting that Assumption Multi is only required for the second part.
+
+8. prop:surplus-redist — Cutoff Count Arithmetic Should Be Made Explicit
+The proposition claims "at most three cutoffs in (θ‾i,θ‾i)(\underline\theta_i, \overline\theta_i)
+(θ​i​,θi​)" in the IR-unconstrained case, with the pattern +,−,+,−+,-,+,-
++,−,+,−. Unimodality of RGR_\mathcal{G}
+RG​ makes the derivative ∂θΔECSi(θ)∝RG(θ)−Ei[RG]\partial_\theta\Delta\mathbb{E}CS_i(\theta) \propto R_\mathcal{G}(\theta) - \mathbb{E}_i[R_\mathcal{G}]
+∂θ​ΔECSi​(θ)∝RG​(θ)−Ei​[RG​] change sign at most twice, giving ΔECSi\Delta\mathbb{E}CS_i
+ΔECSi​ at most two turning points, hence at most three interior zeros. This arithmetic is never spelled out in either the statement or the proof. As written, a reviewer cannot verify that three interior cutoffs (four regions, pattern +,−,+,−+,-,+,-
++,−,+,−) are consistent with at most two sign changes of the derivative. Add a one-sentence counting argument.
+
+
+9. lem:Transfer — The IR Constraint on ECS‾i\mathbb{E}\underline{CS}_i
+ECS​i​
+Lemma lem:Transfer imposes the participation constraint for the lower type as ECS‾i≥0\mathbb{E}\underline{CS}_i \geq 0
+ECS​i​≥0 for all ii
+i. The proof derives this as a consequence of the IR constraint \eqref{IR-def}. However, the lemma statement lists this as a separate constraint alongside \eqref{K-def}, creating the impression that it is an additional primitive. The connection — that ECS‾i≥0\mathbb{E}\underline{CS}_i \geq 0
+ECS​i​≥0 is exactly the IR constraint \eqref{IR-def} evaluated at θ=θ‾i\theta = \underline\theta_i
+θ=θ​i​, given the envelope representation — should be stated explicitly in the lemma.
+
+
+10. lem:investment — Scope of the Peak-Load Rule
+The lemma states the rule as I′(k∗)=1μ+∑i∈N+μiΠiI'(k^\ast) = \frac{1}{\mu^+}\sum_{i\in N^+}\mu_i\Pi_i
+I′(k∗)=μ+1​∑i∈N+​μi​Πi​ but also offers the "equivalent whole-NN
+N representation" 1λ~∗∑i∈NμiΠi\frac{1}{\tilde\lambda^\ast}\sum_{i\in N}\mu_i\Pi_i
+λ~∗1​∑i∈N​μi​Πi​. These are equivalent because all categories satisfy Πi=ζk\Pi_i = \zeta_k
+Πi​=ζk​ at the outer optimum (from Lemma
+lem:outer), including non-contributing categories. This equivalence is nontrivial: it says that the common scarcity rent ζk\zeta_k
+ζk​ is the same for categories in N0N^0
+N0 as for those in N+N^+
+N+, and the two representations produce the same number only because the capacity FOC is equalized across all ii
+i (not just contributing ones). The proof does not make this explicit. It should add: since Πi(ki∗)=ζk\Pi_i(k_i^\ast) = \zeta_k
+Πi​(ki∗​)=ζk​ for all ii
+i with ki∗>0k_i^\ast > 0
+ki∗​>0 (by Lemma
+lem:outer and the Inada condition), the average is invariant to whether one sums over N+N^+
+N+ or all of NN
+N.
+
+
+
+
+1. Missing Division Sign in Two Proof Locations
+In the proof of Lemma lem:Vi-concave (Step 2, inside the proof of lem:outer), the formula reads
+∂Iiβi=1E(s,i)w[Vari(uJ)]\partial_{I_i}\beta_i = 1\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+∂Ii​​βi​=1E(s,i)w​[Vari​(uJ)]
+with no division operator. The correct formula, obtained by differentiating ECS‾i(ki,βi(ki,Ii))=0\mathbb{E}\underline{CS}_i(k_i, \beta_i(k_i,I_i))=0
+ECS​i​(ki​,βi​(ki​,Ii​))=0 with respect to IiI_i
+Ii​ and using ∂βECS‾i=Ew[Vari(uJ)]>0\partial_\beta\mathbb{E}\underline{CS}_i = \mathbb{E}^w[\mathrm{Var}_i(uJ)] > 0
+∂β​ECS​i​=Ew[Vari​(uJ)]>0, is
+
+∂Iiβi=1/E(s,i)w[Vari(uJ)]\partial_{I_i}\beta_i = 1/\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)]
+∂Ii​​βi​=1/E(s,i)w​[Vari​(uJ)]
+The same typographical error appears verbatim in the proof of Proposition prop:revenueordering Part (ii): "From Lemma~\ref{lem:Vi-concave}, $\frac{\partial\beta_i}{\partial I_i}(k_i^\ast,I_i^\ast) = 1\mathbb{E}_{(s,i)}^w\mathrm{Var}_i(uJ) > 0."Sincethesignconclusion(." Since the sign conclusion (
+."Sincethesignconclusion(> 0$) happens to be correct for both the product and the ratio, the error does not contaminate any inequality used downstream, but it will be caught immediately by any reader who checks the implicit-function-theorem step.
+
+
+2. Subscript Index Error in the Statement of lem:dkidk
+The denominator of the formula in the lemma statement reads
+∑j∈NμjΩj−1 ⁣(E(s,i)w[uJ∣s]−I′(k∗))\sum_{j \in N} \mu_j \Omega_j^{-1}\!\left(\mathbb{E}_{(s,i)}^w[uJ\mid s] - I'(k^\ast)\right)
+∑j∈N​μj​Ωj−1​(E(s,i)w​[uJ∣s]−I′(k∗))
+with subscript ii
+i inside the expectation. The proof derives the correct expression
+
+∑j∈NμjΩj−1 ⁣(E(s,j)w[uJ∣s]−I′(k∗))\sum_{j \in N} \mu_j \Omega_j^{-1}\!\left(\mathbb{E}_{(s,j)}^w[uJ\mid s] - I'(k^\ast)\right)
+∑j∈N​μj​Ωj−1​(E(s,j)w​[uJ∣s]−I′(k∗))
+with subscript jj
+j. The lemma statement and its proof are inconsistent. A reader who relies only on the statement — which is standard practice — obtains a formula that is dimensionally wrong: the denominator would be a scalar multiple of the numerator rather than a properly weighted sum over all categories. The fix is to replace the subscript ii
+i in the denominator of the statement with jj
+j.
+
+
+3. lem:Vi-concave Embedded Inside a Proof but Cross-Referenced Externally
+Lemma lem:Vi-concave is defined and proved inside the proof block of Lemma lem:outer. It is then directly invoked by label in two separate proof blocks: the proof of Theorem thm:cat-order ("Since Vi(ki,Ii)V_i(k_i,I_i)
+Vi​(ki​,Ii​) is strictly concave in kik_i
+ki​ by Lemma~\ref{lem
+:Vi-concave}...") and the proof of Proposition prop:revenueordering ("From Lemma~\ref{lem:Vi-concave}, ∂Iiβi=...\partial_{I_i}\beta_i = ...
+∂Ii​​βi​=..."). While LaTeX resolves labels defined inside proof environments, embedding a result that is substantively needed elsewhere inside a parent proof is non-standard and creates a navigational problem for any reader or referee who needs to locate the result independently. The Hessian formulas established in
+lem:Vi-concave — particularly the negative definiteness in the IR-constrained regime and the expression for VkiIiV_{k_iI_i}
+Vki​Ii​​ — are load-bearing inputs for the comparative statics of both
+thm:cat-order and prop:revenueordering. The lemma should be extracted and stated as a standalone result before lem:outer, with its proof in the standard proof subsection.
+
+4. Terminology Inversion in the Discussion Paragraph Following thm:surplus
+The paragraph after Theorem thm:surplus contains the sentence: "When the participation constraint binds, the type-dependent component is null, so the surplus effect of a capacity expansion is driven by the quantity margin."
+This is internally self-contradicting. The expression (∂_k CS) decomposes ∂ECSi(θ)/∂ki\partial\mathbb{E}CS_i(\theta)/\partial k_i
+∂ECSi​(θ)/∂ki​ into a type-independent boundary term ∂ECS‾i/∂ki\partial\mathbb{E}\underline{CS}_i/\partial k_i
+∂ECS​i​/∂ki​ and a type-dependent IC-rent integral ∫θ‾iθEs[u⋅∂kiqi]dθ~\int_{\underline\theta_i}^\theta \mathbb{E}_s[u \cdot \partial_{k_i}q_i]d\tilde\theta
+∫θ​i​θ​Es​[u⋅∂ki​​qi​]dθ~. When the IR constraint binds, the boundary term equals zero — this is exactly what the proof establishes in Step 1 ("Since ECS‾i=0\mathbb{E}\underline{CS}_i = 0
+ECS​i​=0 holds identically along the IR-constrained region, its total derivative is zero... Wi(θ‾i)=0\mathcal{W}_i(\underline\theta_i) = 0
+Wi​(θ​i​)=0"). The IC-rent term (the type-dependent component) is therefore the sole carrier of the surplus effect — which is what "driven by the quantity margin" correctly describes. The sentence has "type-dependent" where it should say "type-independent." This contradicts the correct statement two paragraphs earlier ("when \eqref{Rmdi-def} binds, the boundary term is null: the entire surplus change is then carried by the IC rent") and will confuse any reader who cross-checks. Fix: replace "type-dependent" with "type-independent."
+
+
+
+
+

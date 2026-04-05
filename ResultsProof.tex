@@ -92,7 +92,7 @@ with the same capacity constraint \eqref{K-def} given allocation schedule $q_i(\
 
 For each category $i$, define
 \[
-B_i(\theta,s)
+CS_i(\theta,s)
 :=
 \theta U\!\left(q_i(\theta,s),s\right)
 - \underline\theta_i U\!\left(q_i(\underline\theta_i,s),s\right)
@@ -101,9 +101,9 @@ U\!\left(q_i(\tilde\theta,s),s\right)\,d\tilde\theta,
 \]
 and let
 \[
-\overline{B}_i(\theta)
+\E CS_i(\theta)
 :=
-\E_s[B_i(\theta,s)].
+\E_s[CS_i(\theta,s)].
 \]
 
 Start with the following individual transfer for each consumer of type $\theta$ in category $i$:
@@ -111,9 +111,9 @@ Start with the following individual transfer for each consumer of type $\theta$ 
 t_i(\theta,s)
 &=
 \tau_i
-+ \overline{B}_i(\theta)
++ \E CS_i(\theta)
 - \sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
-   \E_{\theta_j}[\overline{B}_j(\theta_j)] + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big),
+   \E_{\theta_j}[\E CS_j(\theta_j)] + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big),
 \end{align*}
 where
 \[
@@ -121,18 +121,18 @@ where
 =
 T_{i0}
 +\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
-   \E_{\theta_j}[\overline{B}_j(\theta_j)]
+   \E_{\theta_j}[\E CS_j(\theta_j)]
 - \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big).
 \]
 
-Taking expectations over $\theta$, and noting that only $\overline{B}_i(\theta)$ depends on $\theta$, yields
+Taking expectations over $\theta$, and noting that only $\E CS_i(\theta)$ depends on $\theta$, yields
 \begin{align*}
 \E_i[t_i(\theta,s)]
 &=
 \tau_i
-+ \E_i[\overline{B}_i(\theta)]
++ \E_i[\E CS_i(\theta)]
 - \sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
-   \E_{\theta_j}[\overline{B}_j(\theta_j)] 
+   \E_{\theta_j}[\E CS_j(\theta_j)] 
 + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big).
 \end{align*}
 
@@ -141,8 +141,8 @@ Multiplying by the size $\mu_i$ of category $i$, summing over all categories, an
 \sum_{i=1}^n \mu_i\E_i[t_i(\theta,s)]
 &=
 \sum_{i=1}^n \mu_i \tau_i
-+ \sum_{i=1}^n\mu_i\,\E_i[\overline{B}_i(\theta)]-\sum_{i=1}^n\mu_i\sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\,
-   \E_{\theta_j}[\overline{B}_j(\theta_j)]
++ \sum_{i=1}^n\mu_i\,\E_i[\E CS_i(\theta)]-\sum_{i=1}^n\mu_i\sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\,
+   \E_{\theta_j}[\E CS_j(\theta_j)]
 \\
 &\quad
 + I(k)
@@ -160,11 +160,11 @@ Therefore, an allocation satisfies the budget constraint if and only if $\sum_{i
 
 Next, substitute the expression for $\tau_i$:
 \begin{align*}
-\sum_{i=1}^n \mu_i \tau_i &= \sum_{i=1}^n \mu_i \left( T_{i0} + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\, \E_{\theta_j}[\overline{B}_j(\theta_j)] - \Big(I(k) - I_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j} I_j\Big) \right) \\
-&= \sum_{i=1}^n \mu_i \left( T_{i0} + \E_i[\overline{B}_i(\theta)] \right) - I(k),
+\sum_{i=1}^n \mu_i \tau_i &= \sum_{i=1}^n \mu_i \left( T_{i0} + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\, \E_{\theta_j}[\E CS_j(\theta_j)] - \Big(I(k) - I_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j} I_j\Big) \right) \\
+&= \sum_{i=1}^n \mu_i \left( T_{i0} + \E_i[\E CS_i(\theta)] \right) - I(k),
 \end{align*}
 
-By Fubini's theorem and the usual hazard-rate argument, the expectation of $\overline{B}_i(\theta)$ can be written in terms of the virtual utility
+By Fubini's theorem and the usual hazard-rate argument, the expectation of $\E CS_i(\theta)$ can be written in terms of the virtual utility
 \[
 U(q_i(\theta,s),s) J_i(\theta)
 := U\!\left(q_i(\theta,s),s\right)(\theta -
@@ -172,7 +172,7 @@ U(q_i(\theta,s),s) J_i(\theta)
 \]
 as
 \[
-\E_i[\overline{B}_i(\theta)]
+\E_i[\E CS_i(\theta)]
 =
 \E_{(s,i)}\left[
 U(q_i(\theta,s),s) J_i(\theta)
@@ -194,7 +194,7 @@ Finally, replacing $\tau_i$ in $t_i(\theta,s)$ yields
 t_i(\theta,s)
 =
 T_{i0}
-+ \overline{B}_i(\theta)
++ \E CS_i(\theta)
 =
 T_{i0}
 + \E_s\left[
@@ -259,7 +259,7 @@ We apply Fubini's theorem to the second term:
 &= \int_{\underline{\theta}_i}^{\overline{\theta}_i} \E_s[U(q_i(\tilde\theta,s),s)] 
    \left(\int_{\tilde\theta}^{\overline{\theta}_i} \lambda_i(\theta) g_i(\theta)\,d\theta\right) d\tilde\theta \\
 &= \int_{\underline{\theta}_i}^{\overline{\theta}_i} \E_s[U(q_i(\tilde\theta,s),s)] 
-    \gamma_i(\tilde \theta) \E[ \ \lambda_i( \theta) \ | \ \theta \ \ge \ \tilde \theta \ ] d\tilde\theta \\
+    \gamma_i(\tilde \theta) g_i(\tilde \theta) \E[ \ \lambda_i( \theta) \ | \ \theta \ \ge \ \tilde \theta \ ] d\tilde\theta \\
 &= \E_{(s,i)}\!\left[\Lambda_i(\theta)\, U(q_i(\theta,s),s)\right].
 \end{align*}
 
@@ -1306,51 +1306,30 @@ R_{\theta,i}(\theta)
 \]
 Here \(W''(k^\ast)<0\) and \(\overline\varepsilon_i \geq 0\).
 \end{proposition}
-
 \begin{proof}
-Let \(\Delta_\lambda\) denote the first-order effect of the perturbation of
-\(\lambda_i(\theta)\) evaluated at the baseline equilibrium allocation.
+Let \(\Delta_\lambda\) denote the first-order effect of the perturbation of \(\lambda_i(\theta)\) evaluated at the baseline equilibrium allocation.
 
-From Lemma~\ref{lem:investment}, we use the equivalent whole-\(N\)
-representation
+Differentiating the optimality condition $W'(k^\ast)=0$ with respect to the perturbation parameter. By the envelope theorem applied to the outer problem, $W'(k)=\zeta_k+\zeta_I I'(k)$, so
 \[
-I'(k^\ast)
-=
-\frac{1}{\tilde\lambda^\ast}
-\sum_{i\in N}\mu_i\,\Pi_i.
+W''(k^\ast)\,\Delta k^\ast = -\Delta_\lambda\zeta_k - I'(k^\ast)\,\Delta_\lambda\zeta_I.
 \]
-Differentiating this expression with respect to the perturbation yields
+From Lemma~\ref{lem:outer}, $\zeta_k=\sum_{i\in N}\mu_i\Pi_i$ at the optimum, so $\Delta_\lambda\zeta_k=\sum_{i\in N}\mu_i\Delta_\lambda\Pi_i$. Since $\zeta_I=-\tilde\lambda^\ast$, we have $\Delta_\lambda\zeta_I=-\Delta\tilde\lambda^\ast$. Substituting,
 \[
-W''(k^\ast)\,\Delta k^\ast
-=
-I'(k^\ast)\,\Delta\tilde\lambda^\ast
--
-\sum_{i\in N}\mu_i\,\Delta_\lambda \Pi_i.
+W''(k^\ast)\,\Delta k^\ast = I'(k^\ast)\,\Delta\tilde\lambda^\ast - \sum_{i\in N}\mu_i\,\Delta_\lambda\Pi_i.
 \]
 
-Under Assumption~\ref{ass:CARA}, the same simplification as in
-Theorem~\ref{thm:cat-order} applies, so for every category \(i\),
+Under Assumption~\ref{ass:CARA}, the same simplification as in Theorem~\ref{thm:cat-order} applies, so for every category \(i\),
 \[
-\Delta_\lambda \Pi_i
-=
-\Pi_i\,\E_i[R_{\G,i}].
+\Delta_\lambda \Pi_i = \Pi_i\,\E_i[R_{\G,i}].
 \]
 Substituting into the previous display gives
 \[
-W''(k^\ast)\,\Delta k^\ast
-=
-I'(k^\ast)\,\Delta\tilde\lambda^\ast
--
-\sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}].
+W''(k^\ast)\,\Delta k^\ast = I'(k^\ast)\,\Delta\tilde\lambda^\ast - \sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}].
 \]
 
-It remains to characterize \(\Delta\tilde\lambda^\ast\). For every contributing
-category \(i\in N^+\), the revenue constraint binds. Since the perturbation is
-mean-preserving, \(\Delta\tilde\lambda_i=0\), and Lemma~\ref{lem:investment}
-implies
+It remains to characterize \(\Delta\tilde\lambda^\ast\). For every contributing category \(i\in N^+\), the revenue constraint binds. Since the perturbation is mean-preserving, \(\Delta\tilde\lambda_i=0\), and Lemma~\ref{lem:investment} implies
 \[
-\tilde\lambda_i+\beta_i^\ast=\tilde\lambda^\ast
-\qquad\text{for all }i\in N^+,
+\tilde\lambda_i+\beta_i^\ast=\tilde\lambda^\ast \qquad\text{for all }i\in N^+,
 \]
 hence
 \[
@@ -1358,76 +1337,24 @@ hence
 \]
 Taking the first-order effect of the perturbation in the binding condition gives
 \[
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)\,\Delta\tilde\lambda^\ast
-+
-\Delta_\lambda
-\E_{(s,i)}\!\left[
-U(q_i(\theta,s),s)\,J_i(\theta)
-\right]
-=
-0.
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)\,\Delta\tilde\lambda^\ast + \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)\,J_i(\theta)\right] = 0.
 \]
 
 Under Assumption~\ref{ass:CARA}, we have
 \[
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)
-=
-\frac{\overline\varepsilon_i}{\alpha}\,
-\Var_{i}\!\left(R_{\theta,i}(\theta)\right),
-\qquad
-\overline\varepsilon_i
-:=
-\E_s\!\left[
-\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}
-\right],
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast) = \frac{\overline\varepsilon_i}{\alpha}\,\Var_{i}\!\left(R_{\theta,i}(\theta)\right), \qquad \overline\varepsilon_i := \E_s\!\left[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}\right],
 \]
 and
 \[
-\Delta_\lambda
-\E_{(s,i)}\!\left[
-U(q_i(\theta,s),s)\,J_i(\theta)
-\right]
-=
-\frac{\overline\varepsilon_i}{\alpha}\,
-\Cov_{i}\!\left(
-R_{\theta,i}(\theta),R_{\G,i}(\theta)
-\right).
+\Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)\,J_i(\theta)\right] = \frac{\overline\varepsilon_i}{\alpha}\,\Cov_{i}\!\left(R_{\theta,i}(\theta),R_{\G,i}(\theta)\right).
 \]
-Therefore, summing over all contributing categories \(i\in N^+\) with weights
-\(\mu_i\), we obtain
+Therefore, summing over all contributing categories \(i\in N^+\) with weights \(\mu_i\), we obtain
 \[
-\Delta\tilde\lambda^\ast
-=
--
-\frac{
-\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
-\Cov_{i}\!\left(
-R_{\theta,i}(\theta),R_{\G,i}(\theta)
-\right)
-}{
-\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
-\Var_{i}\!\left(
-R_{\theta,i}(\theta)
-\right)
-}.
+\Delta\tilde\lambda^\ast = -\frac{\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,\Cov_{i}\!\left(R_{\theta,i}(\theta),R_{\G,i}(\theta)\right)}{\sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,\Var_{i}\!\left(R_{\theta,i}(\theta)\right)}.
 \]
 
-Finally, under a smooth ordered path that tilts redistributive preferences toward
-higher types, we have
-\[
-\E_i[R_{\G,i}]>0
-\qquad\text{for all }i\in N.
-\]
-Hence the direct term
-\[
--\frac{1}{\tilde\lambda^\ast}
-\sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}]
-\]
-is negative. Since \(W''(k^\ast)<0\), this direct channel pushes \(\Delta k^\ast\)
-upward. The overall sign of \(\Delta k^\ast\) nevertheless also depends on the
-induced change in \(\tilde\lambda^\ast\).
+Finally, under a smooth ordered path that tilts redistributive preferences toward higher types, we have $\E_i[R_{\G,i}]>0$ for all $i\in N$. Hence the average effect $-\sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}]$ is negative. Since \(W''(k^\ast)<0\), this channel pushes \(\Delta k^\ast\) upward. The overall sign of \(\Delta k^\ast\) nevertheless also depends on the induced change in \(\tilde\lambda^\ast\).
 \end{proof}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Complete-information allocation with redistribution}
 
@@ -1483,117 +1410,6 @@ Complementary slackness conditions are
 \]
 since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_i \E_i[q_i^*(\theta,s)]$ is strictly increasing in $s$, which guarantees existence of a unique threshold $s^*$ separating $S^*$ and $T^*$.
 \end{proof}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{proof}
-Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
-\[
-\tilde\lambda_i^k := \int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta), \qquad \Lambda_i^k(\theta) := \frac{1}{g_i(\theta)}\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t), \qquad k\in\{1,2\}.
-\]
-Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
-
-
-\noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
-For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by
-\[
-dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}\,\mathbf{1}\{t\ge\theta\}.
-\]
-Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, we have $\Lambda_i^2(\theta)/\Lambda_i^1(\theta) = \E_{Q_\theta}[m(\tilde\theta)]$. For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance $\E_{Q_\theta}[m(\tilde\theta)] \ge \E_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
-
-
-\noindent\textit{Proof of (i).}
-Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its logarithm is monotone too. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,
-\[
-0 \le \frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right) = \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)} - \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},
-\]
-in the upward case, which yields $\Lambda_i^{\Delta\,\prime}(\theta)/\Lambda_i^\Delta(\theta) \ge \Lambda_i'(\theta)/\Lambda_i(\theta)$ for almost every $\theta$. The reverse inequality holds in the downward case.
-
-
-\noindent\textit{Proof of (ii).}
-Write
-\[
-\G_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta), \qquad \G_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\Delta}\bigr)+\Lambda_i^\Delta(\theta).
-\]
-
-
-\noindent\textbf{Upward case.} Assume $m$ is increasing and $1\le c_{\G}\le c_\Lambda$. The boundary evaluation gives
-\[
-\frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)} = \frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i} = c_\Lambda.
-\]
-Since the ratio is increasing by the core step and starts at $c_\Lambda \ge c_{\G}$,
-\[
-\Lambda_i^\Delta(\theta) \ge c_\Lambda\,\Lambda_i(\theta) \ge c_{\G}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
-\]
-Using the definition of $c_{\G}$,
-\[
-\G_i^\Delta(\theta) = c_{\G}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i^\Delta(\theta) \ge c_{\G}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+c_{\G}\,\Lambda_i(\theta) = c_{\G}\,\G_i(\theta).
-\]
-Since $c_{\G}\ge 1$ and $\G_i(\theta)>0$, it follows that $\Delta\G_i(\theta) \ge (c_{\G}-1)\G_i(\theta) \ge 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
-
-
-\noindent\textbf{Downward case.} Assume $m$ is decreasing and $c_\Lambda\le c_{\G}\le 1$. The boundary evaluation gives $\Lambda_i^\Delta(\underline\theta_i)/\Lambda_i(\underline\theta_i) = c_\Lambda \le c_{\G}$. Since the ratio is decreasing by the core step and starts at $c_\Lambda$,
-\[
-\Lambda_i^\Delta(\theta) \le c_\Lambda\,\Lambda_i(\theta) \le c_{\G}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
-\]
-Therefore $\G_i^\Delta(\theta) \le c_{\G}\,\G_i(\theta)$, and since $c_{\G}\le 1$ and $\G_i(\theta)>0$, it follows that $\Delta\G_i(\theta) \le (c_{\G}-1)\G_i(\theta) \le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
-
-
-The special cases in the ``in particular'' clause follow immediately: if $\beta_i=\beta_i^{\Delta}=0$ then $c_{\G}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\G}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\Delta}+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$ then $c_{\G}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
-\qedhere
-\end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -2052,6 +1868,64 @@ If $m_i(\theta)$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$, 
 \]
 Moreover, if $1\le c_{\G}\le c_\Lambda$ (resp. $c_\Lambda\le c_{\G}\le 1$), then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\ge(\text{resp. }\le)0$. In particular, if either $\beta_i=\beta_i^\Delta=0$ or $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the condition reduces to $\tilde\lambda_i^\Delta\ge (\text{resp. }\le)\tilde\lambda_i$.
 \end{lemma}
+
+
+\begin{proof}
+Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
+\[
+\tilde\lambda_i^k := \int_{\underline\theta_i}^{\overline\theta_i}\lambda_i^k(\theta)\,dG_i(\theta), \qquad \Lambda_i^k(\theta) := \frac{1}{g_i(\theta)}\int_\theta^{\overline\theta_i}\lambda_i^k(t)\,dG_i(t), \qquad k\in\{1,2\}.
+\]
+Let $m(\theta):=\lambda_i^2(\theta)/\lambda_i^1(\theta)$, which is increasing in the upward-shift case and decreasing in the downward-shift case.
+
+
+\noindent\textit{Core step: monotonicity of $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$.}
+For each $\theta\in[\underline\theta_i,\overline\theta_i)$, define the probability measure $Q_\theta$ on $[\theta,\overline\theta_i]$ by
+\[
+dQ_\theta(t) := \frac{\lambda_i^1(t)\,dG_i(t)}{\displaystyle\int_\theta^{\overline\theta_i}\lambda_i^1(x)\,dG_i(x)}\,\mathbf{1}\{t\ge\theta\}.
+\]
+Since $\lambda_i^2(t)=m(t)\lambda_i^1(t)$, we have $\Lambda_i^2(\theta)/\Lambda_i^1(\theta) = \E_{Q_\theta}[m(\tilde\theta)]$. For $\theta'<\theta$, $Q_\theta$ is $Q_{\theta'}$ conditioned on $\{\tilde\theta\ge\theta\}$. When $m$ is increasing, this conditioning shifts mass toward larger values of $m$, so by first-order stochastic dominance $\E_{Q_\theta}[m(\tilde\theta)] \ge \E_{Q_{\theta'}}[m(\tilde\theta)]$. Hence $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is increasing on $[\underline\theta_i,\overline\theta_i)$. When $m$ is decreasing the inequality reverses.
+
+
+\noindent\textit{Proof of (i).}
+Since $\theta\mapsto\Lambda_i^2(\theta)/\Lambda_i^1(\theta)$ is monotone, its logarithm is monotone too. Therefore, for almost every $\theta\in(\underline\theta_i,\overline\theta_i)$,
+\[
+0 \le \frac{d}{d\theta}\log\!\left(\frac{\Lambda_i^2(\theta)}{\Lambda_i^1(\theta)}\right) = \frac{\Lambda_i^{2\,\prime}(\theta)}{\Lambda_i^2(\theta)} - \frac{\Lambda_i^{1\,\prime}(\theta)}{\Lambda_i^1(\theta)},
+\]
+in the upward case, which yields $\Lambda_i^{\Delta\,\prime}(\theta)/\Lambda_i^\Delta(\theta) \ge \Lambda_i'(\theta)/\Lambda_i(\theta)$ for almost every $\theta$. The reverse inequality holds in the downward case.
+
+
+\noindent\textit{Proof of (ii).}
+Write
+\[
+\G_i(\theta) = J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i(\theta), \qquad \G_i^\Delta(\theta) = J_i(\theta)\bigl(\tilde\lambda_i^\Delta+\beta_i^{\Delta}\bigr)+\Lambda_i^\Delta(\theta).
+\]
+
+
+\noindent\textbf{Upward case.} Assume $m$ is increasing and $1\le c_{\G}\le c_\Lambda$. The boundary evaluation gives
+\[
+\frac{\Lambda_i^\Delta(\underline\theta_i)}{\Lambda_i(\underline\theta_i)} = \frac{\tilde\lambda_i^\Delta}{\tilde\lambda_i} = c_\Lambda.
+\]
+Since the ratio is increasing by the core step and starts at $c_\Lambda \ge c_{\G}$,
+\[
+\Lambda_i^\Delta(\theta) \ge c_\Lambda\,\Lambda_i(\theta) \ge c_{\G}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
+\]
+Using the definition of $c_{\G}$,
+\[
+\G_i^\Delta(\theta) = c_{\G}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+\Lambda_i^\Delta(\theta) \ge c_{\G}\,J_i(\theta)\bigl(\tilde\lambda_i+\beta_i\bigr)+c_{\G}\,\Lambda_i(\theta) = c_{\G}\,\G_i(\theta).
+\]
+Since $c_{\G}\ge 1$ and $\G_i(\theta)>0$, it follows that $\Delta\G_i(\theta) \ge (c_{\G}-1)\G_i(\theta) \ge 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
+
+
+\noindent\textbf{Downward case.} Assume $m$ is decreasing and $c_\Lambda\le c_{\G}\le 1$. The boundary evaluation gives $\Lambda_i^\Delta(\underline\theta_i)/\Lambda_i(\underline\theta_i) = c_\Lambda \le c_{\G}$. Since the ratio is decreasing by the core step and starts at $c_\Lambda$,
+\[
+\Lambda_i^\Delta(\theta) \le c_\Lambda\,\Lambda_i(\theta) \le c_{\G}\,\Lambda_i(\theta) \qquad \text{for all }\theta.
+\]
+Therefore $\G_i^\Delta(\theta) \le c_{\G}\,\G_i(\theta)$, and since $c_{\G}\le 1$ and $\G_i(\theta)>0$, it follows that $\Delta\G_i(\theta) \le (c_{\G}-1)\G_i(\theta) \le 0$ for all $\theta\in[\underline\theta_i,\overline\theta_i]$.
+
+
+The special cases in the ``in particular'' clause follow immediately: if $\beta_i=\beta_i^{\Delta}=0$ then $c_{\G}=c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i$, so the ordering $c_{\G}\le c_\Lambda$ holds with equality and the condition reduces to $\tilde\lambda_i^\Delta\ge\tilde\lambda_i$; if $\beta_i^{\Delta}+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$ then $c_{\G}=1$ and the condition reduces to $c_\Lambda=\tilde\lambda_i^\Delta/\tilde\lambda_i\ge 1$.
+\qedhere
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Non-monotone reallocation under preference perturbations}
