@@ -529,7 +529,7 @@ The previous section showed how redistributive preferences affect a category's i
 
 \subsection{Characterization}
 
-We now turn to the across-category problem. Given the within-category value functions \(V_i(k_i,I_i)\), the designer chooses \(\{k_i,I_i\}_{i\in N}\) to solve
+Given the within-category value functions \(V_i(k_i,I_i)\), the designer chooses \(\{k_i,I_i\}_{i\in N}\) to solve
 \[
 \max_{\{k_i,I_i\}_{i\in N}} \sum_{i\in N}\mu_i\,V_i(k_i,I_i)
 \]
@@ -583,7 +583,7 @@ The two optimality conditions have the usual economic interpretation. The design
 
 We now study how redistributive preferences shape the allocation of capacity and revenue across categories. We study two rankings: the capacity ranking, which determines how much capacity each category receives, and the revenue ranking, which determines how much each category contributes to the budget — the latter decomposing into an extensive margin governing which categories contribute at all, and an intensive margin governing how much each contributing category pays. Categories differ through their social weight functions \(\lambda_i(\theta)\), and the question is how these differences translate into optimal capacity choices. We begin with a local comparison between two nearby categories, representing category \(j\) as a marginal variation of category \(i\), and then use this comparison to derive a global ordering along a path of redistributive preferences. Throughout, all categories share the same type support \(\Theta\).
 
-\subsubsection{Capacity ranking} 
+\noindent\textbf{Capacity ranking.} 
 Using the first-order conditions in Lemma~\ref{lem:outer}, consider the induced difference in the marginal value of capacity around category \(i\):
 \[
 \Delta \Pi_i(k_i^\ast,I_i^\ast)
@@ -648,9 +648,7 @@ The corollary provides a sharp economic ranking of categories by capacity alloca
 
 In Figure \ref{fig:appendix_N_categories_six_panels} in the Appendix, we provide a numerical illustration of the sufficient condition. We compute the optimal allocation of \(k_i\) across 50 categories for a given aggregate capacity \(k\). We consider two cases. In both, categories are ordered so that, between two adjacent categories \(i\) and \(i+1\), the average social weight is strictly increasing. In the first case, redistributive preferences are gradually tilted toward higher types, whereas in the second they are gradually tilted toward lower types. For comparability, we assume that, for a given category \(i\), the average social weight is the same across the two cases. We show that, in the second case, capacity may be increasing across some initial categories, but that the ranking eventually reverses. In the first case, which satisfies the condition of the corollary, the optimal allocation \(k_i^\ast\) is clearly strictly increasing.
 
-\subsubsection{Revenue ranking} 
-
-To rank categories in terms of revenue requirements, we again use the first-order condition from Lemma~\ref{lem:outer}. For a local comparison around category \(i\), this condition implies
+\noindent\textbf{Revenue ranking.} To rank categories in terms of revenue requirements, we again use the first-order condition from Lemma~\ref{lem:outer}. For a local comparison around category \(i\), this condition implies
 \[
 0 = \Delta\tilde\lambda + \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k + \frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)\,\Delta I.
 \]
@@ -665,9 +663,9 @@ N^0:=\{i\in N:\beta_i^\ast=0\},
 \]
 which partition \(N\) into categories that contribute to the budget and categories that do not contribute to the budget (either may be empty). Then:
 
-\noindent\textbf{(i)} At any equilibrium, $\max_{i \in N^+} \tilde\lambda_i < \min_{i \in N^0} \tilde\lambda_i$, so \(N^+\) and \(N^0\) are strictly separated in terms of average welfare weights, regardless of the within-type structure of preferences.
+\noindent\textbf{Extensive margin.} At any equilibrium, $\max_{i \in N^+} \tilde\lambda_i < \min_{i \in N^0} \tilde\lambda_i$, so \(N^+\) and \(N^0\) are strictly separated in terms of average welfare weights, regardless of the within-type structure of preferences.
 
-\noindent\textbf{(ii)} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order
+\noindent\textbf{Intensive margin.} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order
 \[
 I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad -\underbrace{\Bigg.\left(\Delta k\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)+\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\right)\Bigg.}_{\text{revenue effect}}<\underbrace{\Bigg.\Delta\tilde\lambda\Bigg.}_{\text{preference effect}}.
 \]
@@ -730,7 +728,7 @@ which yields equation~\eqref{eq:FB-k1}.
 
 Without redistributive concerns, the social value of a transfer is the same for all consumers, so the distinction between contributing and non-contributing categories disappears, and the marginal utility of consumption is equated with the marginal investment cost. Under incomplete information, by contrast, the relevant marginal value is no longer marginal utility alone. It is the incentive-adjusted object \(u(q_i(\theta,s),s)\mathcal G_i(\theta)\) for contributing categories, which combines the direct surplus gain from relaxing scarcity with the informational distortions embedded in the mechanism.
 
-This stands in contrast with the literature on peak-load pricing under incomplete information but without redistributive concerns. Under utilitarian preferences, incomplete information distorts welfare away from the complete-information benchmark when investment is off the optimum, but this distortion disappears at the optimal investment level \(k^\ast\) (see XXXX). In our framework, by contrast, the gap with complete information remains even at the optimum.
+This stands in contrast with the literature on peak-load pricing under incomplete information but without redistributive concerns. Under utilitarian preferences, incomplete information distorts welfare away from the complete-information benchmark when investment is off the optimum, but this distortion disappears at the optimal investment level \(k^\ast\). In our framework, by contrast, the gap with complete information remains even at the optimum.
 
 In Figure~\ref{fig:appendix_OptimalFBSB} in the Appendix, we provide a numerical illustration of welfare \(W(k)\) under four scenarios: utilitarian versus redistributive preferences, and complete versus incomplete information, holding the primitives fixed. The figure shows that, under redistributive preferences, the complete- and incomplete-information welfare profiles differ even at the optimum. By contrast, under utilitarian preferences, the two profiles coincide at the optimal investment level \(k^\ast\).
 
