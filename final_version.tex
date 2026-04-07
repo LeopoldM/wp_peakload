@@ -167,6 +167,8 @@ Because both the objective and the constraints are separable across categories e
     \item and, for each category $i$, a within-category problem that determines the optimal allocation rule $q_i(\theta,s)$ given $(k_i,I_i)$.
 \end{enumerate}
 
+We start with the within-category problem, as this is the first step of the analysis outlined in the introduction.
+
 \section{Optimal within category allocation}\label{sec3}
 
 This section studies the within-category problem for a given pair $(k_i, I_i)$. The analysis proceeds in two parts. The first asks how capacity expansion reshapes surplus across types: the answer depends on how marginal virtual surplus varies across types, which determines who benefits from relaxing scarcity once incentive constraints and redistributive preferences are accounted for. The second holds capacity fixed and asks how a change in redistributive preferences reallocates quantities and surplus: here both the sorting of virtual surplus and the proportional reweighting of social priorities interact, producing a generically non-monotone surplus pattern regardless of the direction of the preference shift.
@@ -230,7 +232,7 @@ u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)=\varepsilon_i(s)
 ii) If \eqref{Rmdi-def} is slack at $(k_i,I_i)$, then $\beta_i=0$ and $\G_i(\theta)\equiv \Gamma_i(\theta)$.
 \end{lemma}
 
-\subsection{Sufficient statistics}\label{sec:suffstat}
+\subsection{Two sorting margins and their sufficient statistics}\label{sec:suffstat}
 
 With the optimality conditions in hand, we know discuss two margins that will significantly drive the result of this analysis. Their interaction delivers a sufficient statistic whose sign will organize the rest of the section. In particular, it simultaneously governs surplus incidence of capacity expansion, the response of the revenue distortion, and the feasibility of the undistorted regime.
 
@@ -270,7 +272,7 @@ This weighted value plays a key role in this analysis: it is the expected margin
 +
 \Cov_i\!\left(R_\theta(\theta),R_q(\theta)\right). \tag{signEuJ}\label{signEuJ}
 \end{equation}
-The first term captures an average effect: increasing capacity frees up surplus for all consumers, thereby increasing the market designer's available revenue. The covariance term captures a sorting effect: it is adverse when additional capacity is tilted toward types with lower marginal virtual surplus.\footnote{For instance, if $R_q(\theta)$ is decreasing and $R_\theta(\theta)$ is increasing, then the lowest marginal virtual surplus is concentrated at the lowest $\theta$. In other words, as $k_i$ increases, a greater weight is placed on types with a potentially negative marginal virtual surplus. A decreasing virtual surplus ($J_i(\theta)<0$) implies that increasing $k_i$ reduces the budget the market designer can raise from those consumers. Therefore, the condition highlights the fundamental trade-off the market designer faces: increasing the allocation of a type, given its social weight, may conflict with revenue maximisation due to the IC constraint on higher types.}
+The first term captures an average effect: increasing capacity frees up surplus for all consumers, thereby increasing the market designer's available revenue. The covariance term captures a sorting effect: it is adverse when additional capacity is tilted toward types with lower marginal virtual surplus.\footnote{For instance, if $R_q(\theta)$ is decreasing and $R_\theta(\theta)$ is increasing, then the lowest marginal virtual surplus is concentrated at the lowest $\theta$. In other words, as $k_i$ increases, a greater weight is placed on types with a potentially negative marginal virtual surplus. A decreasing virtual surplus ($J_i(\theta)<0$) implies that increasing $k_i$ reduces the budget the market designer can raise from those consumers. Therefore, the condition highlights the fundamental trade-off the market designer faces: increasing the allocation of a type, given its social weight, may conflict with revenue maximization due to the IC constraint on higher types.} The statistic \eqref{Eujmd}, which combines these two sorting margins into a single signed object, is the capacity-sorting margin introduced in the introduction: its sign and variation with $k_i$ jointly determine who benefits from a capacity expansion and how much revenue the designer can raise to finance it.
 
 To obtain a sharp characterization, we impose the following regularity condition.
 
@@ -418,7 +420,7 @@ In a similar spirit to the previous section, the effect of a marginal perturbati
 \[
 R_{\G}(\theta):=\frac{\Delta\G_i(\theta)}{\G_i(\theta)},
 \]
-which measures how the perturbation tilts the effective weight of type $\theta$ relative to the baseline allocation. What matters for the reallocation is therefore not solely the absolute change of $\G_i(\theta)$. Importantly, the IC structure implies that a change of $\lambda_i(\theta)$ of a single type $\theta$ propagates to other types. Therefore, we also define the effect at the category level, the aggregate term  $\E^w_i\!\left[R_{\mathcal{G}}\mid s\right]$ which is the average of $R_\G(\theta)$ weights by $w_i(\theta,s)$ as in \eqref{Eujmd}.
+which measures how the perturbation tilts the effective weight of type $\theta$ relative to the baseline allocation. This is the preference-sorting margin introduced in the introduction: it determines how a change in redistributive preferences reshapes the constrained allocation at fixed capacity. What matters for the reallocation is therefore not solely the absolute change of $\G_i(\theta)$. Importantly, the IC structure implies that a change of $\lambda_i(\theta)$ of a single type $\theta$ propagates to other types. Therefore, we also define the effect at the category level, the aggregate term  $\E^w_i\!\left[R_{\mathcal{G}}\mid s\right]$ which is the average of $R_\G(\theta)$ weights by $w_i(\theta,s)$ as in \eqref{Eujmd}.
 
 Appendix Lemma~\ref{lem:preferenceorder} provides primitive conditions on preference perturbations under which $R_{\G}(\theta)$ has a constant sign across types. The first part of the Lemma states that a proportional tilt of welfare weights toward higher types shifts the social value of the information rent given to types above $\theta$ (i.e., $\Lambda_i(\theta)$) upward relative to the baseline across the type space.\footnote{The first result of the Lemma has a direct implication for the sign of $R'_\theta(\theta)$. From expression \eqref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. As a maintained example, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), the condition in \eqref{signRt} is easier to satisfy under a preference shift toward higher types, since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}.} The second part connects the direction of a preference shift to the sign of $R_{\G}(\theta)$, but requires two conditions: the effective weight must not decrease on average, and the average preference shift must be at least as large as the effective-weight shift after accounting for the budget shadow cost. These conditions simplify under two special cases on the equilibrium object $\beta_i$, which will be used later for the across-category results: tilting welfare weights proportionally toward higher types, while not decreasing the average weight, yields $R_{\G}(\theta)>0$ for all $\theta$; and conversely, shifting proportionally toward lower types while not increasing the average weight yields $R_{\G}(\theta)<0$ for all $\theta$. A standard perturbation in the redistribution literature is a (monotonic) mean-preserving rotation of $\lambda_i(\theta)$, i.e.\ $\Delta\tilde\lambda_i=0$. Under such a rotation, $R_{\G}(\theta)$ has a constant sign throughout the type space: positive when the rotation favors higher types, and negative when it favors lower types.
 
@@ -520,16 +522,10 @@ Taken together, these two channels explain why the surplus effect of a redistrib
 \end{figure}
 
 
-\begin{remark}[Link between $R_\mathcal{G}(\theta)$ and $R_\theta(\theta)$]
-The identity from a local perturbation
-\[\Delta R_\theta(\theta) = -R_\mathcal{G}(\theta) R_\theta(\theta)\]
-provides a formal bridge between the two sufficient statistics that govern both the within- and across-category results. A preference perturbation reshapes who gains from capacity expansion precisely by changing how virtual surplus is sorted across types. We discuss in Appendix Proposition~\ref{prop:Elasticity} the conditions under which a change in preferences can clearly affect how virtual surplus is sorted across types (notably the monotonicity of $\Delta R_\theta(\theta)$). When it fails, their joint effect on sorting can no longer be signed from primitives alone, and sharp results are no longer available.
-\end{remark}
-
 \section{Across category allocation}\label{sec:across}
-Having characterized the within-category problem, we now turn to the designer's outer allocation problem: how to distribute total capacity and total revenue requirements across categories?
+Having characterized the within-category problem, we now turn to the designer's outer allocation problem: how to distribute total capacity and total revenue requirements across categories. This is the second step of the analysis.
 
-The previous section showed how redistributive preferences affect a category's internal allocation through the designer marginal revenue, the sorting of virtual surplus, and the proportional reweighting of effective social weights. The question here is how these within-category distortions translate into differences in categories' marginal values of capacity and revenue.
+The previous section showed how redistributive preferences affect a category's internal allocation through the designer's marginal revenue, the sorting of virtual surplus, and the proportional reweighting of effective social weights. The question here is how these within-category distortions translate into differences in categories' marginal values of capacity and revenue.
 
 \subsection{Characterization}
 
@@ -585,8 +581,9 @@ The two optimality conditions have the usual economic interpretation. The design
 
 \subsection{Ranking of the optimal allocation}\label{sec:rankingall}
 
-We now study how redistributive preferences shape the allocation of capacity and revenue across categories. Categories differ through their social weight functions \(\lambda_i(\theta)\), and the question is how these differences translate into optimal capacity choices. We begin with a local comparison between two nearby categories, representing category \(j\) as a marginal variation of category \(i\), and then use this comparison to derive a global ordering along a path of redistributive preferences. Throughout, all categories share the same type support \(\Theta\).
+We now study how redistributive preferences shape the allocation of capacity and revenue across categories. We study two rankings: the capacity ranking, which determines how much capacity each category receives, and the revenue ranking, which determines how much each category contributes to the budget — the latter decomposing into an extensive margin governing which categories contribute at all, and an intensive margin governing how much each contributing category pays. Categories differ through their social weight functions \(\lambda_i(\theta)\), and the question is how these differences translate into optimal capacity choices. We begin with a local comparison between two nearby categories, representing category \(j\) as a marginal variation of category \(i\), and then use this comparison to derive a global ordering along a path of redistributive preferences. Throughout, all categories share the same type support \(\Theta\).
 
+\subsubsection{Capacity ranking} 
 Using the first-order conditions in Lemma~\ref{lem:outer}, consider the induced difference in the marginal value of capacity around category \(i\):
 \[
 \Delta \Pi_i(k_i^\ast,I_i^\ast)
@@ -604,7 +601,7 @@ This expression separates the effect of a preference variation into two margins:
 
 The next theorem provides a necessary and sufficient local condition for the following question: when do redistributive preference differences across categories translate into different capacity allocations?
 
-\begin{theorem}[Category ranking]\label{thm:cat-order}
+\begin{theorem}[Capacity ranking]\label{thm:cat-order}
 Suppose category \(j\) differs from a baseline category \(i\) only through a marginal perturbation of redistributive preferences. Fix the baseline optimum \((k_i^\ast,I_i^\ast)\). Then, to first order in \(\Delta\lambda\), the following capacity ranking holds
 \[
 k_j^\ast>k_i^\ast
@@ -651,7 +648,7 @@ The corollary provides a sharp economic ranking of categories by capacity alloca
 
 In Figure \ref{fig:appendix_N_categories_six_panels} in the Appendix, we provide a numerical illustration of the sufficient condition. We compute the optimal allocation of \(k_i\) across 50 categories for a given aggregate capacity \(k\). We consider two cases. In both, categories are ordered so that, between two adjacent categories \(i\) and \(i+1\), the average social weight is strictly increasing. In the first case, redistributive preferences are gradually tilted toward higher types, whereas in the second they are gradually tilted toward lower types. For comparability, we assume that, for a given category \(i\), the average social weight is the same across the two cases. We show that, in the second case, capacity may be increasing across some initial categories, but that the ranking eventually reverses. In the first case, which satisfies the condition of the corollary, the optimal allocation \(k_i^\ast\) is clearly strictly increasing.
 
-
+\subsubsection{Revenue ranking} 
 
 To rank categories in terms of revenue requirements, we again use the first-order condition from Lemma~\ref{lem:outer}. For a local comparison around category \(i\), this condition implies
 \[
@@ -691,13 +688,12 @@ R_{\theta}(\theta)
 
 The proposition completes the across-category characterization by describing the revenue side of the allocation. It does so in two steps. First, it identifies which categories contribute to the budget. This extensive margin is entirely governed by average social weights: categories with sufficiently low average redistributive weight are the ones from which the designer extracts revenue, whereas categories with sufficiently high average weight do not contribute.\footnote{Part (i) follows directly from the optimality conditions and requires no additional structure on preferences. The contribute/not-contribute margin is therefore simpler than the ranking of revenue requirements within the contributing set.} Second, conditional on belonging to the contributing set, the proposition ranks equilibrium revenue requirements \(I_i^\ast\). This intensive margin relies on a different mechanism from the capacity ranking. A category may be more favored on average by redistributive preferences without necessarily facing a lower equilibrium revenue requirement once the equilibrium allocation of capacity is taken into account. 
 
-The preference effect term measures the difference in average redistributive concern across the two categories. By contrast, the revenue effect term captures how the two categories differ in their ability to raise revenue. The first component reflects the indirect effect operating through the difference in equilibrium capacity, while the second captures the direct effect of the preference perturbation on the shadow cost of revenue, holding the allocation fixed. The ranking of equilibrium revenue requirements is therefore not pinned down by average preferences alone, but by the interaction between redistributive preferences and the category’s ability to generate revenue. This differs from environments in which the concern for revenue is exogenous where average welfare weights determine both the extensive margin of contribution, and the intensive margin of revenue allocation.
+The preference-effect term measures the difference in average redistributive concern between the two categories. By contrast, the revenue effect term captures how the two categories differ in their ability to raise revenue. The first component reflects the indirect effect operating through the difference in equilibrium capacity, while the second captures the direct effect of the preference perturbation on the shadow cost of revenue, holding the allocation fixed. The ranking of equilibrium revenue requirements is therefore not pinned down by average preferences alone, but by the interaction between redistributive preferences and the category’s ability to generate revenue. This differs from environments in which concern for revenue is exogenous, in which average welfare weights determine both the extensive margin of contribution and the intensive margin of revenue allocation.
 
 Under Assumption~\ref{ass:CARA}, this tradeoff becomes especially transparent, because the revenue-ordering condition can be expressed entirely in terms of the same sufficient statistics that govern the previous sorting results. The capacity difference is summarized by marginal capacity value and captured by the proportional change $\E_i[R_\G(\theta)]$ (Theorem~\ref{thm:cat-order}). The effect of a larger capacity on the shadow cost of revenue is summarized by the distribution of virtual surplus across types  $\E_i[R_\theta(\theta)]$ (Theorem~\ref{thm:surplus}). Finally, the direct effect of the preference perturbation on the ability to raise revenue is captured by the covariance term, as in Proposition~\ref{prop:surplus-redist}. Under CARA, the revenue ranking is therefore entirely governed by the sorting of consumers along these two objects.
 
 \section{Optimal investment}
-
-We now endogenize total investment. The previous sections characterized the optimal within-category allocation and the optimal allocation of capacity and revenue across categories for a given aggregate capacity \(k\). We now let \(k\) itself be a choice variable. The designer solves
+The third and final step endogenizes total investment. The previous sections characterized the optimal within-category allocation and the optimal allocation of capacity and revenue across categories for a given aggregate capacity \(k\). We now let \(k\) itself be a choice variable. The designer solves
 \[
 \max_{k\geq 0} W(k),
 \]
