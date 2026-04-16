@@ -1,0 +1,268 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+\title{Two-Type Example: Capacity Sorting in the $\beta=0$ Regime}
+\date{}
+
+\begin{document}
+\maketitle
+
+Consider a two-type version of the within-category problem, with a low type $\theta_L$, a high type $\theta_H>\theta_L$, and population shares $p\in(0,1)$ and $1-p$. Let the social weights be $\lambda_L$ and $\lambda_H$, and define the average weight
+\[
+\tilde{\lambda}=p\lambda_L+(1-p)\lambda_H.
+\]
+We focus on the regime $\beta=0$, so that the effective weights coincide with $\Gamma_L$ and $\Gamma_H$.
+
+\section*{1. Two-type objects}
+
+The two-type analogue of the revenue-productivity term is
+\[
+J_L=\theta_L-\frac{1-p}{p}\left(\theta_H-\theta_L\right),
+\qquad
+J_H=\theta_H.
+\]
+The corresponding effective welfare weights are
+\[
+\Gamma_L=\tilde{\lambda}J_L+\Lambda_L,
+\qquad
+\Gamma_H=\tilde{\lambda}J_H,
+\]
+with
+\[
+\Lambda_L=\frac{1-p}{p}\left(\theta_H-\theta_L\right)\lambda_H,
+\qquad
+\Lambda_H=0.
+\]
+Equivalently,
+\[
+\Gamma_H=\tilde{\lambda}\,\theta_H,
+\]
+
+and
+\[
+\Gamma_L
+=
+\tilde{\lambda}\left[\theta_L-\frac{1-p}{p}\left(\theta_H-\theta_L\right)\right]
++
+\frac{1-p}{p}\left(\theta_H-\theta_L\right)\lambda_H.
+\]
+A useful alternative expression is
+\[
+\Gamma_L
+=
+\tilde{\lambda}\,\theta_L
++
+\frac{\theta_H-\theta_L}{p}\left(\lambda_H-\tilde{\lambda}\right).
+\]
+
+\section*{2. Allocation and capacity expansion when $\beta=0$}
+
+Let $q_L$ and $q_H$ denote the quantities assigned to the low and high type in a binding state. The first-order conditions are
+\[
+\Gamma_L\,u(q_L)=\varepsilon,
+\qquad
+\Gamma_H\,u(q_H)=\varepsilon,
+\]
+where $u=U_q$ is marginal utility and $\varepsilon$ is the scarcity rent. The capacity constraint is
+\[
+pq_L+(1-p)q_H=k.
+\]
+
+Differentiating with respect to $k$ gives
+\[
+\Gamma_Lu_q(q_L)\frac{dq_L}{dk}=\frac{d\varepsilon}{dk},
+\qquad
+\Gamma_Hu_q(q_H)\frac{dq_H}{dk}=\frac{d\varepsilon}{dk},
+\qquad
+p\frac{dq_L}{dk}+(1-p)\frac{dq_H}{dk}=1.
+\]
+Therefore,
+\[
+\frac{dq_L}{dk}
+=
+\frac{\Gamma_Hu_q(q_H)}{(1-p)\Gamma_Lu_q(q_L)+p\Gamma_Hu_q(q_H)},
+\qquad
+\frac{dq_H}{dk}
+=
+\frac{\Gamma_Lu_q(q_L)}{(1-p)\Gamma_Lu_q(q_L)+p\Gamma_Hu_q(q_H)}.
+\]
+
+Define
+\[
+R_{dq}:=\frac{dq_H/dk}{dq_L/dk}.
+\]
+Then
+\[
+R_{dq}=\frac{w_H}{w_L},
+\qquad
+w_L:=-\frac{1}{\Gamma_Lu_q(q_L)},
+\qquad
+w_H:=-\frac{1}{\Gamma_Hu_q(q_H)}.
+\]
+Using the first-order conditions,
+\[
+\frac{\Gamma_L}{\Gamma_H}=\frac{u(q_H)}{u(q_L)},
+\]
+so
+\[
+R_{dq}=\frac{u(q_H)}{u(q_L)}\frac{u_q(q_L)}{u_q(q_H)}.
+\]
+If we define the curvature object
+\[
+R_q(q):=-\frac{u(q)}{u_q(q)},
+\]
+then
+\[
+R_{dq}=\frac{R_q(q_H)}{R_q(q_L)}.
+\]
+Thus, outside the CARA case, a marginal capacity increase need not be split one-for-one across types; the split is governed by the ratio of the curvature terms.
+
+\section*{3. The capacity-sorting object}
+
+The discrete analogue of the revenue-productivity term is
+\[
+EUJ=pJ_LU(q_L)+(1-p)J_HU(q_H).
+\]
+Replacing $J_L$ and $J_H$ yields
+\[
+EUJ
+=
+\left[p\theta_L-(1-p)\left(\theta_H-\theta_L\right)\right]U(q_L)
++
+(1-p)\theta_HU(q_H).
+\]
+Differentiating with respect to $k$ gives
+\[
+\frac{\partial EUJ}{\partial k}
+=
+\left[p\theta_L-(1-p)\left(\theta_H-\theta_L\right)\right]u(q_L)\frac{dq_L}{dk}
++
+(1-p)\theta_Hu(q_H)\frac{dq_H}{dk}.
+\]
+Factorizing by $dq_L/dk$ and using $R_{dq}=\left(dq_H/dk\right)/\left(dq_L/dk\right)$,
+\[
+\frac{\partial EUJ}{\partial k}
+=
+\frac{dq_L}{dk}
+\left\{
+\theta_Lu(q_L)
+-
+(1-p)\theta_H\left[u(q_L)-R_{dq}u(q_H)\right]
+\right\}.
+\]
+Replacing marginal utility by the first-order conditions and factorizing by $\varepsilon$ gives
+\[
+\frac{\partial EUJ}{\partial k}
+=
+\frac{dq_L}{dk}\,\varepsilon
+\left[
+\frac{\theta_L}{\Gamma_L}
+-
+(1-p)\theta_H
+\left(
+\frac{1}{\Gamma_L}
+-
+\frac{R_{dq}}{\Gamma_H}
+\right)
+\right].
+\]
+Finally, using
+\[
+R_{dq}=\frac{R_q(q_H)}{R_q(q_L)},
+\]
+one obtains
+\[
+\frac{\partial EUJ}{\partial k}
+=
+\frac{dq_L}{dk}\,\varepsilon
+\left[
+\frac{\theta_L}{\Gamma_L}
+-
+(1-p)\theta_H
+\left(
+\frac{1}{\Gamma_L}
+-
+\frac{1}{\Gamma_H}\frac{R_q(q_H)}{R_q(q_L)}
+\right)
+\right].
+\]
+This is the key equation for the two-type example. It isolates three forces:
+\begin{enumerate}
+    \item the direct low-type contribution $\theta_L/\Gamma_L$;
+    \item the standard high-type rent-pressure term $(1-p)\theta_H$;
+    \item the peak-load allocation margin, through the curvature ratio $R_q(q_H)/R_q(q_L)$.
+\end{enumerate}
+
+\section*{4. CARA benchmark}
+
+Under CARA, $R_q(q)$ is constant, so
+\[
+\frac{R_q(q_H)}{R_q(q_L)}=1.
+\]
+Hence
+\[
+\frac{dq_L}{dk}=1,
+\qquad
+\frac{dq_H}{dk}=1,
+\]
+and the previous expression simplifies to
+\[
+\frac{\partial EUJ}{\partial k}
+=
+\varepsilon
+\left[
+\frac{\theta_L}{\Gamma_L}
+-
+(1-p)\theta_H\left(\frac{1}{\Gamma_L}-\frac{1}{\Gamma_H}\right)
+\right].
+\]
+Setting this equal to zero yields
+\[
+\theta_L\Gamma_H=(1-p)\theta_H\left(\Gamma_H-\Gamma_L\right).
+\]
+Using
+\[
+\Gamma_H=\tilde{\lambda}\,\theta_H,
+\qquad
+\Gamma_H-\Gamma_L=\lambda_L\left(\theta_H-\theta_L\right),
+\]
+the cutoff is
+\[
+\lambda_L^{\ast}
+=
+\frac{\theta_L\tilde{\lambda}}{(1-p)\left(\theta_H-\theta_L\right)}.
+\]
+Therefore,
+\[
+\frac{\partial EUJ}{\partial k}<0
+\qquad\Longleftrightarrow\qquad
+\lambda_L>\lambda_L^{\ast}.
+\]
+If one imposes
+\[
+\tilde{\lambda}=1,
+\qquad
+\theta_H=\theta_L+1,
+\]
+then
+\[
+\lambda_L^{\ast}=\frac{\theta_L}{1-p}.
+\]
+
+\section*{5. Economic interpretation}
+
+The two-type example makes the capacity-sorting tension transparent. The negative force does not come from redistribution itself, but from the fact that the low type may have weak or even negative revenue productivity through $J_L$. Redistribution keeps the low type in the allocation through a large effective weight $\Gamma_L$. A capacity expansion can therefore lower $EUJ$ when the planner puts enough weight on a type whose utility is difficult to finance under incentive compatibility.
+
+The CARA cutoff makes this tension especially clear:
+\[
+\lambda_L^{\ast}
+=
+\frac{\theta_L\tilde{\lambda}}{(1-p)\left(\theta_H-\theta_L\right)}.
+\]
+A larger $\theta_L$ raises the cutoff, making it harder to obtain $\partial EUJ/\partial k<0$. Intuitively, when the low type becomes less revenue-destroying, a stronger redistributive tilt is needed for a capacity expansion to reduce the revenue-productivity term.
+
+\end{document}

@@ -7,7 +7,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
+\pgfplotsset{compat=1.17}
 \usepackage{natbib}
 \usepackage{bbm}
 
@@ -850,5 +850,113 @@ Global expansion incidence & $\E_{(s,i)}^w[uJ \mid s]$ vs $I'(k)$ & Convergence 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Implementation: nonlinear tariff and block pricing}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{figure/borenstein.png}
+\end{figure}
+
+\end{frame}
+
+%-----------------------------------------------------------%
+\begin{frame}{Implementation: nonlinear tariff and block-tariff approximation}
+\textbf{Implementing nonlinear tariff.} The optimal mechanism is implemented by a state-contingent tariff under which, after observing $s$, the consumer solves $\max_{q \geq 0}\, \theta U(q,s) - \tau_i(q,s)$. The tariff takes the form:
+\[ \tau_i(q,s) = -\E\underline{CS}_i + \int_0^q p_i(x,s)\,dx \]
+where $-\E\underline{CS}_i$ is a fixed rebate and the marginal price schedule is:
+\[ p_i(q,s) = \theta_i(q,s)\,u(q,s) = \theta \cdot \frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}, \qquad s \in T_i \]
+\textbf{Block-tariff approximation.} For a partition $0 = q_{i,0} < q_{i,1} < \cdots < q_{i,B}$, the tariff on is:
+
+\[
+\tau_i^{BT}(q,s)
+=
+-\E\underline{CS}_i
++
+\sum_{b=1}^B
+\pi_{i,b}(s)
+\left(\min\left\{q,q_{i,b}\right\}-q_{i,b-1}\right)_+.
+\]
+
+where 
+
+\[
+\pi_{i,b}(s)
+:=
+\frac{1}{q_{i,b}-q_{i,b-1}}
+\int_{q_{i,b-1}}^{q_{i,b}} p_i(x,s)\,dx.
+\]
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Single category: spot vs. BT}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_decomp.png}
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Single category: spot vs. BT}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_lambda.png}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Across category: spot vs. no tag vs optimal}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_Combo_Menu2_CSAll.png}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Across category: spot vs. no tag vs optimal}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_Combo_Menu1_Menu3.png}
+\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Across category: spot vs. no tag vs optimal}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImpliementationCRRA_Across_weight_allcases.png}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Across category: spot vs. no tag vs optimal}
+    
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figure/ImpliementationCRRA_Across_alloc_allcases.png}
+\end{figure}
+\end{frame}
+
 \end{document}
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
