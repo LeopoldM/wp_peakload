@@ -140,18 +140,19 @@ The program of the market designer can be expressed as:
 %##########################################
 \begin{align*}
 \max_{q_i(\theta,s), \, \E\underline{CS}_i}  \quad\quad 
-&  \sum_i  \mu_i   \; 
+&  \sum_{i \in N}  \mu_i   \; 
 \Big\{ \;  \tilde{\lambda}_i \;\E\underline{CS}_i 
-      + \E_{(s,i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
+      + \E_{(s,\theta_i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
 \tag{CS}\label{CSmd-def}  \\
 \text{s.t.} \quad
-& \sum_i\mu_i
-(\E_{(s,i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E\underline{CS}_i)\;-\; I(k)
+& \sum_{i\in N}\mu_i
+(\E_{(s,\theta_i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E\underline{CS}_i)\;-\; I(k)
 \;\ge\; 0. \tag{R}\label{Rmd-def}
 \end{align*}
 %##########################################
 with the same capacity constraint \ref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type ($\E\underline{CS}_i\ge 0$).
 \end{lemma}
+
 
 The lemma separates the transfer and allocation problems. When one of the budget or IR constraints binds while the other is slack, a lump-sum transfer can be used to relax the binding constraint without violating the other. This transfer is constrained by IC/IR: the designer can only finance investment from the allocation's utility net of information rents, and the lowest type must weakly prefer to participate.
 

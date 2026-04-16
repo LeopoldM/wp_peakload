@@ -1,0 +1,111 @@
+
+
+
+\documentclass{class}
+
+\usepackage{bbm}
+\usetikzlibrary{positioning}
+
+
+\begin{document}
+
+\paragraph{Implementation by an ex ante nonlinear tariff and block-tariff approximation.}
+Fix a category \(i\). In the direct mechanism of the paper, a type \(\theta\) consumer in state \(s\) receives quantity \(q_i(\theta,s)\), pays transfer \(t_i(\theta,s)\), and obtains utility
+\[
+\theta U\left(q_i(\theta,s),s\right)-t_i(\theta,s).
+\]
+Under incentive compatibility, the associated ex ante consumer surplus satisfies
+\[
+\E CS_i(\theta)
+:=
+\E_s\left[\theta U\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right]
+=
+\E\underline{CS}_i
++
+\int_{\underline{\theta}_i}^{\theta}
+\E_s\left[U\left(q_i\left(\tilde{\theta},s\right),s\right)\right]\,d\tilde{\theta}.
+\]
+Equivalently, the expected transfer paid by type \(\theta\) is
+\[
+\E_s\left[t_i(\theta,s)\right]
+=
+\E_s\left[\theta U\left(q_i(\theta,s),s\right)\right]
+-
+\int_{\underline{\theta}_i}^{\theta}
+\E_s\left[U\left(q_i\left(\tilde{\theta},s\right),s\right)\right]\,d\tilde{\theta}
+-
+\E\underline{CS}_i.
+\]
+Thus, \(\E\underline{CS}_i\) is the ex ante boundary term of the mechanism.
+
+Because the optimal allocation \(q_i(\theta,s)\) is pointwise incentive compatible, it can be implemented by a state-contingent nonlinear tariff under which, after observing \(s\), the consumer chooses quantity directly:
+\[
+\max_{q\geq 0}\;\theta U(q,s)-\tau_i(q,s).
+\]
+Following the same logic as in Spulber, the tariff can be written directly with the boundary term as the fixed component:
+\[
+\tau_i(q,s)
+=
+-\E\underline{CS}_i
++
+\int_0^q p_i(x,s)\,dx.
+\]
+The constant term \(-\E\underline{CS}_i\) does not affect the choice of \(q\); it only normalizes the ex ante rent schedule.
+
+Whenever \(\theta\mapsto q_i(\theta,s)\) is strictly increasing, let \(\theta_i(q,s)\) denote its inverse. The marginal price of the implementing nonlinear tariff is then
+\[
+p_i(q,s):=\partial_q\tau_i(q,s)=\theta_i(q,s)\,u(q,s).
+\]
+Hence the marginal price is equal to the willingness to pay of the type who selects quantity \(q\) in state \(s\).
+
+Using the optimality condition from the planner's problem,
+\[
+u\left(q_i(\theta,s),s\right)\mathcal{G}_i(\theta)=\varepsilon_i(s),
+\]
+the marginal price charged at the allocation of type \(\theta\) can also be written as
+\[
+p_i\left(q_i(\theta,s),s\right)
+=
+\theta\,u\left(q_i(\theta,s),s\right)
+=
+\theta\,\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}.
+\]
+This expression makes the link with the primitives of the model transparent. Off peak, \(\varepsilon_i(s)=0\), so the marginal price is zero. On peak, the marginal price is positive and reflects both scarcity, through \(\varepsilon_i(s)\), and the incentive distortion, through \(\mathcal{G}_i(\theta)\).
+
+A block tariff is obtained by discretizing this nonlinear tariff over a partition of the quantity space. Fix cutoffs
+\[
+0=q_{i,0}<q_{i,1}<\cdots<q_{i,B}.
+\]
+The economically correct incremental block price on block \(b\) is
+\[
+\pi_{i,b}(s)
+:=
+\frac{\tau_i\left(q_{i,b},s\right)-\tau_i\left(q_{i,b-1},s\right)}
+{q_{i,b}-q_{i,b-1}}
+=
+\frac{1}{q_{i,b}-q_{i,b-1}}
+\int_{q_{i,b-1}}^{q_{i,b}} p_i(x,s)\,dx.
+\]
+Because the fixed term cancels, each block price is simply the average marginal price over the block.
+
+The associated incremental block tariff is
+\[
+\tau_i^{BT}(q,s)
+=
+-\E\underline{CS}_i
++
+\sum_{b=1}^B
+\pi_{i,b}(s)
+\left(\min\left\{q,q_{i,b}\right\}-q_{i,b-1}\right)_+.
+\]
+By construction,
+\[
+\tau_i^{BT}\left(q_{i,b},s\right)=\tau_i\left(q_{i,b},s\right)
+\qquad \text{for all } b=0,\dots,B.
+\]
+Thus, the block tariff preserves the payment increments of the nonlinear tariff while replacing its continuous marginal-price schedule by a step function. As the partition becomes finer, the block tariff converges to the original nonlinear tariff.
+
+The shape of the block prices inherits the shape of the marginal-price schedule. If \(p_i(q,s)\) increases with \(q\), then the block prices \(\pi_{i,b}(s)\) increase across blocks; if \(p_i(q,s)\) decreases with \(q\), then the block prices decrease across blocks. In this sense, the block tariff is the natural discrete approximation of the nonlinear pricing rule that implements the optimal mechanism.
+
+\end{document}
+
