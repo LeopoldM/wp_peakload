@@ -17,7 +17,7 @@ Consider a two-type version of the within-category problem, with a low type $\th
 \]
 We focus on the regime $\beta=0$, so that the effective weights coincide with $\Gamma_L$ and $\Gamma_H$.
 
-\section*{1. Two-type objects}
+\section{Two-type objects}
 
 The two-type analogue of the revenue-productivity term is
 \[
@@ -59,7 +59,7 @@ A useful alternative expression is
 \frac{\theta_H-\theta_L}{p}\left(\lambda_H-\tilde{\lambda}\right).
 \]
 
-\section*{2. Allocation and capacity expansion when $\beta=0$}
+\section{Allocation and capacity expansion when $\beta=0$}
 
 Let $q_L$ and $q_H$ denote the quantities assigned to the low and high type in a binding state. The first-order conditions are
 \[
@@ -121,7 +121,7 @@ R_{dq}=\frac{R_q(q_H)}{R_q(q_L)}.
 \]
 Thus, outside the CARA case, a marginal capacity increase need not be split one-for-one across types; the split is governed by the ratio of the curvature terms.
 
-\section*{3. The capacity-sorting object}
+\section{The capacity-sorting object}
 
 The discrete analogue of the revenue-productivity term is
 \[
@@ -197,7 +197,7 @@ This is the key equation for the two-type example. It isolates three forces:
     \item the peak-load allocation margin, through the curvature ratio $R_q(q_H)/R_q(q_L)$.
 \end{enumerate}
 
-\section*{4. CARA benchmark}
+\section{CARA benchmark}
 
 Under CARA, $R_q(q)$ is constant, so
 \[
@@ -253,7 +253,7 @@ then
 \lambda_L^{\ast}=\frac{\theta_L}{1-p}.
 \]
 
-\section*{5. Economic interpretation}
+\section{Economic interpretation}
 
 The two-type example makes the capacity-sorting tension transparent. The negative force does not come from redistribution itself, but from the fact that the low type may have weak or even negative revenue productivity through $J_L$. Redistribution keeps the low type in the allocation through a large effective weight $\Gamma_L$. A capacity expansion can therefore lower $EUJ$ when the planner puts enough weight on a type whose utility is difficult to finance under incentive compatibility.
 
@@ -265,4 +265,302 @@ The CARA cutoff makes this tension especially clear:
 \]
 A larger $\theta_L$ raises the cutoff, making it harder to obtain $\partial EUJ/\partial k<0$. Intuitively, when the low type becomes less revenue-destroying, a stronger redistributive tilt is needed for a capacity expansion to reduce the revenue-productivity term.
 
+\section{High-type surplus under a capacity expansion.}
+
+Consider the two-type case in the unconstrained regime, \(\beta=0\), with fixed budget \(I\).
+The low-type and high-type surpluses are
+\[
+ECS_L = EUJ - I,
+\qquad
+ECS_H = ECS_L + \left(\theta_H-\theta_L\right)U(q_L).
+\]
+Hence
+\[
+\partial_k ECS_L = \partial_k EUJ,
+\qquad
+\partial_k ECS_H
+=
+\partial_k EUJ
++
+\left(\theta_H-\theta_L\right)u(q_L)\,\partial_k q_L.
+\]
+
+Using
+\[
+\partial_k EUJ
+=
+\theta_L\,u(q_L)\,\partial_k q_L
+-
+(1-p)\theta_H
+\left[
+u(q_L)\,\partial_k q_L-u(q_H)\,\partial_k q_H
+\right],
+\]
+we obtain
+\begin{align*}
+\partial_k ECS_H
+&=
+\theta_L\,u(q_L)\,\partial_k q_L
+-
+(1-p)\theta_H
+\left[
+u(q_L)\,\partial_k q_L-u(q_H)\,\partial_k q_H
+\right]
++
+\left(\theta_H-\theta_L\right)u(q_L)\,\partial_k q_L \\
+&=
+\theta_H\,u(q_L)\,\partial_k q_L
+-
+(1-p)\theta_H
+\left[
+u(q_L)\,\partial_k q_L-u(q_H)\,\partial_k q_H
+\right] \\
+&=
+p\,\theta_H\,u(q_L)\,\partial_k q_L
++
+(1-p)\theta_H\,u(q_H)\,\partial_k q_H.
+\end{align*}
+
+This decomposition yields a simple observation. For the low type, the sign of the marginal surplus effect is governed by \(\partial_k EUJ\), which reflects the familiar tension between the direct gain from a higher allocation and the induced informational-rent cost. By contrast, for the high type, this informational-rent cost is exactly offset by the additional rent created by the increase in the low-type allocation. As a result, the marginal effect on \(ECS_H\) reduces to a weighted gain in gross utility:
+\[
+\partial_k ECS_H
+=
+p\,\theta_H\,u(q_L)\,\partial_k q_L
++
+(1-p)\theta_H\,u(q_H)\,\partial_k q_H.
+\]
+Thus, the positivity of \(\partial_k ECS_H\) does not rely on any monotonicity of the fixed part of the tariff. It follows instead from an exact compensation between the IC-rent effect embedded in \(\partial_k EUJ\) and the high type's rent gain through \(q_L\).
+
+
+
+
+Consider the object
+\[
+R_{\theta,t}:=\frac{J_t}{\Gamma_t},
+\qquad
+\Gamma_t=\tilde\lambda J_t+\Lambda_t,
+\]
+under $\beta=0$.
+This note summarizes when $R_\theta$ is automatically increasing across types, and when monotonicity becomes a genuine restriction in the three-type case.
+
+\section{Two types $R_\theta$}
+
+With two types $L<H$, one has
+\[
+J_H=\theta_H,
+\qquad
+\Gamma_H=\tilde\lambda\theta_H,
+\qquad
+\Gamma_L=\tilde\lambda J_L+\Lambda_L,
+\]
+with $\Lambda_L>0$. Therefore
+\[
+R_{\theta,H}-R_{\theta,L}
+=
+\frac{\theta_H}{\tilde\lambda\theta_H}-\frac{J_L}{\Gamma_L}
+=
+\frac{1}{\tilde\lambda}-\frac{J_L}{\Gamma_L}
+=
+\frac{\Gamma_L-\tilde\lambda J_L}{\tilde\lambda\Gamma_L}
+=
+\frac{\Lambda_L}{\tilde\lambda\Gamma_L}>0,
+\]
+whenever $\Gamma_L>0$.
+Hence, in the two-type case, $R_\theta$ is automatically increasing in type:
+\[
+R_{\theta,H}>R_{\theta,L}.
+\]
+
+\section{Thee types $R_\theta$}
+
+Now consider three types $L<M<H$. The nontrivial comparison is between $L$ and $M$.
+One has
+\[
+R_{\theta,M}\ge R_{\theta,L}
+\quad\Longleftrightarrow\quad
+\frac{J_M}{\Gamma_M}\ge \frac{J_L}{\Gamma_L}
+\quad\Longleftrightarrow\quad
+J_M\Gamma_L\ge J_L\Gamma_M.
+\]
+Using
+\[
+\Gamma_L=\tilde\lambda J_L+\Lambda_L,
+\qquad
+\Gamma_M=\tilde\lambda J_M+\Lambda_M,
+\]
+this becomes
+\[
+J_M\Lambda_L\ge J_L\Lambda_M.
+\]
+Thus, in the three-type case, monotonicity of $R_\theta$ is no longer automatic. It is governed by the primitive comparison
+\[
+\boxed{J_M\Lambda_L\ge J_L\Lambda_M.}
+\]
+
+
+\subsection{Equal probabilities}
+
+Assume now
+\[
+p_L=p_M=p_H=\frac13.
+\]
+Then
+\[
+J_L=3\theta_L-2\theta_M,
+\qquad
+J_M=2\theta_M-\theta_H,
+\qquad
+J_H=\theta_H,
+\]
+and
+\[
+\Lambda_L=(\lambda_M+\lambda_H)(\theta_M-\theta_L),
+\qquad
+\Lambda_M=\lambda_H(\theta_H-\theta_M).
+\]
+Hence the nontrivial monotonicity condition becomes
+\[
+\boxed{
+(2\theta_M-\theta_H)(\lambda_M+\lambda_H)(\theta_M-\theta_L)
+\ge
+(3\theta_L-2\theta_M)\lambda_H(\theta_H-\theta_M).
+}
+\]
+
+\subsection{ Normalization $\theta_H=1$ and $\theta_M=\theta_L+d$}
+
+Assume
+\[
+\theta_H=1,
+\qquad
+\theta_M=\theta_L+d,
+\qquad
+0<d<1-\theta_L.
+\]
+Then
+\[
+J_L=\theta_L-2d,
+\qquad
+J_M=2\theta_L+2d-1,
+\]
+and
+\[
+\Lambda_L=(\lambda_M+\lambda_H)d,
+\qquad
+\Lambda_M=\lambda_H(1-\theta_L-d).
+\]
+Therefore, monotonicity fails, that is,
+\[
+R_{\theta,M}<R_{\theta,L},
+\]
+if and only if
+\[
+\boxed{
+(2\theta_L+2d-1)(\lambda_M+\lambda_H)d
+<
+(\theta_L-2d)\lambda_H(1-\theta_L-d).
+}
+\]
+
+If moreover $J_M>0$, that is,
+\[
+2\theta_L+2d-1>0,
+\]
+one can isolate $\lambda_M$:
+\[
+\boxed{
+\lambda_M
+<
+\lambda_H
+\left[
+\frac{(\theta_L-2d)(1-\theta_L-d)}{(2\theta_L+2d-1)d}-1
+\right].
+}
+\]
+
+Finally,
+\[
+J_L<J_M
+\quad\Longleftrightarrow\quad
+\theta_L-2d<2\theta_L+2d-1
+\quad\Longleftrightarrow\quad
+d>\frac{1-\theta_L}{4}.
+\]
+Thus the joint conditions
+\[
+J_L<J_M
+\qquad\text{and}\qquad
+R_{\theta,M}<R_{\theta,L}
+\]
+amount to
+\[
+\boxed{
+d>\frac{1-\theta_L}{4}
+\qquad\text{and}\qquad
+(2\theta_L+2d-1)(\lambda_M+\lambda_H)d
+<
+(\theta_L-2d)\lambda_H(1-\theta_L-d).
+}
+\]
+
+\subsection{ Special case $\theta_L=0$}
+
+If, in addition,
+\[
+\theta_L=0,
+\qquad
+\theta_M=d,
+\qquad
+\theta_H=1,
+\]
+then
+\[
+J_L=-2d,
+\qquad
+J_M=2d-1,
+\]
+and the failure of monotonicity becomes
+\[
+(2d-1)(\lambda_M+\lambda_H)d
+<
+(-2d)\lambda_H(1-d),
+\]
+that is,
+\[
+\boxed{(2d-1)\lambda_M< -\lambda_H.}
+\]
+For nonnegative weights, this can only hold if
+\[
+d<\frac12,
+\]
+in which case the condition is equivalent to
+\[
+\boxed{\lambda_M>\frac{\lambda_H}{1-2d}.}
+\]
+Moreover,
+\[
+J_L<J_M
+\quad\Longleftrightarrow\quad
+-2d<2d-1
+\quad\Longleftrightarrow\quad
+d>\frac14.
+\]
+Hence, under $\theta_L=0$, the joint conditions
+\[
+J_L<J_M
+\qquad\text{and}\qquad
+R_{\theta,M}<R_{\theta,L}
+\]
+become
+\[
+\boxed{
+\frac14<d<\frac12
+\qquad\text{and}\qquad
+\lambda_M>\frac{\lambda_H}{1-2d}.
+}
+\]
+
+\subsection{Takeaway}
+
+The two-type case is too rigid: $R_\theta$ is automatically increasing. In contrast, the three-type case is genuinely richer. The monotonicity of $R_\theta$ becomes a primitive restriction, and the parameterization with $\theta_M=\theta_L+d$ makes this especially transparent.
 \end{document}
