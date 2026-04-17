@@ -371,7 +371,7 @@ Hence, in the two-type case, $R_\theta$ is automatically increasing in type:
 R_{\theta,H}>R_{\theta,L}.
 \]
 
-\section{Thee types $R_\theta$}
+\section{Three types $R_\theta$}
 
 Now consider three types $L<M<H$. The nontrivial comparison is between $L$ and $M$.
 One has
@@ -563,4 +563,208 @@ become
 \subsection{Takeaway}
 
 The two-type case is too rigid: $R_\theta$ is automatically increasing. In contrast, the three-type case is genuinely richer. The monotonicity of $R_\theta$ becomes a primitive restriction, and the parameterization with $\theta_M=\theta_L+d$ makes this especially transparent.
+
+\paragraph{Two-type case: reallocation under a change in social preferences.}
+
+Consider the two-type within-category problem in the regime \(\beta=0\). In any binding state,
+\[
+\Gamma_L u(q_L)=\varepsilon,
+\qquad
+\Gamma_H u(q_H)=\varepsilon,
+\qquad
+p q_L+(1-p)q_H = k,
+\]
+with
+\[
+\tilde\lambda = p\lambda_L + (1-p)\lambda_H,
+\qquad
+\Gamma_H = \tilde\lambda \theta_H,
+\qquad
+\Gamma_L = \tilde\lambda J_L + \Lambda_L,
+\]
+and
+\[
+\Lambda_L = \frac{1-p}{p}\left(\theta_H-\theta_L\right)\lambda_H.
+\]
+
+Now consider an arbitrary perturbation \(\left(d\lambda_L,d\lambda_H\right)\). Since
+\[
+d\tilde\lambda = p\,d\lambda_L + (1-p)\,d\lambda_H,
+\]
+we obtain
+\[
+d\Gamma_H = \theta_H\, d\tilde\lambda,
+\]
+and
+\[
+d\Gamma_L
+=
+J_L\, d\tilde\lambda + d\Lambda_L
+=
+J_L\, d\tilde\lambda
++
+\frac{1-p}{p}\left(\theta_H-\theta_L\right)d\lambda_H.
+\]
+
+Define the proportional change in the effective weight by
+\[
+R_{\mathcal G,L} := \frac{d\Gamma_L}{\Gamma_L},
+\qquad
+R_{\mathcal G,H} := \frac{d\Gamma_H}{\Gamma_H}.
+\]
+In this two-type \(\beta=0\) case, \(\mathcal G_t=\Gamma_t\), so \(R_{\mathcal G,t}\) is simply the proportional change in \(\Gamma_t\).
+
+Differentiating the two first-order conditions gives
+\[
+u(q_L)\,d\Gamma_L + \Gamma_L u_q(q_L)\,dq_L = d\varepsilon,
+\]
+\[
+u(q_H)\,d\Gamma_H + \Gamma_H u_q(q_H)\,dq_H = d\varepsilon.
+\]
+Using the original first-order conditions,
+\[
+u(q_L)=\frac{\varepsilon}{\Gamma_L},
+\qquad
+u(q_H)=\frac{\varepsilon}{\Gamma_H},
+\]
+we can rewrite these expressions as
+\[
+\Gamma_L u_q(q_L)\,dq_L
+=
+d\varepsilon - \varepsilon \frac{d\Gamma_L}{\Gamma_L}
+=
+d\varepsilon - \varepsilon R_{\mathcal G,L},
+\]
+and
+\[
+\Gamma_H u_q(q_H)\,dq_H
+=
+d\varepsilon - \varepsilon \frac{d\Gamma_H}{\Gamma_H}
+=
+d\varepsilon - \varepsilon R_{\mathcal G,H}.
+\]
+
+Subtracting the second equation from the first yields
+\[
+\Gamma_L u_q(q_L)\,dq_L
+-
+\Gamma_H u_q(q_H)\,dq_H
+=
+\varepsilon\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right).
+\]
+
+\[
+\Gamma_L u_q(q_L)\,dq_L/\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right)
+-
+\Gamma_H u_q(q_H)\,dq_H/\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right)
+=
+\varepsilon.
+\]
+
+Using feasibility,
+\[
+p\,dq_L + (1-p)\,dq_H = 0,
+\qquad\text{that is}\qquad
+dq_H = -\frac{p}{1-p}dq_L,
+\]
+we obtain
+\[
+\left[
+\Gamma_L u_q(q_L)
++
+\frac{p}{1-p}\Gamma_H u_q(q_H)
+\right]dq_L
+=
+\varepsilon\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right).
+\]
+Since \(u_q<0\), the term in brackets is negative. Therefore,
+\[
+\operatorname{sign}(dq_L)
+=
+\operatorname{sign}\left(R_{\mathcal G,L}-R_{\mathcal G,H}\right),
+\]
+and, by feasibility,
+\[
+\operatorname{sign}(dq_H)
+=
+\operatorname{sign}\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right).
+\]
+
+Hence, the allocation shifts toward the type whose effective weight experiences the larger proportional increase.
+
+\medskip
+
+We now specialize to a mean-preserving perturbation of social preferences. By definition,
+\[
+d\tilde\lambda
+=
+p\,d\lambda_L + (1-p)\,d\lambda_H
+=
+0,
+\]
+so that
+\[
+d\lambda_H = -\frac{p}{1-p}d\lambda_L.
+\]
+It follows that
+\[
+d\Gamma_H = \theta_H\,d\tilde\lambda = 0,
+\]
+while
+\[
+d\Gamma_L
+=
+J_L\,d\tilde\lambda
++
+\frac{1-p}{p}\left(\theta_H-\theta_L\right)d\lambda_H
+=
+\frac{1-p}{p}\left(\theta_H-\theta_L\right)d\lambda_H
+=
+-\left(\theta_H-\theta_L\right)d\lambda_L.
+\]
+Therefore,
+\[
+R_{\mathcal G,H}=0,
+\qquad
+R_{\mathcal G,L}
+=
+\frac{d\Gamma_L}{\Gamma_L}
+=
+-\frac{\theta_H-\theta_L}{\Gamma_L}d\lambda_L.
+\]
+
+Substituting this into the general sign condition gives
+\[
+\operatorname{sign}(dq_L)
+=
+\operatorname{sign}(R_{\mathcal G,L})
+=
+-\operatorname{sign}(d\lambda_L),
+\]
+and
+\[
+\operatorname{sign}(dq_H)
+=
+-\operatorname{sign}(dq_L)
+=
+\operatorname{sign}(d\lambda_L).
+\]
+Hence, under a mean-preserving increase in \(\lambda_L\),
+\[
+d\lambda_L>0
+\qquad\Longrightarrow\qquad
+dq_L<0,
+\qquad
+dq_H>0,
+\]
+whereas
+\[
+d\lambda_L<0
+\qquad\Longrightarrow\qquad
+dq_L>0,
+\qquad
+dq_H<0.
+\]
+
+Thus, in the two-type case, the direction of reallocation is entirely determined by the relative proportional change in effective weights, and under a mean-preserving perturbation this reduces to the fact that \(R_{\mathcal G,H}=0\) while \(R_{\mathcal G,L}\) moves in the opposite direction from \(d\lambda_L\).
 \end{document}
