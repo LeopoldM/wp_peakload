@@ -661,22 +661,22 @@ Subtracting the second equation from the first yields
 \varepsilon.
 \]
 
-Using feasibility,
-\[
-p\,dq_L + (1-p)\,dq_H = 0,
-\qquad\text{that is}\qquad
-dq_H = -\frac{p}{1-p}dq_L,
-\]
-we obtain
-\[
-\left[
-\Gamma_L u_q(q_L)
-+
-\frac{p}{1-p}\Gamma_H u_q(q_H)
-\right]dq_L
-=
-\varepsilon\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right).
-\]
+    Using feasibility,
+    \[
+    p\,dq_L + (1-p)\,dq_H = 0,
+    \qquad\text{that is}\qquad
+    dq_H = -\frac{p}{1-p}dq_L,
+    \]
+    we obtain
+    \[
+    \left[
+    \Gamma_L u_q(q_L)
+    +
+    \frac{p}{1-p}\Gamma_H u_q(q_H)
+    \right]dq_L
+    =
+    \varepsilon\left(R_{\mathcal G,H}-R_{\mathcal G,L}\right).
+    \]
 Since \(u_q<0\), the term in brackets is negative. Therefore,
 \[
 \operatorname{sign}(dq_L)
@@ -767,6 +767,43 @@ dq_H<0.
 \]
 
 Thus, in the two-type case, the direction of reallocation is entirely determined by the relative proportional change in effective weights, and under a mean-preserving perturbation this reduces to the fact that \(R_{\mathcal G,H}=0\) while \(R_{\mathcal G,L}\) moves in the opposite direction from \(d\lambda_L\).
+
+In the two-type specification,
+\[
+\tilde\lambda=p\lambda_L+(1-p)\lambda_H,
+\qquad
+\Gamma_H=\tilde\lambda\theta_H,
+\qquad
+\Gamma_L=\tilde\lambda J_L+\Lambda_L,
+\qquad
+\Lambda_L=\frac{1-p}{p}\left(\theta_H-\theta_L\right)\lambda_H.
+\]
+A direct computation gives
+\[
+R_{\mathcal G,L}-R_{\mathcal G,H}
+=
+\frac{(1-p)(\theta_H-\theta_L)}{\tilde\lambda\,\Gamma_L}
+\left(\lambda_L\,d\lambda_H-\lambda_H\,d\lambda_L\right).
+\]
+Since the prefactor is positive,
+\[
+\operatorname{sign}(dq_L)
+=
+\operatorname{sign}\left(\lambda_L\,d\lambda_H-\lambda_H\,d\lambda_L\right).
+\]
+Equivalently, because weights are positive,
+\[
+\operatorname{sign}(dq_L)
+=
+\operatorname{sign}\left(d\left(\frac{\lambda_H}{\lambda_L}\right)\right)
+=
+-\operatorname{sign}\left(d\left(\frac{\lambda_L}{\lambda_H}\right)\right).
+\]
+
+So the interpretation is very sharp: what matters is not the level change in \(\lambda_L\) or \(\lambda_H\) separately, but the change in their relative ratio. Type \(L\) receives more quantity if and only if the perturbation increases \(\lambda_H/\lambda_L\), that is, if the proportional increase in welfare weight is stronger for higher types. This is exactly the two-type version of the paper’s monotonicity condition on \(\partial_t\log\lambda(t,\theta)\): the allocation shifts toward the low type when higher types receive the larger proportional increase in welfare weight, and toward the high type when lower types receive the larger proportional increase.
+
+The reason this is non-intuitive is that the allocation depends on the effective weights \(\Gamma_t\), not on the primitive welfare weights \(\lambda_t\). In particular, low-type quantity also affects high-type informational rents, so the marginal social value of increasing \(q_L\) is partly governed by the weight placed on higher types. That is why, in screening problems, increasing \(\lambda_L\) need not increase \(q_L\).
+\section{XXXX}
 
 For the three-type case,
 \[

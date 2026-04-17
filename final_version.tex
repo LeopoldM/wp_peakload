@@ -201,13 +201,13 @@ capturing the social value of the rent that flows upward to $\theta_H$ when $\th
 \[
 \mathcal{G}_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta>0, \qquad \Gamma_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta=0,
 \]
-where $\varepsilon \geq 0$ is the shadow value of the capacity constraint.\footnote{In the two-type case, the IC constraint $q_H > q_L$ is automatically satisfied since $\mathcal{G}_H - \mathcal{G}_L = (\theta_H-\theta_L)(\lambda_L + \beta/p_L) > 0$ always. This does not necessarily hold with three types. For instance, assume a middle type $\theta_M$ with $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$. Then $\mathcal{G}_H - \mathcal{G}_M = (\theta_H-\theta_M)[\lambda_M+\lambda_L-\tilde\lambda+2\beta]$, which requires the preference for the higher type not to be too large relative to the two lower types. In the continuum type model, this condition is imposed directly via Assumption~\ref{ass:interior}.}
+where $\varepsilon \geq 0$ is the shadow value of the capacity constraint.\footnote{In the two-type case, the IC constraint $q_H > q_L$ is automatically satisfied since $\mathcal{G}_H - \mathcal{G}_L = (\theta_H-\theta_L)(\lambda_L + \beta/p_L) > 0$ always. We show that this does not necessarily hold with three types in Appendix~ \ref{app:three-nonmonotone-G}.  In the continuum type model, this condition is imposed directly via Assumption~\ref{ass:interior}.}
 
 \paragraph{Capacity sorting margin with two types.} The individual surplus change from a capacity expansion decomposes into two terms: the change in the surplus available for redistribution after covering IC rents and the revenue requirement, and the change in the informational rent accruing to the high type,
 \[
 d_k ECS(\theta_L) = d_k \E\underline{CS}, \qquad d_k ECS(\theta_H) = d_k\E\underline{CS} + (\theta_H - \theta_L)\,u(q_L)\,d_k q_L. 
 \]
-The object \ref{dkECS} is the central object of this analysis: as shown in the general environment, its sign governs the sign of $d_k q_L$ when $\beta>0$ but also the comparative statics of the redistributive effect of a capacity expansion throughout the paper. In the two-type case, its sign has a direct implication for the incidence of a capacity expansion. When  \ref{dkECS}$< 0$, the low type always loses from an increase in $k$, regardless of the welfare weight $\lambda_L$, while the high type always gains through the additional IC rent $(\theta_H - \theta_L)u(q_L)d_kq_L > 0$. This clean separation between the two types is, however, specific to the two-type environment. As shown in the Appendix, this result does not generalize beyond two types, which motivates the continuum model developed in the following sections.
+The object \ref{dkECS} is the central object of this analysis: as shown in the general environment, its sign governs the sign of $d_k q_L$ when $\beta>0$ but also the comparative statics of the redistributive effect of a capacity expansion throughout the paper. In the two-type case, its sign has a direct implication for the incidence of a capacity expansion. When  \ref{dkECS}$< 0$, the low type always loses from an increase in $k$, regardless of the welfare weight $\lambda_L$, while the high type always gains through the additional IC rent $(\theta_H - \theta_L)u(q_L)d_kq_L > 0$. This clean separation between the two types is, however, specific to the two-type environment. I show in the Appendix~\ref{app:three-negative-qH} that this result does not generalize beyond two types, which motivates the continuum model developed in the following sections.
 
 Using the first order condition, we can obtain the following equivalence
 \[\frac{d_k q_H}{R_q(q_H)}=\frac{d_k q_L}{R_q(q_L)}, \qquad \text{where} \qquad R_q(q_i):=-\frac{u (q_i)}{u_q (q_i)}\]
@@ -915,6 +915,67 @@ To illustrate, take two categories \(i\) and \(j\), and assume \(R'_\theta(\thet
 \appendix
 
 \section{Additional results}
+
+\subsection{Why the two-type logic does not extend to three types}
+\label{app:twovsthree}
+
+\subsubsection{Monotonicity of effective weights}
+\label{app:three-nonmonotone-G}
+
+In this sectuon we show that in the two-type case, $\mathcal{G}_H > \mathcal{G}_L$ holds for any $\beta \geq 0$ and any welfare weights $\lambda_L, \lambda_H > 0$. This does not extend to three types: with three types $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$, $\mathcal{G}_H > \mathcal{G}_M$ if and only if $\lambda_M + \lambda_L - \tilde\lambda + 2\beta > 0$, which need not hold.
+
+\textit{Two types.} Using $J_H - J_L = (\theta_H - \theta_L)/p > 0$ and $\Gamma_H - \Gamma_L = \lambda_L(\theta_H - \theta_L) > 0$,
+\[
+\mathcal{G}_H - \mathcal{G}_L = (\Gamma_H - \Gamma_L) + \beta(J_H - J_L) = (\lambda_L + \beta/p)(\theta_H - \theta_L) > 0.
+\]
+\textit{Three types.} With equal probabilities $p_i = 1/3$, $J_M = 2\theta_M - \theta_H$, $\Lambda_M = \lambda_H(\theta_H - \theta_M)$, and $\Gamma_H = \tilde\lambda\theta_H$. A direct computation gives
+\[
+\mathcal{G}_H - \mathcal{G}_M = (\theta_H - \theta_M)[\lambda_M + \lambda_L - \tilde\lambda + 2\beta],
+\]
+whose sign depends on the relative magnitude of welfare weights and $\beta$.
+
+\subsection{The sign of \(\partial_k q_H\) with \(\beta>0\)}
+\label{app:three-negative-qH}
+
+Assume that utility function is CARA where $\alpha = 1$. In the two-type case with $\beta > 0$, $\partial_k q_H > 0$ always. With three equally likely types, $\partial_k q_H < 0$ if and only if $R_{\theta}(q_H)((R_{\theta}(q_L) + (R_{\theta}(q_M)) > (R_{\theta}(q_L)^2 + (R_{\theta}(q_M)^2$, where $R_{\theta}(q_t) := J_t/\mathcal{G}_t$.
+
+Differentiating the first-order condition $\mathcal{G}_t u(q_t) = \varepsilon$ with respect to $k$ and imposing the binding revenue constraint yields
+\[
+\partial_k\beta = -\frac{\E R_\theta}{\mathrm{Var}}, \qquad \partial_k q_t = 1 - \frac{\E R_\theta}{\mathrm{Var}}(R_{\theta}(q_t) - \E R_\theta),
+\]
+where $\E R_\theta := \sum_t p_t R_{\theta}(q_t)$ and $\mathrm{Var} := \sum_t p_t(R_{\theta}(q_t) - \E R_\theta)^2 > 0$.
+
+\textit{Two types.} Since $R_{\theta}(q_H) > (R_{\theta}(q_L)$ always and $(R_{\theta}(q_L) < 0$ when $\beta > 0$ and $J_L < 0$,
+\[
+\partial_k q_H = -\frac{(R_{\theta}(q_L)}{(1-p)(R_{\theta}(q_H) - (R_{\theta}(q_L))} > 0.
+\]
+
+\textit{Three types.} With $p_t = 1/3$, substituting and simplifying gives
+\[
+\partial_k q_H = \frac{3[(R_{\theta}(q_L)^2 + (R_{\theta}(q_M)^2 - R_{\theta}(q_H)((R_{\theta}(q_L) + (R_{\theta}(q_M))]}{2[R_{\theta}(q_H)^2 - R_{\theta}(q_H) (R_{\theta}(q_L) - R_{\theta}(q_H) (R_{\theta}(q_M) + (R_{\theta}(q_L)^2 - (R_{\theta}(q_L) (R_{\theta}(q_M) + (R_{\theta}(q_M)^2]}.
+\]
+The denominator is strictly positive. Hence $\partial_k q_H < 0$ if and only if $R_{\theta}(q_H)((R_{\theta}(q_L) + (R_{\theta}(q_M)) > (R_{\theta}(q_L)^2 + (R_{\theta}(q_M)^2$.
+
+Figure \ref{fig:ThreeTypesWithin_quantity} illustrates the possibility to have a decreasing optimal quantity for the highest type as capacity expands. The figure is drawn with a CARA utility function with $\alpha = 1$ and for a three-type environment with
+\(
+(\theta_L,\theta_M,\theta_H)=(0.5,1.2,2)
+\),
+\(
+(p_L,p_M,p_H)=(0.35,0.30,0.35)
+\),
+\(
+(\lambda_L,\lambda_M,\lambda_H)=(1.25,1,0.8)
+\),
+and revenue requirement
+\(
+I=0.5
+\).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figure/ThreeTypesWithin_quantity.png}
+    \label{fig:ThreeTypesWithin_quantity}
+\end{figure}
 
 \subsection{Complete-information benchmark}\label{appsec:CI}
 
