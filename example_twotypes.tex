@@ -767,4 +767,256 @@ dq_H<0.
 \]
 
 Thus, in the two-type case, the direction of reallocation is entirely determined by the relative proportional change in effective weights, and under a mean-preserving perturbation this reduces to the fact that \(R_{\mathcal G,H}=0\) while \(R_{\mathcal G,L}\) moves in the opposite direction from \(d\lambda_L\).
+
+For the three-type case,
+\[
+\Gamma_H=\tilde\lambda J_H=\tilde\lambda \theta_H,
+\]
+and
+\[
+\Gamma_M=\tilde\lambda J_M+\Lambda_M
+=
+\tilde\lambda\left[\theta_M-\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)\right]
++
+\frac{p_H}{p_M}\lambda_H\left(\theta_H-\theta_M\right).
+\]
+
+Hence
+\begin{align*}
+\Gamma_H-\Gamma_M
+&=
+\tilde\lambda\theta_H
+-
+\tilde\lambda\left[\theta_M-\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)\right]
+-
+\frac{p_H}{p_M}\lambda_H\left(\theta_H-\theta_M\right) \\
+&=
+\tilde\lambda\left(\theta_H-\theta_M\right)
++
+\frac{p_H}{p_M}\tilde\lambda\left(\theta_H-\theta_M\right)
+-
+\frac{p_H}{p_M}\lambda_H\left(\theta_H-\theta_M\right) \\
+&=
+\left(\theta_H-\theta_M\right)
+\left[
+\tilde\lambda+\frac{p_H}{p_M}\left(\tilde\lambda-\lambda_H\right)
+\right] \\
+&=
+\left(\theta_H-\theta_M\right)
+\left[
+\frac{1-p_L}{p_M}\tilde\lambda-\frac{p_H}{p_M}\lambda_H
+\right].
+\end{align*}
+
+Now use
+\[
+\tilde\lambda=p_L\lambda_L+p_M\lambda_M+p_H\lambda_H,
+\]
+so
+\begin{align*}
+\frac{1-p_L}{p_M}\tilde\lambda-\frac{p_H}{p_M}\lambda_H
+&=
+\frac{1}{p_M}\left[(1-p_L)\tilde\lambda-p_H\lambda_H\right] \\
+&=
+\frac{1}{p_M}\left[p_M\lambda_M+p_L\lambda_L-p_L\tilde\lambda\right] \\
+&=
+\lambda_M-\frac{p_L}{p_M}\left(\tilde\lambda-\lambda_L\right).
+\end{align*}
+
+Therefore
+\[
+\Gamma_H-\Gamma_M
+=
+\left(\theta_H-\theta_M\right)
+\left[
+\lambda_M-\frac{p_L}{p_M}\left(\tilde\lambda-\lambda_L\right)
+\right].
+\]
+
+For the effective weights under \(\beta>0\), write
+\[
+\mathcal G_H-\mathcal G_M
+=
+\left(\Gamma_H-\Gamma_M\right)+\beta\left(J_H-J_M\right).
+\]
+Using
+\[
+J_H-J_M
+=
+\theta_H-\left[\theta_M-\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)\right]
+=
+\frac{1-p_L}{p_M}\left(\theta_H-\theta_M\right),
+\]
+we obtain
+\[
+\mathcal G_H-\mathcal G_M
+=
+\left(\theta_H-\theta_M\right)
+\left[
+\lambda_M-\frac{p_L}{p_M}\left(\tilde\lambda-\lambda_L\right)
++
+\beta\frac{1-p_L}{p_M}
+\right].
+\]
+
+Under the normalization
+\[
+p_L=p_M=p_H=\frac13,\qquad \theta_H=1,\qquad \theta_M=\theta_L+d,
+\]
+this becomes
+\[
+\mathcal G_H-\mathcal G_M
+=
+\left(1-\theta_L-d\right)
+\left[
+\lambda_M-\left(\tilde\lambda-\lambda_L\right)+2\beta
+\right].
+\]
+
+For the three-type case,
+\[
+\Gamma_M=\tilde\lambda J_M+\Lambda_M
+=
+\tilde\lambda\left[\theta_M-\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)\right]
++
+\frac{p_H}{p_M}\lambda_H\left(\theta_H-\theta_M\right),
+\]
+and
+\[
+\Gamma_L=\tilde\lambda J_L+\Lambda_L
+=
+\tilde\lambda\left[\theta_L-\frac{1-p_L}{p_L}\left(\theta_M-\theta_L\right)\right]
++
+\frac{p_M\lambda_M+p_H\lambda_H}{p_L}\left(\theta_M-\theta_L\right).
+\]
+
+Hence
+\begin{align*}
+\Gamma_M-\Gamma_L
+&=
+\tilde\lambda\left[\theta_M-\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)\right]
++
+\frac{p_H}{p_M}\lambda_H\left(\theta_H-\theta_M\right) \\
+&\qquad
+-
+\tilde\lambda\left[\theta_L-\frac{1-p_L}{p_L}\left(\theta_M-\theta_L\right)\right]
+-
+\frac{p_M\lambda_M+p_H\lambda_H}{p_L}\left(\theta_M-\theta_L\right) \\
+&=
+\tilde\lambda\left(\theta_M-\theta_L\right)
+-
+\frac{p_H}{p_M}\tilde\lambda\left(\theta_H-\theta_M\right)
++
+\frac{1-p_L}{p_L}\tilde\lambda\left(\theta_M-\theta_L\right) \\
+&\qquad
++
+\frac{p_H}{p_M}\lambda_H\left(\theta_H-\theta_M\right)
+-
+\frac{p_M\lambda_M+p_H\lambda_H}{p_L}\left(\theta_M-\theta_L\right).
+\end{align*}
+
+Collecting the \(\left(\theta_M-\theta_L\right)\) terms and the \(\left(\theta_H-\theta_M\right)\) terms gives
+\begin{align*}
+\Gamma_M-\Gamma_L
+&=
+\left(\theta_M-\theta_L\right)
+\left[
+\tilde\lambda+\frac{1-p_L}{p_L}\tilde\lambda
+-
+\frac{p_M\lambda_M+p_H\lambda_H}{p_L}
+\right] \\
+&\qquad
++
+\left(\theta_H-\theta_M\right)
+\left[
+\frac{p_H}{p_M}\lambda_H-\frac{p_H}{p_M}\tilde\lambda
+\right].
+\end{align*}
+
+Now simplify each bracket separately. For the first bracket,
+\begin{align*}
+\tilde\lambda+\frac{1-p_L}{p_L}\tilde\lambda
+-
+\frac{p_M\lambda_M+p_H\lambda_H}{p_L}
+&=
+\frac{1}{p_L}\tilde\lambda
+-
+\frac{p_M\lambda_M+p_H\lambda_H}{p_L} \\
+&=
+\frac{\tilde\lambda-p_M\lambda_M-p_H\lambda_H}{p_L} \\
+&=
+\frac{p_L\lambda_L}{p_L} \\
+&=
+\lambda_L.
+\end{align*}
+
+For the second bracket,
+\begin{align*}
+\frac{p_H}{p_M}\lambda_H-\frac{p_H}{p_M}\tilde\lambda
+&=
+\frac{p_H}{p_M}\left(\lambda_H-\tilde\lambda\right).
+\end{align*}
+
+Therefore
+\[
+\Gamma_M-\Gamma_L
+=
+\lambda_L\left(\theta_M-\theta_L\right)
++
+\frac{p_H}{p_M}\left(\lambda_H-\tilde\lambda\right)\left(\theta_H-\theta_M\right).
+\]
+
+For the effective weights under \(\beta>0\), write
+\[
+\mathcal G_M-\mathcal G_L
+=
+\left(\Gamma_M-\Gamma_L\right)+\beta\left(J_M-J_L\right).
+\]
+Using
+\begin{align*}
+J_M-J_L
+&=
+\left[\theta_M-\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)\right]
+-
+\left[\theta_L-\frac{1-p_L}{p_L}\left(\theta_M-\theta_L\right)\right] \\
+&=
+\left(\theta_M-\theta_L\right)
++
+\frac{1-p_L}{p_L}\left(\theta_M-\theta_L\right)
+-
+\frac{p_H}{p_M}\left(\theta_H-\theta_M\right) \\
+&=
+\frac{\theta_M-\theta_L}{p_L}
+-
+\frac{p_H}{p_M}\left(\theta_H-\theta_M\right),
+\end{align*}
+we obtain
+\[
+\mathcal G_M-\mathcal G_L
+=
+\lambda_L\left(\theta_M-\theta_L\right)
++
+\frac{p_H}{p_M}\left(\lambda_H-\tilde\lambda\right)\left(\theta_H-\theta_M\right)
++
+\beta\left[
+\frac{\theta_M-\theta_L}{p_L}
+-
+\frac{p_H}{p_M}\left(\theta_H-\theta_M\right)
+\right].
+\]
+
+Under the normalization
+\[
+p_L=p_M=p_H=\frac13,\qquad \theta_H=1,\qquad \theta_M=\theta_L+d,
+\]
+this becomes
+\[
+\mathcal G_M-\mathcal G_L
+=
+\lambda_L d
++
+\left(\lambda_H-\tilde\lambda\right)\left(1-\theta_L-d\right)
++
+\beta\left(\theta_L+4d-1\right).
+\]
 \end{document}

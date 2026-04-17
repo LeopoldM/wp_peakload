@@ -172,8 +172,32 @@ We start with the within-category problem, as this is the first step of the anal
 
 \section{A simple example}\label{sec3}
 
+\paragraph{Environment} To build intuition for the main results, I study a simplified version of the environment throughout the paper. There is a single category with two types, $\theta_L < \theta_H$, with probabilities $p_i$ with  $p_L = p$ and $p_H = 1-p$. A consumer of type $\theta$ derives utility $\theta U(q)$ from consuming quantity $q$ in the peak state. The designer assigns welfare weights $\lambda_L$ and $\lambda_H$ to the two types, with average weight $\tilde\lambda = p\lambda_L + (1-p)\lambda_H$. The designer must serve consumers subject to a capacity constraint, $pq_L + (1-p)q_H \leq k$, and finance a revenue requirement, $I > 0$, through expected transfers $t = p t_L + (1-p) t_H$. We use this example to illustrate the two sorting margins that organize the analysis, and we show that moving from two types to a continuum is necessary to capture the full non-monotonicity of the results.
+
+\paragraph{Mechanism} The net revenue available to the designer after covering IC rents and the revenue requirement is
+\[
+\E \underline{CS}_i := \underbrace{\Bigg.\sum_i p_i \theta_i U(q_i)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_i p_i \gamma_i U(q_i)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p J_L U(q_L) + (1-p) J_H U(q_H)  - I,
+\]
+
+Because the objective function is the consumer surplus, at the optimal allocation, the participation constraint can be slack. Therefore, $\E \underline{CS}_i $ can be interpreted as a residual the designer has left to redistribute via transfer.  By incentive compatibility, the high type's surplus exceeds the low type's by the information rent it derives from mimicking the low type. Individual surpluses are then
+\[
+ECS(\theta_L) = \underbrace{\E \underline{CS}_i}_{\text{fixed transfer}}, \qquad ECS(\theta_H) = \E \underline{CS}_i + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
+\]
+
+The inverse hazard rate of the low type is $\gamma_L = (1-p)/p$, which measures the mass of higher types relative to the low type, while $\gamma_H = 0$ since no information rent accrues when allocating a unit to $\theta_H$. The virtual surpluses are $J_L = \theta_L - \frac{1-p}{p}(\theta_H-\theta_L)$ and $J_H = \theta_H$. In that case
 
 
+The IC-weighted welfare terms are $\Lambda_L = \frac{1-p}{p}(\theta_H-\theta_L)\lambda_H$ and $\Lambda_H = 0$, capturing the social value of the rent that flows upward to $\theta_H$ when $\theta_L$ receives a marginal unit. The effective social weight $\mathcal{G}_i := (\tilde\lambda + \beta) J_i + \Lambda_i$ captures the total social return from allocating a marginal unit to type $i$, combining the revenue channel $(\tilde\lambda+\beta)J_i$, which values the net extractable surplus $J_i$ at the budget-adjusted welfare weight $(\tilde\lambda+\beta)$, and the redistributive channel $\Lambda_i$. The shadow cost $\beta \geq 0$ reflects the tightness of the budget constraint, or equivalently, when there is enough revenue to be redistributed (i.e. $\E \underline{CS}_i$). When the budget is slack, $\beta = 0$ and $\mathcal{G}_i$ reduces to $\Gamma_i := \tilde\lambda J_i + \Lambda_i$.  
+
+\paragraph{Optimum} The designer chooses quantities $q_L$ and $q_H$ to maximize the weighted sum of consumer surpluses subject to the capacity constraint $pq_L + (1-p)q_H \leq k$ and the budget constraint. When capacity binds, the first-order condition for each type $i \in \{L, H\}$ equates the product of the effective social weight and marginal utility to the common scarcity rent:
+\[
+\mathcal{G}_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta>0, \qquad \Gamma_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta=0,
+\]
+where $\varepsilon \geq 0$ is the shadow value of the capacity constraint.\footnote{In the two-type case, the IC constraint $q_H > q_L$ is automatically satisfied since $\mathcal{G}_H - \mathcal{G}_L = (\theta_H-\theta_L)(\lambda_L + \beta/p) > 0$ always. This does not necessarily hold with three types. For instance, assume a middle type $\theta_M$ with $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$. Then $\mathcal{G}_H - \mathcal{G}_M = (\theta_H-\theta_M)[\lambda_M+\lambda_L-\tilde\lambda+2\beta]$, which requires the preference for the higher type not to be too large relative to the two lower types. This failure to satisfy the conditions when moving to more than two types is characteristic of this environment. In the two types case, the gain of giving one unit to $H$ (evaluated at the additional revenue $\tilde \lambda$) is always greater than the gain of giving one unit to $L$ (evaluated at the additional rent for H at $p \gamma_L \lambda_H$). In the three case 
+
+
+
+In the continuum type model, this condition is imposed directly via Assumption~\ref{ass:interior}.}
 
 \section{Optimal within category allocation}\label{sec3}
 
@@ -204,7 +228,8 @@ This reformulation combines the participation and budget requirements in a singl
 \label{Kmdi-def}\tag{K$_i$}
 \end{align*}
 %##########################################
-Where $\Gamma_i(\theta) = \tilde\lambda_i J_i(\theta) + \Lambda_i(\theta)$ captures the total social return from allocating a marginal unit to type $\theta$, combining two channels: (i) a revenue channel $\tilde\lambda_i J_i(\theta)$, which is the net revenue extractable from type $\theta$ --- the gross value $\theta$ minus the rent $\gamma_i(\theta)$ that incentive compatibility forces the designer to concede to all higher types --- valued at the average welfare weight $\tilde\lambda_i$; and (ii) a redistributive channel $\Lambda_i(\theta)$, capturing the social value of those same rents as they accrue to types above $\theta$. Let $\varepsilon_i(s)\ge 0$ and $\beta_i\ge 0$ denote the multipliers on the capacity constraint \ref{Kmdi-def} and the IR/budget constraint \ref{Rmdi-def}.
+
+Let $\varepsilon_i(s)\ge 0$ and $\beta_i\ge 0$ denote the multipliers on the capacity constraint \ref{Kmdi-def} and the IR/budget constraint \ref{Rmdi-def}.
 
 The first-order condition is
 %##########################################
