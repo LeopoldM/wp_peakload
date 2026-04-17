@@ -172,32 +172,78 @@ We start with the within-category problem, as this is the first step of the anal
 
 \section{A simple example}\label{sec3}
 
-\paragraph{Environment} To build intuition for the main results, I study a simplified version of the environment throughout the paper. There is a single category with two types, $\theta_L < \theta_H$, with probabilities $p_i$ with  $p_L = p$ and $p_H = 1-p$. A consumer of type $\theta$ derives utility $\theta U(q)$ from consuming quantity $q$ in the peak state. The designer assigns welfare weights $\lambda_L$ and $\lambda_H$ to the two types, with average weight $\tilde\lambda = p\lambda_L + (1-p)\lambda_H$. The designer must serve consumers subject to a capacity constraint, $pq_L + (1-p)q_H \leq k$, and finance a revenue requirement, $I > 0$, through expected transfers $t = p t_L + (1-p) t_H$. We use this example to illustrate the two sorting margins that organize the analysis, and we show that moving from two types to a continuum is necessary to capture the full non-monotonicity of the results.
+The results of this paper are structured by two sorting margins: \textit{the capacity-sorting margin} and \textit{the preference sorting margin}. In this section, I study a simplified version of the environment to provide intuitions of how those sorting emerge and interact with the optimal allocation. The allocation and welfare result are derives in the continuous type model.
 
-\paragraph{Mechanism} The net revenue available to the designer after covering IC rents and the revenue requirement is
-\[
-\E \underline{CS}_i := \underbrace{\Bigg.\sum_i p_i \theta_i U(q_i)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_i p_i \gamma_i U(q_i)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p J_L U(q_L) + (1-p) J_H U(q_H)  - I,
+\paragraph{Environment} 
+
+There is a single category with two types, $\theta_L < \theta_H$, with probabilities $p_i$ such that $p_L + p_H =1$. A consumer of type $\theta$ derives utility $\theta U(q)$ from consuming quantity $q$ in the peak state. The designer assigns welfare weights $\lambda_L$ and $\lambda_H$ to the two types, with average weight $\tilde\lambda = p_L\lambda_L + p_H\lambda_H$. The designer must serve consumers subject to a capacity constraint, $pq_L + p_Hq_H \leq k$, and finance a revenue requirement, $I > 0$, through expected transfers $t = p_L t_L + p_H t_H$. 
+\paragraph{Mechanism} Following Lemma~\ref{lem:Transfer} and since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated in a lump sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \ref{ECSi} into this equality and integrating by parts with respect to $\theta$, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields a single combined constraint. This net revenue available to the designer after covering IC rents and the revenue requirement is
+\[\tag{$\E \underline{CS}_{LH}$}\label{underlineECSTwo}
+\E \underline{CS} := \underbrace{\Bigg.\sum_i p_i \theta_i U(q_i)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_i p_i \gamma_i U(q_i)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p_L J_L U(q_L) + p_H J_H U(q_H)  - I,
 \]
 
-Because the objective function is the consumer surplus, at the optimal allocation, the participation constraint can be slack. Therefore, $\E \underline{CS}_i $ can be interpreted as a residual the designer has left to redistribute via transfer.  By incentive compatibility, the high type's surplus exceeds the low type's by the information rent it derives from mimicking the low type. Individual surpluses are then
+By incentive compatibility, the high type's surplus exceeds the low type's by the information rent it derives from mimicking the low type. Individual surpluses are then
 \[
-ECS(\theta_L) = \underbrace{\E \underline{CS}_i}_{\text{fixed transfer}}, \qquad ECS(\theta_H) = \E \underline{CS}_i + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
+ECS(\theta_L) = \underbrace{\E \underline{CS}}_{\text{fixed transfer}}, \qquad ECS(\theta_H) = \E \underline{CS} + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
 \]
+The inverse hazard rate of the low type is $\gamma_L = p_H/p_L$, which measures the mass of higher types relative to the low type, while $\gamma_H = 0$ since no information rent accrues when allocating a unit to $\theta_H$. The virtual terms are 
+\[
+J_L = \theta_L - \frac{p_H}{p_L}(\theta_H-\theta_L), \qquad J_H = \theta_H,
+\] 
+Importantly, I do not exclude $J_L < 0$, which arises under the primitive condition
+$p_L < \frac{\theta_H-\theta_L}{\theta_H}$, that is, when the low type is sufficiently rare or its value sufficiently low relative to the high type. As we show below, the sign of $J_L$ plays a central role in determining who benefits from a capacity expansion. The IC-weighted welfare terms are
+\[
+\Lambda_L = \frac{p_H}{p_L}(\theta_H-\theta_L)\lambda_H, \qquad \Lambda_H = 0,
+\] 
+capturing the social value of the rent that flows upward to $\theta_H$ when $\theta_L$ receives a marginal unit. The effective social weight $\mathcal{G}_i := (\tilde\lambda + \beta) J_i + \Lambda_i$ captures the total social return from allocating a marginal unit to type $i$, combining the revenue channel $(\tilde\lambda+\beta)J_i$, which values the net extractable surplus $J_i$ at the budget-adjusted welfare weight $(\tilde\lambda+\beta)$, and the redistributive channel $\Lambda_i$. The shadow cost $\beta \geq 0$ reflects the tightness of the budget constraint, or equivalently, when there is enough revenue to be redistributed (i.e. $\E \underline{CS}$). When the budget is slack, $\beta = 0$ and $\mathcal{G}_i$ reduces to $\Gamma_i := \tilde\lambda J_i + \Lambda_i$.  
 
-The inverse hazard rate of the low type is $\gamma_L = (1-p)/p$, which measures the mass of higher types relative to the low type, while $\gamma_H = 0$ since no information rent accrues when allocating a unit to $\theta_H$. The virtual surpluses are $J_L = \theta_L - \frac{1-p}{p}(\theta_H-\theta_L)$ and $J_H = \theta_H$. In that case
-
-
-The IC-weighted welfare terms are $\Lambda_L = \frac{1-p}{p}(\theta_H-\theta_L)\lambda_H$ and $\Lambda_H = 0$, capturing the social value of the rent that flows upward to $\theta_H$ when $\theta_L$ receives a marginal unit. The effective social weight $\mathcal{G}_i := (\tilde\lambda + \beta) J_i + \Lambda_i$ captures the total social return from allocating a marginal unit to type $i$, combining the revenue channel $(\tilde\lambda+\beta)J_i$, which values the net extractable surplus $J_i$ at the budget-adjusted welfare weight $(\tilde\lambda+\beta)$, and the redistributive channel $\Lambda_i$. The shadow cost $\beta \geq 0$ reflects the tightness of the budget constraint, or equivalently, when there is enough revenue to be redistributed (i.e. $\E \underline{CS}_i$). When the budget is slack, $\beta = 0$ and $\mathcal{G}_i$ reduces to $\Gamma_i := \tilde\lambda J_i + \Lambda_i$.  
-
-\paragraph{Optimum} The designer chooses quantities $q_L$ and $q_H$ to maximize the weighted sum of consumer surpluses subject to the capacity constraint $pq_L + (1-p)q_H \leq k$ and the budget constraint. When capacity binds, the first-order condition for each type $i \in \{L, H\}$ equates the product of the effective social weight and marginal utility to the common scarcity rent:
+\paragraph{Optimum} The designer chooses quantities $q_L$ and $q_H$ to maximize the weighted sum of consumer surpluses subject to the capacity constraint $pq_L + p_Hq_H \leq k$ and the budget constraint. When capacity binds, the first-order condition for each type $i \in \{L, H\}$ equates the product of the effective social weight and marginal utility to the common scarcity rent:
 \[
 \mathcal{G}_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta>0, \qquad \Gamma_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta=0,
 \]
-where $\varepsilon \geq 0$ is the shadow value of the capacity constraint.\footnote{In the two-type case, the IC constraint $q_H > q_L$ is automatically satisfied since $\mathcal{G}_H - \mathcal{G}_L = (\theta_H-\theta_L)(\lambda_L + \beta/p) > 0$ always. This does not necessarily hold with three types. For instance, assume a middle type $\theta_M$ with $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$. Then $\mathcal{G}_H - \mathcal{G}_M = (\theta_H-\theta_M)[\lambda_M+\lambda_L-\tilde\lambda+2\beta]$, which requires the preference for the higher type not to be too large relative to the two lower types. This failure to satisfy the conditions when moving to more than two types is characteristic of this environment. In the two types case, the gain of giving one unit to $H$ (evaluated at the additional revenue $\tilde \lambda$) is always greater than the gain of giving one unit to $L$ (evaluated at the additional rent for H at $p \gamma_L \lambda_H$). In the three case 
+where $\varepsilon \geq 0$ is the shadow value of the capacity constraint.\footnote{In the two-type case, the IC constraint $q_H > q_L$ is automatically satisfied since $\mathcal{G}_H - \mathcal{G}_L = (\theta_H-\theta_L)(\lambda_L + \beta/p_L) > 0$ always. This does not necessarily hold with three types. For instance, assume a middle type $\theta_M$ with $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$. Then $\mathcal{G}_H - \mathcal{G}_M = (\theta_H-\theta_M)[\lambda_M+\lambda_L-\tilde\lambda+2\beta]$, which requires the preference for the higher type not to be too large relative to the two lower types. In the continuum type model, this condition is imposed directly via Assumption~\ref{ass:interior}.}
 
+\paragraph{Capacity sorting margin with two types.} The individual surplus change from a capacity expansion decomposes into two terms: the change in the surplus available for redistribution after covering IC rents and the revenue requirement, and the change in the informational rent accruing to the high type,
+\[
+d_k ECS(\theta_L) = d_k \E\underline{CS}, \qquad d_k ECS(\theta_H) = d_k\E\underline{CS} + (\theta_H - \theta_L)\,u(q_L)\,d_k q_L. 
+\]
+The object \ref{dkECS} is the central object of this analysis: as shown in the general environment, its sign governs the sign of $d_k q_L$ when $\beta>0$ but also the comparative statics of the redistributive effect of a capacity expansion throughout the paper. In the two-type case, its sign has a direct implication for the incidence of a capacity expansion. When  \ref{dkECS}$< 0$, the low type always loses from an increase in $k$, regardless of the welfare weight $\lambda_L$, while the high type always gains through the additional IC rent $(\theta_H - \theta_L)u(q_L)d_kq_L > 0$. This clean separation between the two types is, however, specific to the two-type environment. As shown in the Appendix, this result does not generalize beyond two types, which motivates the continuum model developed in the following sections.
 
+Using the first order condition, we can obtain the following equivalence
+\[\frac{d_k q_H}{R_q(q_H)}=\frac{d_k q_L}{R_q(q_L)}, \qquad \text{where} \qquad R_q(q_i):=-\frac{u (q_i)}{u_q (q_i)}\]
+is determined by the curvature of demand and governs how an increase in $k$ is distributed across types at the optimal allocation. This is the inverse of the coefficient of absolute risk aversion. A useful specification used in the paper is the CARA utility function: $u(q) =\exp(-\alpha q)$ for some $\alpha > 0$, which allows $R_q$ to be constant and equal to $1/\alpha$.
+Differentiating $ ECS(\theta_L)$ with respect to $k$, factorizing by $d_k q_L$, $\varepsilon$ and $1/R_q(q_L)$ yields,
+\[\tag{$d_kECS_{LH}$}\label{dkECS}
+d_k ECS(\theta_L) 
+= \frac{d_k q_L}{R_q(q_L)}  \; \varepsilon \;\Big( \underbrace{
+\theta_L \;p_L\frac{R_q(q_L)}{\Gamma_L}+ \theta_H  \; p_H\frac{R_q(q_H)}{\Gamma_H}}_{\text{additional surplus}} - \underbrace{(\theta_H-\theta_L) \; p_H\frac{R_q(q_L)}{\Gamma_L}}_{\text{IC cost}}\Big)
+\]
+Increasing $k$ has two opposite effects. It increases the available quantity and, therefore, the consumer surplus (the first two terms). Then the available revenue to be redistributed increases. However, expanding $k$ forces the designer to leave a larger information rent to $\theta_H$, which mechanically reduces the transfer $t_H$ and therefore the surplus available for redistribution $\E\underline{CS}$. A CARA specification makes this tension especially clear.  \ref{dkECS} $ < 0$ whenever the preference towards the lower type is sufficiently high
+\[
+\lambda_L>\lambda_L^{\ast}
+=
+\frac{\theta_L\tilde{\lambda}}{p_H\left(\theta_H-\theta_L\right)}.
+\]
+In particular, a larger $\theta_L$ raises the cutoff, making it harder to obtain  \ref{dkECS} $<0$.\footnote{First, an increase in $\theta_L$ raises the surplus from allocating one unit to type $\theta_L$, evaluated at $R_q(q_L)/\Gamma_L$, and lowers the IC-rent cost by reducing the gap $\theta_H-\theta_L$. However, it also increases the effective social weight $\Gamma_L$, which compresses the return $R_q(q_L)/\Gamma_L$. Hence the sign is a priori ambiguous. In the two-type case, the net effect is
+\[
+\Gamma_L-\left(\theta_L-p_H\theta_H\right)\lambda_L
+=
+p_H\lambda_H\theta_H>0,
+\]
+so the positive effect dominates. By contrast, an increase in $\lambda_L$ affects the cutoff only through $\Gamma_L$ and therefore reduces available revenue. The reason the sign is unambiguous is that the coefficient measuring the net low-type contribution, $\theta_L-p_H\theta_H$, is also the marginal effect of $\lambda_L$ on $\Gamma_L$.}
 
-In the continuum type model, this condition is imposed directly via Assumption~\ref{ass:interior}.}
+\paragraph{Interpreting the capacity-sorting margin.} Define the weights
+\[
+w_i := -\frac{1}{u_q(q_i)\,\mathcal{G}_i}, \qquad \overline{w} := p_L\,w_L + p_H\,w_H.
+\]
+These weights measure the departure from the first-best allocation induced by redistributive preferences, which create systematic differences in marginal utilities across types. In particular, they govern how the optimal allocation responds to a change in capacity holding the budget effect constant: $d_k q_i = w_i\,d_k\varepsilon$. Factorizing by $R_q$, using the definition of $J_i$ and the weights above yields
+\[
+d_k\E\underline{CS} = \frac{1}{\overline{w}}\left(p_L\,R_q(q_L)\frac{J_L}{\mathcal{G}_L} + p_H\,R_q(q_H)\frac{J_H}{\mathcal{G}_H}\right) = \frac{1}{\overline{w}}\sum_i p_i\,R_\theta(q_i)\,R_q(q_i) = \frac{1}{\overline{w}}\sum_i p_i\,w_i\,u(q_i)\,J_i,
+\]
+where
+\[R_\theta(q_i) := \frac{J_i}{\mathcal{G}_i}\]
+captures the ability of a type to generate surplus when receiving a marginal unit, measured by $J_i$, weighted by its effective social weight $\mathcal{G}_i$. In the general environment, I show this ratio dictates how the marginal virtual surplus $u(q_i)J_i$ is distributed across types. Therefore, the capacity sorting margin captured by \ref{dkECS} admits two interpretations that extend the two types result to the continuous case. First, through the second term: $R_q(q_i)$ governs how a capacity expansion is distributed across types, while $R_\theta(q_i)$ governs the marginal revenue generated by each type's allocation. When $R_q$ is decreasing and $R_\theta$ is increasing in $\theta$, additional capacity flows disproportionately toward types with low marginal virtual surplus, reducing the available revenue and tightening the budget constraint. Second, through the third term: \ref{dkECS}is a $w_i$-weighted average of marginal virtual surplus $u(q_i)J_i$, where the weights $w_i$ jointly reflect the responsiveness of each type's demand and its effective social value.
+
 
 \section{Optimal within category allocation}\label{sec3}
 
@@ -205,9 +251,7 @@ This section studies the within-category problem for a given pair $(k_i, I_i)$. 
 
 \subsection{Characterization}
 
-We begin with the basic structure of the optimal within-category allocation. The main takeaway is that the entire allocation can be organized into two regimes: one in which the participation constraint is slack and the allocation is undistorted, and one in which financing the revenue requirement induces an endogenous distortion via the shadow value $\beta_i$.
-
-Following Lemma~\ref{lem:Transfer}, the within-category problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \ref{ECSi} into this equality and integrating by parts with respect to $\theta$,, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields the single combined constraint
+We begin with the basic structure of the optimal within-category allocation. The main takeaway is that the entire allocation can be organized into two regimes: one in which the participation constraint is slack and the allocation is undistorted, and one in which financing the revenue requirement induces an endogenous distortion via the shadow value $\beta_i$. Following the logic from the two type case and expression \ref{underlineECSTwo}, the continuous expression is
 %##########################################
 \[
 \E \underline{CS}_i
@@ -263,47 +307,7 @@ u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)=\varepsilon_i(s)
 ii) If \ref{Rmdi-def} is slack at $(k_i,I_i)$, then $\beta_i=0$ and $\G_i(\theta)\equiv \Gamma_i(\theta)$.
 \end{lemma}
 
-\subsection{Two sorting margins and their sufficient statistics}\label{sec:suffstat}
-
-With the optimality conditions in hand, we know discuss two margins that will significantly drive the result of this analysis. Their interaction delivers a sufficient statistic whose sign will organize the rest of the section. In particular, it simultaneously governs surplus incidence of capacity expansion, the response of the revenue distortion, and the feasibility of the undistorted regime.
-
-To do so, define
-\[
-R_q(\theta):=-\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)},
-\qquad
-R_\theta(\theta):=\frac{J_i(\theta)}{\mathcal G_i(\theta)}.
-\]
-Note that $R_q(\theta)\geq0$ since $u_q<0$. The first object, $R_q(\theta)$, is determined by the curvature of demand and governs how a marginal increase in $k_i$ is distributed across types at the optimal allocation (we also use the term responsiveness). The second, $R_\theta(\theta)$, reflects both the type distribution and the redistributive preferences of the designer, and governs how marginal virtual surplus $u(q_i,s)J_i(\theta)$ varies across types.\footnote{If $R_q(\theta)$ is decreasing in $\theta$, then as capacity expands, lower types receive a higher share than higher types. If $R_\theta(\theta)$ is increasing in $\theta$, then the marginal virtual surplus tends to be lower for lower types. Formally: $\operatorname{sign}\frac{\partial}{\partial\theta}\!\left(\frac{\partial q_i(\theta,s)}{\partial k}\right) = \operatorname{sign}\, R_q'(\theta)$ and $\operatorname{sign}\frac{\partial}{\partial\theta}\!\left(u(q_i(\theta,s),s)J_i(\theta)\right) = \operatorname{sign}\, R_\theta'(\theta)$.} Crucially, $J_i(\theta)$ need not be positive: even when a consumer has negative virtual surplus, their marginal contribution to the objective may remain positive from Assumption~\ref{ass:interior}.
-
-Define the weights
-\[
-w_i(\theta,s):=-\frac{1}{u_q\!\left(q_i(\theta,s),s\right)\mathcal G_i(\theta)},
-\quad
-\overline w_i(s):=\E_{i}\!\left[w_i(\theta,s)\right], \quad \Omega_i:= \E_s\left[\frac{1}{\overline{w}_i(s)}\mathbf 1_{\{s\in T_i\}}\right]
-\]
-Those weights represent the departure from the first-best allocation without redistributive preferences as they create systematic differences in marginal utilities across types. Then defined the $w_i$-weighted average of the marginal virtual surplus
-\[
-\E_i^w[uJ\mid s]
-:=
-\frac{1}{\overline w_i(s)}
-\E_{i}\!\left[w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\right]
-=
-\frac{1}{\overline w_i(s)}
-\E_{i}\!\left[R_\theta(\theta)R_q(\theta)\right].
-\]
-Its average over binding states yields
-\begin{equation}
-\E_{(s,i)}^w[uJ\mid s] := \mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right]. \tag{EuJ}\label{Eujmd}
-\end{equation}
-This weighted value plays a key role in this analysis: it is the expected marginal revenue for the market designer with respect to the level of capacity, accounting for redistributive preferences and incentive constraints.\footnote{Equivalently, in the context of a market designer that maximizes consumer surplus under a given budget constraint, this is equivalent to the marginal change of available surplus the designer can redistributive to consumer once the budget and informational rent have been covered.} To see this, the statistic \ref{Eujmd} combines two margins: how extra capacity is allocated across types, through \(R_q\), and how socially valuable those marginal allocations are, through \(R_\theta\). Equivalently,
-\begin{equation}
-\E_{i}\!\left[R_\theta(\theta)R_q(\theta)\right]
-=
-\E_{i}[R_\theta(\theta)]\,\E_{i}[R_q(\theta)]
-+
-\Cov_i\!\left(R_\theta(\theta),R_q(\theta)\right). \tag{signEuJ}\label{signEuJ}
-\end{equation}
-The first term captures an average effect: increasing capacity frees up surplus for all consumers, thereby increasing the market designer's available revenue. The covariance term captures a sorting effect: it is adverse when additional capacity is tilted toward types with lower marginal virtual surplus.\footnote{For instance, if $R_q(\theta)$ is decreasing and $R_\theta(\theta)$ is increasing, then the lowest marginal virtual surplus is concentrated at the lowest $\theta$. In other words, as $k_i$ increases, a greater weight is placed on types with a potentially negative marginal virtual surplus. A decreasing virtual surplus ($J_i(\theta)<0$) implies that increasing $k_i$ reduces the budget the market designer can raise from those consumers. Therefore, the condition highlights the fundamental trade-off the market designer faces: increasing the allocation of a type, given its welfare weight, may conflict with revenue maximization due to the IC constraint on higher types.} The statistic \ref{Eujmd}, which combines these two sorting margins into a single signed object, is the capacity-sorting margin introduced in the introduction: its sign and variation with $k_i$ jointly determine who benefits from a capacity expansion and how much revenue the designer can raise to finance it.
+\subsection{Assumptions}\label{sec:suffstat}
 
 To obtain a sharp characterization, we impose the following regularity condition.
 
@@ -327,6 +331,18 @@ Under Assumption~\ref{ass:CARA}, $R_q = 1/\alpha$ is constant: a consumer's resp
 
 
 \subsection{Redistributive incidence of capacity expansion}\label{sec:surplus}
+ The continuous analogue is
+\[
+\mathbb{E}_i^w[uJ \mid s] := \frac{1}{\overline{w}_i(s)}\,\mathbb{E}_i\!\left[w_i(\theta,s)\,u(q_i(\theta,s),s)\,J_i(\theta)\right] = \frac{1}{\overline{w}_i(s)}\,\mathbb{E}_i\!\left[R_\theta(\theta)\,R_q(\theta)\right],
+\]
+and its average over binding states yields
+\begin{equation}
+\mathbb{E}_{(s,i)}^w[uJ \mid s] := \mathbb{E}_s\!\left[\mathbb{E}_i^w[uJ \mid s]\,\mathbf{1}_{\{s\in T_i\}}\right]. \tag{EuJ}\label{Eujmd}
+\end{equation}
+This statistic combines two margins: how extra capacity is allocated across types, captured by $R_q$, and how socially valuable those marginal allocations are, captured by $R_\theta$. Equivalently,
+\begin{equation}
+\mathbb{E}_{(s,i)}^w[uJ \mid s] = \mathbb{E}_i[R_\theta(\theta)]\,\mathbb{E}_i[R_q(\theta)] + \mathrm{Cov}_i(R_\theta(\theta),R_q(\theta)). \tag{signEuJ}\label{signEuJ}
+\end{equation}
 
 We now study the central within-category question: who benefits from a marginal increase in capacity? Even though a larger $k_i$ relaxes scarcity, the surplus gains from this relaxation need not accrue to all types once incentive constraints and revenue extraction are taken into account. This subsection shows that the incidence of capacity expansion is pinned down by the sign of \ref{Eujmd} together with the ordering of types induced by $R_\theta(\theta)$.
 

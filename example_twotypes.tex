@@ -1019,4 +1019,188 @@ this becomes
 +
 \beta\left(\theta_L+4d-1\right).
 \]
+
+
+\section{XXXX}
+Let
+\[
+F(\theta_L,\lambda_L)
+:=
+\theta_L \;p\frac{R_q(q_L)}{\Gamma_L}
++ \theta_H  \; (1-p)\frac{R_q(q_H)}{\Gamma_H}
+- (\theta_H-\theta_L) \; (1 - p)\frac{R_q(q_L)}{\Gamma_L}.
+\]
+The cutoff \(\lambda_L\) is defined implicitly by
+\[
+F(\theta_L,\lambda_L)=0.
+\]
+
+To understand the sign of \(\frac{d\lambda_L}{d\theta_L}\), it is useful to first study the effect of \(\theta_L\) on \(F\). Holding fixed \(R_q\) and \(\Gamma_H\), differentiating with respect to \(\theta_L\) gives
+\begin{align*}
+\frac{\partial F}{\partial \theta_L}
+&=
+p\frac{R_q(q_L)}{\Gamma_L}
++
+(1-p)\frac{R_q(q_L)}{\Gamma_L}
+-
+\left[\theta_L-(1-p)\theta_H\right]
+\frac{R_q(q_L)}{\Gamma_L^2}
+\frac{\partial \Gamma_L}{\partial \theta_L} \\
+&=
+\frac{R_q(q_L)}{\Gamma_L}
+-
+\left[\theta_L-(1-p)\theta_H\right]
+\frac{R_q(q_L)}{\Gamma_L^2}
+\frac{\partial \Gamma_L}{\partial \theta_L}.
+\end{align*}
+
+This expression admits a natural economic decomposition.
+
+The first term,
+\[
+\frac{R_q(q_L)}{\Gamma_L}>0,
+\]
+is the direct positive effect of increasing \(\theta_L\). It combines two forces:
+
+\begin{itemize}
+    \item a surplus effect: a higher \(\theta_L\) raises the first term
+    \[
+    \theta_L p \frac{R_q(q_L)}{\Gamma_L},
+    \]
+    so more surplus can be redistributed;
+
+    \item an incentive effect: a higher \(\theta_L\) reduces the information gap
+    \[
+    \theta_H-\theta_L,
+    \]
+    and therefore lowers the IC-rent term
+    \[
+    (\theta_H-\theta_L)(1-p)\frac{R_q(q_L)}{\Gamma_L}.
+    \]
+\end{itemize}
+
+Hence, absent any change in \(\Gamma_L\), increasing \(\theta_L\) has an unambiguously positive effect on \(F\).
+
+The second term,
+\[
+-
+\left[\theta_L-(1-p)\theta_H\right]
+\frac{R_q(q_L)}{\Gamma_L^2}
+\frac{\partial \Gamma_L}{\partial \theta_L},
+\]
+is the cost of increasing \(\Gamma_L\). Since \(\Gamma_L\) appears in the denominator, a rise in \(\Gamma_L\) lowers the return
+\[
+\frac{R_q(q_L)}{\Gamma_L}.
+\]
+Thus, even though increasing \(\theta_L\) has a direct positive effect, part of that gain is offset because it also raises the effective weight \(\Gamma_L\).
+
+The sign of \(\frac{\partial F}{\partial \theta_L}\) therefore reflects a trade-off:
+\[
+\text{net positive effect of higher } \theta_L
+\quad
+\text{versus}
+\quad
+\text{cost of the induced increase in } \Gamma_L.
+\]
+
+In the two-type case, this trade-off can be resolved explicitly. Using
+\[
+\Gamma_{L,\theta_L}=\lambda_L,
+\]
+one gets
+\[
+\frac{\partial F}{\partial \theta_L}
+=
+\frac{R_q(q_L)}{\Gamma_L^2}
+\left[
+\Gamma_L-\left(\theta_L-(1-p)\theta_H\right)\lambda_L
+\right],
+\]
+and the bracket simplifies to
+\[
+\Gamma_L-\left(\theta_L-(1-p)\theta_H\right)\lambda_L
+=
+(1-p)\lambda_H\theta_H>0.
+\]
+Hence
+\[
+\frac{\partial F}{\partial \theta_L}>0.
+\]
+
+So the direct positive effect of increasing \(\theta_L\) dominates the denominator cost coming from the increase in \(\Gamma_L\).
+
+Starting from
+\[
+F(\theta_L,\lambda_L)
+=
+\theta_L \;p\frac{R_q(q_L)}{\Gamma_L}
++ \theta_H  \; (1-p)\frac{R_q(q_H)}{\Gamma_H}
+- (\theta_H-\theta_L) \; (1 - p)\frac{R_q(q_L)}{\Gamma_L},
+\]
+and holding fixed \(R_q\) and \(\Gamma_H\), differentiating with respect to \(\lambda_L\) gives
+\begin{align*}
+\frac{\partial F}{\partial \lambda_L}
+&=
+-\theta_L p \frac{R_q(q_L)}{\Gamma_L^2}\frac{\partial \Gamma_L}{\partial \lambda_L}
++
+(\theta_H-\theta_L)(1-p)\frac{R_q(q_L)}{\Gamma_L^2}\frac{\partial \Gamma_L}{\partial \lambda_L} \\
+&=
+-\left[\theta_L p-(\theta_H-\theta_L)(1-p)\right]
+\frac{R_q(q_L)}{\Gamma_L^2}\frac{\partial \Gamma_L}{\partial \lambda_L} \\
+&=
+-\left[\theta_L-(1-p)\theta_H\right]
+\frac{R_q(q_L)}{\Gamma_L^2}\frac{\partial \Gamma_L}{\partial \lambda_L}.
+\end{align*}
+
+This expression admits the following economic interpretation.
+
+An increase in \(\lambda_L\) raises the effective return weight \(\Gamma_L\). Since \(\Gamma_L\) appears in the denominator, this lowers the return
+\[
+\frac{R_q(q_L)}{\Gamma_L}.
+\]
+This has two opposite consequences:
+
+\begin{itemize}
+    \item it reduces the first term
+    \[
+    \theta_L p\frac{R_q(q_L)}{\Gamma_L},
+    \]
+    which lowers \(F\);
+
+    \item it also reduces the magnitude of the IC-rent term
+    \[
+    (\theta_H-\theta_L)(1-p)\frac{R_q(q_L)}{\Gamma_L},
+    \]
+    which raises \(F\), since this term enters with a minus sign.
+\end{itemize}
+
+Hence, at this stage, the effect of \(\lambda_L\) is the net result of
+
+\[
+\text{a negative compression of the direct surplus term}
+\quad\text{versus}\quad
+\text{a positive compression of the IC-rent term}.
+\]
+
+In the two-type case, this ambiguity can be resolved explicitly. Using
+\[
+\Gamma_{L,\lambda_L}
+=
+\theta_L-(1-p)\theta_H,
+\]
+we obtain
+\[
+\frac{\partial F}{\partial \lambda_L}
+=
+-\left[\theta_L-(1-p)\theta_H\right]^2
+\frac{R_q(q_L)}{\Gamma_L^2}.
+\]
+Therefore,
+\[
+\boxed{
+\frac{\partial F}{\partial \lambda_L}<0.
+}
+\]
+
+So in the two-type case, the negative effect dominates: increasing \(\lambda_L\) raises \(\Gamma_L\), which compresses the low-type return \(\frac{R_q(q_L)}{\Gamma_L}\) enough to reduce \(F\) overall.
 \end{document}
