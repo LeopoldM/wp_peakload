@@ -172,20 +172,22 @@ We start with the within-category problem, as this is the first step of the anal
 
 \section{A simple example}\label{sec3}
 
-The results of this paper are structured by two sorting margins: \textit{the capacity-sorting margin} and \textit{the preference sorting margin}. In this section, I study a simplified version of the environment to provide intuitions of how those sorting emerge and interact with the optimal allocation. The allocation and welfare result are derives in the continuous type model.
+The results of this paper are structured by two sorting margins: \textit{the capacity-sorting margin} and \textit{the preference sorting margin}. In this section, I study a simplified version of the environment to provide intuitions of how those margins emerge and interact with the optimal allocation. In particular, I show how the residual surplus created by the mechanism that can be redistributed to consumer depends on preferences and capacity level, and how scarcity is shared across consumers based on redistributed preferences. Those two objects dictates the allocation and welfare result that are derived in the continuous type model. The formal derivation of the results are stated in Appendix XXXX.
 
 \paragraph{Environment} 
 
 There is a single category with two types, $\theta_L < \theta_H$, with probabilities $p_i$ such that $p_L + p_H =1$. A consumer of type $\theta$ derives utility $\theta U(q)$ from consuming quantity $q$ in the peak state. The designer assigns welfare weights $\lambda_L$ and $\lambda_H$ to the two types, with average weight $\tilde\lambda = p_L\lambda_L + p_H\lambda_H$. The designer must serve consumers subject to a capacity constraint, $pq_L + p_Hq_H \leq k$, and finance a revenue requirement, $I > 0$, through expected transfers $t = p_L t_L + p_H t_H$. 
-\paragraph{Mechanism} Following Lemma~\ref{lem:Transfer} and since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated in a lump sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \ref{ECSi} into this equality and integrating by parts with respect to $\theta$, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields a single combined constraint. This net revenue available to the designer after covering IC rents and the revenue requirement is
+\paragraph{Mechanism} Following Lemma~\ref{lem:Transfer} and since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated in a lump sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $ t = I$. Substituting the envelope representation \ref{ECSi} into this equality and integrating by parts with respect to $\theta$, using the definition of $\gamma_i(\theta)$ and applying Lemma~\ref{lem:Transfer} to separate the lump-sum transfer $\underline{CS}_i$ from the allocation-dependent rent, yields a single combined constraint. This net revenue available to the designer after covering IC rents and the revenue requirement is
 \[\tag{$\E \underline{CS}_{LH}$}\label{underlineECSTwo}
 \E \underline{CS} := \underbrace{\Bigg.\sum_i p_i \theta_i U(q_i)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_i p_i \gamma_i U(q_i)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p_L J_L U(q_L) + p_H J_H U(q_H)  - I,
 \]
 
 By incentive compatibility, the high type's surplus exceeds the low type's by the information rent it derives from mimicking the low type. Individual surpluses are then
-\[
+\[\tag{ECS$_{LH}$}\label{ECSlh}
 ECS(\theta_L) = \underbrace{\E \underline{CS}}_{\text{fixed transfer}}, \qquad ECS(\theta_H) = \E \underline{CS} + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
 \]
+In that case the fixed transfer correspond to the available revenue left to the market designer, that the redistributed to the consumers via lump-sum transfer independent of types. 
+
 The inverse hazard rate of the low type is $\gamma_L = p_H/p_L$, which measures the mass of higher types relative to the low type, while $\gamma_H = 0$ since no information rent accrues when allocating a unit to $\theta_H$. The virtual terms are 
 \[
 J_L = \theta_L - \frac{p_H}{p_L}(\theta_H-\theta_L), \qquad J_H = \theta_H,
@@ -198,25 +200,20 @@ $p_L < \frac{\theta_H-\theta_L}{\theta_H}$, that is, when the low type is suffic
 capturing the social value of the rent that flows upward to $\theta_H$ when $\theta_L$ receives a marginal unit. The effective social weight $\mathcal{G}_i := (\tilde\lambda + \beta) J_i + \Lambda_i$ captures the total social return from allocating a marginal unit to type $i$, combining the revenue channel $(\tilde\lambda+\beta)J_i$, which values the net extractable surplus $J_i$ at the budget-adjusted welfare weight $(\tilde\lambda+\beta)$, and the redistributive channel $\Lambda_i$. The shadow cost $\beta \geq 0$ reflects the tightness of the budget constraint, or equivalently, when there is enough revenue to be redistributed (i.e. $\E \underline{CS}$). When the budget is slack, $\beta = 0$ and $\mathcal{G}_i$ reduces to $\Gamma_i := \tilde\lambda J_i + \Lambda_i$.  
 
 \paragraph{Optimum} The designer chooses quantities $q_L$ and $q_H$ to maximize the weighted sum of consumer surpluses subject to the capacity constraint $pq_L + p_Hq_H \leq k$ and the budget constraint. When capacity binds, the first-order condition for each type $i \in \{L, H\}$ equates the product of the effective social weight and marginal utility to the common scarcity rent:
-\[
+\[\label{KKT-qLH}\tag{FOC$_q^{LH}$}
 \mathcal{G}_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta>0, \qquad \Gamma_i\, u(q_i) = \varepsilon \quad \text{when} \quad \beta=0,
 \]
 where $\varepsilon \geq 0$ is the shadow value of the capacity constraint.\footnote{In the two-type case, the IC constraint $q_H > q_L$ is automatically satisfied since $\mathcal{G}_H - \mathcal{G}_L = (\theta_H-\theta_L)(\lambda_L + \beta/p_L) > 0$ always. We show that this does not necessarily hold with three types in Appendix~ \ref{app:three-nonmonotone-G}.  In the continuum type model, this condition is imposed directly via Assumption~\ref{ass:interior}.}
 
-\paragraph{Capacity sorting margin with two types.} The individual surplus change from a capacity expansion decomposes into two terms: the change in the surplus available for redistribution after covering IC rents and the revenue requirement, and the change in the informational rent accruing to the high type,
-\[
-d_k ECS(\theta_L) = d_k \E\underline{CS}, \qquad d_k ECS(\theta_H) = d_k\E\underline{CS} + (\theta_H - \theta_L)\,u(q_L)\,d_k q_L. 
-\]
-The object \ref{dkECS} is the central object of this analysis: as shown in the general environment, its sign governs the sign of $d_k q_L$ when $\beta>0$ but also the comparative statics of the redistributive effect of a capacity expansion throughout the paper. In the two-type case, its sign has a direct implication for the incidence of a capacity expansion. When  \ref{dkECS}$< 0$, the low type always loses from an increase in $k$, regardless of the welfare weight $\lambda_L$, while the high type always gains through the additional IC rent $(\theta_H - \theta_L)u(q_L)d_kq_L > 0$. This clean separation between the two types is, however, specific to the two-type environment. I show in the Appendix~\ref{app:three-negative-qH} that this result does not generalize beyond two types, which motivates the continuum model developed in the following sections.
+\paragraph{Capacity sorting margin with two types.} I study now how redistributive preferences and capacity expansion affect the residual surplus from the mechanism \ref{underlineECSTwo}. The sign of its derivative with respect to $k$, \ref{dkECS}, governs explicitly the surplus consumers get from the mechanism via the fixed-transfer. From \ref{ECSlh} if  \ref{dkECS}$< 0$, the low type always loses from an increase in $k$, regardless of the welfare weight $\lambda_L$.\footnote{In the two type environment, the high type always gains through the additional IC rent $(\theta_H - \theta_L)u(q_L)d_kq_L > 0$. This clean separation between the two types is, however, specific to the two-type environment. I show in the Appendix~\ref{app:three-negative-qH} that this result does not generalize beyond two types, which motivates the continuum model developed in the following sections.} I also show that in the general environment, its sign governs the sign of the optimal allocation when $\beta>0$, as \ref{dkECS} is also the measure of how the budget constraint is loosening or tightning with a capacity expansion. 
 
-Using the first order condition, we can obtain the following equivalence
-\[\frac{d_k q_H}{R_q(q_H)}=\frac{d_k q_L}{R_q(q_L)}, \qquad \text{where} \qquad R_q(q_i):=-\frac{u (q_i)}{u_q (q_i)}\]
-is determined by the curvature of demand and governs how an increase in $k$ is distributed across types at the optimal allocation. This is the inverse of the coefficient of absolute risk aversion. A useful specification used in the paper is the CARA utility function: $u(q) =\exp(-\alpha q)$ for some $\alpha > 0$, which allows $R_q$ to be constant and equal to $1/\alpha$.
-Differentiating $ ECS(\theta_L)$ with respect to $k$, factorizing by $d_k q_L$, $\varepsilon$ and $1/R_q(q_L)$ yields,
+Using \ref{KKT-qLH}, we can obtain the following equivalence
+\[\frac{d_k q_H}{R_q(\theta_H)}=\frac{d_k q_L}{R_q(\theta_L)}, \qquad \text{where} \qquad R_q(\theta_i):=-\frac{u (q_i)}{u_q (q_i)} \]
+is determined by the curvature of demand and governs how an increase in $k$ is distributed across types at the optimal allocation. This is the inverse of the coefficient of absolute risk aversion. A useful specification used in the paper is the CARA utility function: $u(q) =\exp(-\alpha q)$ for some $\alpha > 0$, which allows $R_q$ to be constant and equal to $1/\alpha$. In that case $d_k q_H = d_k q_L = 1$. Differentiating $ ECS(\theta_L)$ with respect to $k$, factorizing by $d_k q_L$, $\varepsilon$ and $1/R_q(\theta_L)$ yields,
 \[\tag{$d_kECS_{LH}$}\label{dkECS}
 d_k ECS(\theta_L) 
-= \frac{d_k q_L}{R_q(q_L)}  \; \varepsilon \;\Big( \underbrace{
-\theta_L \;p_L\frac{R_q(q_L)}{\Gamma_L}+ \theta_H  \; p_H\frac{R_q(q_H)}{\Gamma_H}}_{\text{additional surplus}} - \underbrace{(\theta_H-\theta_L) \; p_H\frac{R_q(q_L)}{\Gamma_L}}_{\text{IC cost}}\Big)
+= \frac{d_k q_L}{R_q(\theta_L)}  \; \varepsilon \;\Big( \underbrace{
+\theta_L \;p_L\frac{R_q(\theta_L)}{\Gamma_L}+ \theta_H  \; p_H\frac{R_q(\theta_H)}{\Gamma_H}}_{\text{additional surplus}} - \underbrace{(\theta_H-\theta_L) \; p_H\frac{R_q(\theta_L)}{\Gamma_L}}_{\text{IC cost}}\Big)
 \]
 Increasing $k$ has two opposite effects. It increases the available quantity and, therefore, the consumer surplus (the first two terms). Then the available revenue to be redistributed increases. However, expanding $k$ forces the designer to leave a larger information rent to $\theta_H$, which mechanically reduces the transfer $t_H$ and therefore the surplus available for redistribution $\E\underline{CS}$. A CARA specification makes this tension especially clear.  \ref{dkECS} $ < 0$ whenever the preference towards the lower type is sufficiently high
 \[
@@ -224,7 +221,7 @@ Increasing $k$ has two opposite effects. It increases the available quantity and
 =
 \frac{\theta_L\tilde{\lambda}}{p_H\left(\theta_H-\theta_L\right)}.
 \]
-In particular, a larger $\theta_L$ raises the cutoff, making it harder to obtain  \ref{dkECS} $<0$.\footnote{First, an increase in $\theta_L$ raises the surplus from allocating one unit to type $\theta_L$, evaluated at $R_q(q_L)/\Gamma_L$, and lowers the IC-rent cost by reducing the gap $\theta_H-\theta_L$. However, it also increases the effective social weight $\Gamma_L$, which compresses the return $R_q(q_L)/\Gamma_L$. Hence the sign is a priori ambiguous. In the two-type case, the net effect is
+In particular, a larger $\theta_L$ raises the cutoff, making it harder to obtain  \ref{dkECS} $<0$.\footnote{First, an increase in $\theta_L$ raises the surplus from allocating one unit to type $\theta_L$, evaluated at $R_q(\theta_L)/\Gamma_L$, and lowers the IC-rent cost by reducing the gap $\theta_H-\theta_L$. However, it also increases the effective social weight $\Gamma_L$, which compresses the return $R_q(\theta_L)/\Gamma_L$. Hence the sign is a priori ambiguous. In the two-type case, the net effect is
 \[
 \Gamma_L-\left(\theta_L-p_H\theta_H\right)\lambda_L
 =
@@ -236,14 +233,38 @@ so the positive effect dominates. By contrast, an increase in $\lambda_L$ affect
 \[
 w_i := -\frac{1}{u_q(q_i)\,\mathcal{G}_i}, \qquad \overline{w} := p_L\,w_L + p_H\,w_H.
 \]
-These weights measure the departure from the first-best allocation induced by redistributive preferences, which create systematic differences in marginal utilities across types. In particular, they govern how the optimal allocation responds to a change in capacity holding the budget effect constant: $d_k q_i = w_i\,d_k\varepsilon$. Factorizing by $R_q$, using the definition of $J_i$ and the weights above yields
+These weights measure the departure from the first-best allocation induced by redistributive preferences, which create systematic differences in marginal utilities across types. In particular, they govern how the optimal allocation responds to a change in capacity holding the budget effect constant, from the \ref{KKT-qLH} we have $d_k q_i = w_i\,d_k\varepsilon$. Factorizing by $R_q$, using the definition of $J_i$ and the weights above yields
 \[
-d_k\E\underline{CS} = \frac{1}{\overline{w}}\left(p_L\,R_q(q_L)\frac{J_L}{\mathcal{G}_L} + p_H\,R_q(q_H)\frac{J_H}{\mathcal{G}_H}\right) = \frac{1}{\overline{w}}\sum_i p_i\,R_\theta(q_i)\,R_q(q_i) = \frac{1}{\overline{w}}\sum_i p_i\,w_i\,u(q_i)\,J_i,
+d_k\E\underline{CS} = \frac{1}{\overline{w}}\left(p_L\,R_q(\theta_L)\frac{J_L}{\mathcal{G}_L} + p_H\,R_q(\theta_H)\frac{J_H}{\mathcal{G}_H}\right) = \frac{1}{\overline{w}}\sum_i p_i\,R_\theta(q_i)\,R_q(\theta_i) = \frac{1}{\overline{w}}\sum_i p_i\,w_i\,u(q_i)\,J_i,
 \]
 where
 \[R_\theta(q_i) := \frac{J_i}{\mathcal{G}_i}\]
-captures the ability of a type to generate surplus when receiving a marginal unit, measured by $J_i$, weighted by its effective social weight $\mathcal{G}_i$. In the general environment, I show this ratio dictates how the marginal virtual surplus $u(q_i)J_i$ is distributed across types. Therefore, the capacity sorting margin captured by \ref{dkECS} admits two interpretations that extend the two types result to the continuous case. First, through the second term: $R_q(q_i)$ governs how a capacity expansion is distributed across types, while $R_\theta(q_i)$ governs the marginal revenue generated by each type's allocation. When $R_q$ is decreasing and $R_\theta$ is increasing in $\theta$, additional capacity flows disproportionately toward types with low marginal virtual surplus, reducing the available revenue and tightening the budget constraint. Second, through the third term: \ref{dkECS}is a $w_i$-weighted average of marginal virtual surplus $u(q_i)J_i$, where the weights $w_i$ jointly reflect the responsiveness of each type's demand and its effective social value.
+captures the ability of a type to generate residual surplus when receiving a marginal unit, measured by $J_i$, weighted by its effective social weight $\mathcal{G}_i$. In the general environment, I show this ratio dictates how the marginal virtual surplus $u(q_i)J_i$ is distributed across types. Therefore, the capacity sorting margin captured by \ref{dkECS} admits two interpretations that extend the two types result to the continuous case. First, through the second term: $R_q(\theta_i)$ governs how a capacity expansion is distributed across types, while $R_\theta(q_i)$ governs the marginal revenue generated by each type's allocation. When $R_q$ is decreasing and $R_\theta$ is increasing in $\theta$, additional capacity flows disproportionately toward types with low marginal virtual surplus, reducing the available revenue and tightening the budget constraint. Second, through the third term: \ref{dkECS}is a $w_i$-weighted average of marginal virtual surplus $u(q_i)J_i$, where the weights $w_i$ jointly reflect the responsiveness of each type's demand and its effective social value.
 
+\paragraph{Preference-sorting margin with two types.} I show now that the preference ranking between consumers does not necessarily translate in the same allocation ordering. The continuous environment generalize this approach as the optimal allocation dictates both the residual surplus generated by the mechanism, and also the IC rent. 
+
+Consider a perturbation of redistributive preferences $(d\lambda_L, d\lambda_H)$, inducing a change in the average weight $d\tilde\lambda = p_L\,d\lambda_L + p_H\,d\lambda_H$. For this illustrative example, I focus on the regime $\beta = 0$, so the effective weights are $\Gamma_L$ and $\Gamma_H$. The perturbation induces
+\[d\Gamma_L = J_L\, d\tilde\lambda + \frac{p_H}{p_L}\left(\theta_H-\theta_L\right)d\lambda_H, \qquad d\Gamma_H = \theta_H\, d\tilde\lambda.\]
+A preference perturbation affects the social return of each type through two channels: the revenue motive $d\tilde\lambda J_i$, which revalues the net extractable surplus at the new average weight, and the redistributive motive $d\Lambda_i$, which revalues the IC rent flowing upward to higher types. For the high type, there is no IC rent above it, so $d\Lambda_H = 0$ and $d\Gamma_H = \theta_H\,d\tilde\lambda$ depends only on the average perturbation. For the low type, both motives are active: the revenue motive depends on the sign of $J_L$ and scales with $d\tilde\lambda$, while the redistributive motive $d\Lambda_L$ depends on $d\lambda_H$ alone, reflecting the social value placed on the rent that the high type extracts when the low type is served. Two special cases follow directly. First, if only $\lambda_L$ changes, then $d\tilde\lambda = p_L\,d\lambda_L$ and $d\lambda_H = 0$, so $d\Gamma_H = \theta_H\,d\tilde\lambda$ and $d\Gamma_L = J_L\,d\tilde\lambda$: the redistributive motive is absent and the perturbation operates purely through the revenue channel for both types, with the reverse holding symmetrically. Second, under a mean-preserving perturbation, $d\tilde\lambda = 0$ and $d\lambda_H = -\frac{p_L}{p_H}d\lambda_L$, so $d\Gamma_H = 0$ while $d\Gamma_L = \frac{p_H}{p_L}(\theta_H-\theta_L)\,d\lambda_H$: the high type's effective weight is unchanged and the entire perturbation operates through the redistributive motive of the low type alone, with the reverse holding symmetrically. Finally, define the proportional change in effective social weight for each type as
+\[R_{\mathcal{G}}(\theta_L) := \frac{d\Gamma_L}{\Gamma_L}, \qquad R_{\mathcal{G}}(\theta_H) := \frac{d\Gamma_H}{\Gamma_H}.\]
+Substituting $u(q_i) = \varepsilon/\Gamma_i$ into the differentiated first-order condition yields
+\[\Gamma_i u_q(q_i)\,dq_i = d\varepsilon - \varepsilon \frac{d\Gamma_i}{\Gamma_i} = d\varepsilon - \varepsilon R_{\mathcal{G}}(\theta_i).\]
+Type $i$ receives more quantity if and only if the equilibrium scarcity rent rises by more than the preference-induced revaluation of its allocation $\varepsilon R_{\mathcal{G}}(\theta_i)$: the proportional object $R_{\mathcal{G}}(\theta_i)$ emerges from substituting $u(q_i) = \varepsilon/\Gamma_i$ into the differentiated first-order condition, which scales the preference effect $u(q_i)\,d\Gamma_i$ by the baseline scarcity rent $\varepsilon = \Gamma_i u(q_i)$. Subtracting the high-type equation from the low-type equation gives
+\[\Gamma_L u_q(q_L)\,dq_L - \Gamma_H u_q(q_H)\,dq_H = \varepsilon\left(R_{\mathcal{G}}(\theta_H)-R_{\mathcal{G}}(\theta_L)\right).\]
+Differentiating the capacity constraint gives $p_L\,dq_L + p_H\,dq_H = 0$, so 
+\[dq_H = -\frac{p_L}{p_H}dq_L.
+\] The allocation shifts toward the type whose effective weight experiences the larger proportional increase:
+\[\operatorname{sign}(dq_L) = \operatorname{sign}\left(R_{\mathcal{G}}(\theta_L)-R_{\mathcal{G}}(\theta_H)\right), \qquad \operatorname{sign}(dq_H) = \operatorname{sign}\left(R_{\mathcal{G}}(\theta_H)-R_{\mathcal{G}}(\theta_L)\right).\]
+In particular, the two special cases yield sharp results:
+\[R_{\mathcal{G}}(\theta_L) = \frac{J_L\,p_L\,d\lambda_L}{\Gamma_L}, \qquad R_{\mathcal{G}}(\theta_H) = \frac{p_L\,d\lambda_L}{\tilde\lambda} \qquad \text{when } d\lambda_H=0,\]
+\[R_{\mathcal{G}}(\theta_L) = -\frac{(\theta_H-\theta_L)}{\Gamma_L}d\lambda_L, \qquad R_{\mathcal{G}}(\theta_H) = 0 \qquad \text{when } d\tilde\lambda=0.\]
+Whenever preferences increase only toward lower types, $q_L$ decreases. Similarly, a tilt toward higher types yields a decrease of $q_H$ and an increase of $q_L$, with the reverse holding symmetrically in both cases. More generally, a direct computation gives
+\[R_{\mathcal{G}}(\theta_L)-R_{\mathcal{G}}(\theta_H) = \frac{p_H(\theta_H-\theta_L)}{\tilde\lambda\,\Gamma_L}\left(\lambda_L\,d\lambda_H-\lambda_H\,d\lambda_L\right).\]
+The sign of the allocation shift therefore depends on the change in the relative welfare weight ratio: the low type receives more quantity if and only if the proportional increase in welfare weight is stronger for the high type.
+\[\operatorname{sign}(dq_L) = \operatorname{sign}\left(d\left(\frac{\lambda_H}{\lambda_L}\right)\right), \qquad \operatorname{sign}(dq_H) = -\operatorname{sign}\left(d\left(\frac{\lambda_H}{\lambda_L}\right)\right).\]
+The IC structure and the capacity constraint together transform an absolute preference comparison into a relative one: because serving the low type forces compensation of the high type through the IC rent, and because capacity is fixed so any gain for one type comes at the expense of the other, what determines who gains is not the absolute level of welfare weights but whose weight grows faster proportionally.
+
+The IC structure and the capacity constraint together transform an absolute preference comparison into a relative one: because serving the low type forces compensation of the high type through the IC rent, and because capacity is fixed so any gain for one type comes at the expense of the other, what determines who gains is not the absolute level of welfare weights but whose weight grows faster proportionally.
 
 \section{Optimal within category allocation}\label{sec3}
 
@@ -924,9 +945,9 @@ To illustrate, take two categories \(i\) and \(j\), and assume \(R'_\theta(\thet
 
 In this sectuon we show that in the two-type case, $\mathcal{G}_H > \mathcal{G}_L$ holds for any $\beta \geq 0$ and any welfare weights $\lambda_L, \lambda_H > 0$. This does not extend to three types: with three types $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$, $\mathcal{G}_H > \mathcal{G}_M$ if and only if $\lambda_M + \lambda_L - \tilde\lambda + 2\beta > 0$, which need not hold.
 
-\textit{Two types.} Using $J_H - J_L = (\theta_H - \theta_L)/p > 0$ and $\Gamma_H - \Gamma_L = \lambda_L(\theta_H - \theta_L) > 0$,
+\textit{Two types.} Using $J_H - J_L = (\theta_H - \theta_L)/p_L > 0$ and $\Gamma_H - \Gamma_L = \lambda_L(\theta_H - \theta_L) > 0$,
 \[
-\mathcal{G}_H - \mathcal{G}_L = (\Gamma_H - \Gamma_L) + \beta(J_H - J_L) = (\lambda_L + \beta/p)(\theta_H - \theta_L) > 0.
+\mathcal{G}_H - \mathcal{G}_L = (\Gamma_H - \Gamma_L) + \beta(J_H - J_L) = (\lambda_L + \beta/p_L)(\theta_H - \theta_L) > 0.
 \]
 \textit{Three types.} With equal probabilities $p_i = 1/3$, $J_M = 2\theta_M - \theta_H$, $\Lambda_M = \lambda_H(\theta_H - \theta_M)$, and $\Gamma_H = \tilde\lambda\theta_H$. A direct computation gives
 \[
@@ -937,24 +958,24 @@ whose sign depends on the relative magnitude of welfare weights and $\beta$.
 \subsection{The sign of \(\partial_k q_H\) with \(\beta>0\)}
 \label{app:three-negative-qH}
 
-Assume that utility function is CARA where $\alpha = 1$. In the two-type case with $\beta > 0$, $\partial_k q_H > 0$ always. With three equally likely types, $\partial_k q_H < 0$ if and only if $R_{\theta}(q_H)((R_{\theta}(q_L) + (R_{\theta}(q_M)) > (R_{\theta}(q_L)^2 + (R_{\theta}(q_M)^2$, where $R_{\theta}(q_t) := J_t/\mathcal{G}_t$.
+Assume that utility function is CARA where $\alpha = 1$. In the two-type case with $\beta > 0$, $\partial_k q_H > 0$ always. With three equally likely types, $\partial_k q_H < 0$ if and only if $R_{\theta}(\theta_H)((R_{\theta}(\theta_L) + (R_{\theta}(\theta_M)) > (R_{\theta}(\theta_L)^2 + (R_{\theta}(\theta_M)^2$, where $R_{\theta}(\theta_i) := J_i/\mathcal{G}_i$.
 
-Differentiating the first-order condition $\mathcal{G}_t u(q_t) = \varepsilon$ with respect to $k$ and imposing the binding revenue constraint yields
+Differentiating the first-order condition $\mathcal{G}_i u(q_i) = \varepsilon$ with respect to $k$ and imposing the binding revenue constraint yields
 \[
-\partial_k\beta = -\frac{\E R_\theta}{\mathrm{Var}}, \qquad \partial_k q_t = 1 - \frac{\E R_\theta}{\mathrm{Var}}(R_{\theta}(q_t) - \E R_\theta),
+\partial_k\beta = -\frac{\E R_\theta}{\mathrm{Var}}, \qquad \partial_k q_i = 1 - \frac{\E R_\theta}{\mathrm{Var}}(R_{\theta}(\theta_i) - \E R_\theta),
 \]
-where $\E R_\theta := \sum_t p_t R_{\theta}(q_t)$ and $\mathrm{Var} := \sum_t p_t(R_{\theta}(q_t) - \E R_\theta)^2 > 0$.
+where $\E R_\theta := \sum_i p_i R_{\theta}(\theta_i)$ and $\mathrm{Var} := \sum_i p_i(R_{\theta}(\theta_i) - \E R_\theta)^2 > 0$.
 
-\textit{Two types.} Since $R_{\theta}(q_H) > (R_{\theta}(q_L)$ always and $(R_{\theta}(q_L) < 0$ when $\beta > 0$ and $J_L < 0$,
+\textit{Two types.} Since $R_{\theta}(\theta_H) > (R_{\theta}(\theta_L)$ always and $(R_{\theta}(\theta_L) < 0$ when $\beta > 0$ and $J_L < 0$,
 \[
-\partial_k q_H = -\frac{(R_{\theta}(q_L)}{(1-p)(R_{\theta}(q_H) - (R_{\theta}(q_L))} > 0.
+\partial_k q_H = -\frac{(R_{\theta}(\theta_L)}{p_H(R_{\theta}(\theta_H) - (R_{\theta}(\theta_L))} > 0.
 \]
 
-\textit{Three types.} With $p_t = 1/3$, substituting and simplifying gives
+\textit{Three types.} With $p_i = 1/3$, substituting and simplifying gives
 \[
-\partial_k q_H = \frac{3[(R_{\theta}(q_L)^2 + (R_{\theta}(q_M)^2 - R_{\theta}(q_H)((R_{\theta}(q_L) + (R_{\theta}(q_M))]}{2[R_{\theta}(q_H)^2 - R_{\theta}(q_H) (R_{\theta}(q_L) - R_{\theta}(q_H) (R_{\theta}(q_M) + (R_{\theta}(q_L)^2 - (R_{\theta}(q_L) (R_{\theta}(q_M) + (R_{\theta}(q_M)^2]}.
+\partial_k q_H = \frac{3[(R_{\theta}(\theta_L)^2 + (R_{\theta}(\theta_M)^2 - R_{\theta}(\theta_H)((R_{\theta}(\theta_L) + (R_{\theta}(\theta_M))]}{2[R_{\theta}(\theta_H)^2 - R_{\theta}(\theta_H) (R_{\theta}(\theta_L) - R_{\theta}(\theta_H) (R_{\theta}(\theta_M) + (R_{\theta}(\theta_L)^2 - (R_{\theta}(\theta_L) (R_{\theta}(\theta_M) + (R_{\theta}(\theta_M)^2]}.
 \]
-The denominator is strictly positive. Hence $\partial_k q_H < 0$ if and only if $R_{\theta}(q_H)((R_{\theta}(q_L) + (R_{\theta}(q_M)) > (R_{\theta}(q_L)^2 + (R_{\theta}(q_M)^2$.
+The denominator is strictly positive. Hence $\partial_k q_H < 0$ if and only if $R_{\theta}(\theta_H)((R_{\theta}(\theta_L) + (R_{\theta}(\theta_M)) > (R_{\theta}(\theta_L)^2 + (R_{\theta}(\theta_M)^2$.
 
 Figure \ref{fig:ThreeTypesWithin_quantity} illustrates the possibility to have a decreasing optimal quantity for the highest type as capacity expands. The figure is drawn with a CARA utility function with $\alpha = 1$ and for a three-type environment with
 \(
