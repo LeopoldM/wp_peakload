@@ -2155,352 +2155,36 @@ This proves part (ii).
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Elasticity condition}
 
-\begin{proposition}[Elasticity condition]\label{prop:Elasticity}
-Assume that $R_\theta(\theta)$ and $R_q(\theta)$ are monotone, that $R_{\G}(\theta)$ has a constant sign, and that, for all $\theta$ such that $R_{\G}(\theta)R_\theta(\theta)\neq 0$,\footnote{At isolated zeros of $R_\theta(\theta)$, the cross-term $-R_\theta(\theta)R_{\G}'(\theta)$ vanishes and the sign of $\Delta R_\theta'(\theta)$ is determined by $-R_{\G}(\theta)R_\theta'(\theta)$ directly. At isolated zeros of $R_{\G}(\theta)$, the constant-sign hypothesis forces $R_{\G}'(\theta)=0$ by differentiability, so the cross-term vanishes there as well. Monotonicity of $\Delta R_\theta(\theta)$ is preserved in both cases.}
-\[
-\left|\frac{R_{\G}'(\theta)}{R_{\G}(\theta)}\right| \le \left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
-\]
-Then $\Delta R_\theta(\theta)$ is monotone and
-\[
-\mathrm{sign}\!\left(\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)\right) = \mathrm{sign}\!\left(-R_{\G}(\theta)R_\theta'(\theta)\right)\cdot \mathrm{sign}\!\left(R_q'(\theta)\right).
-\]
-If the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone.
-\end{proposition}
-
-\begin{proof}
-The proof proceeds in three steps.
-
-\noindent\textit{Step 1: the elasticity condition implies that $\Delta R_\theta(\theta)$ is monotone.}
-Using the identity established above,
-\[
-\Delta R_\theta(\theta)=-R_\G(\theta)R_\theta(\theta),
-\]
-we differentiate to obtain
-\[
-\Delta R_\theta'(\theta)
-=
--R_\G(\theta)R_\theta'(\theta)-R_\theta(\theta)R_\G'(\theta).
-\]
-If the two terms on the right-hand side have the same sign, then $\Delta R_\theta'(\theta)$ has that sign directly. If they have opposite signs, then
-\[
-\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-=
-\operatorname{sign}\!\left(-R_\G(\theta)R_\theta'(\theta)\right)
-\]
-whenever
-\[
-|R_\G(\theta)R_\theta'(\theta)|
-\ge
-|R_\theta(\theta)R_\G'(\theta)|.
-\]
-Since $R_\G(\theta)$ and $R_\theta(\theta)$ are nonzero on the relevant domain, this condition is equivalent to
-\[
-\left|\frac{R_\G'(\theta)}{R_\G(\theta)}\right|
-\le
-\left|\frac{R_\theta'(\theta)}{R_\theta(\theta)}\right|.
-\]
-Hence, under the elasticity condition,
-\[
-\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-=
-\operatorname{sign}\!\left(-R_\G(\theta)R_\theta'(\theta)\right)
-\qquad\text{for all }\theta.
-\]
-Because $R_\G(\theta)$ has constant sign and $R_\theta(\theta)$ is monotone, the right-hand side has constant sign. Therefore $\Delta R_\theta(\theta)$ is globally monotone.
-
-
-\noindent\textit{Step 2: monotonicity of $\Delta R_\theta(\theta)$ determines the sign of the covariance.}
-By Step~1, $\Delta R_\theta(\theta)$ is monotone. Since $R_q(\theta)$ is also monotone by assumption, the standard monotone-covariance property implies
-\[
-\operatorname{sign}\!\left(
-\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\right)
-=
-\operatorname{sign}\!\left(\Delta R_\theta'(\theta)\right)
-\cdot
-\operatorname{sign}\!\left(R_q'(\theta)\right).
-\]
-Using the conclusion of Step~1 yields
-\[
-\operatorname{sign}\!\left(
-\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\right)
-=
-\operatorname{sign}\!\left(-R_\G(\theta)R_\theta'(\theta)\right)
-\cdot
-\operatorname{sign}\!\left(R_q'(\theta)\right).
-\]
-This gives the claimed sign result.
-
-
-\noindent\textit{Step 3: if the elasticity condition fails, no primitive sign result remains.}
-If the elasticity condition fails at some $\theta_0$, namely if
-\[
-\left|\frac{R_\G'(\theta_0)}{R_\G(\theta_0)}\right|
->
-\left|\frac{R_\theta'(\theta_0)}{R_\theta(\theta_0)}\right|,
-\]
-then the term $-R_\theta(\theta_0)R_\G'(\theta_0)$ dominates
-$-R_\G(\theta_0)R_\theta'(\theta_0)$ whenever the two terms have opposite signs. In that case, the sign of $\Delta R_\theta'(\theta_0)$ is no longer pinned down by the primitive sign of $-R_\G(\theta_0)R_\theta'(\theta_0)$. More generally, once the elasticity condition fails, monotonicity of $\Delta R_\theta(\theta)$ can no longer be inferred from primitives alone. Since the covariance sign in Step~2 relies on that monotonicity, no distribution-free sign result for
-\[
-\Cov_{i}\!\left(\Delta R_\theta(\theta),R_q(\theta)\right)
-\]
-is available in general.
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Marginal response of category allocations to aggregate capacity}
 
 \begin{lemma}[Marginal response of category allocations to aggregate capacity]\label{lem:dkidk}
-Fix an interior optimum \(\{k_i^\ast,I_i^\ast\}_{i\in N}\) and suppose that, on a neighborhood of the optimum, the set of active and contributing categories is unchanged. For each interior category \(i\), define
-\[
-\Omega_i
-:=
-\E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right].
-\]
-Then the marginal response of category \(i\) is
-\[
-\frac{dk_i^\ast}{dk}
-=
-\frac{
-\Omega_i^{-1}
-\left(
-\E_{(s,i)}^w[uJ\mid s]
--I'(k^\ast)
-\right)
-}{
-\sum_{j\in N } \mu_j\,\Omega_j^{-1}
-\left(
-\E_{(s,j)}^w[uJ\mid s] 
--I'(k^\ast)
-\right)
-}
-\mathcal{B}
--\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast).
-\]
-where
-\[\mathcal{B} =\left(
-1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N } \mu_j \Omega_j^{-1}
-\right)>0\]
-as $\tilde\lambda^\ast I''(k^\ast)>0$. In particular, since \(\Omega_i>0\), for a given marginal change in aggregate capacity, the sign of the category capacity change is fully determined by the sufficient statistic \eqref{Eujmd} 
-
+Fix an interior optimum $\{k_i^\ast,I_i^\ast\}_{i\in N}$ and suppose that, on a neighborhood of the optimum, the partition $N=N^+\cup N^0$ is unchanged. For each category $i\in N$, define \[ \Omega_i := \E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right]>0, \qquad \hat A_i := \E_{(s,i)}^w[uJ\mid s]\,\mathbf 1_{\{i\in N^+\}}. \] Then the marginal response of category $i$ is \[ \frac{dk_i^\ast}{dk} = \frac{\Omega_i^{-1}\!\left(\hat A_i-I'(k^\ast)\right)}{\displaystyle\sum_{j\in N^+}\mu_j\,\Omega_j^{-1}\,\E_{(s,j)}^w[uJ\mid s] \;-\; I'(k^\ast)\sum_{j\in N}\mu_j\,\Omega_j^{-1}}\,\mathcal B \;-\;\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast), \] where \[ \mathcal B := 1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\,\Omega_j^{-1}\;>\;0 \] since $\tilde\lambda^\ast I''(k^\ast)>0$. The formula takes two forms across the partition. For $i\in N^+$, the first-term numerator is $\Omega_i^{-1}\!\left(\E_{(s,i)}^w[uJ\mid s]-I'(k^\ast)\right)$. For $i\in N^0$, $\hat A_i=0$ and the numerator reduces to $-\Omega_i^{-1}I'(k^\ast)$.
 \end{lemma}
-
 \begin{proof}
-For each interior category \(i\), the first-order conditions of the outer problem are
+\textit{Contributing categories ($i\in N^+$).} Both outer first-order conditions hold with equality and $dI_i^\ast$ is free. Differentiating $V_{k_i}=\tilde\lambda^\ast I'(k^\ast)$ and $V_{I_i}=-\tilde\lambda^\ast$ with respect to $k$ and using the Hessian expressions from Lemma~\ref{lem:Vi-concave} gives
 \[
-V_{k_i}(k_i^\ast,I_i^\ast)=\tilde\lambda^\ast I'(k^\ast)
-\qquad\text{and}\qquad
-V_{I_i}(k_i^\ast,I_i^\ast)=-\tilde\lambda^\ast.
+dI_i^\ast = \E_{(s,i)}^w[uJ\mid s]\,dk_i^\ast + \E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,d\tilde\lambda^\ast.
 \]
-Differentiating with respect to aggregate capacity \(k\) yields
+Substituting into the differentiated capacity condition and using $-V_{k_ik_i}-(\E_{(s,i)}^w[uJ\mid s])^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\Omega_i$ yields
 \[
-V_{k_ik_i}(k_i^\ast,I_i^\ast)\,dk_i^\ast
-+
-V_{k_iI_i}(k_i^\ast,I_i^\ast)\,dI_i^\ast
-=
-I'(k^\ast)\,d\tilde\lambda^\ast
-+
-\tilde\lambda^\ast I''(k^\ast)\,dk,
-\]
-and
-\[
-V_{I_ik_i}(k_i^\ast,I_i^\ast)\,dk_i^\ast
-+
-V_{I_iI_i}(k_i^\ast,I_i^\ast)\,dI_i^\ast
-=
--d\tilde\lambda^\ast.
+\Omega_i\,dk_i^\ast = \left(\E_{(s,i)}^w[uJ\mid s]-I'(k^\ast)\right)d\tilde\lambda^\ast - \tilde\lambda^\ast I''(k^\ast)\,dk.
 \]
 
-Using the expressions established above,
+\textit{Non-contributing categories ($i\in N^0$).} Since $I_i^\ast=0$ identically on the neighborhood, $dI_i^\ast=0$. By Lemma~\ref{lem:Vi-concave}(ii), $\beta_i=0$ implies $V_{k_iI_i}=0$ and $V_{k_ik_i}=-\Omega_i$. Differentiating only the capacity condition gives
 \[
-V_{I_iI_i}(k_i^\ast,I_i^\ast)
-=
--\frac{1}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
-},
+\Omega_i\,dk_i^\ast = -I'(k^\ast)\,d\tilde\lambda^\ast - \tilde\lambda^\ast I''(k^\ast)\,dk.
 \]
-and
+This coincides with the contributing formula with $\E_{(s,i)}^w[uJ\mid s]$ replaced by $\hat A_i=0$, so both regimes are covered by
 \[
-V_{k_iI_i}(k_i^\ast,I_i^\ast)
-=
-V_{I_ik_i}(k_i^\ast,I_i^\ast)
-=
-\frac{
-\E_{(s,i)}^w[uJ\mid s]
-}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
-},
-\]
-the second differentiated first-order condition gives
-\[
-dI_i^\ast
-=
-\E_{(s,i)}^w[uJ\mid s]\,dk_i^\ast
-+
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,d\tilde\lambda^\ast.
-\]
-Substituting into the first differentiated first-order condition yields
-\[
-\left(
-V_{k_ik_i}(k_i^\ast,I_i^\ast)
-+
-\frac{
-\left(
-\E_{(s,i)}^w[uJ\mid s]
-\right)^2
-}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
-}
-\right) dk_i^\ast
-\]
-\[
-\qquad\qquad
-=
-\left(
-I'(k^\ast)
--
-\E_{(s,i)}^w[uJ\mid s]
-\right)d\tilde\lambda^\ast
-+
-\tilde\lambda^\ast I''(k^\ast)\,dk.
-\]
-Multiplying both sides by \(-1\),
-\[
-\left(
--
-V_{k_ik_i}(k_i^\ast,I_i^\ast)
--
-\frac{
-\left(
-\E_{(s,i)}^w[uJ\mid s]
-\right)^2
-}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
-}
-\right) dk_i^\ast
-\]
-\[
-\qquad\qquad
-=
-\left(
-\E_{(s,i)}^w[uJ\mid s]
--
-I'(k^\ast)
-\right)d\tilde\lambda^\ast
--
-\tilde\lambda^\ast I''(k^\ast)\,dk.
+\Omega_i\,dk_i^\ast = \left(\hat A_i - I'(k^\ast)\right)d\tilde\lambda^\ast - \tilde\lambda^\ast I''(k^\ast)\,dk.
 \]
 
-Now use the identity
+\textit{Solving for $d\tilde\lambda^\ast$.} Substituting into the aggregate feasibility condition $\sum_{j\in N}\mu_j\,dk_j^\ast=dk$ and rearranging,
 \[
-V_{k_ik_i}(k_i^\ast,I_i^\ast)
-=
--\E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right]
--\frac{
-\left(
-\E_{(s,i)}^w[uJ\mid s]
-\right)^2
-}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
-},
+d\tilde\lambda^\ast\left(\sum_{j\in N^+}\mu_j\Omega_j^{-1}\E_{(s,j)}^w[uJ\mid s] - I'(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}\right) = \mathcal B\,dk,
 \]
-which implies
-\[
--
-V_{k_ik_i}(k_i^\ast,I_i^\ast)
--
-\frac{
-\left(
-\E_{(s,i)}^w[uJ\mid s]
-\right)^2
-}{
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]
-}
-=
-\Omega_i,
-\]
-where
-\[
-\Omega_i
-:=
-\E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right].
-\]
-Therefore
-\[
-dk_i^\ast
-=
-\Omega_i^{-1}
-\left[
-\left(
-\E_{(s,i)}^w[uJ\mid s]
--I'(k^\ast)
-\right)d\tilde\lambda^\ast
--
-\tilde\lambda^\ast I''(k^\ast)\,dk
-\right].
-\]
-
-To determine \(d\tilde\lambda^\ast\), use the aggregate feasibility condition
-\[
-\sum_{j\in N}\mu_j\,dk_j^\ast = dk.
-\]
-Substituting the previous expression for each \(dk_j^\ast\) gives
-\[
-\sum_{j\in N}\mu_j\Omega_j^{-1}
-\left[
-\left(
-\E_{(s,j)}^w[uJ\mid s] 
--I'(k^\ast)
-\right)d\tilde\lambda^\ast
--
-\tilde\lambda^\ast I''(k^\ast)\,dk
-\right]
-=
-dk.
-\]
-Rearranging,
-\[
-d\tilde\lambda^\ast
-\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
-=
-\left(
-1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
-\right)dk,
-\]
-so
-\[
-\frac{d\tilde\lambda^\ast}{dk}
-=
-\frac{
-1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
-}{
-\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
-}.
-\]
-Substituting this expression back into the formula for \(dk_i^\ast\) yields
-\[
-\frac{dk_i^\ast}{dk}
-=
-\frac{
-\Omega_i^{-1}
-\left(
-\E_{(s,i)}^w[uJ\mid s]
--I'(k^\ast)
-\right)
-}{
-\sum_{j\in N}\mu_j\Omega_j^{-1}\left(\E_{(s,j)}^w[uJ\mid s] -I'(k^\ast)\right)
-}
-\left(
-1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}
-\right)
--\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast).
-\]
-
-Finally, since \(\Omega_i>0\), for a given marginal change in aggregate capacity, the cross-category ordering of the sign cutoff is governed by the sufficient statistic \eqref{Eujmd}. 
+where $\mathcal B=1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\Omega_j^{-1}>0$. Substituting back yields the formula in the lemma.
 \end{proof}
-
 
 \end{document}
