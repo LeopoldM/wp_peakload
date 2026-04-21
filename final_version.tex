@@ -916,7 +916,89 @@ To illustrate, take two categories \(i\) and \(j\), and assume \(R'_\theta(\thet
 \label{fig:general_surplus}
 \end{figure}
 
+
+\section{Application to Nonlinear Tariffs}
+
+The optimal allocation characterized in the paper equates the scarcity rent to each type's marginal utility weighted by its effective social weight. As a result, no tariff with a single variable price, such as spot pricing, can implement the optimum, even when combined with type-specific lump-sum transfers. A natural alternative is a nonlinear tariff, and in particular a block tariff, under which the designer offers a schedule of marginal prices that varies with the quantity consumed. This is the standard format in electricity, water, and other network industries precisely because consumption serves as a proxy for the consumer's type and for the redistributive priority.
+
+This section uses that tariff representation to give an economic reading of the mechanism derived above. I begin with the single-category case and study how the shape of the marginal price schedule depends on the distribution of redistributive preferences. I then compare the tariff menus across observable categories when tagging is allowed, and contrast the resulting individual surpluses with two benchmarks: a uniform spot price and a no-discrimination policy that pools all categories under a common tariff.\footnote{The no-discrimination policy is obtained by solving for the optimal allocation by aggregating all types in a single category.} Finally, I examine how a capacity expansion shifts the marginal price schedule across types and categories, and relate these menu changes to the redistributive incidence results established in the main text.
+
+Following the nonlinear tariff literature, the same allocation can be represented by a tariff with a fixed component, equal to the rebated baseline surplus \(\mathbb{E}\underline{CS}_i\), and a variable component obtained by integrating the marginal price over quantity. The marginal price at quantity \(q\) in state \(s\) is the willingness to pay of the type who chooses that quantity at the optimum. Evaluated along the optimal allocation \(q=q_i(\theta,s)\), this becomes
+\[
+p_i(q,s)
+:=
+\theta\,u\!\left(q_i(\theta,s),s\right)
+=
+\theta\,\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}.
+\]
+This expression is the basis of the discussion below. A block tariff is then obtained by discretizing this nonlinear schedule over a partition of the quantity space and assigning to each block the average marginal price over the corresponding interval. As the partition becomes finer, the block tariff converges to the underlying nonlinear tariff. 
+
+I begin with a single-category illustration. Fix a category \(i\) and an allocation \((k_i,I_i)\), and compare the shape of the implemented marginal price schedule under alternative redistributive preferences. Under a preference perturbation at fixed capacity,
+\[
+\frac{\Delta p_i(q,s)}{p_i(q,s)}
+=
+\mathbb E_i^{w}\!\left[R_{\mathcal G,i}\mid s\right]
+-
+R_{\mathcal G,i}(\theta)
+=
+-\frac{\Delta q_i(\theta,s)}{R_q(\theta)}.
+\]
+The change in the tariff therefore mirrors the preference-sorting margin from Section~\ref{sec:redist}. Consumers who receive more quantity under a preference perturbation face a lower marginal price relative to the spot benchmark, and consumers who receive less face a higher one. For categories that generate available surplus, i.e., $\beta_i=0$, and more generally for categories with a low revenue requirement, the optimal marginal price schedule is neither of the standard monotone IBT nor DBT forms. This stands in clear contrast with the policy view that favored consumers should simply face an IBT. In the present framework, the relevant categories are precisely those for which the optimal menu departs from the standard block tariff formats typically advocated on redistributive grounds. Case A shows that opposite preference directions produce schedules that cross the spot price in opposite directions, reflecting the sign reversal of $R_{\mathcal{G},i}(\theta) - \mathbb{E}^w_i[R_{\mathcal{G},i}|s]$ across types. Case B extends this to same-direction perturbations.\footnote{Figure~\ref{fig:ImplementationCRRA_lambda} in the Appendix reports the redistributive weight profiles used in the numerical illustration, each constructed as a mean-preserving perturbation of the utilitarian benchmark. Figure~\ref{fig:ImplementationCRRA_beta_sensitivity} in the Appendix shows that, for a fixed perturbation favoring lower types, the standard IBT pattern emerges only when the category faces a sufficiently high revenue requirement, and hence a high $\beta_i$.}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_decomp.png}
+    \caption{Optimal nonlinear and block-tariff marginal price schedules in the single-category illustration.}
+    \label{fig:ImplementationCRRA_decomp}
+\end{figure}
+
+The comparison across categories is illustrated in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll}. The figure considers five tagged categories with distinct average welfare weights: categories $1$ and $2$ (red) have the same higher average weight $\tilde\lambda_i=1.01$ and do not contribute to revenue, categories $4$ and $5$ (blue) have the same lower average weight $\tilde\lambda_i=0.99$ and are contributors, and category $3$ is the marginal category with $\tilde\lambda_3 = \tilde\lambda^\ast$. Figure~\ref{fig:ImpliementationCRRA_Across_weight_allcases} in the Appendix reports the redistributive weight profiles. As established in Corollary~\ref{cor:ordered-path}, average welfare weights are not sufficient to rank categories by capacity allocation, and the ordering of marginal price schedules inherits the same indeterminacy through the scarcity rent channel. In the configuration shown, categories with higher average weight place relatively more weight on lower types, so the sufficient condition of Corollary~\ref{cor:ordered-path} is not satisfied and the capacity ranking is no longer determined by average weights alone. These categories receive less capacity in the example, raising their scarcity rents and pushing their marginal prices above those of lower-weight categories.\footnote{The Appendix reports two complementary cases. When higher-weight categories instead place relatively more weight on higher types, the capacity and menu ordering align with Corollary~\ref{cor:ordered-path}. When the tilt toward lower types is sufficiently asymmetric and accompanied by a much larger average weight, some marginal prices of favored categories do fall below those of less favored ones.}
+
+The consumer-surplus comparison in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll} recovers the more intuitive welfare ranking. Although the variable prices of the favored categories may be locally above those of less favored categories, their overall surplus remains higher relative to both the spot benchmark and the no-tagging allocation. The reason is that welfare incidence depends on the entire menu rather than on the level of marginal prices alone. Importantly, pooling categories under a common tariff is Pareto-improving relative to the spot benchmark in all cases, whereas tagging reallocates surplus to categories with higher average welfare weights.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_Combo_Menu2_CSAll.png}
+\caption{Marginal price schedules by categories and the associated consumer-surplus differences relative to the spot benchmark, with comparison to the no-tagging allocation.}    \label{fig:ImplementationCRRA_Combo_Menu2_CSAll}
+\end{figure}
+
+
+
 \newpage
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_lambda.png}
+    \caption{Redistributive welfare-weight profiles used in the numerical illustrations.}
+    \label{fig:ImplementationCRRA_lambda}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_beta_sensitivity.png}
+    \caption{Marginal price schedules for different revenue requirements $I_i$ and associated values of $\beta_i$.}
+    \label{fig:ImplementationCRRA_beta_sensitivity}
+\end{figure}
+\newpage
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_Combo_Menu1_Menu3.png}
+    \caption{Marginal price schedules for the two other cases, with comparison to the common spot-price and no-tagging benchmarks.}
+    \label{fig:ImplementationCRRA_Combo_Menu1_Menu3}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImpliementationCRRA_Across_weight_allcases.png}
+\caption{Category-specific welfare-weight profiles used in the three across-category illustrations, together with the pooled profile under no tagging.}
+\label{fig:ImpliementationCRRA_Across_weight_allcases}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/ImpliementationCRRA_Across_alloc_allcases.png}
+\caption{Optimal category-level allocations of capacity, revenue requirements, and average welfare weights in the three across-category illustrations.}    \label{fig:ImpliementationCRRA_Across_alloc_allcases}
+\end{figure}
+
+
 
 
 \bibliographystyle{apalike}
@@ -944,6 +1026,7 @@ In this section, I show that in the two-type case, $\mathcal{G}_H > \mathcal{G}_
 At $\beta = 0$, each condition reduces to a simple primitive restriction:
 \[\mathcal{G}_H > \mathcal{G}_M \iff \lambda_H < 2(\lambda_L + \lambda_M), \qquad \mathcal{G}_M > \mathcal{G}_L \iff \lambda_M < 2(\lambda_L + \lambda_H).\]
 Either condition can fail depending on which welfare weight is disproportionately large relative to the other two.
+
 
 \subsection{The sign of \(\partial_k q_H\) with \(\beta>0\)}
 \label{app:three-negative-qH}
