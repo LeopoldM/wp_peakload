@@ -930,7 +930,7 @@ p_i(q,s)
 =
 \theta\,\frac{\varepsilon_i(s)}{\mathcal{G}_i(\theta)}.
 \]
-This expression is the basis of the discussion below. A block tariff is then obtained by discretizing this nonlinear schedule over a partition of the quantity space and assigning to each block the average marginal price over the corresponding interval. As the partition becomes finer, the block tariff converges to the underlying nonlinear tariff. Throughout the discussion, the results are derived under a CRRA utility specification, a uniform distribution of types, and exponentially tilted welfare weights. Specifically,
+This expression is the basis of the discussion. A block tariff is then obtained by discretizing this nonlinear schedule over a partition of the quantity space and assigning to each block the average marginal price over the corresponding interval. As the partition becomes finer, the block tariff converges to the underlying nonlinear tariff. Throughout the discussion, the results are derived under a CRRA utility specification, a uniform distribution of types, and exponentially tilted welfare weights. Specifically,
 \[
 U(q,s)=(1+s)\frac{q^{0.6}}{0.6}-q,
 \qquad
@@ -973,6 +973,18 @@ The consumer-surplus comparison in Figure~\ref{fig:ImplementationCRRA_Combo_Menu
 \caption{Marginal price schedules by categories and the associated consumer-surplus differences relative to the spot benchmark, with comparison to the no-tagging allocation.}    \label{fig:ImplementationCRRA_Combo_Menu2_CSAll}
 \end{figure}
 
+I finally turn to the effect of a global capacity expansion on the implemented nonlinear tariff. Unlike the previous comparison, redistributive preferences are now fixed, and the relevant object is the total derivative of the marginal price schedule along the equilibrium path. Using the single-category revenue-incidence formula, this can be written as
+\[
+\frac{\Delta p_i(q,s)}{p_i(q,s)}
+= dk \Bigg( 
+\underbrace{\Bigg.\frac{dk_i^\ast}{dk}\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\frac{dI_i^\ast}{dk}\cdot\frac{\mathbb{E}_i^w[R_\theta\mid s]-R_\theta(\theta)}
+{\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]}\Bigg.}_{\text{revenue ranking}} \Bigg).
+\]
+Thus, a global capacity expansion affects the nonlinear tariff through exactly the same margins that organize the allocation problem: the reallocation of capacity across categories and the induced reallocation of revenue requirements.
+
+Figures~\ref{fig:Across2Cat_Kseq_exact_prices_bycat_nativeQ_diff} and~\ref{fig:Across2Cat_Kseq_DeltaECS_bycat_theta_wrtK1} illustrate this decomposition in a two-category environment. In the non-contributing category, the marginal price schedule shifts downward over the whole range of consumption, and all types gain from the expansion. By contrast, in the contributing category, the financing adjustment is sufficiently strong to rotate the marginal price schedule: low-demand consumers face higher marginal prices, while high-demand consumers face lower marginal prices. The surplus comparison therefore recovers a clear incidence pattern: in the contributing category, lower types lose while higher types gain, whereas in the non-contributing category all types gain.
+
+Two implications follow. First, the effect of a global capacity expansion on marginal prices is not a uniform downward shift of all tariffs. Even though aggregate scarcity is relaxed, the equilibrium financing adjustment may raise marginal prices for some consumers, in particular at the bottom of contributing categories. Second, the marginal price schedule is informative about implementation but not sufficient on its own to identify welfare incidence. The welfare comparison must be read from the change in consumer surplus. In the present illustration, the price schedules explain how the expansion is implemented, while the surplus profiles identify who wins and who loses.
 
 
 \newpage
