@@ -339,7 +339,7 @@ A CARA specification allows to characterize clearly when the low type loses from
 \qquad \Longleftrightarrow \qquad
 \lambda_L > \lambda_L^\ast = \frac{\theta_L p_H \lambda_H}{p_H(\theta_H - \theta_L) - \theta_L p_L} = -\frac{\theta_L p_H \lambda_H}{p_LJ_L}.
 \]
-Raising $\lambda_L$ moves $\Gamma_L$, and the effect of $\Gamma_L$ on the available surplus goes in the same direction: both channels are scaled by the low type's net contribution $p_L J_L$. The two effects reinforce each other so the net effect of $\lambda_L$ on \ref{dkECS} is unambiguously negative. Note that a larger $\theta_L$ raises the cutoff, making it harder to obtain \ref{dkECS}$< 0$. Intuitively, raising $\theta_L$ has two effects: a positive direct effect, through the gain in surplus from serving the low type and the reduction in $\theta_H - \theta_L$, and a negative effect since $\Gamma_L$ rises with $\theta_L$. In the two-type case, the positive effect always dominates. Figure~\ref{fig:TwoTypesWithinECS} illustrates individual surplus for both types as a function of capacity $k$, under three values of the welfare weight $\lambda_L$: below, at, and above the cutoff $\lambda_L^\ast$.
+Raising $\lambda_L$ moves $\Gamma_L$, and the effect of $\Gamma_L$ on the available surplus goes in the same direction: both channels are scaled by the low type's net contribution $p_L J_L$. The two effects reinforce each other so the net effect of $\lambda_L$ on \ref{dkECS} is unambiguously negative. Note that a larger $\theta_L$ raises the cutoff, making it harder to obtain \ref{dkECS}$< 0$. Intuitively, raising $\theta_L$ has two effects: a positive direct effect, through the gain in surplus from serving the low type, and the reduction in $\theta_H - \theta_L$, and a negative effect since $\Gamma_L$ rises with $\theta_L$. In the two-type case, the positive effect always dominates. Figure~\ref{fig:TwoTypesWithinECS} illustrates individual surplus for both types as a function of capacity $k$, under three values of the welfare weight $\lambda_L$: below, at, and above the cutoff $\lambda_L^\ast$.
 
 \begin{figure}
     \centering
@@ -853,7 +853,7 @@ The proposition shows that redistributive preference perturbations affect optima
 
 I illustrate this result in Figure~\ref{fig:appendix_exampleoptimallevel} in the Appendix, where I simulate how the optimal investment level \(k^\ast\) responds to redistributive preference changes. I start from a benchmark with two utilitarian categories, \(i\) and \(i+1\). I then iteratively perturb preferences and recompute the optimal investment level for each successive pair of categories: in the first step, category \(i\) remains utilitarian while category \(i+1\) is a marginal perturbation of \(i\); in the next step, category \(i+1\) becomes the new baseline and category \(i+2\) is constructed as a perturbation of it; and so on. I consider two cases. In the first, redistributive preferences are increasingly tilted toward higher types; in the second, they are increasingly tilted toward lower types. In the numerical examples I consider, the sorting and average effects move in the same direction under monotone mean-preserving perturbations, producing a clear opposite shift in optimal investment.
 
-Finally, I connect a marginal increase in aggregate capacity \(k\) to its redistributive incidence across categories and types. While I do not provide a formal characterization here, the previous results already identify the two objects that govern this effect: the incidence on a single category of \(k_i\), and the response of equilibrium category capacities \(k_i^\ast\) to a change in aggregate capacity \(k\). This yields a simple condition that captures the main economic mechanism at work. Consider a neighborhood of an interior optimum in which the set of active and contributing categories remains unchanged. Then
+Finally, I connect a marginal increase in aggregate capacity \(k\) to its redistributive incidence across categories and types. While I do not provide a formal characterization here, the previous results already identify the two objects that govern this effect: the incidence on a single category of \(k_i\), and the response of equilibrium category capacities \(k_i^\ast\) to a change in aggregate capacity \(k\) This yields a simple condition that captures the main economic mechanism at work. Note that the response of the equilibrium revenue $I_i$ relies on the same mechanism. Consider a neighborhood of an interior optimum in which the set of active and contributing categories remains unchanged. Then
 \[
 \frac{d\,\E CS_i(\theta)}{dk}
 =
@@ -918,11 +918,11 @@ To illustrate, take two categories \(i\) and \(j\), and assume \(R'_\theta(\thet
 
 \section{Application to Nonlinear Tariffs}
 
-The optimal allocation characterized in the paper equates the scarcity rent to each type's marginal utility weighted by its effective social weight. As a result, no tariff with a single variable price, such as spot pricing, can implement the optimum, even when combined with type-specific lump-sum transfers. A natural alternative is a nonlinear tariff, and in particular a block tariff, under which the designer offers a schedule of marginal prices that varies with the quantity consumed. This is the standard format in electricity, water, and other network industries, as consumption serves as a proxy for the consumer's type and for the redistributive priority.
+The optimal allocation characterized above equates the scarcity rent to each type's marginal utility weighted by its effective social weight. As a result, a tariff with a single variable price, such as spot pricing, generally fails to implement the optimum, even when combined with type-specific lump-sum transfers. In network industries such as electricity and water, nonlinear tariffs, and in particular block tariffs, are often used for screening and redistributive purposes, but their optimal structure in a peak-load environment with redistributive preferences and incentive constraints remains unknown. This section uses the theoretical framework developed above to characterize the optimal nonlinear tariff and to provide an economic reading of the mechanism.
 
-This section uses that tariff representation to give an economic reading of the mechanism derived above. I begin with the single-category case and study how the shape of the marginal price schedule depends on the distribution of redistributive preferences. I then compare the tariff menus across observable categories when tagging is allowed, and contrast the resulting individual surpluses with two benchmarks: a uniform spot price and a no-discrimination policy that pools all categories under a common tariff.\footnote{The no-discrimination policy is obtained by solving for the optimal allocation by aggregating all types in a single category.} Finally, I examine how a capacity expansion shifts the marginal price schedule across types and categories, and relate these menu changes to the redistributive incidence results established in the main text.
+I begin with the single-category case and examine how the shape of the marginal price schedule depends on the distribution of redistributive preferences across types. I then compare the tariff menus across observable categories when tagging is allowed, and contrast the resulting individual surpluses with two benchmarks: a uniform spot price and a no-discrimination policy that pools all categories under a common tariff.\footnote{The no-discrimination policy is obtained by solving for the optimal allocation by aggregating all types in a single category.} Finally, I examine how a capacity expansion shifts the marginal price schedule across types and categories, and relate these menu changes to the redistributive incidence results established in the main text.
 
-Following the nonlinear price literature \citep{Spence1977,Maskin1984,spulber1992capacity}, the same allocation can be represented by a tariff with a fixed component, equal to the rebated baseline surplus \(\mathbb{E}\underline{CS}_i\), and a variable component obtained by integrating the marginal price over quantity. The marginal price at quantity \(q\) in state \(s\) is the willingness to pay of the type who chooses that quantity at the optimum. Evaluated along the optimal allocation \(q=q_i(\theta,s)\), this becomes
+Following the nonlinear price literature \citep{Spence1977,Maskin1984,spulber1992capacity}, the same allocation can be represented by a tariff with a fixed component, equal to the available surplus \(\mathbb{E}\underline{CS}_i\) (if it exists), and a variable component obtained by integrating the marginal price over quantity. The marginal price at quantity \(q\) in state \(s\) is the willingness to pay of the type who chooses that quantity at the optimum. Evaluated along the optimal allocation \(q=q_i(\theta,s)\), this becomes
 \[
 p_i(q,s)
 :=
@@ -940,13 +940,15 @@ U(q,s)=(1+s)\frac{q^{0.6}}{0.6}-q,
 \frac{\exp\left(a_i(\theta-1)\right)}
 {\int_{0.5}^{1.5}\exp\left(a_i(t-1)\right)g_i(t)\,dt }.
 \]
+Where $a_i$ is the slope of the welfare weights. If it is positive, the designer favors higher types; if it is negative, the designer favors lower types. With this type distribution, all types below  0.75 have a negative virtual surplus $J_i(\theta)$. 
+
 I begin with the single-category case. Fix a category \(i\) and an allocation \((k_i,I_i)\), and compare the shape of the implemented marginal price schedule under alternative redistributive preferences. A preference perturbation at fixed capacity yields 
-\[
+\[\label{Deltapi1}\tag{$\Delta_1 p_i$}
 \frac{\Delta p_i(q,s)}{p_i(q,s)}=\mathbb E_i^{w}\!\left[R_{\mathcal G,i}\mid s\right]-R_{\mathcal G,i}(\theta)=-\frac{\Delta q_i(\theta,s)}{R_q(\theta)}.
 \] 
-The change in the tariff therefore mirrors the preference-sorting margin from Section~\ref{sec:redist}. Consumers who receive more quantity under a preference perturbation face a lower marginal price, and consumers who receive less face a higher one. Therefore, following Lemma~\ref{lem:realloc} and Appendix Proposition~\ref{prop:rprefreallocation}, for categories that generate available surplus, i.e., $\beta_i=0$, and more generally for categories with a low revenue requirement, the shape of the optimal marginal price schedule can vary widely across types. A direct policy implication is that for those categories the optimal marginal price schedule is neither of the standard monotone IBT nor DBT forms. This stands in clear contrast with the policy view that favored consumers should simply face an IBT \citep{Borenstein2012}, since the categories for which redistribution is most salient are precisely those whose optimal menu departs most from standard block tariff formats
+The change in the tariff therefore mirrors the preference-sorting margin from Section~\ref{sec:redist}. Therefore, following Lemma~\ref{lem:realloc} and Appendix Proposition~\ref{prop:rprefreallocation}, for categories that generate available surplus, i.e., $\beta_i=0$, and more generally for categories with a low revenue requirement, the optimal marginal price schedule is always non-monotone across types.A direct policy implication is that, for those categories, the optimal marginal price schedule is neither the standard monotone IBT nor the DBT form. This stands in clear contrast with the policy view that favored consumers should face an IBT \citep{Borenstein2012}, since the categories for which redistribution is most salient are precisely those whose optimal menu departs most from standard block tariff formats
 
-Figure~\ref{fig:ImplementationCRRA_decomp} represents the optimal marginal price for the nonlinear tariff and the price of the corresponding block tariff. Case A shows that opposite preference directions produce schedules that cross the spot price in opposite directions, reflecting the sign reversal of $R_{\mathcal{G},i}(\theta) - \mathbb{E}^w_i[R_{\mathcal{G},i}|s]$ across types. Similarly, the ambiguity in the sign extends to Case B between two categories with a same direction of perturbations.\footnote{Figure~\ref{fig:ImplementationCRRA_lambda} in the Appendix reports the redistributive weight profiles used in the numerical illustration, each constructed as a mean-preserving perturbation of the utilitarian benchmark. Figure~\ref{fig:ImplementationCRRA_beta_sensitivity} in the Appendix shows that, for a fixed perturbation favoring lower types, the standard IBT pattern emerges only when the category faces a sufficiently high revenue requirement, and hence a high $\beta_i$.}
+Figure~\ref{fig:ImplementationCRRA_decomp} represents the optimal marginal price for the nonlinear tariff and the price of the corresponding block tariff.\footnote{Figure~\ref{fig:ImplementationCRRA_lambda} in the Appendix reports the redistributive weight profiles used in the numerical illustration, each constructed as a mean-preserving perturbation of the utilitarian benchmark. Figure~\ref{fig:ImplementationCRRA_beta_sensitivity} in the Appendix shows that, for a fixed perturbation favoring lower types, the standard IBT pattern emerges only when the category faces a sufficiently high revenue requirement, and hence a high $\beta_i$.} Case A shows that opposite preference directions produce schedules that cross the spot price in opposite directions, reflecting the sign reversal of $R_{\mathcal{G},i}(\theta) - \mathbb{E}^w_i[R_{\mathcal{G},i}|s]$ across types. Similarly, the ambiguity in the sign extends to Case B between two categories with a same direction of perturbations.
 
 \begin{figure}
     \centering
@@ -956,78 +958,53 @@ Figure~\ref{fig:ImplementationCRRA_decomp} represents the optimal marginal price
 \end{figure}
 
 I now turn to a local comparison of marginal price schedules across categories. Consider two nearby categories, \(i\) and \(j\), that differ in their redistributive weights, capacity allocations, and revenue requirements, as induced by the optimal allocation of aggregate capacity \(k\) and aggregate revenue \(I\). A first-order comparison of the implemented marginal prices can be written as 
-\[
+\[\label{Deltapi2}\tag{$\Delta_2 p_i$}
 \frac{\Delta p_i(q,s)}{p_i(q,s)}\quad=\quad\underbrace{\Bigg.\mathbb{E}_i^w[R_{\mathcal{G}}\mid s] - R_{\mathcal{G}}(\theta)\Bigg.}_{\text{preference sorting}}\quad-\quad\underbrace{\Bigg.\Delta k\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\Delta I\cdot\Bigg.\frac{\mathbb{E}_i^w[R_\theta\mid s] - R_\theta(\theta)}{\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]}\Bigg.}_{\text{revenue ranking}}
 \]
-The first term is the single-category expression that captures preference comparison. The second term captures the capacity ranking effect. The sign of $\Delta k$ is given by Theorem~\ref{thm:cat-order}, while the sign of the derivative follows Theorem~\ref{thm:surplus} and is expressed in \ref{partialkq1}. The third term is the intensive margin of revenue ranking from Proposition~\ref{prop:revenueordering}, and also depends on the monotonicity direction of $R_\theta(\theta)$. 
+The first term is the single-category expression that captures preference comparison from \ref{Deltapi1}. The second term captures the capacity ranking effect. The sign of $\Delta k$ is given by Theorem~\ref{thm:cat-order}, while the sign of the derivative follows Theorem~\ref{thm:surplus} and is expressed in \ref{partialkq1}. The third term is the intensive margin of revenue ranking from Proposition~\ref{prop:revenueordering}, and also depends on the monotonicity direction of $R_\theta(\theta)$. 
 
-I illustrate this decomposition through a configuration of different categories in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll}. I considers five tagged categories with distinct average welfare weights: categories \(1\) and \(2\) (red) have the same higher average weight \(\tilde\lambda_i=1.01\) and do not contribute to revenue; categories \(4\) and \(5\) (blue) have the same lower average weight \(\tilde\lambda_i=0.99\) and are contributors; and category \(3\) is the marginal category with \(\tilde\lambda_3=\tilde\lambda^\ast\). The Appendix collects the supporting numerical detail, Figure~\ref{fig:ImpliementationCRRA_Across_weight_allcases} reports the redistributive weight profiles, Figure~\ref{fig:ImpliementationCRRA_Across_alloc_allcases} the capacity and revenue ordering underlying the marginal price ranking, and Figure~\ref{fig:ImplementationCRRA_Across_Decomposition_Overlay_1255} the three-channel decomposition of $\frac{\Delta p_i(q,s)}{p_i(q,s)}$. As established in Corollary~\ref{cor:ordered-path}, average welfare weights are not sufficient to rank categories by capacity allocation, and the ordering of marginal price schedules inherits the same indeterminacy through the scarcity rent channel. In the configuration shown, categories with higher average weight place relatively more weight on lower types, so the sufficient condition of Corollary~\ref{cor:ordered-path} is not satisfied and the capacity ranking is no longer determined by average weights alone. These categories receive less capacity in the example, raising their scarcity rents and pushing their marginal prices above those of lower-weight categories.\footnote{The Appendix reports two complementary cases. When higher-weight categories instead place relatively more weight on higher types, the capacity and menu ordering align with Corollary~\ref{cor:ordered-path}. When the tilt toward lower types is sufficiently asymmetric and accompanied by a much larger average weight, some marginal prices of favored categories do fall below those of less favored ones.}
+I illustrate this decomposition through a configuration of different categories in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll}. I considers five tagged categories with distinct average welfare weights: categories \(1\) and \(2\) (red) have the same higher average weight \(\tilde\lambda_i=1.01\) and do not contribute to revenue; categories \(4\) and \(5\) (blue) have the same lower average weight \(\tilde\lambda_i=0.99\) and are contributors; and category \(3\) is the marginal category with \(\tilde\lambda_3=\tilde\lambda^\ast = 1\). The Appendix collects the supporting numerical detail, Figure~\ref{fig:ImpliementationCRRA_Across_weight_allcases} reports the redistributive weight profiles, Figure~\ref{fig:ImpliementationCRRA_Across_alloc_allcases} the capacity and revenue ordering underlying the marginal price ranking, and Figure~\ref{fig:ImplementationCRRA_Across_Decomposition_Overlay_1255} the three-channel decomposition of $\frac{\Delta p_i(q,s)}{p_i(q,s)}$. As established in Corollary~\ref{cor:ordered-path}, average welfare weights are not sufficient to rank categories by capacity allocation, and the ordering of marginal price schedules inherits the same indeterminacy through the scarcity rent channel. In the configuration shown, categories with higher average welfare weights place relatively more weight on lower types, so the sufficient condition of Corollary~\ref{cor:ordered-path} is not satisfied and the capacity ranking is no longer determined by average weights alone. As a result, despite having higher average welfare weights, these categories receive less capacity in the example. Their scarcity rents are therefore higher, which pushes their marginal prices above those of categories with lower average welfare weights.\footnote{The Appendix reports two complementary cases. When higher-weight categories instead place relatively more weight on higher types, the capacity and menu ordering align with Corollary~\ref{cor:ordered-path}. When the tilt toward lower types is sufficiently asymmetric and accompanied by a much larger average weight, some marginal prices of favored categories do fall below those of less favored ones.}
 
-
-The consumer-surplus comparison in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll} recovers the more intuitive welfare ranking. Although the variable prices of the favored categories may be locally above those of less favored categories, their overall surplus remains higher relative to both the spot benchmark and the no-tagging allocation. Two policy messages follow. First, pooling categories under a common tariff is Pareto-improving relative to the spot benchmark in all three configurations considered here, so nonlinear pricing without tagging already delivers welfare gains over uniform spot pricing. Second, tagging goes further by reallocating surplus toward categories with higher average welfare weights, at the cost of raising the variable prices those categories face.
-
+The consumer surplus comparison in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll} clarifies who gains and who loses from the transition from spot pricing to nonlinear tariffs, with and without tagging. In all three configurations, the no-tagging allocation strictly improves upon the spot benchmark for every category, so replacing uniform spot pricing with a common nonlinear tariff is Pareto-improving across categories. By contrast, the move from spot pricing to tagged nonlinear tariffs is not Pareto-improving for every category. Tagging allows the planner to differentiate menus across observable categories and thereby to reallocate surplus across groups. In the three configurations considered here, the categories that lose relative to the spot benchmark are precisely the contributing categories, that is, those with lower average welfare weights. Conversely, the favored categories achieve a higher overall surplus, even though their variable prices may exceed those of less favored categories.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_Combo_Menu2_CSAll.png}
+        \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_Combo_Menu2_CSAll.png}
 \caption{Marginal price schedules by categories and the associated consumer-surplus differences relative to the spot benchmark, with comparison to the no-tagging allocation.}    \label{fig:ImplementationCRRA_Combo_Menu2_CSAll}
 \end{figure}
 
-I finally turn to the effect of a global capacity expansion on the implemented nonlinear tariff. Unlike the previous comparison, redistributive preferences are now fixed, and the relevant object is the total derivative of the marginal price schedule along the equilibrium path. Using the single-category revenue-incidence formula, this can be written as
+I finally turn to the effect of a global capacity expansion on the implemented nonlinear tariff. I study how the marginal price schedule evolves with total capacity within each category, and compare these tariff adjustments across categories along the equilibrium path. Similar to the previous expressions, the proportional change in the marginal price can be written as
 \[
+\label{Deltapi3}\tag{$\Delta_3 p_i$}
 \frac{\Delta p_i(q,s)}{p_i(q,s)}
-= dk \Bigg( 
-\underbrace{\Bigg.\frac{dk_i^\ast}{dk}\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\frac{dI_i^\ast}{dk}\cdot\frac{\mathbb{E}_i^w[R_\theta\mid s]-R_\theta(\theta)}
-{\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]}\Bigg.}_{\text{revenue ranking}} \Bigg).
+=
+dk \left(
+\underbrace{\frac{dk_i^\ast}{dk}\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}}_{\text{capacity ranking}}
+\;+\;
+\underbrace{\frac{dI_i^\ast}{dk}\cdot\frac{\mathbb{E}_i^w[R_\theta\mid s]-R_\theta(\theta)}
+{\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]}}_{\text{revenue ranking}}
+\right).
 \]
-Thus, a global capacity expansion affects the nonlinear tariff through exactly the same margins that organize the allocation problem: the reallocation of capacity across categories and the induced reallocation of revenue requirements.
+Thus, a global capacity expansion affects the nonlinear tariff through the same margins that govern the allocation problem in \ref{Deltapi2}: the reallocation of capacity across categories and the induced reallocation of revenue requirements. The implication of \ref{Deltapi3} for a non-contributing category, for which \(\frac{dI_i^\ast}{dk}=0\), is immediate. As shown in the proof of Theorem~\ref{thm:surplus}, the optimal allocation \(q_i(\theta,s)\) is always increasing in \(k_i\). Therefore, the sign of \ref{Deltapi3} depends only on \(\frac{dk_i^\ast}{dk}\), which is characterized in Appendix Lemma~\ref{lem:dkidk}; its sign depends on the comparison between the marginal investment cost and the capacity-sorting margin in \ref{Eujmd}. By contrast, in a contributing category, the effect of a capacity expansion may be ambiguous due to the additional revenue effect.
 
-Figures~\ref{fig:Across2Cat_Kseq_exact_prices_bycat_nativeQ_diff} and~\ref{fig:Across2Cat_Kseq_DeltaECS_bycat_theta_wrtK1} illustrate this decomposition in a two-category environment. In the non-contributing category, the marginal price schedule shifts downward over the whole range of consumption, and all types gain from the expansion. By contrast, in the contributing category, the financing adjustment is sufficiently strong to rotate the marginal price schedule: low-demand consumers face higher marginal prices, while high-demand consumers face lower marginal prices. The surplus comparison therefore recovers a clear incidence pattern: in the contributing category, lower types lose while higher types gain, whereas in the non-contributing category all types gain.
+Figure~\ref{fig:Across2Cat_Kseq_exact_prices_bycat_nativeQ_diff} illustrates these two observations in a two-category environment. Category~1 has a lower average welfare weight and is therefore the contributing category, but it favors low types \(\left(\tilde\lambda_1=0.9,\ a_1=1.6\right)\). Category~2 has a higher average welfare weight and is therefore the non-contributing category, but it favors high types \(\left(\tilde\lambda_2=1.1,\ a_2=1.6\right)\). The qualitative pattern is driven by the ranking of average welfare weights. Note that swapping the direction of the preference tilt between the two categories, while holding average welfare weights fixed, produces the mirror image of the same pattern. The illustration assumes that \(k_i^\ast\) increases in both categories, that is, that the marginal gain in surplus in \ref{Eujmd} exceeds the marginal investment cost. As expected, the marginal price is strictly decreasing for all types in the non-contributing category. For the contributing category, however, the change in the marginal price is not monotone in sign. In particular, lower types, despite being favored by the welfare weights, may face higher marginal prices after a capacity expansion. Appendix Figure~\ref{fig:Across2Cat_Kseq_Decomposition_wrtK1} decomposes \ref{Deltapi3} into its two components and shows that this increase in marginal prices is driven by the capacity effect. In particular, as discussed after Theorem~\ref{thm:surplus}, the quantity allocated to lower types decreases because their contribution to surplus creation is negative; the formal expression is given in \ref{partialkq1}.
 
-Two implications follow. First, the effect of a global capacity expansion on marginal prices is not a uniform downward shift of all tariffs. Even though aggregate scarcity is relaxed, the equilibrium financing adjustment may raise marginal prices for some consumers, in particular at the bottom of contributing categories. Second, the marginal price schedule is informative about implementation but not sufficient on its own to identify welfare incidence. The welfare comparison must be read from the change in consumer surplus. In the present illustration, the price schedules explain how the expansion is implemented, while the surplus profiles identify who wins and who loses.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/Across2Cat_Kseq_block_prices_bycat_nativeQ_diff.png}
+\caption{Difference in marginal price schedules by categories due to a capacity expansion.}    \label{fig:Across2Cat_Kseq_block_prices_bycat_nativeQ_diff}
+\end{figure}
+The incidence on individual surplus mirrors these price changes. Following Theorem~\ref{thm:surplus}, a capacity expansion increases surplus for all types in the non-contributing category. In the contributing category, by contrast, there exists a cutoff type such that lower types lose from the expansion whereas higher types gain, despite the fact that welfare weights favor low types.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figure/Across2Cat_Kseq_DeltaECS_bycat_theta_wrtK1.png}
+\caption{Difference in individual surplus by categories due to a capacity expansion.}        \label{fig:Across2Cat_Kseq_DeltaECS_bycat_theta_wrtK1}
+\end{figure}
+
+
 
 
 \newpage
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_lambda.png}
-    \caption{Redistributive welfare-weight profiles used in the numerical illustrations.}
-    \label{fig:ImplementationCRRA_lambda}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_beta_sensitivity.png}
-    \caption{Marginal price schedules for different revenue requirements $I_i$ and associated values of $\beta_i$.}
-    \label{fig:ImplementationCRRA_beta_sensitivity}
-\end{figure}
-\newpage
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_Combo_Menu1_Menu3.png}
-    \caption{Marginal price schedules for the two other cases, with comparison to the common spot-price and no-tagging benchmarks.}
-    \label{fig:ImplementationCRRA_Combo_Menu1_Menu3}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/ImpliementationCRRA_Across_weight_allcases.png}
-\caption{Category-specific welfare-weight profiles used in the three across-category illustrations, together with the pooled profile under no tagging.}
-\label{fig:ImpliementationCRRA_Across_weight_allcases}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/ImpliementationCRRA_Across_alloc_allcases.png}
-\caption{Optimal category-level allocations of capacity, revenue requirements, and average welfare weights in the three across-category illustrations.}    \label{fig:ImpliementationCRRA_Across_alloc_allcases}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/ImplementationCRRA_Across_Decomposition_Overlay_1255.png}
-\caption{Decomposition of the relative marginal price difference across types, for two pairs of adjacent categories. Each curve plots one of the three channels in the decomposition — preference sorting, capacity ranking, and revenue ranking — together with their sum.}    \label{fig:ImplementationCRRA_Across_Decomposition_Overlay_1255}
-\end{figure}
-
 
 
 \bibliographystyle{apalike}
@@ -1097,7 +1074,7 @@ I=0.5
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figure/ThreeTypesWithin_quantity.png}
-    \caption{Optimal quantity $q_i(k)$ as a function of capacity $k$ for three types under the IR-constrained allocatio.}
+    \caption{Optimal quantity $q_i(k)$ as a function of capacity $k$ for three types under the IR-constrained allocation.}
     \label{fig:ThreeTypesWithin_quantity}
 \end{figure}
 
@@ -1360,62 +1337,127 @@ The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends
 
 \section{Additional Figure}
 
-\begin{figure}[H]
+ % The illustration is based on a quadratic utility function \(U(q,s)=(1+s)q-\tfrac{1}{4}q^2\), with \(J_i(\theta)\) derived from a uniform distribution of types, which implies an increasing \(R_\theta(\theta)\), and with budget requirement \(I_i=0.45\). . When this surplus becomes negative, the allocation switches to the IR-constrained regime
+ % The utility function is \(U(q,s)=a(1+s)\,\frac{q^{\,1-\sigma}}{1-\sigma}\), with \(\sigma=0.6\) and \(a=0.0095\), and types are uniformly distributed on \([1,2]\).  for a given state realization (\(s=0.14\)) and a given capacity level (\(k_i=0.9\)), 
+  % The distribution used to compute \(J_i(\theta)\) is uniform on \([1,2]\).
+  % The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).
+   % The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).
+
+
+\noindent \textbf{Figure~\ref{fig:appendix_redistribution_marg_k_uniform}}.
+\(U(q,s)=(1+s)q-\frac{1}{4}q^2\), with \(s\sim\mathcal U[0,2]\), \(\theta\sim\mathcal U[0.10,1.00]\), weights \(\lambda_i(\theta)=1+\frac{\theta-0.55}{0.90}\), and budget requirement \(I_i=0.45\). Under the uniform type distribution, \(R_\theta(\theta)\) is increasing.
+
+\noindent\textbf{Figure~\ref{fig:appendix_withinperturbation}}.
+\(U(q,s)=a(1+s)\frac{q^{1-\sigma}}{1-\sigma}\) with \(\sigma=0.6\) and \(a=0.0095\), with \(s\sim\mathcal U[0,1]\) and \(\theta\sim\mathcal U[1,2]\). The benchmark is \(\lambda_i(\theta)=1\), and the weights are \(\lambda_i^{A}(\theta)=\frac{\exp\!\left(1.4(\theta-1.5)\right)}{\int_{1}^{2}\exp\!\left(1.4(t-1.5)\right)dt}\) and \(\lambda_i^{B}(\theta)=\frac{\exp\!\left(-1.4(\theta-1.5)\right)}{\int_{1}^{2}\exp\!\left(-1.4(t-1.5)\right)dt}\). The allocation comparison is reported for \(k_i=0.90\), \(s=0.14\), and \(I_i=0\).
+
+\noindent\textbf{Figure~\ref{fig:appendix_two_scenarios_six_panels}}.
+\(\theta\sim\mathcal U[1,2]\), with utilitarian benchmark \(\lambda(\theta)=1\) and baseline effective social weight \(\Gamma_0(\theta)=2\theta-1\). Welfare-weight perturbations take the form \(\lambda(\theta)=1+\Delta(\theta)\), with \(\Delta(\theta)=c+a\log\!\left(1+2(\theta-1)\right)\). The four cases are \(A1:(c,a)=(0.6765,-0.9546)\), \(A2:(c,a)=(0.1526,-0.2150)\), \(B1:(c,a)=(0.6765,-0.9546)\), and \(B2:(c,a)=(-0.4875,0.6880)\). The figure reports the implied level effect \(\Delta\Gamma(\theta)\) and proportional effect \(R_{\Gamma}(\theta)=\Delta\Gamma(\theta)/\Gamma(\theta)\).
+
+\noindent\textbf{Figure~\ref{fig:appendix_N_categories_six_panels}}.
+\(U(q,s)=\frac{1+s}{5}\left(1-e^{-5q}\right)\), with \(s\sim\mathcal U[0,1]\) and \(\theta\sim\mathcal U[0.3,2]\). There are \(N=50\) categories and aggregate capacity is fixed at \(k=30.00\). The initial welfare weight is \(\lambda_1(\theta)=\exp\!\left(-0.60\left(\frac{\theta-0.3}{1.7}-\frac{1}{2}\right)\right)\). In both cases, the sequence \(\left\{\lambda_i(\theta)\right\}_{i=1}^{50}\) is defined recursively by \(\lambda_{i+1}(\theta)=\lambda_i(\theta)m_i(\theta)\), with \(m_i(\theta)=\exp\!\left(c_i+a_i\left(\frac{\theta-0.3}{1.7}-\frac{1}{2}\right)\right)\), where \(c_i\) is chosen so that \(\tilde\lambda_{i+1}=\tilde\lambda_i+0.06\). Case A uses \(a_i\in[0.01,0.12]\), Case B uses \(a_i\in[-0.12,-0.01]\), and \(I_i=0\).
+
+\noindent\textbf{Figure~\ref{fig:appendix_OptimalFBSB}}.
+\(U(q,s)=\frac{1+s}{5}\left(1-e^{-5q}\right)\), with \(s\sim\mathcal U[0,1]\), \(\theta\sim\mathcal U[0.2,2.0]\), and \(N=2\). Aggregate capacity is evaluated over \(k\in[0.50,1.13]\), with investment cost \(I(k)=0.15\,k^2\). In the redistributive case, the initial welfare weight is \(\lambda_1(\theta)=\exp\!\left(-0.10\left(\frac{\theta-0.2}{1.8}-\frac{1}{2}\right)\right)\), while \(\lambda_2(\theta)\propto \lambda_1(\theta)\exp\!\left(0.02\left(\frac{\theta-0.2}{1.8}-\frac{1}{2}\right)\right)\), normalized so that \(\tilde\lambda_2=\tilde\lambda_1+0.06\). In the utilitarian benchmark, \(\lambda_1(\theta)=\lambda_2(\theta)=1\).
+
+\noindent\textbf{Figure~\ref{fig:appendix_exampleoptimallevel}}.
+\(U(q,s)=\frac{1+s}{5}\left(1-e^{-5q}\right)\), with \(s\sim\mathcal U[0,1]\), \(\theta\sim\mathcal U[0.3,2.0]\), and \(N=25\). For each successive pair \((i,i+1)\), aggregate capacity is chosen over \(k\in[0.50,1.50]\), with investment cost \(I(k)=0.15\,k\). The initial welfare weight is \(\lambda_1(\theta)=1\), and the sequence \(\left\{\lambda_i(\theta)\right\}_{i=1}^{25}\) is defined recursively by \(\lambda_{i+1}(\theta)=\lambda_i(\theta)m_i(\theta)\), where \(m_i(\theta)=\exp\!\left(c_i+a_i\left(\frac{\theta-0.3}{1.7}-\frac{1}{2}\right)\right)\) and \(c_i\) is chosen so that \(\tilde\lambda_i=1\) for all categories. Case A uses \(a_i=0.005+0.015\,t_i^2\), while Case B uses \(a_i=-0.005-0.015\,t_i^2\), with \(t_i\) evenly spaced on \([0,1]\).
+  
+\begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{figure/redistribution_marg_k_uniform.png}
-\caption{Illustration of the individual surplus effect of a capacity expansion. The left panel shows the IR-unconstrained surplus available to the designer for redistribution as a function of the category's allocated capacity. When this surplus becomes negative, the allocation switches to the IR-constrained regime. The right panel shows individual surplus across types under the optimal allocation, for different levels of capacity. The illustration is based on a quadratic utility function \(U(q,s)=(1+s)q-\tfrac{1}{4}q^2\), with \(J_i(\theta)\) derived from a uniform distribution of types, which implies an increasing \(R_\theta(\theta)\), and with budget requirement \(I_i=0.45\).}
+\includegraphics[width=0.90\linewidth]{figure/redistribution_marg_k_uniform.png}
+\caption{Individual surplus incidence of a capacity expansion. Left panel: surplus available to the designer for redistribution as a function of the category's allocated capacity. Right panel: individual surplus across types under the optimal allocation, for different levels of capacity.}
 \label{fig:appendix_redistribution_marg_k_uniform}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figure/appendix_withinperturbation.png}
-    \caption{Comparison of two redistributive preference perturbations relative to the utilitarian benchmark \(\lambda_i(\theta)=1\), in terms of optimal allocation and individual surplus. The first panel shows two welfare weight perturbations that are mean-preserving relative to the benchmark. Case A places higher weights on higher types, while Case B places higher weights on lower types. The second panel shows the proportional change in effective social weights. The third panel shows, for a given state realization (\(s=0.14\)) and a given capacity level (\(k_i=0.9\)), the difference in the optimal allocation for each type relative to the benchmark. The last panel reports the corresponding difference in expected individual surplus. The utility function is \(U(q,s)=a(1+s)\,\frac{q^{\,1-\sigma}}{1-\sigma}\), with \(\sigma=0.6\) and \(a=0.0095\), and types are uniformly distributed on \([1,2]\).}
+    \includegraphics[width=0.90\linewidth]{figure/appendix_withinperturbation.png}
+    \caption{Allocation and surplus incidence of redistributive preference perturbations relative to the utilitarian benchmark. First panel: welfare weights. Second panel: proportional change in effective social weights. Third panel: difference in the optimal allocation for each type relative to the benchmark. Fourth panel: difference in expected individual surplus.}
     \label{fig:appendix_withinperturbation}
 \end{figure}
 
-
-
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{figure/appendix_two_scenarios_six_panels.png}
-\caption{Illustration of two perturbations of welfare weights \(\lambda_i(\theta)\) relative to the utilitarian benchmark \(\lambda_i(\theta)=1\). The first column displays the welfare weights. The second column shows the resulting absolute difference in effective social weights, \(\Delta \G_i(\theta)\), aggregated at the category level. The third column shows the resulting proportional difference in effective social weights, \(R_{\G,i}(\theta)\), aggregated at the category level. The distribution used to compute \(J_i(\theta)\) is uniform on \([1,2]\).}
+\includegraphics[width=0.90\linewidth]{figure/appendix_two_scenarios_six_panels.png}
+\caption{Incidence of welfare weights perturbations relative to the utilitarian benchmark in terms of absolute and relative social weights. First column: welfare weights. Second column: absolute difference in effective social weights aggregated at the category level. Third column: proportional difference in effective social weights aggregated at the category level.}
 \label{fig:appendix_two_scenarios_six_panels}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{figure/appendix_N_categories_six_panels.png}
-\caption{Optimal allocation of aggregate capacity \((k=30)\) across 50 categories. I consider two cases in which categories are ordered along a common path. In case A, moving from category \(i\) to category \(i+1\) raises both the average social weight \(\tilde\lambda_i\) (first panel) and the relative weight placed on higher types, so that \(m_i(\overline\theta)>m_i(\underline\theta)\) (third panel). In case B, moving from category \(i\) to category \(i+1\) raises the average social weight \(\tilde\lambda_i\) but shifts relative weight toward lower types, so that \(m_i(\overline\theta)<m_i(\underline\theta)\). For comparability, the path of average social weights is the same in the two cases. Examples of the corresponding welfare weights are reported in Figure~\ref{fig:appendix_exampleperturbation1}. The second panel reports the successive values of the sufficient statistic \(\E_i[R_{\G}(\theta)]\) that governs Theorem~\ref{thm:cat-order}, computed for each adjacent pair of categories. The fourth panel shows the resulting equilibrium allocation \(k_i^\ast\). The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).}
+\includegraphics[width=0.9\linewidth]{figure/appendix_N_categories_six_panels.png}
+\caption{Optimal allocation of aggregate capacity \((k=30)\) across 50 categories. First panel: average social weights. Second panel: proportional difference in effective social weights aggregated at the category level. Third panel: indicator of which types are preferred (positive: higher types, negative: lower types). Fourth panel: Equilibrium capacity allocated to each category.}
 \label{fig:appendix_N_categories_six_panels}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{figure/appendix_OptimalFBSB.png}
-\caption{Welfare as a function of aggregate capacity \(k\), under the optimal within- and across-category allocation. The left panel compares welfare with and without private information on \(\theta\) when the market designer has redistributive preferences different from utilitarian ones. The right panel uses the same primitives but assumes utilitarian preferences. The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).}
+    \includegraphics[width=0.9\linewidth]{figure/appendix_OptimalFBSB.png}
+\caption{Optimal welfare as a function of aggregate capacity \(k\). Left panel: welfare with and without private information under redistributive preferences. Right panel: utilitarian preferences.}
 \label{fig:appendix_OptimalFBSB}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{figure/appendix_exampleoptimallevel.png}
-\caption{Optimal investment level under different redistributive preferences. Each problem solves for the optimal allocation of 25 successive pairs of categories, ordered along a mean-preserving perturbation path starting from the utilitarian benchmark. In this benchmark, category \(0\) is utilitarian, with \(\lambda_0(\theta)=1\). Case A assumes that higher weights are progressively assigned to higher types, whereas Case B assumes that higher weights are progressively assigned to lower types. Figure~\ref{fig:appendix_exampleperturbation2} reports examples of the corresponding social weights. The first two panels display, for each solution, the two terms appearing in Proposition~\ref{prop:investment}. The third panel shows the corresponding evolution of the optimal investment level. The utility function is \(U(q,s)=\frac{1+s}{\alpha}\left(1-e^{-\alpha q}\right)\) with \(\alpha=5\), and types are uniformly distributed on \([1,2]\).}
+\includegraphics[width=0.9\linewidth]{figure/appendix_exampleoptimallevel.png}
+\caption{Optimal investment level under different redistributive preferences. First panel: first term in Proposition~\ref{prop:investment}. Second panel: second term in Proposition~\ref{prop:investment}. Third panel: optimal investment level.}
 \label{fig:appendix_exampleoptimallevel}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{figure/appendix_exampleperturbation1.png}
-    \caption{Welfare weights for each category in the example of Figure~\ref{fig:appendix_N_categories_six_panels}. The arrow indicates the direction of the category ordering. For a given category \(i\), the average welfare weight is the same in both cases, but it is strictly higher for category \(i+1\).}
+    \includegraphics[width=0.9\linewidth]{figure/appendix_exampleperturbation1.png}
+    \caption{Welfare weights for each category in the example of Figure~\ref{fig:appendix_N_categories_six_panels}.}
     \label{fig:appendix_exampleperturbation1}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{figure/appendix_exampleperturbation2.png}
-    \caption{Welfare weights for each category in the example of Figure~\ref{fig:appendix_exampleoptimallevel}. The arrow indicates the direction of the category ordering. All weights are mean-preserving perturbations of the utilitarian benchmark.}
+    \includegraphics[width=0.9\linewidth]{figure/appendix_exampleperturbation2.png}
+    \caption{Welfare weights for each category in the example of Figure~\ref{fig:appendix_exampleoptimallevel}.}
     \label{fig:appendix_exampleperturbation2}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_lambda.png}
+    \caption{Welfare-weight profiles for each category.}
+    \label{fig:ImplementationCRRA_lambda}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_beta_sensitivity.png}
+    \caption{Marginal price schedules for different revenue requirements $I_i$.}
+    \label{fig:ImplementationCRRA_beta_sensitivity}
+\end{figure}
+\newpage
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_Combo_Menu1_Menu3.png}
+    \caption{Marginal price schedules for the two other cases, with comparison to the common spot-price and no-tagging benchmarks.}
+    \label{fig:ImplementationCRRA_Combo_Menu1_Menu3}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImpliementationCRRA_Across_weight_allcases.png}
+\caption{Category-specific welfare-weight profiles used in the three across-category illustrations, together with the pooled profile under no tagging.}
+\label{fig:ImpliementationCRRA_Across_weight_allcases}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImplementationCRRA_Across_Decomposition_Overlay_1255.png}
+\caption{Decomposition of the relative marginal price difference across types, for two pairs of adjacent categories.}    \label{fig:ImplementationCRRA_Across_Decomposition_Overlay_1255}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImpliementationCRRA_Across_alloc_allcases.png}
+\caption{Optimal category-level allocations of capacity, revenue requirements, and average welfare weights in the three across-category illustrations.}    \label{fig:ImpliementationCRRA_Across_alloc_allcases}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/Across2Cat_Kseq_Decomposition_wrtK1.png}
+\caption{Decomposition of the relative marginal price difference after capacity expansion.}   \label{fig:Across2Cat_Kseq_Decomposition_wrtK1}
 \end{figure}
 
 
