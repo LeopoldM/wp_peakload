@@ -85,9 +85,11 @@ Q(s) \le k \qquad \forall s \in S.
 The designer must also satisfy a revenue requirement:
 \begin{equation}
 \sum_i\mu_i
-\E_{(s,i)}\!\left[t_i(\theta,s)\right] - I(k) \ge 0.
+\E_{(s,i)}\!\left[t_i(\theta,s)\right] - I(k) \ge 0,
 \tag{R}\label{R-def}
 \end{equation}
+where $\\E_{(s,i)}[\cdot]$ denotes expectation with respect to both the distribution of types $\theta$ and the distribution of states $s$.
+
 \noindent\textbf{Planner's objective.}
 The market designer maximizes a weighted expected sum of consumer surpluses. Let $\lambda_i(\theta) \ge 0$ denote the welfare weight assigned to a consumer of type $\theta$ in category $i$, and let $\tilde\lambda_i := \E_{i}[\lambda_i(\theta)]$ denote the average weight in category $i$. The objective is
 \[
@@ -136,11 +138,11 @@ The program of the market designer can be expressed as:
 \max_{q_i(\theta,s), \, \E \underline{CS}_i}  \quad\quad 
 &  \sum_{i \in N}  \mu_i   \; 
 \Big\{ \;  \tilde{\lambda}_i \;\E \underline{CS}_i 
-      + \E_{(s,\theta_i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
+      + \E_{(s,i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
 \tag{CS}\label{CSmd-def}  \\
 \text{s.t.} \quad
 & \sum_{i\in N}\mu_i
-(\E_{(s,\theta_i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E \underline{CS}_i)\;-\; I(k)
+(\E_{(s,i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E \underline{CS}_i)\;-\; I(k)
 \;\ge\; 0. \tag{R}\label{Rmd-def}
 \end{align*}
 %##########################################
@@ -157,7 +159,7 @@ This section characterizes the constrained mechanism for a single category and i
 
 \subsection{Characterization}
 
-I begin with the basic structure of the optimal allocation for a single category. Following Lemma~\ref{lem:Transfer}, the problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated lump-sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \ref{ECSi} into this equality and integrating by parts with respect to $\theta$, using the definition of $\gamma_i(\theta)$ yields the single combined constraint
+I begin with the basic structure of the optimal allocation for a single category. Following Lemma~\ref{lem:Transfer}, the problem selects an allocation rule $q_i(\theta,s)$ to maximize category $i$'s contribution to the designer's objective, subject to a category-specific capacity level $k_i$ and revenue requirement $I_i$. Since transfers enter consumer surplus with a negative sign, any slack in the revenue requirement can be rebated in a lump sum to consumers while preserving incentive compatibility, raising the objective. Therefore the revenue requirement binds at the optimum: $\E_{(s,i)}[t_i(\theta,s)] = I_i$. Substituting the envelope representation \ref{ECSi} into this equality and integrating by parts with respect to $\theta$, using the definition of $\gamma_i(\theta)$ yields the single combined constraint
 %##########################################
 \[
 \E \underline{CS}_i
@@ -168,7 +170,7 @@ I begin with the basic structure of the optimal allocation for a single category
 %##########################################
 This reformulation combines the participation and budget requirements in a single constraint when the designer maximizes consumer surplus. Throughout the paper, I refer to this expression as the available surplus from the mechanism, which is redistributed via a uniform lump sum transfer to the consumers. Individual surpluses are then 
 \[
-  \E CS_i(\theta) = \underbrace{\Bigg.E\underline{CS}_i\Bigg.}_{ \text{fixed transfer} } +\underbrace{\Bigg. \int_{\underline\theta_i}^{\theta} \E_s\!\left[U\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta\Bigg. }_{\text{IC transfer}}. \tag{ECS$_i^\times$}\label{ECSitimes}
+  \E CS_i(\theta) = \underbrace{\Bigg.\E\underline{CS}_i\Bigg.}_{ \text{fixed transfer} } +\underbrace{\Bigg. \int_{\underline\theta_i}^{\theta} \E_s\!\left[U\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta\Bigg. }_{\text{IC transfer}}. \tag{ECS$_i^\times$}\label{ECSitimes}
 \]
 Substituting $\E \underline{CS}_i$ into the objective, the problem becomes
 %##########################################
@@ -255,7 +257,7 @@ where $\E_i^w[ \cdot \mid s]$ denote the average weighted by $w_i(\theta,s)$. Av
 \E_{(s,i)}^w[uJ\mid s] := \mathbb E_s\!\left[\E_i^w[uJ\mid s]\mathbf 1_{\{s\in T_i\}}\right], \tag{EuJ}\label{Eujmd}
 \]
 Where $1_{\{s\in T_i\}}$ is the indicator of the on-peak period. It depends on $k_i$, but as the boundaries effect are null I drop the reference
-The sign of this weighted value is the \textit{capacity-sorting margin}. It admits two economic interpretations, each operative in a different regime. When the budget constraint is slack ($\beta_i = 0$), it has the same sign as the derivative of the available surplus \ref{underlineECSi} with respect to $k_i$. When the budget constraint binds ($\beta_i > 0$), its sign determines whether a capacity expansion loosens or tightens the budget, via $\frac{\partial \beta_i}{\partial k} $. Both interpretations are established formally in Theorem~\ref{thm:surplus} and illustrated in the two-type case of Section~\ref{sec3TwoType}. The two expressions of $\E_i^w[uJ\mid s]$ above give two interpretations of the capacity-sorting margin. The first interpretation, reading the middle expression, is that $R_q(\theta_i)$ governs how a capacity expansion is distributed across types, while $R_\theta(\theta_i)$ governs the marginal revenue generated by each type's allocation. When $R_q$ is decreasing in $\theta$, a capacity expansion flows disproportionately to low types; when $R_\theta$ is also increasing in $\theta$, those are precisely the types that contribute least to available surplus, so expansion reduces this surplus and tightens the budget constraint. The second interpretation, reading the right-hand expression, is that $\E_i^w[uJ\mid s]$ is a $w_i$-weighted average of marginal virtual surplus $u(q_i)J_i$, where the weights $w_i$ jointly reflect the responsiveness of each type's demand and its effective social value.
+The sign of this weighted value is the \textit{capacity-sorting margin}. It admits two economic interpretations, each operative in a different regime. When the budget constraint is slack ($\beta_i = 0$), it has the same sign as the derivative of the available surplus \ref{underlineECSi} with respect to $k_i$. When the budget constraint binds ($\beta_i > 0$), its sign determines whether a capacity expansion loosens or tightens the budget, via $\frac{\partial \beta_i}{\partial k_i} $. Both interpretations are established formally in Theorem~\ref{thm:surplus} and illustrated in the two-type case of Section~\ref{sec3TwoType}. The two expressions of $\E_i^w[uJ\mid s]$ above give two interpretations of the capacity-sorting margin. The first interpretation, reading the middle expression, is that $R_q(\theta_i)$ governs how a capacity expansion is distributed across types, while $R_\theta(\theta_i)$ governs the marginal revenue generated by each type's allocation. When $R_q$ is decreasing in $\theta$, a capacity expansion flows disproportionately to low types; when $R_\theta$ is also increasing in $\theta$, those are precisely the types that contribute least to available surplus, so expansion reduces this surplus and tightens the budget constraint. The second interpretation, reading the right-hand expression, is that $\E_i^w[uJ\mid s]$ is a $w_i$-weighted average of marginal virtual surplus $u(q_i)J_i$, where the weights $w_i$ jointly reflect the responsiveness of each type's demand and its effective social value.
 
 To obtain characterization, I impose the following regularity condition.
 
@@ -320,7 +322,7 @@ In the two-type case, the expressions for available surplus and individual surpl
 \E \underline{CS} := \underbrace{\Bigg.\sum_i p_i \theta_i U(q_i)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_i p_i \gamma_i U(q_i)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p_L J_L U(q_L) + p_H J_H U(q_H)  - I,
 \]
 \[
-\tag{ECS$_{LH}$}\label{ECSlh} ECS(\theta_L) = \underbrace{\mathbb{E}\underline{CS}}_{\text{fixed transfer}}, \qquad ECS(\theta_H) = \mathbb{E}\underline{CS} + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
+\tag{$\E CS_{LH}$}\label{ECSlh} \E CS(\theta_L) = \underbrace{\mathbb{E}\underline{CS}}_{\text{fixed transfer}}, \qquad \E CS(\theta_H) = \mathbb{E}\underline{CS} + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
 \] 
 Hence the low type receives the full redistributable surplus as a lump-sum transfer, while the high type receives the same lump-sum transfer plus a type-dependent informational rent.
 
@@ -328,9 +330,9 @@ The inverse hazard rate of the low type is $\gamma_L = p_H/p_L$, while $\gamma_H
 
 \paragraph{Capacity sorting margin with two types.} I now study how a capacity expansion affects the available surplus, \ref{underlineECSTwo}. The two-type surplus decomposition in \ref{ECSlh} implies that the sign of \ref{dkECS} determines the individual welfare change. In particular, whenever \ref{dkECS} $< 0$, the low type loses from an increase in $k$ regardless of the welfare weight $\lambda_L$.
 
-Differentiating $ECS(\theta_L)$ with respect to $k$, factorizing by $\frac{\partial q_L}{\partial k}$, $\varepsilon$ and $1/R_q(\theta_L)$ yields
+Differentiating $\E CS(\theta_L)$ with respect to $k$, factorizing by $\frac{\partial q_L}{\partial k}$, $\varepsilon$ and $1/R_q(\theta_L)$ yields
 \[
-\tag{$\partial_k \mathbb{E}\underline{CS}_{LH}$}\label{dkECS} \frac{\partial  ECS(\theta_L)}{\partial k} = \frac{\partial q_L}{\partial k} \frac{\varepsilon }{R_q(\theta_L)} \Big( \underbrace{\theta_L \; p_L \frac{R_q(\theta_L)}{\Gamma_L} + \theta_H \; p_H \frac{R_q(\theta_H)}{\Gamma_H}}_{\text{available surplus}} - \underbrace{(\theta_H - \theta_L) \; p_H \frac{R_q(\theta_L)}{\Gamma_L}}_{\text{IC cost}} \Big).
+\tag{$\partial_k \mathbb{E}\underline{CS}_{LH}$}\label{dkECS} \frac{\partial  \E CS(\theta_L)}{\partial k} = \frac{\partial q_L}{\partial k} \frac{\varepsilon }{R_q(\theta_L)} \Big( \underbrace{\theta_L \; p_L \frac{R_q(\theta_L)}{\Gamma_L} + \theta_H \; p_H \frac{R_q(\theta_H)}{\Gamma_H}}_{\text{available surplus}} - \underbrace{(\theta_H - \theta_L) \; p_H \frac{R_q(\theta_L)}{\Gamma_L}}_{\text{IC cost}} \Big).
 \] 
 Equivalently, the same object can be rewritten in terms of the capacity-sorting margin of Section~\ref{sec:suffstat}: 
 \[
@@ -340,7 +342,7 @@ Increasing $k$ has two opposite effects. It raises the available quantity and th
 
 A CARA specification allows to characterize clearly when the low type loses from a capacity expansion, define $\lambda_L^\ast$ as the cutoff that solves \ref{dkECS} $=  0$. When $J_L < 0$, this cutoff is unique, and
 \[
-\frac{\partial  ECS(\theta_L)}{\partial k} < 0
+\frac{\partial  \E CS(\theta_L)}{\partial k} < 0
 \qquad \Longleftrightarrow \qquad
 \lambda_L > \lambda_L^\ast = \frac{\theta_L p_H \lambda_H}{p_H(\theta_H - \theta_L) - \theta_L p_L} = -\frac{\theta_L p_H \lambda_H}{p_LJ_L}.
 \]
@@ -748,7 +750,7 @@ In Figure \ref{fig:appendix_N_categories_six_panels} in the Appendix, I provide 
 +
 \Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast),
 \]
-where \(\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\) denotes the direct effect of the preference perturbation on the category-specific shadow cost at fixed \((k_i^\ast,I_i^\ast)\). This expression shows that the comparison of equilibrium revenue requirements across categories depends on two forces: the difference in average welfare weights, \(\Delta\tilde\lambda\), and the endogenous adjustment of the shadow cost \(\beta_i\), which reflects both the induced change in capacity and the direct effect of the preference perturbation. The single-category analysis provides the sign of \(\frac{\partial  \beta_i}{\partial k}\) and characterizes \(\Delta_{\lambda}\beta_i\), yielding the following result.
+where \(\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\) denotes the direct effect of the preference perturbation on the category-specific shadow cost at fixed \((k_i^\ast,I_i^\ast)\). This expression shows that the comparison of equilibrium revenue requirements across categories depends on two forces: the difference in average welfare weights, \(\Delta\tilde\lambda\), and the endogenous adjustment of the shadow cost \(\beta_i\), which reflects both the induced change in capacity and the direct effect of the preference perturbation. The single-category analysis provides the sign of \(\frac{\partial  \beta_i}{\partial k_i}\) and characterizes \(\Delta_{\lambda}\beta_i\), yielding the following result.
 
 \begin{proposition}[Revenue ordering]\label{prop:revenueordering}
 Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the two endogenous subsets 
@@ -791,7 +793,7 @@ The third and final step endogenizes total investment. I now let \(k\) itself be
 \]
 where \(W(k)\) denotes the outer value function once total revenue is tied to the endogenous investment cost \(I(k)\), with \(I\) strictly increasing and convex.
 
-Increasing \(k\) relaxes scarcity in states where capacity binds, but it also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint with the marginal financing cost of additional capacity. As shown in Proposition~\ref{lem:investment}, this condition is governed by the same objects, \(\G_i(\theta)\), \(\Pi_i\), and \(\tilde\lambda^\ast\), that organize the previous analysis.
+Increasing \(k\) relaxes scarcity in states where capacity binds, but it also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint with the marginal financing cost of additional capacity. As shown in Lemma~\ref{lem:investment}, this condition is governed by the same objects, \(\G_i(\theta)\), \(\Pi_i\), and \(\tilde\lambda^\ast\), that organize the previous analysis.
 
 \begin{lemma}[Optimal investment]\label{lem:investment}
 The investment problem \(\max_{k\geq 0} W(k)\) admits a unique interior solution \(k^\ast > 0\). The optimal investment level satisfies
@@ -818,8 +820,6 @@ Lemma~\ref{lem:investment} is the incomplete-information counterpart of the clas
 \;\longrightarrow\;
 \theta,
 \]
-which yields.
-
 This contrasts with the utilitarian incomplete-information benchmark. There, private information prevents the spot market from implementing the optimum at a given capacity, but this distortion disappears at the optimal investment level in the canonical model. Intuitively, the optimal investment condition pins down the same object that governs the redistributive incidence of a capacity expansion, so that at \(k^\ast\) the mechanism lies in the IR-unconstrained regime, which is implementable by the spot market \citep{spulber1992optimal,chao1987priority}. Under redistributive preferences, by contrast, the investment condition is no longer governed by that same object. As informational rents are no longer welfare-neutral, the restoration result fails, and a uniform spot price does not implement the constrained-optimal allocation even at \(k^\ast\).
 
 Figure~\ref{fig:appendix_OptimalFBSB} in the Appendix provides a numerical illustration of welfare \(W(k)\) under four scenarios: utilitarian versus redistributive preferences, and complete versus incomplete information, holding the primitives fixed. The figure shows that, under redistributive preferences, the complete- and incomplete-information welfare profiles differ even at the optimum. By contrast, under utilitarian preferences, the two profiles coincide at the optimal investment level \(k^\ast\).
@@ -959,10 +959,11 @@ Figure~\ref{fig:ImplementationCRRA_decomp} represents the optimal marginal price
 \end{figure}
 
 I now turn to a local comparison of marginal price schedules across categories. Consider two nearby categories, \(i\) and \(j\), that differ in their redistributive weights, capacity allocations, and revenue requirements, as induced by the optimal allocation of aggregate capacity \(k\) and aggregate revenue \(I\). A first-order comparison of the implemented marginal prices can be written as 
-\[\label{Deltapi2}\tag{$\Delta_2 p_i$}
-\frac{\Delta p_i(q,s)}{p_i(q,s)}\quad=\quad\underbrace{\Bigg.\mathbb{E}_i^w[R_{\G}\mid s] - R_{\G}(\theta)\Bigg.}_{\text{preference sorting}}\quad-\quad\underbrace{\Bigg.\Delta k\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\Delta I\cdot\Bigg.\frac{\mathbb{E}_i^w[R_\theta\mid s] - R_\theta(\theta)}{\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]}\Bigg.}_{\text{revenue ranking}},
+\[
+\label{Deltapi2}\tag{$\Delta_2 p_i$}
+\frac{\Delta p_i(q,s)}{p_i(q,s)}\quad=\quad\underbrace{\Bigg.\mathbb{E}_i^w[R_{\G}\mid s] - R_{\G}(\theta)\Bigg.}_{\text{preference sorting}}\quad-\quad\underbrace{\Bigg.\Delta k\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\Delta I\cdot\Bigg.\frac{\mathbb{E}_i^w[R_\theta\mid s] - R_\theta(\theta)}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\Bigg.}_{\text{revenue ranking}},
 \]
-Where $\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]$ is a weighted variance term formally defined in \ref{eq:proof-dECSbar-dbeta} in the Appendix. The first term is the single-category expression that captures preference comparison from \ref{Deltapi1}. The second term captures the capacity ranking effect. The sign of $\Delta k$ is given by Theorem~\ref{thm:cat-order}, while the sign of the derivative follows Theorem~\ref{thm:surplus} and is expressed in \ref{partialkq1}. The third term is the intensive margin of revenue ranking from Proposition~\ref{prop:revenueordering}, and also depends on the monotonicity direction of $R_\theta(\theta)$. 
+Where $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ is a weighted variance term formally defined in \ref{eq:proof-dECSbar-dbeta} in the Appendix. The first term is the single-category expression that captures preference comparison from \ref{Deltapi1}. The second term captures the capacity ranking effect. The sign of $\Delta k$ is given by Theorem~\ref{thm:cat-order}, while the sign of the derivative follows Theorem~\ref{thm:surplus} and is expressed in \ref{partialkq1}. The third term is the intensive margin of revenue ranking from Proposition~\ref{prop:revenueordering}, and also depends on the monotonicity direction of $R_\theta(\theta)$. 
 
 I illustrate this decomposition through a configuration of different categories in Figure~\ref{fig:ImplementationCRRA_Combo_Menu2_CSAll}. I considers five tagged categories with distinct average welfare weights: categories \(1\) and \(2\) (red) have the same higher average weight \(\tilde\lambda_i=1.01\) and do not contribute to revenue; categories \(4\) and \(5\) (blue) have the same lower average weight \(\tilde\lambda_i=0.99\) and are contributors; and category \(3\) is the marginal category with \(\tilde\lambda_3=\tilde\lambda^\ast = 1\). The Appendix collects the supporting numerical detail, Figure~\ref{fig:ImpliementationCRRA_Across_weight_allcases} reports the redistributive weight profiles, Figure~\ref{fig:ImpliementationCRRA_Across_alloc_allcases} the capacity and revenue ordering underlying the marginal price ranking, and Figure~\ref{fig:ImplementationCRRA_Across_Decomposition_Overlay_1255} the three-channel decomposition of $\frac{\Delta p_i(q,s)}{p_i(q,s)}$. As established in Corollary~\ref{cor:ordered-path}, average welfare weights are not sufficient to rank categories by capacity allocation, and the ordering of marginal price schedules inherits the same indeterminacy through the scarcity rent channel. In the configuration shown, categories with higher average welfare weights place relatively more weight on lower types, so the sufficient condition of Corollary~\ref{cor:ordered-path} is not satisfied and the capacity ranking is no longer determined by average weights alone. As a result, despite having higher average welfare weights, these categories receive less capacity in the example. Their scarcity rents are therefore higher, which pushes their marginal prices above those of categories with lower average welfare weights.\footnote{The Appendix reports two complementary cases. When higher-weight categories instead place relatively more weight on higher types, the capacity and menu ordering align with Corollary~\ref{cor:ordered-path}. When the tilt toward lower types is sufficiently asymmetric and accompanied by a much larger average weight, some marginal prices of favored categories do fall below those of less favored ones.}
 
@@ -983,7 +984,7 @@ dk \left(
 \underbrace{\frac{dk_i^\ast}{dk}\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}}_{\text{capacity ranking}}
 \;+\;
 \underbrace{\frac{dI_i^\ast}{dk}\cdot\frac{\mathbb{E}_i^w[R_\theta\mid s]-R_\theta(\theta)}
-{\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]}}_{\text{revenue ranking}}
+{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}}_{\text{revenue ranking}}
 \right).
 \]
 Thus, a global capacity expansion affects the nonlinear tariff through the same margins that govern the allocation problem in \ref{Deltapi2}: the reallocation of capacity across categories and the induced reallocation of revenue requirements. The implication of \ref{Deltapi3} for a non-contributing category, for which \(\frac{dI_i^\ast}{dk}=0\), is immediate. As shown in the proof of Theorem~\ref{thm:surplus}, the optimal allocation \(q_i(\theta,s)\) is always increasing in \(k_i\). Therefore, the sign of \ref{Deltapi3} depends only on \(\frac{dk_i^\ast}{dk}\), which is characterized in Appendix Lemma~\ref{lem:dkidk}; its sign depends on the comparison between the marginal investment cost and the capacity-sorting margin in \ref{Eujmd}. By contrast, in a contributing category, the effect of a capacity expansion may be ambiguous due to the additional revenue effect.
@@ -1630,7 +1631,7 @@ subject to
 \quad \forall s.
 \]
 
-Let \(\beta_i \ge 0\) and \(\varepsilon_i(s)\ge 0\) denote the multipliers on \eqref{Rmdi-def} and \eqref{K-def}, respectively. The associated Lagrangian is
+Let \(\beta_i \ge 0\) and \(\varepsilon_i(s)\ge 0\) denote the multipliers on \eqref{Rmdi-def} and the capacity constraint \eqref{Kmdi-def}, respectively. The associated Lagrangian is
 \[
 \mathcal L
 =
@@ -1772,7 +1773,7 @@ Holding $\beta$ fixed, the standard comparative-statics identity gives, for ever
 $\frac{\partial q_i(\theta,s;k_i,\beta)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)}.$
 Hence
 \begin{equation}\label{eq:proof-dECSbar-dk}
-\frac{\partial  \E \underline{CS}_i(k_i,\beta)}{\partial k}
+\frac{\partial  \E \underline{CS}_i(k_i,\beta)}{\partial k_i}
 =
 \E_s\!\left[
 \mathbf 1_{\{s\in T_i(k_i)\}}
@@ -1803,7 +1804,7 @@ u\!\left(q_i(\theta,s),s\right)J_i(\theta)
 \end{align}
 Therefore
 \begin{equation}\label{eq:proof-dECSbar-dbeta}
-\frac{\partial \E \underline{CS}_i(k_i,\beta)}{\beta }
+\frac{\partial \E \underline{CS}_i(k_i,\beta)}{\partial \beta }
 =
 \E_s\!\left[
 \mathbf 1_{\{s\in T_i(k_i)\}}
