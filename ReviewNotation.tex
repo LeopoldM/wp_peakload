@@ -5,7 +5,7 @@
 \newcommand{\todo}{\textcolor{todo}{\textbf{[OPEN]}}}
 
 \title{Notation Audit Log --- Redistributive Peak Load Pricing}
-\author{Pass A, Pass B (Round 1), Pass B (Round 2)}
+\author{Pass A, Pass B (Round 1), Pass B (Round 2), Pass B (Round 3)}
 \date{}
 
 \begin{document}
@@ -52,7 +52,26 @@
 \item \ok\ $M(k)$ in ``$B(k)+M(k)\neq 0$'' in proof of Proposition~\ref{prop:CI-surplus} never defined. \textbf{Fix:} define $M(k)$ explicitly as the inframarginal term or absorb it into $B(k)$.
 \end{enumerate}
 
+\section*{Pass B --- Notation and Placeholder Audit (Round 3)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ Spurious double backslash \texttt{\\\\E} before the expectation operator in the definition sentence after constraint (R); fixed to single \texttt{\\E} throughout.
+\item \ok\ $\Delta\tilde\lambda_i$ undefined in the display for $\Delta\G_i(\theta)$. \textbf{Fix:} added $\Delta\tilde\lambda_i = \E_i[\Delta\lambda_i(\theta)]$ inline after the definition of $\Delta\Lambda_i(\theta)$.
+\item \ok\ $\E_i^w[\cdot\mid s]$ vs.\ $\mathbb{E}_i^w[\cdot\mid s]$: confirmed that \texttt{\\E} macro normalizes to \texttt{\\mathbb\{E\}} throughout; all occurrences are identical on output.
+\item \ok\ Assumption~\ref{ass:Cvx} not referenced in Lemma~\ref{lem:FOC} statement: closed by author decision, convexity condition stated verbally in the lemma.
+\item \ok\ $\mathbb{E}_s[\cdot]$ vs.\ $\E_s[\cdot]$ in equation (EuJ): fixed by normalizing to \texttt{\\E} macro throughout.
+\item \ok\ $\bar\varepsilon_i$ (\texttt{\\bar}) vs.\ $\overline\varepsilon_i$ (\texttt{\\overline}) in proof of Proposition~\ref{prop:revenueordering} CARA Steps 1--3: fixed to $\overline\varepsilon_i$ throughout.
+\item \ok\ $T_{i0}$ undefined in proof of Lemma~\ref{lem:Transfer}: renamed to $\underline{t}_i$, defined as the transfer to the lowest type $\underline\theta_i$, avoiding conflict with on-peak set $T_i$.
+\item \ok\ Malformed double opening parentheses in three-type condition in Appendix~A.1.2: fixed throughout the expression.
+\item \ok\ $\mathrm{Cov}_i$ vs.\ $\Cov_i$ and $\mathrm{Var}_i$ vs.\ $\Var_i$: normalized to a single macro throughout.
+\item \ok\ $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$ attributed to proof of Proposition~\ref{prop:surplus-redist}: misattribution confirmed; condition appears only in proof of Proposition~\ref{prop:rprefreallocation} and follows from the IR-constrained definition at both baseline and perturbed optimum in Proposition~\ref{prop:surplus-redist}. No fix required.
+\item \ok\ $\Delta k$ and $\Delta I$ undefined in ($\Delta_2 p_i$): fixed by adding sentence ``where $\Delta k := k_j^\ast - k_i^\ast$ and $\Delta I := I_j^\ast - I_i^\ast$ denote the differences in equilibrium capacity and revenue requirement between the two adjacent categories $i$ and $j$'' before the equation.
+\item \ok\ $\E_\theta[\cdot]$ in Assumption~\ref{ass:ordered-path} inconsistent with $\E_i[\cdot]$ convention: fixed by replacing with explicit integral $\tilde\lambda(t):=\int_\Theta\lambda(t,\theta)\,dG(\theta)$.
+\item \ok\ $\E_i[R_\theta^2(\theta)]$ typographically ambiguous and inconsistent with $\E_i[R_\theta^2]$ in Step 2 of the same proof: fixed to $\E_i[(R_\theta(\theta))^2]$ throughout.
+\end{enumerate}
+
 \section*{Summary of Open Items}
 
+None.
 
 \end{document}
