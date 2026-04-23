@@ -32,7 +32,7 @@ The core tension comes from the interaction between incentive constraints, redis
 
 I then study how the constrained allocation responds to changes in redistributive preferences at fixed capacity. A change in preferences operates through two channels. First, it changes the planner’s effective social weights, which measure the social return from serving a given consumer. Second, because capacity is fixed, it changes the allocation of scarce capacity across consumers, so that giving relatively more social value to some types necessarily comes at the expense of others. Therefore, the relevant object governing the change in the optimal allocation is both the sign and the magnitude of the proportional change in the effective social weights across consumers. This yields the \textit{preference-sorting margin}. I provide conditions under which average welfare weights and the direction of redistributive preferences determine the sign of this margin. I then show that, even when redistributive preferences shift toward lower or higher types, the resulting changes in social weights need not move in the same direction across consumers, because any local reweighting propagates through the incentive constraints to the rest of the allocation, in a way that depends on redistributive priorities. When comparing two redistributive preference profiles, the consumers who receive greater social weight need not be the ones who benefit from the induced reallocation.
 
-Using the same two sorting margins that organize the single-category mechanism, I then characterize the optimal allocation across categories, namely how total capacity and total revenue requirements are assigned across observable groups. Capacity is allocated across categories according to the marginal social value of relaxing scarcity, and I show that this marginal value is summarized by the weighted average of proportional differences in effective social weights. Therefore, the relevant ranking is governed by the same \textit{preference-sorting margin}, rather than by average welfare weights or absolute effective social weights. On the other hand, a category contributes only when the common social value of public funds exceeds the redistributive cost of extracting revenue from that category, captured by its average social weight and by the category-level shadow value of the budget constraint. Therefore, whether a category contributes to the budget at all depends solely on average welfare weights, providing a clean separation that requires no information about the within-category structure of preferences. However, the intensive margin, namely how much each contributing category pays, depends on the interaction between the two sorting margins, since a category's ability to raise revenue reflects both how capacity is allocated to it and how its redistributive preferences sort consumption across types.
+Using the same two sorting margins that organize the single-category mechanism, I then characterize the optimal allocation across categories, namely how total capacity and total revenue requirements are assigned across observable groups. Capacity is allocated across categories according to the marginal social value of relaxing scarcity, and I show that this marginal value is summarized by the weighted average of proportional differences in effective social weights. Therefore, the relevant ranking is governed by the same \textit{preference-sorting margin}, rather than by average welfare weights or absolute effective social weights. On the other hand, a category contributes only when the common social value of public funds exceeds the redistributive cost of extracting revenue from that category, captured by its average social weight and by the category-level shadow value of the budget constraint. Therefore, whether a category contributes to the budget at all depends solely on average welfare weights, providing a clean separation that requires no information about the single-category structure of preferences. However, the intensive margin, namely how much each contributing category pays, depends on the interaction between the two sorting margins, since a category's ability to raise revenue reflects both how capacity is allocated to it and how its redistributive preferences sort consumption across types.
 
 The final result establishes the incomplete-information counterpart of the canonical peak-load investment rule, and shows how the optimal rule departs from its utilitarian counterpart. Under utilitarian preferences, informational rents are welfare-neutral, so the complete- and incomplete-information investment rules coincide at the optimum. Under redistributive preferences, by contrast, the informational wedge persists even at the optimum. The new optimality condition equates the marginal investment cost with the incentive-adjusted social value of marginal consumption, aggregated across contributing categories and normalized by the equilibrium marginal cost of funds. Comparative statics then follow from the same two margins developed in the analysis. Redistributive preference changes affect investment through their effect on the average marginal value of capacity, via the \textit{preference-sorting margin}, and through the equilibrium marginal cost of funds, via the \textit{capacity-sorting margin}. I also connect the effect of a global capacity expansion on the across-category allocation, characterizing who gains and who loses within each category as aggregate investment rises.
 
@@ -1124,7 +1124,7 @@ Proposition~\ref{prop:FBalloc} isolates the two dimensions along which redistrib
 
 Therefore, a uniform spot price fails to implement the first best whenever the non-contributing set has positive mass, since the type-specific marginal condition cannot be replicated by a single price. Among contributing types alone, however, a spot price implements the optimal allocation, as they all face the same marginal condition.
 
-The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can directly separate contributors from non-contributors, so redistribution operates through the partitioning of consumers. Under incomplete information, this partition can no longer be drawn within categories: IC links all types through the rent schedule, so revenue extraction becomes category-based and any revenue requirement distorts the whole within-category allocation. Second, under complete information redistribution and revenue extraction are largely separable, whereas under incomplete information they conflict directly because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in section~\ref{appsec:CI} of the Appendix.}
+The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can directly separate contributors from non-contributors, so redistribution operates by partitioning consumers. Under incomplete information, this partition can no longer be drawn within categories: IC links all types through the rent schedule, so revenue extraction becomes category-based, and any revenue requirement distorts the whole single-category allocation. Second, under complete information, redistribution and revenue extraction are largely separable, whereas under incomplete information, they are directly in conflict because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.\footnote{Additional details on the investment margin under complete information are reported in section~\ref{appsec:CI} of the Appendix.}
 
 
 \begin{figure}
@@ -1214,7 +1214,7 @@ p_i(\theta,s)=
 \]
 The fixed fee $A_i(\theta)$ is then chosen to implement the transfer rule: it extracts the full expected surplus of contributing types and exactly offsets the variable payment of non-contributing types so that $t_i^*(\theta)=0$.
 
-This implementation highlights the two margins through which redistribution operates under complete information. The variable price determines the allocation and is common only within the contributing group. The fixed fee determines extraction and creates the contributor versus non-contributor partition that contrasts with the smooth rent profile arising under incomplete information.
+This implementation highlights the two margins through which redistribution operates under complete information. The variable price determines the allocation and is common only within the contributing group. The fixed fee determines extraction and creates a contributor-versus-non-contributor partition that contrasts with the smooth rent profile that arises under incomplete information.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1329,13 +1329,13 @@ The second part sharpens the non-monotonicity result under mean-preserving pertu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Marginal response of category allocations to aggregate capacity}\label{app:dkidk}
 
-The next lemma characterizes the local response of the optimal category allocation to a marginal change in aggregate capacity. The result is local: it holds on a neighborhood of an interior optimum in which the set of active and contributing categories is unchanged. Its main purpose is to show that cross-category heterogeneity enters only through the sufficient statistic $\E_{(s,i)}^w[uJ\mid s]$, which is the same object that governs the within-category comparative statics.
+The next lemma characterizes the local response of the optimal category allocation to a marginal change in aggregate capacity. The result is local: it holds on a neighborhood of an interior optimum in which the set of active and contributing categories is unchanged. Its main purpose is to show that cross-category heterogeneity enters only through the sufficient statistic $\E_{(s,i)}^w[uJ\mid s]$, which is the same object that governs the single-category comparative statics.
 
 \begin{lemma}[Marginal response of category allocations to aggregate capacity]\label{lem:dkidk}
 Fix an interior optimum $\{k_i^\ast,I_i^\ast\}_{i\in N}$ and suppose that, on a neighborhood of the optimum, the partition $N=N^+\cup N^0$ is unchanged. For each category $i\in N$, define \[ \Omega_i := \E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right]>0, \qquad \hat A_i := \E_{(s,i)}^w[uJ\mid s]\,\mathbf 1_{\{i\in N^+\}}. \] Then the marginal response of category $i$ is \[ \frac{dk_i^\ast}{dk} = \frac{\Omega_i^{-1}\!\left(\hat A_i-I'(k^\ast)\right)}{\displaystyle\sum_{j\in N^+}\mu_j\,\Omega_j^{-1}\,\E_{(s,j)}^w[uJ\mid s] \;-\; I'(k^\ast)\sum_{j\in N}\mu_j\,\Omega_j^{-1}}\,\mathcal B \;-\;\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast), \] where \[ \mathcal B := 1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\,\Omega_j^{-1}\;>\;0 \] since $\tilde\lambda^\ast I''(k^\ast)>0$. The formula takes two forms across the partition. For $i\in N^+$, the first-term numerator is $\Omega_i^{-1}\!\left(\E_{(s,i)}^w[uJ\mid s]-I'(k^\ast)\right)$. For $i\in N^0$, $\hat A_i=0$ and the numerator reduces to $-\Omega_i^{-1}I'(k^\ast)$.
 \end{lemma}
 
-The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends on category \(i\) only through the sufficient statistic \(\E_{(s,i)}^w[uJ\mid s]\). This makes it possible to connect the outer comparative statics to the within-category ordering results.
+The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends on category \(i\) only through the sufficient statistic \(\E_{(s,i)}^w[uJ\mid s]\). This makes it possible to connect the outer comparative statics to the single-category ordering results.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1638,18 +1638,18 @@ This yields the desired expression:
 
 \subsection{Off-peak and on-peak allocation - Proof of Lemma~\ref{lem:FOC}}
 
-Because the revenue-feasibility constraint involves the virtual-surplus term $J_i(\theta)$, which may change sign across types, convexity of the within-category feasible set is not automatic. We therefore maintain the following condition.
+Because the revenue-feasibility constraint involves the virtual-surplus term $J_i(\theta)$, which may change sign across types, the convexity of the single-category feasible set is not automatic. We therefore maintain the following condition.
 
-\begin{assumption}[Convexity of the within-category feasible set]\label{ass:Cvx}
+\begin{assumption}[Convexity of the single-category feasible set]\label{ass:Cvx}
 For every category $i$ and every $I_i \ge 0$, the set
 $\left\{ q_i(\theta,s): \E_{(s,i)}\!\left[J_i(\theta)U(q_i(\theta,s),s)\right] \ge I_i \right\}$
 is convex.
 \end{assumption}
 
-Under Assumption~\ref{ass:Cvx}, the within-category problem is a concave program, so the KKT conditions used in the proof of Lemma~\ref{lem:FOC} are sufficient.
+Under Assumption~\ref{ass:Cvx}, the single-category problem is a concave program, so the KKT conditions used in the proof of Lemma~\ref{lem:FOC} are sufficient.
 
 \begin{proof}
-Consider the within-category problem
+Consider the single-category problem
 $\max_{q_i(\theta,s)} \E_{(s,i)}\!\left[\Gamma_i(\theta)\,U\!\left(q_i(\theta,s),s\right)\right]$
 subject to
 \[
@@ -2026,9 +2026,9 @@ The feasible set
 \[
 \mathcal F := \left\{ \{(k_i,I_i)\}_{i\in N} : \sum_{i\in N} k_i = k,\ \sum_{i\in N} I_i = I,\ k_i\ge 0,\ I_i\ge 0\ \forall i \right\}
 \]
-is compact and convex. Continuity of each $V_i$ follows from Berge's maximum theorem: the objective $\E_{(s,i)}[\Gamma_i(\theta)U(q,s)]$ and the constraints of the within-category problem are continuous in $(k_i,I_i)$, and the feasible correspondence is continuous and compact-valued under the maintained assumptions. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is concave. Hence the outer objective $W:=\sum_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
+is compact and convex. Continuity of each $V_i$ follows from Berge's maximum theorem: the objective $\E_{(s,i)}[\Gamma_i(\theta)U(q,s)]$ and the constraints of the single-category problem are continuous in $(k_i,I_i)$, and the feasible correspondence is continuous and compact-valued under the maintained assumptions. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is concave. Hence the outer objective $W:=\sum_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
 
-\begin{lemma}[Concavity of the within-category value function]\label{lem:Vi-concave}
+\begin{lemma}[Concavity of the single-category value function]\label{lem:Vi-concave}
 For each category $i$, the value function $V_i(k_i,I_i)$ is concave on its feasible domain. More precisely:
 
 \begin{enumerate}[label=(\roman*), leftmargin=1cm]
@@ -2509,7 +2509,7 @@ $\tilde\lambda^\ast I'(k^\ast)=\zeta_k.$
 
 By Lemma~\ref{lem:outer},
 $\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k \qquad\text{for every }i,$
-where, by the within-category envelope formula and the first-order condition~\eqref{KKT-qMD},
+where, by the single-category envelope formula and the first-order condition~\eqref{KKT-qMD},
 \[
 \Pi_i(k_i^\ast,I_i^\ast)
 =
