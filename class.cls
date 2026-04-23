@@ -29,6 +29,11 @@
 \usepackage{multicol}
 \usepackage{algpseudocode,algorithm,algorithmicx}
 \usepackage[hidelinks,colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+\pdfstringdefDisableCommands{%
+  \def\theta{theta}%
+  \def\Gamma{Gamma}%
+  \def\G{Gamma}%
+}
 \usepackage{csquotes}
 \usepackage{eurosym}
 \usepackage{amssymb}
@@ -158,7 +163,10 @@
 
 \newcommand{\co}{\textnormal{co}\;}
 
-
+\pdfstringdefDisableCommands{%
+  \def\theta{theta}%
+  \def\Gamma{Gamma}%
+}
 
 
 \renewcommand{\baselinestretch}{1.5}
