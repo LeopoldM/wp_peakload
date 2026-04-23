@@ -336,7 +336,7 @@ Differentiating $\E CS(\theta_L)$ with respect to $k$, factorizing by $\frac{\pa
 \] 
 Equivalently, the same object can be rewritten in terms of the capacity-sorting margin of Section~\ref{sec:suffstat}: 
 \[
-\frac{\partial \E\underline{CS}}{\partial k} = \frac{1}{\overline{w}}\left(p_L\,R_q(\theta_L)\frac{J_L}{\G_L} + p_H\,R_q(\theta_H)\frac{J_H}{\G_H}\right) = \frac{1}{\overline{w}}\sum_i p_i\,R_\theta(\theta_i)\,R_q(\theta_i) = \frac{1}{\overline{w}}\sum_i p_i\,w_i\,u(q_i)\,J_i.
+\frac{\partial \E\underline{CS}}{\partial k} = \frac{1}{\overline{w}}\left(p_L\,R_q(\theta_L)\frac{J_L}{\Gamma_L} + p_H\,R_q(\theta_H)\frac{J_H}{\Gamma_H}\right) = \frac{1}{\overline{w}}\sum_i p_i\,R_\theta(\theta_i)\,R_q(\theta_i) = \frac{1}{\overline{w}}\sum_i p_i\,w_i\,u(q_i)\,J_i.
 \]
 Increasing $k$ has two opposite effects. It raises the available quantity and therefore the available surplus terms. However, expanding $k$ also forces the designer to leave a larger informational rent to $\theta_H$, which mechanically reduces the transfer $t_H$ and therefore the available surplus $\mathbb{E}\underline{CS}$.
 
@@ -794,7 +794,7 @@ The third and final step endogenizes total investment. I now let \(k\) itself be
 \]
 where \(W(k)\) denotes the outer value function once total revenue is tied to the endogenous investment cost \(I(k)\), with \(I\) strictly increasing and convex.
 
-Increasing \(k\) relaxes scarcity in states where capacity binds, but it also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint with the marginal financing cost of additional capacity. As shown in Lemma~\ref{lem:investment}, this condition is governed by the same objects, \(\G_i(\theta)\), \(\Pi_i\), and \(\tilde\lambda^\ast\), that organize the previous analysis.
+Increasing \(k\) relaxes scarcity in states where capacity binds, but it also requires additional revenue to finance the larger investment. The optimal investment level is therefore pinned down by equating the marginal value of relaxing the capacity constraint with the marginal financing cost of additional capacity. As shown in Lemma~\ref{lem:investment}, this condition is governed by the same objects that organize the previous analysis.
 
 \begin{lemma}[Optimal investment]\label{lem:investment}
 The investment problem \(\max_{k\geq 0} W(k)\) admits a unique interior solution \(k^\ast > 0\). The optimal investment level satisfies
@@ -1080,115 +1080,6 @@ I=0.5
     \caption{Optimal quantity $q_i(k)$ as a function of capacity $k$ for three types under the IR-constrained allocation.}
     \label{fig:ThreeTypesWithin_quantity}
 \end{figure}
-
-\subsection{Complete-information benchmark}\label{appsec:CI}
-
-\subsubsection{Optimal allocation}
-Under complete information, the market designer observes each consumer's category $i$ and type $\theta$, so allocation rules and transfers can condition directly on true types. Since there are no incentive constraints, redistributive preferences enter the allocation problem through the pointwise weights $\lambda_i(\theta)$. Relative to the standard peak-load benchmark, this changes both the optimal marginal condition and the way revenue is extracted.
-
-Let $S^*=[\underline{s},s^*)$ and $T^*=[s^*,\overline{s}]$ denote the off-peak and on-peak regions, where $s^*$ is the unique threshold such that
-\[
-\sum_i \mu_i\,\E_{i}\!\left[q_i^*(\theta,s^*)\right]=k.
-\]
-Let $\lambda^*$ denote the lowest welfare weight such that extracting full expected surplus from all types with $\lambda_i(\theta)\leq \lambda^*$ is sufficient to finance investment. Equivalently,
-\[
-\sum_i \mu_i \E_{(s,i)}\!\left[\theta\, U\!\left(q_i^*(\theta,s),s\right)\,\mathbf 1_{\{\lambda_i(\theta) < \lambda^*\}}\right]
-< I(k)
-\leq
-\sum_i \mu_i \E_{(s,i)}\!\left[\theta\, U\!\left(q_i^*(\theta,s),s\right)\,\mathbf 1_{\{\lambda_i(\theta) \leq \lambda^*\}}\right].
-\]
-For each category $i$, whenever the equation $\lambda_i(\theta)=\lambda^*$ admits a solution, let $\theta_i^*(k)$ denote the associated cutoff type.
-
-Under complete information, the revenue side of the problem is therefore organized by a clear partition. Types with $\lambda_i(\theta)\leq \lambda^*$ are contributors: the planner extracts their full expected gross surplus to help finance investment. Types with $\lambda_i(\theta)>\lambda^*$ are non-contributors: they receive zero net transfer. This binary structure is specific to complete information and disappears once incentive constraints force the planner to leave information rents.
-
-\begin{proposition}[Complete-information allocation with redistribution]\label{prop:FBalloc}
-The optimal allocation is characterized by a unique quantity schedule $q_i^*(\theta,s)$ satisfying
-\[\tag{FOC$_S^{fb}$}\label{FB-S}
-\theta\,u\!\left(q_i^*(\theta,s),s\right)=0,
-\qquad s\in S^*,
-\]
-and
-\[\tag{FOC$_T^{fb}$}\label{FB-T}
-\begin{aligned}   
-& u\!\left(q_i^*(\theta,s),s\right)\,\beta \theta= \varepsilon(s), & \text{if } \lambda_i(\theta)\leq \lambda^*,\\[6pt]
-& u\!\left(q_i^*(\theta,s),s\right)\,\lambda_i(\theta)\theta=\varepsilon(s), & \text{if } \lambda_i(\theta)>\lambda^*,
-\end{aligned}
-\qquad s\in T^*.
-\]
-Transfers are independent of $s$ and satisfy $t_i^*(\theta)=\E_s\!\left[\theta\,U\!\left(q_i^*(\theta,s),s\right)\right]$ for strictly contributing types $\lambda_i(\theta)<\lambda^*$, $t_i^*(\theta)=0$ for non-contributing types $\lambda_i(\theta)>\lambda^*$, and the participation constraint may be slack only at the marginal type $\lambda_i(\theta)=\lambda^*$.
-\end{proposition}
-
-Proposition~\ref{prop:FBalloc} isolates the two dimensions along which redistribution departs from the traditional peak-load benchmark. First, it changes the planner's marginal condition. Off-peak, the allocation remains efficient.\footnote{I abstract from marginal production costs in order to isolate the interaction between scarcity and redistribution. This comes at the cost of shutting down an additional pricing margin: with positive marginal cost, the planner would also trade off allocative efficiency in non-scarcity states. Incorporating that margin would extend the standard analysis without changing the main mechanism emphasized here, namely how redistribution alters the scarcity component of peak-load pricing. Moreover, since the relevant objects vary continuously across states, no additional boundary term arises at the transition between off-peak and on-peak states.} On-peak, however, the marginal condition becomes type-specific for non-contributing consumers.  Without redistributive concerns, the optimal allocation is simply $\theta\,u\!\left(q_i^*(\theta,s),s\right)=\varepsilon(s)$.
-
-Therefore, a uniform spot price fails to implement the first best whenever the non-contributing set has positive mass, since the type-specific marginal condition cannot be replicated by a single price. Among contributing types alone, however, a spot price implements the optimal allocation, as they all face the same marginal condition.
-
-The complete-information benchmark highlights two features that disappear under private information. First, with observable types, the planner can directly separate contributors from non-contributors, so redistribution operates by partitioning consumers. Under incomplete information, this partition can no longer be drawn within categories: IC links all types through the rent schedule, so revenue extraction becomes category-based, and any revenue requirement distorts the whole single-category allocation. Second, under complete information, redistribution and revenue extraction are largely separable, whereas under incomplete information, they are directly in conflict because changing the allocation of one type affects the information rents of others. As a result, the key question is no longer only who contributes, but how capacity and redistributive weights are sorted across the type distribution, which generates non-trivial winners and losers from both capacity expansions and preference shifts.
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figure/example_demand_supply_CI.png}
-    \caption{Complete-information benchmark with redistribution. The left panel reproduces the standard peak-load logic under a uniform price. The right panel illustrates the redistributive two-part tariff: contributing types finance investment through full surplus extraction, while non-contributing types face lower type-dependent marginal prices and zero net transfer.}
-    \label{fig:CI}
-\end{figure}
-
-
-
-
-
-\subsubsection{Individual surplus and optimal investment}
-
-Differentiating the complete-information allocation rule with respect to aggregate capacity naturally introduces different weights for contributing and non-contributing consumers:
-\[
-w_i^c(\theta,s):=-\frac{1}{\beta\,\theta\,u_q\!\left(q_i^*(\theta,s),s\right)} > 0,
-\qquad
-w_i^{nc}(\theta,s):=-\frac{1}{\lambda_i(\theta)\,\theta\,u_q\!\left(q_i^*(\theta,s),s\right)} > 0.
-\]
-Let
-\[
-\overline w^c(s):=\sum_i\mu_i\,\E_i\!\left[w_i^c(\theta,s)\,\mathbf 1_{\{\lambda_i(\theta)\leq\lambda^*\}}\right],
-\qquad
-\overline w^{nc}(s):=\sum_i\mu_i\,\E_i\!\left[w_i^{nc}(\theta,s)\,\mathbf 1_{\{\lambda_i(\theta)>\lambda^*\}}\right],
-\]
-with $\overline w(s):=\overline w^c(s)+\overline w^{nc}(s)>0$. Define the weighted marginal contributor surplus by
-\[
-\tag{Euj$^*$}\label{EujFB}
-\E_i^w[u^c\mid s]
-:=
-\frac{1}{\overline w(s)}\,
-\E_i\!\left[w_i^c(\theta,s)\,\theta\,u\!\left(q_i^*(\theta,s),s\right)\,\mathbf 1_{\{\lambda_i(\theta)\leq\lambda^*\}}\right]
-+ \theta_i^*(k)
-U\!\left(q_i\!\left(\theta_i^*(k),s\right),s\right)
-g_i\!\left(\theta_i^*(k)\right)
-\frac{d\theta_i^*(k)}{dk}.
-\]
-The first term is an inframarginal component: the weighted expected on-peak marginal utility of contributing types. The second is a boundary term that captures the surplus of types crossing into the contributing set when the contributor cutoff moves with investment.
-
-\begin{proposition}[Individual surplus and optimal investment under complete information]\label{prop:CI-surplus}
-Assume that both the contributing set and the non-contributing set have positive mass.
-
-\noindent\textbf{(i)} For every type such that $\lambda_i(\theta)>\lambda^*$, individual surplus is weakly increasing in $k$ if
-\[
-\E_s\!\left[\sum_i \mu_i \, \E_i^w[u^c\mid s]\,\mathbf 1_{\{s\in T^*\}}\right] \geq I'(k).
-\]
-
-\noindent\textbf{(ii)} Suppose the optimal investment $k^*>0$ is interior. Then
-\[
-\tag{FOC$^{CI}_k$}\label{eq:FB-k1}
-\frac{1}{\mu^c}\,
-\E_s\!\left[\sum_i \mu_i\, \E_i\!\left[\theta\,u\!\left(q_i^*(\theta,s),s\right)\,\mathbf 1_{\{\lambda_i(\theta)\leq\lambda^*\}}\right]\mathbf 1_{\{s\in T^*\}}\right]
-= I'(k^*),
-\]
-where
-\[
-\mu^c:=\sum_i \mu_i\Pr_i\!\left(\lambda_i(\theta)\leq\lambda^*\right)
-\]
-denotes the total mass of contributing types.
-\end{proposition}
-
-A key feature of Proposition~\ref{prop:CI-surplus} is that surplus effects are uniform within each group: all non-contributing types move in the same direction simultaneously. There is no within-group cutoff separating winners from losers. This uniformity reflects the absence of information rents. Conditional on the partition induced by $\lambda^*$, the investment condition depends only on contributors' on-peak marginal utilities. In the uniform-weight benchmark, all types contribute, and \ref{eq:FB-k1} collapses to the standard peak-load rule.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Single crossing of \ref{Eujmd}}\label{appsec:singlecross}
@@ -1901,11 +1792,11 @@ since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumptio
 
 \noindent\textbf{IR-constrained allocation.}
 
-\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{ECSi}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
+\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{partialkCS1}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
 
 \noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\kappa(q_i(\theta,s))/\kappa_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
 \[\mathcal W_i'(\theta) = \frac{R_q(\theta)}{\G_i(\theta)}\left(\Omega_i - \frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] + \frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)\right),\]
-and $ \overline \varepsilon_i := \E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since \eqref{eq:proof-dbeta-dk} gives $\frac{\partial \beta_i(k_i)}{\partial k_i} = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}$, the term $-\frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] = \frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\frac{\partial \beta_i(k_i)}{\partial k_i}$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
+where $\Omega_i:=\E_s\!\left[\overline w_i(s)^{-1}\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]>0$ and $ \overline \varepsilon_i := \E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since \eqref{eq:proof-dbeta-dk} gives $\frac{\partial \beta_i(k_i)}{\partial k_i} = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}$, the term $-\frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] = \frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\frac{\partial \beta_i(k_i)}{\partial k_i}$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
 
 \noindent\textit{Step 3: existence and direction of the second cutoff.} Since $\mathcal W_i(\underline\theta_i)=0$, a concave $\mathcal W_i$ crosses zero at most once in the interior. If $\mathcal W_i'(\underline\theta_i)>0$, the function initially rises from zero, eventually returns toward zero, and crosses it at a unique interior cutoff $\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)$; types below $\tilde\theta_i$ gain and types above lose in case~(i), and the reverse in case~(ii). If $\mathcal W_i'(\underline\theta_i)\le 0$, no interior cutoff exists and either all types lose or all types gain. The convex case is symmetric, with concavity and convexity interchanged, and all surplus inequalities reversed. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse throughout.
 \end{proof}
@@ -2032,7 +1923,7 @@ Differentiating with respect to $k_i$ gives a boundary term proportional to $\va
 
 Fix $k_i$ and $s\in T_i$. Differentiating the first-order condition with respect to $I_i$ and imposing the binding capacity constraint $\E_i[\partial_{I_i}q_i(\theta,s)]=0$ yields
 $\frac{\partial \varepsilon_i(s)}{\partial I_i} = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s],$
-Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$ and using \eqref{eq:proof-dECSbar-dbeta} gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\frac{\partial \varepsilon_i(s)}{\partial I_i}=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so defining $\E_{(s,i)}^w[uJ\mid s]:=\E_s\!\left[\mathsf \E_i^w[uJ\mid s]\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]$,
+Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$ and using \eqref{eq:proof-dECSbar-dbeta} gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\frac{\partial \varepsilon_i(s)}{\partial I_i}=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so
 \begin{equation}\label{eq:proof-Vi-Iderivs}
 \frac{\partial V_i(k_i,I_i)}{\partial  I_i}= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad
 \frac{\partial^2 V_i(k_i,I_i)}{\partial  I_i^2}= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0, \qquad
@@ -2559,118 +2450,9 @@ where $\overline\varepsilon_i := \E_s\!\left[\varepsilon_i(s)\mathbf 1_{\{s\in T
 
 Finally, under a smooth ordered path that tilts redistributive preferences toward higher types, we have $\E_i[R_{\G,i}]>0$ for all $i\in N$. Hence the average effect $-\sum_{i\in N}\mu_i\,\Pi_i\,\E_i[R_{\G,i}]$ is negative. Since \(W''(k^\ast)<0\), this channel pushes \(\Delta k^\ast\) upward. The overall sign of \(\Delta k^\ast\) nevertheless also depends on the induced change in \(\tilde\lambda^\ast\).
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsection{Complete-information allocation with redistribution - Proof of Proposition \ref{prop:FBalloc}}
-
-\begin{proof}
-Let $\beta$, $\varepsilon(s)$, $\phi_i(\theta,s)$, and $\rho_i(\theta)$ be the Lagrange multipliers on the budget, the capacity, the transfer positivity, and the participation constraints, respectively. The Lagrangian is
-\[\label{KKT}\tag{L$^*$}
-\begin{aligned}
-\mathcal{L} &= \sum_i \mu_i\, \E_{(s,i)}\!\left[\lambda_i(\theta)\,\theta\, U(q_i,s) - t_i(\theta,s)\right] + \beta\!\left(\sum_i \mu_i \E_{(s,i)}[t_i(\theta,s)] - I(k)\right) \\
-&\quad + \E_s\!\left[\varepsilon(s)\!\left(k - \sum_i \mu_i \E_i[q_i(\theta,s)]\right)\right] + \sum_i  \E_{(s,i)}\left[ \rho_i(\theta)(\theta U(q_i,s) - t_i(\theta,s))\right] dG_i(\theta) \\
-&\quad + \sum_i \mu_i\, \E_{(s,i)}\!\left[\phi_i(\theta,s)\,t_i(\theta,s)\right],
-\end{aligned}
-\]
-with $\beta, \varepsilon(s), \rho_i(\theta), \phi_i(\theta,s) \geq 0$. The FOCs for each $(i,\theta,s)$ are
-\begin{align*}
-\frac{\partial \mathcal{L}}{\partial q_i} = 0 \quad &\Rightarrow \quad \left(\mu_i\lambda_i(\theta) + \rho_i(\theta)\right)\theta\, u(q_i,s) = \mu_i\varepsilon(s), \\
-\frac{\partial \mathcal{L}}{\partial t_i} = 0 \quad &\Rightarrow \quad \mu_i\beta - \mu_i\lambda_i(\theta) - \rho_i(\theta) + \phi_i(\theta,s) = 0.
-\end{align*}
-Complementary slackness conditions are
-\[
-\varepsilon(s)\!\left(k - \sum_i \mu_i \E_i[q_i(\theta,s)]\right) = 0, \quad \beta\!\left(\sum_i \mu_i \E_{s,\theta}[t_i] - I(k)\right) = 0,
-\]
-\[
-\rho_i(\theta)\,\E_s\!\left[\theta U(q_i,s) - t_i(\theta,s)\right] = 0, \quad \phi_i(\theta,s)\,t_i(\theta,s) = 0.
-\]
-
-\textit{Step 1: $s$-independence of transfers (WLOG).} The objective, the budget constraint, and the IR constraint all depend on $t_i(\theta,s)$ only through its expectation $\E_s[t_i(\theta,s)]$. Therefore any feasible state-contingent transfer schedule $t_i(\theta,s)$ can be replaced by $\overline{t}_i(\theta) := \E_s[t_i(\theta,s)]$ without altering the objective value or any constraint. Transfer positivity is preserved since $t_i(\theta,s) \geq 0$ for all $s$ implies $\overline{t}_i(\theta) \geq 0$. Hence without loss of generality $t_i^*(\theta,s) = t_i^*(\theta)$, and $\rho_i(\theta)$ and $\phi_i(\theta)$ are also $s$-independent.
-
-\textit{Step 2: structure of optimal transfers.} Suppose two types $(\theta,i)$ and $(\theta',i')$ satisfy $\lambda_i(\theta) < \lambda_{i'}(\theta')$. Assume for contradiction that $t_{i'}(\theta') > 0$ and $t_i(\theta) = 0$. If both participation constraints are slack, then $\rho_i(\theta) = \rho_{i'}(\theta') = 0$ and $\phi_{i'}(\theta') = 0$, so the FOC on $t$ gives $\lambda_{i'}(\theta') = \beta$. But $t_i(\theta) = 0$ with slack participation requires $\phi_i(\theta) > 0$, giving $\lambda_i(\theta) = \beta + \phi_i(\theta)/\mu_i > \beta = \lambda_{i'}(\theta')$, contradicting $\lambda_i(\theta) < \lambda_{i'}(\theta')$. The case where the participation constraint of $(\theta', i')$ binds leads to the same contradiction. Therefore at the optimum, any type with $\lambda_i(\theta) < \lambda^*$ has $t_i^*(\theta) > 0$ and any type with $\lambda_i(\theta) > \lambda^*$ has $t_i^*(\theta) = 0$, where $\lambda^* = \beta$ is the marginal welfare weight pinned by the budget constraint.
-
-\textit{Step 3: optimal quantities.} When capacity is slack, $\varepsilon(s) = 0$ and the FOC on $q$ gives $\theta\, u(q_i^*,s) = 0$, which is \eqref{FB-S}. When capacity binds, the FOC on $q$ gives $\theta\, u(q_i^*,s) = \varepsilon(s)/(\lambda_i(\theta) + \rho_i(\theta)/\mu_i)$. For types with $\lambda_i(\theta) > \lambda^*$: $\rho_i(\theta) = 0$ and $\theta\, u(q_i^*,s) = \varepsilon(s)/\lambda_i(\theta)$. For types with $\lambda_i(\theta) \leq \lambda^*$: from the FOC on $t$, $\lambda_i(\theta) + \rho_i(\theta)/\mu_i = \beta$, so $\theta\, u(q_i^*,s) = \varepsilon(s)/\beta$. This establishes \eqref{FB-T}.
-
-\textit{Step 4: monotonicity of $q_i^*$ in $s$ and uniqueness of $s^*$.} When capacity is slack, totally differentiating $\theta\, u(q_i^*,s) = 0$ gives
-$\frac{\partial q_i^*(\theta,s)}{\partial s} = -\frac{u_s(q_i^*,s)}{u_q(q_i^*,s)} > 0,$
-since $u_q < 0$ and $u_s > 0$ by assumption. Hence aggregate demand $\sum_i \mu_i \E_i[q_i^*(\theta,s)]$ is strictly increasing in $s$, which guarantees existence of a unique threshold $s^*$ separating $S^*$ and $T^*$.
-\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Surplus and investment under complete information - Proof of Proposition \ref{prop:CI-surplus}}
 
-\begin{proof}
-
-\noindent{Part i)}
-We maintain throughout that $B(k)+M(k)\neq 0$, where $B(k)+M(k)$ is the derivative of the binding residual equation with respect to $\beta$ after substituting the optimal allocation; this is the local regularity condition needed to apply the implicit function theorem, while $B(k)+M(k)>0$ delivers the monotone comparative statics used below.
-
-\noindent\textbf{Corner case: $\beta(k)=0$.} If $\beta(k)=0$ there are no contributing types. On $T^*$, the first-order condition is $\theta\,u(q_i^*(\theta,s),s) = \varepsilon(s)/\lambda_i(\theta)$. Differentiating and substituting into the capacity constraint gives $\frac{\partial\varepsilon(s)}{\partial k} = -1/\overline w^{nc}(s) < 0$ and $\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^{nc}(\theta,s)/\overline w^{nc}(s) > 0$ on $T^*$. Since non-contributing types pay no transfer:
-\[
-\frac{\partial CS_i(\theta;k)}{\partial k} = \E_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
-\]
-
-\noindent\textbf{Interior case: $\beta(k)>0$ with coexistence.} Assume contributing and non-contributing types coexist on a set of peak states of positive probability. On $T^*$, the first-order conditions are
-\[
-\theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta(k)}, \quad \lambda_i(\theta)\leq\beta(k), \qquad \theta\,u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\lambda_i(\theta)}, \quad \lambda_i(\theta)>\beta(k).
-\]
-The weights $w_i^c$, $w_i^{nc}$, $\overline w^c(s)$, $\overline w^{nc}(s)$, $\overline w(s)$ and the inframarginal component
-\[
-m^c(s) := \frac{1}{\overline w(s)}\sum_i\mu_i\,\E_i\!\left[w_i^c(\theta,s)\,\theta\,u(q_i^*(\theta,s),s)\,\mathbf{1}_{\lambda_i(\theta)\leq\beta(k)}\right]
-\]
-are as defined above. Differentiating the first-order conditions with respect to $k$:
-\[
-\frac{\partial q_i^*(\theta,s)}{\partial k} = w_i^c(\theta,s)\!\left(-\frac{\partial\varepsilon(s)}{\partial k} + \theta\,u(q_i^*,s)\,\frac{d\beta}{dk}\right), \quad \lambda_i(\theta)\leq\beta(k), \tag{$\partial_k q^c$}\label{dqc}
-\]
-\[
-\frac{\partial q_i^*(\theta,s)}{\partial k} = -\,w_i^{nc}(\theta,s)\,\frac{\partial\varepsilon(s)}{\partial k}, \quad \lambda_i(\theta)>\beta(k). \tag{$\partial_k q^{nc}$}\label{dqnc}
-\]
-Differentiating the capacity constraint and using continuity of the allocation at each cutoff $\theta_i^*(k)$ --- so that boundary terms cancel --- yields
-\[
-\frac{\partial\varepsilon(s)}{\partial k} = m^c(s)\,\frac{d\beta}{dk} - \frac{1}{\overline w(s)}. \tag{$\partial_k\varepsilon$}\label{depsk}
-\]
-
-\noindent\textbf{Step 1: sign of $\frac{d\beta}{dk}$.} Since the IR constraint of marginal types binds, $R^M(k)\equiv 0$. Differentiating this identity with respect to $k$, substituting \eqref{dqc} and \eqref{depsk}, and collecting all terms in $\frac{d\beta}{dk}$ on one side yields
-\[
-\E_s\!\left[\sum_i\mu_i\,\E^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right] - I'(k) + \frac{d\beta}{dk}\,B(k) = 0,
-\]
-where, for convenience of exposition, we write $\E^w_i[u^c|s]$ for the full per-category object defined above --- combining the inframarginal weighted marginal utility and the boundary term from the movement of $\theta_i^*(k)$ --- and
-\[
-B(k) := \E_s\!\left[\frac{\varepsilon(s)^2}{\beta(k)^2}\frac{\overline w^c(s)\,\overline w^{nc}(s)}{\overline w(s)}\,\mathbf{1}_{s\in T^*}\right] > 0.
-\]
-Solving for $\frac{d\beta}{dk}$:
-\[
-\frac{d\beta}{dk} = \frac{I'(k) - \E_s\!\left[\sum_i\mu_i\,\E^w_i[u^c|s]\,\mathbf{1}_{s\in T^*}\right]}{B(k)}.
-\]
-Since $B(k)>0$, it implies $\frac{d\beta}{dk}\leq 0$.
-
-\noindent\textbf{Step 2: surplus of non-contributing types.} Since $\frac{d\beta}{dk}\leq 0$ and $m^c(s)>0$, equation \eqref{depsk} gives $\frac{\partial\varepsilon(s)}{\partial k}<0$ for all $s\in T^*$. From \eqref{dqnc}: $\frac{\partial q_i^*(\theta,s)}{\partial k} = -w_i^{nc}(\theta,s)\frac{\partial\varepsilon(s)}{\partial k} > 0$ for every non-contributing type. Since $t_i^*(\theta,s)=0$:
-\[
-\frac{\partial CS_i(\theta;k)}{\partial k} = \E_s\!\left[\theta\,u(q_i^*(\theta,s),s)\,\frac{\partial q_i^*(\theta,s)}{\partial k}\,\mathbf{1}_{s\in T^*}\right] \geq 0.
-\]
-
-\noindent\textbf{Corner case: all types strictly contributing.} If all types satisfy $\lambda_i(\theta)<\beta(k)$, there are no non-contributing types and the statement is vacuous.
-
-\noindent{Part ii)}
-
-From the Lagrangian, the FOC with respect to $k$ is
-$-\beta\, I'(k) + \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)] = 0,$
-where we used $\varepsilon(s)=0$ for all $s\in S^*$, so that
-\begin{equation}\label{eq:FOC-k}
-\beta\, I'(k) = \E_s[\varepsilon(s)\,\mathbf{1}_{T^*}(s)].
-\end{equation}
-
-\textit{Step 1: contributing types.} From \eqref{FB-T}, for every type with $\lambda_i(\theta)\leq\lambda^*$ and every $s\in T^*$:
-$\theta\, u(q_i^*(\theta,s),s) = \frac{\varepsilon(s)}{\beta}.$
-Multiplying by $\mu_i$, integrating over contributing types, and taking the expectation over $s\in T^*$:
-\begin{equation}\label{eq:step1}
-\E_s\!\left[\sum_i \mu_i\,\E_i\!\left[\theta\, u(q_i^*,s)\,\mathbf{1}_{\lambda_i(\theta)\leq\lambda^*}\right]\mathbf{1}_{T^*}(s)\right] = \frac{\E_s[\varepsilon(s)\mathbf{1}_{T^*}(s)]}{\beta}\,\mu^c = I'(k)\,\mu^c,
-\end{equation}
-where the last equality uses \eqref{eq:FOC-k}. Dividing by $\mu^c$ gives \eqref{eq:FB-k1}.
-
-\end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Implementation feasibility - Proof of Proposition \ref{prop:implementation}}
 
 \begin{proof}
@@ -2882,16 +2664,16 @@ This proves part (ii).
 \subsection{Marginal response of category allocations to aggregate capacity - Proof of Lemma~\ref{lem:dkidk}}
 
 \begin{proof}
-\textit{Contributing categories ($i\in N^+$).} Both outer first-order conditions hold with equality and $dI_i^\ast$ is free. Differentiating $V_{k_i}=\tilde\lambda^\ast I'(k^\ast)$ and $\frac{\partial V_i}{\partial I_i}=-\tilde\lambda^\ast$ with respect to $k$ and using \eqref{eq:proof-Vi-Iderivs}--\eqref{eq:proof-Vi-kk} gives
+\textit{Contributing categories ($i\in N^+$).} Both outer first-order conditions hold with equality and $dI_i^\ast$ is free. Differentiating $\frac{\partial V_i}{\partial k_i}=\tilde\lambda^\ast I'(k^\ast)$ and $\frac{\partial V_i}{\partial I_i}=-\tilde\lambda^\ast$ with respect to $k$ and using \eqref{eq:proof-Vi-Iderivs}--\eqref{eq:proof-Vi-kk} gives
 \[
 dI_i^\ast = \E_{(s,i)}^w[uJ\mid s]\,dk_i^\ast + \E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,d\tilde\lambda^\ast.
 \]
-Substituting into the differentiated capacity condition and using $-V_{k_ik_i}-(\E_{(s,i)}^w[uJ\mid s])^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\Omega_i$ yields
+Substituting into the differentiated capacity condition and using $-\frac{\partial^2 V_i}{\partial k_i^2}-(\E_{(s,i)}^w[uJ\mid s])^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]=\Omega_i$ yields
 \[
 \Omega_i\,dk_i^\ast = \left(\E_{(s,i)}^w[uJ\mid s]-I'(k^\ast)\right)d\tilde\lambda^\ast - \tilde\lambda^\ast I''(k^\ast)\,dk.
 \]
 
-\textit{Non-contributing categories ($i\in N^0$).} Since $I_i^\ast=0$ identically on the neighborhood, $dI_i^\ast=0$. By Lemma~\ref{lem:Vi-concave}(ii), $\beta_i=0$ implies $V_{k_iI_i}=0$ and $V_{k_ik_i}=-\Omega_i$. Differentiating only the capacity condition gives
+\textit{Non-contributing categories ($i\in N^0$).} Since $I_i^\ast=0$ identically on the neighborhood, $dI_i^\ast=0$. By Lemma~\ref{lem:Vi-concave}(ii), $\beta_i=0$ implies $\frac{\partial^2 V_i}{\partial k_i \partial I_i}=0$ and $\frac{\partial^2 V_i}{\partial k_i^2}=-\Omega_i$. Differentiating only the capacity condition gives
 $\Omega_i\,dk_i^\ast = -I'(k^\ast)\,d\tilde\lambda^\ast - \tilde\lambda^\ast I''(k^\ast)\,dk.$
 This coincides with the contributing formula with $\E_{(s,i)}^w[uJ\mid s]$ replaced by $\hat A_i=0$, so both regimes are covered by
 \[

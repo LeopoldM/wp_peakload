@@ -1,0 +1,58 @@
+\documentclass{class}
+\definecolor{ok}{RGB}{0,140,0}
+\definecolor{todo}{RGB}{180,0,0}
+\newcommand{\ok}{\textcolor{ok}{\textbf{[RESOLVED]}}}
+\newcommand{\todo}{\textcolor{todo}{\textbf{[OPEN]}}}
+
+\title{Notation Audit Log --- Redistributive Peak Load Pricing}
+\author{Pass A, Pass B (Round 1), Pass B (Round 2)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Pass A --- Notation and Placeholder Audit (Round 1)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ $\Lambda_i(\theta)$: subscript $i$ missing from conditional expectation operator.
+\item \ok\ $\mathbb{E}\underline{CS}_i$ used as decision variable vs.\ endogenous object; replaced by $\mathbb{E}\underline{CS}_i$ throughout (kept as is after discussion).
+\item \ok\ $k_i$, $I_i$ undefined in Section 3.1; resolved by verbal introduction as category-specific parameters.
+\item \ok\ $\partial_k$ vs.\ $d_k$ notation inconsistency in two-type section; fixed to $\partial_k$ throughout.
+\item \ok\ $\mathbb{E}_i^w[\cdot\mid s]$ used before general definition; definition sentence added inline.
+\item \ok\ $R_{\mathcal{G},i}(\theta)$ vs.\ $R_\mathcal{G}(\theta)$: deliberate readability choice, accepted.
+\item \ok\ $R_{\theta,i}(\theta)$ vs.\ $R_\theta(\theta)$: same as above, accepted.
+\item \ok\ Roman $ECS(\theta_L)$ vs.\ $\mathbb{E}CS_i(\theta)$; fixed to $\mathbb{E}CS(\theta_L)$ in two-type section.
+\item \ok\ Missing backslash before E in (ECS$_i^\times$) underbrace; fixed.
+\item \ok\ ``As shown in Proposition~\ref{lem:investment}'' should be ``Lemma''; fixed.
+\item \ok\ Sentence ending ``which yields.'' with no completion; fixed.
+\item \ok\ $\mathbb{E}_{(s,i)}^w\mathrm{Var}[uJ]$ inconsistent with $\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)]$; fixed.
+\item \ok\ $\Delta_\lambda\beta_i$ undefined in main text; reference to proof added.
+\item \ok\ Missing $\partial$ in denominator of \eqref{eq:proof-dECSbar-dbeta}; fixed.
+\item \ok\ $\varepsilon_i(s)$ incorrectly said to be multiplier on \eqref{K-def} instead of \eqref{Kmdi-def}; fixed.
+\item \ok\ Underbrace labels in Proposition 2 CARA reduction: deliberate presentational choice, accepted.
+\end{enumerate}
+
+\section*{Pass B --- Notation and Placeholder Audit (Round 2)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ $\mathbb{E}_{(s,i)}[\cdot]$ used before definition in constraint (R); definition sentence added after the constraint.
+\item \ok\ $\tilde\lambda_i I_i$ inside expectation in (CS): deliberate, accepted.
+\item \ok\ Step 1 of Theorem proof referenced \eqref{ECSi} instead of \eqref{partialkCS1}; fixed to \eqref{partialkCS1}.
+\item \ok\ $\mathbb{E}CS(\theta_L)$ without category subscript in two-type section; deliberate (section declares $i\in\{L,H\}$), accepted.
+\item \ok\ $i,j$ used as type indices in $dq_i/R_q(\theta_i)=dq_j/R_q(\theta_j)$; deliberate, accepted.
+\item \ok\ $\Gamma_L/\Gamma_H$ vs.\ $\mathcal{G}_L/\mathcal{G}_H$ in two-type section; deliberate under $\beta=0$, accepted.
+\item \ok\ Local $\mathrm{Var}_i$ in Appendix A.1.2 conflicts with general $\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)]$; accepted (local notation only).
+\item \ok\ $\Omega_i$ undefined at first use in proof of Theorem~\ref{thm:surplus} Step 2. \textbf{Fix:} add ``where $\Omega_i:=\mathbb{E}_s[1/\overline{w}_i(s)\,\mathbf{1}_{\{s\in T_i\}}]$, as defined in Lemma~\ref{lem:dkidk}'' at start of Step 2.
+\item \ok\ Mixed Leibniz and subscript notation for second derivatives in Lemma~\ref{lem:Vi-concave} Step 3; fixed.
+\item \ok\ Cross-reference labels \eqref{eq:proof-Vi-Iderivs}--\eqref{eq:proof-Vi-kk} inside nested proof environments; accepted.
+\item \ok\ $\theta$ vs.\ $\theta^\ast(q,s)$ in ($\Delta_1 p_i$): offending paragraph deleted.
+\item \ok\ $\tilde\lambda^\ast$ used before its definition in Lemma~\ref{lem:investment}; fixed.
+\item \ok\ $R^M(k)$ in proof of Proposition~\ref{prop:CI-surplus} never defined. \textbf{Fix:} define $R^M(k):=\mathbb{E}_{(s,i)}[\theta U(q_i^\ast(\theta_i^\ast(k),s),s)]- I(k)/\mu^c$ or replace with verbal statement.
+\item \ok\ Local redefinition of $\mathbb{E}_{(s,i)}^w[uJ\mid s]$ in Lemma~\ref{lem:Vi-concave} Step 2; accepted (equivalent expression).
+\item \ok\ $M(k)$ in ``$B(k)+M(k)\neq 0$'' in proof of Proposition~\ref{prop:CI-surplus} never defined. \textbf{Fix:} define $M(k)$ explicitly as the inframarginal term or absorb it into $B(k)$.
+\end{enumerate}
+
+\section*{Summary of Open Items}
+
+
+\end{document}
