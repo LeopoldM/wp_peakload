@@ -566,7 +566,7 @@ The sorting effect of the optimal allocation induced by a preference perturbatio
 Similarly to the capacity extension expression \ref{partialkCS1}, the individual surplus change follows from \ref{ECSi}
 %##########################################
 \begin{equation*}
-\Delta \E CS_i  = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
+\Delta \E CS_i(\theta)  = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
 \end{equation*}
 Using lemma \ref{lem:realloc}, the following expression characterizes the change of available surplus \ref{underlineECSi} due to a perturbation of preferences
 \[
@@ -876,7 +876,7 @@ The proposition shows that redistributive preference perturbations affect optima
 
 I illustrate this result in Figure~\ref{fig:appendix_exampleoptimallevel} in the Appendix, where I simulate how the optimal investment level \(k^\ast\) responds to redistributive preference changes. I start from a benchmark with two utilitarian categories, \(i\) and \(i+1\). I then iteratively perturb preferences and recompute the optimal investment level for each successive pair of categories: in the first step, category \(i\) remains utilitarian while category \(i+1\) is a marginal perturbation of \(i\); in the next step, category \(i+1\) becomes the new baseline and category \(i+2\) is constructed as a perturbation of it; and so on. I consider two cases. In the first, redistributive preferences are increasingly tilted toward higher types; in the second, they are increasingly tilted toward lower types. In the numerical examples I consider, the sorting and average effects move in the same direction under monotone mean-preserving perturbations, producing a clear opposite shift in optimal investment.
 
-Finally, I connect a marginal increase in aggregate capacity \(k\) to its redistributive incidence across categories and types. While I do not provide a formal characterization here, the previous results already identify the two objects that govern this effect: the incidence on a single category of \(k_i\), and the response of equilibrium category capacities \(k_i^\ast\) to a change in aggregate capacity \(k\) This yields a simple condition that captures the main economic mechanism at work. Note that the response of the equilibrium revenue $I_i$ relies on the same mechanism. Consider a neighborhood of an interior optimum in which the set of active and contributing categories remains unchanged. Then
+Finally, I connect a marginal increase in aggregate capacity \(k\) to its redistributive incidence across categories and types. While I do not provide a formal characterization here, the previous results already identify the two objects that govern this effect: the incidence on a single category of \(k_i\), and the response of equilibrium category capacities \(k_i^\ast\) to a change in aggregate capacity \(k\). This yields a simple condition that captures the main economic mechanism at work. Note that the response of the equilibrium revenue $I_i$ relies on the same mechanism. Consider a neighborhood of an interior optimum in which the set of active and contributing categories remains unchanged. Then
 \[
 \frac{d\,\E CS_i(\theta)}{dk}
 =
@@ -902,7 +902,7 @@ The first term measures whether the marginal revenue \ref{Eujmd} for category \(
 \]
 which governs how the equilibrium marginal cost of funds \(\tilde\lambda^\ast\) responds to a change in aggregate capacity.\footnote{In this sense, the aggregate response mirrors the previous proposition on \(\Delta\tilde\lambda^\ast\): what matters, again, is how the marginal revenue compares with the relevant aggregate benchmark.}
 
-This yields a simple interpretation of the redistributive effect of a global capacity expansion. The allocation of additional capacity depends on both the category-level comparison between \ref{Eujmd} and \(I'(k^\ast)\), and the corresponding aggregate object \ref{dlambda}. The sign of \ref{dlambda} determines the direction of the reallocation: if \ref{dlambda} is positive, categories with relatively high marginal revenue receive more of the expansion; if \ref{dlambda} is negative, categories with relatively low marginal revenue receive more. Moreover, as shown in the Appendix and used in Theorem~\ref{thm:surplus}, \ref{Eujmd} moves monotonically with \(k_i\): depending on \(R_\theta(\theta)\) and \(R_q\), it may switch from positive to negative, or from negative to positive. This yields a qualitative prediction based on these two ratios and the sign of \ref{dlambda}.
+This yields a simple interpretation of the redistributive effect of a global capacity expansion. The allocation of additional capacity depends on both the category-level comparison between \ref{Eujmd} and \(I'(k^\ast)\), and the corresponding aggregate object \ref{dlambda}. The sign of \ref{dlambda} determines the direction of the reallocation: if \ref{dlambda} is positive, categories with relatively high marginal revenue receive more of the expansion; if \ref{dlambda} is negative, categories with relatively low marginal revenue receive more. Moreover, as shown in the section~\ref{appsec:implementation-region} of the Appendix and used in Theorem~\ref{thm:surplus}, \ref{Eujmd} moves monotonically with \(k_i\): depending on \(R_\theta(\theta)\) and \(R_q(\theta)\), it may switch from positive to negative, or from negative to positive. This yields a qualitative prediction based on these two ratios and the sign of \ref{dlambda}.
 
 To illustrate, take two categories \(i\) and \(j\), and assume \(R'_\theta(\theta)>0\), so that in both categories the virtual term \(u(q_i(\theta,s),s)J_i(\theta)\) is increasing in \(\theta\). Suppose that, at the initial allocation, \(k_j^\ast \gg k_i^\ast\), and that \ref{Eujmd} is positive for the low-capacity category \(i\) but negative for the high-capacity category \(j\). If \ref{dlambda} is positive, the global expansion reallocates relatively more capacity toward category \(i\), compressing category-level allocations and generating convergence. If \ref{dlambda} is negative, the opposite occurs: the expansion reallocates relatively more capacity toward category \(j\), widening category-level allocations and generating divergence. Figure~\ref{fig:general_surplus} illustrates this mechanism.
 
@@ -1105,7 +1105,7 @@ I=0.5
 This appendix establishes the single-crossing property of \ref{Eujmd} invoked in the main text, and provides the primitive foundations of Assumption~\ref{ass:monotone}.
 
 \begin{definition}
-$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq 0 \; (\text{resp.} \geq 0) $.
+$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta,k_i)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq 0 \; (\text{resp.} \geq 0) $.
 \end{definition}
 
 \begin{lemma}[Single-crossing]\label{lem:SC-dir}
@@ -1179,7 +1179,7 @@ m_i(\theta) = \frac{\lambda_i^\Delta(\theta)}{\lambda_i(\theta)}, \qquad c_\Lamb
 c_{\G}:=\frac{\tilde\lambda_i^\Delta+\beta_i^\Delta}
 {\tilde\lambda_i+\beta_i}.
 \]
-If $m_i(\theta)$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$, then for $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
+If $m_i(\theta)$ is increasing (resp. decreasing) on $[\underline{\theta}_i,\overline{\theta}_i]$, then for $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$,
 \[
 \frac{\Lambda_i^{\Delta\,\prime}(\theta)}{\Lambda_i^\Delta(\theta)} \;\ge\; (\text{resp.} \le) \; \frac{\Lambda_i^{\prime}(\theta)}{\Lambda_i(\theta)}.
 \]
