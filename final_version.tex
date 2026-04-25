@@ -214,7 +214,7 @@ For all $\theta\in\left[\underline{\theta}_i,\overline{\theta}_i\right]$, $\G_i(
 Define $S_i=[\underline s,s_i)$ and $T_i=[s_i,\overline s]$ as the off-peak and on-peak sets under the optimal allocation, where $s_i$ satisfies $\E_{i}\!\left[q_i(\theta,s_i)\right]=k_i$.
 
 \begin{lemma}[Off-peak and on-peak allocation]\label{lem:FOC}
-Assume~\ref{ass:interior} holds and that the problem is convex. Under the weighted objective with type-dependent weights $\lambda(\theta)$, the allocation is characterized by a unique quantity schedule $q_i(\theta,s)$ for each $\theta$ and $s$:
+Assume~\ref{ass:interior} holds and that the problem is convex. Under the weighted objective with type-dependent weights $\lambda_i(\theta)$, the allocation is characterized by a unique quantity schedule $q_i(\theta,s)$ for each $\theta$ and $s$:
 %##########################################
 \[
 \label{eq:SB-Smd1}\tag{SB-S}
@@ -239,7 +239,7 @@ Define
 \[
 R_q(\theta):=-\frac{u\!\left(q_i(\theta,s),s\right)}{u_q\!\left(q_i(\theta,s),s\right)},
 \]
-The object $R_q$ is determined by the curvature of demand and is the reciprocal of the coefficient of absolute risk aversion, with $R_q(\theta)\geq 0$ since $u_q<0$. It governs how an increase in $k$ is distributed across types at the optimal allocation. For instance, differentiating \ref{KKT-qMD} at a fixed budget multiplier $\beta_i$ and equating across two types $i,j$ yields $dq_i/R_q(\theta_i)=dq_j/R_q(\theta_j)$. 
+The object $R_q$ is determined by the curvature of demand and is the reciprocal of the coefficient of absolute risk aversion, with $R_q(\theta)\geq 0$ since $u_q<0$. It governs how an increase in $k$ is distributed across types at the optimal allocation. For instance, differentiating \ref{KKT-qMD} at a fixed budget multiplier $\beta_i$ and equating across two types $\theta_a,\theta_b$ yields $dq_i(\theta_a)/R_q(\theta_a)=dq_i(\theta_b)/R_q(\theta_b)$. 
 
 Next, define
 \[
@@ -276,11 +276,11 @@ To obtain characterization, I impose the following regularity condition.
 
 \renewcommand{\theassumption}{Monot.}
 \begin{assumption}\label{ass:monotone}
-\(R_q(\theta)\) and \(R_\theta(\theta)\) are both monotone on \([\underline{\theta}_i,\overline{\theta}_i]\). Moreover, \(R_q(\theta)\) exhibits log-monotone differences in \((\theta,k_i)\).
+\(R_q(\theta)\) and \(R_\theta(\theta)\) are both monotone on \([\underline{\theta}_i,\overline{\theta}_i]\). Moreover, \(R_q(\theta)\) exhibits log-monotone differences in \((\theta)\).
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
-In particular, I show in Lemma~\ref{lem:SC-dir} of the Appendix that \ref{Eujmd} is single-crossing in \(k_i\) if whether \(R_q(\theta)\) and \(R_\theta(\theta)\) are increasing or decreasing, and on whether \(R_q(\theta)\) exhibits positive or negative log-monotone differences in \((\theta,k_i)\). Hence, the available surplus to be redistributed is either single-peaked or single-dipped.\footnote{The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), $R_\theta(\theta)$ is increasing in $\theta$, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta,k_i')/R_q(\theta)\) is decreasing in \(\theta\). Thus, as capacity expands, the weighted average \ref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates.} I discuss in section~\ref{appsec:singlecross} in the Appendix, the conditions for establishing the monotonicity of those ratios. In particular, 
+In particular, I show in Lemma~\ref{lem:SC-dir} of the Appendix that \ref{Eujmd} is single-crossing in \(k_i\) if whether \(R_q(\theta)\) and \(R_\theta(\theta)\) are increasing or decreasing, and on whether \(R_q(\theta)\) exhibits positive or negative log-monotone differences in \((\theta)\). Hence, the available surplus to be redistributed is either single-peaked or single-dipped.\footnote{The economic interpretation of log-monotone differences in \((\theta)\) is intuitive. Suppose that, for each \(k_i\), $R_\theta(\theta)$ is increasing in $\theta$, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta')/R_q(\theta)\) is decreasing in \(\theta\). Thus, as capacity expands, the weighted average \ref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates.} I discuss in section~\ref{appsec:singlecross} in the Appendix, the conditions for establishing the monotonicity of those ratios. In particular, 
 \[
 \label{signRt}\tag{$\sign R_\theta$} \sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue motive}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{redistributive motive}}\Bigg).
 \] For types contributing positively to the available surplus ($J_i(\theta) > 0$), $R_\theta(\theta)$ is increasing whenever the revenue motive grows proportionally faster than the redistributive motive. For types contributing negatively ($J_i(\theta) < 0$), the reverse holds: $R_\theta(\theta)$ is increasing whenever the revenue motive grows proportionally slower. When those assumptions fail, the same sufficient statistic remains valid, but its sign need not vary monotonically with \(k_i\).
@@ -322,18 +322,18 @@ which measures how the perturbation tilts the effective weight of type $\theta$ 
 =
 R_{\G,i}(\theta)- \frac{\Delta \varepsilon_i(s)}{\varepsilon_i(s)}.
 \]
-A preference perturbation affects the optimal allocation through two forces. The first is the proportional adjustment of the scarcity rent, $\Delta\varepsilon_i(s)/\varepsilon_i(s)$, which is common to all types within state $s$ and captures how tight capacity becomes once preferences have shifted. The second is the proportional revaluation of each type's effective social weight, $R_{\G,i}(\theta)$, which captures how the perturbation changes the social value of serving type $\theta$ relative to the baseline allocation. At the category-state level, the relevant aggregate object is the weighted average $\E_i^w\!\left[R_{\G}\mid s\right]$, which summarizes the average preference tilt across types using the weights $w_i(\theta,s)$ defined above.
+A preference perturbation affects the optimal allocation through two forces. The first is the proportional adjustment of the scarcity rent, $\Delta\varepsilon_i(s)/\varepsilon_i(s)$, which is common to all types within state $s$ and captures how tight capacity becomes once preferences have shifted. The second is the proportional revaluation of each type's effective social weight, $R_{\G,i}(\theta)$, which captures how the perturbation changes the social value of serving type $\theta$ relative to the baseline allocation. At the category-state level, the relevant aggregate object is the weighted average $\E_i^w\!\left[R_\G\mid s\right]$, which summarizes the average preference tilt across types using the weights $w_i(\theta,s)$ defined above.
 
-Appendix Lemma~\ref{lem:preferenceorder} provides primitive conditions on preference perturbations under which $R_{\G}(\theta)$ has a constant sign across types. The first part of the Lemma states that a proportional tilt of welfare weights toward higher types shifts the social value of the information rent given to types above $\theta$ (i.e., $\Lambda_i(\theta)$) upward relative to the baseline across the type space.\footnote{The first result of the Lemma has a direct implication for the sign of $R'_\theta(\theta)$. From expression \ref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. As a maintained example, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), the condition in \ref{signRt} is easier to satisfy under a preference shift toward higher types, since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}.} The second part connects the direction of a preference shift to the sign of $R_{\G}(\theta)$, and requires two conditions. The effective weight must not decrease on average, and the average preference shift must be at least as large as the effective-weight shift after accounting for the budget shadow cost. These conditions simplify under two special cases on the equilibrium object $\beta_i$, which will be used later for the across-category results. Tilting welfare weights proportionally toward higher types, while not decreasing the average weight, yields $R_{\G}(\theta)>0$ for all $\theta$; and conversely, shifting proportionally toward lower types while not increasing the average weight yields $R_{\G}(\theta)<0$ for all $\theta$. A standard perturbation in the redistribution literature is a (monotonic) mean-preserving rotation of $\lambda_i(\theta)$, i.e.\ $\Delta\tilde\lambda_i=0$ (see \cite{Kang2024} for a recent use in the context of redistributive mechanism design). Under such a rotation, $R_{\G}(\theta)$ has a constant sign throughout the type space. It is positive when the rotation favors higher types, and negative when it favors lower types.
+Appendix Lemma~\ref{lem:preferenceorder} provides primitive conditions on preference perturbations under which $R_\G(\theta)$ has a constant sign across types. The first part of the Lemma states that a proportional tilt of welfare weights toward higher types shifts the social value of the information rent given to types above $\theta$ (i.e., $\Lambda_i(\theta)$) upward relative to the baseline across the type space.\footnote{The first result of the Lemma has a direct implication for the sign of $R'_\theta(\theta)$. From expression \ref{signRt}, only the IC term depends on preferences; the revenue term is determined solely by the type distribution. As a maintained example, assume $\Lambda_i^{1\,\prime}(\theta)<0$, $\Lambda_i^{2\,\prime}(\theta)<0$, and $J_i'(\theta)>0$. In that case, a preference shift toward higher types favors $R_\theta'(\theta)>0$. For types generating revenue ($J_i(\theta)>0$), $R_\theta'(\theta)>0$ holds under both weight functions. For types that do not generate revenue ($J_i(\theta)<0$), the condition in \ref{signRt} is easier to satisfy under a preference shift toward higher types, since $\Lambda_i^{\Delta\,\prime}/\Lambda_i^\Delta \ge \Lambda_i^{\prime}/\Lambda_i$ by Lemma~\ref{lem:preferenceorder}.} The second part connects the direction of a preference shift to the sign of $R_\G(\theta)$, and requires two conditions. The effective weight must not decrease on average, and the average preference shift must be at least as large as the effective-weight shift after accounting for the budget shadow cost. These conditions simplify under two special cases on the equilibrium object $\beta_i$, which will be used later for the across-category results. Tilting welfare weights proportionally toward higher types, while not decreasing the average weight, yields $R_\G(\theta)>0$ for all $\theta$; and conversely, shifting proportionally toward lower types while not increasing the average weight yields $R_\G(\theta)<0$ for all $\theta$. A standard perturbation in the redistribution literature is a (monotonic) mean-preserving rotation of $\lambda_i(\theta)$, i.e.\ $\Delta\tilde\lambda_i=0$ (see \cite{Kang2024} for a recent use in the context of redistributive mechanism design). Under such a rotation, $R_\G(\theta)$ has a constant sign throughout the type space. It is positive when the rotation favors higher types, and negative when it favors lower types.
 
 
 \subsection{A two-type illustration of the sorting margins}\label{sec3TwoType}
 
-To illustrate the two sorting margins in the simplest possible environment, consider a single category with two types, $\theta\in\{\theta_L,\theta_H\}$, occurring with probabilities $p_L$ and $p_H$, where $p_L+p_H=1$. I focus on the peak allocation when the participation constraint is slack, so $\beta=0$ and $\G_i = \Gamma_i$, suppress the state index $s$, and assume that $i\in\{L,H\}$. A type-$\theta$ consumer then obtains utility $\theta U(q)$ from quantity $q$. In particular, the example shows how the capacity-sorting margin governs the surplus incidence of a marginal capacity expansion, and how the preference-sorting margin, through the proportional change in effective social weight $R_{\G}(\theta)$, governs the direction of reallocation induced by a change in redistributive preferences.
+To illustrate the two sorting margins in the simplest possible environment, consider a single category with two types, $\theta\in\{\theta_L,\theta_H\}$, occurring with probabilities $p_L$ and $p_H$, where $p_L+p_H=1$. I focus on the peak allocation when the participation constraint is slack, so $\beta=0$ and $\G_l = \Gamma_l$, suppress the state index $s$, and assume that $l\in\{L,H\}$. A type-$\theta$ consumer then obtains utility $\theta U(q)$ from quantity $q$. In particular, the example shows how the capacity-sorting margin governs the surplus incidence of a marginal capacity expansion, and how the preference-sorting margin, through the proportional change in effective social weight $R_\G(\theta)$, governs the direction of reallocation induced by a change in redistributive preferences.
 
 In the two-type case, the expressions for available surplus and individual surplus simplify as follows.
 \[\tag{$\E \underline{CS}_{LH}$}\label{underlineECSTwo}
-\E \underline{CS} := \underbrace{\Bigg.\sum_i p_i \theta_i U(q_i)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_i p_i \gamma_i U(q_i)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p_L J_L U(q_L) + p_H J_H U(q_H)  - I,
+\E \underline{CS} := \underbrace{\Bigg.\sum_l p_l \theta_l U(q_l)\Bigg.}_{\text{surplus}} -  \underbrace{\Bigg.\sum_l p_l \gamma_l U(q_l)\Bigg.}_{\text{IC rent}} - \underbrace{\Bigg.I\Bigg.}_{\text{cost}} = p_L J_L U(q_L) + p_H J_H U(q_H)  - I,
 \]
 \[
 \tag{$\E CS_{LH}$}\label{ECSlh} \E CS(\theta_L) = \underbrace{\E \underline{CS}}_{\text{fixed transfer}}, \qquad \E CS(\theta_H) = \E \underline{CS} + \underbrace{(\theta_H - \theta_L)U(q_L)}_{\text{IC transfer}}.
@@ -350,7 +350,7 @@ Differentiating $\E CS(\theta_L)$ with respect to $k$, factorizing by $\frac{\pa
 \] 
 Equivalently, the same object can be rewritten in terms of the capacity-sorting margin of Section~\ref{sec:suffstat}: 
 \[
-\frac{\partial \E\underline{CS}}{\partial k} = \frac{1}{\overline{w}}\left(p_L\,R_q(\theta_L)\frac{J_L}{\Gamma_L} + p_H\,R_q(\theta_H)\frac{J_H}{\Gamma_H}\right) = \frac{1}{\overline{w}}\sum_i p_i\,R_\theta(\theta_i)\,R_q(\theta_i) = \frac{1}{\overline{w}}\sum_i p_i\,w_i\,u(q_i)\,J_i.
+\frac{\partial \E\underline{CS}}{\partial k} = \frac{1}{\overline{w}}\left(p_L\,R_q(\theta_L)\frac{J_L}{\Gamma_L} + p_H\,R_q(\theta_H)\frac{J_H}{\Gamma_H}\right) = \frac{1}{\overline{w}}\sum_l p_l\,R_\theta(\theta_l)\,R_q(\theta_l) = \frac{1}{\overline{w}}\sum_l p_l\,w_l\,u(q_l)\,J_l.
 \]
 Increasing $k$ has two opposite effects. It raises the available quantity and therefore the available surplus terms. However, expanding $k$ also forces the designer to leave a larger informational rent to $\theta_H$, which mechanically reduces the transfer $t_H$ and therefore the available surplus $\E \underline{CS}$.
 
@@ -370,7 +370,7 @@ Raising $\lambda_L$ moves $\Gamma_L$, and the effect of $\Gamma_L$ on the availa
 \end{figure}
 
 \paragraph{Preference-sorting margin with two types.}
-I now show that a change in redistributive preferences need not reallocate quantity toward the type whose welfare weight rises. Because I focus on the case $\beta=0$, $\G=\Gamma$. Consider a perturbation of redistributive preferences $(\Delta\lambda_L,\Delta\lambda_H)$, inducing a change in the average weight
+I now show that a change in redistributive preferences need not reallocate quantity toward the type whose welfare weight rises. Consider a perturbation of redistributive preferences $(\Delta\lambda_L,\Delta\lambda_H)$, inducing a change in the average weight
 $\Delta\tilde\lambda = p_L\,\Delta\lambda_L + p_H\,\Delta\lambda_H$.
 The induced change in effective social weights is
 \[
@@ -384,30 +384,30 @@ J_L\,\Delta\tilde\lambda
 =
 \theta_H\,\Delta\tilde\lambda.
 \]
-These expressions make the two forces transparent. The first term, $\Delta\tilde\lambda J_i$, is the revenue motive: it revalues each type's contribution to available surplus at the new average weight. The second term is the redistributive motive: it revalues the informational rent flowing upward to higher types. Since no rent accrues above the high type, $\Delta\Lambda_H=0$, so $\Delta\Gamma_H$ depends only on the average perturbation. By contrast, $\Delta\Gamma_L$ contains both terms, because serving the low type also changes the informational rent left to $\theta_H$.
+These expressions make the two forces transparent. The first term, $\Delta\tilde\lambda J_l$, is the revenue motive: it revalues each type's contribution to available surplus at the new average weight. The second term is the redistributive motive: it revalues the informational rent flowing upward to higher types. Since no rent accrues above the high type, $\Delta\Lambda_H=0$, so $\Delta\Gamma_H$ depends only on the average perturbation. By contrast, $\Delta\Gamma_L$ contains both terms, because serving the low type also changes the informational rent left to $\theta_H$.
 
 Two special cases follow directly. If only $\lambda_L$ changes, then $\Delta\tilde\lambda = p_L\,\Delta\lambda_L$ and $\Delta\lambda_H = 0$, so $\Delta\Gamma_H = p_L\theta_H\,\Delta\lambda_L$ and $\Delta\Gamma_L = p_L J_L\,\Delta\lambda_L$. The redistributive motive is then absent, and the perturbation operates purely through the revenue channel for both types. Under a mean-preserving perturbation, instead, $\Delta\tilde\lambda = 0$ and $\Delta\lambda_H = -(p_L/p_H)\,\Delta\lambda_L$, so $\Delta\Gamma_H = 0$ and $\Delta\Gamma_L = -(\theta_H-\theta_L)\,\Delta\lambda_L$. In that case, the high type's effective weight is unchanged and the entire perturbation operates through the redistributive motive of the low type alone.
 
-Using \ref{DeltaKKT-qMD} for $i=L$ and $i=H$ and subtracting gives
+Using \ref{DeltaKKT-qMD} for $L$ and $H$ and subtracting gives
 \[\tag{$\Delta q_{LH}$}\label{DeltaqLH}
 \Gamma_L u_q(q_L)\,\Delta q_L - \Gamma_H u_q(q_H)\,\Delta q_H
 =
-\varepsilon\left(R_{\G}(\theta_H)-R_{\G}(\theta_L)\right).
+\varepsilon\left(R_\G(\theta_H)-R_\G(\theta_L)\right).
 \]
 Differentiating the capacity constraint yields $p_L\,\Delta q_L + p_H\,\Delta q_H = 0$, so that $\Delta q_H = -(p_L/p_H)\,\Delta q_L$ and the two quantities always move in opposite directions. Hence the allocation shifts toward the type whose effective weight experiences the larger proportional increase:
 \[
 \operatorname{sign}(\Delta q_L)
 =
-\operatorname{sign}\left(R_{\G}(\theta_L)-R_{\G}(\theta_H)\right),
+\operatorname{sign}\left(R_\G(\theta_L)-R_\G(\theta_H)\right),
 \qquad
 \operatorname{sign}(\Delta q_H)
 =
-\operatorname{sign}\left(R_{\G}(\theta_H)-R_{\G}(\theta_L)\right).
+\operatorname{sign}\left(R_\G(\theta_H)-R_\G(\theta_L)\right).
 \]
 
 The two special cases then yield the following implications. When $\Delta\lambda_H=0$,
 \[
-R_{\G}(\theta_L) - R_{\G}(\theta_H)
+R_\G(\theta_L) - R_\G(\theta_H)
 =
 \frac{J_L\,p_L\,\Delta\lambda_L}{\Gamma_L}
 -
@@ -416,7 +416,7 @@ R_{\G}(\theta_L) - R_{\G}(\theta_H)
 \]
 so an increase in $\lambda_L$ alone lowers $q_L$. By contrast, when $\Delta\tilde\lambda=0$,
 \[
-R_{\G}(\theta_L) - R_{\G}(\theta_H)
+R_\G(\theta_L) - R_\G(\theta_H)
 =
 -\frac{\theta_H-\theta_L}{\Gamma_L}\,\Delta\lambda_L,
 \]
@@ -424,7 +424,7 @@ so a mean-preserving tilt toward the high type lowers $q_H$ and raises $q_L$. Wh
 
 More generally, combining the expressions for $\Delta\Gamma_L$ and $\Delta\Gamma_H$ and simplifying yields
 \[
-R_{\G}(\theta_L)-R_{\G}(\theta_H)
+R_\G(\theta_L)-R_\G(\theta_H)
 =
 \frac{p_H(\theta_H-\theta_L)}{\tilde\lambda\,\Gamma_L}
 \left(\lambda_L\,\Delta\lambda_H-\lambda_H\,\Delta\lambda_L\right).
@@ -441,7 +441,7 @@ Therefore,
 \]
 Thus, the allocation shift depends on the change in the ratio $\lambda_H/\lambda_L$: the low type receives more quantity if and only if the relative increase in welfare weight is stronger for the high type. This ratio summarizes which of the two forces dominates: the redistributive motive that tilts the allocation toward the low type, or the revenue motive that tilts it toward the high type. The Lemma~\ref{lem:preferenceorder} in the Appendix shows that this ratio characterization extends to the continuous-type case.
 
-The two-type example makes the two sorting margins transparent, but some of its properties are specific to the binary environment. I now turn to the general analysis, which allows for a richer type space and does not rely on those special features.\footnote{For instance, the effective weight $\G_i$ is always increasing in $\theta$ with two types, and the highest type's quantity always rises with capacity. Appendix~\ref{app:three-nonmonotone-G} and Appendix~\ref{app:three-negative-qH} provide conditions under which these results can be reversed with three types.}
+The two-type example makes the two sorting margins transparent, but some of its properties are specific to the binary environment. I now turn to the general analysis, which allows for a richer type space and does not rely on those special features.\footnote{For instance, the effective weight $\G_l$ is always increasing in $\theta$ with two types, and the highest type's quantity always rises with capacity. Appendix~\ref{app:three-nonmonotone-G} and Appendix~\ref{app:three-negative-qH} provide conditions under which these results can be reversed with three types.}
 
 \subsection{Redistributive incidence of capacity expansion}\label{sec:surplus}
  
@@ -537,7 +537,7 @@ The previous section asked how a given redistributive objective shapes the surpl
 \begin{lemma}[Reallocation under preference perturbations]\label{lem:realloc}
 Fix category \(i\) and an across-category allocation \((k_i,I_i)\). For any local perturbation $\Delta\lambda_i(\theta)$ and any allocation regime,
 \[
-\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\G}(\theta) - \E^w_i\!\left[R_{\G}\mid s\right]\right), \qquad s\in T_i.
+\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_\G(\theta) - \E^w_i\!\left[R_\G(\theta)\mid s\right]\right), \qquad s\in T_i.
 \]
 \end{lemma}
 \begin{proof}
@@ -551,17 +551,17 @@ the pointwise first-order condition yields
 =
 w_i(\theta,s)\bigl(u(q_i,s)\,\Delta\G_i(\theta)-\Delta\varepsilon_i(s)\bigr)
 =
-R_q(\theta)\!\left(R_{\G}(\theta)-\E_i^w\!\left[R_{\G}\mid s\right]\right).
+R_q(\theta)\!\left(R_\G(\theta)-\E_i^w\!\left[R_\G(\theta)\mid s\right]\right).
 \label{Deltaq}\tag{$\Delta$q}\]
 That is the condition of receiving more or less allocation is determined by whether the preference change raises the marginal utility valued at the effect social weights of type $\theta$ by more or less than the equilibrium adjustment in the scarcity rent.\footnote{ The equivalence between the two equations stems from the observation that the aggregate proportional change in the effective social weight is also the proportional change in the scarcity rent
 \[
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
 =
-\E_i^w\!\left[R_{\G}\mid s\right].
+\E_i^w\!\left[R_\G(\theta)\mid s\right].
 \]
 } Since capacity is fixed, the reallocation is zero-sum across types within each binding state: $\E_i\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$.
 
-The sorting effect of the optimal allocation induced by a preference perturbation is different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ can be non-monotone in types, so a tilt of preferences toward higher or lower types does not mechanically translate into a monotone quantity reallocation. This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_{\G}(\theta)$ and not the absolute change $\Delta \G_i(\theta)$. While a change in preferences may induce a monotonic variation in the absolute change $\Delta \G_i(\theta)$ along types, this need not be the case for the proportional change $R_{\G}(\theta)$. To see this, consider the extreme types $\underline{\theta}_i$ and $\overline{\theta}_i$ and a perturbation of an optimal allocation in the IR-unconstrained regime. At $\underline{\theta}_i$, the social value of the information rent is the information rent valued at the expected welfare weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta}_i)= \underline{\theta}_i  \tilde\lambda_i$. At $\overline{\theta}_i$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta}_i)= \overline{\theta}_i  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta}_i)= \underline{\theta}_i  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta}_i)= \overline{\theta}_i  \Delta \tilde\lambda_i$. Therefore, while I can have $\Delta \G_i(\underline{\theta}_i) \neq \Delta \G_i(\overline{\theta}_i)$, I always have $R_\G(\underline{\theta}_i) = R_\G(\overline{\theta}_i)$ for any perturbation of redistributive preferences. In particular, the second part of Appendix Proposition~\ref{prop:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
+The sorting effect of the optimal allocation induced by a preference perturbation is different than the direction of the perturbation itself. Appendix Proposition~\ref{prop:rprefreallocation} shows that the behavioral response $\Delta q_i(\cdot,s)$ can be non-monotone in types, so a tilt of preferences toward higher or lower types does not mechanically translate into a monotone quantity reallocation. This non-monotonicity of the optimal allocation stems from the fact that the element that drives its response is the proportional change $R_\G(\theta)$ and not the absolute change $\Delta \G_i(\theta)$. While a change in preferences may induce a monotonic variation in the absolute change $\Delta \G_i(\theta)$ along types, this need not be the case for the proportional change $R_\G(\theta)$. To see this, consider the extreme types $\underline{\theta}_i$ and $\overline{\theta}_i$ and a perturbation of an optimal allocation in the IR-unconstrained regime. At $\underline{\theta}_i$, the social value of the information rent is the information rent valued at the expected welfare weights: $\gamma_i(\theta)\tilde\lambda_i$, so the second and third terms cancel: $\G_i( \underline{\theta}_i)= \underline{\theta}_i  \tilde\lambda_i$. At $\overline{\theta}_i$, the information rent is absent: $\gamma_i(\theta)=0$, so the second and third terms are null: $\G_i(\overline{\theta}_i)= \overline{\theta}_i  \tilde\lambda_i$. The perturbation yeilds similar values:  $\Delta \G_i( \underline{\theta}_i)= \underline{\theta}_i  \Delta \tilde\lambda_i$ and $\Delta \G_i(\overline{\theta}_i)= \overline{\theta}_i  \Delta \tilde\lambda_i$. Therefore, while I can have $\Delta \G_i(\underline{\theta}_i) \neq \Delta \G_i(\overline{\theta}_i)$, I always have $R_\G(\underline{\theta}_i) = R_\G(\overline{\theta}_i)$ for any perturbation of redistributive preferences. In particular, the second part of Appendix Proposition~\ref{prop:rprefreallocation} further shows that, under mean-preserving perturbations ($\Delta \tilde\lambda_i=0$), the induced gains and losses must necessarily occur at the type boundaries in the opposite direction from the interior reallocation, whatever the direction of preference changes.
 
 Similarly to the capacity extension expression \ref{partialkCS1}, the individual surplus change follows from \ref{ECSi}
 %##########################################
@@ -570,26 +570,26 @@ Similarly to the capacity extension expression \ref{partialkCS1}, the individual
 \end{equation*}
 Using lemma \ref{lem:realloc}, the following expression characterizes the change of available surplus \ref{Eujmd} due to a perturbation of preferences
 \[
-\Delta\E\underline{CS}_i =\E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_{\G}(\theta)-\E_i^w\!\left[R_{\G}\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right].
+\Delta\E\underline{CS}_i =\E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_\G(\theta)-\E_i^w\!\left[R_\G(\theta)\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right].
 \]
 \begin{proposition}[Surplus and preference perturbations]\label{prop:surplus-redist}
-Assume Assumption~\ref{ass:CARA} and unimodality of $R_{\G}(\theta)$. Define the set of cutoffs
+Assume Assumption~\ref{ass:CARA} and unimodality of $R_\G(\theta)$. Define the set of cutoffs
 \[
 \tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\E CS_i(\tilde\theta_i)=0\right\}.
 \]
-\noindent\textbf{IR-unconstrained allocation.} The pattern of $\Delta\E CS_i(\theta)$ is jointly determined by two signs: $\Cov_{i}(R_\theta(\theta),R_{\G})$, which governs the starting value, \[\sign\!\left(\Delta\E CS_i(\underline\theta_i)\right)=\sign\!\left(\Cov_{i}(R_\theta(\theta),R_{\G})\right),\] and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ with at most three interior cutoffs when $\Cov_{i}(R_\theta(\theta),R_{\G})>0$, and the pattern $-,+,-$ with at most two interior cutoffs when $\Cov_{i}(R_\theta(\theta),R_{\G})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
+\noindent\textbf{IR-unconstrained allocation.} The pattern of $\Delta\E CS_i(\theta)$ is jointly determined by two signs: $\Cov_{i}(R_\theta(\theta),R_\G(\theta))$, which governs the starting value, \[\sign\!\left(\Delta\E CS_i(\underline\theta_i)\right)=\sign\!\left(\Cov_{i}(R_\theta(\theta),R_\G(\theta))\right),\] and $R_\G(\theta)$, which governs the interior shape. If $R_\G(\theta)\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ with at most three interior cutoffs when $\Cov_{i}(R_\theta(\theta),R_\G(\theta))>0$, and the pattern $-,+,-$ with at most two interior cutoffs when $\Cov_{i}(R_\theta(\theta),R_\G(\theta))<0$. If $R_\G(\theta)\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
 
-\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_{\G}\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_{\G}\le 0$ for all $\theta$, the inequalities are reversed.
+\noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_\G(\theta)\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_\G(\theta)\le 0$ for all $\theta$, the inequalities are reversed.
 \end{proposition}
 \begin{proof}
     See Appendix~\ref{proof:surplus-redist}
 \end{proof}
 
-Proposition~\ref{prop:surplus-redist} delivers a clear redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \ref{underlineECSi}. The unimodality of \(R_{\G}\) is used only to limit the number of sign changes of \(\Delta \E CS_i(\theta)\). If \(R_{\G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
+Proposition~\ref{prop:surplus-redist} delivers a clear redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \ref{underlineECSi}. The unimodality of \(R_\G(\theta)\) is used only to limit the number of sign changes of \(\Delta \E CS_i(\theta)\). If \(R_\G(\theta)\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
 
 In both regimes, the origin of the non-monotonicity in the change in surplus is the same: the individual surplus change combines an IC-rent channel and a level channel, and neither of them follows the direction of the preference perturbation mechanically. Figure~\ref{fig:surplus-redist} provides a simple geometry illustration of the proposition.
 
-The first channel is the IC-rent channel. By construction, informational rents are built from the allocation received by lower types. As a result, when the perturbation changes the quantity assigned to some type \(\tilde\theta\), this change is inherited by all higher types through the rent formula. The shape of the IC-rent term is therefore determined by the shape of \(\Delta q_i(\theta,s)\) across types. Lemma~\ref{lem:realloc} shows that this behavioral response is itself governed by the gap between the proportional change in effective social weight, \(R_{\G}(\theta)\), and its equilibrium average. Since \(R_{\G}(\theta)\) is non-monotone, the induced quantity response is also generically non-monotone. Hence, even when the underlying preference shift is monotone, the associated IC-rent effect on surplus need not be monotone across types.
+The first channel is the IC-rent channel. By construction, informational rents are built from the allocation received by lower types. As a result, when the perturbation changes the quantity assigned to some type \(\tilde\theta\), this change is inherited by all higher types through the rent formula. The shape of the IC-rent term is therefore determined by the shape of \(\Delta q_i(\theta,s)\) across types. Lemma~\ref{lem:realloc} shows that this behavioral response is itself governed by the gap between the proportional change in effective social weight, \(R_\G(\theta)\), and its equilibrium average. Since \(R_\G(\theta)\) is non-monotone, the induced quantity response is also generically non-monotone. Hence, even when the underlying preference shift is monotone, the associated IC-rent effect on surplus need not be monotone across types.
 
 The second channel is a level effect, whose source depends on the regime. When the participation constraint is slack, the change in surplus contains both the fixed component $\Delta \E \underline{CS}_i$ and the IC-rent term. The fixed component is common across types and depends on how the perturbation changes the total surplus available for redistribution. In the two-type example, differentiating \ref{underlineECSTwo} and using \ref{DeltaqLH} yields
 \[
@@ -597,15 +597,15 @@ The second channel is a level effect, whose source depends on the regime. When t
 =
 \frac{\varepsilon}{\alpha}p_Lp_H
 \left(R_\theta(\theta_H)-R_\theta(\theta_L)\right)
-\left(R_{\G}(\theta_H)-R_{\G}(\theta_L)\right)
+\left(R_\G(\theta_H)-R_\G(\theta_L)\right)
 =
-\frac{\varepsilon}{\alpha}\Cov(R_\theta(\theta),R_{\G}).
+\frac{\varepsilon}{\alpha}\Cov(R_\theta(\theta),R_\G(\theta)).
 \]
 If a consumer who receives the greatest proportional change also participates most in the revenue, then the available surplus for all consumers increases. When participation binds, the lowest type remains at the boundary, so that \(\Delta \E CS_i(\underline\theta_i)=0\). In that case, the level effect is pinned down by the endpoint condition, and the entire surplus profile is shaped by the accumulation of the non-monotone quantity response through the IC formula.
 
 Taken together, these two channels explain why the surplus effect of a redistributive preference perturbation is generically non-monotone across types. A shift in preferences toward higher or lower types does not translate mechanically into a monotone pattern of winners and losers, because the perturbation operates through the endogenous reallocation of quantities and through the way informational rents accumulate along the type space.
 
- I illustrate in Figure~\ref{fig:appendix_withinperturbation} in the Appendix a numerical simulation. I assume an initial category characterized by utilitarian preferences, and then compute two (mean-preserving) perturbations in welfare weights $\lambda_i(\theta)$: case A exhibits higher weights on higher types, while case B exhibits higher weights on lower types. In the second panel, $R_\G(\theta)$ is positive for case A and negative for case B, following Lemma~\ref {lem:preferenceorder}. The third panel shows how the optimal allocation responds to the perturbation: for instance the allocation of $\overline{\theta}_i$ decrease in case A and increase in case B while $\lambda(\theta)$ is the highest in case A and the lowest in case B. The fourth panel confirms the illustration in Figure~\ref{fig:surplus-redist}.
+ I illustrate in Figure~\ref{fig:appendix_withinperturbation} in the Appendix a numerical simulation. I assume an initial category characterized by utilitarian preferences, and then compute two (mean-preserving) perturbations in welfare weights $\lambda_i(\theta)$: case A exhibits higher weights on higher types, while case B exhibits higher weights on lower types. In the second panel, $R_\G(\theta)$ is positive for case A and negative for case B, following Lemma~\ref {lem:preferenceorder}. The third panel shows how the optimal allocation responds to the perturbation: for instance the allocation of $\overline{\theta}_i$ decrease in case A and increase in case B while $\lambda_i(\theta)$ is the highest in case A and the lowest in case B. The fourth panel confirms the illustration in Figure~\ref{fig:surplus-redist}.
 
 
 \begin{figure}[ht]
@@ -716,7 +716,7 @@ Using the first-order conditions in Lemma~\ref{lem:outer}, consider the induced 
 \mathbf{1}_{\{s\in T_i\}}
 ].
 \]
-This expression separates the effect of a preference variation into two margins: a behavioral effect, through the induced change in the optimal allocation \(q_i(\theta,s)\), and a direct reweighting effect, through the change in effective social weights \(\Delta \G_i(\theta)\). By Lemma~\ref{lem:realloc} and from \ref{Deltaq}, the allocation response has the same decomposition. At the aggregate level, however, the two direct reweighting terms offset each other. Therefore, the change in the marginal value of capacity is equal to the average proportional difference in effective social weights $\E_i^w\!\left[R_{\G}\mid s\right]$.
+This expression separates the effect of a preference variation into two margins: a behavioral effect, through the induced change in the optimal allocation \(q_i(\theta,s)\), and a direct reweighting effect, through the change in effective social weights \(\Delta \G_i(\theta)\). By Lemma~\ref{lem:realloc} and from \ref{Deltaq}, the allocation response has the same decomposition. At the aggregate level, however, the two direct reweighting terms offset each other. Therefore, the change in the marginal value of capacity is equal to the average proportional difference in effective social weights $\E_i^w\!\left[R_\G(\theta)\mid s\right]$.
 
 \begin{theorem}[Capacity ordering]\label{thm:cat-order}
 Suppose category \(j\) differs from a baseline category \(i\) only through a marginal perturbation of redistributive preferences. Fix the baseline optimum \((k_i^\ast,I_i^\ast)\). Then, to first order in \(\Delta\lambda\), the following capacity ranking holds
@@ -725,17 +725,17 @@ k_j^\ast>k_i^\ast
 \quad\Longleftrightarrow\quad
 \E_s\!\left[
 \varepsilon_i(s)\,
-\E_i^w\!\left[R_{\G}\mid s\right]
+\E_i^w\!\left[R_\G(\theta)\mid s\right]
 \mathbf{1}_{\{s\in T_i\}}
 \right]>0.
 \]
-Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\E_i[R_{\G}(\theta)]>0$. 
+Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\E_i[R_\G(\theta)]>0$. 
 \end{theorem}
 \begin{proof}
     See Appendix~\ref{proof:cat-order}
 \end{proof}
 
-The theorem provides a direct outer-margin counterpart to the single-category analysis. A category receives more capacity when an additional unit of capacity has a higher marginal social value, and the theorem shows that this marginal value is governed by the weighted average of the proportional difference in effective social weights. The same object \(R_{\G}(\theta)\) that governed the reallocation of quantities and the surplus effects of preference differences within a category now determines which category receives more capacity at the outer optimum. Therefore, the relevant comparison is not which category has the larger average effective weight nor the absolute size of the difference in redistributive preferences, but whether category \(j\)'s advantage in effective weights is concentrated on types for which category \(i\)'s effective weight is low.
+The theorem provides a direct outer-margin counterpart to the single-category analysis. A category receives more capacity when an additional unit of capacity has a higher marginal social value, and the theorem shows that this marginal value is governed by the weighted average of the proportional difference in effective social weights. The same object \(R_\G(\theta)\) that governed the reallocation of quantities and the surplus effects of preference differences within a category now determines which category receives more capacity at the outer optimum. Therefore, the relevant comparison is not which category has the larger average effective weight nor the absolute size of the difference in redistributive preferences, but whether category \(j\)'s advantage in effective weights is concentrated on types for which category \(i\)'s effective weight is low.
 
 I provide, in Figure \ref{fig:appendix_two_scenarios_six_panels} in the Appendix, simple numerical examples of redistributive preferences around the utilitarian benchmark, that is, \(\lambda_i(\theta)=1\). These examples show that the ranking induced by the absolute effect, \(\E_{i}\!\left[\Delta \G_i(\theta)\right]\), and the ranking induced by the proportional effect, \(\E_{i}\!\left[R_{\G,i}(\theta)\right]\), can be non-trivial and may even go in opposite directions. In two cases, I consider pairs of categories \(i\) and \(j\) whose redistributive weights \(\lambda_i(\theta)\) and \(\lambda_j(\theta)\) both deviate from the constant benchmark \(1\), while all other parameters are held fixed. I show that even when category \(i\) has a higher average effective weight relative to the utilitarian benchmark whereas category \(j\) has a lower one, so that \(\E_{i}\!\left[\Delta \G_i(\theta)\right] > 0 > \E_j\!\left[\Delta \G_j(\theta)\right]\), it is still possible to have \(\E_{i}\!\left[R_{\G,i}(\theta)\right] < 0 < \E_j\!\left[R_{\G,j}(\theta)\right]\).
 
@@ -787,7 +787,7 @@ Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the 
 
 \noindent\textbf{Extensive margin.} At any equilibrium, $\max_{i \in N^+} \tilde\lambda_i < \min_{i \in N^0} \tilde\lambda_i$, so \(N^+\) and \(N^0\) are strictly separated in terms of average welfare weights, regardless of the within-type structure of preferences.
 
-\noindent\textbf{Intensive margin.} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order \[ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad -\underbrace{\Bigg.\left(\Delta k\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)+\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\right)\Bigg.}_{\text{revenue effect}}<\underbrace{\Bigg.\Delta\tilde\lambda\Bigg.}_{\text{preference effect}}. \] where the sign of $\Delta k \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \ref{Eujmd} and $\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)$ is the first-order effect of the preference perturbation on $\beta_i$ at fixed $(k_i^\ast,I_i^\ast)$. Under Assumption~\ref{ass:CARA}, and using the first-order expression for $\Delta k$, this reduces to \[ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\E_i[R_{\G}(\theta)]\,\E_i[R_\theta(\theta)]}{\E_i[R_\theta(\theta)^2]}+ \frac{\Cov_i\!\left(R_{\theta}(\theta),R_{\G}(\theta)\right)}{\Var_i\!\left(R_{\theta}(\theta)\right)} < 0. \]
+\noindent\textbf{Intensive margin.} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order \[ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad -\underbrace{\Bigg.\left(\Delta k\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)+\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\right)\Bigg.}_{\text{revenue effect}}<\underbrace{\Bigg.\Delta\tilde\lambda\Bigg.}_{\text{preference effect}}. \] where the sign of $\Delta k \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \ref{Eujmd} and $\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)$ is the first-order effect of the preference perturbation on $\beta_i$ at fixed $(k_i^\ast,I_i^\ast)$. Under Assumption~\ref{ass:CARA}, and using the first-order expression for $\Delta k$, this reduces to \[ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\E_i[R_\G(\theta)]\,\E_i[R_\theta(\theta)]}{\E_i[R_\theta(\theta)^2]}+ \frac{\Cov_i\!\left(R_{\theta}(\theta),R_\G(\theta)\right)}{\Var_i\!\left(R_{\theta}(\theta)\right)} < 0. \]
 \end{proposition}
 
 \begin{proof}
@@ -965,7 +965,7 @@ I begin with the single-category case. Fix a category \(i\) and an allocation \(
 \[\label{Deltapi1}\tag{$\Delta_1 p_i$}
 \frac{\Delta p_i(q,s)}{p_i(q,s)}=\E_i^{w}\!\left[R_{\G,i}\mid s\right]-R_{\G,i}(\theta)=-\frac{\Delta q_i(\theta,s)}{R_q(\theta)}.
 \] 
-The change in the tariff therefore mirrors the preference-sorting margin from Section~\ref{sec:redist}. Therefore, following Lemma~\ref{lem:realloc} and Appendix Proposition~\ref{prop:rprefreallocation}, for categories that generate available surplus, i.e., $\beta_i=0$, and more generally for categories with a low revenue requirement, the optimal marginal price schedule is always non-monotone across types.A direct policy implication is that, for those categories, the optimal marginal price schedule is neither the standard monotone IBT nor the DBT form. This stands in clear contrast with the policy view that favored consumers should face an IBT \citep{Borenstein2012}, since the categories for which redistribution is most salient are precisely those whose optimal menu departs most from standard block tariff formats
+The change in the tariff therefore mirrors the preference-sorting margin from Section~\ref{sec:redist}. Therefore, following Lemma~\ref{lem:realloc} and Appendix Proposition~\ref{prop:rprefreallocation}, for categories that generate available surplus, i.e., $\beta_i=0$, and more generally for categories with a low revenue requirement, the optimal marginal price schedule is always non-monotone across types. A direct policy implication is that, for those categories, the optimal marginal price schedule is neither the standard increasing block tariff (IBT) nor the decreasing block tariff (DBT). This stands in clear contrast with the policy view that favored consumers should face an IBT \citep{Borenstein2012}, since the categories for which redistribution is most salient are precisely those whose optimal menu departs most from standard block tariff formats
 
 Figure~\ref{fig:ImplementationCRRA_decomp} represents the optimal marginal price for the nonlinear tariff and the price of the corresponding block tariff.\footnote{Figure~\ref{fig:ImplementationCRRA_lambda} in the Appendix reports the redistributive weight profiles used in the numerical illustration, each constructed as a mean-preserving perturbation of the utilitarian benchmark. Figure~\ref{fig:ImplementationCRRA_beta_sensitivity} in the Appendix shows that, for a fixed perturbation favoring lower types, the standard IBT pattern emerges only when the category faces a sufficiently high revenue requirement, and hence a high $\beta_i$.} Case A shows that opposite preference directions produce schedules that cross the spot price in opposite directions, reflecting the sign reversal of $R_{\G,i}(\theta) - \E ^w_i[R_{\G,i}|s]$ across types. Similarly, the ambiguity in the sign extends to Case B between two categories with a same direction of perturbations.
 
@@ -979,7 +979,7 @@ Figure~\ref{fig:ImplementationCRRA_decomp} represents the optimal marginal price
 I now turn to a local comparison of marginal price schedules across categories. Consider two nearby categories, \(i\) and \(j\), that differ in their redistributive weights, capacity allocations, and revenue requirements, as induced by the optimal allocation of aggregate capacity \(k\) and aggregate revenue \(I\). A first-order comparison of the implemented marginal prices can be written as 
 \[
 \label{Deltapi2}\tag{$\Delta_2 p_i$}
-\frac{\Delta p_i(q,s)}{p_i(q,s)}\quad=\quad\underbrace{\Bigg.\E _i^w[R_{\G}\mid s] - R_{\G}(\theta)\Bigg.}_{\text{preference sorting}}\quad-\quad\underbrace{\Bigg.\Delta k\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\Delta I\cdot\Bigg.\frac{\E _i^w[R_\theta\mid s] - R_\theta(\theta)}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\Bigg.}_{\text{revenue ranking}},
+\frac{\Delta p_i(q,s)}{p_i(q,s)}\quad=\quad\underbrace{\Bigg.\E _i^w[R_\G(\theta)\mid s] - R_\G(\theta)\Bigg.}_{\text{preference sorting}}\quad-\quad\underbrace{\Bigg.\Delta k\cdot\frac{\partial q_i(\theta,s)}{\partial k_i}\frac{1}{R_q(\theta)}\Bigg.}_{\text{capacity ranking}}\quad+\quad\underbrace{\Delta I\cdot\Bigg.\frac{\E _i^w[R_\theta\mid s] - R_\theta(\theta)}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\Bigg.}_{\text{revenue ranking}},
 \]
 where $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ is a weighted variance term formally defined in \ref{eq:proof-dECSbar-dbeta} in the Appendix, and $\Delta k$ and $\Delta I$ represent the difference in capacity and revenue requirement between two categories. The first term is the single-category expression that captures preference comparison from \ref{Deltapi1}. The second term captures the capacity ranking effect. The sign of $\Delta k$ is given by Theorem~\ref{thm:cat-order}, while the sign of the derivative follows Theorem~\ref{thm:surplus} and is expressed in \ref{partialkq1}. The third term is the intensive margin of revenue ranking from Proposition~\ref{prop:revenueordering}, and also depends on the monotonicity direction of $R_\theta(\theta)$. 
 
@@ -1043,7 +1043,7 @@ These same elements also provide a unified framework to characterize the article
 
 \subsubsection{Monotonicity of effective weights}
 \label{app:three-nonmonotone-G}
-In this section, I show that in the two-type case, $\G_H > \G_L$ holds for any $\beta \geq 0$ and any welfare weights $\lambda_L, \lambda_H > 0$. This does not extend to three types: with three types $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_i = 1/3$, monotonicity of effective weights at any adjacent pair need not hold.
+In this section, I show that in the two-type case, $\G_H > \G_L$ holds for any $\beta \geq 0$ and any welfare weights $\lambda_L, \lambda_H > 0$. This does not extend to three types: with three types $\theta_L < \theta_M < \theta_H$ and equal probabilities $p_l = 1/3$, monotonicity of effective weights at any adjacent pair need not hold.
 
 \noindent \textit{Two types.} Using $J_H - J_L = (\theta_H - \theta_L)/p_L > 0$ and $\Gamma_H - \Gamma_L = \lambda_L(\theta_H - \theta_L) > 0$,
 \[\G_H - \G_L = (\Gamma_H - \Gamma_L) + \beta(J_H - J_L) = (\lambda_L + \beta/p_L)(\theta_H - \theta_L) > 0.\]
@@ -1058,20 +1058,20 @@ Either condition can fail depending on which welfare weight is disproportionatel
 \subsection{Incidence on the optimal allocation}
 \label{app:three-negative-qH}
 
-Assume that utility function is CARA where $\alpha = 1$. In the two-type case with $\beta > 0$, $\frac{\partial q_H }{\partial k} > 0$ always. With three equally likely types, $\frac{\partial q_H }{\partial k} < 0$ if and only if $R_{\theta}(\theta_H)(R_{\theta}(\theta_L) + R_{\theta}(\theta_M)) > R_{\theta}(\theta_L)^2 + R_{\theta}(\theta_M)^2$, where $R_{\theta}(\theta_i) := J_i/\G_i$.
+Assume that utility function is CARA where $\alpha = 1$. In the two-type case with $\beta > 0$, $\frac{\partial q_H }{\partial k} > 0$ always. With three equally likely types, $\frac{\partial q_H }{\partial k} < 0$ if and only if $R_{\theta}(\theta_H)(R_{\theta}(\theta_L) + R_{\theta}(\theta_M)) > R_{\theta}(\theta_L)^2 + R_{\theta}(\theta_M)^2$, where $R_{\theta}(\theta_l) := J_l/\G_l$.
 
-Differentiating the first-order condition $\G_i u(q_i) = \varepsilon$ with respect to $k$ and imposing the binding revenue constraint yields
+Differentiating the first-order condition $\G_l u(q_l) = \varepsilon$ with respect to $k$ and imposing the binding revenue constraint yields
 \[
-\frac{\partial  \beta}{\partial k}= -\frac{\E_i[R_\theta(\theta)]}{\mathrm{Var}_i}, \qquad \frac{\partial  q_i}{\partial k} = 1 - \frac{\E_i[R_\theta(\theta)]}{\mathrm{Var}_i}(R_{\theta}(\theta_i) - \E_i[R_\theta(\theta)]),
+\frac{\partial  \beta}{\partial k}= -\frac{\E_l[R_\theta(\theta)]}{\mathrm{Var}_l}, \qquad \frac{\partial  q_l}{\partial k} = 1 - \frac{\E_l[R_\theta(\theta)]}{\mathrm{Var}_l}(R_{\theta}(\theta_l) - \E_l[R_\theta(\theta)]),
 \]
-where $\E_i[R_\theta(\theta)] := \sum_i p_i R_{\theta}(\theta_i)$ and $\mathrm{Var}_i := \sum_i p_i(R_{\theta}(\theta_i) - \E_i[R_\theta(\theta)])^2 > 0$.
+where $\E_l[R_\theta(\theta)] := \sum_l p_l R_{\theta}(\theta_l)$ and $\mathrm{Var}_l := \sum_l p_l(R_{\theta}(\theta_l) - \E_l[R_\theta(\theta)])^2 > 0$.
 
 \textit{Two types.} Since $R_{\theta}(\theta_H) > R_{\theta}(\theta_L)$ always and $(R_{\theta}(\theta_L) < 0$ when $\beta > 0$ and $J_L < 0$,
 \[
 \frac{\partial  q_H}{\partial k}= -\frac{(R_{\theta}(\theta_L)}{p_H(R_{\theta}(\theta_H) - (R_{\theta}(\theta_L))} > 0.
 \]
 
-\textit{Three types.} With $p_i = 1/3$, substituting and simplifying gives
+\textit{Three types.} With $p_l = 1/3$, substituting and simplifying gives
 \small{\[
 \frac{\partial q_H}{\partial k}= \frac{3[R_{\theta}(\theta_L)^2 + R_{\theta}(\theta_M)^2 - R_{\theta}(\theta_H)(R_{\theta}(\theta_L) + R_{\theta}(\theta_M))]}{2[R_{\theta}(\theta_H)^2 - R_{\theta}(\theta_H)R_{\theta}(\theta_L) - R_{\theta}(\theta_H)R_{\theta}(\theta_M) + R_{\theta}(\theta_L)^2 - R_{\theta}(\theta_L)R_{\theta}(\theta_M) + R_{\theta}(\theta_M)^2]}.
 \]}
@@ -1095,7 +1095,7 @@ I=0.5
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figure/ThreeTypesWithin_quantity.png}
-    \caption{Optimal quantity $q_i(k)$ as a function of capacity $k$ for three types under the IR-constrained allocation.}
+    \caption{Optimal quantity $q_l(k)$ as a function of capacity $k$ for three types under the IR-constrained allocation.}
     \label{fig:ThreeTypesWithin_quantity}
 \end{figure}
 
@@ -1105,11 +1105,11 @@ I=0.5
 This appendix establishes the single-crossing property of \ref{Eujmd} invoked in the main text, and provides the primitive foundations of Assumption~\ref{ass:monotone}.
 
 \begin{definition}
-$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta,k_i)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq (\text{resp.} \geq 0)$.
+$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq (\text{resp.} \geq 0)$.
 \end{definition}
 
 \begin{lemma}[Single-crossing]\label{lem:SC-dir}
-Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta,k_i)\). Then the map
+Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta)\). Then the map
 \[
 k_i \longmapsto \E_{(s,i)}^w[uJ\mid s]
 \]
@@ -1195,12 +1195,12 @@ The first part of the lemma shows that a proportional tilt of welfare weights to
 
 This appendix presents the technical results underlying the sorting effect induced by redistributive preference perturbations. The key identity is Lemma~\ref{lem:realloc}, which shows that, at fixed capacity,
 \[
-\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\G}(\theta)-\E _i^w\!\left[R_{\G}\mid s\right]\right), \qquad s\in T_i.
+\Delta q_i(\theta,s) = R_q(\theta)\!\left(R_\G(\theta)-\E _i^w\!\left[R_\G(\theta)\mid s\right]\right), \qquad s\in T_i.
 \]
 Hence the quantity response depends on deviations of the proportional change in effective social weight from its capacity-weighted average. 
 
 \begin{proposition}[Non-monotone reallocation under preference perturbations]\label{prop:rprefreallocation}
-Assume $R_{\G}(\theta)$ is not (a.e.) constant.
+Assume $R_\G(\theta)$ is not (a.e.) constant.
 
 \noindent\textbf{(i)} Under the IR-unconstrained allocation, $\Delta q_i(\cdot,s)$ is not monotone on $\Theta_i$ for any perturbation. Under the IR-constrained allocation, assume that $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the same conclusion holds whenever $|\Delta\tilde\lambda_i|$ is sufficiently small.
 
@@ -1252,7 +1252,7 @@ The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends
 \(U(q,s)=a(1+s)\frac{q^{1-\sigma}}{1-\sigma}\) with \(\sigma=0.6\) and \(a=0.0095\), with \(s\sim\mathcal U[0,1]\) and \(\theta\sim\mathcal U[1,2]\). The benchmark is \(\lambda_i(\theta)=1\), and the weights are \(\lambda_i^{A}(\theta)=\frac{\exp\!\left(1.4(\theta-1.5)\right)}{\int_{1}^{2}\exp\!\left(1.4(t-1.5)\right)dt}\) and \(\lambda_i^{B}(\theta)=\frac{\exp\!\left(-1.4(\theta-1.5)\right)}{\int_{1}^{2}\exp\!\left(-1.4(t-1.5)\right)dt}\). The allocation comparison is reported for \(k_i=0.90\), \(s=0.14\), and \(I_i=0\).
 
 \noindent\textbf{Figure~\ref{fig:appendix_two_scenarios_six_panels}}.
-\(\theta\sim\mathcal U[1,2]\), with utilitarian benchmark \(\lambda(\theta)=1\) and baseline effective social weight \(\Gamma_0(\theta)=2\theta-1\). Welfare-weight perturbations take the form \(\lambda(\theta)=1+\Delta(\theta)\), with \(\Delta(\theta)=c+a\log\!\left(1+2(\theta-1)\right)\). The four cases are \(A1:(c,a)=(0.6765,-0.9546)\), \(A2:(c,a)=(0.1526,-0.2150)\), \(B1:(c,a)=(0.6765,-0.9546)\), and \(B2:(c,a)=(-0.4875,0.6880)\). The figure reports the implied level effect \(\Delta\Gamma(\theta)\) and proportional effect \(R_{\Gamma}(\theta)=\Delta\Gamma(\theta)/\Gamma(\theta)\).
+\(\theta\sim\mathcal U[1,2]\), with utilitarian benchmark \(\lambda(\theta)=1\) and baseline effective social weight \(\Gamma_0(\theta)=2\theta-1\). Welfare-weight perturbations take the form \(\lambda_i(\theta)=1+\Delta(\theta)\), with \(\Delta(\theta)=c+a\log\!\left(1+2(\theta-1)\right)\). The four cases are \(A1:(c,a)=(0.6765,-0.9546)\), \(A2:(c,a)=(0.1526,-0.2150)\), \(B1:(c,a)=(0.6765,-0.9546)\), and \(B2:(c,a)=(-0.4875,0.6880)\). The figure reports the implied level effect \(\Delta\Gamma(\theta)\) and proportional effect \(R_{\Gamma}(\theta)=\Delta\Gamma(\theta)/\Gamma(\theta)\).
 
 \noindent\textbf{Figure~\ref{fig:appendix_N_categories_six_panels}}.
 \(U(q,s)=\frac{1+s}{5}\left(1-e^{-5q}\right)\), with \(s\sim\mathcal U[0,1]\) and \(\theta\sim\mathcal U[0.3,2]\). There are \(N=50\) categories and aggregate capacity is fixed at \(k=30.00\). The initial welfare weight is \(\lambda_1(\theta)=\exp\!\left(-0.60\left(\frac{\theta-0.3}{1.7}-\frac{1}{2}\right)\right)\). In both cases, the sequence \(\left\{\lambda_i(\theta)\right\}_{i=1}^{50}\) is defined recursively by \(\lambda_{i+1}(\theta)=\lambda_i(\theta)m_i(\theta)\), with \(m_i(\theta)=\exp\!\left(c_i+a_i\left(\frac{\theta-0.3}{1.7}-\frac{1}{2}\right)\right)\), where \(c_i\) is chosen so that \(\tilde\lambda_{i+1}=\tilde\lambda_i+0.06\). Case A uses \(a_i\in[0.01,0.12]\), Case B uses \(a_i\in[-0.12,-0.01]\), and \(I_i=0\).
@@ -1614,35 +1614,35 @@ For part (ii), if \ref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slackn
 
 \begin{proof}
 For every binding state $s\in T_i(k_i)$, define the probability measure
-$dP_{k_i,s}(\theta):= \frac{R_q(\theta,k_i,s)\,g_i(\theta)} {\E_i[R_q(\theta,k_i,s)]}\,d\theta.$
+$dP_{k_i,s}(\theta):= \frac{R_q(\theta)\,g_i(\theta)} {\E_i[R_q(\theta)]}\,d\theta.$
 Since
-$R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\G_i(\theta,k_i)},$
+$R_\theta(\theta)=\frac{J_i(\theta)}{\G_i(\theta)},$
 we can write
 \[
-\mathsf \E_i^w[uJ\mid s]
+ \E_i^w[uJ\mid s]
 =
-\frac{\E_i\!\left[R_q(\theta,k_i,s)\,R_\theta(\theta,k_i)\right]}
-{\E_i\!\left[R_q(\theta,k_i,s)\right]}
+\frac{\E_i\!\left[R_q(\theta)\,R_\theta(\theta)\right]}
+{\E_i\!\left[R_q(\theta)\right]}
 =
-\int_{\Theta_i} R_\theta(\theta,k_i)\,dP_{k_i,s}(\theta).
+\int_{\Theta_i} R_\theta(\theta)\,dP_{k_i,s}(\theta).
 \]
 
-Differentiating $\mathsf \E_i^w[uJ\mid s]$ with respect to $k_i$ gives
-$\frac{\partial \mathsf \E_i^w[uJ\mid s]}{\partial k_i} = M_i(k_i,s)+D_i(k_i,s),$
+Differentiating $ \E_i^w[uJ\mid s]$ with respect to $k_i$ gives
+$\frac{\partial  \E_i^w[uJ\mid s]}{\partial k_i} = M_i(k_i,s)+D_i(k_i,s),$
 where
 \[
 M_i(k_i,s)
 :=
 \left.
 \frac{\partial}{\partial t}
-\int_{\Theta_i}R_\theta(\theta,k_i)\,dP_{t,s}(\theta)
+\int_{\Theta_i}R_\theta(\theta)\,dP_{t,s}(\theta)
 \right|_{t=k_i}
 \]
 is the pure measure-shift term, and
-$D_i(k_i,s) := \int_{\Theta_i} \frac{\partial R_\theta(\theta,k_i)}{\partial k_i}\,dP_{k_i,s}(\theta)$
+$D_i(k_i,s) := \int_{\Theta_i} \frac{\partial R_\theta(\theta)}{\partial k_i}\,dP_{k_i,s}(\theta)$
 is the direct effect through the $k_i$-dependence of $R_\theta(\theta)$.
 
-By the log-monotone-differences assumption on $R_q$, the family $\{P_{k_i,s}\}_{k_i}$ is ordered by monotone likelihood ratio for each binding state $s$. Hence, since $\theta\mapsto R_\theta(\theta,k_i)$ is monotone for each $k_i$,
+By the log-monotone-differences assumption on $R_q$, the family $\{P_{k_i,s}\}_{k_i}$ is ordered by monotone likelihood ratio for each binding state $s$. Hence, since $\theta\mapsto R_\theta(\theta)$ is monotone for each $k_i$,
 $M_i(k_i,s)\ge 0$
 in the two cases
 \[
@@ -1656,16 +1656,16 @@ in the two opposite cases.
 
 Next, since
 \[
-R_\theta(\theta,k_i)=\frac{J_i(\theta)}{\G_i(\theta,k_i)},
+R_\theta(\theta)=\frac{J_i(\theta)}{\G_i(\theta)},
 \qquad
-\G_i(\theta,k_i)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i),
+\G_i(\theta)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i),
 \]
 we have
 \[
-\frac{\partial R_\theta(\theta,k_i)}{\partial k_i}
+\frac{\partial R_\theta(\theta)}{\partial k_i}
 =
 -\frac{\partial \beta_i(k_i)}{\partial k_i}\,
-\frac{J_i(\theta)^2}{\G_i(\theta,k_i)^2}.
+\frac{J_i(\theta)^2}{\G_i(\theta)^2}.
 \]
 Therefore
 $D_i(k_i,s) = -\frac{\partial \beta_i(k_i)}{\partial k_i}\,\mathcal Q_i(k_i,s),$
@@ -1674,12 +1674,12 @@ where
 \mathcal Q_i(k_i,s)
 :=
 \int_{\Theta_i}
-\frac{J_i(\theta)^2}{\G_i(\theta,k_i)^2}\,dP_{k_i,s}(\theta)
+\frac{J_i(\theta)^2}{\G_i(\theta)^2}\,dP_{k_i,s}(\theta)
 >0.
 \]
 Thus
 \[
-\frac{\partial \mathsf \E_i^w[uJ\mid s]}{\partial k_i}
+\frac{\partial  \E_i^w[uJ\mid s]}{\partial k_i}
 =
 M_i(k_i,s)-\frac{\partial \beta_i(k_i)}{\partial k_i}\,\mathcal Q_i(k_i,s).
 \]
@@ -1713,8 +1713,8 @@ where the moving-threshold term vanishes because
 $u\!\left(q_i(\theta,s_i(k_i)),s_i(k_i)\right)=0 \qquad \text{for every }\theta.$
 
 Holding $k_i$ fixed, differentiating the pointwise FOC
-$u\!\left(q_i(\theta,s),s\right)\G_i(\theta,k_i) = \varepsilon_i(s)$
-with respect to $\beta$, using $\frac{\partial \G_i(\theta,k_i)}{ \partial \beta }=J_i(\theta)$ and imposing
+$u\!\left(q_i(\theta,s),s\right)\G_i(\theta) = \varepsilon_i(s)$
+with respect to $\beta$, using $\frac{\partial \G_i(\theta)}{ \partial \beta }=J_i(\theta)$ and imposing
 $\E_i\!\left[ \frac{\partial q_i(\theta,s)}{ \partial \beta } \right]=0,$
 yields
 \begin{align}
@@ -1725,7 +1725,7 @@ w_i(\theta,s)
 \left(
 u\!\left(q_i(\theta,s),s\right)J_i(\theta)
 -
-\mathsf \E_i^w[uJ\mid s]
+ \E_i^w[uJ\mid s]
 \right). \label{eq:proof-dq-dbeta}
 \end{align}
 Therefore
@@ -1816,12 +1816,12 @@ is single-crossing in $k_i$, with crossing direction pinned down by the combinat
 Define $\mathcal W_i(\theta) := \partial \E CS_i(\theta)/\partial k_i$. From the envelope representation \ref{ECSi},
 \[\mathcal W_i(\theta) = \mathcal W_i(\underline\theta_i) + \int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta, \qquad \mathcal W_i'(\theta) = \E_s\!\left[u\!\left(q_i(\theta,s),s\right)\frac{\partial q_i(\theta,s)}{\partial k_i}\mathbf 1_{\{s\in T_i\}}\right].\]
 For each binding state $s\in T_i$, differentiating the pointwise FOC \ref{KKT-qMD} with respect to $k_i$ and imposing the binding capacity constraint \ref{K-def} gives
-\[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\,\mathsf \E_i^w[uJ\mid s]\,\frac{\partial \beta_i(k_i)}{\partial k_i} + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\frac{\partial \beta_i(k_i)}{\partial k_i},\]
+\[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\, \E_i^w[uJ\mid s]\,\frac{\partial \beta_i(k_i)}{\partial k_i} + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\frac{\partial \beta_i(k_i)}{\partial k_i},\]
 where $w_i$, $\overline w_i$, and $\E_i^w[uJ\mid s]$ are as defined in the proof of Lemma~\ref{lem:SC-dir}.
 
 
 \noindent\textbf{IR-unconstrained allocation.} Since $\beta_i = 0$, we have $\frac{\partial \beta_i(k_i)}{\partial k_i} = 0$ and $\G_i(\theta)\equiv\Gamma_i(\theta)$. The expression for $\partial q_i/\partial k_i$ reduces to $w_i(\theta,s)/\overline w_i(s)$, so
-\[\mathcal W_i'(\theta) = \E_s\!\left[\frac{u(q_i(\theta,s),s)\,w_i(\theta,s)}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] = \E_s\!\left[\frac{R_q(\theta,s)}{\Gamma_i(\theta)\,\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] > 0,\]
+\[\mathcal W_i'(\theta) = \E_s\!\left[\frac{u(q_i(\theta,s),s)\,w_i(\theta,s)}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] = \E_s\!\left[\frac{R_q(\theta))}{\Gamma_i(\theta)\,\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] > 0,\]
 since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumption~\ref{ass:interior}. Hence $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By \ref{eq:proof-dECSbar-dk}, $\mathcal W_i(\underline\theta_i)=\partial \E\underline{CS}_i/\partial k_i$ has the sign of \ref{Eujmd}. If \ref{Eujmd} is positive, $\mathcal W_i(\underline\theta_i)>0$ and strict monotonicity implies every type gains. If \ref{Eujmd} is negative, $\mathcal W_i(\underline\theta_i)<0$ and, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; if and only if $\mathcal W_i(\overline\theta_i)>0$, a unique cutoff $\tilde\theta_i$ exists and types below lose while types above gain.
 
 
@@ -1864,20 +1864,20 @@ u\!\left(q_i(\theta,s),s\right)\Delta\G_i(\theta)
 =
 0.
 \end{equation}
-Solving \ref{eq:proof-realloc-linearized} for $\Delta q_i(\theta,s)$ and substituting the definitions of $R_q$, $R_{\G}(\theta)=\Delta\G_i(\theta)/\G_i(\theta)$, and $\varepsilon_i(s)$ yields
+Solving \ref{eq:proof-realloc-linearized} for $\Delta q_i(\theta,s)$ and substituting the definitions of $R_q$, $R_\G(\theta)=\Delta\G_i(\theta)/\G_i(\theta)$, and $\varepsilon_i(s)$ yields
 \begin{equation}\label{eq:proof-realloc-raw}
 \Delta q_i(\theta,s)
 =
 R_q(\theta,s)
 \left(
-R_{\G}(\theta)
+R_\G(\theta)
 -
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
 \right).
 \end{equation}
 Since the capacity constraint binds state-by-state and $k_i$ is held fixed, $\E_i\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$. Substituting \ref{eq:proof-realloc-raw}, using $R_q(\theta,s)=\varepsilon_i(s)w_i(\theta,s)$, dividing by $\varepsilon_i(s)\overline w_i(s)>0$, and rearranging gives
 \begin{equation}\label{eq:proof-realloc-rent}
-\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)} = \E_i^w\!\left[R_{\G}\mid s\right].
+\frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)} = \E_i^w\!\left[R_\G(\theta)\mid s\right].
 \end{equation}
 Substituting \ref{eq:proof-realloc-rent} into \ref{eq:proof-realloc-raw} gives
 \begin{equation}\label{eq:proof-realloc}
@@ -1885,7 +1885,7 @@ Substituting \ref{eq:proof-realloc-rent} into \ref{eq:proof-realloc-raw} gives
 =
 R_q(\theta,s)
 \left(
-R_{\G}(\theta)-\E_i^w\!\left[R_{\G}\mid s\right]
+R_\G(\theta)-\E_i^w\!\left[R_\G(\theta)\mid s\right]
 \right),
 \end{equation}
 which is the desired identity.
@@ -1902,19 +1902,19 @@ which is the desired identity.
 The surplus change follows from the IC representation \ref{ECSi}:
 \[\Delta \E CS_i(\theta) = \Delta\E\underline{CS}_i + \int_{\underline\theta_i}^{\theta}\E_s\!\left[u\!\left(q_i(\tilde\theta,s),s\right)\Delta q_i(\tilde\theta,s)\,\mathbf{1}_{\{s\in T_i\}}\right]d\tilde\theta.\]
 Substituting \ref{eq:proof-realloc} and using the first-order condition $u(q_i,s)=\varepsilon_i(s)/\G_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
-\[\frac{\partial\Delta \E CS_i(\theta)}{\partial\theta} = \frac{1}{\alpha}\E_s\!\left[\frac{\varepsilon_i(s)}{\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right] = \frac{\overline\varepsilon_i}{\alpha\,\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right),\]
-where $\overline\varepsilon_i:=\E_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]>0$. Since $\overline\varepsilon_i/(\alpha\,\G_i(\theta))>0$, the sign of the derivative is determined solely by $R_{\G}(\theta)-\E_i[R_{\G}]$. Under unimodality of $R_{\G}$, this expression crosses zero at most twice, so $\Delta \E CS_i(\theta)$ has at most two turning points and at most three zeros in $[\underline\theta_i,\overline\theta_i]$.
+\[\frac{\partial\Delta \E CS_i(\theta)}{\partial\theta} = \frac{1}{\alpha}\E_s\!\left[\frac{\varepsilon_i(s)}{\G_i(\theta)}\left(R_\G(\theta)-\E_i[R_\G(\theta)]\right)\mathbf{1}_{\{s\in T_i\}}\right] = \frac{\overline\varepsilon_i}{\alpha\,\G_i(\theta)}\left(R_\G(\theta)-\E_i[R_\G(\theta)]\right),\]
+where $\overline\varepsilon_i:=\E_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]>0$. Since $\overline\varepsilon_i/(\alpha\,\G_i(\theta))>0$, the sign of the derivative is determined solely by $R_\G(\theta)-\E_i[R_\G(\theta)]$. Under unimodality of $R_\G(\theta)$, this expression crosses zero at most twice, so $\Delta \E CS_i(\theta)$ has at most two turning points and at most three zeros in $[\underline\theta_i,\overline\theta_i]$.
 
 \noindent\textit{Boundary conditions.}
 
 \noindent\textit{IR-constrained allocation.} The IR constraint $\E\underline{CS}_i=0$ binds at both the baseline and the perturbed allocation, so $\Delta\E\underline{CS}_i=0$ and therefore $\Delta \E CS_i(\underline\theta_i)=0$.
 
 \noindent\textit{IR-unconstrained allocation.} Linearizing \ref{ECSi} with respect to the preference perturbation and substituting \ref{eq:proof-realloc}:
-\[\Delta\E\underline{CS}_i = \E_{(s,i)}\!\left[u\!\left(q_i,s\right)\Delta q_i(\theta,s)\,J_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right] = \E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right].\]
-Under Assumption~\ref{ass:CARA}, $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}]$ is $s$-independent, so the expression separates and yields
-\[\Delta\E\underline{CS}_i = \frac{\overline\varepsilon_i}{\alpha}\,\Cov_{i}\!\left(R_\theta(\theta),R_{\G}(\theta)\right).\]
+\[\Delta\E\underline{CS}_i = \E_{(s,i)}\!\left[u\!\left(q_i,s\right)\Delta q_i(\theta,s)\,J_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right] = \E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_\G(\theta)-\E_i[R_\G(\theta)]\right)\mathbf{1}_{\{s\in T_i\}}\right].\]
+Under Assumption~\ref{ass:CARA}, $\E_i^w[R_\G(\theta)\mid s]=\E_i[R_\G(\theta)]$ is $s$-independent, so the expression separates and yields
+\[\Delta\E\underline{CS}_i = \frac{\overline\varepsilon_i}{\alpha}\,\Cov_{i}\!\left(R_\theta(\theta),R_\G(\theta)\right).\]
 
-\noindent\textit{Cutoff structure.} Since $R_{\G}(\theta)$ is unimodal, the derivative $\frac{\partial \Delta\E CS_i(\theta)}{\partial \theta}\propto R_{\G}(\theta)-\E _i[R_{\G}]$ changes sign at most twice, so $\Delta\E CS_i(\theta)$ has at most two turning points and hence at most three interior zeros. Under $\Delta\G_i(\theta)\ge 0$, $R_{\G}(\theta)$ peaks above its mean in the interior so the derivative pattern is $-,+,-$, and the number of zeros of $\Delta \E CS_i(\theta)$ beyond the boundary is determined by the starting value: zero in the IR-constrained case and $\overline\varepsilon_i\,\Cov_{i}(R_\theta(\theta),R_{\G})$ in the IR-unconstrained case, giving the patterns stated in the proposition. Under $\Delta\G_i(\theta)\le 0$, all signs are reversed throughout.
+\noindent\textit{Cutoff structure.} Since $R_\G(\theta)$ is unimodal, the derivative $\frac{\partial \Delta\E CS_i(\theta)}{\partial \theta}\propto R_\G(\theta)-\E _i[R_\G(\theta)]$ changes sign at most twice, so $\Delta\E CS_i(\theta)$ has at most two turning points and hence at most three interior zeros. Under $\Delta\G_i(\theta)\ge 0$, $R_\G(\theta)$ peaks above its mean in the interior so the derivative pattern is $-,+,-$, and the number of zeros of $\Delta \E CS_i(\theta)$ beyond the boundary is determined by the starting value: zero in the IR-constrained case and $\overline\varepsilon_i\,\Cov_{i}(R_\theta(\theta),R_\G(\theta))$ in the IR-unconstrained case, giving the patterns stated in the proposition. Under $\Delta\G_i(\theta)\le 0$, all signs are reversed throughout.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Across-category allocation - Proof of Lemma~\ref{lem:outer}}\label{proof:outer}
@@ -1960,8 +1960,8 @@ Differentiating with respect to $k_i$ gives a boundary term proportional to $\va
 \noindent\textbf{Step 2: \(\frac{\partial \varepsilon_i(s)}{\partial I_i}\) and the cross derivative.}
 
 Fix $k_i$ and $s\in T_i$. Differentiating the first-order condition with respect to $I_i$ and imposing the binding capacity constraint $\E_i[\partial_{I_i}q_i(\theta,s)]=0$ yields
-$\frac{\partial \varepsilon_i(s)}{\partial I_i} = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s],$
-Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$ and using \ref{eq:proof-dECSbar-dbeta} gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\frac{\partial \varepsilon_i(s)}{\partial I_i}=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so
+$\frac{\partial \varepsilon_i(s)}{\partial I_i} = \partial_{I_i}\beta_i\, \E_i^w[uJ\mid s],$
+Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$ and using \ref{eq:proof-dECSbar-dbeta} gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\frac{\partial \varepsilon_i(s)}{\partial I_i}= \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so
 \begin{equation}\label{eq:proof-Vi-Iderivs}
 \frac{\partial V_i(k_i,I_i)}{\partial  I_i}= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad
 \frac{\partial^2 V_i(k_i,I_i)}{\partial  I_i^2}= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0, \qquad
@@ -1973,7 +1973,7 @@ Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I
 
 Holding $\beta$ fixed gives $\frac{\partial \varepsilon_i(s)}{\partial k_i}|_\beta = -1/\overline w_i(s)$. Along the optimal path, the chain rule and \ref{eq:proof-deps-dbeta} give
 \[
-\frac{\partial \varepsilon_i(s)}{\partial k_i} = -\frac{1}{\overline w_i(s)} - \mathsf \E_i^w[uJ\mid s]\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
+\frac{\partial \varepsilon_i(s)}{\partial k_i} = -\frac{1}{\overline w_i(s)} -  \E_i^w[uJ\mid s]\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
 \]
 Integrating over binding states and defining $\Omega_i(k_i):=\E_s\!\left[\overline w_i(s)^{-1}\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]>0$,
 \begin{equation}\label{eq:proof-Vi-kk}
@@ -2038,25 +2038,25 @@ By Lemma~\ref{lem:realloc}, which holds for any allocation regime,
 \[
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
 =
-\E_i^w\!\left[R_{\G}\mid s\right]
+\E_i^w\!\left[R_\G(\theta)\mid s\right]
 \qquad
 \text{for each } s\in T_i(k_i^\ast),
 \]
-where $R_{\G}(\theta)=\Delta \G_i(\theta)/\G_i(\theta)$ and $\G_i(\theta)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i^\ast,I_i^\ast)$. Substituting gives
+where $R_\G(\theta)=\Delta \G_i(\theta)/\G_i(\theta)$ and $\G_i(\theta)=\Gamma_i(\theta)+J_i(\theta)\beta_i(k_i^\ast,I_i^\ast)$. Substituting gives
 \[
 \Delta \Pi_i(k_i^\ast)
 =
 \E_s\!\left[
 \varepsilon_i(s;k_i^\ast)\,
-\E_i^w\!\left[R_{\G}\mid s;k_i^\ast\right]
+\E_i^w\!\left[R_\G(\theta)\mid s;k_i^\ast\right]
 \mathbf{1}_{\{s\in T_i(k_i^\ast)\}}
 \right],
 \]
-which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is independent of $\theta$. Therefore $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}(\theta,k_i^\ast)]$ for every state $s$, and
+which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is independent of $\theta$. Therefore $\E_i^w[R_\G(\theta)\mid s]=\E_i[R_\G(\theta^\ast)]$ for every state $s$, and
 \begin{equation}\label{eq:proof-DeltaPi-CARA}
-\Delta \Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_{\G}(\theta,k_i^\ast)].
+\Delta \Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_\G(\theta^\ast)].
 \end{equation}
-Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\E_i[R_{\G}(\theta,k_i^\ast)]$.
+Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\E_i[R_\G(\theta^\ast)]$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Preference shifts and effective social weights - Proof of Lemma~\ref{lem:preferenceorder}}\label{proof:preferenceorder}
@@ -2219,9 +2219,9 @@ $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad \text{for all }\theta.$
 In all three cases,
 $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad \text{for all }\theta,$
 hence
-$R_{\G}(\theta;t):= \frac{\partial_t\G(\theta;t)}{\G(\theta;t)} \ge 0 \qquad \text{for all }\theta$
+$R_\G(\theta;t):= \frac{\partial_t\G(\theta;t)}{\G(\theta;t)} \ge 0 \qquad \text{for all }\theta$
 for almost every \(t\). Since the weights defining \(\E^w[\cdot\mid s]\) are positive,
-$\E^w\!\left[R_{\G}\mid s;t\right]\ge 0 \qquad \text{for every peak state } s.$
+$\E^w\!\left[R_\G(\theta)\mid s;t\right]\ge 0 \qquad \text{for every peak state } s.$
 Applying Theorem~\ref{thm:cat-order} at the current optimum
 $\bigl(k^\ast(t),I^\ast(t)\bigr)$
 yields
@@ -2243,22 +2243,22 @@ This proves (iii), and hence the corollary.
 
 \noindent\textit{Part (i).} Assume both $N^+$ and $N^0$ nonempty. For $i\in N^+$, $\xi_i=0$ and Lemma~\ref{lem:outer} gives $\tilde\lambda_i+\beta_i^\ast=-\zeta_I=:\tilde\lambda^\ast$. Since $\beta_i^\ast>0$, $\tilde\lambda_i<\tilde\lambda^\ast$. For $j\in N^0$, $\beta_j^\ast=0$, so $\tilde\lambda_j=\tilde\lambda^\ast+\xi_j\ge\tilde\lambda^\ast$. Hence $\max_{N^+}\tilde\lambda_i<\tilde\lambda^\ast\le\min_{N^0}\tilde\lambda_j$.
 
-\noindent\textit{Part (ii). General case.} Since $\beta_i^\ast,\beta_j^\ast>0$, Lemma~\ref{lem:outer} gives $\tilde\lambda_i+\beta_i^\ast=\tilde\lambda_j+\beta_j^\ast$, so $\Delta\beta^\ast=-\Delta\tilde\lambda$. Let $\Delta k:=k_j^\ast-k_i^\ast>0$ and $\Delta I:=I_j^\ast-I_i^\ast$. A first-order expansion of $\beta_j^\ast=\beta_j(k_j^\ast,I_j^\ast;\lambda_j)$ around $(k_i^\ast,I_i^\ast;\lambda_i)$ gives \[ \frac{\partial \beta_i}{\partial k_i}\Delta k+\frac{\partial \beta_i}{\partial I_i}\Delta I+\Delta_\lambda\beta_i=-\Delta\tilde\lambda, \] where $\Delta_\lambda\beta_i$ is the direct effect of the preference perturbation at fixed $(k_i^\ast,I_i^\ast)$. It is obtained from the implicit-function derivative of the binding IR constraint $F_i(\beta_i;k,I,\lambda):=\E\underline{CS}_i(k,I;\beta_i,\lambda)=0$, holding $\beta_i$ fixed in the numerator: \[ \Delta_\lambda\beta_i=-\frac{\partial_\lambda F_i|_{\beta_i\,\text{fixed}}}{\partial_{\beta_i}F_i}=-\frac{\mathcal C_i^0}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}, \] with \[ \mathcal C_i^0:=\E_{(s,i)}\!\left[\varepsilon_i(s)R_\theta(\theta)R_q(\theta)\!\left(R_{\G}^{0}(\theta)-\E_i^w[R_{\G}^{0}\mid s]\right)\mathbf 1_{\{s\in T_i\}}\right], \qquad R_{\G}^{0}(\theta):=\frac{J_i(\theta)\Delta\tilde\lambda+\Delta\Lambda_i(\theta)}{\G_i(\theta)}=R_\theta(\theta)\Delta\tilde\lambda+R_\G(\theta). \] Using $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$ from Lemma~\ref{lem:Vi-concave}, we obtain \[ \Delta I=-\frac{\Delta\tilde\lambda+\frac{\partial\beta_i}{\partial k_i}\Delta k+\Delta_\lambda\beta_i}{\frac{\partial\beta_i}{\partial I_i}}, \] so $\Delta I<0$ iff $\Delta\tilde\lambda+\frac{\partial\beta_i}{\partial k_i}\Delta k+\Delta_\lambda\beta_i>0$. The sign of $\partial\beta_i/\partial k_i$ is opposite to the sign of \ref{Eujmd} by \ref{eq:proof-dbeta-dk}.
+\noindent\textit{Part (ii). General case.} Since $\beta_i^\ast,\beta_j^\ast>0$, Lemma~\ref{lem:outer} gives $\tilde\lambda_i+\beta_i^\ast=\tilde\lambda_j+\beta_j^\ast$, so $\Delta\beta^\ast=-\Delta\tilde\lambda$. Let $\Delta k:=k_j^\ast-k_i^\ast>0$ and $\Delta I:=I_j^\ast-I_i^\ast$. A first-order expansion of $\beta_j^\ast=\beta_j(k_j^\ast,I_j^\ast;\lambda_j)$ around $(k_i^\ast,I_i^\ast;\lambda_i)$ gives \[ \frac{\partial \beta_i}{\partial k_i}\Delta k+\frac{\partial \beta_i}{\partial I_i}\Delta I+\Delta_\lambda\beta_i=-\Delta\tilde\lambda, \] where $\Delta_\lambda\beta_i$ is the direct effect of the preference perturbation at fixed $(k_i^\ast,I_i^\ast)$. It is obtained from the implicit-function derivative of the binding IR constraint $F_i(\beta_i;k,I,\lambda):=\E\underline{CS}_i(k,I;\beta_i,\lambda)=0$, holding $\beta_i$ fixed in the numerator: \[ \Delta_\lambda\beta_i=-\frac{\partial_\lambda F_i|_{\beta_i\,\text{fixed}}}{\partial_{\beta_i}F_i}=-\frac{\mathcal C_i^0}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}, \] with \[ \mathcal C_i^0:=\E_{(s,i)}\!\left[\varepsilon_i(s)R_\theta(\theta)R_q(\theta)\!\left(R_\G(\theta)^{0}(\theta)-\E_i^w[R_\G(\theta)^{0}\mid s]\right)\mathbf 1_{\{s\in T_i\}}\right], \qquad R_\G(\theta)^{0}(\theta):=\frac{J_i(\theta)\Delta\tilde\lambda+\Delta\Lambda_i(\theta)}{\G_i(\theta)}=R_\theta(\theta)\Delta\tilde\lambda+R_\G(\theta). \] Using $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$ from Lemma~\ref{lem:Vi-concave}, we obtain \[ \Delta I=-\frac{\Delta\tilde\lambda+\frac{\partial\beta_i}{\partial k_i}\Delta k+\Delta_\lambda\beta_i}{\frac{\partial\beta_i}{\partial I_i}}, \] so $\Delta I<0$ iff $\Delta\tilde\lambda+\frac{\partial\beta_i}{\partial k_i}\Delta k+\Delta_\lambda\beta_i>0$. The sign of $\partial\beta_i/\partial k_i$ is opposite to the sign of \ref{Eujmd} by \ref{eq:proof-dbeta-dk}.
 
 \noindent\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, and 
 \begin{align}
 \E_{(s,i)}^w[uJ\mid s] &= \overline\varepsilon_i\E_i[R_\theta(\theta)], \label{eq:proof-moments-CARA-uJ}\\
 \E_{(s,i)}^w[\mathrm{Var}_i(uJ)] &= \frac{\overline\varepsilon_i}{\alpha}\mathrm{Var}_i(R_\theta(\theta)), \label{eq:proof-moments-CARA-var}
 \end{align}
-so $\partial_{k_i}\beta_i=-\alpha\E_i[R_\theta(\theta)]/\Var_i(R_\theta(\theta))$. By \ref{eq:proof-DeltaPi-CARA}, $\Delta\Pi_i=\Pi_i\E_i[R_\G]$, and \ref{eq:proof-Vi-kk} gives $\Pi_i'(k_i^\ast)=-\alpha\Pi_i\E_i[R_\theta(\theta)^2]/\Var_i(R_\theta(\theta))$. Hence $\Delta k=-\Delta\Pi_i/\Pi_i'=\E_i[R_\G]\Var_i(R_\theta(\theta))/(\alpha\E_i[R_\theta(\theta)^2])$, and \[ \Delta k\,\frac{\partial\beta_i}{\partial k_i}=-\frac{\E_i[R_\G]\E_i[R_\theta(\theta)]}{\E_i[R_\theta(\theta)^2]}. \] Substituting $R_\G^0=R_\theta(\theta)\Delta\tilde\lambda+R_\G$ into $\mathcal C_i^0$ and using $\Cov_i(R_\theta(\theta),R_\theta(\theta))=\Var_i(R_\theta(\theta))$: 
+so $\partial_{k_i}\beta_i=-\alpha\E_i[R_\theta(\theta)]/\Var_i(R_\theta(\theta))$. By \ref{eq:proof-DeltaPi-CARA}, $\Delta\Pi_i=\Pi_i\E_i[R_\G(\theta)]$, and \ref{eq:proof-Vi-kk} gives $\Pi_i'(k_i^\ast)=-\alpha\Pi_i\E_i[R_\theta(\theta)^2]/\Var_i(R_\theta(\theta))$. Hence $\Delta k=-\Delta\Pi_i/\Pi_i'=\E_i[R_\G(\theta)]\Var_i(R_\theta(\theta))/(\alpha\E_i[R_\theta(\theta)^2])$, and \[ \Delta k\,\frac{\partial\beta_i}{\partial k_i}=-\frac{\E_i[R_\G(\theta)]\E_i[R_\theta(\theta)]}{\E_i[R_\theta(\theta)^2]}. \] Substituting $R^0_\G(\theta)=R_\theta(\theta)\Delta\tilde\lambda+R_\G(\theta)$ into $\mathcal C_i^0$ and using $\Cov_i(R_\theta(\theta),R_\theta(\theta))=\Var_i(R_\theta(\theta))$: 
 \begin{equation}\label{eq:proof-directeffect-CARA}
-\mathcal C_i^0 = \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)J_i(\theta)\right] = \frac{\overline\varepsilon_i}{\alpha}\mathrm{Cov}_i(R_\theta(\theta),R_\G^0).
+\mathcal C_i^0 = \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)J_i(\theta)\right] = \frac{\overline\varepsilon_i}{\alpha}\mathrm{Cov}_i(R_\theta(\theta),R^0_\G(\theta)).
 \end{equation}
 Using \eqref{eq:proof-moments-CARA-var}, the $\overline\varepsilon_i/\alpha$ factors cancel and
 \begin{equation}\label{eq:proof-dbeta-lambda-CARA}
-\Delta_\lambda\beta_i = -\frac{\mathrm{Cov}_i(R_\theta(\theta),R_\G^0)}{\mathrm{Var}_i(R_\theta(\theta))}=-\Delta\tilde\lambda-\frac{\Cov_i(R_\theta(\theta),R_\G)}{\Var_i(R_\theta(\theta))}.
+\Delta_\lambda\beta_i = -\frac{\mathrm{Cov}_i(R_\theta(\theta),R^0_\G(\theta))}{\mathrm{Var}_i(R_\theta(\theta))}=-\Delta\tilde\lambda-\frac{\Cov_i(R_\theta(\theta),R_\G(\theta))}{\Var_i(R_\theta(\theta))}.
 \end{equation}
-Plugging into the condition $\Delta\tilde\lambda+\Delta k\,\partial_k\beta_i+\Delta_\lambda\beta_i>0$ and cancelling $\Delta\tilde\lambda$ yields $\Delta I<0$ iff \[ \frac{\E_i[R_\G]\E_i[R_\theta(\theta)]}{\E_i[R_\theta(\theta)^2]}+\frac{\Cov_i(R_\theta(\theta),R_\G)}{\Var_i(R_\theta(\theta))}<0. \qedhere \]
+Plugging into the condition $\Delta\tilde\lambda+\Delta k\,\partial_k\beta_i+\Delta_\lambda\beta_i>0$ and cancelling $\Delta\tilde\lambda$ yields $\Delta I<0$ iff \[ \frac{\E_i[R_\G(\theta)]\E_i[R_\theta(\theta)]}{\E_i[R_\theta(\theta)^2]}+\frac{\Cov_i(R_\theta(\theta),R_\G(\theta))}{\Var_i(R_\theta(\theta))}<0. \qedhere \]
 
 
 \end{proof}
@@ -2441,7 +2441,7 @@ Fix a peak state $s\in T_i$. The proof is based on the reallocation identity fro
 \Delta q_i(\theta,s)
 =
 R_q(\theta)\!\left(
-R_{\G}(\theta)-\E_i^w\!\left[R_{\G}\mid s\right]
+R_\G(\theta)-\E_i^w\!\left[R_\G(\theta)\mid s\right]
 \right),
 \end{equation}
 together with the fact that, at fixed capacity,
@@ -2452,7 +2452,7 @@ Indeed, both the baseline and perturbed allocations satisfy the same state-by-st
 
 We proceed in three steps.
 
-\noindent\textit{Step 1: endpoint values of $R_{\G}$.}
+\noindent\textit{Step 1: endpoint values of $R_\G(\theta)$.}
 
 Under the IR-unconstrained allocation, $\beta_i=0$, using $J_i(\underline\theta_i)=\underline\theta_i-\gamma_i(\underline\theta_i)$ and
 $\Lambda_i(\underline\theta_i)=\gamma_i(\underline\theta_i)\tilde\lambda_i$, we obtain
@@ -2461,9 +2461,9 @@ Likewise, since $\Lambda_i(\overline\theta_i)=0$ and $J_i(\overline\theta_i)=\ov
 $\G_i(\overline\theta_i)=\overline\theta_i\tilde\lambda_i.$
 Therefore,
 \begin{equation}\label{eq:endpoint-unconstrained}
-R_{\G}(\underline\theta_i)
+R_\G(\underline\theta_i)
 =
-R_{\G}(\overline\theta_i)
+R_\G(\overline\theta_i)
 =
 \frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}.
 \end{equation}
@@ -2484,7 +2484,7 @@ Evaluating at the upper endpoint gives
 $\Delta\G_i(\overline\theta_i) = \Delta\Lambda_i(\overline\theta_i) = 0,$
 since $\Lambda_i(\overline\theta_i)=0$. Hence
 \begin{equation}\label{eq:upper-constrained}
-R_{\G}(\overline\theta_i)=0.
+R_\G(\overline\theta_i)=0.
 \end{equation}
 At the lower endpoint,
 \[
@@ -2496,7 +2496,7 @@ At the lower endpoint,
 \]
 so
 \begin{equation}\label{eq:lower-constrained}
-R_{\G}(\underline\theta_i)
+R_\G(\underline\theta_i)
 =
 \frac{\gamma_i(\underline\theta_i)}{\G_i(\underline\theta_i)}\Delta\tilde\lambda_i.
 \end{equation}
@@ -2513,7 +2513,7 @@ R_q(\underline\theta_i)
 \left(
 \frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}
 -
-\E_i^w[R_{\G}\mid s]
+\E_i^w[R_\G(\theta)\mid s]
 \right),
 \]
 \[
@@ -2523,17 +2523,17 @@ R_q(\overline\theta_i)
 \left(
 \frac{\Delta\tilde\lambda_i}{\tilde\lambda_i}
 -
-\E_i^w[R_{\G}\mid s]
+\E_i^w[R_\G(\theta)\mid s]
 \right).
 \]
 Since $R_q(\theta)>0$, the two endpoint values of $\Delta q_i(\cdot,s)$ have the same sign.
 
-Moreover, because $R_{\G}$ is not a.e.\ constant, the term
-$R_{\G}(\theta)-\E_i^w[R_{\G}\mid s]$
+Moreover, because $R_\G(\theta)$ is not a.e.\ constant, the term
+$R_\G(\theta)-\E_i^w[R_\G(\theta)\mid s]$
 is not a.e.\ zero, so \ref{eq:realloc-proof} implies that $\Delta q_i(\cdot,s)$ is not identically zero. Combining this with \ref{eq:mean-zero-proof}, $\Delta q_i(\cdot,s)$ must take both positive and negative values. A function on an interval that takes both signs and whose two endpoint values have the same sign cannot be monotone. This proves the first claim in part (i).
 
 Consider next the IR-constrained allocation. By \ref{eq:upper-constrained}--\ref{eq:lower-constrained},
-$\Delta q_i(\overline\theta_i,s) = - R_q(\overline\theta_i)\E_i^w[R_{\G}\mid s],$
+$\Delta q_i(\overline\theta_i,s) = - R_q(\overline\theta_i)\E_i^w[R_\G(\theta)\mid s],$
 whereas
 \[
 \Delta q_i(\underline\theta_i,s)
@@ -2542,7 +2542,7 @@ R_q(\underline\theta_i)
 \left(
 \frac{\gamma_i(\underline\theta_i)}{\G_i(\underline\theta_i)}\Delta\tilde\lambda_i
 -
-\E_i^w[R_{\G}\mid s]
+\E_i^w[R_\G(\theta)\mid s]
 \right).
 \]
 Hence the two endpoint values have the same sign whenever
@@ -2553,7 +2553,7 @@ Hence the two endpoint values have the same sign whenever
 \right|
 <
 \left|
-\E_i^w[R_{\G}\mid s]
+\E_i^w[R_\G(\theta)\mid s]
 \right|.
 \]
 Therefore, for $|\Delta\tilde\lambda_i|$ sufficiently small, the two endpoints inherit the same sign. Since $\Delta q_i(\cdot,s)$ is again not identically zero and satisfies \ref{eq:mean-zero-proof}, it cannot be monotone. This proves the second claim in part (i).
@@ -2564,18 +2564,18 @@ Therefore, for $|\Delta\tilde\lambda_i|$ sufficiently small, the two endpoints i
 Assume now that the perturbation is mean-preserving, so $\Delta\tilde\lambda_i=0$. Under the maintained restriction
 $\Delta\beta_i+\Delta\tilde\lambda_i=0,$
 this also gives $\Delta\beta_i=0$. By Step 1,
-$R_{\G}(\underline\theta_i)=R_{\G}(\overline\theta_i)=0.$
+$R_\G(\underline\theta_i)=R_\G(\overline\theta_i)=0.$
 Hence, evaluating \ref{eq:realloc-proof} at the two endpoints,
 \begin{equation}\label{eq:endpoints-part-ii}
 \Delta q_i(\underline\theta_i,s)
 =
 -
-R_q(\underline\theta_i)\E_i^w[R_{\G}\mid s],
+R_q(\underline\theta_i)\E_i^w[R_\G(\theta)\mid s],
 \qquad
 \Delta q_i(\overline\theta_i,s)
 =
 -
-R_q(\overline\theta_i)\E_i^w[R_{\G}\mid s].
+R_q(\overline\theta_i)\E_i^w[R_\G(\theta)\mid s].
 \end{equation}
 Thus the two endpoints have the same sign, and by part (i), $\Delta q_i(\cdot,s)$ is not monotone.
 
@@ -2585,12 +2585,12 @@ contains at least two elements. Let $\theta_-\le \theta_+$ denote its minimum an
 
 Suppose first that $\Delta\G_i(\theta)\ge 0$ for all $\theta$. Since $\G_i(\theta)>0$, this implies
 \[
-R_{\G}(\theta)=\frac{\Delta\G_i(\theta)}{\G_i(\theta)}\ge 0
+R_\G(\theta)=\frac{\Delta\G_i(\theta)}{\G_i(\theta)}\ge 0
 \qquad
 \text{for all }\theta,
 \]
 and therefore
-$\E_i^w[R_{\G}\mid s]\ge 0.$
+$\E_i^w[R_\G(\theta)\mid s]\ge 0.$
 By \ref{eq:endpoints-part-ii}, both endpoint values of $\Delta q_i(\cdot,s)$ are nonpositive. Since $\Delta q_i(\cdot,s)$ has zero mean and is not identically zero, it must be strictly positive on an interior subset of positive measure. It follows that
 \[
 \Delta q_i(\theta,s)\le 0
@@ -2599,9 +2599,9 @@ By \ref{eq:endpoints-part-ii}, both endpoint values of $\Delta q_i(\cdot,s)$ are
 \]
 
 The case $\Delta\G_i(\theta)\le 0$ is symmetric. In that case,
-$R_{\G}(\theta)\le 0 \qquad\text{for all }\theta,$
+$R_\G(\theta)\le 0 \qquad\text{for all }\theta,$
 so
-$\E_i^w[R_{\G}\mid s]\le 0,$
+$\E_i^w[R_\G(\theta)\mid s]\le 0,$
 and \ref{eq:endpoints-part-ii} implies that both endpoint values of $\Delta q_i(\cdot,s)$ are nonnegative. Hence
 \[
 \Delta q_i(\theta,s)\ge 0
