@@ -1,0 +1,80 @@
+\documentclass{class}
+\definecolor{ok}{RGB}{0,140,0}
+\definecolor{todo}{RGB}{180,0,0}
+\newcommand{\ok}{\textcolor{ok}{\textbf{[RESOLVED]}}}
+\newcommand{\todo}{\textcolor{todo}{\textbf{[OPEN]}}}
+
+\title{Proof Audit Log --- Redistributive Peak Load Pricing}
+\author{Proof Review}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Proof and Mathematical Consistency Audit}
+
+\begin{enumerate}[leftmargin=1.5cm]
+
+\item \ok\ Missing $R_q(\theta)$ factor in the formula for
+$\Delta \mathbb{E}\underline{CS}_i$ in the redistribution section; corrected in the statement and proof, including the CARA specialization.
+
+\item \ok\ Spurious factor $1/\tilde\lambda^\ast$ in Proposition~\ref{prop:investment}; corrected by differentiating the investment first-order condition directly.
+
+\item \ok\ Corollary~\ref{cor:rprefreallocation} imported the IR-constrained condition
+$\Delta\tilde\lambda_i+\Delta\beta_i=0$ without stating it; the condition is now explicit.
+
+\item \ok\ Lemma~\ref{lem:dkidk} required clarification on the denominator and sign condition; the statement now defines the denominator and qualifies the sign comparison accordingly.
+
+\item \ok\ Lemma~\ref{lem:investment} missed the normalizing factor $\tilde\lambda^\ast$ in the first equality; the peak-load rule is now written in normalized form.
+
+\item \ok\ Broken appendix reference to Figure~\ref{fig:appendix_redistribution_marg_k_uniform}; reference label corrected.
+
+\item \ok\ Figure~\ref{fig:surplus-redist} was inconsistent with Proposition~\ref{prop:surplus-redist}; labels, signs, and caption were made consistent with the proposition.
+
+\item \ok\ Proof of Proposition~\ref{prop:investment} dropped the induced $\Delta k_i^\ast$ term; the derivation was revised to account for the full equilibrium response.
+
+\item \ok\ Grammatical error in Lemma~\ref{lem:realloc}; ``a across allocation'' corrected to ``an across-category allocation.''
+
+\item \ok\ Placeholder citation ``see XXXX'' after Lemma~\ref{lem:investment}; removed or replaced with the appropriate reference.
+
+\item \ok\ Duplicate label \texttt{chap3sec:sec2}; dead draft material removed and label conflict eliminated.
+
+\item \ok\ Product/ratio error in the proof of Theorem~\ref{thm:surplus}; the expression for
+$\partial\beta_i/\partial k_i$ now matches Lemma~\ref{lem:SC-dir}.
+
+\item \ok\ False endpoint claim in Proposition~\ref{prop:rprefreallocation}; proof rewritten using the zero-mean property and non-constancy of $\Delta q_i$.
+
+\item \ok\ Missing proof of Part~(i) of Proposition~\ref{prop:revenueordering}; partition result added.
+
+\item \ok\ Undefined object $\mathcal{B}$ in Lemma~\ref{lem:dkidk}; definition added before the formula.
+
+\item \ok\ Convexity assumption in Lemma~\ref{lem:FOC}; statement now points explicitly to the maintained convexity condition.
+
+\item \ok\ Label inconsistency between \texttt{sec:surplus} and expected \texttt{sec:welfare}; standardized.
+
+\item \ok\ Scope of Assumption~\ref{ass:mult} in Theorem~\ref{thm:surplus}; theorem head now flags the additional assumption.
+
+\item \ok\ Cutoff-count argument in Proposition~\ref{prop:surplus-redist}; proof now explains why at most two turning points imply at most three interior cutoffs.
+
+\item \ok\ Lemma~\ref{lem:Transfer} now states explicitly that
+$\mathbb{E}\underline{CS}_i\geq 0$ is the lower-type IR constraint under the envelope representation.
+
+\item \ok\ Scope of the whole-$N$ representation in Lemma~\ref{lem:investment}; proof now explains why $\Pi_i(k_i^\ast)=\zeta_k$ for all active categories.
+
+\item \ok\ Missing division signs in the formulas for
+$\partial_{I_i}\beta_i$; corrected to
+$1/\mathbb{E}_{(s,i)}^w[\mathrm{Var}_i(uJ)]$.
+
+\item \ok\ Subscript error in the denominator of Lemma~\ref{lem:dkidk}; denominator now uses the summation index $j$.
+
+\item \ok\ Lemma~\ref{lem:Vi-concave} was embedded inside another proof despite being cross-referenced externally; extracted as a standalone result.
+
+\item \ok\ Terminology inversion after Theorem~\ref{thm:surplus}; ``type-dependent'' corrected to ``type-independent.''
+
+\end{enumerate}
+
+\section*{Summary of Open Items}
+
+None.
+
+\end{document}

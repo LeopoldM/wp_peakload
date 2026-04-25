@@ -1,4 +1,4 @@
-\documentclass[master.tex]{subfiles}
+\documentclass{class}
 
 \begin{document}
 
@@ -13,7 +13,15 @@
 \date{\today}
 \maketitle
 \begin{abstract}
-This paper studies peak-load pricing in essential-goods markets such as electricity, transport, and network industries, when consumers have private information about their willingness to pay, belong to observable categories, and a market designer has redistributive objectives. I characterize the optimal mechanism, identify who benefits from capacity expansion, and show how redistributive preferences shape the optimal allocation. In particular, I provide insight on why the consumers who gain most from relieving scarcity, or from receiving greater redistributive weight, need not coincide with those targeted by the underlying redistributive priorities. Building on these results, I characterize the optimal tagging rule for peak-load pricing and show how observable categories should be ranked by capacity allocation and budget contribution. In contrast to the utilitarian case, I establish a new peak-load investment rule in which the distortion from private information and redistribution persists at the optimum. I further characterize the optimal nonlinear tariff that implements the mechanism, showing that spot pricing fails and that optimal block tariffs are generically neither increasing nor decreasing for consumers with strong redistributive priority.
+
+\textbf{200 words} This article studies peak-load pricing in essential-goods markets such as electricity, transport, and network industries, when consumers have private information about their willingness to pay, belong to observable categories, and a market designer has redistributive objectives. I characterize the optimal mechanism and answer the following: who benefits from capacity expansion, and how redistributive preferences shape the optimal allocation. I derive structural conditions under which the consumers who gain or lose from the mechanism do not coincide with redistributive priorities. This occurs because allocating to one type propagates to others through informational rents and capacity scarcity, and these effects are evaluated at different social values. The same mechanism governs three policy results. First, I characterize the optimal tagging rule for peak-load pricing and show how observable categories should be ranked by capacity allocation and budget contribution. Second, in contrast to the utilitarian case, I establish a new peak-load investment rule in which the distortion from private information and redistribution persists at the optimum. Third, I further characterize the optimal nonlinear tariff that implements the mechanism, showing that spot pricing fails and that optimal block tariffs are generically neither increasing nor decreasing for consumers with strong redistributive priority.
+
+\textbf{100 words} This article studies peak-load pricing under private information and redistributive objectives. I characterize the optimal mechanism, the incidence of capacity expansion, and how redistributive preferences shape the allocation. I derive structural conditions under which consumers who gain or lose from the mechanism differ from redistributive priorities. This occurs because allocating to one type propagates to others through informational rents and capacity scarcity, and these effects are evaluated at different social values. The same mechanism characterizes the use of observable characteristics and the departures from canonical peak-load pricing, both in the investment rule and in the nonlinear tariffs implementing the mechanism.
+
+
+
+
+
 \bigskip
 \end{abstract}
 \setcounter{page}{0}
@@ -23,28 +31,27 @@ This paper studies peak-load pricing in essential-goods markets such as electric
 
 
 \section{Introduction}\label{chap3sec:sec1}
-When demand is uncertain and capacity is limited, the standard framework of peak-load pricing provides a mechanism for determining who receives the scarce good and who finances the capacity needed to alleviate that scarcity. These questions are important for essential goods (in particular electricity, network industries, and health services), because inadequate rationing and capacity shortages in these markets impose costs that extend far beyond the consumers directly rationed.\footnote{In electricity markets, \citep{Hinchberger2024} find a deadweight loss of about \$2 billion annually from flat retail pricing over several US markets, while the 2021 Texas blackout caused \$80--130 billion in economic losses \citep{GoldingKumarMertens2021,Busby2021}. The 2025 \textit{Urban Mobility Report} reports annual congestion costs of \$269 billion in U.S. urban areas \citep{Schrank2025}. In vaccine allocation, \cite{Moore2022} showed that misallocation of vaccines during COVID-19 led to about 1.3 million direct deaths worldwide by the end of 2021.} The issue is particularly relevant because they are industries characterized by structural pressure to expand capacity, driven by demand growth, technological change, and the transition to low-carbon supply.\footnote{In electricity generation, the IEA projects almost 4,600 GW of additional renewable capacity worldwide between 2025 and 2030 \citep{IEA2025b}. For electricity grids, the European Commission estimates total investment needs of around \texteuro 1.2 trillion by 2040 \citep{EuropeanCommission2025}. In urban transport, the OECD estimates average investment needs of USD 400 per capita per year in high-income cities between 2015 and 2050 \citep{Wagner2018}.} In that context, the rule that governs rationing today simultaneously determines the revenue stream that finances capacity, making the allocation of scarce supply and the financing of expansion part of the same economic problem. But these are also the sectors in which distributional concerns are strongest. When capacity is scarce, the allocation rule determines who is served; when capacity is expanded, the financing rule determines who bears the burden of paying for it. This creates a normative tension; the logic of peak-load pricing points toward allocating scarce capacity to the users with the highest marginal willingness to pay and financing new investment through a unique price that reflect aggregate scarcity. For many essential goods, however, policymakers are reluctant to let either access during shortages or the burden of financing expansion be determined solely by willingness to pay.\footnote{Redistributive intervention takes several forms in practice. In energy markets, governments have used price caps and subsidies to protect consumers from price spikes \citep{Fetzer2024,Amores2025}, while nonlinear tariffs have been designed to shift revenue burdens toward higher-usage consumers \citep{Borenstein2012,Levinson2022,Smith2022,Randriamaro2026}. In transport, the distributional impact of congestion pricing depends heavily on how revenues are recycled \citep{Eliasson2006}. In health emergencies, redistribution takes the form of non-price rationing schemes based on vulnerability or social role rather than willingness to pay \citep{Wang2023,akbarpour2023economic,Pathak2024}.} As a result, the objectives of efficiency, cost recovery, and redistribution need not align. The consumers who should receive the good under an efficient scarcity allocation are not necessarily those a redistributive regulator would want to prioritize, and those from whom investment costs are easiest to recover are not necessarily those on whom society would want the burden to fall.
+When demand is uncertain and capacity is limited, the standard framework of peak-load pricing provides a mechanism for determining who receives the scarce good and who finances the capacity needed to alleviate that scarcity. These questions are important for essential goods (in particular electricity, network industries, and health services), because inadequate rationing and capacity shortages in these markets impose costs that extend far beyond the consumers directly rationed.\footnote{In electricity markets, \citep{Hinchberger2024} find a deadweight loss of about \$2 billion annually from flat retail pricing over several US markets, while the 2021 Texas blackout caused \$80--130 billion in economic losses \citep{GoldingKumarMertens2021,Busby2021}. The 2025 \textit{Urban Mobility Report} reports annual congestion costs of \$269 billion in U.S. urban areas \citep{Schrank2025}. In vaccine allocation, \cite{Moore2022} showed that misallocation of vaccines during COVID-19 led to about 1.3 million direct deaths worldwide by the end of 2021.} The issue is particularly relevant because these industries are characterized by structural pressure to expand capacity, driven by demand growth, technological change, and the transition to low-carbon supply.\footnote{In electricity generation, the IEA projects almost 4,600 GW of additional renewable capacity worldwide between 2025 and 2030 \citep{IEA2025b}. For electricity grids, the European Commission estimates total investment needs of around \texteuro 1.2 trillion by 2040 \citep{EuropeanCommission2025}. In urban transport, the OECD estimates average investment needs of USD 400 per capita per year in high-income cities between 2015 and 2050 \citep{Wagner2018}.} In that context, the rule that governs rationing today simultaneously determines the revenue stream that finances capacity, making the allocation of scarce supply and the financing of expansion part of the same economic problem. But these are also the sectors in which distributional concerns are strongest. When capacity is scarce, the allocation rule determines who is served; when capacity is expanded, the financing rule determines who bears the burden of paying for it. This creates a normative tension as the logic of peak-load pricing points toward allocating scarce capacity to the users with the highest marginal willingness to pay and financing new investment through a unique price that reflects aggregate scarcity. For many essential goods, however, policymakers are reluctant to let either access during shortages or the burden of financing expansion be determined solely by willingness to pay.\footnote{Redistributive intervention takes several forms in practice. In energy markets, governments have used price caps and subsidies to protect consumers from price spikes \citep{Fetzer2024,Amores2025}, while nonlinear tariffs have been designed to shift revenue burdens toward higher-usage consumers \citep{Borenstein2012,Levinson2022,Smith2022,Randriamaro2026}. In transport, the distributional impact of congestion pricing depends heavily on how revenues are recycled \citep{Eliasson2006}. In health emergencies, redistribution takes the form of non-price rationing schemes based on vulnerability or social role rather than willingness to pay \citep{Wang2023,akbarpour2023economic,Pathak2024}.} As a result, the objectives of efficiency, cost recovery, and redistribution need not align. The consumers who should receive the good under an efficient scarcity allocation are not necessarily those a redistributive regulator would want to prioritize, and those from whom investment costs are easiest to recover are not necessarily those on whom society would want the burden to fall.
 
-To study this tension, I consider a market designer, for instance, a regulated firm acting under a mandate to serve consumers, who must choose capacity and a state-contingent allocation mechanism for a good with stochastic demand. The good is subject to an ex post hard capacity constraint\footnote{Capacity is determined before the state of the world is realized, but the allocation may depend on that realization. This captures the fact that infrastructure and financing decisions in markets such as electricity, transport, or health services must be taken before demand conditions are known, even though the actual use of scarce capacity can adjust once those conditions are observed. The cost of unserved demand is infinite, which justifies imposing a hard capacity constraint. Hence, it is never optimal for the market designer to allow excess demand to materialize.} and the capacity must be financed under an ex ante budget constraint. Consumers belong to observable categories, but within each category, they privately know their willingness to consume, summarized by a single preference parameter that scales the value they derive from receiving a given quantity. The designer evaluates allocations using welfare weights placed on consumer surplus. These weights are treated as exogenous reduced-form objects rather than derived from explicit microfoundations. The interpretation is that the designer cannot directly observe whether a consumer is vulnerable or socially deserving and must instead rely on the willingness-to-pay information elicited through the mechanism as a proxy for social need.\footnote{In this paper, higher welfare weights to higher types are equivalent to favoring consumers with a higher demand. For a related critique of using observed electricity demand as a proxy for consumers' social value, see \cite{Borenstein2025}, who shows that much of the variation in residential electricity use reflects household size, rooftop solar, and climate rather than imprudent consumption. Following \cite{akbarpour2023redistributive}, restricting attention to weights that depend only on the observable category $i$ and the elicitable type $\theta$ is without loss. Since $\lambda$ does not enter agents' preferences, no incentive-compatible mechanism can profitably condition allocations or transfers on a separately reported welfare characteristic.} The analysis proceeds in the following steps. I begin by taking the allocation of capacity and revenue requirements across categories as given and characterizing the optimal mechanism for a single category. This analysis shows how the effects of a capacity expansion and of redistributive preferences can be summarized by interpretable objects. These objects are summary measures of the constrained optimum, and they isolate the channels through which capacity and redistributive preferences affect allocations. I then use these results to determine how capacity and revenue should be allocated across categories.
+To study this tension, I consider a market designer, for instance, a regulated firm acting under a mandate to serve consumers, who must choose capacity and a state-contingent allocation mechanism for a good with stochastic demand. The good is subject to an ex post hard capacity constraint\footnote{Capacity is determined before the state of the world is realized, but the allocation may depend on that realization. This captures the fact that infrastructure and financing decisions in markets such as electricity, transport, or health services must be taken before demand conditions are known, even though the actual use of scarce capacity can adjust once those conditions are observed. A hard capacity constraint means it is never optimal for the market designer to allow excess demand to materialize.} and the capacity must be financed under an ex ante budget constraint. Consumers belong to observable categories, but within each category, they privately know their willingness to consume, summarized by a single preference parameter that scales the value they derive from receiving a given quantity. The designer evaluates allocations using welfare weights placed on consumer surplus. These weights are treated as exogenous reduced-form objects rather than derived from explicit microfoundations. The interpretation is that the designer cannot directly observe whether a consumer is vulnerable or socially deserving and must instead rely on the willingness-to-pay information elicited through the mechanism as a proxy for social need.\footnote{In this article, higher welfare weights on higher types are equivalent to favoring consumers with a higher demand. For a related critique of using observed electricity demand as a proxy for consumers' social value, see \cite{Borenstein2025}, who shows that much of the variation in residential electricity use reflects household size, rooftop solar, and climate rather than imprudent consumption. Following \cite{akbarpour2023redistributive}, restricting attention to weights that depend only on the observable category $i$ and the elicitable type $\theta$ is without loss. Since $\lambda$ does not enter agents' preferences, no incentive-compatible mechanism can profitably condition allocations or transfers on a separately reported welfare characteristic.} The analysis proceeds in the following steps. I begin by taking the allocation of capacity and revenue requirements across categories as given and characterizing the optimal mechanism for a single category. This analysis identifies two sorting margins: one governing the incidence of capacity expansion, and one governing how redistributive preferences translate into reallocations at fixed capacity. These margins are summary measures of the constrained optimum. They first organize the within-category mechanism and then determine how capacity and revenue should be allocated across categories.
 
+The main tension comes from the interaction between incentive constraints, redistributive preferences, and capacity scarcity. Conditional on capacity and revenue requirements, I first characterize the optimal mechanism for a single category and then study how the constrained optimum responds to changes in capacity and redistributive preferences. Beyond alleviating scarcity, capacity expansion affects the surplus generated by the mechanism, which can be redistributed to consumers through transfers. However, incentive compatibility requires the mechanism to leave rents to higher types, and once the designer assigns different social values to consumption and transfers across types, those rents can reduce the surplus available for redistribution while generating limited social value. This interaction yields the \textit{capacity-sorting margin}. I show that the sign of this margin, together with the ordering of types by their ability to generate surplus, governs the set of winners and losers from a capacity expansion, and that this incidence depends on the level of capacity. To illustrate, suppose the designer gives higher priority to consumers with low demand. If these consumers are also more responsive to capacity expansion, relaxing scarcity may increase the informational rents that must be left to higher types. The surplus available for redistribution can then fall, so the consumers targeted by redistribution may lose from additional capacity.
 
-The main tension comes from the interaction between incentive constraints, redistributive preferences, and capacity scarcity. Conditional on capacity and revenue requirements, I first characterize the optimal mechanism for a single category and then study how the constrained optimum responds to changes in capacity and redistributive preferences. Beyond alleviating scarcity, capacity expansion indirectly affects the surplus available through the mechanism, which can be redistributed to consumers through transfers. However, incentive compatibility requires the mechanism to leave rents to higher types, and once the designer assigns different social values to consumption and transfers across types, those rents can reduce the available surplus, making the mechanism no longer welfare-neutral. This interaction yields the \textit{capacity-sorting margin}. I show that the sign of this margin, together with the ordering of types by their ability to generate surplus, governs the set of winners and losers from a capacity expansion, and that this incidence depends on the level of capacity. Assigning the same consumer a higher welfare weight does not guarantee that the consumer benefits more from capacity expansion, and the same consumer may gain or lose depending on the initial level of capacity. 
+I then compare the optimal allocations across redistributive priorities, holding capacity fixed. The comparison operates through two channels. First, redistributive priorities change the designer's effective social weights, which measure the social return from serving each consumer. Second, because capacity is fixed, assigning relatively more social value to some types necessarily reallocates scarce capacity away from others. The relevant object is therefore not the absolute difference in effective social weights, but their proportional difference across consumers. This yields the \textit{preference-sorting margin}. I provide conditions under which average welfare weights and the direction of redistributive priorities determine the sign of this margin. I then show that, even when those priorities shift toward lower or higher types, the induced allocation need not move in the same direction. Reweighting one part of the type distribution propagates through incentive constraints to the rest of the allocation, so the consumers who receive greater social weight need not be the ones who benefit from the induced reallocation.
 
-I then study how the constrained allocation responds to changes in redistributive preferences at fixed capacity. A change in preferences operates through two channels. First, it changes the designer’s effective social weights, which measure the social return from serving a given consumer. Second, because capacity is fixed, it changes the allocation of scarce capacity across consumers, so that giving relatively more social value to some types necessarily comes at the expense of others. Therefore, the relevant object governing the change in the optimal allocation is both the sign and the magnitude of the proportional change in the effective social weights across consumers. This yields the \textit{preference-sorting margin}. I provide conditions under which average welfare weights and the direction of redistributive preferences determine the sign of this margin. I then show that, even when redistributive preferences shift toward lower or higher types, the resulting changes in social weights need not move in the same direction across consumers, because any local reweighting propagates through the incentive constraints to the rest of the allocation, in a way that depends on redistributive priorities. When comparing two redistributive preference profiles, the consumers who receive greater social weight need not be the ones who benefit from the induced reallocation.
+Using the same two sorting margins that organize the single-category mechanism, I then characterize the optimal allocation across categories: how the global capacity and revenue requirements are assigned across observable groups. Capacity is allocated according to the marginal social value of relaxing scarcity. I show that this marginal value is governed by the same \textit{preference-sorting margin}, rather than by average welfare weights or absolute effective social weights. Revenue requirements are governed by a different logic. The tagging problem distinguishes between categories of contributors and non-contributors. A contributing category is assigned a positive revenue requirement so that its category budget constraint binds, and the mechanism generates no surplus to redistribute to its consumers. By contrast, the budget constraint of a non-contributing category is slack, and any surplus generated by the mechanism is redistributed within the category. I show that a category contributes only when the common social value of public funds at the equilibrium exceeds the redistributive cost of extracting revenue from that category, captured by its average social weight and by the category-level shadow value of the budget constraint. The extensive margin of revenue extraction, therefore, depends only on average welfare weights. The intensive margin, by contrast, depends on the interaction between the two sorting margins, since a category's ability to raise revenue reflects both how capacity is allocated to it and how its redistributive priorities sort consumption across types.
 
-Using the same two sorting margins that organize the single-category mechanism, I then characterize the optimal allocation across categories, namely how total capacity and total revenue requirements are assigned across observable groups. Capacity is allocated across categories according to the marginal social value of relaxing scarcity, and I show that this marginal value is summarized by the weighted average of proportional differences in effective social weights. Therefore, the relevant ranking is governed by the same \textit{preference-sorting margin}, rather than by average welfare weights or absolute effective social weights. On the other hand, a category contributes only when the common social value of public funds exceeds the redistributive cost of extracting revenue from that category, captured by its average social weight and by the category-level shadow value of the budget constraint. Therefore, whether a category contributes to the budget at all depends solely on average welfare weights, providing a separation that requires no information about the single-category structure of preferences. However, the intensive margin, namely how much each contributing category pays, depends on the interaction between the two sorting margins, since a category's ability to raise revenue reflects both how capacity is allocated to it and how its redistributive preferences sort consumption across types.
+The final result establishes the incomplete-information counterpart of the canonical peak-load investment rule and shows how the optimal rule departs from its utilitarian benchmark. When consumers share the same welfare weight, informational rents are welfare-neutral, so the complete- and incomplete-information investment rules coincide at the optimum capacity. Under redistributive preferences, by contrast, the informational wedge persists even at the optimum. The new optimality condition equates the marginal investment cost with the incentive-adjusted social value of marginal consumption, aggregated across contributing categories and normalized by the equilibrium marginal cost of funds. The comparative statics of this investment rule are governed by the same two sorting margins developed above. Relative to the utilitarian benchmark, redistributive priorities raise optimal investment when the aggregate \textit{preference-sorting margin}, which captures the marginal value of capacity, is positive and the aggregate \textit{capacity-sorting margin} does not raise the equilibrium marginal cost of funds too much. The reverse holds when the opposite force dominates. The effect of a global capacity expansion on winners and losers within each category is then governed by the comparison between the category-specific \textit{capacity-sorting margin} and the marginal investment cost.
 
-The final result establishes the incomplete-information counterpart of the canonical peak-load investment rule, and shows how the optimal rule departs from its utilitarian counterpart. Under utilitarian preferences, informational rents are welfare-neutral, so the complete- and incomplete-information investment rules coincide at the optimum. Under redistributive preferences, by contrast, the informational wedge persists even at the optimum. The new optimality condition equates the marginal investment cost with the incentive-adjusted social value of marginal consumption, aggregated across contributing categories and normalized by the equilibrium marginal cost of funds. Comparative statics then follow from the same two margins developed in the analysis. Redistributive preference changes affect investment through their effect on the average marginal value of capacity, via the \textit{preference-sorting margin}, and through the equilibrium marginal cost of funds, via the \textit{capacity-sorting margin}. I also connect the effect of a global capacity expansion on the across-category allocation, characterizing who gains and who loses within each category as aggregate investment rises.
+I conclude by discussing a tariff representation of the mechanism to illustrate its policy implications and show how the same sorting margins that govern the optimal mechanism also shape nonlinear marginal price schedules within and across categories. This provides a policy interpretation of the results, especially for block tariffs commonly used in essential goods sectors to achieve redistribution. Redistribution not only implies that spot pricing fails to implement the optimum, even when combined with individualized lump-sum transfers, but also does not translate into uniformly lower prices for favored consumers. Instead, I show that it can give rise to non-standard block tariff structures, differentiated menus across observable groups, and ambiguous price and surplus responses to capacity expansions.
 
-Having established the theoretical characterization of the constrained optimum, I conclude by discussing a tariff representation of the mechanism to illustrate its policy implications. I show how the same sorting margins that govern the optimal mechanism also shape nonlinear marginal price schedules within and across categories. This provides a policy interpretation of the results, especially for block tariffs commonly used in essential goods sectors to achieve redistribution. Redistribution not only implies that spot pricing fails to implement the optimum, even when combined with individualized lump-sum transfers, but also does not translate into uniformly lower prices for favored consumers. Instead, I show that it can give rise to non-standard block tariff structures, differentiated menus across observable groups, and ambiguous price and surplus responses to capacity expansions.
+\paragraph{Related Literature} The classic peak-load pricing literature studies the efficient allocation of a scarce, non-storable good across states when capacity is fixed in the short run and costly to expand in the long run \citep{m1949tarification,Steiner1957,vickrey1963pricing}. Off peak, the optimal allocation sets users' marginal utility equal to operating marginal cost; on peak, capacity binds and the good is allocated so that marginal utilities are equalized at a common scarcity value, while optimal investment equates the marginal cost of capacity to that scarcity value \citep{crew1995theory,vickrey1969congestion}.\footnote{One important part of this literature concerns implementation, which I illustrate in the discussion. The standard result is that the efficient utilitarian allocation can be decentralized through responsive or spot pricing. Prices equal operating marginal cost off-peak and the realized scarcity value on-peak, thereby allocating supply efficiently in real time \citep{Vickrey,Schweppe1988}.} This benchmark extends to incomplete information under a utilitarian objective. When consumers privately know their willingness to pay, the efficient allocation and investment can still be implemented through self-selection mechanisms \citep{spulber1992optimal,chao1987priority}.\footnote{Once one moves away from the efficiency benchmark toward actual tariff design and policy adoption, distributional conflict quickly becomes central. In electricity, \cite{Joskow2012} stresses that dynamic pricing creates winners and losers and that fear of large redistributions is a major obstacle to adoption, while \cite{cahana2022distributional} shows that real-time pricing can be regressive. In transport, \cite{hall2021can} estimates the distributive trade-offs associated with alternative road-toll designs. For a broader discussion of equity concerns in congestion pricing, see \cite{Ecola}.} This article shows how the benchmark changes once the designer has redistributive objectives. In a more general mechanism-design environment, I characterize the optimal allocation when consumers differ both in their willingness to pay and in their social priority, and show that peak-load pricing no longer equates marginal utilities to a common scarcity value. Instead, marginal utilities are distorted by effective redistributive weights, so the utilitarian spot-pricing logic breaks down even when individual transfers are feasible.\footnote{A related literature studies public-utility tariff design with redistributive objectives outside the core peak-load problem. \cite{Feldsteina,Feldsteinb} show that distributional equity invalidates the standard Ramsey--Boiteux rule. This insight has been applied notably to electricity by \cite{Levinson2022,Feger2022}. These articles share the conclusion that redistribution requires prices to differ across consumers, but they take the tariff format as given rather than deriving the full optimal mechanism from primitives.}
 
-\paragraph{Related Literature} The classic peak-load pricing literature studies the efficient allocation of a scarce, non-storable good across states when capacity is fixed in the short run and costly to expand in the long run \citep{m1949tarification,Steiner1957,vickrey1963pricing}. Off peak, the optimal allocation sets users' marginal utility equal to operating marginal cost; on peak, capacity binds and the good is allocated so that marginal utilities are equalized at a common scarcity value, while optimal investment equates the marginal cost of capacity to that scarcity value \citep{crew1995theory,vickrey1969congestion}.\footnote{One important part of this literature concerns implementation, which I illustrate in the discussion. The standard result is that the efficient utilitarian allocation can be decentralized through responsive or spot pricing. Prices equal operating marginal cost off-peak and the realized scarcity value on-peak, thereby allocating supply efficiently in real time \citep{Vickrey,Schweppe1988}.} This benchmark extends to incomplete information under a utilitarian objective. When consumers privately know their willingness to pay, the efficient allocation and investment can still be implemented through self-selection mechanisms \citep{spulber1992optimal,chao1987priority}.\footnote{Once one moves away from the efficiency benchmark toward actual tariff design and policy adoption, distributional conflict quickly becomes central. In electricity, \cite{Joskow2012} stresses that dynamic pricing creates winners and losers and that fear of large redistributions is a major obstacle to adoption, while \cite{cahana2022distributional} shows that real-time pricing can be regressive. In transport, \cite{hall2021can} estimates the distributive trade-offs associated with alternative road-toll designs. For a broader discussion of equity concerns in congestion pricing, see \cite{Ecola}.} This paper shows how the benchmark changes once the designer has redistributive objectives. In a more general mechanism-design environment, I characterize the optimal allocation when consumers differ both in their willingness to pay and in their social priority, and show that peak-load pricing no longer equates marginal utilities to a common scarcity value. Instead, marginal utilities are distorted by effective redistributive weights, so the utilitarian spot-pricing logic breaks down even when individual transfers are feasible.\footnote{A related literature studies public-utility tariff design with redistributive objectives outside the core peak-load problem. \cite{Feldsteina,Feldsteinb} show that distributional equity invalidates the standard Ramsey--Boiteux rule. This insight has been applied notably to electricity by \cite{Levinson2022,Feger2022}. These papers share the conclusion that redistribution requires prices to differ across consumers, but they take the tariff format as given rather than deriving the full optimal mechanism from primitives.}
+In the peak-load pricing literature, redistributive objectives under private information have received relatively little attention. \cite{spulber1992capacity} characterizes the self-selection contracts that implement the peak-load optimum under welfare weights, but does not study the comparative statics of redistribution, the incidence of capacity expansion, or the optimal investment rule.\footnote{Similarly, \cite{Rasanen1997} and \cite{Martimort2020a} study related public-utility environments in which redistributive preferences interact with incentive compatibility and distort the optimal tariff structure.} More broadly, the article relates to the redistributive mechanism design literature, which studies similar tensions in settings such as externality regulation, rationing, subsidy design, and nonlinear pricing \citep{Pai2023,Gse2024,Dworczak2021,Kang2021,Kang2024,Makimattila2025,Cremer2002}. It is particularly close to \cite{akbarpour2023redistributive}, which also studies the allocation of a scarce resource to agents characterized by a publicly observed label and a privately observed type. The main differences are that my environment features a divisible good subject to a hard capacity constraint and an endogenous revenue requirement. As a result, the redistributive trade-off is shaped not only by primitives but also by the equilibrium surplus generated by the constrained-optimal allocation.\footnote{\cite{Kang2024} studies a related redistributive mechanism design problem in which the correlation between demand and redistributive preferences also shapes the optimal allocation. Our setting differs most centrally in featuring a hard capacity constraint and an endogenous revenue margin.}
 
-In the peak-load pricing literature, redistributive objectives under private information have received relatively little attention. \cite{spulber1992capacity} characterizes the self-selection contracts that implement the peak-load optimum under welfare weights, but does not study the comparative statics of redistribution, the incidence of capacity expansion, or the optimal investment rule.\footnote{Similarly, \cite{Rasanen1997} and \cite{Martimort2020a} study related public-utility environments in which redistributive preferences interact with incentive compatibility and distort the optimal tariff structure.} More broadly, the paper relates to the redistributive mechanism design literature, which studies similar tensions in settings such as externality regulation, rationing, subsidy design, and nonlinear pricing \citep{Pai2023,Gse2024,Dworczak2021,Kang2021,Kang2024,Makimattila2025,Cremer2002}. It is particularly close to \cite{akbarpour2023redistributive}, which also studies the allocation of a scarce resource to agents characterized by a publicly observed label and a privately observed type. The main differences are that my environment features a divisible good subject to a hard capacity constraint and an endogenous revenue requirement. As a result, the redistributive trade-off is shaped not only by primitives but also by the equilibrium surplus generated by the constrained-optimal allocation.\footnote{\cite{Kang2024} studies a related redistributive mechanism design problem in which the correlation between demand and redistributive preferences also shapes the optimal allocation. Our setting differs most centrally in featuring a hard capacity constraint and an endogenous revenue margin.}
+The main results can be expressed in terms of a small set of interpretable equilibrium objects, connecting to the local-reform approach in public finance \citep{Saez2001}. In particular, the role of utility curvature mirrors that of demand or labor-supply responsiveness in the sufficient-statistics literature \citep{Chetty2010,Kleven2021}. It governs how scarce capacity is reallocated among consumers as capacity expands, and how changes in redistributive preferences translate into reallocation of quantity across types.\footnote{In that sense, it is related in spirit to reduced-form sorting effects such as the consumption-sorting channel in recent work on carbon taxation \citep{Bierbrauer2024,Gse2024}.} The article also introduces two additional equilibrium objects specific to this environment: one governing how marginal revenue is sorted across types as capacity expands, and one governing how redistributive preference perturbations reallocate quantities across types.
 
-The main results can be expressed in terms of a small set of interpretable equilibrium objects, connecting to the local-reform approach in public finance \citep{Saez2001}. In particular, the role of utility curvature mirrors that of demand or labor-supply responsiveness in the sufficient-statistics literature \citep{Chetty2010,Kleven2021}. It governs how scarce capacity is reallocated among consumers as capacity expands, and how changes in redistributive preferences translate into reallocation of quantity across types.\footnote{In that sense, it is related in spirit to reduced-form sorting effects such as the consumption-sorting channel in recent work on carbon taxation \citep{Bierbrauer2024,Gse2024}.} The paper also introduces two additional equilibrium objects specific to this environment: one governing how marginal revenue is sorted across types as capacity expands, and one governing how redistributive preference perturbations reallocate quantities across types.
-
-Because consumers belong to observable categories while their types are privately known, the paper also provides foundations for group-based differentiation, in the tradition of \citep{Akerlof1978,Cremer2002}. This logic is relevant for essential goods subject to capacity constraints. In electricity markets, \citep{Borenstein2012} evaluates the California CARE program and studies how tariff design across household groups affects efficiency and redistribution, while \citet{Burger2020} provides related simulation work on alternative tariff designs protecting low-income consumers.\footnote{Similar issues arise in water and transport, where policy debates focus on group-based protections and access rules tied to observable characteristics; see \citep{HjortX.;Leflaive2020,Manville2022}.} Where prices are not an ethically acceptable rationing device, the same logic operates through non-price instruments. For instance, reserve systems in vaccine allocation explicitly allocate scarce capacity across observable groups such as essential workers, age cohorts, or medically vulnerable populations \citep{akbarpour2023economic,Pathak2024}. 
+Because consumers belong to observable categories while their types are privately known, the article also provides foundations for group-based differentiation, in the tradition of \citep{Akerlof1978,Cremer2002}. This logic is relevant for essential goods subject to capacity constraints. In electricity markets, \citep{Borenstein2012} evaluates the California CARE program and studies how tariff design across household groups affects efficiency and redistribution, while \citet{Burger2020} provides related simulation work on alternative tariff designs protecting low-income consumers.\footnote{Similar issues arise in water and transport, where policy debates focus on group-based protections and access rules tied to observable characteristics; see \citep{HjortX.;Leflaive2020,Manville2022}.} Where prices are not an ethically acceptable rationing device, the same logic operates through non-price instruments. For instance, reserve systems in vaccine allocation explicitly allocate scarce capacity across observable groups such as essential workers, age cohorts, or medically vulnerable populations \citep{akbarpour2023economic,Pathak2024}. 
 
 
 
@@ -148,6 +155,9 @@ The program of the market designer can be expressed as:
 %##########################################
 with the same capacity constraint \ref{K-def} given allocation schedule $q_i(\theta,s)$ and the participation constraint for the lower type ($\E \underline{CS}_i\ge 0$).
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:Transfer}
+\end{proof}
 
 The lemma separates the transfer and allocation problems. When one of the budget or IR constraints binds while the other is slack, a lump-sum transfer can be used to relax the binding constraint without violating the other. 
 
@@ -168,7 +178,7 @@ I begin with the basic structure of the optimal allocation for a single category
 \tag{$\E \underline{CS}_i$}\label{underlineECSi}
 \]
 %##########################################
-This reformulation combines the participation and budget requirements in a single constraint when the designer maximizes consumer surplus. Throughout the paper, I refer to this expression as the available surplus from the mechanism, which is redistributed via a uniform lump sum transfer to the consumers. Individual surpluses are then 
+This reformulation combines the participation and budget requirements in a single constraint when the designer maximizes consumer surplus. Throughout the article, I refer to this expression as the available surplus from the mechanism, which is redistributed via a uniform lump sum transfer to the consumers. Individual surpluses are then 
 \[
   \E CS_i(\theta) = \underbrace{\Bigg.\E\underline{CS}_i\Bigg.}_{ \text{fixed transfer} } +\underbrace{\Bigg. \int_{\underline\theta_i}^{\theta} \E_s\!\left[U\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta\Bigg. }_{\text{IC transfer}}. \tag{ECS$_i^\times$}\label{ECSitimes}
 \]
@@ -193,7 +203,7 @@ The first-order condition is
 u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)-\varepsilon_i(s)=0,
 \]
 %##########################################
-where $\G_i(\theta) := \Gamma_i(\theta) + J_i(\theta)\,\beta_i$ is the effective weight of a type $\theta$. It captures the total social return from allocating a marginal unit to type $i$: the revenue channel $\tilde\lambda J_i$ values the available surplus $J_i$ that can be redistributed to all consumer, so it is valued at the average welfare weight, $\Lambda_i$ captures the redistributive value of the rent conceded to higher types, and $\beta J_i$ reflects the tightness of the budget constraint. When the budget is slack, $\beta = 0$ and $\G_i$ reduces to $\Gamma_i$. I focus on interior solutions and impose two regularity conditions. The first discipline of the allocation rule: it ensures all types receive a strictly positive allocation and that the monotonicity constraint is automatically satisfied at the optimum.\footnote{Appendix~\ref{app:three-nonmonotone-G} shows that with three types, monotonicity of effective weights holds if and only if redistributive preferences are not too concentrated on any single type. If monotonicity fails, standard Myerson-style ironing restores it by pooling types in the non-monotone region. Over any ironed interval, the optimal allocation is constant across types, so the sorting margins in the paper vanish rather than reverse, and their effect depends on the non-ironed types. This stands in contrast to settings where the supply side independently restricts optimal mechanisms, either through indivisibility, as in \cite{CONDORELLI2013582}, or through a fixed quality schedule, as in \cite{akbarpour2023redistributive}.}
+where $\G_i(\theta) := \Gamma_i(\theta) + J_i(\theta)\,\beta_i$ is the effective weight of a type $\theta$. It captures the total social return from allocating a marginal unit to type $i$: the revenue channel $\tilde\lambda J_i$ values the available surplus $J_i$ that can be redistributed to all consumer, so it is valued at the average welfare weight, $\Lambda_i$ captures the redistributive value of the rent conceded to higher types, and $\beta J_i$ reflects the tightness of the budget constraint. When the budget is slack, $\beta = 0$ and $\G_i$ reduces to $\Gamma_i$. I focus on interior solutions and impose two regularity conditions. The first discipline of the allocation rule: it ensures all types receive a strictly positive allocation and that the monotonicity constraint is automatically satisfied at the optimum.\footnote{Appendix~\ref{app:three-nonmonotone-G} shows that with three types, monotonicity of effective weights holds if and only if redistributive preferences are not too concentrated on any single type. If monotonicity fails, standard Myerson-style ironing restores it by pooling types in the non-monotone region. Over any ironed interval, the optimal allocation is constant across types, so the sorting margins in the article vanish rather than reverse, and their effect depends on the non-ironed types. This stands in contrast to settings where the supply side independently restricts optimal mechanisms, either through indivisibility, as in \cite{CONDORELLI2013582}, or through a fixed quality schedule, as in \cite{akbarpour2023redistributive}.}
 
 \renewcommand{\theassumption}{Int}
 \begin{assumption}\label{ass:interior}
@@ -215,10 +225,13 @@ u\!\left(q_i(\theta,s),s\right)\,\G_i(\theta)=\varepsilon_i(s)
 \quad s\in T_i.
 \]
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:FOC}
+\end{proof}
 
 \subsection{Sufficient statistics and assumptions}\label{sec:suffstat}
 
-I now define the sufficient statistics that drive the main results of the paper. I start with the capacity-sorting margin and then discuss the preference-sorting margin.
+I now define the sufficient statistics that drive the main results of the article. I start with the capacity-sorting margin and then discuss the preference-sorting margin.
 
 \subsubsection{Capacity margin}
 
@@ -272,7 +285,7 @@ In particular, I show in Lemma~\ref{lem:SC-dir} of the Appendix that \ref{Eujmd}
 \label{signRt}\tag{$\sign R_\theta$} \sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue motive}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{redistributive motive}}\Bigg).
 \] For types contributing positively to the available surplus ($J_i(\theta) > 0$), $R_\theta$ is increasing whenever the revenue motive grows proportionally faster than the redistributive motive. For types contributing negatively ($J_i(\theta) < 0$), the reverse holds: $R_\theta$ is increasing whenever the revenue motive grows proportionally slower. When those assumptions fail, the same sufficient statistic remains valid, but its sign need not vary monotonically with \(k_i\).
 
-Finally, a useful specification used in the paper is CARA utility as a consumer's responsiveness is identical regardless of the quantity allocated. 
+Finally, a useful specification used in the article is CARA utility as a consumer's responsiveness is identical regardless of the quantity allocated. 
  
 \renewcommand{\theassumption}{CARA}
 \begin{assumption}\label{ass:CARA}
@@ -302,7 +315,7 @@ R_{\G,i}(\theta)
 :=
 \frac{\Delta\G_i(\theta)}{\G_i(\theta)},
 \]
-which measures how the perturbation tilts the effective weight of type $\theta$ relative to the baseline allocation. This is the preference-sorting margin, and it governs how a change in redistributive preferences reshapes the constrained allocation at fixed capacity. This object appears directly when differentiating \eqref{KKT-qMD}. Substituting $u(q_i(\theta,s),s)=\varepsilon_i(s)/\G_i(\theta)$ into the differentiated first-order condition yields
+which measures how the perturbation tilts the effective weight of type $\theta$ relative to the baseline allocation. This is the preference-sorting margin, and it governs how a change in redistributive preferences reshapes the constrained allocation at fixed capacity. This object appears directly when differentiating \ref{KKT-qMD}. Substituting $u(q_i(\theta,s),s)=\varepsilon_i(s)/\G_i(\theta)$ into the differentiated first-order condition yields
 \[
 \tag{$\Delta$FOC$_q$}\label{DeltaKKT-qMD}
 \frac{\Delta q_i(\theta,s)}{R_q(\theta)}
@@ -375,7 +388,7 @@ These expressions make the two forces transparent. The first term, $\Delta\tilde
 
 Two special cases follow directly. If only $\lambda_L$ changes, then $\Delta\tilde\lambda = p_L\,\Delta\lambda_L$ and $\Delta\lambda_H = 0$, so $\Delta\Gamma_H = p_L\theta_H\,\Delta\lambda_L$ and $\Delta\Gamma_L = p_L J_L\,\Delta\lambda_L$. The redistributive motive is then absent, and the perturbation operates purely through the revenue channel for both types. Under a mean-preserving perturbation, instead, $\Delta\tilde\lambda = 0$ and $\Delta\lambda_H = -(p_L/p_H)\,\Delta\lambda_L$, so $\Delta\Gamma_H = 0$ and $\Delta\Gamma_L = -(\theta_H-\theta_L)\,\Delta\lambda_L$. In that case, the high type's effective weight is unchanged and the entire perturbation operates through the redistributive motive of the low type alone.
 
-Using \eqref{DeltaKKT-qMD} for $i=L$ and $i=H$ and subtracting gives
+Using \ref{DeltaKKT-qMD} for $i=L$ and $i=H$ and subtracting gives
 \[\tag{$\Delta q_{LH}$}\label{DeltaqLH}
 \Gamma_L u_q(q_L)\,\Delta q_L - \Gamma_H u_q(q_H)\,\Delta q_H
 =
@@ -471,6 +484,9 @@ Fix category \(i\), a budget requirement \(I_i>0\) and assume~\ref{ass:monotone}
 \end{enumerate}
 If \(R_\theta(\theta)\) is decreasing, the inequalities are reversed. If no interior cutoff exists, expected surplus is uniformly positive (resp. negative) across all $\theta \in (\underline\theta_i, \overline\theta_i)$.
 \end{theorem}
+\begin{proof}
+    See Appendix~\ref{proof:surplus}
+\end{proof}
 
 Expanding capacity is not always surplus-improving for all consumers, and the identity of who gains/loses depends on the regime and on the joint sign of \ref{Eujmd} and \(R_\theta(\theta)\). Importantly, the mechanism through which a capacity expansion determines the progressivity/regressivity of the capacity expansion is not the same across regimes. Under the IR-unconstrained regime, it operates through changes in the available surplus \ref{underlineECSi}, while under the IR-constrained regime it operates through changes in the optimal allocation \(q_i(\theta,s)\).
 
@@ -524,6 +540,9 @@ Fix category \(i\) and an across-category allocation \((k_i,I_i)\). For any loca
 \Delta q_i(\theta,s) = R_q(\theta)\!\left(R_{\G}(\theta) - \E^w_i\!\left[R_{\G}\mid s\right]\right), \qquad s\in T_i.
 \]
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:realloc}
+\end{proof}
 
 To interpret Lemma~\ref{lem:realloc}, type $\theta$ receives more quantity if and only if its proportional change in effective social weight exceeds the proportional average. The intuition is the following. From \ref{DeltaKKT-qMD}, the linearization of
 the pointwise first-order condition yields
@@ -558,12 +577,13 @@ Assume Assumption~\ref{ass:CARA} and unimodality of $R_{\G}(\theta)$. Define the
 \[
 \tilde\Theta_i^\Delta := \left\{\tilde\theta_i\in[\underline\theta_i,\overline\theta_i] : \Delta\E CS_i(\tilde\theta_i)=0\right\}.
 \]
-\noindent\textbf{IR-unconstrained allocation.} There exist at most three cutoffs in $(\underline\theta_i,\overline\theta_i)$. The pattern of $\Delta\E CS_i(\theta)$ is jointly determined by two signs: $\Cov_{i}(R_\theta,R_{\G})$, which governs the starting value,
-\[\sign\!\left(\Delta\E CS_i(\underline\theta_i)\right)=\sign\!\left(\Cov_{i}(R_\theta,R_{\G})\right),\]
-and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ when $\Cov_{i}(R_\theta,R_{\G})>0$, and $-,+,-$ when $\Cov_{i}(R_\theta,R_{\G})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
+\noindent\textbf{IR-unconstrained allocation.} The pattern of $\Delta\E CS_i(\theta)$ is jointly determined by two signs: $\Cov_{i}(R_\theta,R_{\G})$, which governs the starting value, \[\sign\!\left(\Delta\E CS_i(\underline\theta_i)\right)=\sign\!\left(\Cov_{i}(R_\theta,R_{\G})\right),\] and $R_{\G}$, which governs the interior shape. If $R_{\G}\ge 0$ for all $\theta$: expected surplus follows the pattern $+,-,+,-$ with at most three interior cutoffs when $\Cov_{i}(R_\theta,R_{\G})>0$, and the pattern $-,+,-$ with at most two interior cutoffs when $\Cov_{i}(R_\theta,R_{\G})<0$. If $R_{\G}\le 0$ for all $\theta$, the starting value and all interior inequalities are reversed.
 
 \noindent\textbf{IR-constrained allocation.} The lowest type always lies on the boundary: $\underline\theta_i\in\tilde\Theta_i^\Delta$. There exist at most two additional cutoffs $\theta_1<\theta_2$ in $(\underline\theta_i,\overline\theta_i)$. If $R_{\G}\ge 0$ for all $\theta$, expected surplus decreases for $\theta\in(\underline\theta_i,\theta_1)$, increases for $\theta\in(\theta_1,\theta_2)$, and decreases for $\theta\in(\theta_2,\overline\theta_i)$. If $R_{\G}\le 0$ for all $\theta$, the inequalities are reversed.
 \end{proposition}
+\begin{proof}
+    See Appendix~\ref{proof:surplus-redist}
+\end{proof}
 
 Proposition~\ref{prop:surplus-redist} delivers a clear redistributive policy result. Even when the direction of a preference shift is unambiguous (as in Lemma~\ref{lem:preferenceorder}), the resulting surplus changes are generically non-monotone across types.\footnote{Assumption~\ref{ass:CARA} is used only to sharpen this result by delivering a closed-form expression for the boundary term \ref{underlineECSi}. The unimodality of \(R_{\G}\) is used only to limit the number of sign changes of \(\Delta \E CS_i(\theta)\). If \(R_{\G}\) is not unimodal, additional crossings may arise, so the proposition should be read as a conservative characterization of the possible alternating surplus regions.}
 
@@ -571,7 +591,7 @@ In both regimes, the origin of the non-monotonicity in the change in surplus is 
 
 The first channel is the IC-rent channel. By construction, informational rents are built from the allocation received by lower types. As a result, when the perturbation changes the quantity assigned to some type \(\tilde\theta\), this change is inherited by all higher types through the rent formula. The shape of the IC-rent term is therefore determined by the shape of \(\Delta q_i(\theta,s)\) across types. Lemma~\ref{lem:realloc} shows that this behavioral response is itself governed by the gap between the proportional change in effective social weight, \(R_{\G}(\theta)\), and its equilibrium average. Since \(R_{\G}(\theta)\) is non-monotone, the induced quantity response is also generically non-monotone. Hence, even when the underlying preference shift is monotone, the associated IC-rent effect on surplus need not be monotone across types.
 
-The second channel is a level effect, whose source depends on the regime. When the participation constraint is slack, the change in surplus contains both the fixed component $\Delta \E \underline{CS}_i$ and the IC-rent term. The fixed component is common across types and depends on how the perturbation changes the total surplus available for redistribution. In the two-type example, differentiating \eqref{underlineECSTwo} and using \eqref{DeltaqLH} yields
+The second channel is a level effect, whose source depends on the regime. When the participation constraint is slack, the change in surplus contains both the fixed component $\Delta \E \underline{CS}_i$ and the IC-rent term. The fixed component is common across types and depends on how the perturbation changes the total surplus available for redistribution. In the two-type example, differentiating \ref{underlineECSTwo} and using \ref{DeltaqLH} yields
 \[
 \Delta\E\underline{CS}_i
 =
@@ -670,6 +690,9 @@ The outer problem admits at least one solution, and the set of optimal allocatio
 \]
 with complementary slackness $\xi_i I_i^\ast = 0$ for all $i$ and where $\zeta_k, \zeta_I \in \mathbb{R}$ denote the multipliers on the capacity and revenue equality constraints, and $\xi_i \ge 0$ the multiplier on $I_i \ge 0$.\footnote{The Inada conditions on $u(\cdot)$ ensure that $k_i>0$ at the optimum, so the multiplier on $k_i \ge 0$ is zero.}
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:outer}
+\end{proof}
 
 The two optimality conditions have the usual economic interpretation. The designer allocates capacity until the marginal value of every categories, measure by $\Pi_i(k_i^\ast,I_i^\ast)$, is the same across all categories. He equalizes the effective marginal social cost of revenue extraction $\tilde\lambda_i + \beta_i(k_i^\ast,I_i^\ast)$ across categories that contribute to the budget.
 
@@ -708,6 +731,9 @@ k_j^\ast>k_i^\ast
 \]
 Under Assumption~\ref{ass:CARA}, the condition reduces to $k_j^\ast>k_i^\ast$ if and only if $\E_i[R_{\G}(\theta)]>0$. 
 \end{theorem}
+\begin{proof}
+    See Appendix~\ref{proof:cat-order}
+\end{proof}
 
 The theorem provides a direct outer-margin counterpart to the single-category analysis. A category receives more capacity when an additional unit of capacity has a higher marginal social value, and the theorem shows that this marginal value is governed by the weighted average of the proportional difference in effective social weights. The same object \(R_{\G}(\theta)\) that governed the reallocation of quantities and the surplus effects of preference differences within a category now determines which category receives more capacity at the outer optimum. Therefore, the relevant comparison is not which category has the larger average effective weight nor the absolute size of the difference in redistributive preferences, but whether category \(j\)'s advantage in effective weights is concentrated on types for which category \(i\)'s effective weight is low.
 
@@ -734,6 +760,9 @@ Consider an equilibrium allocation \(\{k_i^\ast,I_i^\ast,\beta_i^\ast\}_{i\in N}
 k_1^\ast\le\cdots\le k_n^\ast.
 \]
 \end{corollary}
+\begin{proof}
+    See Appendix~\ref{proof:ordered-path}
+\end{proof}
 
 The corollary provides a sufficient condition for a global ranking of categories by capacity allocation. Capacity depends on both the average welfare weight $\tilde\lambda_i$ and the distribution of redistributive preferences across types. Categories that place proportionally more weight on higher types have a larger $\G_i(\theta)$, not only through the average term \(\tilde\lambda_i+\beta_i\), but also through the informational-rent component \(\Lambda_i(\theta)\). Under Assumption~\ref{ass:ordered-path}, these two forces move in the same direction. As a result, categories that are higher in the redistributive ordering optimally receive a larger capacity.
 
@@ -751,42 +780,23 @@ In Figure \ref{fig:appendix_N_categories_six_panels} in the Appendix, I provide 
 +
 \Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast),
 \]
-
-where \(\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\) denotes the direct effect of the preference perturbation on the category-specific shadow cost at fixed \((k_i^\ast,I_i^\ast)\) and is derived in the proof of Proposition~\ref{prop:revenueordering}. This expression shows that the comparison of equilibrium revenue requirements across categories depends on two forces: the difference in average welfare weights, \(\Delta\tilde\lambda\), and the endogenous adjustment of the shadow cost \(\beta_i\), which reflects both the induced change in capacity and the direct effect of the preference perturbation. The single-category analysis provides the sign of \(\frac{\partial  \beta_i}{\partial k_i}\) and characterizes \(\Delta_{\lambda}\beta_i\), yielding the following result.
+where \(\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\) denotes the direct effect of the preference perturbation on the category-specific shadow cost at fixed \((k_i^\ast,I_i^\ast)\), obtained from the implicit-function derivative of the binding participation condition while holding \(\beta_i\) fixed in the numerator. This expression shows that the comparison of equilibrium revenue requirements across categories depends on two forces: the difference in average welfare weights, \(\Delta\tilde\lambda\), and the endogenous adjustment of the shadow cost \(\beta_i\), which reflects both the induced change in capacity and the direct effect of the preference perturbation. The single-category analysis provides the sign of \(\frac{\partial  \beta_i}{\partial k_i}\) and characterizes \(\Delta_{\lambda}\beta_i\), yielding the following result.
 
 \begin{proposition}[Revenue ordering]\label{prop:revenueordering}
-Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the two endogenous subsets 
-\[
-N^+:=\{i\in N:\beta_i^\ast>0\},
-\qquad
-N^0:=\{i\in N:\beta_i^\ast=0\},
-\]
-which partition \(N\) into categories that contribute to the budget and categories that do not contribute to the budget (either may be empty). Then:
+Consider an equilibrium allocation $\{k_i^\ast,I_i^\ast\}_{i\in N}$. Define the two endogenous subsets \[ N^+:=\{i\in N:\beta_i^\ast>0\}, \qquad N^0:=\{i\in N:\beta_i^\ast=0\}, \] which partition \(N\) into categories that contribute to the budget and categories that do not contribute to the budget (either may be empty). Then:
 
 \noindent\textbf{Extensive margin.} At any equilibrium, $\max_{i \in N^+} \tilde\lambda_i < \min_{i \in N^0} \tilde\lambda_i$, so \(N^+\) and \(N^0\) are strictly separated in terms of average welfare weights, regardless of the within-type structure of preferences.
 
-\noindent\textbf{Intensive margin.} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order
-\[
-I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad -\underbrace{\Bigg.\left(\Delta k\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)+\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\right)\Bigg.}_{\text{revenue effect}}<\underbrace{\Bigg.\Delta\tilde\lambda\Bigg.}_{\text{preference effect}}.
-\]
-where the sign of $\Delta k \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \ref{Eujmd} and $\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)$ is the  first-order effect of the preference perturbation on the $\beta_i$. Under Assumption~\ref{ass:CARA},  and using the first-order expression for $\Delta k$,this reduces to
-\[
-I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \underbrace{\Bigg.\frac{\E_i[R_{\G}(\theta)]}{\E_i[(R_\theta(\theta))^2]}\Bigg.}_{\Delta k} \underbrace{\Bigg.\E_i[R_\theta(\theta)]\Bigg. }_{\partial_k\beta}+ 
-\underbrace{\Bigg.\frac{
-\Cov_i\!\left(
-R_{\theta}(\theta),R_{\G}(\theta)
-\right)
-}{
-\Var_i\!\left(
-R_{\theta}(\theta)
-\right)
-}\Bigg.}_{\Delta_\lambda \beta} < \Delta\tilde\lambda.
-\]
+\noindent\textbf{Intensive margin.} Fix a baseline category $i \in N^+$, and let category $j \in N^+$ be obtained from $i$ through a marginal perturbation of redistributive preferences with $\Delta\tilde\lambda:=\tilde\lambda_j-\tilde\lambda_i$ and $\Delta k:=k_j^\ast-k_i^\ast>0$. Then to the first order \[ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad -\underbrace{\Bigg.\left(\Delta k\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)+\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)\right)\Bigg.}_{\text{revenue effect}}<\underbrace{\Bigg.\Delta\tilde\lambda\Bigg.}_{\text{preference effect}}. \] where the sign of $\Delta k \frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is determined by the sign of \ref{Eujmd} and $\Delta_{\lambda}\beta_i(k_i^\ast,I_i^\ast)$ is the first-order effect of the preference perturbation on $\beta_i$ at fixed $(k_i^\ast,I_i^\ast)$. Under Assumption~\ref{ass:CARA}, and using the first-order expression for $\Delta k$, this reduces to \[ I_j^\ast<I_i^\ast \quad\Longleftrightarrow\quad \frac{\E_i[R_{\G}(\theta)]\,\E_i[R_\theta(\theta)]}{\E_i[(R_\theta(\theta))^2]}+ \frac{\Cov_i\!\left(R_{\theta}(\theta),R_{\G}(\theta)\right)}{\Var_i\!\left(R_{\theta}(\theta)\right)} < 0. \]
 \end{proposition}
+
+\begin{proof}
+    See Appendix~\ref{proof:revenueordering}
+\end{proof}
 
 The proposition completes the characterization on the revenue side. The extensive margin is governed solely by average welfare weights: categories with sufficiently low average redistributive weight contribute to the budget, whereas categories with sufficiently high average redistributive weight do not. This margin compares a common shadow value of public funds, \(\tilde\lambda^\ast\), to the category-specific marginal social cost of raising revenue. Category \(i\) contributes only when the social value of one more unit of revenue exceeds both the redistributive cost of taking it from the category, \(\tilde\lambda_i\), and the additional incentive distortion it creates, \(\beta_i^\ast\). I do not rule out the presence of a marginal category that contributes positively to the budget, even though its budget constraint is slack at the optimum. When such a category exists, however, it is necessarily unique. 
 
-Within the contributing set, however, equilibrium revenue requirements depend not only on average welfare weights but also on the category's ability to raise revenue, through both the induced change in equilibrium capacity and the direct effect of the preference perturbation on the shadow cost of revenue. Under Assumption~\ref{ass:CARA}, this tradeoff becomes especially transparent, because the revenue-ordering condition can be expressed entirely in terms of the same sufficient statistics that govern the previous sorting results. The capacity difference is summarized by marginal capacity value and captured by the proportional change $\E_i[R_\G(\theta)]$ (Theorem~\ref{thm:cat-order}). The effect of a larger capacity on the shadow cost of revenue is summarized by the distribution of virtual surplus across types  $\E_i[R_\theta(\theta)]$ (Theorem~\ref{thm:surplus}). Finally, the direct effect of the preference perturbation on the ability to raise revenue is captured by the covariance term, as in Proposition~\ref{prop:surplus-redist}. Under CARA, the revenue ranking is therefore entirely governed by the sorting of consumers along these two objects.
+Within the contributing set, however, equilibrium revenue requirements depend not only on average welfare weights but also on the category's ability to raise revenue, through both the induced change in equilibrium capacity and the direct effect of the preference perturbation on the shadow cost of revenue. Under Assumption~\ref{ass:CARA}, this tradeoff becomes especially transparent, because the revenue-ordering condition can be expressed entirely in terms of the same sufficient statistics that govern the previous sorting results, and the effect of the difference in average welfare weights cancels out. The capacity difference is summarized by the marginal capacity value and captured by the proportional change $\E_i[R_\G(\theta)]$ (Theorem~\ref{thm:cat-order}). The effect of a larger capacity on the shadow cost of revenue is summarized by the distribution of virtual surplus across types, $\E_i[R_\theta(\theta)]$ (Theorem~\ref{thm:surplus}). Finally, the direct effect of the preference perturbation on the ability to raise revenue is captured by the covariance term, as in Proposition~\ref{prop:surplus-redist}. Under CARA, the revenue ranking is therefore entirely governed by the sorting of consumers along these two objects, independent of the sign of $\Delta\tilde\lambda$.
 
 \section{Optimal investment}
 The third and final step endogenizes total investment. I now let \(k\) itself be a choice variable. The designer solves
@@ -815,6 +825,9 @@ where \(\mu^+ := \sum_{i\in N^+}\mu_i\) denotes the mass of contributing categor
 \max_{i \in N^+} \tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i \in N^0} \tilde\lambda_i.
 \]
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:leminvestment}
+\end{proof}
 
 Lemma~\ref{lem:investment} is the incomplete-information counterpart of the classic peak-load investment rule. In the complete-information benchmark with redistributive preferences, incentive constraints play no role. There are no informational rents, so \(J_i(\theta)=\theta\) and \(\Lambda_i(\theta)=0\). Hence the normalized incomplete-information object collapses to its complete-information counterpart:
 \[
@@ -829,12 +842,17 @@ Figure~\ref{fig:appendix_OptimalFBSB} in the Appendix provides a numerical illus
 I conclude by using the capacity- and preference-sorting margins developed in the previous analysis to characterize how redistributive preference perturbations affect both the optimal investment level and the incidence of a global capacity expansion across categories.
 
 \begin{proposition}[Investment and preference perturbations]\label{prop:investment}
-Assume Assumption~\ref{ass:CARA}. Suppose each category \(i\) becomes a new category \(j\) through a marginal and monotonic mean-preserving perturbation of \(\lambda_i(\theta)\), and let \(\Delta\tilde\lambda^\ast\) denote the first-order change in the equilibrium marginal cost of funds. Then the induced change in optimal investment satisfies
+Assume Assumption~\ref{ass:CARA}. Consider a mean-preserving local perturbation
+of redistributive preferences, evaluated at the optimal investment allocation
+\((k^\ast,\{k_i^\ast,I_i^\ast\}_{i\in N})\), holding
+\((k_i^\ast,I_i^\ast)_{i\in N}\) fixed. Let \(\Delta\tilde\lambda^\ast\) denote
+the resulting direct effect on the common marginal cost of funds. Then
 \[
 W''(k^\ast)\,\Delta k^\ast
 =
--\underbrace{\Bigg.\sum_i\mu_i\,\Pi_i\,\E_i[R_{\G,i}]\Bigg.}_{\text{average effect}}
-\qquad +  \qquad \underbrace{ \Bigg.I'(k^\ast)\,\Delta\tilde\lambda^\ast\Bigg.}_{\text{sorting effect}}
+-\underbrace{\sum_i\mu_i\,\Pi_i\,\E_i[R_{\G,i}]}_{\text{average effect}}
++
+\underbrace{I'(k^\ast)\,\Delta\tilde\lambda^\ast}_{\text{shadow-cost effect}},
 \]
 where
 \[
@@ -843,18 +861,17 @@ where
 -
 \frac{
 \sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
-\Cov_i\!\left(
-R_{\theta,i}(\theta),R_{\G,i}(\theta)
-\right)
+\Cov_i\!\left(R_{\theta,i},R_{\G,i}\right)
 }{
 \sum_{i\in N^+}\mu_i\,\overline\varepsilon_i\,
-\Var_i\!\left(
-R_{\theta,i}(\theta)
-\right)
+\Var_i\!\left(R_{\theta,i}\right)
 }.
 \]
 Here \(W''(k^\ast)<0\) and \(\overline\varepsilon_i \geq 0\).
 \end{proposition}
+\begin{proof}
+See Appendix~\ref{proof:propinvestment}.
+\end{proof}
 
 The proposition shows that redistributive preference perturbations affect optimal investment through the same two forces as in the previous analysis. The first operates through the preference-sorting margin, by changing the category-level marginal value of capacity \(\Pi_i\) as allocations are reshaped through \(R_{\G,i}\). The second operates through the capacity-sorting margin, by changing the equilibrium marginal cost of funds \(\tilde\lambda^\ast\), with the sign again governed by the covariance between the redistributive shift and the type profile. At the aggregate level, these two effects jointly determine whether optimal investment rises or falls.
 
@@ -1008,19 +1025,15 @@ The incidence of individual surplus mirrors these price changes. Following Theor
 
 \section{Conclusion}
 
-This paper studies a peak-load pricing model in essential-goods sectors, such as electricity, transport, and other network industries, where capacity is limited in the short run and costly to expand. In this environment, a market designer must allocate scarce supply once demand is realized and decide ex ante how much capacity to build and how to finance its expansion. The problem is shaped by the coexistence of observable differences across consumer categories, unobservable heterogeneity within them, and redistributive objectives. In contrast to the standard peak-load pricing benchmark, this paper characterizes who gains from capacity expansions and how redistributive preferences reshape the allocation of consumption and surplus among consumers.
+This article studies a peak-load pricing model in essential-goods sectors, such as electricity, transport, and other network industries, where capacity is limited in the short run and costly to expand. In this environment, a market designer must allocate scarce supply once demand is realized and decide ex ante how much capacity to build and how to finance its expansion. The problem is shaped by the coexistence of observable differences across consumer categories, unobservable heterogeneity within them, and redistributive objectives. In contrast to the standard peak-load pricing benchmark, this article characterizes who gains from capacity expansions and how redistributive preferences reshape the allocation of consumption and surplus among consumers.
 
 The answers to these questions are governed by two key elements: the change in the surplus generated by the mechanism and, therefore, available for redistribution through transfers; and the distribution of the social returns across consumers, which captures the redistributive and revenue motives at play in the environment. Because these objects need not align with the underlying redistributive priorities, it is not obvious either who gains from capacity expansion or which consumers benefit most from redistribution. To illustrate this tension, assume that a higher priority is given to consumers with low consumption. If their demand is more elastic, then relaxing scarcity can disproportionately increase the informational rents that must be left to higher types. These rents reduce the revenue that can be extracted from consumers with lower redistributive priority while having limited social value from the designer’s perspective. As a result, the surplus available for redistribution may fall, reducing the surplus of consumers targeted by the redistribution.
 
-These same elements also provide a unified framework to characterize the paper’s broader policy implications. In this setting, discrimination across observable categories, such as households with different incomes, is always welfare-improving, but it also generates distinct distributive effects. I therefore derive the optimal tagging rule for ranking categories by capacity allocation and budget contribution, and show that this ranking does not follow directly from redistributive priorities alone. In particular, the relevant tension depends on both the overall level of redistributive concern and the distribution of those preferences between low- and high-consumption consumers. Finally, redistributive preferences also distort both the optimal investment rule and the mechanism's tariff implementation compared to the utilitarian benchmark. As a result, spot prices fail to decentralize the optimum, while optimal nonlinear tariffs, including block tariffs, can take non-standard forms across categories and consumption levels, for the same reason that underlying redistributive priorities do not map directly into optimal allocations.
-\newpage
-
+These same elements also provide a unified framework to characterize the article’s broader policy implications. In this setting, discrimination across observable categories, such as households with different incomes, is always welfare-improving, but it also generates distinct distributive effects. I therefore derive the optimal tagging rule for ranking categories by capacity allocation and budget contribution, and show that this ranking does not follow directly from redistributive priorities alone. In particular, the relevant tension depends on both the overall level of redistributive concern and the distribution of those preferences between low- and high-consumption consumers. Finally, redistributive preferences also distort both the optimal investment rule and the mechanism's tariff implementation compared to the utilitarian benchmark. As a result, spot prices fail to decentralize the optimum, while optimal nonlinear tariffs, including block tariffs, can take non-standard forms across categories and consumption levels, for the same reason that underlying redistributive priorities do not map directly into optimal allocations.
 
 \bibliographystyle{apalike}
 \bibliography{lib}
 
-
-\newpage
 
 \appendix
 
@@ -1103,6 +1116,9 @@ k_i \longmapsto \E_{(s,i)}^w[uJ\mid s]
 \]
 is single-crossing in $k_i$. Moreover, if a sign change occurs, its direction is pinned down by the combination of monotonicities: it crosses from $+$ to $-$ when $R_\theta$ is increasing and $R_q$ is log-submodular, or when $R_\theta$ is decreasing and $R_q$ is log-supermodular; it crosses from $-$ to $+$ in the two remaining cases.
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:SC-dir}
+\end{proof}
 
 The sign of both ratios depends on the model primitives as follows. For $R_q'(\theta)$, only the curvature of $u$ matters:
 %##########################################
@@ -1140,7 +1156,9 @@ Assume that \ref{Eujmd} is \emph{single-crossing in \(k_i\) from \(+\) to \(-\)}
 
 If instead \ref{Eujmd} crosses from \(-\) to \(+\), then \(\E\underline{CS}_i(k_i)\) is single-dipped on \([0,k_i^+]\) and either \(\E\underline{CS}_i(k_i)<0\) for all \(k_i\in[0,k_i^+]\), or there exists a unique \(\tilde k_i\in(0,k_i^+]\) such that \(\E\underline{CS}_i(k_i)\ge 0\) for all \(k_i\in[\tilde k_i,k_i^+]\).
 \end{proposition}
-
+\begin{proof}
+    See Appendix~\ref{proof:implementation}
+\end{proof}
 Proposition~\ref{prop:implementation} identifies the geometry of the IR-unconstrained region. When \ref{Eujmd} switches from \(+\) to \(-\), the implementation region may arise only for intermediate values of \(k_i\): low levels of capacity keep the financing constraint tight, while high levels of capacity may shift the gains from further expansion toward types that contribute relatively less to revenue. By contrast, when marginal expansions continue to increase the mechanism's revenue, the undistorted region expands as capacity increases.
 
 
@@ -1168,6 +1186,9 @@ If $m_i(\theta)$ is increasing on $[\underline{\theta}_i,\overline{\theta}_i]$, 
 \]
 Moreover, if $1\le c_{\G}\le c_\Lambda$ (resp. $c_\Lambda\le c_{\G}\le 1$), then for all $\theta\in[\underline{\theta}_i,\overline{\theta}_i]$, $\Delta\G_i(\theta)\ge(\text{resp. }\le)0$. In particular, if either $\beta_i=\beta_i^\Delta=0$ or $\beta_i^\Delta+\tilde\lambda_i^\Delta=\beta_i+\tilde\lambda_i$, then the condition reduces to $\tilde\lambda_i^\Delta\ge (\text{resp. }\le)\tilde\lambda_i$.
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:preferenceorder}
+\end{proof}
 
 The first part of the lemma shows that a proportional tilt of welfare weights toward higher types shifts $\Lambda_i^\Delta(\theta)$ upward relative to $\Lambda_i(\theta)$ across the type space. The second part connects the direction of a preference shift to the sign of $\Delta\G_i(\theta)$, under conditions that relate the average change in welfare weights to the corresponding change in effective weights. In particular, monotone mean-preserving rotations of $\lambda_i(\theta)$ generate a constant-sign change in $\Delta\G_i(\theta)$ across types.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1190,6 +1211,9 @@ Assume $R_{\G}(\theta)$ is not (a.e.) constant.
 \item if $\Delta\G_i(\theta)\le 0$ for all $\theta$, then $\Delta q_i(\theta,s)\ge 0$ for $\theta\in[\underline\theta_i,\theta_-)\cup(\theta_+,\overline\theta_i]$.
 \end{enumerate}
 \end{proposition}
+\begin{proof}
+    See Appendix~\ref{proof:rprefreallocation}
+\end{proof}
 
 Proposition~\ref{prop:rprefreallocation} shows that the sorting effect is generically non-monotone. Even when preferences shift uniformly toward higher or lower types, the induced quantity response may not be ranked monotonically across the type space. Intuitively, the revenue motive, embedded in $J_i(\theta)$, and the redistributive motive, embedded in $\Lambda_i(\theta)$, interact through the endogenous scarcity adjustment. This forces reallocations toward some interior types at the expense of others, rather than producing a simple upward or downward tilt of the quantity schedule.
 
@@ -1204,6 +1228,9 @@ The next lemma characterizes the local response of the optimal category allocati
 \begin{lemma}[Marginal response of category allocations to aggregate capacity]\label{lem:dkidk}
 Fix an interior optimum $\{k_i^\ast,I_i^\ast\}_{i\in N}$ and suppose that, on a neighborhood of the optimum, the partition $N=N^+\cup N^0$ is unchanged. For each category $i\in N$, define \[ \Omega_i := \E_s\!\left[\frac{1}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right]>0, \qquad \hat A_i := \E_{(s,i)}^w[uJ\mid s]\,\mathbf 1_{\{i\in N^+\}}. \] Then the marginal response of category $i$ is \[ \frac{dk_i^\ast}{dk} = \frac{\Omega_i^{-1}\!\left(\hat A_i-I'(k^\ast)\right)}{\displaystyle\sum_{j\in N^+}\mu_j\,\Omega_j^{-1}\,\E_{(s,j)}^w[uJ\mid s] \;-\; I'(k^\ast)\sum_{j\in N}\mu_j\,\Omega_j^{-1}}\,\mathcal B \;-\;\Omega_i^{-1}\tilde\lambda^\ast I''(k^\ast), \] where \[ \mathcal B := 1+\tilde\lambda^\ast I''(k^\ast)\sum_{j\in N}\mu_j\,\Omega_j^{-1}\;>\;0 \] since $\tilde\lambda^\ast I''(k^\ast)>0$. The formula takes two forms across the partition. For $i\in N^+$, the first-term numerator is $\Omega_i^{-1}\!\left(\E_{(s,i)}^w[uJ\mid s]-I'(k^\ast)\right)$. For $i\in N^0$, $\hat A_i=0$ and the numerator reduces to $-\Omega_i^{-1}I'(k^\ast)$.
 \end{lemma}
+\begin{proof}
+    See Appendix~\ref{proof:dkidk}
+\end{proof}
 
 The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends on category \(i\) only through the sufficient statistic \(\E_{(s,i)}^w[uJ\mid s]\). This makes it possible to connect the outer comparative statics to the single-category ordering results.
 
@@ -1326,25 +1353,27 @@ The lemma shows that the response of \(k_i^\ast\) to aggregate expansion depends
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\linewidth]{figure/ImpliementationCRRA_Across_alloc_allcases.png}
-\caption{Optimal category-level allocations of capacity, revenue requirements, and average welfare weights in the three across-category illustrations.}    \label{fig:ImpliementationCRRA_Across_alloc_allcases}
-\end{figure}
-\begin{figure}
-    \centering
     \includegraphics[width=0.9\linewidth]{figure/Across2Cat_Kseq_Decomposition_wrtK1.png}
 \caption{Decomposition of the relative marginal price difference after capacity expansion.}   \label{fig:Across2Cat_Kseq_Decomposition_wrtK1}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figure/ImpliementationCRRA_Across_alloc_allcases.png}
+\caption{Optimal category-level allocations of capacity, revenue requirements, and average welfare weights in the three across-category illustrations.}    \label{fig:ImpliementationCRRA_Across_alloc_allcases}
+\end{figure}
+
+
 \clearpage
 \section{Proofs}
 
-\subsection{Virtual surplus representation - Proof of Lemma~\ref{lem:Transfer}}
+\subsection{Virtual surplus representation - Proof of Lemma~\ref{lem:Transfer}}\label{proof:Transfer}
 
 \begin{proof}
 
 For each category $i$, define
 \[
-CS_i(\theta,s)
+\Phi_i(\theta,s)
 :=
 \theta U\!\left(q_i(\theta,s),s\right)
 - \underline\theta_i U\!\left(q_i(\underline\theta_i,s),s\right)
@@ -1352,16 +1381,16 @@ CS_i(\theta,s)
 U\!\left(q_i(\tilde\theta,s),s\right)\,d\tilde\theta,
 \]
 and let
-$\E CS_i(\theta) := \E_s[CS_i(\theta,s)].$
+$\E\Phi_i(\theta) := \E_s[\Phi_i(\theta,s)].$
 
 Start with the following individual transfer for each consumer of type $\theta$ in category $i$:
 \begin{align*}
 t_i(\theta,s)
 &=
 \tau_i
-+ \E CS_i(\theta)
++ \E\Phi_i(\theta)
 - \sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
-   \E_j[\E CS_j(\theta_j)] + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big),
+   \E_j[\E\Phi_j(\theta)] + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big),
 \end{align*}
 where
 \[
@@ -1369,17 +1398,17 @@ where
 =
 \underline t_i
 +\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
-   \E_j[\E CS_j(\theta_j)]
+   \E_j[\E\Phi_j(\theta)]
 - \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big),
 \]
-where $\underline t_i$ is the transfer of the lowest type $\underline{\theta}_i$. Taking expectations over $\theta$, and noting that only $\E CS_i(\theta)$ depends on $\theta$, yields
+where $\underline t_i$ is the transfer of the lowest type $\underline{\theta}_i$. Taking expectations over $\theta$, and noting that only $\E\Phi_i(\theta)$ depends on $\theta$, yields
 \begin{align*}
 \E_i[t_i(\theta,s)]
 &=
 \tau_i
-+ \E_i[\E CS_i(\theta)]
++ \E_i[\E\Phi_i(\theta)]
 - \sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}\,
-   \E_j[\E CS_j(\theta_j)] 
+   \E_j[\E\Phi_j(\theta)] 
 + \Big(I(k) -I_i+\sum_{j\neq i}  \frac{\mu_j}{1-\mu_j}I_j\Big).
 \end{align*}
 
@@ -1388,8 +1417,8 @@ Multiplying by the size $\mu_i$ of category $i$, summing over all categories, an
 \sum_{i=1}^n \mu_i\E_i[t_i(\theta,s)]
 &=
 \sum_{i=1}^n \mu_i \tau_i
-+ \sum_{i=1}^n\mu_i\,\E_i[\E CS_i(\theta)]-\sum_{i=1}^n\mu_i\sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\,
-   \E_j[\E CS_j(\theta_j)]
++ \sum_{i=1}^n\mu_i\,\E_i[\E\Phi_i(\theta)]-\sum_{i=1}^n\mu_i\sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\,
+   \E_j[\E\Phi_j(\theta)]
 \\
 &\quad
 + I(k)
@@ -1403,15 +1432,15 @@ Therefore, an allocation satisfies the budget constraint if and only if $\sum_{i
 
 Next, substitute the expression for $\tau_i$:
 \begin{align*}
-\sum_{i=1}^n \mu_i \tau_i &= \sum_{i=1}^n \mu_i \left( \underline t_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\, \E_j[\E CS_j(\theta_j)] - \Big(I(k) - I_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j} I_j\Big) \right) \\
-&= \sum_{i=1}^n \mu_i \left( \underline t_i + \E_i[\E CS_i(\theta)] \right) - I(k),
+\sum_{i=1}^n \mu_i \tau_i &= \sum_{i=1}^n \mu_i \left( \underline t_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j}\, \E_j[\E\Phi_j(\theta)] - \Big(I(k) - I_i + \sum_{j\neq i} \frac{\mu_j}{1-\mu_j} I_j\Big) \right) \\
+&= \sum_{i=1}^n \mu_i \left( \underline t_i + \E_i[\E\Phi_i(\theta)] \right) - I(k),
 \end{align*}
 
-By Fubini's theorem and the usual hazard-rate argument, the expectation of $\E CS_i(\theta)$ can be written in terms of the virtual utility
+By Fubini's theorem and the usual hazard-rate argument, the expectation of $\E\Phi_i(\theta)$ can be written in terms of the virtual utility
 $U(q_i(\theta,s),s) J_i(\theta) := U\!\left(q_i(\theta,s),s\right)(\theta - \gamma_i(\theta)\,),$
 as
 \[
-\E_i[\E CS_i(\theta)]
+\E_i[\E\Phi_i(\theta)]
 =
 \E_{(s,i)}\left[
 U(q_i(\theta,s),s) J_i(\theta)
@@ -1433,7 +1462,7 @@ Finally, replacing $\tau_i$ in $t_i(\theta,s)$ yields
 t_i(\theta,s)
 =
 \underline t_i
-+ \E CS_i(\theta)
++ \E\Phi_i(\theta)
 =
 \underline t_i
 + \E_s\left[
@@ -1505,7 +1534,7 @@ This yields the desired expression:
 \end{proof}
 
 
-\subsection{Off-peak and on-peak allocation - Proof of Lemma~\ref{lem:FOC}}
+\subsection{Off-peak and on-peak allocation - Proof of Lemma~\ref{lem:FOC}}\label{proof:FOC}
 
 Because the revenue-feasibility constraint involves the virtual-surplus term $J_i(\theta)$, which may change sign across types, the convexity of the single-category feasible set is not automatic. We therefore maintain the following condition.
 
@@ -1528,7 +1557,7 @@ subject to
 \quad \forall s.
 \]
 
-Let \(\beta_i \ge 0\) and \(\varepsilon_i(s)\ge 0\) denote the multipliers on \eqref{Rmdi-def} and the capacity constraint \eqref{Kmdi-def}, respectively. The associated Lagrangian is
+Let \(\beta_i \ge 0\) and \(\varepsilon_i(s)\ge 0\) denote the multipliers on \ref{Rmdi-def} and the capacity constraint \ref{Kmdi-def}, respectively. The associated Lagrangian is
 \[
 \mathcal L
 =
@@ -1578,10 +1607,11 @@ Finally, Assumption~\ref{ass:interior} also imposes that \(\G_i(\theta)\) is non
 \]
 so the monotonicity constraint is satisfied. This proves part (i).
 
-For part (ii), if \eqref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slackness implies \(\beta_i=0\). Hence $\G_i(\theta)=\Gamma_i(\theta)+\beta_i J_i(\theta)\equiv \Gamma_i(\theta)$. This proves part (ii).
+For part (ii), if \ref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slackness implies \(\beta_i=0\). Hence $\G_i(\theta)=\Gamma_i(\theta)+\beta_i J_i(\theta)\equiv \Gamma_i(\theta)$. This proves part (ii).
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Single-crossing - Proof of Lemma \ref{lem:SC-dir}}
+\subsection{Single-crossing - Proof of Lemma \ref{lem:SC-dir}}\label{proof:SC-dir}
+
 
 \begin{proof}
 For every binding state $s\in T_i(k_i)$, define the probability measure
@@ -1719,7 +1749,7 @@ where $\mathrm{Var}_i^w(uJ\mid s)$ is the associated weighted variance such that
 \,\middle|\, s
 \right]$ and $\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$ away from knife-edge cases. Differentiating
 $\E \underline{CS}_i\!\left(k_i,\beta_i(k_i)\right)=0$
-with respect to $k_i$ and using \eqref{eq:proof-dECSbar-dk} and \eqref{eq:proof-dECSbar-dbeta} gives
+with respect to $k_i$ and using \ref{eq:proof-dECSbar-dk} and \ref{eq:proof-dECSbar-dbeta} gives
 \begin{equation}\label{eq:proof-dbeta-dk}
 \frac{\partial \beta_i(k_i)}{\partial k_i}
 =
@@ -1780,33 +1810,35 @@ is single-crossing in $k_i$, with crossing direction pinned down by the combinat
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Redistributive effects of capacity expansion - Proof of Theorem~\ref{thm:surplus}}
+\subsection{Redistributive effects of capacity expansion - Proof of Theorem~\ref{thm:surplus}}\label{proof:surplus}
+
 
 \begin{proof}
-Define $\mathcal W_i(\theta) := \partial \E CS_i(\theta)/\partial k_i$. From the envelope representation \eqref{ECSi},
+Define $\mathcal W_i(\theta) := \partial \E CS_i(\theta)/\partial k_i$. From the envelope representation \ref{ECSi},
 \[\mathcal W_i(\theta) = \mathcal W_i(\underline\theta_i) + \int_{\underline\theta_i}^{\theta}\mathcal W_i'(\tilde\theta)\,d\tilde\theta, \qquad \mathcal W_i'(\theta) = \E_s\!\left[u\!\left(q_i(\theta,s),s\right)\frac{\partial q_i(\theta,s)}{\partial k_i}\mathbf 1_{\{s\in T_i\}}\right].\]
-For each binding state $s\in T_i$, differentiating the pointwise FOC \eqref{KKT-qMD} with respect to $k_i$ and imposing the binding capacity constraint \eqref{K-def} gives
+For each binding state $s\in T_i$, differentiating the pointwise FOC \ref{KKT-qMD} with respect to $k_i$ and imposing the binding capacity constraint \ref{K-def} gives
 \[\frac{\partial q_i(\theta,s)}{\partial k_i} = \frac{w_i(\theta,s)}{\overline w_i(s)} - w_i(\theta,s)\,\mathsf \E_i^w[uJ\mid s]\,\frac{\partial \beta_i(k_i)}{\partial k_i} + w_i(\theta,s)\,u\!\left(q_i(\theta,s),s\right)J_i(\theta)\,\frac{\partial \beta_i(k_i)}{\partial k_i},\]
 where $w_i$, $\overline w_i$, and $\E_i^w[uJ\mid s]$ are as defined in the proof of Lemma~\ref{lem:SC-dir}.
 
 
 \noindent\textbf{IR-unconstrained allocation.} Since $\beta_i = 0$, we have $\frac{\partial \beta_i(k_i)}{\partial k_i} = 0$ and $\G_i(\theta)\equiv\Gamma_i(\theta)$. The expression for $\partial q_i/\partial k_i$ reduces to $w_i(\theta,s)/\overline w_i(s)$, so
 \[\mathcal W_i'(\theta) = \E_s\!\left[\frac{u(q_i(\theta,s),s)\,w_i(\theta,s)}{\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] = \E_s\!\left[\frac{R_q(\theta,s)}{\Gamma_i(\theta)\,\overline w_i(s)}\mathbf 1_{\{s\in T_i\}}\right] > 0,\]
-since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumption~\ref{ass:interior}. Hence $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By \eqref{eq:proof-dECSbar-dk}, $\mathcal W_i(\underline\theta_i)=\partial \E\underline{CS}_i/\partial k_i$ has the sign of \eqref{Eujmd}. If \eqref{Eujmd} is positive, $\mathcal W_i(\underline\theta_i)>0$ and strict monotonicity implies every type gains. If \eqref{Eujmd} is negative, $\mathcal W_i(\underline\theta_i)<0$ and, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; if and only if $\mathcal W_i(\overline\theta_i)>0$, a unique cutoff $\tilde\theta_i$ exists and types below lose while types above gain.
+since $R_q > 0$, $\Gamma_i(\theta) > 0$, and $\overline w_i(s) > 0$ by Assumption~\ref{ass:interior}. Hence $\mathcal W_i$ is strictly increasing on $[\underline\theta_i,\overline\theta_i]$. By \ref{eq:proof-dECSbar-dk}, $\mathcal W_i(\underline\theta_i)=\partial \E\underline{CS}_i/\partial k_i$ has the sign of \ref{Eujmd}. If \ref{Eujmd} is positive, $\mathcal W_i(\underline\theta_i)>0$ and strict monotonicity implies every type gains. If \ref{Eujmd} is negative, $\mathcal W_i(\underline\theta_i)<0$ and, by strict monotonicity, $\mathcal W_i$ crosses zero at most once; if and only if $\mathcal W_i(\overline\theta_i)>0$, a unique cutoff $\tilde\theta_i$ exists and types below lose while types above gain.
 
 
 \noindent\textbf{IR-constrained allocation.}
 
-\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region by definition, its total derivative with respect to $k_i$ is zero. By the envelope representation \eqref{partialkCS1}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
+\noindent\textit{Step 1: initial condition.} Since $\E\underline{CS}_i = 0$ holds identically along the IR-constrained region because $\beta_i(k_i)$ is chosen to maintain the binding IR , its total derivative with respect to $k_i$ is zero. By the envelope representation \ref{partialkCS1}, this total derivative equals $\mathcal W_i(\underline\theta_i)$, so $\mathcal W_i(\underline\theta_i) = 0$.
 
-\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\kappa(q_i(\theta,s))/\kappa_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \eqref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
+\noindent\textit{Step 2: shape of $\mathcal W_i$.} Under Assumption~\ref{ass:mult}, $u(q,s)=\kappa(q)\zeta(s)$ so the ratio $R_q(\theta) := -\kappa(q_i(\theta,s))/\kappa_q(q_i(\theta,s))$ is $s$-independent. Using the first-order condition \ref{KKT-qMD}, we have $u(q_i(\theta,s),s)\,w_i(\theta,s) = R_q(\theta)/\G_i(\theta)$ and $u(q_i(\theta,s),s)\,J_i(\theta) = \varepsilon_i(s)\,R_\theta(\theta)$. Substituting into $\mathcal W_i'(\theta)$ yields
 \[\mathcal W_i'(\theta) = \frac{R_q(\theta)}{\G_i(\theta)}\left(\Omega_i - \frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] + \frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)\right),\]
-where $\Omega_i:=\E_s\!\left[\overline w_i(s)^{-1}\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]>0$ and $ \overline \varepsilon_i := \E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since \eqref{eq:proof-dbeta-dk} gives $\frac{\partial \beta_i(k_i)}{\partial k_i} = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}$, the term $-\frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] = \frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\frac{\partial \beta_i(k_i)}{\partial k_i}$ is opposite to the sign of \eqref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \eqref{Eujmd} is positive and convex when \eqref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
+where $\Omega_i:=\E_s\!\left[\overline w_i(s)^{-1}\,\mathbf{1}_{\{s\in T_i(k_i)\}}\right]>0$ and $ \overline \varepsilon_i := \E_s[\varepsilon_i(s)\mathbf 1_{\{s\in T_i\}}]>0$. Since \ref{eq:proof-dbeta-dk} gives $\frac{\partial \beta_i(k_i)}{\partial k_i} = -\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}$, the term $-\frac{\partial \beta_i(k_i)}{\partial k_i}\E_{(s,i)}^w[uJ\mid s] = \frac{\E_{(s,i)}^w[uJ\mid s]^2}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}\ge 0$, so the constant part of the bracket is strictly positive. Since $R_q(\theta)/\G_i(\theta)>0$, the monotonicity of $\mathcal W_i'(\theta)$ is governed entirely by the term $\frac{\partial \beta_i(k_i)}{\partial k_i} \overline \varepsilon_i R_\theta(\theta)$: if $R_\theta(\theta)$ is monotone, $\mathcal W_i'(\theta)$ is monotone in $\theta$, so $\mathcal W_i$ is either concave or convex. The sign of $\frac{\partial \beta_i(k_i)}{\partial k_i}$ is opposite to the sign of \ref{Eujmd}, so if $R_\theta(\theta)$ is increasing, $\mathcal W_i$ is concave when \ref{Eujmd} is positive and convex when \ref{Eujmd} is negative; if $R_\theta(\theta)$ is decreasing, these conclusions are reversed.
 
 \noindent\textit{Step 3: existence and direction of the second cutoff.} Since $\mathcal W_i(\underline\theta_i)=0$, a concave $\mathcal W_i$ crosses zero at most once in the interior. If $\mathcal W_i'(\underline\theta_i)>0$, the function initially rises from zero, eventually returns toward zero, and crosses it at a unique interior cutoff $\tilde\theta_i\in(\underline\theta_i,\overline\theta_i)$; types below $\tilde\theta_i$ gain and types above lose in case~(i), and the reverse in case~(ii). If $\mathcal W_i'(\underline\theta_i)\le 0$, no interior cutoff exists and either all types lose or all types gain. The convex case is symmetric, with concavity and convexity interchanged, and all surplus inequalities reversed. If $R_\theta(\theta)$ is decreasing, concavity and convexity are swapped and all inequalities reverse throughout.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Reallocation under preference perturbations - Proof of Lemma~\ref{lem:realloc}}
+\subsection{Reallocation under preference perturbations - Proof of Lemma~\ref{lem:realloc}}\label{proof:realloc}
+
 
 \begin{proof}
 Fix $s\in T_i$ and a local perturbation $\Delta\lambda_i(\theta)$ holding $k_i$ fixed.
@@ -1833,7 +1865,7 @@ u\!\left(q_i(\theta,s),s\right)\Delta\G_i(\theta)
 =
 0.
 \end{equation}
-Solving \eqref{eq:proof-realloc-linearized} for $\Delta q_i(\theta,s)$ and substituting the definitions of $R_q$, $R_{\G}(\theta)=\Delta\G_i(\theta)/\G_i(\theta)$, and $\varepsilon_i(s)$ yields
+Solving \ref{eq:proof-realloc-linearized} for $\Delta q_i(\theta,s)$ and substituting the definitions of $R_q$, $R_{\G}(\theta)=\Delta\G_i(\theta)/\G_i(\theta)$, and $\varepsilon_i(s)$ yields
 \begin{equation}\label{eq:proof-realloc-raw}
 \Delta q_i(\theta,s)
 =
@@ -1844,11 +1876,11 @@ R_{\G}(\theta)
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)}
 \right).
 \end{equation}
-Since the capacity constraint binds state-by-state and $k_i$ is held fixed, $\E_i\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$. Substituting \eqref{eq:proof-realloc-raw}, using $R_q(\theta,s)=\varepsilon_i(s)w_i(\theta,s)$, dividing by $\varepsilon_i(s)\overline w_i(s)>0$, and rearranging gives
+Since the capacity constraint binds state-by-state and $k_i$ is held fixed, $\E_i\!\left[\Delta q_i(\theta,s)\right]=0$ for each $s\in T_i$. Substituting \ref{eq:proof-realloc-raw}, using $R_q(\theta,s)=\varepsilon_i(s)w_i(\theta,s)$, dividing by $\varepsilon_i(s)\overline w_i(s)>0$, and rearranging gives
 \begin{equation}\label{eq:proof-realloc-rent}
 \frac{\Delta\varepsilon_i(s)}{\varepsilon_i(s)} = \E_i^w\!\left[R_{\G}\mid s\right].
 \end{equation}
-Substituting \eqref{eq:proof-realloc-rent} into \eqref{eq:proof-realloc-raw} gives
+Substituting \ref{eq:proof-realloc-rent} into \ref{eq:proof-realloc-raw} gives
 \begin{equation}\label{eq:proof-realloc}
 \Delta q_i(\theta,s)
 =
@@ -1863,13 +1895,14 @@ which is the desired identity.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Surplus and preference perturbations - Proof of Proposition~\ref{prop:surplus-redist}}
+\subsection{Surplus and preference perturbations - Proof of Proposition~\ref{prop:surplus-redist}}\label{proof:surplus-redist}
+
 
 \begin{proof}
     
-The surplus change follows from the IC representation \eqref{ECSi}:
+The surplus change follows from the IC representation \ref{ECSi}:
 \[\Delta \E CS_i(\theta) = \Delta\E\underline{CS}_i + \int_{\underline\theta_i}^{\theta}\E_s\!\left[u\!\left(q_i(\tilde\theta,s),s\right)\Delta q_i(\tilde\theta,s)\,\mathbf{1}_{\{s\in T_i\}}\right]d\tilde\theta.\]
-Substituting \eqref{eq:proof-realloc} and using the first-order condition $u(q_i,s)=\varepsilon_i(s)/\G_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
+Substituting \ref{eq:proof-realloc} and using the first-order condition $u(q_i,s)=\varepsilon_i(s)/\G_i(\theta)$ together with $R_q(\theta)=1/\alpha$ under Assumption~\ref{ass:CARA}, the derivative with respect to $\theta$ is
 \[\frac{\partial\Delta \E CS_i(\theta)}{\partial\theta} = \frac{1}{\alpha}\E_s\!\left[\frac{\varepsilon_i(s)}{\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right] = \frac{\overline\varepsilon_i}{\alpha\,\G_i(\theta)}\left(R_{\G}(\theta)-\E_i[R_{\G}]\right),\]
 where $\overline\varepsilon_i:=\E_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]>0$. Since $\overline\varepsilon_i/(\alpha\,\G_i(\theta))>0$, the sign of the derivative is determined solely by $R_{\G}(\theta)-\E_i[R_{\G}]$. Under unimodality of $R_{\G}$, this expression crosses zero at most twice, so $\Delta \E CS_i(\theta)$ has at most two turning points and at most three zeros in $[\underline\theta_i,\overline\theta_i]$.
 
@@ -1877,7 +1910,7 @@ where $\overline\varepsilon_i:=\E_s[\varepsilon_i(s)\mathbf{1}_{\{s\in T_i\}}]>0
 
 \noindent\textit{IR-constrained allocation.} The IR constraint $\E\underline{CS}_i=0$ binds at both the baseline and the perturbed allocation, so $\Delta\E\underline{CS}_i=0$ and therefore $\Delta \E CS_i(\underline\theta_i)=0$.
 
-\noindent\textit{IR-unconstrained allocation.} Linearizing \eqref{ECSi} with respect to the preference perturbation and substituting \eqref{eq:proof-realloc}:
+\noindent\textit{IR-unconstrained allocation.} Linearizing \ref{ECSi} with respect to the preference perturbation and substituting \ref{eq:proof-realloc}:
 \[\Delta\E\underline{CS}_i = \E_{(s,i)}\!\left[u\!\left(q_i,s\right)\Delta q_i(\theta,s)\,J_i(\theta)\,\mathbf{1}_{\{s\in T_i\}}\right] = \E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_{\G}(\theta)-\E_i[R_{\G}]\right)\mathbf{1}_{\{s\in T_i\}}\right].\]
 Under Assumption~\ref{ass:CARA}, $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}]$ is $s$-independent, so the expression separates and yields
 \[\Delta\E\underline{CS}_i = \frac{\overline\varepsilon_i}{\alpha}\,\Cov_{i}\!\left(R_\theta(\theta),R_{\G}(\theta)\right).\]
@@ -1885,7 +1918,8 @@ Under Assumption~\ref{ass:CARA}, $\E_i^w[R_{\G}\mid s]=\E_i[R_{\G}]$ is $s$-inde
 \noindent\textit{Cutoff structure.} Since $R_{\G}(\theta)$ is unimodal, the derivative $\frac{\partial \Delta\E CS_i(\theta)}{\partial \theta}\propto R_{\G}(\theta)-\E _i[R_{\G}]$ changes sign at most twice, so $\Delta\E CS_i(\theta)$ has at most two turning points and hence at most three interior zeros. Under $\Delta\G_i(\theta)\ge 0$, $R_{\G}(\theta)$ peaks above its mean in the interior so the derivative pattern is $-,+,-$, and the number of zeros of $\Delta \E CS_i(\theta)$ beyond the boundary is determined by the starting value: zero in the IR-constrained case and $\overline\varepsilon_i\,\Cov_{i}(R_\theta,R_{\G})$ in the IR-unconstrained case, giving the patterns stated in the proposition. Under $\Delta\G_i(\theta)\le 0$, all signs are reversed throughout.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Across-category allocation - Proof of Lemma~\ref{lem:outer}}
+\subsection{Across-category allocation - Proof of Lemma~\ref{lem:outer}}\label{proof:outer}
+
 
 \begin{proof}
 The feasible set
@@ -1928,7 +1962,7 @@ Differentiating with respect to $k_i$ gives a boundary term proportional to $\va
 
 Fix $k_i$ and $s\in T_i$. Differentiating the first-order condition with respect to $I_i$ and imposing the binding capacity constraint $\E_i[\partial_{I_i}q_i(\theta,s)]=0$ yields
 $\frac{\partial \varepsilon_i(s)}{\partial I_i} = \partial_{I_i}\beta_i\,\mathsf \E_i^w[uJ\mid s],$
-Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$ and using \eqref{eq:proof-dECSbar-dbeta} gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\frac{\partial \varepsilon_i(s)}{\partial I_i}=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so
+Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I_i$ and using \ref{eq:proof-dECSbar-dbeta} gives $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ and hence $\frac{\partial \varepsilon_i(s)}{\partial I_i}=\mathsf \E_i^w[uJ\mid s]/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$. The boundary term vanishes again since $\varepsilon_i(s_i)=0$, so
 \begin{equation}\label{eq:proof-Vi-Iderivs}
 \frac{\partial V_i(k_i,I_i)}{\partial  I_i}= -\tilde\lambda_i-\beta_i(k_i,I_i), \qquad
 \frac{\partial^2 V_i(k_i,I_i)}{\partial  I_i^2}= -\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}<0, \qquad
@@ -1938,7 +1972,7 @@ Differentiating $\E \underline{CS}_i(k_i,\beta_i(k_i,I_i))=0$ with respect to $I
 
 \noindent\textbf{Step 3: \(\frac{\partial^2 V_i(k_i,I_i)}{\partial  k_i^2}\) on the IR-constrained region.}
 
-Holding $\beta$ fixed gives $\frac{\partial \varepsilon_i(s)}{\partial k_i}|_\beta = -1/\overline w_i(s)$. Along the optimal path, the chain rule and \eqref{eq:proof-deps-dbeta} give
+Holding $\beta$ fixed gives $\frac{\partial \varepsilon_i(s)}{\partial k_i}|_\beta = -1/\overline w_i(s)$. Along the optimal path, the chain rule and \ref{eq:proof-deps-dbeta} give
 \[
 \frac{\partial \varepsilon_i(s)}{\partial k_i} = -\frac{1}{\overline w_i(s)} - \mathsf \E_i^w[uJ\mid s]\frac{\E_{(s,i)}^w[uJ\mid s]}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}.
 \]
@@ -1970,7 +2004,8 @@ With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^
 \end{proof}
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Capacity ordering - Proof of Theorem~\ref{thm:cat-order}}
+\subsection{Capacity ordering - Proof of Theorem~\ref{thm:cat-order}}\label{proof:cat-order}
+
 
 
 \begin{lemma}[Revenue positivity]\label{lem:rev-pos}
@@ -2025,7 +2060,8 @@ which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, 
 Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\E_i[R_{\G}(\theta,k_i^\ast)]$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Preference shifts and effective social weights - Proof of Lemma~\ref{lem:preferenceorder}}
+\subsection{Preference shifts and effective social weights - Proof of Lemma~\ref{lem:preferenceorder}}\label{proof:preferenceorder}
+
 
 \begin{proof}
 Write $\lambda_i^1(\theta):=\lambda_i(\theta)$, $\lambda_i^2(\theta):=\lambda_i^\Delta(\theta)$, and define
@@ -2085,7 +2121,8 @@ The special cases in the ``in particular'' clause follow immediately: if $\beta_
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Capacity ordering along an ordered preference path - Proof of Corollary~\ref{cor:ordered-path}}
+\subsection{Capacity ordering along an ordered preference path - Proof of Corollary~\ref{cor:ordered-path}}\label{proof:ordered-path}
+
 
 \begin{proof}
 We proceed in three steps.
@@ -2135,7 +2172,7 @@ We now verify that this implies
 $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad\text{for all }\theta\in\Theta.$
 
 \smallskip
-\noindent\underline{Case 1: \(\beta^\ast(t)=\beta^\ast(t+h)=0\).}
+\noindent{Case 1: \(\beta^\ast(t)=\beta^\ast(t+h)=0\).}
 Then
 $\G(\theta;t)=\Gamma(\theta;t), \qquad \G(\theta;t+h)=\Gamma(\theta;t+h),$
 so
@@ -2144,7 +2181,7 @@ Lemma~\ref{lem:preferenceorder} therefore yields
 $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad \text{for all }\theta.$
 
 \smallskip
-\noindent\underline{Case 2: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)>0\).}
+\noindent{Case 2: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)>0\).}
 Since both categories are in \(N^+\), the outer KKT conditions give
 $\tilde\lambda(t)+\beta^\ast(t) = \tilde\lambda(t+h)+\beta^\ast(t+h) = -\mu_I.$
 Hence
@@ -2153,7 +2190,7 @@ Lemma~\ref{lem:preferenceorder} again implies
 $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad \text{for all }\theta.$
 
 \smallskip
-\noindent\underline{Case 3: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)=0\).}
+\noindent{Case 3: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)=0\).}
 From the KKT conditions,
 \[
 \tilde\lambda(t)+\beta^\ast(t)=-\mu_I,
@@ -2200,127 +2237,36 @@ This proves (iii), and hence the corollary.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Revenue ordering - Proof of Proposition \ref{prop:revenueordering}}
+\subsection{Revenue ordering - Proof of Proposition \ref{prop:revenueordering}}\label{proof:revenueordering}
+
 
 \begin{proof}
 
-\noindent\textit{Part (i).} If either $N^+$ or $N^0$ is empty, there is nothing to prove. Assume therefore that both sets are nonempty. For $i\in N^+$, complementary slackness gives $\xi_i=0$, so the outer KKT condition from Lemma~\ref{lem:outer} yields
-$\tilde\lambda_i+\beta_i^\ast=-\zeta_I=:\tilde\lambda^\ast.$
-Since $\beta_i^\ast>0$, we have $\tilde\lambda_i<\tilde\lambda^\ast$. For $j\in N^0$, $\beta_j^\ast=0$ and the KKT condition gives
-$\tilde\lambda_j=-\zeta_I+\xi_j=\tilde\lambda^\ast+\xi_j\ge \tilde\lambda^\ast.$
-Hence
-$\max_{i\in N^+}\tilde\lambda_i<\tilde\lambda^\ast\le \min_{j\in N^0}\tilde\lambda_j,$
-which proves the strict separation.
+\noindent\textit{Part (i).} Assume both $N^+$ and $N^0$ nonempty. For $i\in N^+$, $\xi_i=0$ and Lemma~\ref{lem:outer} gives $\tilde\lambda_i+\beta_i^\ast=-\zeta_I=:\tilde\lambda^\ast$. Since $\beta_i^\ast>0$, $\tilde\lambda_i<\tilde\lambda^\ast$. For $j\in N^0$, $\beta_j^\ast=0$, so $\tilde\lambda_j=\tilde\lambda^\ast+\xi_j\ge\tilde\lambda^\ast$. Hence $\max_{N^+}\tilde\lambda_i<\tilde\lambda^\ast\le\min_{N^0}\tilde\lambda_j$.
 
-\noindent\textit{Part (ii). General case.} Since $\beta_i^\ast>0$ and $\beta_j^\ast>0$, both categories are interior contributors. By Lemma~\ref{lem:outer}, the outer KKT conditions hold with equality and without slackness:
-$\tilde\lambda_i+\beta_i^\ast = \tilde\lambda^\ast = \tilde\lambda_j+\beta_j^\ast,$
-so
-$\Delta\beta^\ast:=\beta_j^\ast-\beta_i^\ast=-\Delta\tilde\lambda.$
-Let $\Delta k:=k_j^\ast-k_i^\ast>0$ and $\Delta I:=I_j^\ast-I_i^\ast$. Since category $j$ is obtained from $i$ through a marginal perturbation of redistributive preferences, a first-order expansion of
-$\beta_j^\ast=\beta_j(k_j^\ast,I_j^\ast;\lambda_j)$
-around $(k_i^\ast,I_i^\ast;\lambda_i)$ must account for three channels: the movement in $k$, the movement in $I$, and the direct effect of the preference change at fixed $(k_i^\ast,I_i^\ast)$, denoted $\Delta_\lambda\beta_i$. Hence
-\[
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k
-+
-\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)\,\Delta I
-+
-\Delta_\lambda\beta_i
-=
--\Delta\tilde\lambda.
-\]
+\noindent\textit{Part (ii). General case.} Since $\beta_i^\ast,\beta_j^\ast>0$, Lemma~\ref{lem:outer} gives $\tilde\lambda_i+\beta_i^\ast=\tilde\lambda_j+\beta_j^\ast$, so $\Delta\beta^\ast=-\Delta\tilde\lambda$. Let $\Delta k:=k_j^\ast-k_i^\ast>0$ and $\Delta I:=I_j^\ast-I_i^\ast$. A first-order expansion of $\beta_j^\ast=\beta_j(k_j^\ast,I_j^\ast;\lambda_j)$ around $(k_i^\ast,I_i^\ast;\lambda_i)$ gives \[ \frac{\partial \beta_i}{\partial k_i}\Delta k+\frac{\partial \beta_i}{\partial I_i}\Delta I+\Delta_\lambda\beta_i=-\Delta\tilde\lambda, \] where $\Delta_\lambda\beta_i$ is the direct effect of the preference perturbation at fixed $(k_i^\ast,I_i^\ast)$. It is obtained from the implicit-function derivative of the binding IR constraint $F_i(\beta_i;k,I,\lambda):=\E\underline{CS}_i(k,I;\beta_i,\lambda)=0$, holding $\beta_i$ fixed in the numerator: \[ \Delta_\lambda\beta_i=-\frac{\partial_\lambda F_i|_{\beta_i\,\text{fixed}}}{\partial_{\beta_i}F_i}=-\frac{\mathcal C_i^0}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}, \] with \[ \mathcal C_i^0:=\E_{(s,i)}\!\left[\varepsilon_i(s)R_\theta(\theta)R_q(\theta)\!\left(R_{\G}^{0}(\theta)-\E_i^w[R_{\G}^{0}\mid s]\right)\mathbf 1_{\{s\in T_i\}}\right], \qquad R_{\G}^{0}(\theta):=\frac{J_i(\theta)\Delta\tilde\lambda+\Delta\Lambda_i(\theta)}{\G_i(\theta)}=R_\theta(\theta)\Delta\tilde\lambda+R_\G(\theta). \] Using $\partial_{I_i}\beta_i=1/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]>0$ from Lemma~\ref{lem:Vi-concave}, we obtain \[ \Delta I=-\frac{\Delta\tilde\lambda+\frac{\partial\beta_i}{\partial k_i}\Delta k+\Delta_\lambda\beta_i}{\frac{\partial\beta_i}{\partial I_i}}, \] so $\Delta I<0$ iff $\Delta\tilde\lambda+\frac{\partial\beta_i}{\partial k_i}\Delta k+\Delta_\lambda\beta_i>0$. The sign of $\partial\beta_i/\partial k_i$ is opposite to the sign of \ref{Eujmd} by \ref{eq:proof-dbeta-dk}.
 
-To characterize $\Delta_\lambda\beta_i$, hold $(k_i^\ast,I_i^\ast)$ fixed and differentiate the binding IR constraint
-$\E\underline{CS}_i(k_i^\ast,I_i^\ast;\beta_i;\lambda_i)=0$
-with respect to the preference perturbation, allowing $\beta_i$ to adjust. This gives
-$\Delta_\lambda\beta_i = -\frac{\mathcal C_i}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]},$
-where
-\[
-\mathcal C_i
-:=
-\E_{(s,i)}\!\left[
-\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)
-\left(
-R_{\G}(\theta)-\E_i^w[R_{\G}\mid s]
-\right)
-\mathbf 1_{\{s\in T_i\}}
-\right]
-\]
-is the direct effect of the perturbation on available revenue at fixed $(k_i^\ast,I_i^\ast,\beta_i^\ast)$.
-
-Rearranging and using
-\[
-\frac{\partial\beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)
-=
-\frac{1}{\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]}>0
-\]
-from Lemma~\ref{lem:Vi-concave}, we obtain
-\[
-\Delta I
-=
--\frac{
-\Delta\tilde\lambda
-+
-\frac{\partial \beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)\,\Delta k
-+
-\Delta_\lambda\beta_i
-}{
-\frac{\partial \beta_i}{\partial I_i}(k_i^\ast,I_i^\ast)
-}.
-\]
-Since $\frac{\partial\beta_i}{\partial I_i}>0$, we have $\Delta I<0$ if and only if
-$\Delta\tilde\lambda + \frac{\partial\beta_i}{\partial k_i}\Delta k + \Delta_\lambda\beta_i >0,$
-which is the stated condition. By \eqref{eq:proof-dbeta-dk}, the sign of $\frac{\partial\beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)$ is opposite to the sign of \eqref{Eujmd}.
-
-\noindent\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent. We compute the three terms entering the general condition in turn.
-
-\noindent\textit{Step 1: $\frac{\partial\beta_i}{\partial k_i}$.} Since $\E_i[u(q_i,s)J_i(\theta)]=\varepsilon_i(s)\E_i[R_\theta]$ and $\mathrm{Var}_i^w(uJ\mid s)=\varepsilon_i(s)^2\mathrm{Var}_i(R_\theta)$ under CARA, integrating over binding states gives
+\noindent\textit{CARA reduction.} Under Assumption~\ref{ass:CARA}, $w_i=1/(\alpha\varepsilon_i(s))$ is $\theta$-independent, and 
 \begin{align}
-\E_{(s,i)}^w[uJ\mid s] &= \overline\varepsilon_i\E_i[R_\theta], \label{eq:proof-moments-CARA-uJ}\\
-\E_{(s,i)}^w[\mathrm{Var}_i(uJ)] &= \frac{\overline\varepsilon_i}{\alpha}\mathrm{Var}_i(R_\theta), \label{eq:proof-moments-CARA-var}
+\E_{(s,i)}^w[uJ\mid s] &= \bar\varepsilon_i\E_i[R_\theta], \label{eq:proof-moments-CARA-uJ}\\
+\E_{(s,i)}^w[\mathrm{Var}_i(uJ)] &= \frac{\bar\varepsilon_i}{\alpha}\mathrm{Var}_i(R_\theta), \label{eq:proof-moments-CARA-var}
 \end{align}
-so
-\[
-\frac{\partial\beta_i}{\partial k_i}(k_i^\ast,I_i^\ast)
-=
--\frac{\alpha\,\E_i[R_\theta]}{\mathrm{Var}_i(R_\theta)}.
-\]
-
-\noindent\textit{Step 2: $\Delta k$.} By \eqref{eq:proof-DeltaPi-CARA}, $\Delta\Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_\G]$. The derivative $\Pi_i'(k_i^\ast) = -\Omega_i - (\E_{(s,i)}^w[uJ\mid s])^2/\E_{(s,i)}^w[\mathrm{Var}_i(uJ)]$ follows from \eqref{eq:proof-Vi-kk} in the proof of Lemma~\ref{lem:Vi-concave}; under Assumption~\ref{ass:CARA} this reduces, using \eqref{eq:proof-moments-CARA-uJ}--\eqref{eq:proof-moments-CARA-var}, to $\Pi_i'(k_i^\ast) = -\alpha\Pi_i(k_i^\ast)\E_i[(R_\theta(\theta))^2]/\Var_i(R_\theta)$. Hence
-$\Delta k = -\frac{\Delta\Pi_i}{\Pi_i'(k_i^\ast)}$
-gives
-$\Delta k = \frac{\E_i[R_\G]\,\mathrm{Var}_i(R_\theta)}{\alpha\,\E_i[(R_\theta(\theta))^2]},$
-so that
-\[
-\Delta k\,\frac{\partial\beta_i}{\partial k_i}
-=
--\frac{\E_i[R_\G]\,\E_i[R_\theta]}{\E_i[(R_\theta(\theta))^2]}.
-\]
-\noindent\textit{Step 3: $\Delta_\lambda\beta_i$.} The direct preference effect on available revenue at fixed $(k_i^\ast,I_i^\ast,\beta_i^\ast)$ is
+so $\partial_{k_i}\beta_i=-\alpha\E_i[R_\theta]/\Var_i(R_\theta)$. By \ref{eq:proof-DeltaPi-CARA}, $\Delta\Pi_i=\Pi_i\E_i[R_\G]$, and \ref{eq:proof-Vi-kk} gives $\Pi_i'(k_i^\ast)=-\alpha\Pi_i\E_i[R_\theta^2]/\Var_i(R_\theta)$. Hence $\Delta k=-\Delta\Pi_i/\Pi_i'=\E_i[R_\G]\Var_i(R_\theta)/(\alpha\E_i[R_\theta^2])$, and \[ \Delta k\,\frac{\partial\beta_i}{\partial k_i}=-\frac{\E_i[R_\G]\E_i[R_\theta]}{\E_i[R_\theta^2]}. \] Substituting $R_\G^0=R_\theta\Delta\tilde\lambda+R_\G$ into $\mathcal C_i^0$ and using $\Cov_i(R_\theta,R_\theta)=\Var_i(R_\theta)$: 
 \begin{equation}\label{eq:proof-directeffect-CARA}
-\mathcal C_i = \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)J_i(\theta)\right] = \frac{\overline\varepsilon_i}{\alpha}\Cov_i(R_\theta,R_\G).
+\mathcal C_i = \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)J_i(\theta)\right] = \frac{\bar\varepsilon_i}{\alpha}\mathrm{Cov}_i(R_\theta,R_\G^0).
 \end{equation}
-Using \eqref{eq:proof-moments-CARA-var}, the $\overline\varepsilon_i/\alpha$ factors cancel and
+Using \eqref{eq:proof-moments-CARA-var}, the $\bar\varepsilon_i/\alpha$ factors cancel and
 \begin{equation}\label{eq:proof-dbeta-lambda-CARA}
-\Delta_\lambda\beta_i = -\frac{\Cov_i(R_\theta,R_\G)}{\mathrm{Var}_i(R_\theta)}.
+\Delta_\lambda\beta_i = -\frac{\mathrm{Cov}_i(R_\theta,R_\G^0)}{\mathrm{Var}_i(R_\theta)}=-\Delta\tilde\lambda-\frac{\Cov_i(R_\theta,R_\G)}{\Var_i(R_\theta)}..
 \end{equation}
+Plugging into the condition $\Delta\tilde\lambda+\Delta k\,\partial_k\beta_i+\Delta_\lambda\beta_i>0$ and cancelling $\Delta\tilde\lambda$ yields $\Delta I<0$ iff \[ \frac{\E_i[R_\G]\E_i[R_\theta]}{\E_i[R_\theta^2]}+\frac{\Cov_i(R_\theta,R_\G)}{\Var_i(R_\theta)}<0. \qedhere \]
 
-\noindent\textit{Assembling.} Combining Steps 1--3,
-\[
--\!\left(
-\Delta k\,\frac{\partial\beta_i}{\partial k_i}
-+
-\Delta_\lambda\beta_i
-\right)
-=
-\frac{\E_i[R_\G]\,\E_i[R_\theta]}{\E_i[(R_\theta(\theta))^2]}
-+
-\frac{\Cov_i(R_\theta,R_\G)}{\mathrm{Var}_i(R_\theta)},
-\]
-which gives the stated CARA condition.
+
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Optimal investment - Proof of Lemma~\ref{lem:investment}}
+\subsection{Optimal investment - Proof of Lemma~\ref{lem:investment}}\label{proof:leminvestment}
+
 
 \begin{proof}
 Define the outer indirect value
@@ -2336,7 +2282,7 @@ k_i\geq 0,
 I_i\geq 0
 \quad \forall i\in N.
 \]
-By Lemma~\ref{lem:outer}, $\overline W$ is well defined and continuous, and by Lemma~\ref{lem:Vi-concave} it is concave in $(K,I)$. Moreover, by \eqref{eq:proof-Vi-Iderivs}, $\frac{\partial  V_i(k_i,I_i)}{\partial I_i}=-\tilde\lambda_i-\beta_i(k_i,I_i)<0,$
+By Lemma~\ref{lem:outer}, $\overline W$ is well defined and continuous, and by Lemma~\ref{lem:Vi-concave} it is concave in $(K,I)$. Moreover, by \ref{eq:proof-Vi-Iderivs}, $\frac{\partial  V_i(k_i,I_i)}{\partial I_i}=-\tilde\lambda_i-\beta_i(k_i,I_i)<0,$
 the function $\overline W(K,I)$ is strictly decreasing in $I$.
 
 Now define
@@ -2368,7 +2314,7 @@ $\tilde\lambda^\ast I'(k^\ast)=\zeta_k.$
 
 By Lemma~\ref{lem:outer},
 $\Pi_i(k_i^\ast,I_i^\ast)=\zeta_k \qquad\text{for every }i,$
-where, by the single-category envelope formula and the first-order condition~\eqref{KKT-qMD},
+where, by the single-category envelope formula and the first-order condition~\ref{KKT-qMD},
 \[
 \Pi_i(k_i^\ast,I_i^\ast)
 =
@@ -2416,7 +2362,8 @@ Thus
 $\max_{i\in N^+}\tilde\lambda_i < \tilde\lambda^\ast \leq \min_{i\in N^0}\tilde\lambda_i. $\qedhere
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Investment and preference perturbations - Proof of Proposition \ref{prop:investment}}
+\subsection{Investment and preference perturbations - Proof of Proposition \ref{prop:investment}}\label{proof:propinvestment}
+
 
 \begin{proof}
 Let \(\Delta_\lambda\) denote the first-order effect of the perturbation of \(\lambda_i(\theta)\) evaluated at the baseline equilibrium allocation.
@@ -2428,7 +2375,7 @@ From Lemma~\ref{lem:outer}, $\zeta_k=\sum_{i\in N}\mu_i\Pi_i$ at the optimum, so
 W''(k^\ast)\,\Delta k^\ast = I'(k^\ast)\,\Delta\tilde\lambda^\ast - \sum_{i\in N}\mu_i\,\Delta_\lambda\Pi_i.
 \]
 
-Under Assumption~\ref{ass:CARA}, \eqref{eq:proof-DeltaPi-CARA} gives, for every category \(i\),
+Under Assumption~\ref{ass:CARA}, \ref{eq:proof-DeltaPi-CARA} gives, for every category \(i\),
 $\Delta_\lambda \Pi_i = \Pi_i\,\E_i[R_{\G,i}].$
 Substituting into the previous display gives
 \[
@@ -2444,7 +2391,7 @@ Taking the first-order effect of the perturbation in the binding condition gives
 \E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast)\,\Delta\tilde\lambda^\ast + \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)\,J_i(\theta)\right] = 0.
 \]
 
-Under Assumption~\ref{ass:CARA}, \eqref{eq:proof-moments-CARA-var} and \eqref{eq:proof-directeffect-CARA} imply
+Under Assumption~\ref{ass:CARA}, \ref{eq:proof-moments-CARA-var} and \ref{eq:proof-directeffect-CARA} imply
 \[
 \E_{(s,i)}^w[\mathrm{Var}_i(uJ)](k_i^\ast) = \frac{\overline\varepsilon_i}{\alpha}\,\Var_{i}\!\left(R_{\theta,i}(\theta)\right), \qquad \Delta_\lambda\E_{(s,i)}\!\left[U(q_i(\theta,s),s)\,J_i(\theta)\right] = \frac{\overline\varepsilon_i}{\alpha}\,\Cov_{i}\!\left(R_{\theta,i}(\theta),R_{\G,i}(\theta)\right),
 \]
@@ -2458,17 +2405,18 @@ Finally, under a smooth ordered path that tilts redistributive preferences towar
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Implementation feasibility - Proof of Proposition \ref{prop:implementation}}
+\subsection{Implementation feasibility - Proof of Proposition \ref{prop:implementation}}\label{proof:implementation}
+
 
 \begin{proof}
 
-By \eqref{eq:proof-dECSbar-dk}, $\frac{\partial \E\underline{CS}_i}{\partial k_i} = \E_{(s,i)}^w[uJ\mid s].$
+By \ref{eq:proof-dECSbar-dk}, $\frac{\partial \E\underline{CS}_i}{\partial k_i} = \E_{(s,i)}^w[uJ\mid s].$
 Under the conditions of Lemma~\ref{lem:SC-dir}, the map $k_i\mapsto \E_{(s,i)}^w[uJ\mid s]$ is single-crossing. Hence $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is monotone and crosses zero at most once in a given direction.
 
-When \eqref{Eujmd} crosses from $+$ to $-$, $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is decreasing and crosses zero at most once from above, so $\E\underline{CS}_i$ is single-peaked on $[0,k_i^+]$. When \eqref{Eujmd} crosses from $-$ to $+$, $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is increasing and $\E\underline{CS}_i$ is single-dipped. At $k_i=0$ the capacity constraint binds at zero, so $q_i(\theta,s)=0$ for all $(\theta,s)$, giving
+When \ref{Eujmd} crosses from $+$ to $-$, $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is decreasing and crosses zero at most once from above, so $\E\underline{CS}_i$ is single-peaked on $[0,k_i^+]$. When \ref{Eujmd} crosses from $-$ to $+$, $\frac{\partial \E\underline{CS}_i}{\partial k_i}$ is increasing and $\E\underline{CS}_i$ is single-dipped. At $k_i=0$ the capacity constraint binds at zero, so $q_i(\theta,s)=0$ for all $(\theta,s)$, giving
 $\E\underline{CS}_i(0)=-I_i<0 \qquad \text{for any }I_i>0.$
 
-\noindent\textit{Case: \eqref{Eujmd} crosses from $+$ to $-$.}
+\noindent\textit{Case: \ref{Eujmd} crosses from $+$ to $-$.}
 Suppose first that $\E\underline{CS}_i(k_i^+)\ge 0$. Since $\E\underline{CS}_i(0)<0$ and $\E\underline{CS}_i(k_i^+)\ge 0$, continuity gives at least one zero in $(0,k_i^+]$. Single-peakedness implies that this zero is unique, defining $\tilde k_i$, and
 $\E\underline{CS}_i(k_i)\ge 0 \Longleftrightarrow k_i\in[\tilde k_i,k_i^+].$
 
@@ -2480,12 +2428,13 @@ in $(0,k_i^+)$ such that
 $\E\underline{CS}_i(k_i)\ge 0 \Longleftrightarrow k_i\in[\tilde k_i^-,\tilde k_i^+].$
 This proves part~(ii).
 
-\noindent\textit{Case: \eqref{Eujmd} crosses from $-$ to $+$.}
+\noindent\textit{Case: \ref{Eujmd} crosses from $-$ to $+$.}
 Then $\E\underline{CS}_i$ is single-dipped with $\E\underline{CS}_i(0)<0$. Either the trough value is negative and $\E\underline{CS}_i<0$ throughout, or $\E\underline{CS}_i$ rises above zero after the trough, crossing zero exactly once from below at a unique $\tilde k_i\in(0,k_i^+]$, and
 $\E\underline{CS}_i(k_i)\ge 0 \Longleftrightarrow k_i\in[\tilde k_i,k_i^+].$
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Non-monotone reallocation under preference perturbations - Proof of Proposition~\ref{prop:rprefreallocation}}
+\subsection{Non-monotone reallocation under preference perturbations - Proof of Proposition~\ref{prop:rprefreallocation}}\label{proof:rprefreallocation}
+
 
 \begin{proof}
 Fix a peak state $s\in T_i$. The proof is based on the reallocation identity from Lemma~\ref{lem:realloc}:
@@ -2557,7 +2506,7 @@ In particular, the lower-endpoint value is of order $\Delta\tilde\lambda_i$, whe
 
 \noindent\textit{Step 2: proof of part (i).}
 
-We first consider the IR-unconstrained allocation. By \eqref{eq:endpoint-unconstrained}, the bracket in \eqref{eq:realloc-proof} takes the same value at both endpoints. Hence
+We first consider the IR-unconstrained allocation. By \ref{eq:endpoint-unconstrained}, the bracket in \ref{eq:realloc-proof} takes the same value at both endpoints. Hence
 \[
 \Delta q_i(\underline\theta_i,s)
 =
@@ -2582,9 +2531,9 @@ Since $R_q(\theta)>0$, the two endpoint values of $\Delta q_i(\cdot,s)$ have the
 
 Moreover, because $R_{\G}$ is not a.e.\ constant, the term
 $R_{\G}(\theta)-\E_i^w[R_{\G}\mid s]$
-is not a.e.\ zero, so \eqref{eq:realloc-proof} implies that $\Delta q_i(\cdot,s)$ is not identically zero. Combining this with \eqref{eq:mean-zero-proof}, $\Delta q_i(\cdot,s)$ must take both positive and negative values. A function on an interval that takes both signs and whose two endpoint values have the same sign cannot be monotone. This proves the first claim in part (i).
+is not a.e.\ zero, so \ref{eq:realloc-proof} implies that $\Delta q_i(\cdot,s)$ is not identically zero. Combining this with \ref{eq:mean-zero-proof}, $\Delta q_i(\cdot,s)$ must take both positive and negative values. A function on an interval that takes both signs and whose two endpoint values have the same sign cannot be monotone. This proves the first claim in part (i).
 
-Consider next the IR-constrained allocation. By \eqref{eq:upper-constrained}--\eqref{eq:lower-constrained},
+Consider next the IR-constrained allocation. By \ref{eq:upper-constrained}--\ref{eq:lower-constrained},
 $\Delta q_i(\overline\theta_i,s) = - R_q(\overline\theta_i)\E_i^w[R_{\G}\mid s],$
 whereas
 \[
@@ -2608,7 +2557,7 @@ Hence the two endpoint values have the same sign whenever
 \E_i^w[R_{\G}\mid s]
 \right|.
 \]
-Therefore, for $|\Delta\tilde\lambda_i|$ sufficiently small, the two endpoints inherit the same sign. Since $\Delta q_i(\cdot,s)$ is again not identically zero and satisfies \eqref{eq:mean-zero-proof}, it cannot be monotone. This proves the second claim in part (i).
+Therefore, for $|\Delta\tilde\lambda_i|$ sufficiently small, the two endpoints inherit the same sign. Since $\Delta q_i(\cdot,s)$ is again not identically zero and satisfies \ref{eq:mean-zero-proof}, it cannot be monotone. This proves the second claim in part (i).
 
 
 \noindent\textit{Step 3: proof of part (ii).}
@@ -2617,7 +2566,7 @@ Assume now that the perturbation is mean-preserving, so $\Delta\tilde\lambda_i=0
 $\Delta\beta_i+\Delta\tilde\lambda_i=0,$
 this also gives $\Delta\beta_i=0$. By Step 1,
 $R_{\G}(\underline\theta_i)=R_{\G}(\overline\theta_i)=0.$
-Hence, evaluating \eqref{eq:realloc-proof} at the two endpoints,
+Hence, evaluating \ref{eq:realloc-proof} at the two endpoints,
 \begin{equation}\label{eq:endpoints-part-ii}
 \Delta q_i(\underline\theta_i,s)
 =
@@ -2631,7 +2580,7 @@ R_q(\overline\theta_i)\E_i^w[R_{\G}\mid s].
 \end{equation}
 Thus the two endpoints have the same sign, and by part (i), $\Delta q_i(\cdot,s)$ is not monotone.
 
-Because $\Delta q_i(\cdot,s)$ is continuous, not identically zero, and satisfies \eqref{eq:mean-zero-proof}, it must cross zero at least twice. Therefore the cutoff set
+Because $\Delta q_i(\cdot,s)$ is continuous, not identically zero, and satisfies \ref{eq:mean-zero-proof}, it must cross zero at least twice. Therefore the cutoff set
 $\{\theta:\Delta q_i(\theta,s)=0\}$
 contains at least two elements. Let $\theta_-\le \theta_+$ denote its minimum and maximum elements.
 
@@ -2643,7 +2592,7 @@ R_{\G}(\theta)=\frac{\Delta\G_i(\theta)}{\G_i(\theta)}\ge 0
 \]
 and therefore
 $\E_i^w[R_{\G}\mid s]\ge 0.$
-By \eqref{eq:endpoints-part-ii}, both endpoint values of $\Delta q_i(\cdot,s)$ are nonpositive. Since $\Delta q_i(\cdot,s)$ has zero mean and is not identically zero, it must be strictly positive on an interior subset of positive measure. It follows that
+By \ref{eq:endpoints-part-ii}, both endpoint values of $\Delta q_i(\cdot,s)$ are nonpositive. Since $\Delta q_i(\cdot,s)$ has zero mean and is not identically zero, it must be strictly positive on an interior subset of positive measure. It follows that
 \[
 \Delta q_i(\theta,s)\le 0
 \qquad
@@ -2654,7 +2603,7 @@ The case $\Delta\G_i(\theta)\le 0$ is symmetric. In that case,
 $R_{\G}(\theta)\le 0 \qquad\text{for all }\theta,$
 so
 $\E_i^w[R_{\G}\mid s]\le 0,$
-and \eqref{eq:endpoints-part-ii} implies that both endpoint values of $\Delta q_i(\cdot,s)$ are nonnegative. Hence
+and \ref{eq:endpoints-part-ii} implies that both endpoint values of $\Delta q_i(\cdot,s)$ are nonnegative. Hence
 \[
 \Delta q_i(\theta,s)\ge 0
 \qquad
@@ -2666,10 +2615,11 @@ This proves part (ii).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Marginal response of category allocations to aggregate capacity - Proof of Lemma~\ref{lem:dkidk}}
+\subsection{Marginal response of category allocations to aggregate capacity - Proof of Lemma~\ref{lem:dkidk}}\label{proof:dkidk}
+
 
 \begin{proof}
-\textit{Contributing categories ($i\in N^+$).} Both outer first-order conditions hold with equality and $dI_i^\ast$ is free. Differentiating $\frac{\partial V_i}{\partial k_i}=\tilde\lambda^\ast I'(k^\ast)$ and $\frac{\partial V_i}{\partial I_i}=-\tilde\lambda^\ast$ with respect to $k$ and using \eqref{eq:proof-Vi-Iderivs}--\eqref{eq:proof-Vi-kk} gives
+\textit{Contributing categories ($i\in N^+$).} Both outer first-order conditions hold with equality and $dI_i^\ast$ is free. Differentiating $\frac{\partial V_i}{\partial k_i}=\tilde\lambda^\ast I'(k^\ast)$ and $\frac{\partial V_i}{\partial I_i}=-\tilde\lambda^\ast$ with respect to $k$ and using \ref{eq:proof-Vi-Iderivs}--\ref{eq:proof-Vi-kk} gives
 \[
 dI_i^\ast = \E_{(s,i)}^w[uJ\mid s]\,dk_i^\ast + \E_{(s,i)}^w[\mathrm{Var}_i(uJ)]\,d\tilde\lambda^\ast.
 \]

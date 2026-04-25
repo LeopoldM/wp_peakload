@@ -1,5 +1,10 @@
 \LoadClass[10pt]{article}
 
+%%
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+%%
 
 \usepackage[T1]{fontenc}
 \usepackage{mathpazo}   % Palladio/Palatino-style text + Pazo math
@@ -17,9 +22,7 @@
 % \usepackage[french]{babel}
 \usepackage{emptypage}
 \usepackage{xcolor}
-\usepackage{geometry}
 \usepackage{amsthm}
-\usepackage{setspace}
 \usepackage{tikz}
 \usepackage{booktabs} % For pretty tables
 \usepackage{caption} % For caption spacing
