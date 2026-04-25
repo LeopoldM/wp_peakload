@@ -93,7 +93,7 @@ The designer must also satisfy a revenue requirement:
 \begin{equation}
 \sum_i\mu_i
 \E_{(s,i)}\!\left[t_i(\theta,s)\right] - I(k) \ge 0,
-\tag{R}\label{R-def}
+\tag{R$^\times$}\label{R-def}
 \end{equation}
 where $\E_{(s,i)}[\cdot]$ denotes expectation with respect to both the distribution of types $\theta$ and the distribution of states $s$.
 
@@ -118,9 +118,9 @@ By the revelation principle, it is without loss to focus on direct mechanisms. A
 \] 
 Constraint \ref{IC-def1} imposes incentive compatibility in expectation over the common shock $s$. Under \ref{IC-def1}, transfers can be chosen such that the expected surplus of a consumer of type $\theta$ in category $i$ satisfies 
 %##########################################
-\[ \tag{$\E CS_i$}\label{ECSi} \E CS_i(\theta):=\E_s\!\left[\theta U\!\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right] = \E \underline{CS}_i+\int_{\underline{\theta}_i}^{\theta}\E_s\!\left[U\!\left(q_i(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}. \]
+\[ \tag{$\E CS_i^\times$}\label{ECSi} \E CS_i(\theta):=\E_s\!\left[\theta U\!\left(q_i(\theta,s),s\right)-t_i(\theta,s)\right] = \E \underline{CS}_i+\int_{\underline{\theta}_i}^{\theta}\E_s\!\left[U\!\left(q_i(\tilde{\theta},s),s\right)\right]\,d\tilde{\theta}. \]
 %##########################################
-for some boundary term $\E \underline{CS}_i \ge 0$. This representation follows from standard envelope arguments.\footnote{In general, IC in expectation is weaker than pointwise IC: monotonicity of the expected marginal payoff does not, by itself, imply that the allocation is nondecreasing in $\theta$ for every state $s$ separately. I verify ex post that the optimal solution satisfies pointwise IC under Assumption Int. Off-peak, the allocation is independent of $\theta$. On-peak, Assumption~\ref{ass:interior} ensures that the effective social weight is strictly increasing in $\theta$, which implies that the allocation is strictly increasing in $\theta$ in every binding state simultaneously. The optimal allocation, therefore, satisfies pointwise IC, and imposing IC in expectation is without loss at the optimum.} 
+for some boundary term $\E \underline{CS}_i \ge 0$. This representation follows from standard envelope arguments.\footnote{In general, IC in expectation is weaker than pointwise IC: monotonicity of the expected marginal payoff does not, by itself, imply that the allocation is nondecreasing in $\theta$ for every state $s$ separately. I verify ex post that the optimal solution satisfies pointwise IC. Off-peak, the allocation is independent of $\theta$. On-peak, Assumption~\ref{ass:interior} ensures that the effective social weight is strictly increasing in $\theta$, which implies that the allocation is strictly increasing in $\theta$ in every binding state simultaneously. The optimal allocation, therefore, satisfies pointwise IC, and imposing IC in expectation is without loss at the optimum.} 
 
 \noindent\textbf{Virtual-surplus primitives.} Let $\gamma_i(\theta)$ denote the inverse hazard rate of $G_i$ and $J_i(\theta)$ the virtual surplus function associated with a consumer from category $i$ and type $\theta$
 %##########################################
@@ -146,7 +146,7 @@ The program of the market designer can be expressed as:
 &  \sum_{i \in N}  \mu_i   \; 
 \Big\{ \;  \tilde{\lambda}_i \;\E \underline{CS}_i 
       + \E_{(s,i)} \big[\; \Lambda_i(\theta)\;  U(q_i(\theta,s),s)\; \big] \;  \Big\}
-\tag{CS}\label{CSmd-def}  \\
+\tag{CS$^\times$}\label{CSmd-def}  \\
 \text{s.t.} \quad
 & \sum_{i\in N}\mu_i
 (\E_{(s,i)}\left[ U(q_i(\theta,s),s) J_i(\theta) \right] - \E \underline{CS}_i)\;-\; I(k)
@@ -180,7 +180,7 @@ I begin with the basic structure of the optimal allocation for a single category
 %##########################################
 This reformulation combines the participation and budget requirements in a single constraint when the designer maximizes consumer surplus. Throughout the article, I refer to this expression as the available surplus from the mechanism, which is redistributed via a uniform lump sum transfer to the consumers. Individual surpluses are then 
 \[
-  \E CS_i(\theta) = \underbrace{\Bigg.\E\underline{CS}_i\Bigg.}_{ \text{fixed transfer} } +\underbrace{\Bigg. \int_{\underline\theta_i}^{\theta} \E_s\!\left[U\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta\Bigg. }_{\text{IC transfer}}. \tag{ECS$_i^\times$}\label{ECSitimes}
+  \E CS_i(\theta) = \underbrace{\Bigg.\E\underline{CS}_i\Bigg.}_{ \text{fixed transfer} } +\underbrace{\Bigg. \int_{\underline\theta_i}^{\theta} \E_s\!\left[U\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta\Bigg. }_{\text{IC transfer}}. \tag{ECS$_i$}\label{ECSitimes}
 \]
 Substituting $\E \underline{CS}_i$ into the objective, the problem becomes
 %##########################################
@@ -276,11 +276,11 @@ To obtain characterization, I impose the following regularity condition.
 
 \renewcommand{\theassumption}{Monot.}
 \begin{assumption}\label{ass:monotone}
-\(R_q(\theta)\) and \(R_\theta(\theta)\) are both monotone on \([\underline{\theta}_i,\overline{\theta}_i]\). Moreover, \(R_q(\theta)\) exhibits log-monotone differences in \((\theta)\).
+\(R_q(\theta)\) and \(R_\theta(\theta)\) are both monotone on \([\underline{\theta}_i,\overline{\theta}_i]\). Moreover, \(R_q(\theta)\) exhibits log-monotone differences in \((\theta,k_i)\).
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
-In particular, I show in Lemma~\ref{lem:SC-dir} of the Appendix that \ref{Eujmd} is single-crossing in \(k_i\) if whether \(R_q(\theta)\) and \(R_\theta(\theta)\) are increasing or decreasing, and on whether \(R_q(\theta)\) exhibits positive or negative log-monotone differences in \((\theta)\). Hence, the available surplus to be redistributed is either single-peaked or single-dipped.\footnote{The economic interpretation of log-monotone differences in \((\theta)\) is intuitive. Suppose that, for each \(k_i\), $R_\theta(\theta)$ is increasing in $\theta$, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta')/R_q(\theta)\) is decreasing in \(\theta\). Thus, as capacity expands, the weighted average \ref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates.} I discuss in section~\ref{appsec:singlecross} in the Appendix, the conditions for establishing the monotonicity of those ratios. In particular, 
+In particular, I show in Lemma~\ref{lem:SC-dir} of the Appendix that \ref{Eujmd} is single-crossing in \(k_i\) if whether \(R_q(\theta)\) and \(R_\theta(\theta)\) are increasing or decreasing, and on whether \(R_q(\theta)\) exhibits positive or negative log-monotone differences in \((\theta,k_i)\). Hence, the available surplus to be redistributed is either single-peaked or single-dipped.\footnote{The economic interpretation of log-monotone differences in \((\theta,k_i)\) is intuitive. Suppose that, for each \(k_i\), $R_\theta(\theta)$ is increasing in $\theta$, so higher types receive higher effective virtual surplus, and that \(R_q(\theta)\) is log-submodular in \((\theta,k_i)\). Then capacity expansion disproportionately raises \(R_q\) for lower types, in the sense that for \(k_i'>k_i\), the ratio \(R_q(\theta')/R_q(\theta)\) is decreasing in \(\theta\). Thus, as capacity expands, the weighted average \ref{Eujmd} shifts monotonically from the regime in which the average effect dominates toward the regime in which the sorting effect dominates.} I discuss in section~\ref{appsec:singlecross} in the Appendix, the conditions for establishing the monotonicity of those ratios. In particular, 
 \[
 \label{signRt}\tag{$\sign R_\theta$} \sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue motive}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{redistributive motive}}\Bigg).
 \] For types contributing positively to the available surplus ($J_i(\theta) > 0$), $R_\theta(\theta)$ is increasing whenever the revenue motive grows proportionally faster than the redistributive motive. For types contributing negatively ($J_i(\theta) < 0$), the reverse holds: $R_\theta(\theta)$ is increasing whenever the revenue motive grows proportionally slower. When those assumptions fail, the same sufficient statistic remains valid, but its sign need not vary monotonically with \(k_i\).
@@ -289,7 +289,7 @@ Finally, a useful specification used in the article is CARA utility as a consume
  
 \renewcommand{\theassumption}{CARA}
 \begin{assumption}\label{ass:CARA}
-$U(q,s) = v(s)\exp(-\alpha q)$ for some $\alpha > 0$ and some function $v(s) > 0$.
+$U(q,s) = v(s)/\alpha(1-\exp(-\alpha q))$ for some $\alpha > 0$ and some function $v(s) > 0,v_s(s) > 0$.
 \end{assumption}
 \renewcommand{\theassumption}{\arabic{assumption}}
 
@@ -490,7 +490,7 @@ If \(R_\theta(\theta)\) is decreasing, the inequalities are reversed. If no inte
 
 Expanding capacity is not always surplus-improving for all consumers, and the identity of who gains/loses depends on the regime and on the joint sign of \ref{Eujmd} and \(R_\theta(\theta)\). Importantly, the mechanism through which a capacity expansion determines the progressivity/regressivity of the capacity expansion is not the same across regimes. Under the IR-unconstrained regime, it operates through changes in the available surplus \ref{underlineECSi}, while under the IR-constrained regime it operates through changes in the optimal allocation \(q_i(\theta,s)\).
 
-When the participation constraint is slack (\(\beta_i=0\)), the optimal allocation is increasing in \(k_i\) for all types in binding states. Hence, the IC component is always increasing. However, the sign of the type-independent component in \ref{partialkCS1} depends entirely on the sign of \ref{Eujmd}, which therefore summarizes the marginal redistributive effect of expanding capacity. If \ref{Eujmd}>0, both the common surplus component and the induced IC rents increase with \(k_i\), so all types gain. If \ref{Eujmd}<0, lower types lose while higher types gain, with a unique cutoff as stated in Theorem~\ref{thm:surplus}.\footnote{I show in the proof that the type-dependent part in \ref{partialkCS1} (the marginal IC rent) is increasing in \(\theta\). This monotonicity property yields the uniqueness of the cutoff in part~(ii), as well as the ordering of the types that experience a decrease in surplus.}
+When the participation constraint is slack (\(\beta_i=0\)), the optimal allocation is increasing in \(k_i\) for all types in binding states. Hence, the IC component is always increasing. However, the sign of the type-independent component in \ref{partialkCS1} depends entirely on the sign of \ref{Eujmd}, which therefore summarizes the marginal redistributive effect of expanding capacity. If \ref{Eujmd}>0, both the common surplus component and the induced IC rents increase with \(k_i\), so all types gain. If \ref{Eujmd}<0, lower types lose while higher types gain, with a unique cutoff as stated in Theorem~\ref{thm:surplus}.
 
 When the participation constraint binds, the fixed transfer is null, so the surplus effect of a capacity expansion is driven by the quantity margin. However, the monotonicity of quantities in $k_i$ may fail because a capacity expansion also changes the tightness of the financing constraint through the endogenous response of \(\beta_i\), as shown in \ref{partialkq1}. The bracketed term in that expression is the deviation of a type's marginal virtual surplus \(u(q_i(\theta,s),s)J_i(\theta)\) from its \(w_i\)-weighted average; its sign is therefore determined by the relative ranking of types according to marginal virtual surplus, which is captured by \(R_\theta(\theta)\). The sign of \(\partial \beta_i/\partial k_i\) is again governed by \ref{Eujmd}, which captures how capacity expansion tightens or loosens the budget constraint. Therefore, the condition on \ref{Eujmd} and $R_\theta(\theta)$ has a direct interpretation: suppose that expanding \(k_i\) makes the budget less tight, so that \(\beta_i\) decreases in \(k_i\). The need for revenue extraction then falls, and the designer lowers the marginal weight on types that generate higher marginal virtual surplus.
 
@@ -566,9 +566,9 @@ The sorting effect of the optimal allocation induced by a preference perturbatio
 Similarly to the capacity extension expression \ref{partialkCS1}, the individual surplus change follows from \ref{ECSi}
 %##########################################
 \begin{equation*}
-  \Delta CS_i(\theta) = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
+\Delta \E CS_i  = \Delta \E\underline{CS}_i + \int_{\underline\theta_i}^{\theta} \E_s\!\left[\Delta q_i(\tilde\theta,s) u\!\left(q_i(\tilde\theta,s),s\right)\right]d\tilde\theta
 \end{equation*}
-Using lemma \ref{lem:realloc}, the following expression characterizes the change of available surplus \ref{Eujmd} due to a perturbation of preferences
+Using lemma \ref{lem:realloc}, the following expression characterizes the change of available surplus \ref{underlineECSi} due to a perturbation of preferences
 \[
 \Delta\E\underline{CS}_i =\E_{(s,i)}\!\left[\varepsilon_i(s)\,R_\theta(\theta)\,R_q(\theta)\left(R_\G(\theta)-\E_i^w\!\left[R_\G(\theta)\mid s\right]\right)\mathbf{1}_{\{s\in T_i\}}\right].
 \]
@@ -1007,7 +1007,7 @@ dk \Bigg(
 \]
 Thus, a global capacity expansion affects the nonlinear tariff through the same margins that govern the allocation problem in \ref{Deltapi2}: the reallocation of capacity across categories and the induced reallocation of revenue requirements. The implication of \ref{Deltapi3} for a non-contributing category, for which \(\frac{dI_i^\ast}{dk}=0\), is immediate. As shown in the proof of Theorem~\ref{thm:surplus}, the optimal allocation \(q_i(\theta,s)\) is always increasing in \(k_i\). Therefore, the sign of \ref{Deltapi3} depends only on \(\frac{dk_i^\ast}{dk}\), which is characterized in Appendix Lemma~\ref{lem:dkidk}; its sign depends on the comparison between the marginal investment cost and the capacity-sorting margin in \ref{Eujmd}. By contrast, in a contributing category, the effect of a capacity expansion may be ambiguous due to the additional revenue effect.
 
-Figure~\ref{fig:Across2Cat_Kseq_block_prices_bycat_nativeQ_diff} illustrates these two observations in a two-category environment. Category~1 has a lower average welfare weight and is therefore the contributing category, but it favors low types \(\left(\tilde\lambda_1=0.9,\ a_1=1.6\right)\). Category~2 has a higher average welfare weight and is therefore the non-contributing category, but it favors high types \(\left(\tilde\lambda_2=1.1,\ a_2=1.6\right)\). The qualitative pattern is driven by the ranking of average welfare weights. Note that swapping the direction of the preference tilt between the two categories, while holding average welfare weights fixed, produces the mirror image of the same pattern. The illustration assumes that \(k_i^\ast\) increases in both categories, that is, that the marginal gain in surplus in \ref{Eujmd} exceeds the marginal investment cost. As expected, the marginal price is strictly decreasing for all types in the non-contributing category. For the contributing category, however, the change in the marginal price is not monotone in sign. In particular, lower types, despite being favored by the welfare weights, may face higher marginal prices after a capacity expansion. Appendix Figure~\ref{fig:Across2Cat_Kseq_Decomposition_wrtK1} decomposes \ref{Deltapi3} into its two components and shows that this increase in marginal prices is driven by the capacity effect. In particular, as discussed after Theorem~\ref{thm:surplus}, the quantity allocated to lower types decreases because their contribution to surplus creation is negative; the formal expression is given in \ref{partialkq1}.
+Figure~\ref{fig:Across2Cat_Kseq_block_prices_bycat_nativeQ_diff} illustrates these two observations in a two-category environment. Category~1 has a lower average welfare weight and is therefore the contributing category, but it favors high types \(\left(\tilde\lambda_1=0.9,\ a_1=1.6\right)\). Category~2 has a higher average welfare weight and is therefore the non-contributing category, but it favors low types \(\left(\tilde\lambda_2= 1.1,\ a_2= - 1.6\right)\). The qualitative pattern is driven by the ranking of average welfare weights. Note that swapping the direction of the preference tilt between the two categories, while holding average welfare weights fixed, produces the mirror image of the same pattern. The illustration assumes that \(k_i^\ast\) increases in both categories, that is, that the marginal gain in surplus in \ref{Eujmd} exceeds the marginal investment cost. As expected, the marginal price is strictly decreasing for all types in the non-contributing category. For the contributing category, however, the change in the marginal price is not monotone in sign. In particular, lower types, despite being favored by the welfare weights, may face higher marginal prices after a capacity expansion. Appendix Figure~\ref{fig:Across2Cat_Kseq_Decomposition_wrtK1} decomposes \ref{Deltapi3} into its two components and shows that this increase in marginal prices is driven by the capacity effect. In particular, as discussed after Theorem~\ref{thm:surplus}, the quantity allocated to lower types decreases because their contribution to surplus creation is negative; the formal expression is given in \ref{partialkq1}.
 
 \begin{figure}
     \centering
@@ -1068,14 +1068,14 @@ where $\E_l[R_\theta(\theta)] := \sum_l p_l R_{\theta}(\theta_l)$ and $\mathrm{V
 
 \textit{Two types.} Since $R_{\theta}(\theta_H) > R_{\theta}(\theta_L)$ always and $(R_{\theta}(\theta_L) < 0$ when $\beta > 0$ and $J_L < 0$,
 \[
-\frac{\partial  q_H}{\partial k}= -\frac{(R_{\theta}(\theta_L)}{p_H(R_{\theta}(\theta_H) - (R_{\theta}(\theta_L))} > 0.
+\frac{\partial  q_H}{\partial k}= -\frac{(R_{\theta}(\theta_L)}{p_H(R_{\theta}(\theta_H) - R_{\theta}(\theta_L))} > 0.
 \]
 
 \textit{Three types.} With $p_l = 1/3$, substituting and simplifying gives
 \small{\[
 \frac{\partial q_H}{\partial k}= \frac{3[R_{\theta}(\theta_L)^2 + R_{\theta}(\theta_M)^2 - R_{\theta}(\theta_H)(R_{\theta}(\theta_L) + R_{\theta}(\theta_M))]}{2[R_{\theta}(\theta_H)^2 - R_{\theta}(\theta_H)R_{\theta}(\theta_L) - R_{\theta}(\theta_H)R_{\theta}(\theta_M) + R_{\theta}(\theta_L)^2 - R_{\theta}(\theta_L)R_{\theta}(\theta_M) + R_{\theta}(\theta_M)^2]}.
 \]}
-The denominator is strictly positive. Hence $\frac{\partial  q_H}{\partial k} < 0$ if and only if $R_{\theta}(\theta_H)((R_{\theta}(\theta_L) + (R_{\theta}(\theta_M)) > R_{\theta}(\theta_L)^2 + R_{\theta}(\theta_M)^2$.
+The denominator is strictly positive. Hence $\frac{\partial  q_H}{\partial k} < 0$ if and only if $R_{\theta}(\theta_H)(R_{\theta}(\theta_L) + R_{\theta}(\theta_M)) > R_{\theta}(\theta_L)^2 + R_{\theta}(\theta_M)^2$.
 
 Figure \ref{fig:ThreeTypesWithin_quantity} illustrates the possibility to have a decreasing optimal quantity for the highest type as capacity expands. The figure is drawn with a CARA utility function with $\alpha = 1$ and for a three-type environment with
 \(
@@ -1105,11 +1105,11 @@ I=0.5
 This appendix establishes the single-crossing property of \ref{Eujmd} invoked in the main text, and provides the primitive foundations of Assumption~\ref{ass:monotone}.
 
 \begin{definition}
-$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq (\text{resp.} \geq 0)$.
+$R_q$ is \emph{log-submodular (resp. log-supermodular) in $(\theta)$} if $\partial^2 \log R_q/\partial\theta\,\partial k_i\leq 0 \; (\text{resp.} \geq 0) $.
 \end{definition}
 
 \begin{lemma}[Single-crossing]\label{lem:SC-dir}
-Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta)\). Then the map
+Assume that, for each \(k_i\), the map \(\theta\mapsto R_\theta(\theta)\) is monotone, and that \(R_q(\theta)\) has log-monotone differences in \((\theta,k_i)\). Then the map
 \[
 k_i \longmapsto \E_{(s,i)}^w[uJ\mid s]
 \]
@@ -1129,7 +1129,7 @@ so $R_q'(\theta)<0$ for linear and quadratic demand, while $R_q'(\theta)>0$ for 
 \sign\!\left(R_\theta'(\theta)\right) = \sign\!\left(J_i(\theta)\right)\,\sign\!\Bigg(\underbrace{\frac{J_i'(\theta)}{J_i(\theta)}}_{\text{revenue term}} - \underbrace{\frac{\Lambda_i'(\theta)}{\Lambda_i(\theta)}}_{\text{IC term}}\Bigg).
 \]
 %##########################################
-The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second compares the proportional growth rates of the two: when $\Lambda_i'(\theta)<0$, the IC term is shrinking, and the revenue term automatically dominates, giving $R_\theta'(\theta)>0$.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=G_i(\theta)$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\G_i(\theta)=\theta$, and the IC term in \ref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
+The first term flags whether a type contributes to revenue ($J_i(\theta)>0$) or not ($J_i(\theta)<0$). The second compares the proportional growth rates of the two: when $\Lambda_i'(\theta)<0$, the IC term is shrinking, and the revenue term automatically dominates, giving $R_\theta'(\theta)>0$.\footnote{It is not possible to have a clear-cut sign of $R'_\theta(\theta)$. Indeed, the sign of $\Lambda_i'(\theta)$ depends on $g_i(\theta)$ and $\lambda_i(\theta)$: $\Lambda_i'(\theta)=-\Lambda_i(\theta)\frac{g_i'(\theta)}{g_i(\theta)}-\lambda_i(\theta)$. For instance, under a uniform distribution $\Lambda_i'(\theta)<0$, while its sign may be ambiguous for other distributions. Hence, under a uniform distribution, the sign of $R_\theta(\theta)$ is ambiguous as soon as $J_i(\theta)<0$. A utilitarian market designer (i.e., $\lambda_i(\theta)=1$) does not imply a unique sign for $R_\theta(\theta)$, since it places implicit weight on higher types: in that case $\G_i(\theta)=\theta$, and the IC term in \ref{signRt} is positive (equal to $1/\theta$). If instead the correlation between types and social weights is zero, then the IC term is null and the sign of $R_\theta'(\theta)$ is determined solely by $J_i'(\theta)$, which is positive under regularity of $g_i(\theta)$.} 
 
 
 \begin{remark}[Primitive foundation]\label{rem:prim}
@@ -1604,9 +1604,8 @@ Finally, Assumption~\ref{ass:interior} also imposes that \(\G_i(\theta)\) is non
 \frac{\G_i'(\theta)}{\G_i(\theta)}
 \ge 0,
 \]
-so the monotonicity constraint is satisfied. This proves part (i).
+so the monotonicity constraint is satisfied.
 
-For part (ii), if \ref{Rmdi-def} is slack at \((k_i,I_i)\), complementary slackness implies \(\beta_i=0\). Hence $\G_i(\theta)=\Gamma_i(\theta)+\beta_i J_i(\theta)\equiv \Gamma_i(\theta)$. This proves part (ii).
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Single-crossing - Proof of Lemma \ref{lem:SC-dir}}\label{proof:SC-dir}
@@ -1923,9 +1922,9 @@ Under Assumption~\ref{ass:CARA}, $\E_i^w[R_\G(\theta)\mid s]=\E_i[R_\G(\theta)]$
 \begin{proof}
 The feasible set
 \[
-\mathcal F := \left\{ \{(k_i,I_i)\}_{i\in N} : \sum_{i\in N} k_i = k,\ \sum_{i\in N} I_i = I,\ k_i\ge 0,\ I_i\ge 0\ \forall i \right\}
+\mathcal F := \left\{ \{(k_i,I_i)\}_{i\in N} : \sum_{i\in N} \mu_i k_i = k,\ \sum_{i\in N}  \mu_iI_i = I,\ k_i\ge 0,\ I_i\ge 0\ \forall i \right\}
 \]
-is compact and convex. Continuity of each $V_i$ follows from Berge's maximum theorem: the objective $\E_{(s,i)}[\Gamma_i(\theta)U(q,s)]$ and the constraints of the single-category problem are continuous in $(k_i,I_i)$, and the feasible correspondence is continuous and compact-valued under the maintained assumptions. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is concave. Hence the outer objective $W:=\sum_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
+is compact and convex. Continuity of each $V_i$ follows from Berge's maximum theorem: the objective $\E_{(s,i)}[\Gamma_i(\theta)U(q,s)]$ and the constraints of the single-category problem are continuous in $(k_i,I_i)$, and the feasible correspondence is continuous and compact-valued under the maintained assumptions. By Lemma~\ref{lem:Vi-concave} below, each $V_i$ is concave. Hence the outer objective $W:=\sum_i \mu_i V_i$ is continuous and concave on $\mathcal F$. Existence and convexity of the solution set follow from the extreme value theorem and concavity of $W$. Uniqueness under the stated condition follows from Lemma~\ref{lem:Vi-concave}(i), which gives strict concavity of each $V_i$ on the IR-constrained, capacity-binding region, hence strict concavity of $W$ at the optimum.
 
 \begin{lemma}[Concavity of the single-category value function]\label{lem:Vi-concave}
 For each category $i$, the value function $V_i(k_i,I_i)$ is concave on its feasible domain. More precisely:
@@ -2011,7 +2010,7 @@ With $\nabla V_i$ continuous at both boundaries, fix any two feasible points $x^
 Under assumption~\ref{ass:regularity}, if $I_i=0$ then $\beta_i=0$.
 \end{lemma}
 \begin{proof}[Proof of Lemma~\ref{lem:rev-pos}]
-Suppose for contradiction that $I_i=0$ and $\beta_i>0$. Then complementary slackness on the IR/budget constraint requires $\E_{(s,i)}[U(q_i,s)J_i(\theta)]=0$. However, since $J_i'(\theta)>0$ and $q_i(\theta,s)$ is increasing in $\theta$ due to the IC constraint, hence both $J_i(\theta)$ and $U(q_i(\theta,s),s)$ are increasing in $\theta$. Therefore $\Cov_{i}(J_i,U)\ge 0$, and combined with $\E_i[J_i]=\underline\theta_i>0$ and $U>0$ at any interior allocation, we obtain $\E_{(s,i)}[U(q_i,s)J_i(\theta)]>0$ strictly, a contradiction.
+Suppose for contradiction that $I_i=0$ and $\beta_i>0$. Then complementary slackness on the IR/budget constraint requires $\E_{(s,i)}[U(q_i,s)J_i(\theta)]=0$. However, since $J_i'(\theta)>0$ and $q_i(\theta,s)$ is increasing in $\theta$ due to the IC constraint, hence both $J_i(\theta)$ and $U(q_i(\theta,s),s)$ are increasing in $\theta$. Therefore $\Cov_{i}(J_i,U)\ge 0$, and combined with $U>0$ at any interior allocation, we obtain $\E_{(s,i)}[U(q_i,s)J_i(\theta)]>0$ strictly, a contradiction.
 \end{proof}
 
 \begin{proof}
@@ -2023,7 +2022,7 @@ Since $V_i(k_i,I_i)$ is strictly concave in $k_i$ by Lemma~\ref{lem:Vi-concave},
 \varepsilon_i(s;k_i)\mathbf{1}_{\{s\in T_i(k_i)\}}
 \right]
 \]
-is strictly decreasing in $k_i$. At the outer optimum, the stationarity condition equalizes $\Pi_i(k_i^\ast)=\mu_k$ across all active categories. Therefore, to first order in $\Delta\lambda$,
+is strictly decreasing in $k_i$. At the outer optimum, the stationarity condition equalizes $\Pi_i(k_i^\ast)=\zeta_k$ across all active categories. Therefore, to first order in $\Delta\lambda$,
 $k_j^\ast>k_i^\ast \quad\Longleftrightarrow\quad \Delta \Pi_i(k_i^\ast)>0,$
 where $\Delta \Pi_i(k_i^\ast):=\Pi_j(k_i^\ast)-\Pi_i(k_i^\ast)$ is the change in marginal scarcity rent induced by the preference perturbation, evaluated at the baseline capacity $k_i^\ast$. By the envelope theorem,
 \[
@@ -2052,11 +2051,11 @@ where $R_\G(\theta)=\Delta \G_i(\theta)/\G_i(\theta)$ and $\G_i(\theta)=\Gamma_i
 \mathbf{1}_{\{s\in T_i(k_i^\ast)\}}
 \right],
 \]
-which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is independent of $\theta$. Therefore $\E_i^w[R_\G(\theta)\mid s]=\E_i[R_\G(\theta^\ast)]$ for every state $s$, and
+which proves the first claim. Under Assumption~\ref{ass:CARA}, $u_q=-\alpha u$, so $w_i(\theta,s)=1/(\alpha\varepsilon_i(s))$ is independent of $\theta$. Therefore $\E_i^w[R_\G(\theta)\mid s]=\E_i[R_\G(\theta)]$ for every state $s$, and
 \begin{equation}\label{eq:proof-DeltaPi-CARA}
-\Delta \Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_\G(\theta^\ast)].
+\Delta \Pi_i(k_i^\ast)=\Pi_i(k_i^\ast)\E_i[R_\G(\theta)].
 \end{equation}
-Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\E_i[R_\G(\theta^\ast)]$.
+Since $\Pi_i(k_i^\ast)>0$ at any interior optimum, the sign is determined solely by $\E_i[R_\G(\theta)]$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Preference shifts and effective social weights - Proof of Lemma~\ref{lem:preferenceorder}}\label{proof:preferenceorder}
@@ -2131,19 +2130,19 @@ We proceed in three steps.
 Suppose for contradiction that there exists an adjacent pair \(i-1,i\) such that
 $\beta_{i-1}^\ast=0 \qquad\text{and}\qquad \beta_i^\ast>0.$
 By Lemma~\ref{lem:rev-pos}, \(\beta_i^\ast>0\) implies \(I_i^\ast>0\). Hence the outer KKT condition for category \(i\) gives
-$\tilde\lambda_i+\beta_i^\ast=-\mu_I.$
+$\tilde\lambda_i+\beta_i^\ast=-\zeta_I.$
 For category \(i-1\), the stationarity condition with \(\beta_{i-1}^\ast=0\) gives
-$\tilde\lambda_{i-1}=-\mu_I+\xi_{i-1}, \qquad \xi_{i-1}\ge 0.$
+$\tilde\lambda_{i-1}=-\zeta_I+\xi_{i-1}, \qquad \xi_{i-1}\ge 0.$
 Therefore
-$\tilde\lambda_{i-1}\ge -\mu_I=\tilde\lambda_i+\beta_i^\ast>\tilde\lambda_i,$
+$\tilde\lambda_{i-1}\ge -\zeta_I=\tilde\lambda_i+\beta_i^\ast>\tilde\lambda_i,$
 which contradicts \(\tilde\lambda_i\ge \tilde\lambda_{i-1}\). Hence \(N^+\) is an initial segment and \(N^0\) a terminal segment of \(N\).
 
 
 \noindent\textit{Step 2: The sequence \((\beta_i^\ast)_{i\in N^+}\) is weakly decreasing.}
 Fix \(i\in N^+\). Since \(\beta_i^\ast>0\), Lemma~\ref{lem:rev-pos} implies \(I_i^\ast>0\), so the outer KKT condition yields
-$\tilde\lambda_i+\beta_i^\ast=-\mu_I.$
+$\tilde\lambda_i+\beta_i^\ast=-\zeta_I.$
 Thus, for every \(i\in N^+\),
-$\beta_i^\ast=-\mu_I-\tilde\lambda_i.$
+$\beta_i^\ast=-\zeta_I-\tilde\lambda_i.$
 Because \(\tilde\lambda_i\) is weakly increasing in \(i\) under Assumption~\ref{ass:ordered-path}, it follows that \(\beta_i^\ast\) is weakly decreasing on \(N^+\).
 
 
@@ -2182,7 +2181,7 @@ $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad \text{for all }\theta.$
 \smallskip
 \noindent{Case 2: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)>0\).}
 Since both categories are in \(N^+\), the outer KKT conditions give
-$\tilde\lambda(t)+\beta^\ast(t) = \tilde\lambda(t+h)+\beta^\ast(t+h) = -\mu_I.$
+$\tilde\lambda(t)+\beta^\ast(t) = \tilde\lambda(t+h)+\beta^\ast(t+h) = -\zeta_I.$
 Hence
 $c_{\G}=1, \qquad c_\Lambda=\frac{\tilde\lambda(t+h)}{\tilde\lambda(t)}\ge 1.$
 Lemma~\ref{lem:preferenceorder} again implies
@@ -2192,9 +2191,9 @@ $\G(\theta;t+h)-\G(\theta;t)\ge 0 \qquad \text{for all }\theta.$
 \noindent{Case 3: \(\beta^\ast(t)>0\) and \(\beta^\ast(t+h)=0\).}
 From the KKT conditions,
 \[
-\tilde\lambda(t)+\beta^\ast(t)=-\mu_I,
+\tilde\lambda(t)+\beta^\ast(t)=-\zeta_I,
 \qquad
-\tilde\lambda(t+h)=-\mu_I+\xi(t+h),
+\tilde\lambda(t+h)=-\zeta_I+\xi(t+h),
 \qquad
 \xi(t+h)\ge 0.
 \]
@@ -2231,7 +2230,6 @@ $k_i^\ast=k^\ast(1)\ge k^\ast(0)=k_{i-1}^\ast.$
 
 Since this holds for every adjacent pair \(i-1,i\), we conclude that
 $k_1^\ast\le \cdots \le k_n^\ast.$
-This proves (iii), and hence the corollary.
 \end{proof}
 
 

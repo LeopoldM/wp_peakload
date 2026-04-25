@@ -1,11 +1,12 @@
 \documentclass{class}
+
 \definecolor{ok}{RGB}{0,140,0}
 \definecolor{todo}{RGB}{180,0,0}
 \newcommand{\ok}{\textcolor{ok}{\textbf{[RESOLVED]}}}
 \newcommand{\todo}{\textcolor{todo}{\textbf{[OPEN]}}}
 
 \title{Notation Audit Log --- Redistributive Peak Load Pricing}
-\author{Pass A, Pass B (Round 1), Pass B (Round 2), Pass B (Round 3)}
+\author{Pass A, Pass B, Pass C, Pass D}
 \date{}
 
 \begin{document}
@@ -68,6 +69,74 @@
 \item \ok\ $\Delta k$ and $\Delta I$ undefined in ($\Delta_2 p_i$): fixed by adding sentence ``where $\Delta k := k_j^\ast - k_i^\ast$ and $\Delta I := I_j^\ast - I_i^\ast$ denote the differences in equilibrium capacity and revenue requirement between the two adjacent categories $i$ and $j$'' before the equation.
 \item \ok\ $\E_\theta[\cdot]$ in Assumption~\ref{ass:ordered-path} inconsistent with $\E_i[\cdot]$ convention: fixed by replacing with explicit integral $\tilde\lambda(t):=\int_\Theta\lambda(t,\theta)\,dG(\theta)$.
 \item \ok\ $\E_i[R_\theta^2(\theta)]$ typographically ambiguous and inconsistent with $\E_i[R_\theta^2]$ in Step 2 of the same proof: fixed to $\E_i[(R_\theta(\theta))^2]$ throughout.
+\end{enumerate}
+
+\section*{Pass C --- Notation and Placeholder Audit (Conversation Round 1)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ Abstract placeholders ``200 words'' and ``100 words'' identified; closed by author decision / removed in final clean version.
+\item \ok\ Footnote invoking Assumption Int before its formal statement; closed by author decision.
+\item \ok\ $R_q(\theta)$ defined as a function of $\theta$ while depending on $s$ through $q_i(\theta,s)$; accepted as a readability convention.
+\item \ok\ Equation (EuJ) drops explicit dependence on $k_i$; accepted as a readability convention after noting boundary effects are null.
+\item \ok\ Assumption CARA originally written as marginal utility using $U$ notation; corrected to
+\[
+U(q,s)=\frac{v(s)}{\alpha}\left(1-e^{-\alpha q}\right),
+\qquad
+u(q,s)=v(s)e^{-\alpha q}.
+\]
+\item \ok\ Duplicate tag \((ECSLH)\) in the two-type illustration; closed by author decision.
+\item \ok\ Scalar $w$ in the two-type correspondence not separately defined from $w_i(\theta,s)$ and $w_i(s)$; accepted as the two-type analogue.
+\item \ok\ Text referring to ``change of available surplus \(EuJ\)'' potentially conflating \(ECS_i\) and the capacity-sorting object; closed.
+\item \ok\ Contributor/non-contributor wording around slack budget constraints in Proposition 2 discussion; closed by author decision.
+\item \ok\ Display tagged \((d\lambda^\ast)\) and subsequent text using $d\lambda^\ast$ rather than $d\tilde\lambda^\ast$; accepted as an equation label / closed.
+\item \ok\ Nonlinear tariff numerical description: sign of the welfare-weight slope \(a_i\) checked for consistency with the stated direction of favored types; fixed where needed.
+\item \ok\ Appendix A.2 unmatched parentheses in the two-type and three-type allocation-incidence formulas; fixed.
+\item \ok\ Definition 1 missing explicit second variable in log-submodularity/log-supermodularity wording; fixed or accepted after clarifying the cross-partial is in \((\theta,k_i)\).
+\item \ok\ Footnote on utilitarian designer corrected so that \(\lambda_i(\theta)=1\), not \(G_i(\theta)\).
+\item \ok\ Proof of Lemma 4 feasible set corrected to use population-weighted aggregate constraints consistently with the outer problem.
+\item \ok\ Proof of Theorem 2 stray \(\theta^\ast\) in \(E_i[R_G(\theta^\ast)]\); fixed to the intended type-average expression.
+\item \ok\ Lemma 5 assumptions on uniqueness/interiority/strict convexity/Inada conditions; closed by author decision because the relevant conditions are maintained in the environment.
+\end{enumerate}
+
+\section*{Pass D --- Notation and Placeholder Audit (Conversation Round 2)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ Footnote 17: \(\Lambda_i^1\), \(\Lambda_i^2\), and \(\Lambda_i^\Delta\) used before being formally introduced; fixed by aligning notation with Lemma 7.
+\item \ok\ Assumption CARA: environment assumes \(u_s>0\); CARA statement updated to include \(v_s(s)>0\).
+\item \ok\ Proof of Lemma 2: references to parts (i) and (ii) removed or aligned with the lemma statement.
+\item \ok\ Proof of Theorem 2: capacity multiplier notation \(\mu_k\) replaced by \(\zeta_k\).
+\item \ok\ Lemma 10: positivity condition used in proof clarified or closed under maintained support assumptions.
+\item \ok\ Proof of Corollary 1: revenue multiplier notation \(\mu_I\) replaced by \(\zeta_I\).
+\item \ok\ Proof of Corollary 1: reference to ``This proves (iii)'' removed or aligned with the corollary statement.
+\item \ok\ Definition 1: log-submodularity wording corrected from ``in \((\theta)\)'' to ``in \((\theta,k_i)\)''.
+\item \ok\ Section 6 discussion after \((\Delta_3 p_i)\): category-specific preference direction and welfare-weight slope signs corrected.
+\item \ok\ Section 6 discussion after \((\Delta_3 p_i)\): statement about lower types being favored by welfare weights aligned with the stated numerical parameters.
+\end{enumerate}
+
+\section*{Pass E --- Notation and Placeholder Audit (Conversation Round 3)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ Lemma 1 transformed budget constraint tag \((R)\) reused original revenue-constraint tag; fixed by distinguishing \((R^\times)\) and transformed \((R)\), or by author-approved convention.
+\item \ok\ Section 3.1 available-surplus constraint tag \((ECS_i)\) reused envelope tag; fixed by distinguishing \((ECS_i^\times)\) and \((ECS_i)\).
+\item \ok\ Section 3.1 single-category objective tag \((CS)\) reused transformed objective tag; fixed by distinguishing \((CS^\times)\) and \((CS)\).
+\item \ok\ Footnote referencing ``part (ii)'' of Theorem 1; removed or rewritten because Theorem 1 is not formally numbered into parts.
+\item \ok\ Section 3.5: individual surplus change denoted both \(\Delta CS_i(\theta)\) and \(\Delta ECS_i(\theta)\); normalized to \(\Delta ECS_i(\theta)\).
+\item \ok\ Proposition 2 discussion: \(\tilde\lambda^\ast\) used before formal definition in Lemma 5; fixed by defining the common shadow value earlier or by adding a local definition.
+\item \ok\ Proposition 2 extensive-margin statement: empty-set convention for \(\max_{i\in N^+}\) and \(\min_{i\in N^0}\) clarified or closed by author decision.
+\item \ok\ Lemma 5: division by \(\mu^+\) clarified by assuming \(N^+\neq\varnothing\) or \(\mu^+>0\) where needed.
+\item \ok\ Figure 7 numerical description: \(\tilde\lambda_2=-1.1\) corrected to \(\tilde\lambda_2=1.1\).
+\item \ok\ Figure 7 numerical description: nonnegativity of welfare weights restored by correcting the average weight sign.
+\item \ok\ Proof of Lemma 4: outer objective corrected from \(W:=\sum_i V_i\) to \(W:=\sum_i\mu_i V_i\).
+\item \ok\ Proposition 5: additional restriction used in the proof of part (ii) either added to the statement or closed by author decision.
+\item \ok\ Lemma 8: positivity of \(B\) under \(I''(k^\ast)>0\) clarified or closed under maintained strict convexity of \(I\).
+\end{enumerate}
+
+\section*{Pass F --- Notation and Placeholder Audit (Conversation Round 4)}
+
+\begin{enumerate}[leftmargin=1.5cm]
+\item \ok\ Section 3.5 display before Proposition 1: individual surplus-change equation written as \(\Delta ECS_i=\Delta ECS_i+\int_{\underline\theta_i}^{\theta}\cdots\); fixed to use the type-dependent object \(\Delta ECS_i(\theta)\) on the left-hand side.
+\item \ok\ Appendix A.5, Lemma 7: statement gave both \(\geq\) and ``resp. \(\leq\)'' cases after assuming only that \(m_i(\theta)\) is increasing; fixed by explicitly adding the decreasing case.
+\item \ok\ Appendix C.1, proof of Lemma 1: scalar \(t_i\) introduced as the transfer of the lowest type while \(t_i(\theta,s)\) denotes the transfer schedule; fixed by defining a distinct scalar transfer for the lowest type, e.g.\ \(\underline t_i\).
 \end{enumerate}
 
 \section*{Summary of Open Items}
